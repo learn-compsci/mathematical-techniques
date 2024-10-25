@@ -3,7 +3,7 @@ title: Set Cardinality, Infinity, and The Halting Problem
 draft: false
 tags:
   - notes
-hidden:
+hidden: false
 ---
  
 In our journey of formalising everything that we know, let's reinspect something that we've taken for granted: Set sizes. Thus far we've sort of been eyeballing it for finitely sized sets. E.g. $A = \{1, 2, 5\}$ so we say that $\lvert A \rvert = 3$. So how do we say $\lvert A \rvert < \lvert B \rvert$? We'd probably say $\lvert A \rvert = s_A, \lvert B \rvert = s_B$ with $s_A, s_B \in \mathbb{N}$. Then if $s_A \leq s_B$, then we know $\lvert A \rvert \leq \lvert B \rvert$.
@@ -310,7 +310,7 @@ That said, there is a different formulation that I've previously mentioned. Basi
 >[!Remark]
 > A set $A$ is **countable** if there exists a surjective function $f : \mathbb{N} \to A$.
 > 
-> The CS1231S treatment is via sequences. But such a function $f$ that is surjective basically provides a sequence that satisfies [Lemma 9.2, Slide 34 of the CS1231S notes](https://www.comp.nus.edu.sg/~cs1231s/lect/24s1/Lecture09_Cardinality_full.pdf). 
+> The CS1231S treatment is via sequences. But such a function $f$ that is surjective basically provides a sequence that satisfies [their lemma 9.2](https://www.comp.nus.edu.sg/~cs1231s/lect/24s1/Lecture09_Cardinality_full.pdf). 
 
 There are a few useful facts (provable theorems, in fact) that you should know. Let's list some out now:
 
