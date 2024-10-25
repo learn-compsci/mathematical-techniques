@@ -747,8 +747,7 @@ Okay! Let's try proving the theorem we started the subsection with. Restating it
 > 10. So now define our bijection $$h : x \mapsto \begin{cases}
  x &, \text{ if }x \notin (B' \cup E)\\
  g'(x) &, \text{ if }x \in (B' \cup E)
- \end{cases}
-$$
+\end{cases}$$
 
 So what's the idea? What is it trying to do? Here's a picture:
 
