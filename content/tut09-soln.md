@@ -2,7 +2,7 @@
 title: CS1231S Tutorial 9 Solutions
 tags:
   - Tutorial
-hidden: true
+hidden: false
 ---
 This page has solutions for selected questions from [this tutorial sheet](https://www.comp.nus.edu.sg/~cs1231s/tut/24s1/tut09qns.pdf).
 
@@ -41,18 +41,22 @@ So let's find $c_0$. That happens to be $(52 - 4)^5 = 48^5$. Why? Because for ea
 So the answer is still $52^5 - 48^5$.
 
 ## Part (b)
-This question works similarly. Except there's a subtlety here: It is not correct to say that we only need to count the number of 5-draws where there is no king and there is no queen. We're missing the number of 5-draws where there is exactly one king and no queen, and also the number of 5-draws where there is exactly no king and one king.
+This question works similarly. We just want to remove the case that there are no queens, and no kings. The number of sequences with no kings and no queens happens to be: $(52 - 8)^5$.
 
-1. The number of neither king nor queen: $(52 - 4 - 4)^5 = 44^5$
-2. The number of exactly 1 king, and no queens: $(4 \cdot (52 - 4)^4) \cdot 5$
-3. The number of exactly 0 kings, and 1 queen: $(4 \cdot (52 - 4)^4) \cdot 5$
-
-To explain the count for point 2 and 3: There are $5$ possible positions that contains the single king/queen. There are 4 possible cards that is the single King/Queen. And for the remaining $4$ positions, there are $52 - 4 = 48$ possible cards to draw from.
-
-So the total count is $52^5 - 44^5 - 2\cdot 20\cdot 48^5$.
+So answer is $52^5 - 44^5$.
 
 # Question 2
 Assuming the only digits that can be confused are 0, 1, 6, 8, and 9. There are 5 possible digits, and each digit can take on 5 possible values. So $5^5$.
+
+Except, some numbers cannot be confused. E.g. $10101$ will not be confused regardless of whether it is upside down or not.
+
+So, we want to remove the numbers whose digits only come from $\{0, 1, 6, 8, 9\}$ but are the same as themselves when they're upside down.
+
+There are $5 \times 5 \times 3$ such numbers. The moment we choose the first digit, we have determined our last digit. If the first digit is either $0, 1, 8$, then the last digit is also the same number. If the first digit is $6$ or $9$, then the other digit is either $9$ or $6$.
+
+So in total: $5^5 - 5 \times 5 \times 3 = 5^5 - 75$.
+
+![[Images/mirror-number.png]]
 
 # Question 3
 We are going to use the principle of inclusion-exclusion here. Let $c_1$ be the count on the number of permutations where integer $1$ is in the correct position in the permutation. Likewise define $c_2$ and $c_3$ similarly.  Now the question wants $c_{1, 2, 3}$. 
@@ -70,26 +74,32 @@ Thus, $c_{1, 2, 3} = 3(n - 1)! - 3(n-2)! + (n-3)!$
 # Question 4
 This one can sort of be done a little mechanically. Let's do it step by step:
 
-1. There are $n + 1$ possible white ball run lengths: $0$ through $n$.
-2. A run length of $0$ is treated specially. There is only one possible arrangement here.
-3. Fixing a length $\ell \in [1, n]$, there are $n + 1 - \ell$ possible starting points for the white ball run.
+1. There are $n$ possible white ball run lengths: $1$ through $n$.
+2. Fixing a length $\ell \in [1, n]$, there are $n + 1 - \ell$ possible starting points for the white ball run.
 
 Therefore, the total number of arrangements is:
 $$
-1 + \sum_{\ell = 1}^n (n + 1 - \ell) = 1 + n^2 + n - \frac{n(n+1)}{2} = 1 + \frac{n(n+1)}{2}
+\sum_{\ell = 1}^n (n + 1 - \ell) = n^2 + n - \frac{n(n+1)}{2} = \frac{n(n+1)}{2}
 $$
+
+![[Images/white-ball-run.png]]
+
 
 # Question 5
 ## Part (a)
 To make no two girls sit together, here's the idea:
-1. Fix a permutation of the guys.
+1. Fix a circular permutation of the guys.
 2. Treat the slots in between the guys as "potential slots". They don't all have to be taken, but from them we need to pick 4 slots. Then we can seat the girls there.
-3. Then don't forget, it's circular so we need to divide by $12$.
 
-![[Images/seating-question.png]]
+![[Images/circular-table.png]]
 
 So in total:
-$\frac{8! * \binom{8}{4} * 4!}{12} = 5644800$.
+$$
+\frac{8! * \binom{8}{4} * 4!}{8}
+$$
+>[!Question]+
+> Let's try it with smaller values so I can actually draw it feasibly. Let's say there are $4$ boys, and $2$ girls instead.
+> ![[Images/circular-table-other.png]]
 
 ## Part (b)
 To do this, it's far easier to count the number of ways in which Eric and Freddy sit next to each other. So, pair the two of them together. So either Eric before Freddy, or Freddy before Eric.
@@ -98,13 +108,19 @@ Now we treat them as a single piece and parade them around the table.
 1. Fix an arrangement of Eric and Freddy. There are 2 possible arrangements.
 2. There are $5$ items (not $4$ because Eric and Freddy are now joined at the hip), and there are $5!/5$ such arrangements.
 
-Therefore, in total: $2 \times 4!$ where Eric and Freddy are adjacent. There are $6!/6 = 5!$ ways to seat anyone without restrictions.  Thus the answer is $5! - 2\times 4!$.
+Therefore, in total: $2 \times 4!$ where Eric and Freddy are adjacent. There are $6!/6 = 5!$ ways to seat anyone without restrictions.  Thus the answer is $5! - 2\times 4! = 120 - 2 \times 24 = 72$.
+
+### Alternative Solution:
+There's an alternative solution where we seat everyone else except Freddy first first, then note that there are $(5-2)$ possible seats for Freddy. So there are $4! \times 3 = 24 \times 3 = 72$ possible solutions.
+
+Like so:
+
+![[Images/eric-and-freddy-2.png|center|250]]
 
 ## Part (c)
 This is really similar to the guys vs girls question. You have $n - 1$ people, and you can make one more fake person called "EMPTY CHAIR".
 
 So it's really just how would you seat $n$ people. In which case there are $n!/n = (n-1)!$ ways.
-
 
 # Question 6
 
@@ -116,7 +132,7 @@ Case 2: The other case where "IT" is either in position 1 or position 3. Then wh
 
 So in total: $2 \times 3! \times 2! \times 2$, $2$ ways to pick where "IT" sits (and the permutations is fixed), $3!$ permutations of "CAN", $2!$ permutations of "DO", and $2$ possible ways to pick where "CAN" and "DO" are placed.
 
-![[Images/round-table.png]]
+![[Images/round-table.png|300]]
 
 # Question 7
 So either:
@@ -139,6 +155,9 @@ So the probability is $\frac{\binom{7}{5} + \binom{7}{4}\binom{6}{1} + \binom{7}
 # Question 8
 This is called stars-and-bars. You can Google it to look up the technique.
 
+![[Images/stars-and-bars.png]]
+
+
 ## Part (a)
 You have $50000 / 1000 = 50$ stars, and you need to draw $4 - 1 = 3$ bars to split up the stars into $4$ parts. That's like saying there are $53$ possible slots. $50$ of them are stars, and $3$ of them are bars.
 
@@ -153,8 +172,26 @@ $$
 $$
 
 # Question 9
+So here's the idea: the number 51 is pretty suspicious. Why? Because it says 51, and that's 1 above, 25, which is a perfect square.
 
+So take your unit square and divvy it up into 25 sub-squares. You can do this by picking your sub-square side length to be $\frac{1}{5}$. Then there are 25 sub-squares. By PHP there is a square with 3 points. In the "worst case", the points are at most $\sqrt{2} \cdot \frac{1}{5}$ apart (the hypothenuse). To be clear:
+
+Now a circle with diameter $\sqrt{2} \cdot \frac{1}{5} = \sqrt{\frac{2}{25}}$ will cover the 3 points. Which means a circle with diameter $\frac{1}{2} \sqrt{\frac{2}{25}} = \sqrt{\frac{2}{4 \cdot 25}} = \sqrt{\frac{1}{50}} < \sqrt{\frac{1}{49}} = \frac{1}{7}$.
+
+![[Images/3-dot-question.png]]
 # Question 10
 
+When you take a number and ask for the remainder mod $4$, there are only 4 possible answers: $0, 1, 2,$ or $3$. Therefore if you have $5$ numbers, at least two of them mod to the same value. This means their difference is a multiple of $4$.
 # Question 11
+This one is a little trippy.
+
+Let $P_1, P_2, \ldots, P_{77}$ be the running some of the total games played up to their respective days. E.g. $P_2$ is the total number of games played in day 1 and day 2.
+
+Now we also consider values $P_1 + 21, P_2 + 21,\ldots ,P_{77} + 21$ be another sequence of variables.
+
+Okay so there are a few restrictions. First up: $P_1 <  P_2 <  \ldots < P_{77}$ So this first set of variables are all distinct. Similarly, $P_1 + 21, P_2 + 21,\ldots ,P_{77} + 21$ must be all distinct.
+
+Okay each of these variables need to be assigned a value. These values can range from $1$ to $11 \times 12 + 21 = 132 + 21 = 153$. Why? Because $P_{77}$ maxes out at $11 \times 12 = 153$, so $P_{77} + 21$ maxes out at $132 + 21 = 153$. We're going to be generous and say any variable here can take any value, as long as the first set of variables take distinct values, and the second set of variables also take distinct values.
+
+In total there are $77 \times 2 = 154$ variables, and for each we can pick one of $153$ values. By PHP, there must be two variables that take the same value. Also since $P_1, P_2, \ldots, P_{77}$ are distinct, and $P_1 + 21, P_2 + 21,\ldots ,P_{77} + 21$ are distinct. So it must be that $P_i = P_j + 21$ for some $i$ and $j$. But that means that there is a run of days for which the total games played is $21$.
 
