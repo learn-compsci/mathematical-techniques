@@ -2,7 +2,6 @@
 title: CS1231S Tutorial 9 Solutions
 tags:
   - Tutorial
-hidden: false
 ---
 This page has solutions for selected questions from [this tutorial sheet](https://www.comp.nus.edu.sg/~cs1231s/tut/24s1/tut09qns.pdf).
 

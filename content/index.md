@@ -17,5 +17,4 @@ Here are the "custom" tutorial solutions and revision materials with personalise
 * [[set-card-inf|Set Cardinalities and Infinity]]
 
 ### Tutorials
-* [[tut07-soln|Tutorial 7 Solutions]]
-* 
+* [[tut09-soln|Tutorial 9 Solutions]]
