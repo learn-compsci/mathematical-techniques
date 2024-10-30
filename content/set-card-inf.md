@@ -194,8 +194,8 @@ Okay, how about if we had almost twice as many elements as $\mathbb{N}$? For exa
 > > 	2. Since $f(n) = (-1)^{n}\left(\frac{n}{2} + \frac{1}{4}\right) - \frac{1}{4}$
 > > 	3. $(-1)^{n}\left(\frac{n}{2} + \frac{1}{4}\right) - \frac{1}{4} = \left(y + \frac{1}{4}\right) - \frac{1}{4}$
 > > 	4. $\left(y + \frac{1}{4}\right) - \frac{1}{4} = y$
-> > 	6. Also since $2y = n$, $n \in \mathbb{N}$, by closure of $\times$ on $\mathbb{N}$.
-> > 	7. Therefore $\exists n \in \mathbb{N} [f(n) = y]$
+> > 	5. Also since $2y = n$, $n \in \mathbb{N}$, by closure of $\times$ on $\mathbb{N}$.
+> > 	6. Therefore $\exists n \in \mathbb{N} [f(n) = y]$
 > > 4. Case 2: $y < 0$
 > > 	1. Then consider $n=-2y-1$.
 > > 	2. $f(n) = (-1)^{n}\left(\frac{n}{2} + \frac{1}{4}\right) - \frac{1}{4}$
@@ -218,13 +218,13 @@ Okay, how about if we had almost twice as many elements as $\mathbb{N}$? For exa
 > > 1. Let $x_1, x_2 \in \mathbb{N}$ arbitrarily chosen. Further assume $f(x_1) = f(x_2)$.
 > > 2. Now, by the Lemma, either both $x_1, x_2$ are even, or $x_1, $x_2$ are odd.
 > > 3. Case 1: Both $x_1, x_2$ are even.
-> > 		1. Now $(-1)^{x_1} = 1 = (-1)^{x_2}$.
-> > 		2. By the assumption, $(-1)^{x_1}\left( \frac{x_1}{2} + \frac{1}{4} \right) - \frac{1}{4} = (-1)^{x_2}\left( \frac{x_2}{2} + \frac{1}{4} \right) - \frac{1}{4}$
-> > 		3. Then by line 3.1 and basic algebra: $x_1 = x_2$.
+> > 	1. Now $(-1)^{x_1} = 1 = (-1)^{x_2}$.
+> > 	2. By the assumption, $(-1)^{x_1}\left( \frac{x_1}{2} + \frac{1}{4} \right) - \frac{1}{4} = (-1)^{x_2}\left( \frac{x_2}{2} + \frac{1}{4} \right) - \frac{1}{4}$
+> > 	3. Then by line 3.1 and basic algebra: $x_1 = x_2$.
 > > 4. Case 2: Both $x_1, x_2$ are odd.
-> > 		1. Now $(-1)^{x_1} = -1 = (-1)^{x_2}$.
-> > 		2. By the assumption, $(-1)^{x_1}\left( \frac{x_1}{2} + \frac{1}{4} \right) - \frac{1}{4} = (-1)^{x_2}\left( \frac{x_2}{2} + \frac{1}{4} \right) - \frac{1}{4}$
-> > 		3. Then by line 3.1 and basic algebra: $x_1 = x_2$.
+> > 	1. Now $(-1)^{x_1} = -1 = (-1)^{x_2}$.
+> > 	2. By the assumption, $(-1)^{x_1}\left( \frac{x_1}{2} + \frac{1}{4} \right) - \frac{1}{4} = (-1)^{x_2}\left( \frac{x_2}{2} + \frac{1}{4} \right) - \frac{1}{4}$
+> > 	3. Then by line 3.1 and basic algebra: $x_1 = x_2$.
 > > 5. In all cases it is shown that $x_1 = x_2$.
 > > 6. By universal generalisation, $\forall x_1, x_2 \in \mathbb{N}[f(x_1) = f(x_2) \to x_1 = x_2]$.
 
@@ -455,9 +455,9 @@ It's going to be helpful to have this lemma:
 > 3. Let $D = A \setminus C$, and $E = B \setminus C$. Both $D, E$ are countably infinite. (By the lemma)
 > 4. By definition of countability, $C$ is either finite or countably infinite.
 > 5. Case 1: $C$ is finite.
-> 		1. In this case, we know that $C, D, E$ are disjoint, and $C$ is finite, $D, E$ are countably infinite.
-> 		2. **Your turn:** Using the statements above, what should we do in order to give a bijection $g : \mathbb{Z}^+ \to C \cup D \cup E$?
-> 		3. How do we argue that $C \cup D \cup E = A \cup B$?
+>		1. In this case, we know that $C, D, E$ are disjoint, and $C$ is finite, $D, E$ are countably infinite.
+>		2. **Your turn:** Using the statements above, what should we do in order to give a bijection $g : \mathbb{Z}^+ \to C \cup D \cup E$?
+>		3. How do we argue that $C \cup D \cup E = A \cup B$?
 > 6. Case 2: $C$ is countably finite.
 > 		1. In this case, we know that $C, D, E$ are disjoint, and $C, D, E$ are countably infinite.
 > 		2. **Your turn:** Using the statements above, what should we do in order to give a bijection $g : \mathbb{Z}^+ \to C \cup D \cup E$?

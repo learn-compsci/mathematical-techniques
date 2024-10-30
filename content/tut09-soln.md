@@ -125,13 +125,20 @@ So it's really just how would you seat $n$ people. In which case there are $n!/n
 
 Fix the word "I" first. There are 3 possible relative positions for where "IT" can go. In position 2, we are not worried about whether it is arranged as "IT" or "TI".
 
+
+![[Images/round-table.png|300]]
+
 So in case 1: There are $3! \times 2! \times 2!$ ways to arrange each letter. Also, in this case, "IT" is fixed at position 2, so all that remains is to fix "CAN" and "DO" at either positions 1 and 3. There are $2$ possible ways. So in total $3! \times 2! \times 2! \times 2$.
 
 Case 2: The other case where "IT" is either in position 1 or position 3. Then when that is chosen, the arrangement of the letters of of "IT" is fixed since it needs to arranged away from the "I". Again the "CAN" and "DO" can be freely permuted, and we can pick wherever they go.
 
 So in total: $2 \times 3! \times 2! \times 2$, $2$ ways to pick where "IT" sits (and the permutations is fixed), $3!$ permutations of "CAN", $2!$ permutations of "DO", and $2$ possible ways to pick where "CAN" and "DO" are placed.
 
-![[Images/round-table.png|300]]
+Except, when "I" is next to "IT", both arrangements are the same. Since the "T" is just sandwiched by "I" on both sides. So for case 2, we need to divide by 2.
+
+This means the total count is $3! \times 2! \times 2! + 2 \times 3! \times 2! = 48 + 24 = 72$.
+
+![[Images/same-arrangement.png]]
 
 # Question 7
 So either:

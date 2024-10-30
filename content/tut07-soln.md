@@ -143,6 +143,31 @@ $$
 $$
 And this is valid. (There's a typo but you can try referring to [Page 44, slides for Lecture 8](https://www.comp.nus.edu.sg/~cs1231s/lect/24s1/Lecture08_Mathematical_Induction_full.pdf) to see what I mean. The bottom-most green box.)
 
+# Question 6
+This question is basically asking you to prove that we can write a number in base 2. Why? Because any number $n$ can be written as a sum of distinct powers of two, the distinct powers of two tell us which digits of $n$ should be $0$ or $1$.
+
+**Example 1:** $5 = 2^2 + 2^0 = 101_2$, where $101_2$ is $5$ written out in base 2.
+**Example 2:** $19 = 16 + 2 + 1 = 2^4 + 2^1 + 2^0 = 1011_2$, where $1011_2$ is $16$ written out in base 2.
+
+Formally reading the statement: 
+
+$$
+\forall n \in \mathbb{Z}^+~\exists \ell \in \mathbb{Z}^+~ i_1, i_2, \ldots, i_\ell \in \mathbb{N} \left( i_1 < i_2 < \dots < i_\ell \land n = \sum_{t = 1}^\ell 2^{i_t} \right)
+$$
+
+
+1. Let $P(n) \equiv \exists \ell \in \mathbb{Z}^+~ i_1, i_2, \ldots, i_\ell \in \mathbb{N} \left( i_1 < i_2 < \dots < i_\ell \land n = \sum_{t = 1}^\ell 2^{i_t} \right)$
+2. \[Base Case] $n = 1$:
+	1. $1 = 2^0$.
+	2. Consider $\ell = 1$, $i_1 = 0$. Now $\ell \in \mathbb{Z}^+$, $i_1 \in \mathbb{N}$.
+	3. Also $1 = \sum_{t = 1}^\ell 2^{i_t}$.
+	4. Therefore $P(1)$ holds.
+3. \[Inductive Case] Let $k \in \mathbb{Z}^+$ be arbitrarily chosen. For $i \in \mathbb{Z}^+$ such that $1 \leq i < k$, assume $P(i)$ is true.
+	1. Consider $k$. $k$ is even or odd.
+		1. Assume $k$ is even. Thus, $\exists m \in \mathbb{N} [k = 2m]$. \[Definition of even]
+		2. Then since $m < k$, $P(m)$ holds. \[By assumption on line 3]
+		3. Therefore exists $s \in \mathbb{Z}^+, j_1, j_2, \ldots, j_s \in \mathbb{N}$ where $\left( j_1 < j_2 < \dots < j_\ell \land n = \sum_{t = 1}^s 2^{j_t} \right)$.
+
 
 
 
