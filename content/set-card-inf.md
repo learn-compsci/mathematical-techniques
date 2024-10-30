@@ -331,7 +331,7 @@ We're going to union two countably sets, and show that they're countable. There 
 
 > [!Theorem]- Let $A, B$ be sets. $A$ is countably infinite and $B$ is finite. Further assume $A, B$ are disjoint. Then there exists a bijection $f : \mathbb{Z}^+ \to (A \cup B)$.
 > 
-> So here's the idea, since they're disjoint, we can just list out the elements of $B$ first, then the elements of $A$, since they don't overlap, setting $g(1) = b_1$, ..., $g(t) = b_t$ where $t$ is the cardinality of finite $A$. Then after that $g(t + 1) = a_1, g(t + 2) = a_2,\ldots$.
+> So here's the idea, since they're disjoint, we can just list out the elements of $B$ first, then the elements of $A$, since they don't overlap, setting $g(1) = b_1$, ..., $g(t) = b_t$ where $t$ is the cardinality of finite $B$. Then after that $g(t + 1) = a_1, g(t + 2) = a_2,\ldots$.
 > 
 > 1. Let $A, B$ be disjoint. $A$ countably infinite, and $B$ be finite.
 > 2. Since $A$ is countably infinite, there exists a bijection $f_A : \mathbb{Z}^+ \to A$.
@@ -351,14 +351,14 @@ We're going to union two countably sets, and show that they're countable. There 
 > 1. Let $y \in A \cup B$, arbitrarily chosen. Then either $y \in A$ or $y \in B$ but not both. (Since they are disjoint)
 > 2. Case 1: $y \in A$.
 > 		1. Then since $f_A$ is bijective, $f_A$ is surjective.
-> 		2. Therefore, there is an $i \in \mathbb{Z}_t$ such that $f_A(i) = y$.
-> 		3. Now $g(i) = f_A(i)$ (Since $i \leq t$, by domain of $f_A$)
+> 		2. Therefore, there is an $i \in \mathbb{Z}^+$ such that $f_A(i) = y$.
+> 		3. Now $g(i - t) = f_A(i)$ (Since $i > t$, by domain of $f_A$)
 > 		4. Then $f_A(i) = y$ (By definition of $f_A$)
 > 3. Case 2: $y \in B$.
 > 		1. Then since $f_B$ is bijective, then $f_B$ is surjective.
-> 		2. Therefore, there is a $i \in \mathbb{Z}^+$ such that $f_B(i) = y$.
-> 		3. Now $g(i + t) = f_B(t)$ (Since $i + t > t$)
-> 		4. Then $f_B(t) = y$ (By definition of $f_B$).
+> 		2. Therefore, there is a $i \in \mathbb{Z}_t$ such that $f_B(i) = y$.
+> 		3. Now $g(i) = f_B(i)$ (Since $i \in \mathbb{Z}_t$)
+> 		4. Then $f_B(i) = y$ (By definition of $f_B$).
 > 4. Thus in all cases it is shown that $\exists n \in \mathbb{Z}^+[g(n) = y]$
 > 5. Therefore, $\forall y \in A \cup B \exists n \in \mathbb{Z}^+[g(n) = y]$.
 > 
@@ -368,14 +368,14 @@ We're going to union two countably sets, and show that they're countable. There 
 > 3. Either $z \in A$ or $z \in B$.
 > 4. Case 1: $z \in A$
 > 		1. Then $z \notin B$ ($A, B$ disjoint.)
-> 		2. Therefore $z$ is not in the range of $f_B : \mathbb{Z}^+ \to B$.
+> 		2. Therefore $z$ is not in the range of $f_B : \mathbb{Z}_t \to B$.
 > 		3. Since $f_A$ is bijective, exists a unique $x$ such that $f_A(x) = z$.
 > 		4. Since $f_A(x) = f_A(x_1)$, then $x_1 = x$.
 > 		5. Since $f_A(x) = f_A(x_2)$, then $x_2 = x$.
 > 		6. Therefore $x_1 = x_2$.
 > 5. Case 2: $z \in B$
 > 		1. Then $z \notin A$ ($A, B$ disjoint.)
-> 		2. Then $z$ is not in the range of $f_A : \mathbb{Z}_t \to A$
+> 		2. Then $z$ is not in the range of $f_A : \mathbb{Z}^+ \to A$
 > 		3. Since $f_B$ is bijective, there exists a unique $x$ such that $f_B(x) = z$.
 > 		4. Since $f_B(x) = f_B(x_1)$, then $x_1 = x$.
 > 		5. Since $f_B(x) = f_B(x_2)$, then $x_2 = x$.
