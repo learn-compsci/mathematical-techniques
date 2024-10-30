@@ -331,7 +331,7 @@ We're going to union two countably sets, and show that they're countable. There 
 
 > [!Theorem]- Let $A, B$ be sets. $A$ is countably infinite and $B$ is finite. Further assume $A, B$ are disjoint. Then there exists a bijection $f : \mathbb{Z}^+ \to (A \cup B)$.
 > 
-> So here's the idea, since they're disjoint, we can just list out the elements of $A$ first, then the elements of $B$, since they don't overlap, setting $g(1) = a_1$, ..., $g(t) = a_t$ where $t$ is the cardinality of finite $A$. Then after that $g(t + 1) = b_1, g(t + 2) = b_2,\ldots$.
+> So here's the idea, since they're disjoint, we can just list out the elements of $B$ first, then the elements of $A$, since they don't overlap, setting $g(1) = b_1$, ..., $g(t) = b_t$ where $t$ is the cardinality of finite $A$. Then after that $g(t + 1) = a_1, g(t + 2) = a_2,\ldots$.
 > 
 > 1. Let $A, B$ be disjoint. $A$ countably infinite, and $B$ be finite.
 > 2. Since $A$ is countably infinite, there exists a bijection $f_A : \mathbb{Z}^+ \to A$.
@@ -340,8 +340,8 @@ We're going to union two countably sets, and show that they're countable. There 
 > 5. Let $n \in \mathbb{Z}^+$, then:
 > $$
 > g(n) = \begin{cases}
-> f_A(n), &\text{ if } n \leq t\\
-> f_B(n - t), &\text{ if } n > t
+> f_B(n), &\text{ if } n \leq t\\
+> f_A(n - t), &\text{ if } n > t
 > \end{cases}
 > $$
 > 

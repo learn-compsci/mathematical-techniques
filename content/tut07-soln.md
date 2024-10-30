@@ -125,7 +125,7 @@ Proof by induction:
 	5. Then $k + 3 = 3x + 5y + 3 = 3(x+1) + 5y$ \[BBA, choice of $x, y$] 
 	6. Since $x \in \mathbb{N}, x+1 \in \mathbb{N}$. \[Choice of $x$, closure of $+$ on $\mathbb{N}$]
 	7. Therefore $\exists x', y' \in \mathbb{N}[k + 3 = 3x' + 5y']$ \[Existential Generalisation]
-	8. Therefore $P(k+1)$ holds true. \[Definition of $P(k+1)$]
+	8. Therefore $P(k+3)$ holds true. \[Definition of $P(k+1)$]
 4. Therefore, $\forall n \in \mathbb{Z}_{\geq 8}[P(k) \to P(k+3)]$ \[Universal Generalisation]
 5. By strong induction, $\forall n \in \mathbb{Z}_{\geq 8}[P(n)]$.
 
