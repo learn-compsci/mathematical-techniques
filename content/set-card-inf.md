@@ -473,7 +473,7 @@ It's going to be helpful to have this lemma:
 > 
 > 1. Let $(a, b) \in A \times B$, arbitrarily chosen.
 > 2. Now since $f$ is surjective, exists $i \in \mathbb{N}$ such that $f(i) = a$.
-> 3. Now since $g$ is surjective, exists $j \in \mathbb{N}$ such that $f(j) = a$.
+> 3. Now since $g$ is surjective, exists $j \in \mathbb{N}$ such that $g(j) = b$.
 > 4. Therefore $h(i, j) = (f(i), g(j)) = (a, b)$.
 > 5. By universal generalisation $\forall (a, b) \in A \times B, \exists i, j \in \mathbb{N} [h(i, j) = (a, b)]$.
 
@@ -681,7 +681,7 @@ In the meantime, let's prove some useful theorems about uncountable sets.
 Here's the idea, if $B \setminus C$ is not uncountably infinite, then $B \setminus C$ must be countable. In both cases, we show that it is pretty absurd.
 
 > [!Proof]-
-> 1. Let $B$ be countably infinite. Let $C$ be finite.
+> 1. Let $B$ be uncountably infinite. Let $C$ be finite.
 > 2. Consider $B \setminus C = E$.
 > 3. Assume for the sake of a contradiction that $E$ countable.
 > 4. Then, either $E$ is finite, or uncountably infinite.
