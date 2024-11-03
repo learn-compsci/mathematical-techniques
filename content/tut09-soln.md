@@ -5,7 +5,7 @@ tags:
 ---
 This page has solutions for selected questions from [this tutorial sheet](https://www.comp.nus.edu.sg/~cs1231s/tut/24s1/tut09qns.pdf).
 
-This tutorial is on mathematical induction. Please do not use these as lecture notes. You should make an earnest attempt and pretty much solve the tutorial questions before referring to the solutions. This means I will say "you should already know this/you should already know that" without much explanation on what exactly it is in detail.
+This tutorial is on combinatorics and counting. Please do not use these as lecture notes. You should make an earnest attempt and pretty much solve the tutorial questions before referring to the solutions. This means I will say "you should already know this/you should already know that" without much explanation on what exactly it is in detail.
 
 # Question 1
 ## Part (a)
