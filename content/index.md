@@ -15,6 +15,7 @@ Here are the "custom" tutorial solutions and revision materials with personalise
 
 ### Notes
 * [[set-card-inf|Set Cardinalities and Infinity]]
+* [[structural-induction|Structural Induction]]
 
 ### Tutorials
 * [[tut09-soln|Tutorial 9 Solutions]]

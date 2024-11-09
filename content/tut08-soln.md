@@ -87,7 +87,7 @@ Now we move to prove $f$ is injective.
 4. This is a sequence that contains all elements of $B \cup C$.
 5. Therefore $B \cup C$ is countable. By Lemma 9.2.
 
-> [!Comments]
+> [!Comments]+
 > Note here it doesn't extend to the union of two infinite sets.
 > Unless you start writing something like:
 > $$c_1, b_1, c_2, b_2, c_3, b_3, \ldots$$
@@ -97,20 +97,19 @@ Now we move to prove $f$ is injective.
 > You're creating something called $\omega + \omega$. But story for another day.
 
 #### Part(b)
-I much prefer this. Now the overarching idea is the following, we want the function to map the first $n$ values to elements in $c$, then the $n+1$ values onwards to $b$. What you have is a bijection function $f_c : \mathbb{Z}_n \to C$ and a $f_b : \mathbb{N} \to B$. 
+I much prefer this. Now the overarching idea is the following, we want the function to map the first $n$ values to elements in $C$, then the $n+1$ values onwards to $B$. What you have is a bijection function $f_c : \mathbb{Z}_n \to C$ and a $f_b : \mathbb{N} \to B$. 
 
-> [!Proof]
+The tricky part is that they're insisting on asking for a bijection so we need to take care to remove duplicates between $B$ and $C$.
 
-**Important note:** Do you see how their domains overlap? Take care to make sure you don't try to define a function $g : \mathbb{N} \to (C \cup B)$ like:
+So here's the idea:
+1. List the elements in $C$ that are not in $B$ first.
+2. Then list the elements of $B$.
 
-$$
-g : x \mapsto \begin{cases}
-f_c(x) & x \leq n\\
-f_b(x) & x > n\\
-\end{cases}
-$$
 
-Because now you're missing out on the first values of set $B$.
+>[!Proof]
+> 1. Let set $F = C \setminus B$. 
+> 2. Since $C$ is finite, $F$ is also finite.
+> 3. 
 
 
 
