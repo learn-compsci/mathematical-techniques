@@ -1,7 +1,7 @@
 ---
 title: CS1231S Tutorial 10 Solutions
 tags:
-  - Tutorial
+  - tutorial
 ---
 This page has solutions for selected questions from [this tutorial sheet](https://www.comp.nus.edu.sg/~cs1231s/tut/24s1/tut10qns.pdf).
 
@@ -132,35 +132,7 @@ Now $\mathbb{E}[B_1] = \mathbb{E}[B_2] = 1 \cdot \frac{1}{5} + 2 \cdot \frac{2}{
 
 Then $\mathbb{E}[B_1 + B_2] = \mathbb{E}[B_1] + \mathbb{E}[B_2] = 2\cdot 4.2 = 8.4$
 
->[!Aside]+
-> So why does it not matter if two variables are independent or not? Let's see:
-> $$
-> \mathbb{E}[X + Y] = \sum_a \sum_b (a + b) \Pr[X = a, Y = b]
-> $$
-> Now because $X, Y$ are not necessarily independent, we cannot write $Pr[X = a, Y = b] = \Pr[X = a] \cdot \Pr[Y = b]$. However, let me split the sum into two summations first.
-> 
-> $$
-> \begin{align}
-> \mathbb{E}[X + Y] &= \sum_a \sum_b (a + b) \Pr[X = a, Y = b]\\
-> &= \sum_a \sum_b  a \cdot \Pr[X = a, Y = b] + \sum_a \sum_b b \cdot \Pr[X = a, Y = b]\\
-> &= \sum_a a \cdot \sum_b  \Pr[X = a, Y = b] + \sum_b b \cdot \sum_a \Pr[X = a, Y = b]\\
-> \end{align}
-> $$
-> Now there's two parts we need to handle, but they're handled with the same idea: If we fix $a$, and said $X = a$, then summing across all $\Pr[X = a, Y = b]$, where we vary the value $b$, then the value is actually just $\Pr[X = a]$. Think of it this way, $\Pr[X = a]$ can be broken up into disjoint parts $\Pr[X = a, Y = 1], \Pr[X = a, Y = 2],\Pr[X = a, Y = 3], \ldots$ and so on. If we added them all back up, we just get $\Pr[X = a]$ again. Below is an example of this intuition with $Y$ taking on $7$ possible values:
-> 
-> ![[Images/loe-intuition.png]]
-> 
-> So because of that:
-> $$
-> \sum_a a \cdot \sum_b  \Pr[X = a, Y = b] = \sum_a a \Pr[X = a] = \mathbb{E}[X]
-> $$
-> 
-> and likewise: 
-> $$
-> \sum_b b \cdot \sum_a  \Pr[X = a, Y = b] = \sum_b b \Pr[Y = b] = = \mathbb{E}[X]
-> $$
-> 
-> which means the original two parts just becomes $\mathbb{E}[X] + \mathbb{E}[Y]$.
+By the way, the reason why we can use this has a very important subtlety that no one has mentioned properly. Refer to [[linearity-of-expectation|these notes on LoE for a thorough explanation]]. It will also cover not just the subtleties behind the question but also the proof for the linearity of the expectation.
 
 # Question 5
 Based on the text we have, we can get the following quantities:
