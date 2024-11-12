@@ -16,6 +16,7 @@ Here are the "custom" tutorial solutions and revision materials with personalise
 ### Notes
 * [[set-card-inf|Set Cardinalities and Infinity]]
 * [[structural-induction|Structural Induction]]
+* [[linearity-of-expectation|Linearity of Expectation]]
 
 ### Tutorials
 * [[tut09-soln|Tutorial 9 Solutions]]
