@@ -2,6 +2,7 @@
 title: CS1231S Tutorial 11 Solutions
 tags:
   - tutorial
+hidden:
 ---
 # Question 1
 
