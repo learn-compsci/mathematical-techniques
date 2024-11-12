@@ -1,8 +1,7 @@
 ---
-title: A Note on Linearity of Expectations
+title: Linearity of Expectation
 tags:
   - notes
-hidden: true
 ---
 In this note, we will introduce linearity of expectation for discrete random variables, how it's used, why it's useful, and **very important subtleties**. Along the way, we'll prove a few useful things you might see in computer science.
 
@@ -199,3 +198,211 @@ which means the original two parts just becomes $\mathbb{E}[X] + \mathbb{E}[Y]$.
 
 # Where do we use Linearity of Expectations in CS?
 Many places! I will show you a few things that you might see in CS2040S, and CS3230.
+
+## The Classic Hat Check Problem
+Let's say there are $n$ people, each person has a unique label from $\{1, 2, \ldots, n\}$. They each also have a unique hat. The $i^{th}$ person basically has the $i^{th}$ hat. They enter the restaurant to dine, and as they leave, they each take a remaining hat uniformly at random. Effectively, you can also think of this as the $n$ hats being permuted uniformly at random. I.e. put a random permutation function $\pi : \{1, 2, \ldots, n \} \to \{1, 2, \ldots, n \}$. Then the $i^{th}$ person gets the $\pi(i)^{th}$  hat.
+
+How many people do we expect to get their hat back? Going through $n$ permutations is a big pain if you want to do the following:
+
+$$
+\sum_{i = 0}^n i \cdot \Pr[X = i]
+$$
+
+In particular, if we let $X$ be the random variable that counts how many people get their hat back, to get $\Pr[X = i]$ you'd effectively kind of have to use generalised principle of inclusion exclusion.
+
+There's a slightly easier way if you know that since $X$ takes on value in $\mathbb{N}$ we can also use:
+
+$$
+\mathbb{E}[X] = \sum_{i = 0}^{\infty} \Pr[X \geq i]
+$$
+and this makes the task slightly easier, but still a little tricky because you'll have a lot of factorials that you'll need to simplify.
+
+So here's the simplest possible way (a technique you'll see again in the future):
+
+Let $X_i$ be a random variable that is $1$ if $\pi(i) = i$, and $0$ otherwise. So think of $X_i$ as basically adding to a counter when it's happy (i.e. when the $i^{th}$ person gets their hat back).
+
+Now to be clear, between any $i, j$, $X_i$ and $X_j$ are definitely correlated. After all, you'd expect $X_j$ to be more likely to be $1$ when $X_i$ is also $1$. The probability of the outcomes of $X_j$ change when we know what $X_i$ is. That said, there's nothing wrong with writing:
+
+$$
+X = \sum_{i = 1}^n X_i
+$$
+
+Now $X$ literally counts the number of people who got their hat back. E.g. when all $X_i$ are $0$, no one got their hat back, so $X = 0$. So now what is $\mathbb{E}[X]$? Well that's just:
+
+$$
+\mathbb{E}\left[X\right] = \mathbb{E}\left[\sum_{i = 1}^n X_i\right] = \sum_{i = 1}^n \mathbb{E}[X_i]
+$$
+
+So why's this so significant? Because it tells us that instead of worrying about the correlations, we can get the expected values _separately_. Which is a huge load of work off our shoulders. Indeed, fix any $i$, let's look at what happens:
+
+$$
+E[X_i] = 1 \cdot \Pr[X_i = 1] + 0 \cdot \Pr[X_i = 0] 
+$$
+
+Which means that the expected value of $X_i$ is just the probability that it is $1$.
+
+So what is the probability that it is $1$? Well, there are $(n)!$ permutations, and there are $(n - 1)!$ many permutations where we insist that $\pi(i) = i$. So the probability is $\frac{(n-1)!}{n!} = \frac{1}{n}$. So coming back to our original working:
+
+$$
+\mathbb{E}\left[X\right] = \mathbb{E}\left[\sum_{i = 1}^n X_i\right] = \sum_{i = 1}^n \mathbb{E}[X_i] = \sum_{i = 1}^n \frac{1}{n} = 1
+$$
+
+So regardless of the number of people, in expectation only $1$ person will get their hat back.
+
+## Quicksort analysis
+So you've probably learned quicksort by now. As a quick refresher, let's see the algorithm again:
+
+```javascript
+function swap(list, idx1, idx2) {
+    temp = list[idx1];
+    list[idx1] = list[idx2];
+    list[idx2] = temp;
+}
+
+function partition(list, start_idx, end_idx) {
+
+	// randomly pick a pivot from list[start_idx, end_idx)
+	// and swap it with the last element
+	swap(list, end_idx - 1, rand_int(start_idx, end_idx));
+
+	// set the last element as the pivot value
+	pivot_value = list[end_idx - 1]
+	partition_idx = 0
+
+	// (1) we to maintain that [start_idx, partition_idx) contains elements
+	// <= pivot_value
+
+	// (2) we also want to maintain that [pivot_idx, curr_idx) contains
+	// elements that are > pivot_value
+
+	for(curr_idx = start_idx; curr_idx < end_idx - 1; curr_idx += 1) {
+		// if the element at curr_idx is smaller than pivot_value;
+		// to maintain invariant (1)
+		if(list[curr_idx] <= pivot_value) {
+			swap(list, curr_idx, partition_idx);
+		}
+
+		// otherwise, since the current item was > pivot_value
+		// we just have to increment curr_idx to maintain invariant (2)
+	}
+
+	// after this is done, since curr_idx == end_idx - 1
+	// we know that:
+	// (1) [start_idx, partition_idx) contains elements <= pivot_value
+	// and 
+	// (2) [partition_idx, end_idx - 1) contains elements > pivot_value
+
+	swap(list, partition_idx, end_idx - 1);
+	// now after we do the swap:
+	// we know that:
+	// (1) [start_idx, partition_idx] contains elements <= pivot_value
+	// and 
+	// (2) [partition_idx + 1, end_idx - 1] contains elements > pivot_value
+	// Why? because pivot_value = pivot_value and now it's on partition_idx.
+	// so the intervals have changed.
+	// In particular, the previous element before the swap at partition_idx
+	// was > pivot_value. it is now sitting at end_idx - 1 after the swap
+	return partition_idx;
+}
+
+function quicksort(list, start_idx, end_idx) {
+	if(start_idx >= end_idx) {
+		return;
+	}
+    partition_idx = partition(list, start_idx, end_idx);
+	// we are now guaranteed that:
+	// list[start_idx, partition_idx) has values <= list[partition_idx]
+	// and
+	// list(partition_idx, end_idx) has values > list[parition_idx]
+    quicksort(list, start_idx, partition_idx);
+    quicksort(list, partition_idx + 1, end_idx);
+}
+
+```
+
+Here we'll use half open intervals, where we wish to sort the array from index range $[start\_idx, end\_idx)$. So to be clear, if our array has $n$ elements, we want to sort it for indices in range $[0, n)$.
+
+Now you might have been taught that this runs in $O(n^2)$ time because in the worst case, the array might cause the partitions to always be $start\_idx$ or something along those lines.
+
+But what if we always randomly picked a pivot to use in the partitioning step? 
+What happens then?
+
+We can actually show the expected runtime is $O(n \log n)$. You can imagine how using:
+$$
+\mathbb{E}[X] = \sum_{i = 0}^\infty i \cdot \Pr[X = i]
+$$
+
+would be tricky, where $X$ is the running time of `quicksort`. So instead we will note the following:
+
+The runtime of quicksort is at most $O(C)$ where $C$ is the number of comparisons made by the algorithm. Why? Because the algorithm makes time steps for either comparing or swapping. In fact, swapping only happens when a comparion against the pivot happens. So really, the runtime of quicksort is bounded by the number of comparisons we're making.
+
+So how do we bound $C$? Well it's a random variable now, because the number of comparisons depends on what is the exact input we were given, and it has been randomly permuted before the function was called.
+
+So we're going to define $C$ as a sum of other random variables, and again let LoE take over. So what should we do?
+
+Here's an idea, given some input, $a_1, a_2, \ldots, a_n$, consider its sorted order $s_1, s_2, \ldots, s_n$. It's true that the run of the algorithm looks at $a_1, a_2, \ldots, a_n$. But we can correspond them to the elements in the sorted order.
+
+![[Images/quicksort-analysis.png]]
+
+For example, if the input was $5, 3, 7, 1$, if we pick the element $5$ as the pivot, we're actually going to think of this as picking $a_1$ which happens to be $s_3$, so we'll think of this as taking the $3^{rd}$ item as the pivot (instead of the $1^{st}$). There's going to be a reason for this.
+
+Let $C_{i, j} = 1$ if during the run of the algorithm, $s_i$ was compared with $s_j$. So in the example above, $C_{3, 1} = C_{3, 2} = C_{3, 4} = 1$. Also being compared is a symmetric relation, so for example $C_{1, 3} = C_{3, 1}$. Otherwise, if $s_i, s_j$  are never compared, then $C_{i, j} = 0$.
+
+Let's think about this a little bit. Let's say we knew for a fact that $C_{2, 3} = 1$. What can we now say about the pivot selection? Remember the only comparisons happen due to the partitioning function, and swaps only happen when the comparisons trigger it. So either element $s_2$ or element $s_3$ was selected to be a pivot at some point in the execution of `quicksort`.
+
+Bear in mind the moment something was selected as a pivot once, it will never be selected as a pivot again. Furthermore, a pivot actually partitions the array. E.g. if element $s_3$ was selected as a pivot **first**. Then we know that element $s_1$ and $s_4$ will never be compared again **after that**.
+
+Okay, so what we want to say is:
+$$
+C = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n C_{i, j}
+$$
+
+literally counts the total number of comparisons made during `quicksort`. Because it literally iterates between all the distinct pairs $\{i, j\}$. Now:
+$$
+\mathbb{E}[C] = \mathbb{E} \left[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n C_{i, j}\right] = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n  \mathbb{E}[C_{i, j}]
+$$
+And again, since $C_{i, j}$ is only either $0$ or $1$:
+$$
+\mathbb{E}[C_{i, j}] = 0 \cdot \Pr[C_{i, j} = 0] + 1 \cdot \Pr[C_{i, j} = 1] = \Pr[C_{i, j} = 1]
+$$
+
+So combining with the above, we get:
+$$
+\mathbb{E}[C] = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n  \Pr[C_{i, j} = 1]
+$$
+
+Okay so again, what's the probability that $\Pr[C_{i, j} = 1]$? Well it's the probability that $s_i$ and $s_j$ was compared. So let's think about how that might happen.
+
+![[Images/quicksort-compare-event-example.png]]
+
+Here's an example where the array (or sub-array) we wish to sort has 5 elements. For example if we care about whether $s_2$ and $s_4$ were compared, there's actually $3$ possible cases:
+1. Either at some point in the algorithm we picked element $s_1$ or $s_5$ as the pivot. In which case, it's inconclusive as to whether or not $s_2$ or $s_4$ was taken.
+2. Or at some point we picked $s_2$ or $s_4$ as the pivot. In which case we know for a fact they were compared.
+3. Or at some point we picked $s_3$ was picked as the pivot. In which case we know for a fact that $s_2$ and $s_4$ will never be compared.
+
+So in general:
+![[Images/quicksort-analysis-general.png]]
+
+So for some two elements $s_i$ and $s_j$, first of all note we don't care if anything before $a_i$ or after $a_j$ was chosen as pivots at any point in the execution. What we care about is in the sequence $a_i, a_{i + 1}, \ldots, a_{j - 1}, a_j$ was chosen as pivots. If $a_i$ or $a_j$ was chosen as a pivot, then $C_{i, j} = 1$. Otherwise, one of $a_{i + 1}, \ldots , a_{j - 1}$ was chosen. In which case, $C_{i, j} = 0$.
+
+Since pivots are chosen randomly, the probability that either $a_i$ or $a_j$ is chosen, is just $\frac{2}{j - i + 1}$ because there are $2$ valid choices, and the are $j - i + 1$ possible choices including elements from $a_i$ to $a_j$ (inclusive).
+
+Now to finish it all off, we get that:
+
+$$
+\begin{align}
+\mathbb{E}[C] &= \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n  \Pr[C_{i, j} = 1] = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n \frac{2}{(j - i + 1)}\\
+&= \sum_{i = 1}^{n - 1} \sum_{k = 2}^{n - i + 1} \frac{2}{k}\\
+&\leq \sum_{i = 1}^{n - 1} \sum_{k = 1}^{n} \frac{2}{k}\\
+&\leq \sum_{i = 1}^{n - 1} 2(\ln(n) + O(1))\\
+&\leq 2\ln(n) + O(n)\\
+\end{align}
+$$
+
+where on the first line we use the fact that we're summing $\frac{2}{2} + \frac{2}{3} + \frac{2}{4} + \dots + \frac{2}{n - i + 1}$, so we might as well just change the variable to $k$ such that it ranges from $2$ to $n - i + 1$ in the denominator. Then summing from $2$ to $n - i + 1$ gives us fewer positive terms than if we just summed from $1$ to $n$, so the next line is an upper bound. Now, to see that it is $\ln(n)$, we use the following idea:
+
+![[Images/bounding-reciprocal.png]]
+
+The red line plots the $y = \frac{1}{x}$ function. So the area under the curve is an over-approximation of adding $\frac{1}{i}$ for values $i$ from $1$ up to $x$. In other words, we can just integrate $\frac{1}{x}$ to get $\ln(x) + C$. Since we're summing up to $n$, this means that it's at most $\ln(n) + C$. Here in CS we call $C$ as $O(1)$.
+
+So! We've shown that the **expected running time** of randomised quicksort is $O(n\ln(n))$ (or $O(n \log(n))$, if you know that you can change bases between $\ln$ and $\log_2$ with a constant factor multiplication).
