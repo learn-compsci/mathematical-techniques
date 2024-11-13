@@ -356,16 +356,16 @@ $$
 \begin{align}
 \mathbb{E}[C] &= \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n  \Pr[C_{i, j} = 1] = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n \frac{2}{(j - i + 1)}\\
 &= \sum_{i = 1}^{n - 1} \sum_{k = 2}^{n - i + 1} \frac{2}{k}\\
-&\leq \sum_{i = 1}^{n - 1} \sum_{k = 1}^{n} \frac{2}{k}\\
+&\leq \sum_{i = 1}^{n - 1} \sum_{k = 2}^{n} \frac{2}{k}\\
 &\leq \sum_{i = 1}^{n - 1} 2(\ln(n) + O(1))\\
 &\leq 2\ln(n) + O(n)\\
 \end{align}
 $$
 
-where on the first line we use the fact that we're summing $\frac{2}{2} + \frac{2}{3} + \frac{2}{4} + \dots + \frac{2}{n - i + 1}$, so we might as well just change the variable to $k$ such that it ranges from $2$ to $n - i + 1$ in the denominator. Then summing from $2$ to $n - i + 1$ gives us fewer positive terms than if we just summed from $1$ to $n$, so the next line is an upper bound. Now, to see that it is $\ln(n)$, we use the following idea:
+where on the first line we use the fact that we're summing $\frac{2}{2} + \frac{2}{3} + \frac{2}{4} + \dots + \frac{2}{n - i + 1}$, so we might as well just change the variable to $k$ such that it ranges from $2$ to $n - i + 1$ in the denominator. Then summing from $2$ to $n - i + 1$ gives us fewer positive terms than if we just summed from $2$ to $n$, so the next line is an upper bound. Now, to see that it is $\ln(n)$, we use the following idea:
 
 ![[Images/bounding-reciprocal.png]]
 
-The red line plots the $y = \frac{1}{x}$ function. So the area under the curve is an over-approximation of adding $\frac{1}{i}$ for values $i$ from $1$ up to $x$. In other words, we can just integrate $\frac{1}{x}$ to get $\ln(x) + C$. Since we're summing up to $n$, this means that it's at most $\ln(n) + C$. Here in CS we call $C$ as $O(1)$.
+The red line plots the $y = \frac{1}{x}$ function. So the area under the curve is an over-approximation of adding $\frac{1}{i}$ for values $i$ from $1$ up to $x$. Thus the integral of $\frac{1}{x}$ from $x = 2$ to $n$ is at most $\ln(n)$.
 
 So! We've shown that the **expected running time** of randomised quicksort is $O(n\ln(n))$ (or $O(n \log(n))$, if you know that you can change bases between $\ln$ and $\log_2$ with a constant factor multiplication).
