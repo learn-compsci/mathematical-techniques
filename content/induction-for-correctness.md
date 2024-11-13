@@ -1,3 +1,8 @@
+---
+hidden: true
+---
+
+
 ```javascript
 function swap(list, idx1, idx2) {
     temp = list[idx1];
