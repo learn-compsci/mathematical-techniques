@@ -251,78 +251,41 @@ So regardless of the number of people, in expectation only $1$ person will get t
 
 ## Quicksort analysis
 So you've probably learned quicksort by now. As a quick refresher, let's see the algorithm again:
-
 ```javascript
-function swap(list, idx1, idx2) {
-    temp = list[idx1];
-    list[idx1] = list[idx2];
-    list[idx2] = temp;
+function quicksort(xs) {
+    // Let k = length of xs
+    // O(1)
+    if (is_null(xs) || is_null(tail(xs))) {
+        return xs;
+    } else {
+        // O(k)
+        const pivot_index = math_floor(math_random() * length(xs));
+        // let i = value of pivot_index
+        // O(i)
+        const pivot = list_ref(xs, pivot_index);
+
+        // O(k)
+        const lower = filter(x => x < pivot, xs);
+        // let l = length of lower
+        // O(k)
+        const pivots = filter(x => x === pivot, xs);
+        // let p = length of pivots
+        // O(k)
+        const higher = filter(x => x > pivot, xs);
+        // let h = length of higher
+
+        // T(l)
+        const sorted_lower = quicksort(lower);
+        // T(h)
+        const sorted_higher = quicksort(higher);
+
+        // O(p + h)
+        return append(append(sorted_lower, pivots), sorted_higher);
+    }
 }
-
-function partition(list, start_idx, end_idx) {
-
-	// randomly pick a pivot from list[start_idx, end_idx)
-	// and swap it with the last element
-	swap(list, end_idx - 1, rand_int(start_idx, end_idx));
-
-	// set the last element as the pivot value
-	pivot_value = list[end_idx - 1]
-	partition_idx = 0
-
-	// (1) we to maintain that [start_idx, partition_idx) contains elements
-	// <= pivot_value
-
-	// (2) we also want to maintain that [pivot_idx, curr_idx) contains
-	// elements that are > pivot_value
-
-	for(curr_idx = start_idx; curr_idx < end_idx - 1; curr_idx += 1) {
-		// if the element at curr_idx is smaller than pivot_value;
-		// to maintain invariant (1)
-		if(list[curr_idx] <= pivot_value) {
-			swap(list, curr_idx, partition_idx);
-		}
-
-		// otherwise, since the current item was > pivot_value
-		// we just have to increment curr_idx to maintain invariant (2)
-	}
-
-	// after this is done, since curr_idx == end_idx - 1
-	// we know that:
-	// (1) [start_idx, partition_idx) contains elements <= pivot_value
-	// and 
-	// (2) [partition_idx, end_idx - 1) contains elements > pivot_value
-
-	swap(list, partition_idx, end_idx - 1);
-	// now after we do the swap:
-	// we know that:
-	// (1) [start_idx, partition_idx] contains elements <= pivot_value
-	// and 
-	// (2) [partition_idx + 1, end_idx - 1] contains elements > pivot_value
-	// Why? because pivot_value = pivot_value and now it's on partition_idx.
-	// so the intervals have changed.
-	// In particular, the previous element before the swap at partition_idx
-	// was > pivot_value. it is now sitting at end_idx - 1 after the swap
-	return partition_idx;
-}
-
-function quicksort(list, start_idx, end_idx) {
-	if(start_idx >= end_idx) {
-		return;
-	}
-    partition_idx = partition(list, start_idx, end_idx);
-	// we are now guaranteed that:
-	// list[start_idx, partition_idx) has values <= list[partition_idx]
-	// and
-	// list(partition_idx, end_idx) has values > list[parition_idx]
-    quicksort(list, start_idx, partition_idx);
-    quicksort(list, partition_idx + 1, end_idx);
-}
-
 ```
 
-Here we'll use half open intervals, where we wish to sort the array from index range $[start\_idx, end\_idx)$. So to be clear, if our array has $n$ elements, we want to sort it for indices in range $[0, n)$.
-
-Now you might have been taught that this runs in $O(n^2)$ time because in the worst case, the array might cause the partitions to always be $start\_idx$ or something along those lines.
+Now you might have been taught that this runs in $O(n^2)$ time because in the worst case, the array might because the every time we recurse the list might only be of size $1$ smaller or something along those lines.
 
 But what if we always randomly picked a pivot to use in the partitioning step? 
 What happens then?
@@ -340,7 +303,7 @@ So how do we bound $C$? Well it's a random variable now, because the number of c
 
 So we're going to define $C$ as a sum of other random variables, and again let LoE take over. So what should we do?
 
-Here's an idea, given some input, $a_1, a_2, \ldots, a_n$, consider its sorted order $s_1, s_2, \ldots, s_n$. It's true that the run of the algorithm looks at $a_1, a_2, \ldots, a_n$. But we can correspond them to the elements in the sorted order.
+Here's an idea, given some input list, $a_1, a_2, \ldots, a_n$, consider its sorted order $s_1, s_2, \ldots, s_n$. It's true that the run of the algorithm looks at $a_1, a_2, \ldots, a_n$. But we can correspond them to the elements in the sorted order for the sake of analysis.
 
 ![[Images/quicksort-analysis.png]]
 
