@@ -8,13 +8,13 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Discrete Math 🥦",
+    pageTitle: "Mathematical Techniques for Computing",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     locale: "en-US",
-    baseUrl: "notes-for-computer-science.github.io/discrete-math",
+    baseUrl: "notes-for-computer-science.github.io/mathematical-techniques",
     ignorePatterns: ["private", "templates", "Excalidraw", ".obsidian"],
     defaultDateType: "created",
     theme: {
