@@ -248,6 +248,18 @@ You might wonder at this point "why is it defined this way?" and you will see th
 2. At an intermediate level, the answer is that "A lot of the proofs line up and things work out."
 3. At an even higher level, there's nothing too special about the "if, then" connective... but it does work out nicely for what we want it to do.
 
+Here's yet another example of how to use $\to$:
+
+$$
+(x = 1) \to (x^2 = 1)
+$$
+
+Which reads:
+
+> If $x$ is $1$, then $x^2$ is  $1$.
+
+What happens if $x$ is not $1$? Then can we say $x^2$ is not $1$? We can't! After all, consider when $x = -1$. Then $x = 1$ is $false$, but $x^2 = 1$ is still true.
+
 Anyway! Don't worry too much about it, my recommended way of viewing it right now is just that these are very common logical operations we wish to perform, and therefore we have chosen to give these a name.
 
 #### Evaluating formulae
@@ -399,6 +411,84 @@ Again, we have not talked about how to tell this proof is good (or even what is 
 
 
 For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in Part 3 (and the rest of the semester). For now, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
+
+
+#### Certain manipulations and properties about quantifiers
+
+There is an interesting aspect about quantifiers we need two talk about: What happens if we have more than a few of them? Let's consider the set of all positive integers, i.e. the set that contains $1, 2, 3, \ldots$ and so on. We will use the $\leq$ symbol to mean "smaller than or equals to", and $\geq$ to mean "greater than or equals to". What if we wanted to write the following mathematically?
+
+1. There exists an integer that is smaller than or equals to all integers.
+2. It is not the case that there exists an integer that is greater than or equals to all integers.
+
+Let's begin with the first one, this is a prime example in nesting quantifiers. That is to say, using more than one.
+
+$$
+	\exists x, \forall y \big( x \leq y \big)
+$$
+
+Very succinct right? Reading it back, here's how we should parse it:
+
+> There exists an object that we will call $x$, fix this $x$. For this $x$, for all $y$, $x$ is less than or equals to $y$.
+
+One thing to take note of here is that $x$ is chosen before considering all values of $y$. Do we believe this statement to be true? To prove that this statement is true, we need to pick a value for $x$. What should the value be? It should be $1$!
+
+Let's look at the second statement.
+
+$$
+\neg \big( \exists x, \forall y (x \geq y) \big)
+$$
+Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists an object that we will call $x$. Fix this $x$, for this $x$, for every value $y$, $x$ is greater than or equals to $y$". Since we want the opposite of that statement, we added the negation on the outside.
+
+#### Alternating Quantifiers
+The first question we might want to ask is: Do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
+
+$$
+\forall y, \exists x \big( x \leq y \big)
+$$
+Reading this back, this now says:
+
+> For every possible value, call it $y$, we can find at least one $x$ for which $x$ is smaller than or equals to $y$.
+
+Do they mean the same thing? The original is saying we can find a value that is smaller than or equals to all other values. The latter is saying that no matter the value we pick, we can always find something smaller than or equals to it. These do not mean the same thing!
+
+#### Negating Quantifiers
+Let's also take a look at what it means to negate a statement that has quantifiers in it. Here's the second statement again:
+
+$$
+\neg \big( \exists x, \forall y (x \geq y) \big)
+$$
+
+Can we think of a way to write this where we do not have a negation on the outside? We're trying to say "It is not the case that there is a single value that is greater than or equals to all values". Why is this the case? We can think of this statement equivalently in the following way:
+
+> For every value $x$, it is not the case that $x$ is greater than or equal to all values.
+
+Mathematically:
+
+$$
+ \forall x, \neg \big(\forall y (x \geq y) \big)
+$$
+Take a while sitting on this and reading it to convince yourself it makes sense.
+
+We can go a little further, and say:
+
+> For every value $x$, we can find a value $y$, for which is it not the case that $x$ is greater than or equals to $y$.
+
+Mathematically:
+
+$$
+ \forall x, \forall y \big( \neg ( x \geq y) \big)
+$$
+
+Again, take a while to sit on this and convince yourself that they are the same.
+
+In general: We can move a $\neg$ further to the right past a quantifer by changing it from a $\forall$ to a $\exists$, and vice versa.
+
+So for example, the following are equivalent:
+
+1. $\neg \big( \exists x, \forall y, \exists z (P(x, y, z)) \big)$
+2. $\forall x, \neg \big(\forall y, \exists z (P(x, y, z)) \big)$
+3. $\forall x, \exists y, \neg \big( \exists z (P(x, y, z)) \big)$
+4. $\forall x, \exists y,  \forall z, \neg \big( (P(x, y, z)) \big)$
 
 # Part 3: Proofs in First Order Logic
 Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. Let's re-visit the example we had just now:
