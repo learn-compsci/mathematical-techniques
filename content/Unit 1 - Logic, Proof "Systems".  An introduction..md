@@ -1,7 +1,8 @@
 ---
-title: Unit 1 - Logic, Proof "Systems".  An introduction.
+title: Unit 1
 ---
 
+# Unit 1 - Logic, Proof "Systems". An introduction.
 # Overview
 This unit introduces the notion of proofs, propositional and first order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 3 sub-parts:
 1. Motivation and introduction to propositional logic, first order logic and proofs.
