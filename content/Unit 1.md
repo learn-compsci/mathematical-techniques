@@ -1,5 +1,5 @@
 ---
-title: Propositions, Predicates, First Order Logic, Proofs
+title: "Unit 1: Propositions, Predicates, First Order Logic, Proofs"
 ---
 
 # Overview
