@@ -405,13 +405,27 @@ Coming back to Proof 2, here is how we will write it:
 
 Again, we have not talked about how to tell this proof is good (or even what is a proof), but the goal of this part is to make sure you are able to at least read back each line to yourself in English and be convinced of its meaning.
 
+##### Another example: Expressing Even Numbers
+How should we say a number is even? In English we might say something like "A number is even if it is divisible by 2." What does it mean here to be "divisible by 2"? After all, we **can** divide $3$ by $2$, we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. In discrete math, we say say that $x$ is an even number if:
+
+$$
+\exists k \in \mathbb{Z} [2\cdot k = x]
+$$
+
+Let's read this back in English, and see what it means:
+
+> There exists a value from the set called $\mathbb{Z}$ that we will call $k$. For this value $k$, $2$ times $k$ is equal to $x$.
+
+
+Here, think of set $\mathbb{Z}$ as the special symbol for the set of whole numbers, and when we write $\exists k \in \mathbb{Z}$, this means $k$ is in the set of whole numbers. That is to say: $k$ is a whole number. (It can be negative, it can be $0$, it can be positive, but it is a whole number). We call $\mathbb{Z}$ _the set of integers_.
+
+
 >[!Rounding Up]
 > 1. We have seen uses of predicates.
 > 2. We have seen uses of existential and universal quantifiers.
 
 
 For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in Part 3 (and the rest of the semester). For now, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
-
 
 #### Certain manipulations and properties about quantifiers
 
@@ -483,7 +497,7 @@ Again, take a while to sit on this and convince yourself that they are the same.
 
 In general: We can move a $\neg$ further to the right past a quantifer by changing it from a $\forall$ to a $\exists$, and vice versa.
 
-So for example, the following are equivalent:
+So for example, all of the following are equivalent:
 
 1. $\neg \big( \exists x, \forall y, \exists z (P(x, y, z)) \big)$
 2. $\forall x, \neg \big(\forall y, \exists z (P(x, y, z)) \big)$
@@ -491,17 +505,21 @@ So for example, the following are equivalent:
 4. $\forall x, \exists y,  \forall z, \neg \big( (P(x, y, z)) \big)$
 
 # Part 3: Proofs in First Order Logic
-Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. Let's re-visit the example we had just now:
 
-1. $\forall x \left( human(x) \to mortal(x) \right)$
-2. $human(Socrates)$
-3. Therefore $mortal(Socrates)$
+Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. 
 
-I understand it takes a little getting used to, but the more you do it, the sooner you get used to it. The first feature of a proof are what we call the **premises**. In the above proof, lines $1$ and $2$ are **premises**. Think of **premises** as statements that we _assume to be true_. After all, we do believe every human is mortal, and we do believe the Socrates was a human.
+#### First example of a proof:
+Let's re-visit the example we had just now:
+
+1. $\forall x \left( human(x) \to mortal(x) \right)$ \[Premise 1]
+2. $human(Socrates)$ \[Premise 2]
+3. Therefore $mortal(Socrates)$ \[Conclusion, Derived from Premises 1, 2]
+
+I understand it takes a little getting used to reading symbols, but the more you do it, the sooner you get used to it. The first feature of a proof are what we call the **premises**. In the above proof, lines $1$ and $2$ are **premises**. Think of **premises** as statements that we _assume to be true_. After all, we do believe every human is mortal, and we do believe the Socrates was a human.
 
 What about line $3$? Line $3$ is the **conclusion** of the proof. This is the final statement that we wish to conclude. To be clear, **we are not assuming that Socrates is mortal, we want to be able to conclude it**. To do so, we must **deduce** line $3$ using lines $1$ and $2$. 
 
-In order to do so, we will use rules of deductions. We will exhaustively list them out later. But for this current introductory example, we will use a rule called **universal modus ponens**.
+In order to do so, we will use rules of deductions. We will exhaustively list them out later. But for this current introductory example, we are using a rule called **universal modus ponens**.
 
 It's a very fancy name, but what it means is that if you see any line that looks like:
 
@@ -542,17 +560,17 @@ The first line is saying that Tabby is a cat. The second line effectively is say
 
 So let's re-cap a little at this point what has gone on. Lines $1, 2$ are **premises** (notice we didn't prove lines 1 and 2, we are assuming they are true on good faith). Line $3$ is a **deduced line** using lines $1, 2$, and the deduction rule used **modus ponens**.
 
-Now, very importantly, **what have we done here**? We have written a proof that effectively says the following:
+Now, very importantly, **what have we done here**? We have written a proof that effectively has **proven the following statement**:
 
 > "Assuming that Tabby is a cat and assuming that all cats have paws, then we conclude that Tabby has paws"
 
-Formally, we will write that in way:
+Formally, we will write the **proven statement** in the following way:
 
 $$
 \bigg( cat(Tabby) \land \big(\forall x \left( cat(x) \to has\_paws(x) \right) \big)\bigg) \to has\_paws(Tabby)
 $$
 
-What is the above statement? The above statement says that if $cat(Tabby)$ is true, and $\big(\forall x \left( cat(x) \to has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
+What is the above **proven statement**? The above statement says that if $cat(Tabby)$ is true, and $\big(\forall x \left( cat(x) \to has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
 
 Okay, that was an example, to do more involved things, we need to first look at some rules of inference. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
 
@@ -560,10 +578,255 @@ Okay, that was an example, to do more involved things, we need to first look at 
 2. How we obtain the intermediate steps using rules of inferences
 3. What is the conclusion
 
+#### Correspondence between proofs and statements
+Bear in mind that **very importantly, if we have given a proof that starts with premises $P_1, P_2, \ldots, P_n$, and we derive statement $C$ as our conclusion, then we have the following proven statement**.
+
+> Assume $P_1 \land P_2 \land \ldots \land P_n$, then it follows that $C$.
+
+Look at the example again the two things: (1) the proof that Tabby has paws, and also (2) the proven statement that we obtained **due to the proof**. Look at how it corresponds.
+
+>[!An Aside]
+> Take some time to appreciate that what we are doing is actually making formal, rigorous arguments using **first order logic**.
+> 
+> Why do we do this? The idea is that we want a systematic approach in telling us what is true and what is not. In some sense, in the future when we are concerned with whether our algorithms/programs are correct, whether we can apply our concurrency guarantees, whether our database schemas are doing what we want, we want something better than having an arbitrary human be the arbiter of truth.
+> 
+>  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
+## Allowable Rules of Deductions
+
+In this section, we will show very short and simple proofs, each using more and more rules of inferences to list out all the rules you can use. Here's a few quick remarks before we talk about each rule in detail:
+
+1. The reason we want to have these rules is that they try to mirror what we believe is intuitively true.
+2. Rules 1 through 5 are a little more straightforward.
+3. Rules 6 through 9 are more to do with quantifiers.
+
+Try not to get lost in the weeds here, we will go through a short example demonstrating each deduction rule, and also explain what it means intuitively, before talking about the rule formally.  For rules 6 through 9, there will be a little more exposition.
+
+#### Rule 0: Definition Unpacking
+Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
+
+$$
+\exists k \in \mathbb{Z} [2 \cdot k = x]
+$$
+
+Formally, we can say:
+
+> **The predicate $even(x)$ is defined to be $\exists k \in \mathbb{Z} [2 \cdot k = x]$**.
+
+It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
+#### Rule 1: Basic Algebra
+
+Example usage:
+>[!Theorem]
+> Assuming $x + 5 = 12$, then $x = 7$.
+
+>[!Proof]
+> 1. Assume that $x + 5 = 12$.
+> 2. Then $x = 12 - 5$ \[By Basic Algebra from line $1$]
+> 3. Then $x = 75$ \[By Basic Algebra from line $2$]
+
+Here, line $1$ is our premise. Line $3$ is our conclusion. And the justifications are laid out in square brackets. Basic algebra is something we are happy for you to use (for free)! You can think of line $2$ as an intermediate step. It is neither a premise nor a conclusion, but we can write line $2$ because it is a derivation from line $1$. Similarly, line $3$ is derived from line $2$.
+
+One other thing to take note of is the theorem statement vs the proof. The statement starts with "Assuming "$x + 5 = 12$". This must be the very first line of our proof. Secondly, the proof ends with "then $x = 7$". This is the conclusion we must prove. So this must be the very last line of our proof. Every other intermediate line must be justified.
+
+Don't worry too much about how much algebra you need to know. If you know how to add, multiply, divide, square root, exponentiate, and logarithms, that is all the algebra you need to know.
+#### Rule 2: Specialisation
+Example usage:
+>[!Theorem]
+> Assume ($x < 10 \land x > 0$), then $x < 10$.
 
 
+>[!Proof]
+> 1. Assume that ($x < 10 \land x > 0$).
+> 2. Then $x < 10$. \[By Specialisation on line $1$]
+
+Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convince that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
+
+>[!Rule: Specialisation]
+> Given statement $p \land q$, we are able to derive statement $p$.
+> Furthermore, given statement $p \land q$, we are able to derive statement $q$.
 
 
+Remember: each line that is not a premise must be derived from previous lines.
+#### Rule 3: Generalisation
+Example usage:
+>[!Theorem]
+> Assume $x < 10$, then $x < 10 \lor x = 10$.
 
+>[!Proof]
+> 1. Assume that $x < 10$.
+> 2. Then $x < 10 \lor x = 10$. \[By Generalisation on line $1$]
+
+This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
+
+>[!Rule: Generalisation]
+> Given statement $p$, we are able to derive statement $p \lor q$.
+> Furthermore, given statement $p$, we are able to derive statement $q \lor p$.
+
+#### Rule 4: Modus Ponens
+Example usage:
+
+> [!Theorem]
+> Assume that $(\text{it is raining} \to \text{I will bring an umbrella})$, and further assume $\text{it is raining}$. Therefore $\text{I will bring an umbrella}$.
+
+
+ > [!Proof]
+ >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
+ >  2. Assume $\text{it is raining}$.
+ >  3. Therefore $\text{I will bring an umbrella}$ \[By Modus Ponens on lines $1, 2$]
+
+This example is a demonstration of a classic rule of inferences. It takes 2 lines:
+1. If we believe in $p$, we must also believe $q$ is true.
+2. We believe in $p$
+
+And makes the following conclusion:
+1. We believe in $q$.
+
+>[!Rule: Modus Ponens]
+> Given statements $p \to q$, and $p$, we are able to derive statement $q$.
+
+#### Rule 5: Modus Tollens
+To make things a little simpler in our proof system, and a little more flexibility: let's also think (intuitively first, before formally) about what else we could say. What if instead we were given the following?
+
+1. If it is raining, then I will bring an umbrella.
+2. It is not the case that I will bring an umbrella.
+
+Can we say something about whether it is raining? Well we were promised if it was raining, we would have brought an umbrella. Considering how we are not bringing an umbrella, it cannot be raining. So we can actually also do the following:
+
+> [!Theorem]
+> Assume that $(\text{it is raining}) \to (\text{I will bring an umbrella})$, and further assume $\neg(\text{I will bring an umbrella})$. Therefore $\neg(\text{it is raining})$.
+
+ > [!Proof]
+ >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
+ >  2. Assume $\neg(\text{I will bring an umbrella})$.
+ >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines $1, 2$]
+
+In general, here is the rule:
+>[!Rule: Modus Tollens]
+> Given statements $p \to q$, and $\neg q$, we are able to derive statement $\neg p$.
+
+#### Rule 6: Implication Introduction
+So far, in the previous rules, we have been using implication statements in one way or another. What if we wanted to **create** implication statements? Here's an example statement we can try to prove:
+
+> [!Theorem]
+> $(p \land q) \to p$
+
+Okay this might look a little intimidating. Let's read it back in English, what is it saying? The statement here is that "If we believe $p \land q$ is true, we believe $p$ is true". Hold on a minute, this looks very familiar! Doesn't this look like the Specialisation rule? Yes! Except now the statement has an implication $(\to)$ instead of "Assume $p \land q$, therefore $q$".
+
+Here's the proof and how we use the deductive rule.
+
+> [!Proof]
+> 1. Assume $(p \land q)$.
+> 	1.1 $p$ \[By Specialisation on line $1$].
+> 2. $(p \land q) \to p$ \[By Implication Introduction on lines $1$, and $1.1$]
+
+So what is going on here? 
+
+1. On line $1$ we have made it very explicit that we are making an assumption that $p \land q$ is true. 
+2. We derived line 1.1 using the Specialisation rule on line $1$.
+3. We derived our concluding line $2$ by using the Implication Introduction rule on lines $1$ and $1.1$.
+
+What's the idea? Intuitively, our proof system makes an assumption that $(p \land q)$ is true, so since we assumed it to be true, we can now start deriving other lines from it as well. In fact, line 1.1 is such a line. Line 1.1 is also the sub-conclusion from line 1. 
+
+Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line $2$. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
+
+In general, here is the rule:
+>[!Rule: Implication Introduction]
+> Assuming statement $a$, if statement $b$ is derived as a sub-conclusion, then the Implication Introduction rule derives statement $a \to b$.
+
+#### Rules 7,8,9,10: (Existential/Universal) (Generalisation/Instantiation)
+For the sake of exposition, it is a lot more natural to consider all these 4 rules together at the same time for this section.
+
+
+Let's begin with a smaller example that demonstrates the use of existential instantiation. Let's see that in action by proving this theorem formally:
+
+>[!Theorem]
+> Assuming $\forall x \in \mathbb{Z}[x^2 \geq 0]$, then $(-5)^2 \geq 0$.
+
+What is this theorem saying? It is saying that if we believe that any integer squared is non-negative, then  $-5$ squared is non-negative. How do we prove this? Let's see this in action:
+
+>[!Proof]
+> 1. Assume $\forall x \in \mathbb{Z}[x^2 \geq 0]$.
+> 2. $-5 \in \mathbb{Z}$ \[Definition of Integers]
+> 3. $(-5)^2 \geq 0$ \[Universal instantiation on line $1$, $2$].
+
+
+What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise, it is assuming that all integers are such that if you square them, they are non-negative. Line $2$ is bringing up the fact that $-5$ is an integer. And line $3$ is basically stating the following:
+
+> Since all integers are such that if you square them, they are non-negative. It is also true for any specific integer. We are convinced on line $2$ that $-5$ is an integer. Therefore, we are convinced by combining lines $1$ and $2$ that $(-5)^2$ is also non-negative.
+
+For the final proof of this section, let's think about how to **prove the following statement**:
+
+>[!Theorem]
+> $\forall x \in \mathbb{Z} [ even(x) \to even(x + 2) ]$.
+
+Let us read the statement we wish to prove in English, it is basically saying, "Take any integer $x$, if it is even, then $x + 2$ is even as well". Intuitive right? Let's see how a mathematician does it.
+
+Why is this true? Here's the high level idea, we know that if $x$ is an even integer, we can re-write $x$ as $2\cdot k$. Then we also know that $x + 2 = 2\cdot k + 2 = 2\cdot (k + 1)$. Since $k$ is an integer, $k+1$ is also an integer. So that means we can write $x + 2$ can be written as $2 \cdot s$ where $s$ is **some** integer.
+
+Okay that's the idea, but how do we do it formally? Again, we will want to use some rules to help us make the deduction. Let's see them in action:
+
+> [!Proof]
+> 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
+> 	1.1 Assume that $even(x)$.
+> 	1.2 $\exists k \in \mathbb{Z}[x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
+> 	1.3 Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential Instantiation on line $1.2$]
+> 	 1.4 $x + 2 = 2 \cdot t + 2$ \[Basic Algebra]
+> 	 1.5 $x + 2 = 2 \cdot (t + 1)$ \[Basic Algebra]
+> 	 1.6 Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$ \[Basic Algebra]
+> 	 1.7 $\exists z \in \mathbb{Z} [x + 2 = 2 \cdot z]$ \[Existential Generalisation on line $1.5$, $1.6$]
+> 	 1.8 $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
+> 	 1.9 $even(x) \to even(x + 2)$ \[Implication Introduction on lines $1.1$, and $1.8$]
+> 2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
+
+Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses $3$ new rules here. What is going on?
+
+The proof starts off by taking $x$ to be an integer value (i.e. from $\mathbb{Z}$). So the subsequent lines (1.1 through 1.9) are allowed to treat $x$ as any arbitrarily chosen integer from $\mathbb{Z}$. It may be $5$, it may be $47142$, who knows. Then line 1.1 assumes that we consider only values $x$ that are even. This means that if we were given a value like $5$ for $x$, our proof is not applicable anymore. But that's okay! We don't want to say anything about odd numbers anyway.
+
+Next up, we unpack the definition of $even(x)$. Remember that an integer is even if we can write it as $2\cdot k$ for some value $k \in \mathbb{Z}$. Line $1.2$ is just reminding us of the definition of being an even value.
+
+What about line 1.3? This is the first new rule we have encountered. Intuitively in English, what is being done here is the following:
+
+> On line 1.2 we are saying "$x$ is equals to $2$ times an integer."
+> Therefore, we are able to deduce line 1.3 which states "Let call that integer $t$.".
+
+This might feel pedantic, but imagine how in English there is a subtle difference between:
+
+> "Something is cold" vs "Call the cold thing $x$".
+
+The former sentence has not given the "cold thing" a name. The latter sentence has given it a name. Then deduction rule is basically trying to say "Since we know a cold thing exists, we can give it a name. Let's call it $x$". Similarly, in our proof above, the deduction rule is basically trying to say "Since we know $x$ is _some_ value times $2$, we can give such a value a name, call it $t$." In doing so, notice that the new line has effectively **removed** the $\exists$ symbol.
+
+Let's keep going. Now that we've given that value a name $t$, we can start referring to it, and manipulating it. So lines $1.4$ through $1.6$ are all just basic algebra. 
+
+What about line $1.7$? What is it doing? In some sense it is actually doing the opposite of line $1.3$.
+
+> On line $1.5$ we said that $x + 2 = 2(t + 1)$. On line $1.6$ argue that $t + 1$ is also in $\mathbb{Z}$. Since we know a specific value $z$ from $\mathbb{Z}$ for which $x + 2 = 2\cdot z$, we know __some__ value from $\mathbb{Z}$ exists for which $x + 2 = 2 \cdot z$. Therefore, $\exists z \in \mathbb{Z} [x + 2 = 2\cdot z]$.
+
+Again, this might feel weird but it's basically doing the reverse of what we had explained earlier:
+
+> "We know ice is a cold thing" vs "Exists something that is cold".
+
+The deduction rule here basically takes the former sentence and deduces the latter.
+
+Okay! Let's keep chugging on. $1.8$ is more definition unpacking, and line $1.9$ re-uses the previous deduction rule of creating an implication statement.
+
+Finally, what's going on on line $2$? It's saying the following:
+
+> Since we took $x$ arbitrarily from $\mathbb{Z}$, and we were able to create the sub-conclusion $even(x) \to even(x + 2)$, we are able to write $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)$.
+
+And if you read back the concluding line, it makes sense! It's saying:
+
+> For every possible value taken from $\mathbb{Z}$ that we shall call $x$, if $x$ is even, then $x + 2$ is even.
+
+Why is this reasonable? We took $x$ arbitrarily. What about the assumption we made? We used the implication introduction rule to turn that back into $even(x) \to even(x + 2)$, so you could technically say we made no assumptions about $x$ and did take it arbitrarily.
+
+
+TODO:
+1. Add the formal inference rule boxes for the quantifier related rules.
+### Proof Strategies
+1. Direct Proof
+2. Proof by contraposition
+3. Proof by contradiction
+4. Proof by cases
+5. 
 
 
