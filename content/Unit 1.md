@@ -707,7 +707,7 @@ Example usage:
 >[!Proof]
 > 1. Assume that $x + 5 = 12$.
 > 2. Then $x = 12 - 5$ \[By Basic Algebra from line $1$]
-> 3. Then $x = 75$ \[By Basic Algebra from line $2$]
+> 3. Then $x = 7$ \[By Basic Algebra from line $2$]
 
 Here, line $1$ is our premise. Line $3$ is our conclusion. And the justifications are laid out in square brackets. Basic algebra is something we are happy for you to use (for free)! You can think of line $2$ as an intermediate step. It is neither a premise nor a conclusion, but we can write line $2$ because it is a derivation from line $1$. Similarly, line $3$ is derived from line $2$.
 
