@@ -212,6 +212,8 @@ Let's move on to something slightly more unintuitive, the **or** operation.
 | true  | false |    true    |
 | false | true  |    true    |
 | false | false |   false    |
+
+
 Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p, q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
 
 Lastly, the most unintuitive of the bunch. Let's spend some time on this one:
