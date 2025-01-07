@@ -281,6 +281,7 @@ Are these two the same? Perhaps we could work intuitively first and see what it 
 | true  | false |    true    |        false        |
 | false | true  |    true    |        false        |
 | false | false |   false    |        true         |
+
 In the table, we write out all possible truth value assignments (we have $p, q$ so there are 4 possible truth value assignments) and work out each intermediate step. The last column is the last one we care about. And here notice that the third column depends on the first two, and the final column depends only on the third column.
 
 Let's do the same for the second formula:
@@ -291,6 +292,7 @@ Let's do the same for the second formula:
 | true  | false |  false   |   true   |         false         |
 | false | true  |   true   |  false   |         false         |
 | false | false |   true   |   true   |         true          |
+
 This time, the third column depends on the first. The fourth column depends on the second, and the final column depends on the third and fourth.
 
 Oh look! The final column is the same. This means the two formulae are **logically equivalent**. The other way of seeing is is that no matter how we set $p, q$ in the first formula, if we also set $p, q$ the same way in the second formula, it evaluates to the same truth value.
@@ -307,6 +309,7 @@ Are these equivalent? Let's try making another truth table:
 | true  | false |   false   |   true    |
 | false | true  |   true    |   false   |
 | false | false |   true    |   true    |
+
 Notice how when $p$ is set to true, and $q$ is set to false, $p \to q$ is false, but $q \to p$ is true. So these two formulae are not **logically equivalent**.
 
 > Is there a different way for us to tell if two formulae are equivalent or not?
