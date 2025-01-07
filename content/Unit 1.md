@@ -157,7 +157,7 @@ We can also chain these to make even bigger ones, like so:
 1. $1 + 3 = 24$ **and** $2 \times 2 = 4$ **and** $2 + 2 = 4$
 2. **if** $1 + 3 = 24$ and $1 + 2 = 5$ **then** $5 \times 5 = 25$ **or** $6^2 = 36$
 
->[!Rounding Up]
+>[!Rounding-Up]
 > 1. **Propositions** are statements that are only either **true** or **false**, and never both at the same time.
 > 2. We can create even bigger formulae by connecting other propositions using either **and**, **or**, **if, then**, and **not**.
 
@@ -316,7 +316,7 @@ Notice how when $p$ is set to true, and $q$ is set to false, $p \to q$ is false,
 
 Yes, there are a few ways, but for now this is the most reliable way. To be clear: If for all possible truth value assignments, the two formulae always evaluate to the same value, they are logically equivalent, otherwise, they are not.
 
->[!Rounding Up]
+>[!Rounding-Up]
 > 1. We can evaluate the truth value of formulae.
 > 2. We can create truth tables from formulae.
 > 3. We can compare to see if two formulae are **logically equivalent**.
@@ -425,7 +425,7 @@ Let's read this back in English, and see what it means:
 When we write $\exists k \in \mathbb{Z}$, this means $k$ is in the set of whole numbers. That is to say: $k$ is a whole number. (It can be negative, it can be $0$, it can be positive, but it is a whole number). We call $\mathbb{Z}$ _the set of integers_.
 
 
->[!Rounding Up]
+>[!Rounding-Up]
 > 1. We have seen uses of predicates.
 > 2. We have seen uses of existential and universal quantifiers.
 
@@ -668,7 +668,7 @@ We call proven statements as **theorems**.
 
 Look at the example again the two things: (1) the proof that Tabby has paws, and also (2) the proven statement that we obtained **due to the proof**. Look at how it corresponds.
 
->[!An Aside]
+>[!An-Aside]
 > Take some time to appreciate that what we are doing is actually making formal, rigorous arguments using **first order logic**.
 > 
 > Why do we do this? The idea is that we want a systematic approach in telling us what is true and what is not. In some sense, in the future when we are concerned with whether our algorithms/programs are correct, whether we can apply our concurrency guarantees, whether our database schemas are doing what we want, we want something better than having an arbitrary human be the arbiter of truth.
@@ -724,7 +724,7 @@ Example usage:
 
 Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convince that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
 
->[!Rule: Specialisation]
+>[!Rule:-Specialisation]
 > Given statement $p \land q$, we are able to derive statement $p$.
 > Furthermore, given statement $p \land q$, we are able to derive statement $q$.
 
@@ -741,7 +741,7 @@ Example usage:
 
 This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
 
->[!Rule: Generalisation]
+>[!Rule:-Generalisation]
 > Given statement $p$, we are able to derive statement $p \lor q$.
 > Furthermore, given statement $p$, we are able to derive statement $q \lor p$.
 
@@ -764,7 +764,7 @@ This example is a demonstration of a classic rule of inferences. It takes 2 line
 And makes the following conclusion:
 1. We believe in $q$.
 
->[!Rule: Modus Ponens]
+>[!Rule:-Modus-Ponens]
 > Given statements $p \to q$, and $p$, we are able to derive statement $q$.
 
 #### Rule 5: Modus Tollens
@@ -784,7 +784,7 @@ Can we say something about whether it is raining? Well we were promised if it wa
  >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines $1, 2$]
 
 In general, here is the rule:
->[!Rule: Modus Tollens]
+>[!Rule:-Modus-Tollens]
 > Given statements $p \to q$, and $\neg q$, we are able to derive statement $\neg p$.
 
 #### Rule 6: Implication Introduction
@@ -813,7 +813,7 @@ What's the idea? Intuitively, our proof system makes an assumption that $(p \lan
 Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line $2$. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
 
 In general, here is the rule:
->[!Rule: Implication Introduction]
+>[!Rule:-Implication-Introduction]
 > Assuming statement $a$, if statement $b$ is derived as a sub-conclusion, then the Implication Introduction rule derives statement $a \to b$.
 
 #### Rules 7,8,9,10: (Existential/Universal) (Generalisation/Instantiation)
@@ -903,16 +903,16 @@ And if you read back the concluding line, it makes sense! It's saying:
 Why is this reasonable? We took $x$ arbitrarily. What about the assumption we made? We used the implication introduction rule to turn that back into $even(x) \to even(x + 2)$, so you could technically say we made no assumptions about $x$ and did take it arbitrarily.
 
 Here are the 4 final deduction rules in detail:
->[!Rule: Existential Generalisation]
+>[!Rule:-Existential-Generalisation]
 > Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x [P(x)]$.
 
->[!Rule: Existential Instantiation]
+>[!Rule:-Existential-Instantiation]
 > Given a line $\exists x \in A [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
 
->[!Rule: Universal Generalisation]
+>[!Rule:-Universal-Generalisation]
 > Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A[P(x)]$.
 
->[!Rule: Universal Instantiation]
+>[!Rule:-Universal-Instantiation]
 > Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
 
 # Proof Strategies
@@ -1051,7 +1051,7 @@ $$
 Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
 
 Here's a faulty proof that skips a case:
->[!Faulty Proof]
+>[!Faulty-Proof]
 > 1. Assume $(x = 1 \lor x = 5)$.
 > 2. Case 1: $x = 1$
 > 	2.1 Then $x^2 = 1$ \[Basic algebra]
