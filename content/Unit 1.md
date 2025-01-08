@@ -242,7 +242,7 @@ So let's move back to the bigger picture, given a statement $p \to q$, here are 
 2. We call $q$ the consequent.
 3. When the antecedent (which is $p$ here) is true, then $q$ must be true.
 4. When the antecedent (which is $p$ here) is false, then it does not matter what $q$ is, $p \to q$ is always true.
-5. When the consequent (which is $q$ here) is true, then it does not matter what $p$ is,  $p \to q$ is always false.
+5. When the consequent (which is $q$ here) is true, then it does not matter what $p$ is,  $p \to q$ is always true.
 
 You might wonder at this point "why is it defined this way?" and you will see the answer when we start doing mathematical proofs with them. The answer is line an onion, there's many layers to it:
 
@@ -994,11 +994,11 @@ Now that we have these facts, let's try proving the statement again. Pay attenti
 >[!Proof]
 > 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
 > 2. Assume that $\neg even(x)$.
-> 	2.1 $\neg even(x^2) \to odd(x)$ \[Universal Instantiation of Fact 1]
+> 	2.1 $\neg even(x) \to odd(x)$ \[Universal Instantiation of Fact 1]
 > 	2.2 $odd(x)$ \[Modus ponens on lines 2 and 2.1]
 > 	2.3 $\exists k \in \mathbb{Z}[x = 2k + 1]$ \[Unpacking definition of odd]
 > 	2.4 Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
-> 	2.5 $x^2 = (2t + 1)^2 = (4t^2 + 4t) + 1$ \[Basic algebra]
+> 	2.5 $x^2 = (2t + 1)^2 = 2(2t^2 + 2t) + 1$ \[Basic algebra]
 > 	2.6 $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
 > 	2.7 $\exists k \in \mathbb{Z}[x^2 = 2k + 1]$ \[Existential Generalisation]
 > 	2.8 $odd(x^2)$ \[Unpacking definition of odd]
