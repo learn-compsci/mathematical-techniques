@@ -692,15 +692,9 @@ Look at the example again the two things: (1) the proof that Tabby has paws, and
 >  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
 ## Allowable Rules of Deductions
 
-In this section, we will show very short and simple proofs, each using more and more rules of inferences to list out all the rules you can use. Here's a few quick remarks before we talk about each rule in detail:
+TODO: rework this
 
-1. The reason we want to have these rules is that they try to mirror what we believe is intuitively true.
-2. Rules 1 through 5 are a little more straightforward.
-3. Rules 6 through 9 are more to do with quantifiers.
-
-Try not to get lost in the weeds here, we will go through a short example demonstrating each deduction rule, and also explain what it means intuitively, before talking about the rule formally.  For rules 6 through 9, there will be a little more exposition.
-
-#### Rule 0: Definition Unpacking
+### Rule: Definition Unpacking
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
 
 $$
@@ -712,7 +706,7 @@ Formally, we can say:
 > **The predicate $even(x)$ is defined to be $\exists k \in \mathbb{Z} [2 \cdot k = x]$**.
 
 It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
-#### Rule 1: Basic Algebra
+### Rule: Basic Algebra
 
 Example usage:
 >[!Theorem]
@@ -728,11 +722,10 @@ Here, line $1$ is our premise. Line $3$ is our conclusion. And the justification
 One other thing to take note of is the theorem statement vs the proof. The statement starts with "Assuming "$x + 5 = 12$". This must be the very first line of our proof. Secondly, the proof ends with "then $x = 7$". This is the conclusion we must prove. So this must be the very last line of our proof. Every other intermediate line must be justified.
 
 Don't worry too much about how much algebra you need to know. If you know how to add, multiply, divide, square root, exponentiate, and logarithms, that is all the algebra you need to know.
-#### Rule 2: Specialisation
+### Rule: Specialisation
 Example usage:
 >[!Theorem]
 > Assume ($x < 10 \land x > 0$), then $x < 10$.
-
 
 >[!Proof]
 > 1. Assume that ($x < 10 \land x > 0$).
@@ -740,13 +733,23 @@ Example usage:
 
 Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convince that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
 
->[!Rule:-Specialisation]
+>[!Rule-Specialisation]
 > Given statement $p \land q$, we are able to derive statement $p$.
 > Furthermore, given statement $p \land q$, we are able to derive statement $q$.
 
+### Rule: Conjunction
+Example usage:
+>[!Theorem]
+> Assuming $x = 5$ then $x < 10 \land x > 0$.
 
-Remember: each line that is not a premise must be derived from previous lines.
-#### Rule 3: Generalisation
+>[!Proof]
+> 1. Assume that $x = 5$.
+> 2. Then $x < 10$. \[Basic Algebra]
+> 3. Then $x > 0$. \[Basic Algebra]
+> 4. $x < 10 \land x > 0$ \[Conjunction on lines 2, 3]
+
+This time, the notice that lines 2, and 3 followed from line 1. Since we derived both of those statements, we know both of them to be true. Therefore we can say line 2 and line 3 are true. So, we can use the $\land$ connective on both lines.
+### Rule 3: Generalisation
 Example usage:
 >[!Theorem]
 > Assume $x < 10$, then $x < 10 \lor x = 10$.
@@ -757,11 +760,62 @@ Example usage:
 
 This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
 
->[!Rule:-Generalisation]
+>[!Rule-Generalisation]
 > Given statement $p$, we are able to derive statement $p \lor q$.
 > Furthermore, given statement $p$, we are able to derive statement $q \lor p$.
+### Rule: Proof By Cases
+Example usage:
+>[!Theorem]
+> Assume $x = 3 \lor x = 5$, then $x > 0$.
 
-#### Rule 4: Modus Ponens
+>[!Proof]
+> 1. Assume $x = 3 \lor x = 5$.
+> 2. Case 1: Assume $x = 3$
+> 	2.1 Then $x > 0$ \[Basic algebra]
+> 3. Case 2: Assume $x = 5$
+> 	3.1 Then $x > 0$ \[Basic algebra]
+> 4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
+
+What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than $2$ cases, we need to prove more things. Here's yet another example:
+
+>[!Theorem]
+> Assume $x = 1 \lor x = 0 \lor x = -10$, then $x(x - 1)(x+10) = 0$.
+
+And notice here how the proof changes:
+
+>[!Proof]
+> 1. Assume $x = 1 \lor x = 0 \lor -10$.
+> 2. Case 1: Assume $x = 1$
+> 	2.1 Then $x - 1 = 0$ \[Basic algebra]
+> 	2.2 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+> 3. Case 2: Assume $x = 0$
+> 	3.1 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+> 4. Case 3: Assume $x = -10$
+> 	4.1 Then $x + 10 = 0$ \[Basic algebra]
+> 	4.2 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+> 5. Therefore $x(x - 1)(x+10) = 0$ \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
+
+In general:
+>[!Rule-Proof-By-Cases]
+> Given a statement $p \lor q$, and if we can assume $p$ to prove $r$, and if we can assume $q$ to prove $r$, then we can conclude $r$.
+
+> Must we handle each case?
+
+Yes. Here's an example of how you could go wrong if you don't. Consider this faulty statement:
+
+$$
+(x = 1 \lor x = 5) \to x^2 = 1
+$$
+
+Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
+
+Here's a faulty proof that skips a case:
+>[!Faulty-Proof]
+> 1. Assume $(x = 1 \lor x = 5)$.
+> 2. Case 1: $x = 1$
+> 	2.1 Then $x^2 = 1$ \[Basic algebra]
+> 3. In all cases, it is shown that $x^2 = 1$
+### Rule: Modus Ponens
 Example usage:
 
 > [!Theorem]
@@ -780,10 +834,10 @@ This example is a demonstration of a classic rule of inferences. It takes 2 line
 And makes the following conclusion:
 1. We believe in $q$.
 
->[!Rule:-Modus-Ponens]
+>[!Rule-Modus-Ponens]
 > Given statements $p \to q$, and $p$, we are able to derive statement $q$.
 
-#### Rule 5: Modus Tollens
+### Rule: Modus Tollens
 To make things a little simpler in our proof system, and a little more flexibility: let's also think (intuitively first, before formally) about what else we could say. What if instead we were given the following?
 
 1. If it is raining, then I will bring an umbrella.
@@ -800,10 +854,10 @@ Can we say something about whether it is raining? Well we were promised if it wa
  >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines $1, 2$]
 
 In general, here is the rule:
->[!Rule:-Modus-Tollens]
+>[!Rule-Modus-Tollens]
 > Given statements $p \to q$, and $\neg q$, we are able to derive statement $\neg p$.
 
-#### Rule 6: Implication Introduction
+### Rule: Implication Introduction
 So far, in the previous rules, we have been using implication statements in one way or another. What if we wanted to **create** implication statements? Here's an example statement we can try to prove:
 
 > [!Theorem]
@@ -829,10 +883,18 @@ What's the idea? Intuitively, our proof system makes an assumption that $(p \lan
 Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line $2$. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
 
 In general, here is the rule:
->[!Rule:-Implication-Introduction]
+>[!Rule-Implication-Introduction]
 > Assuming statement $a$, if statement $b$ is derived as a sub-conclusion, then the Implication Introduction rule derives statement $a \to b$.
 
-#### Rules 7,8,9,10: (Existential/Universal) (Generalisation/Instantiation)
+### Rule: Double Negation
+Here's another (perhaps intuitive rule) that we have about the negations. In math, a double negative is pretty much the same as the original thing. That is to say: $\neg (\neg p)$ is logically equivalent to $p$. While this might not make sense in real life, this is something that math abides by.
+
+>[!Rule-Double-Negation]
+> If we have a statement $\neg (\neg p)$, we are able to derive statement $p$.
+
+Frankly speaking this rule is rarely ever used in isolation. We will see uses of this in bigger proofs.
+
+### Rules: (Existential/Universal) (Generalisation/Instantiation)
 For the sake of exposition, it is a lot more natural to consider all these 4 rules together at the same time for this section.
 
 
@@ -919,17 +981,46 @@ And if you read back the concluding line, it makes sense! It's saying:
 Why is this reasonable? We took $x$ arbitrarily. What about the assumption we made? We used the implication introduction rule to turn that back into $even(x) \to even(x + 2)$, so you could technically say we made no assumptions about $x$ and did take it arbitrarily.
 
 Here are the 4 final deduction rules in detail:
->[!Rule:-Existential-Generalisation]
+>[!Rule-Existential-Generalisation]
 > Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x [P(x)]$.
 
->[!Rule:-Existential-Instantiation]
+>[!Rule-Existential-Instantiation]
 > Given a line $\exists x \in A [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
 
->[!Rule:-Universal-Generalisation]
+>[!Rule-Universal-Generalisation]
 > Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A[P(x)]$.
 
->[!Rule:-Universal-Instantiation]
+>[!Rule-Universal-Instantiation]
 > Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
+
+
+### Rule: Contradiction
+Before our example, let's think about the following idea: What happens if someone comes up to you and says the following:
+
+> I am in the house **and** I am **not** in the house.
+
+What do we make of this? Does this sound _absurd_? It doesn't make sense right? Similarly, we have a rule in first order logic that does _exactly that_. We call this concept a **contradiction**. Since it is seemingly contradictory to both be in the house and not in the house at the same time. Here's an example in math. What if we said:
+
+$$
+x = 1 \land x \neq 1
+$$
+
+We should be able to say "this makes no sense". We have a symbol for this: $\bot$. We call the symbol "bot". But you can think of this as just the "contradiction symbol".
+
+For once, allow me to state the deduction rule first before giving an example, since it is a little involved.
+
+>[!Rule-Proof By Contradiction]
+> Given statement $a \land \neg a$, we are able to derive statement $\bot$.
+>  
+ >If we are able to assume $p$ and derive statement $\bot$, then we are able to conclude $\neg p$.
+ 
+ This might look a little confusing for now, but here's the rough idea, we basically want to assume $p$, then using the assumption $p$, we derive statement $a$. We also want to start from assumption $p$ and derive statement $\neg a$. Then we use the conjunction rule to derive statement $\bot$. Then from there we can conclude $\neg p$.
+
+This rule is a little tricky, and let's take a step back to think about what it means, and why this is okay. Here's the basic idea in English:
+
+>  We want to show that $p$ is false (or in other words, that $\neg p$ is true). To do this, we will just suppose that $p$ is indeed true, and then see that we end up deriving something crazy (or absurd). Why did that happen? It happened because of our assumption $p$. So our assumption $p$ cannot be true. In other words, $p$ must be false. Then, $\neg p$ must be true.
+
+We have deferred the example of using this rule to the very end of the notes of this unit. There, we will see this idea in full swing!
 
 # Proof Strategies
 
@@ -1032,48 +1123,6 @@ Why is this okay? Recall in section [[#Contrapositivity]] we talked about how $p
 > Even though they are logically equivalent, why do we prefer doing this?
 
 Look at the first proof again see how we got stuck. Then look at the second proof and notice that we could actually make something happen.
-
-## Proof by Cases
-Previously, we had seen this theorem:
-
->[!Theorem]
-> If $x^2 - 1 = 0$ then $x = 1 \lor x = -1$.
-
-What about the opposite direction? Is that true? How do we argue that:
-
->[!Theorem]
-> If $(x = 1 \lor x = -1)$, then $x^2 - 1 = 0$.
-
-Notice here that there are two possible cases here. So how should the proof proceed? Well, by cases!
-
->[!Proof]
-> 1. Assume $(x = 1 \lor x = -1)$.
-> 2. Case 1: $x = 1$
-> 	2.1 Then $x^2 = 1$ \[Basic algebra]
-> 3. Case 2: $x = -1$
-> 	3.1 Then $x^2 = 1$ \[Basic algebra]
-> 4. In all cases, it is shown that $x^2 = 1$
-
-This is short and sweet, pay attention to what is going on. Line $1$ is assuming that $x$ is either $1$ or $-1$. So we need to handle both cases. We do this by treating each case separately.
-
-> Must we handle each case?
-
-Yes. Here's an example of how you could go wrong if you don't. Consider this faulty statement:
-
-$$
-(x = 1 \lor x = 5) \to x^2 = 1
-$$
-
-Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
-
-Here's a faulty proof that skips a case:
->[!Faulty-Proof]
-> 1. Assume $(x = 1 \lor x = 5)$.
-> 2. Case 1: $x = 1$
-> 	2.1 Then $x^2 = 1$ \[Basic algebra]
-> 3. In all cases, it is shown that $x^2 = 1$
-
-
 ## Proof by Contradiction
 How about the following statement?
 
@@ -1092,14 +1141,23 @@ To be clear a **rational number** is a number that can be written as $\frac{a}{b
 Here is a _proof by contradiction_. Pay attention to how we are starting it by assuming the opposite of the theorem statement. The theorem statement says that $\sqrt{2}$ is irrational, and we start by assuming that $\sqrt{2}$ is not irrational (i.e. rational).
 
 To simplify things, let's use this following (yet unproven) fact:
-
 >[!Fact]
 > For any $x \in \mathbb{Q}$, $x$ can be written as $\frac{p}{q}$, where:
 > 1. $q \neq 0$
 > 2. $p \in \mathbb{Z} \land q \in \mathbb{Z}$
-> 3. $p, q$ have no common divisors, except 1.
+> 3. If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$.
 
-So for example, a rational number like $\frac{4}{6}$ can instead be written as $\frac{2}{3}$. This can always be done. Take any rational number $\frac{a}{b}$, then find the common divisors between $a$ and $b$, and then divide them. E.g. $100$ and $30$ have the common divisor $10$. So instead of $\frac{30}{100}$, we can write $\frac{3}{10}$.
+Which is basically saying that:
+> Any rational number $x$ can be written as a fraction $\frac{p}{q}$ where $q \neq 0$, and both $p, q$ are integers, and the fraction is simplified.
+
+For example, instead of writing $\frac{4}{6}$, we should write the fraction as $\frac{2}{3}$. How do we simplify fractions? We take the common divisors between the two numbers and remove them. E.g. $4$ and $6$ have a common divisor of $2$. So $4 / 2 =2$ and $6 / 2 = 3$. So now the only common divisor between $2$ and $3$ is $1$. Similarly, instead of $\frac{30}{105}$, the common factor here is $15$, so we should instead write the fraction as $\frac{2}{7}$. Again, between $2$ and $7$, the common divisor is $1$.
+
+So line $3$ is basically promising us that _the only divisor between $p$ and $q$ is $1$_.
+
+Again, notice that we want to formalise this in math, instead of English. So here's my proposed formalisation:
+
+>[!Fact]
+> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z} \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
 
 We will also make use of the previously proven fact:
 
