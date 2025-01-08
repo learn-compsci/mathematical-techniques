@@ -595,7 +595,6 @@ This is part of a general phenomenon. Here are some other intuitively equivalent
 
 How do we tell? One way is to use the method used in the section: [[#Truth tables, logical equivalences]].
 
-
 # Part 3: Proofs in First Order Logic
 
 Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. 
@@ -992,7 +991,6 @@ Here are the 4 final deduction rules in detail:
 
 >[!Rule-Universal-Instantiation]
 > Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
-
 
 ### Rule: Contradiction
 Before our example, let's think about the following idea: What happens if someone comes up to you and says the following:
