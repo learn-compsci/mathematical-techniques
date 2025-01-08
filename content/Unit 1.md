@@ -18,7 +18,7 @@ Let's begin by asking ourselves how exactly it is that people decide what "facts
 > 2. How do pharmacists decide if a certain drug $X$ is effective in treating a certain disease or not?
 > 3. How does the criminal justice system decide if a certain person has committed a crime?
 
-These are examples of _statements_ whose truth has to be ascertained. In the case of science, the answer is usually that experiments are run, and in light of the data available, one might infer with reasonable certainty that a statement is true (or otherwise). In the case of the justice system, two lawyers argue their case in front of a judge. Every party presents their interpretation of the laws in human language and the "truth" is decided by the judge (or jury) involved. In a manner of speaking, we can consider this process as giving _proofs_.
+These are examples of _statements_ whose truth has to be ascertained. In the case of science, the answer is usually that experiments are run, and in light of the data available, one might infer with reasonable certainty that a statement is true (or otherwise). In the case of the justice system, two lawyers argue their case in front of a judge. Every party presents their interpretation of the laws in human language and the "truth" is decided by the judge (or jury) involved. In a manner of speaking, we can consider this process as giving _proofs_. 
 
 What about in mathematics? In its purest form, there are no experiments to run, and ideally we do not appoint random people as arbiters of truth in math (like judges in the legal system). Because of the nature of the statements (as you will see) we want something more robust and universal. That said, the job is pretty much the same: We want to figure out which statements are true, and which statements are not.
 
@@ -32,12 +32,20 @@ for i in range(n):
 		do_something()
 ```
 
-How many times is `do_something()` called? Looking at this program and being able to reason about this sort of behaviour is something discrete math is about (in computer science). For example, we know that when $i = 1$, the inner loop runs $1$ time. When $i = 2$, the inner loop runs $2$ times, and so on. So the inner loop is run $1 + 2 + \cdots + n$, which is written as $\sum_{i = 1}^n i$. But how do we know that this is the same as $\frac{(n+1)n}{2}$?
+How many times is `do_something()` called? Perhaps we want to know because `do_something()` takes very long to execute, and we want to know how often are are doing it.
+
+Looking at this program and being able to reason about this sort of behaviour is something discrete math is about (in computer science). For example, we know that when $i = 1$, the inner loop runs $1$ time. When $i = 2$, the inner loop runs $2$ times, and so on. So the inner loop is run $1 + 2 + \cdots + n$, which is written as $\sum_{i = 1}^n i$. But how do we know that this is the same as $\frac{(n+1)n}{2}$?
 
 Sure we could try it for $n = 1, 2, 3, 4$ and realise that the two are the same. But what if there is some magical funny number for which they are different? How do we know for a fact that it works **for all** numbers?
 
 This is the kind of question whose _truth_ we wish to determine or ascertain in discrete math:
 "Is it true that for all numbers $n$, adding numbers $1, 2, 3, \ldots$ up until $n$ is the same as $\frac{n(n+1)}{2}$?"
+
+Reformulating the statement to look more mathematical, we would instead write something like:
+
+> Is it true that for all numbers $n$, is $\sum_{i = 1}^n i = \frac{n(n+1)}{2}$?
+
+Here, $\sum_{i = 1}^n i$ means $1 + 2 + 3 + \dots + n$.
 
 There's a lot of these statements that we can ask. And in due time, we will ask, and answer a lot of these. But first! We also need to learn how to speak in a new language. Why? There are a few reasons:
 
@@ -45,7 +53,6 @@ There's a lot of these statements that we can ask. And in due time, we will ask,
 2. Human language is quite ambiguous at times. And different languages are ambiguous in different ways.
 
 We can't eliminate the use of human language completely without making our jobs entirely miserable, but hopefully as a huge plus you'll see that after we pick up this new system, it actually makes it easier to reason about statements in computer science and math.
-
 ## Why must we do this?
 It is a little hard to explain the ease of use this new skillset would bring to someone who hasn't ever used it before. Perhaps the best way is to show an example and how unwieldy plain human language is for the task.
 
