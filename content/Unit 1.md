@@ -106,7 +106,7 @@ But to sum up:
 Just remind yourself, big picture: **we want to do proofs**.
 # Part 1: Propositional logic
 
-#### Basic Propositions
+## Basic Propositions
 Our starting point is forming propositions. Think of this as part 1 of the grammatical system. Let's re-examine that sentence again and see how we might view this in a new light:
 
 Instead of "No food and drink allowed in the computer lab.", let's first re-write it into "No food allowed in the computer lab and no drink allowed in the computer lab."
@@ -122,7 +122,7 @@ Think of a proposition as a statement that is either true or false. So these are
 In physics there are atoms the widely-assumed-to-be indivisible objects of this world. Here in propositional logic, propositions are the atoms (in that these are the smallest things).
 
 Now, the first statement is true, the second is false, but what about the last one? One might think yes, of course birds can fly. But what about penguins, ostriches, and emus? So is the statement false? Is it true? Depending on who you ask, the answer might be different but thankfully, this is not the type of statement that we are concerned with in CS and math.
-#### Logical Connectives
+## Logical Connectives
 Next thing to note is that we can form bigger and bigger **formulae** from smaller ones by using the following **logical connectives**:
 1. and
 2. or
@@ -162,7 +162,7 @@ We can also chain these to make even bigger ones, like so:
 > 2. We can create even bigger formulae by connecting other propositions using either **and**, **or**, **if, then**, and **not**.
 
 The next thing to ask is **how do we determine the truth values of the bigger propositions?** This is a key step in eliminating vagueness from our language: the wider math and CS community has agreed on these meanings and this behavior.
-#### Logical symbols
+## Logical symbols
 One more thing before we proceed, in line with understanding conventions, let $p,q$ be propositions (substitute them with anything you like), we write the following:
 
 | logical connective | respective symbol |
@@ -172,7 +172,7 @@ One more thing before we proceed, in line with understanding conventions, let $p
 |  if $p$ then $q$   |     $p \to q$     |
 |      not $p$       |     $\neg p$      |
 
-#### Behaviour of logical connectives
+## Behaviour of logical connectives
 Let's define the behaviours of the operations now.
 
 |  $p$  |  $q$  | $p \land q$ | $p \lor q$ | $\neg p$ | $p \to q$ |
@@ -184,7 +184,7 @@ Let's define the behaviours of the operations now.
 
 Okay that table might be a little overwhelming, but it's a good summary of what you need to understand in this section. Let's get into it.
 
-##### The And Connective
+### The And Connective
 Let's focus on the **and** operation, here's the table containing only those relevant columns.
 
 |  $p$  |  $q$  | $p \land q$ |
@@ -197,7 +197,7 @@ Let's focus on the **and** operation, here's the table containing only those rel
 So what's going on here? If we have two propositions $p, q$, then $p \land q$ is true only when both of them are true. Otherwise, if at least one of them is false, then $p \land q$ is false. This might be the most intuitive one.
 
 
-##### The Not Connective
+### The Not Connective
 Moving on, let's talk about the **not** operation.
 
 |  $p$  | $\neg p$ |
@@ -208,7 +208,7 @@ Moving on, let's talk about the **not** operation.
 So this one might be a little intuitive too, when a proposition is true, applying the **not** operation makes it false, and vice versa.
 
 
-##### The Or Connective
+### The Or Connective
 Let's move on to something slightly more unintuitive, the **or** operation.
 
 |  $p$  |  $q$  | $p \lor q$ |
@@ -222,7 +222,7 @@ Let's move on to something slightly more unintuitive, the **or** operation.
 Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p, q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
 
 
-##### The Implication Connective
+### The Implication Connective
 Lastly, the most unintuitive of the bunch. Let's spend some time on this one:
 
 |  $p$  |  $q$  | $p \to q$ |
@@ -271,12 +271,12 @@ What happens if $x$ is not $1$? Then can we say $x^2$ is not $1$? We can't! Afte
 
 Anyway! Don't worry too much about it, my recommended way of viewing it right now is just that these are very common logical operations we wish to perform, and therefore we have chosen to give these a name.
 
-#### Evaluating formulae
+## Evaluating formulae
 So given a formula, for example, $(p \to q) \land (q \to s)$, a **truth value assignment** to this formula is when we set each proposition (which we can also call a variable) to either true or false. Here's an example, $p \equiv true, q \equiv false, s \equiv true$ means that: $(p \to q)$ is now $false$ because of the values of $p, q$. Furthermore, $(q \to s)$ is now $true$ because of the values of $q, s$. Now, the entire formula is basically $false \land true$, which is, as we know, $false$.
 
 In plainer terms: we are just substituting variables for truth values then seeing what the resulting truth value is. Maybe in high school you might have seen something like $y = x + 5$, and if you substitute $x = 10$ then we know $y = 15$.
 
-#### Truth tables, logical equivalences
+## Truth tables, logical equivalences
 At this point it might be a good thing to talk about when two formulae are the same. Let's consider these two as an example:
 
 1. $\neg ( p \lor q )$
@@ -334,7 +334,7 @@ Yes, there are a few ways, but for now this is the most reliable way. To be clea
 > [!What is the point of all this?]
 > In due time you'll see that this is one of the few tools we have to understand and navigate this new language. It is a little hard to see the forest for the trees right now. But trust that understanding this and getting used to it is builds a strong foundation for everything we will be doing throughout the semester.
 
-#### A sneak peek into how we might use this: Keeping sight of the goal
+## A sneak peek into how we might use this: Keeping sight of the goal
 We have not gone into yet but here's a rough idea of how we might expect to use this tool.
 
 1. If Socrates is a human, then Socrates is mortal.
