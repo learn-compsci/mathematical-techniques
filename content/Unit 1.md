@@ -375,14 +375,14 @@ So we would end up seeing this:
 
 At this level, the 3 lines of proof 2 look unrelated to each other. And that seems to be an issue. After all, we would be very happy to accept something like Proof 2. It does look quite reasonable. So what are we missing? Remember that when talking about [[#Basic Propositions |basic propositions]], we said that propositions were like "atoms", indivisible and we were not allowed to pick apart the internals or the meanings of it. The other thing that will be useful will be to say "everything" or "something". So to do this, we have 2 new concepts to introduce to our "sentences": Predicates, and Quantifiers.
 
-#### Predicates
+## Predicates
 The first thing to do, is to create a new kind of "word" in our sentences, called predicates. In proof 2, we want to create a predicate called $human(x)$. You can think of $human$ like a function that takes objects, and outputs either true or false. So based on this, instead of saying "Socrates is a human.", we will instead say "$human(Socrates)$ is true". Here, $Socrates$ is an object, and the predicate $human()$ evaluates to true when given $Socrates$ as input. Perhaps $Car$ is another kind of object, and $human(Car)$ evaluates to false.
 
 Very similarly, instead of "Socrates is mortal", we will instead write $mortal(Socrates)$.
 
 With that, we have changed lines 2, and 3 of Proof 2. But what about line 1?
 
-#### Quantifiers
+## Quantifiers
 The second thing to do, is to introduce quantifiers. We want to be able to say "every human is mortal". In order to do so, we will write the following:
 
 $$
@@ -418,7 +418,7 @@ Coming back to Proof 2, here is how we will write it:
 
 Again, we have not talked about how to tell this proof is valid (or even what is a proof), but the goal of this part is to make sure you are able to at least read back each line to yourself in English and be convinced of its meaning.
 
-##### Another example: Expressing Even Numbers
+### Another example: Expressing Even Numbers
 How should we say a number is even? In English we might say something like "A number is even if it is divisible by 2." What does it mean here to be "divisible by 2"? After all, we **can** divide $3$ by $2$, we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. We will also need to take our numbers from a set. For this, the symbol $\mathbb{Z}$ denotes the **set of all whole numbers (integers)**.
 
 In discrete math, we say say that $x$ is an even number if:
@@ -441,7 +441,7 @@ When we write $\exists k \in \mathbb{Z}$, this means $k$ is in the set of whole 
 
 For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in Part 3 (and the rest of the semester). For now, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
 
-#### Certain manipulations and properties about quantifiers
+## Certain manipulations and properties about quantifiers
 
 There is an interesting aspect about quantifiers we need two talk about: What happens if we have more than a few of them? Let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$.
 
@@ -468,7 +468,7 @@ $$
 \neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} (x \geq y) \big)
 $$
 Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists a non-negative number that we will call $x$. Fix this $x$, for every non-negative number $y$, $x$ is greater than or equals to $y$". Since we want the opposite of that statement, we added the negation on the outside.
-#### Alternating Quantifiers
+### Alternating Quantifiers
 The first question we might want to ask is: Do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
 
 $$
@@ -480,7 +480,7 @@ Reading this back, this now says:
 
 Do they mean the same thing? The original is saying we can find a value that is smaller than or equals to all other values. The latter is saying that no matter the value we pick, we can always find something smaller than or equals to it. These do not mean the same thing!
 
-#### Negating Quantifiers
+### Negating Quantifiers
 Let's also take a look at what it means to negate a statement that has quantifiers in it. Here's the second statement again:
 
 $$
@@ -519,7 +519,7 @@ So for example, all of the following are equivalent:
 3. $\forall x, \exists y, \neg \big( \exists z (P(x, y, z)) \big)$
 4. $\forall x, \exists y,  \forall z, \neg \big( (P(x, y, z)) \big)$
 
-#### Variable Naming does not matter
+### Variable Naming does not matter
 The last thing you might wonder is whether the variable names matter. It does not! So, for example, these are all the same:
 
 1. $\exists a, \forall b, P(a, b)$
