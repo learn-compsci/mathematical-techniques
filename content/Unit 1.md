@@ -184,6 +184,7 @@ Let's define the behaviours of the operations now.
 
 Okay that table might be a little overwhelming, but it's a good summary of what you need to understand in this section. Let's get into it.
 
+##### The And Connective
 Let's focus on the **and** operation, here's the table containing only those relevant columns.
 
 |  $p$  |  $q$  | $p \land q$ |
@@ -195,6 +196,8 @@ Let's focus on the **and** operation, here's the table containing only those rel
 
 So what's going on here? If we have two propositions $p, q$, then $p \land q$ is true only when both of them are true. Otherwise, if at least one of them is false, then $p \land q$ is false. This might be the most intuitive one.
 
+
+##### The Not Connective
 Moving on, let's talk about the **not** operation.
 
 |  $p$  | $\neg p$ |
@@ -204,6 +207,8 @@ Moving on, let's talk about the **not** operation.
 
 So this one might be a little intuitive too, when a proposition is true, applying the **not** operation makes it false, and vice versa.
 
+
+##### The Or Connective
 Let's move on to something slightly more unintuitive, the **or** operation.
 
 |  $p$  |  $q$  | $p \lor q$ |
@@ -216,6 +221,8 @@ Let's move on to something slightly more unintuitive, the **or** operation.
 
 Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p, q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
 
+
+##### The Implication Connective
 Lastly, the most unintuitive of the bunch. Let's spend some time on this one:
 
 |  $p$  |  $q$  | $p \to q$ |
@@ -544,7 +551,7 @@ Okay that was the intuitive direction. But can we also say "Statement 1 $\to$ St
 
 > If we believed statement 1, we are only convinced that all blargs have paws. From this statement alone, we actually don't know anything about zorps. 
 > 
-> In the case that it turns out that zorps did not actually have paws, we cannot believe that Statement 1 is true.
+> In the case that it turns out that zorps did not actually have paws, we cannot believe that Statement 2 is true.
 
 So we should not be able to say "Statement 1 $\to$ Statement 2".
 
