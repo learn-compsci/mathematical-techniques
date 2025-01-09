@@ -705,6 +705,13 @@ Formally, we can say:
 > **The predicate $even(x)$ is defined to be $\exists k \in \mathbb{Z} [2 \cdot k = x]$**.
 
 It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
+
+>[!Definition-Unpacking-Rule]
+> Given a definition, e.g. $even(x) \equiv \exists k \in \mathbb{Z}[x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is $\exists k \in \mathbb{Z}[x = 2\cdot k]$.
+> 
+> Similarly, if we are given the line $\exists k \in \mathbb{Z}[x = 2\cdot k]$, we may derive the line $even(x)$.
+
+Throughout the course we will see more and more definitions (also in the tutorial). For now let us use this one for our remaining examples for this unit.
 ### Rule: Basic Algebra
 
 Example usage:
@@ -732,7 +739,7 @@ Example usage:
 
 Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convince that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
 
->[!Rule-Specialisation]
+>[!Specialisation-Rule]
 > Given statement $p \land q$, we are able to derive statement $p$.
 > Furthermore, given statement $p \land q$, we are able to derive statement $q$.
 
@@ -743,12 +750,17 @@ Example usage:
 
 >[!Proof]
 > 1. Assume that $x = 5$.
-> 2. Then $x < 10$. \[Basic Algebra]
-> 3. Then $x > 0$. \[Basic Algebra]
+> 2. Then $x < 10$. \[Basic Algebra from line $1$]
+> 3. Then $x > 0$. \[Basic Algebra from line $1$]
 > 4. $x < 10 \land x > 0$ \[Conjunction on lines 2, 3]
 
 This time, the notice that lines 2, and 3 followed from line 1. Since we derived both of those statements, we know both of them to be true. Therefore we can say line 2 and line 3 are true. So, we can use the $\land$ connective on both lines.
-### Rule 3: Generalisation
+
+>[!Conjunction-Rule]
+> Given statement $p$, and separately $q$. We are able to derive statement $p \land q$.
+
+### Rule: Generalisation
+
 Example usage:
 >[!Theorem]
 > Assume $x < 10$, then $x < 10 \lor x = 10$.
@@ -759,10 +771,11 @@ Example usage:
 
 This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
 
->[!Rule-Generalisation]
+>[!Generalisation-Rule]
 > Given statement $p$, we are able to derive statement $p \lor q$.
 > Furthermore, given statement $p$, we are able to derive statement $q \lor p$.
 ### Rule: Proof By Cases
+
 Example usage:
 >[!Theorem]
 > Assume $x = 3 \lor x = 5$, then $x > 0$.
@@ -795,7 +808,7 @@ And notice here how the proof changes:
 > 5. Therefore $x(x - 1)(x+10) = 0$ \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
 
 In general:
->[!Rule-Proof-By-Cases]
+>[!Proof-by-cases-rule]
 > Given a statement $p \lor q$, and if we can assume $p$ to prove $r$, and if we can assume $q$ to prove $r$, then we can conclude $r$.
 
 > Must we handle each case?
@@ -833,7 +846,7 @@ This example is a demonstration of a classic rule of inferences. It takes 2 line
 And makes the following conclusion:
 1. We believe in $q$.
 
->[!Rule-Modus-Ponens]
+>[!Modus-Ponens-Rule]
 > Given statements $p \to q$, and $p$, we are able to derive statement $q$.
 
 ### Rule: Modus Tollens
@@ -853,7 +866,7 @@ Can we say something about whether it is raining? Well we were promised if it wa
  >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines $1, 2$]
 
 In general, here is the rule:
->[!Rule-Modus-Tollens]
+>[!Modus-Tollens-Rule]
 > Given statements $p \to q$, and $\neg q$, we are able to derive statement $\neg p$.
 
 ### Rule: Implication Introduction
@@ -882,20 +895,19 @@ What's the idea? Intuitively, our proof system makes an assumption that $(p \lan
 Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line $2$. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
 
 In general, here is the rule:
->[!Rule-Implication-Introduction]
+>[!Implication-Introduction-Rule]
 > Assuming statement $a$, if statement $b$ is derived as a sub-conclusion, then the Implication Introduction rule derives statement $a \to b$.
 
 ### Rule: Double Negation
 Here's another (perhaps intuitive rule) that we have about the negations. In math, a double negative is pretty much the same as the original thing. That is to say: $\neg (\neg p)$ is logically equivalent to $p$. While this might not make sense in real life, this is something that math abides by.
 
->[!Rule-Double-Negation]
+>[!Double-Negation-Rule]
 > If we have a statement $\neg (\neg p)$, we are able to derive statement $p$.
 
 Frankly speaking this rule is rarely ever used in isolation. We will see uses of this in bigger proofs.
 
 ### Rules: (Existential/Universal) (Generalisation/Instantiation)
 For the sake of exposition, it is a lot more natural to consider all these 4 rules together at the same time for this section.
-
 
 Let's begin with a smaller example that demonstrates the use of existential instantiation. Let's see that in action by proving this theorem formally:
 
@@ -1007,18 +1019,31 @@ We should be able to say "this makes no sense". We have a symbol for this: $\bot
 
 For once, allow me to state the deduction rule first before giving an example, since it is a little involved.
 
->[!Rule-Proof By Contradiction]
+>[!Contradiction-Rule]
 > Given statement $a \land \neg a$, we are able to derive statement $\bot$.
->  
- >If we are able to assume $p$ and derive statement $\bot$, then we are able to conclude $\neg p$.
- 
- This might look a little confusing for now, but here's the rough idea, we basically want to assume $p$, then using the assumption $p$, we derive statement $a$. We also want to start from assumption $p$ and derive statement $\neg a$. Then we use the conjunction rule to derive statement $\bot$. Then from there we can conclude $\neg p$.
 
-This rule is a little tricky, and let's take a step back to think about what it means, and why this is okay. Here's the basic idea in English:
 
->  We want to show that $p$ is false (or in other words, that $\neg p$ is true). To do this, we will just suppose that $p$ is indeed true, and then see that we end up deriving something crazy (or absurd). Why did that happen? It happened because of our assumption $p$. So our assumption $p$ cannot be true. In other words, $p$ must be false. Then, $\neg p$ must be true.
+### Rule: Proof by Contradiction
+Let's build off of the previous rule, and continue exploring that idea. Recall in the previous rule we talked about how if we have two contradictory statements, we can write a line in our proof that says $\bot$. Basically that line is declaring "A-ha! We've found a contradiction."
 
-We have deferred the example of using this rule to the very end of the notes of this unit. There, we will see this idea in full swing!
+What can we do with that line?
+
+Here's the rough idea: let's say we want to prove as a conclusion that a statement like $\neg p$ is true. One way to do that is to assume $p$, then using our assumption, somehow derive $\bot$. (See how we can use the previous rule to do this)? Then from there, the rule of proof by contradiction tells us that if from $p$ we derived $\bot$, we can conclude $\neg p$ in our proof.  
+
+This rule is a little tricky, and let's take a step back to think about what it means, and why this is okay. Here's the basic example of this idea in action (in English). Let's say we want to convince someone that the moon is **not** made of cheese. Here's one way we might do that:
+
+> 1. Let's assume that the moon is made of cheese. 
+> 2. If so, it would get mouldy.
+> 3. If so, we should notice a greenish or bluish hue whenever we look at the moon.
+> 4. Do you notice how absurd that is?
+> 5. Therefore, the moon is **not** made of cheese.
+
+We can do the same thing in math, and that is via the **proof by contradiction rule**. 
+
+>[!Proof-By-Contradiction-Rule]
+> If assuming $p$, we are able to derive $\bot$, we may conclude in our proof $\neg p$.
+
+An example of this proof is deferred to the end of this unit. We will first start showing a few proofs before ending on a proof that uses this rule.
 
 # Proof Strategies
 
@@ -1026,8 +1051,6 @@ For the remainder of this part, we will be talking about how to prove certain ty
 To do this we will give general strategies you can stick to to try to prove everything throughout the semester. After this unit, we will basically start doing proofs for most of the topics.
 
 Also, you may have noticed right now we are only showing very basic statements about math. This is a deliberate choice. As we go on in the semester we will be showing newer and newer concepts, and applying what we have learned here.
-
-
 ## Direct Proof
 
 So if the goal of a task is to prove something like:
@@ -1155,7 +1178,9 @@ So line $3$ is basically promising us that _the only divisor between $p$ and $q$
 Again, notice that we want to formalise this in math, instead of English. So here's my proposed formalisation:
 
 >[!Fact]
-> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z} \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
+> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
+
+The first two statements probably are familiar, we are saying that $x$ is a fraction $\frac{p}{q}$, and that the denominator $q$ is non-zero. What about the last part? It's saying that we go through all the numbers, call them $d$. If $d$ divides both $p$ and $q$, then it must be $1$. This is our way of saying that "If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$".
 
 We will also make use of the previously proven fact:
 
@@ -1163,30 +1188,54 @@ We will also make use of the previously proven fact:
 > $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
 
 >[!Proof]
-> 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational.
-> 2. Then $\exists a, b \in \mathbb{Z} [\sqrt{2} = \frac{a}{b}]$ \[Unpacking definition of rational]
-> 3. Let $p, q \in \mathbb{Z}$ be values such that $\sqrt{2} = \frac{p}{q} \land p \neq 0$ \[Existential instantiation on line 2]
-> 4. Then $\sqrt{2} = \frac{a}{b}$, where $b \neq 0 \land a, b \mathbb{Z}$, and $a, b$ have no common divisors, except 1.
-> 5. Now $2 b^2 = a^2$ \[Basic algebra]
-> 6. $b^2 \in \mathbb{Z}$ \[Basic algebra]
-> 7. $\exists t \in \mathbb{Z}[a^2 = 2\cdot t]$ \[Existential generalisation over lines 5, 6]
-> 8. $even(a^2)$ \[Unpacking definition of even]
-> 9. $even(a^2) \to even(a)$ \[Universal instantiation of previously proven theorem]
-> 10. $even(a)$ \[Modus ponens on lines 8, 9]
-> 11. $\exists t \in \mathbb{Z}[a = 2\cdot t]$ \[Unpacking definition of even]
-> 12. Let $k \in \mathbb{Z}$, such that $a = 2\cdot k$ \[Existential instantiation on line 11]
-> 13. Therefore $a^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra]
-> 14. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra, merging lines 13, and 5]
-> 15. $b^2 = 2 \cdot k^2$ \[Basic algebra]
-> 16. Therefore $\exists t \in \mathbb{Z}[b^2 = 2\cdot t]$ \[Existential generalisation on line 15]
-> 17. Therefore $even(b^2)$  \[Unpacking definition of even]
-> 18. $even(b^2) \to even(b)$ \[Universal instantiation of previously proven theorem]
-> 19. $even(b)$ \[Modus ponens on lines 17, 18]
-> 20. $even(a) \land even(b)$ \[Conjunction of lines 10, 19]
-> 21. Therefore $2$ is a common divisor of $a$ and $b$.
-> 22. Contradiction with line 4. **(Note: This is the important line!)**
-> 23. Due to the contradiction, we conclude: It is not the case that $\sqrt{2}$ is rational. Therefore, $\sqrt{2}$ is irrational.
+> 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational. I.e. $\sqrt{2} \in \mathbb{Q}$
+> 2. $\forall x, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Fact 1]
+> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal Instantiation of Fact 1, replacing $x$ with $\sqrt{2}$]
+> 4. Let $a, b \in \mathbb{Z}$ be such that $\sqrt{2} = \frac{a}{b} \land b \neq 0 \land \forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Existential instantiation on line 3]
+> 5. $\sqrt{2} = \frac{a}{b}$ \[Specialisation on line 4]
+> 6. Now $2 b^2 = a^2$ \[Basic algebra]
+> 7. $b^2 \in \mathbb{Z}$ \[Basic algebra]
+> 8. $\exists t \in \mathbb{Z}[a^2 = 2\cdot t]$ \[Existential generalisation over lines 6, 7]
+> 9. $even(a^2)$ \[Unpacking definition of even]
+> 10. $even(a^2) \to even(a)$ \[Universal instantiation of previously proven theorem]
+> 11. $even(a)$ \[Modus ponens on lines 9, 10]
+> 12. $\exists t \in \mathbb{Z}[a = 2\cdot t]$ \[Unpacking definition of even]
+> 13. Let $k \in \mathbb{Z}$, such that $a = 2\cdot k$ \[Existential instantiation on line 12]
+> 14. Therefore $a^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra]
+> 15. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra, merging lines 14, and 6]
+> 16. $b^2 = 2 \cdot k^2$ \[Basic algebra]
+> 17. Therefore $\exists t \in \mathbb{Z}[b^2 = 2\cdot t]$ \[Existential generalisation on line 16]
+> 18. Therefore $even(b^2)$  \[Unpacking definition of even]
+> 19. $even(b^2) \to even(b)$ \[Universal instantiation of previously proven theorem]
+> 20. $even(b)$ \[Modus ponens on lines 18, 19]
+> 21. $even(a) \land even(b)$ \[Conjunction of lines 10, 19]
+> 22. $divides(2, a) \land divides(2, b)$  \[Basic Algebra]
+> 23. $\forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Specialisation on line 4]
+> 24. $2 \in \mathbb{Z}$ \[Basic algebra]
+> 25. $divides(2, a) \land divides(2, b) \to 2 = 1$ \[Universal instantiation on line 23]
+> 26. $2 = 1$ \[Modus Ponens on lines 24, 25]
+> 27. $2 \neq 1$ \[Basic algebra]
+> 28. $\bot$ \[Contradiction rule on lines 26, 27] (**Look! We used it here!**)
+> 29. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof By Contradiction rule. Assumption on line $1$, $\bot$ on line $28$]
 
-This is the heaviest proof we will do for a while. Here are a few notes: Yes we could have made this a little more formal, but what you need to focus on is how a proof by contradiction works. In general, one starts by assuming the **negation of the statement they wish to prove**. In our example, we want to prove $\sqrt{2}$ is irrational, so we **assume that $\sqrt{2}$ is rational.**
 
-Then, we start making deductions using our rules, and keep doing so, until we find 2 lines that are in direct conflict with each other. In particular, line 4 and 22 here contradict each other: One says $a$ and $b$ do not have common divisors besides $1$. And since both $a, b$  are even, we know $2$ is a common divisor of both. How can this be allowed? Where did we go wrong? It must be our assumption that was wrong. We started on the wrong foot, and that's how we obtained a contradiction.
+I think this proof warrants a read-back in English, here's the proof again in English that skips the rules and contains the essence of what we are trying to say:
+
+1. Assume for the sake of contradiction that $\sqrt{2}$ can be written as a fraction $\frac{p}{q}$, where $p, q$ are integers.
+2. We know all fractions can be simplified, so let's re-write $\sqrt{2} = \frac{p}{q}$ as $\sqrt{2} = \frac{a}{b}$, where $\frac{a}{b}$ is simplified. In other words, the **only** common factor between $a, b$ is $1$, and $a, b$ are integers.
+3. Now we know that $2 b^2 = a^2$.
+4. That means that $a^2$ is even.
+5. That means that $a$ is also even. (Proven from previous parts)
+6. So $a = 2t$ for some integer $t$.
+7. So $2b^2 = (2t)^2 = 2(2t^2)$.
+8. So that means that $b^2 = 2t^2$.
+9. So that means that $b^2$ is also even. 
+10. Which means that $b$ is also even. (Proven from previous parts)
+11. Which means $b = 2k$ for some integer $k$.
+12. Combining lines 5, and 10, we conclude $a$ is even, and $b$ is even.
+13. This means $2$ is a common divisor of $a$ and $b$.
+14. The only common divisor of $a$ and $b$ should be $1$.
+15. This means $2$ is $1$.
+16. But $2$ is not $1$. 😱
+17. Therefore, our assumption needs to be negated. $\sqrt{2}$ cannot be written as a fraction $\frac{p}{q}$ where $p, q$ are integers.
+
