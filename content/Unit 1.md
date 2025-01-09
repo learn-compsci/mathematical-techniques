@@ -425,6 +425,9 @@ Coming back to Proof 2, here is how we will write it:
 
 Again, we have not talked about how to tell this proof is valid (or even what is a proof), but the goal of this part is to make sure you are able to at least read back each line to yourself in English and be convinced of its meaning.
 
+Here's a diagram that roughly explains the format:
+![[basic-quantifier.png]]
+
 ### Another example: Expressing Even Numbers
 How should we say a number is even? In English we might say something like "A number is even if it is divisible by 2." What does it mean here to be "divisible by 2"? After all, we **can** divide $3$ by $2$, we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. We will also need to take our numbers from a set. For this, the symbol $\mathbb{Z}$ denotes the **set of all whole numbers (integers)**.
 
@@ -449,8 +452,21 @@ When we write $\exists k \in \mathbb{Z}$, this means $k$ is in the set of whole 
 For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in Part 3 (and the rest of the semester). For now, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
 
 ## Certain manipulations and properties about quantifiers
+There is an interesting aspect about quantifiers we need two talk about: up to the previous part, we have been able to say things like:
 
-There is an interesting aspect about quantifiers we need two talk about: What happens if we have more than a few of them? Let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$.
+>"Every person is mortal."
+>
+>"There exists an even number."
+
+What about if we wanted to say something like:
+
+>"Every car has a steering wheel."
+>
+ >"There is a planet that everyone lives on." 
+
+Then, we need to use **more than one quantifier**.
+
+What happens if we have more than a few of them? Let's see some examples relating to numbers that does that. We will need a set to work with,  let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$.
 
 We will use the $\leq$ symbol to mean "smaller than or equals to", and $\geq$ to mean "greater than or equals to". What if we wanted to write the following mathematically?
 
@@ -474,6 +490,7 @@ Let's look at the second statement.
 $$
 \neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} (x \geq y) \big)
 $$
+
 Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists a non-negative number that we will call $x$. Fix this $x$, for every non-negative number $y$, $x$ is greater than or equals to $y$". Since we want the opposite of that statement, we added the negation on the outside.
 ### Alternating Quantifiers
 The first question we might want to ask is: Do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
@@ -487,6 +504,13 @@ Reading this back, this now says:
 
 Do they mean the same thing? The original is saying we can find a value that is smaller than or equals to all other values. The latter is saying that no matter the value we pick, we can always find something smaller than or equals to it. These do not mean the same thing!
 
+Here's an analogy, are these two statements the same?
+
+> "Every car has a steering wheel."
+>  vs.
+> "There is a steering wheel, that every car has."
+
+See how they don't mean the same thing?
 ### Negating Quantifiers
 Let's also take a look at what it means to negate a statement that has quantifiers in it. Here's the second statement again:
 
