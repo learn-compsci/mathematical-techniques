@@ -11,11 +11,19 @@ This website's intended usage by students taking discrete math courses at the [S
 
 
 # How the course is run:
-Video lectures will be uploaded 
+
+
+* Video lectures and tutorial will be uploaded on YouTube before the respect week. E.g. Week 2's lecture videos will be out on YouTube. The expected video length per week is around 1 to 1.5 hours. You may find the list of videos below. The expected time to complete the tutorials is around 1 hour. The course schedule by topic is listed below. In the course schedule you will also find notes for the respective topic, each to be released on the respective week.
+
+* There are in-person tutorials for you to discuss tutorial solutions with the tutors on weeks 4, 6, 7, 9, 11, 13 on Tuesday, at 6:30PM-8:30PM.
+
+* There are also 2 assignments and a finals exam for the course. Tentatively, the final exam is at 29-Apr-2025 5:00 PM, venue: TBD.
+
+
 
 # Course Schedule
 
-|    Week     |                 Topic                  |                                               Unit, Part                                                |    Tutorial     | Assignment Due Dates |
+|    Week     |                 Topic                  |                                            Notes Unit, Part                                             |    Tutorial     | Assignment Due Dates |
 | :---------: | :------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :-------------: | :------------------: |
 |      1      |    Introduction and Course Overview    |                                                                                                         |                 |                      |
 |      2      | Propositional Logic, First Order Logic | [[Unit 1#Part 1 Propositional logic\|Unit 1 Part 1]],[[Unit 1#Part 2 First Order Logic\|Unit 1 Part 2]] |                 |                      |
@@ -32,10 +40,20 @@ Video lectures will be uploaded
 |     12      |             Probability 2              |                                                                                                         |                 |                      |
 |     13      |              Rounding Up               |                                                                                                         |        6        |                      |
 
+# Lecture Video Links
+
+## Week 1
+1. [Introduction to Propositions, and Logical Connectives](https://youtu.be/q85U4qeTHVw)
+2. 
+
 # Notes
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
 # Tutorials
 [[Tutorial 1|Tutorial 1]]
 
-# Assignments
-- Links will appear as they are released.
+# Course Grading
+There are 6 tutorials. Each tutorial will have 1-2 questions for which we will indicate you should attempt. Earnest attempts are graded and 5% will be given per tutorial for a total of 30% of the semester. To be clear, you **do not need to get the correct solutions**. We want to encourage you to attempt applying the concepts, not necessarily get them fully correct as you are learning. Any decent attempt will earn you the full 5%.
+
+The assignments are weighted at 15% each. For a total of 30% as there are 2 assignments. 
+
+The final weightage is 40% and is on paper.

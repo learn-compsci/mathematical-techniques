@@ -311,7 +311,7 @@ Let's do the same for the second formula:
 
 This time, the third column depends on the first. The fourth column depends on the second, and the final column depends on the third and fourth.
 
-Oh look! The final column is the same. This means the two formulae are **logically equivalent**. The other way of seeing is is that no matter how we set $p, q$ in the first formula, if we also set $p, q$ the same way in the second formula, it evaluates to the same truth value.
+Oh look! The final column is the same. This means the two formulae are **logically equivalent**. The other way of seeing this, is that no matter how we set $p, q$ in the first formula, if we also set $p, q$ the same way in the second formula, it evaluates to the same truth value.
 
 Consider instead these 2 examples:
 1. $p \to q$
