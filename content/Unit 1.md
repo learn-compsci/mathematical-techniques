@@ -466,12 +466,12 @@ What about if we wanted to say something like:
 
 Then, we need to use **more than one quantifier**.
 
-What happens if we have more than a few of them? Let's see some examples relating to numbers that does that. We will need a set to work with,  let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$.
+What happens if we have more than a few of them? Let's see some examples relating to numbers that does that. We will need a set to work with,  let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$. We call these **natural numbers**.
 
 We will use the $\leq$ symbol to mean "smaller than or equals to", and $\geq$ to mean "greater than or equals to". What if we wanted to write the following mathematically?
 
-1. There exists an integer that is smaller than or equals to all integers.
-2. It is not the case that there exists an integer that is greater than or equals to all integers.
+1. There exists a natural numbers  that is smaller than or equals to all natural numbers.
+2. It is not the case that there exists a natural numbers that is greater than or equals to all natural numbers.
 
 Let's begin with the first one, this is a prime example in nesting quantifiers. That is to say, using more than one.
 
