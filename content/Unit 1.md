@@ -241,14 +241,15 @@ Lastly, the most unintuitive of the bunch. Let's spend some time on this one:
 
 Let's use this statement as an analogy:
 
-> **If** "it is a cat", **then** "it has paws".
+> **If** "Sam is a cat", **then** "Sam has paws".
 
 When is the statement true? What is the statement false?
-As long as all cats we refer to as "it" has paws, then the statement is true. Since "it" is a cat, and "it" has paws the statement isn't lying. 
 
-What about when "it" is a cat and it doesn't have paws? Then the statement would be lying to us, and we would consider it false. Here's the intuition in English: The statement is a commitment to cats that they must have paws. So the moment we find a pawless cat, the statement has broken its commitment, and we therefore consider that statement to be false.
+Notice that if Sam is indeed a cat, but Sam does not have paws, then the entire statement is false. Think of this as a promise that has been broken.
 
-Okay, so far we've been considering when "it" is a cat. What about when "it" is not a cat? Well, dogs have paws too! Let's say that "it" was actually a dog, do we want to say the statement was false? No. The statement has only made a commitment about cats, not dogs. So it doesn't matter what happens then.
+Here's the intuition in English: The statement is a commitment. A promise that as long as Sam is a cat, then in return we know Sam must have paws. So the moment we find out it is otherwise, the statement is false.
+
+Okay, so far we've been considering when Sam is a cat. But what about if Sam is not a cat? Do we care if Sam has paws? Should we expect the promise to hold? No. It is not applicable anymore, so in this case we consider the statement to be true regardless.
 
 So let's move back to the bigger picture, given a statement $p \to q$, here are the important things to note:
 
@@ -256,9 +257,8 @@ So let's move back to the bigger picture, given a statement $p \to q$, here are 
 2. We call $q$ the consequent.
 3. When the antecedent (which is $p$ here) is true, then $q$ must be true.
 4. When the antecedent (which is $p$ here) is false, then it does not matter what $q$ is, $p \to q$ is always true.
-5. When the consequent (which is $q$ here) is true, then it does not matter what $p$ is,  $p \to q$ is always true.
 
-You might wonder at this point "why is it defined this way?" and you will see the answer when we start doing mathematical proofs with them. The answer is line an onion, there's many layers to it:
+You might wonder at this point "why is it defined this way?" and you will see the answer when we start doing mathematical proofs with them. The answer is like an onion, there's many layers to it:
 
 1. At a beginner level, the answer is that "It is actually quite intuitive to think of it that way."
 2. At an intermediate level, the answer is that "A lot of the proofs line up and things work out."
