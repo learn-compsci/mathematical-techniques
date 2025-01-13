@@ -549,7 +549,7 @@ We can go a little further, and say:
 Mathematically:
 
 $$
- \forall x \in \mathbb{N}, \forall y \in \mathbb{N} \big( \neg ( x \geq y) \big)
+ \forall x \in \mathbb{N}, \exists y \in \mathbb{N} \big( \neg ( x \geq y) \big)
 $$
 
 Again, take a while to sit on this and convince yourself that they are the same.
