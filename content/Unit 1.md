@@ -512,7 +512,20 @@ Here's an analogy, are these two statements the same?
 
 See how they don't mean the same thing?
 ### Negating Quantifiers
-Let's also take a look at what it means to negate a statement that has quantifiers in it. Here's the second statement again:
+
+Let's also take a look at what it means to negate a statement that has quantifiers in it. Let's think about when a number $x$ is not even. We know that we can write this as:
+
+$$
+\neg \big( \exists k \in \mathbb{Z} [x = 2k] \big)
+$$
+
+That's simply by negating it. But we can also write this as:
+
+$$
+\forall k \in \mathbb{Z}[ x \neq 2k]
+$$
+
+Which basically says, "for every integer $k$, is it not the case that $x$ is equal to $2k$." In plainer terms: it means we cannot write $x$ as $2k$, where $k$ is an integer. Let's go through on more example, the second statement from the previous section:
 
 $$
 \neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} (x \geq y) \big)
@@ -563,7 +576,6 @@ Pay special attention to lines 2 and 3 and notice that we have swapped the names
 ## Implications, and Equivalences
 
 Let us end part 1 and 2 on 2 important concepts: Implications, and Equivalences.
-
 ### Implications of Statements
 We have been talking a lot about forming statements, and it's time to start talking about two potential relationships between statements.
 
