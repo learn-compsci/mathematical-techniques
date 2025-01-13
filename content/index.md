@@ -49,11 +49,14 @@ This website's intended usage by students taking discrete math courses at the [S
 # Notes
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
 # Tutorials
-[[Tutorial 1|Tutorial 1]]
+* To be released
 
 # Course Grading
-There are 6 tutorials. Each tutorial will have 1-2 questions for which we will indicate you should attempt. Earnest attempts are graded and 5% will be given per tutorial for a total of 30% of the semester. To be clear, you **do not need to get the correct solutions**. We want to encourage you to attempt applying the concepts, not necessarily get them fully correct as you are learning. Any decent attempt will earn you the full 5%.
 
-The assignments are weighted at 15% each. For a total of 30% as there are 2 assignments. 
-
-The final weightage is 40% and is on paper.
+* 20%: Best 4 out of 5 tutorial attempts.
+	* Each tutorial attempt is 5%.
+	* To be clear, you **do not need to get the correct solutions**. We want to encourage you to attempt applying the concepts, not necessarily get them fully correct as you are learning. Any decent attempt will earn you the full 4%. We will take the best 4 marks out of 5 submissions. 
+* 30%: Two assignments, 15% each.
+	* Will be graded based on correctness.
+* 50%: Final paper
+	* In person, open-book. No electronic devices.
