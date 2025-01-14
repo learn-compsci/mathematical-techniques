@@ -9,12 +9,15 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # How the course is run:
 
+* Video lectures and tutorial will be uploaded on YouTube before the respect week. E.g. Week 2's lecture videos will be out on YouTube. The expected video length per week is around 1 to 1.5 hours. You may find the list of videos below.
 
-* Video lectures and tutorial will be uploaded on YouTube before the respect week. E.g. Week 2's lecture videos will be out on YouTube. The expected video length per week is around 1 to 1.5 hours. You may find the list of videos below. The expected time to complete the tutorials is around 1 hour. The course schedule by topic is listed below. In the course schedule you will also find notes for the respective topic, each to be released on the respective week.
+* Tutorial sheets will generally be released on the same week as the start of the unit. i.e. Tutorial 1 will be released on week 2. Tutorial 2 will be released on week 5. Tutorial 3 will be released on week 7. Tutorial 4 on week 9. Tutorial 5 on week 11. We will try to make it so that the expected time worked on it is about an hour.
 
-* There are in-person tutorials for you to discuss tutorial solutions with the tutors on weeks 4, 6, 7, 9, 11, 13 on Tuesday, at 6:30PM-8:30PM.
+* There are in-person tutorials for you to discuss tutorial solutions with the tutors on weeks 5, 7, 9, 11, 13 on Tuesday, at 6:30PM-8:30PM. Tutorial solutions will then be released online a day after the tutorial.
 
 * There are also 2 assignments and a finals exam for the course. Tentatively, the final exam is at 29-Apr-2025 5:00 PM, venue: TBD.
+
+* Assignment policy: Collaboration is allowed. No use of ChatGPT or other LLMs. List your collaborators, and your write-up must be done by yourself.
 
 
 
