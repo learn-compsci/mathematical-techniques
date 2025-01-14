@@ -25,7 +25,7 @@ In computer science, very often the objects and concepts we deal with are mathem
 For example, here's an example provable statement:
 > Let $M$ be the random variable denoting the number of mistakes of the learner, and $B$ be the the number of mistakes of the best expert, and $N$ be the number of rounds, then:
 > $$\mathbb{E}[M] \in O(B) + O(\ln(N))$$
-> - An excerpt adapted from [[https://en.wikipedia.org/wiki/Multiplicative_weight_update_method#Randomized_weighted_majority_algorithm|this wiki page on a well-known machine learning algorithm]].
+> - An excerpt adapted from [this wiki page on a well-known machine learning algorithm](thttps://en.wikipedia.org/wiki/Multiplicative_weight_update_method#Randomized_weighted_majority_algorithm).
 
 Learning how be able to read this statement, as well as what these symbols mean, is an end-goal of this module.
 
