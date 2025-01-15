@@ -1,3 +1,7 @@
+---
+hidden: "true"
+---
+
 ## Question 4
 
 The **contrapositive** of the statement $p\rightarrow q$ is $\neg q\rightarrow \neg p$. Draw a truth table to verify that the statements are logically equivalent.
