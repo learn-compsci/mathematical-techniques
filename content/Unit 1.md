@@ -735,8 +735,6 @@ Look at the example again the two things: (1) the proof that Tabby has paws, and
 >  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
 ## Allowable Rules of Deductions
 
-TODO: rework this
-
 ### Rule: Definition Unpacking
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
 
@@ -981,18 +979,18 @@ Why is this true? Here's the high level idea, we know that if $x$ is an even int
 
 Okay that's the idea, but how do we do it formally? Again, we will want to use some rules to help us make the deduction. Let's see them in action:
 
-> [!Proof]
-> 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
-> 	1.1 Assume that $even(x)$.
-> 	1.2 $\exists k \in \mathbb{Z}[x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
-> 	1.3 Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential Instantiation on line $1.2$]
-> 	 1.4 $x + 2 = 2 \cdot t + 2$ \[Basic Algebra]
-> 	 1.5 $x + 2 = 2 \cdot (t + 1)$ \[Basic Algebra]
-> 	 1.6 Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$ \[Basic Algebra]
-> 	 1.7 $\exists z \in \mathbb{Z} [x + 2 = 2 \cdot z]$ \[Existential Generalisation on line $1.5$, $1.6$]
-> 	 1.8 $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
-> 	 1.9 $even(x) \to even(x + 2)$ \[Implication Introduction on lines $1.1$, and $1.8$]
-> 2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
+**Proof:** 
+ 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
+	 1. Assume that $even(x)$.
+	 2. $\exists k \in \mathbb{Z}[x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
+	 3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential Instantiation on line $1.2$]
+	 4. $x + 2 = 2 \cdot t + 2$ \[Basic Algebra]
+	 5. $x + 2 = 2 \cdot (t + 1)$ \[Basic Algebra]
+	 6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$ \[Basic Algebra]
+	 7. $\exists z \in \mathbb{Z} [x + 2 = 2 \cdot z]$ \[Existential Generalisation on line $1.5$, $1.6$]
+	 8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
+	 9. $even(x) \to even(x + 2)$ \[Implication Introduction on lines $1.1$, and $1.8$]
+2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
 
 Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses $3$ new rules here. What is going on?
 
@@ -1119,17 +1117,17 @@ What about the following statement?
 
 Let's try.
 
->[!Proof]
-> 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-> 2. Assume that $even(x)$.
-> 	2.1 $\exists k \in \mathbb{Z}[x = 2k]$ \[Unpacking definition of even]
-> 	2.2 Let $t \in \mathbb{Z}$ be such that $x = 2t$ \[Existential Instantiation of line 2.1]
-> 	2.3 Then $x^2 = 2\cdot (2 \cdot t^2)$ \[Basic algebra]
-> 	2.4 $2 \cdot t^2 \in \mathbb{Z}$ \[Basic algebra]
-> 	2.5 $\exists m \in \mathbb{Z}[x^2 = 2 \cdot m]$ \[Existential Generalisation on lines 2.3, 2.4]
->     2.6 $even(x^2)$ \[Unpacking definition of even]
-> 3. $even(x) \to even(x^2)$ \[Implication introduction on lines 2, 2.6]
-> 4. $\forall y \in \mathbb{Z}[even(y) \to even(y^2)]$ \[Universal Generalisation on lines 1, 3]
+**Proof:** 
+1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+2. Assume that $even(x)$.
+	1. $\exists k \in \mathbb{Z}[x = 2k]$ \[Unpacking definition of even]
+	2. Let $t \in \mathbb{Z}$ be such that $x = 2t$ \[Existential Instantiation of line 2.1]
+	3. Then $x^2 = 2\cdot (2 \cdot t^2)$ \[Basic algebra]
+	4. $2 \cdot t^2 \in \mathbb{Z}$ \[Basic algebra]
+	5. $\exists m \in \mathbb{Z}[x^2 = 2 \cdot m]$ \[Existential Generalisation on lines 2.3, 2.4]
+	6. $even(x^2)$ \[Unpacking definition of even]
+3. $even(x) \to even(x^2)$ \[Implication introduction on lines 2, 2.6]
+4. $\forall y \in \mathbb{Z}[even(y) \to even(y^2)]$ \[Universal Generalisation on lines 1, 3]
  
 So what have we effectively said? We have effectively said that any even integer squared is also even.
 
@@ -1139,12 +1137,13 @@ What about the other direction? Can we say the following?
 > $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
 
 With what we have right now this looks tricky, here's a first attempt:
->[!Proof]
-> 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-> 2. Assume that $even(x^2)$.
-> 	2.1 $\exists k \in \mathbb{Z}[x^2 = 2k]$ \[Unpacking definition of even]
-> 	2.2 Let $t \in \mathbb{Z}$ be such that $x^2 = 2t$ \[Existential Instantiation of line 2.1]
-> 	2.3 ... what now?
+
+**Attempted Proof:** 
+ 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+ 2. Assume that $even(x^2)$.  
+	1. $\exists k \in \mathbb{Z}[x^2 = 2k]$ \[Unpacking definition of even] 	
+	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2t$ \[Existential Instantiation of line 2.1]
+	3. ... what now?
 
 We could try saying $x = \sqrt{2t}$ but.. that doesn't prove to us that it is even.
 
@@ -1161,21 +1160,21 @@ Writing this out in math, we have:
 
 Now that we have these facts, let's try proving the statement again. Pay attention to how we start, and how we end. Contrast it against the direct proof idea. Notice that we want to prove $p \to q$, but we begin by assuming $\neg q$, and proving $\neg p$.
 
->[!Proof]
-> 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-> 2. Assume that $\neg even(x)$.
-> 	2.1 $\neg even(x) \to odd(x)$ \[Universal Instantiation of Fact 1]
-> 	2.2 $odd(x)$ \[Modus ponens on lines 2 and 2.1]
-> 	2.3 $\exists k \in \mathbb{Z}[x = 2k + 1]$ \[Unpacking definition of odd]
-> 	2.4 Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
-> 	2.5 $x^2 = (2t + 1)^2 = 2(2t^2 + 2t) + 1$ \[Basic algebra]
-> 	2.6 $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
-> 	2.7 $\exists k \in \mathbb{Z}[x^2 = 2k + 1]$ \[Existential Generalisation]
-> 	2.8 $odd(x^2)$ \[Unpacking definition of odd]
-> 	2.9 $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Fact 2]
-> 	2.10 $\neg even(x^2)$ \[Modus ponens on lines 2.8, 2.9]
-> 3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on line 2, 2.10]
-> 4. $\forall x \in \mathbb{Z}[\neg even(x) \to \neg even(x^2)]$ \[Universal generalisation on line 1, 3]
+
+1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+2. Assume that $\neg even(x)$.
+	1. $\neg even(x) \to odd(x)$ \[Universal Instantiation of Fact 1]
+	2. $odd(x)$ \[Modus ponens on lines 2 and 2.1]
+	3. $\exists k \in \mathbb{Z}[x = 2k + 1]$ \[Unpacking definition of odd]
+	4. Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
+	5. $x^2 = (2t + 1)^2 = 2(2t^2 + 2t) + 1$ \[Basic algebra]
+	6. $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
+	7. $\exists k \in \mathbb{Z}[x^2 = 2k + 1]$ \[Existential Generalisation]
+	8. $odd(x^2)$ \[Unpacking definition of odd]
+	9. $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Fact 2]
+	10. $\neg even(x^2)$ \[Modus ponens on lines 2.8, 2.9]
+3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on line 2, 2.10]
+4. $\forall x \in \mathbb{Z}[\neg even(x) \to \neg even(x^2)]$ \[Universal generalisation on line 1, 3]
 
 Notice, we set out to prove:
 $$\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$$
@@ -1231,6 +1230,17 @@ We will also make use of the previously proven fact:
 >[!Theorem]
 > $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
 
+I will first show you the proof, it is really long and perhaps quite intimidating, there are a few things I need you to bear in mind. Every line is either:
+
+1. A fact we are assuming to be true. E.g. Fact 1.
+2. An explicit assumption we are making.
+3. A previously proven theorem.
+4. A line created by an application of a rule.
+
+Try to appreciate how this means we are basically starting from assumptions and facts, and everything else is a deduction. We are basically like Sherlock!
+
+The final line is then the conclusion of our proof.
+
 >[!Proof]
 > 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational. I.e. $\sqrt{2} \in \mathbb{Q}$
 > 2. $\forall x, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Fact 1]
@@ -1261,7 +1271,6 @@ We will also make use of the previously proven fact:
 > 27. $2 \neq 1$ \[Basic algebra]
 > 28. $\bot$ \[Contradiction rule on lines 26, 27] (**Look! We used it here!**)
 > 29. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof By Contradiction rule. Assumption on line $1$, $\bot$ on line $28$]
-
 
 I think this proof warrants a read-back in English, here's the proof again in English that skips the rules and contains the essence of what we are trying to say:
 
