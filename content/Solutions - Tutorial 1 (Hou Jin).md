@@ -44,6 +44,7 @@ To see how these equivalences may be used, let $p$ be the statement "It is raini
 | $true$  | $false$ | $false$  |  $true$  |   $false$   |       $true$       |        $true$        |
 | $false$ | $true$  |  $true$  | $false$  |   $false$   |       $true$       |        $true$        |
 | $false$ | $false$ |  $true$  |  $true$  |   $false$   |       $true$       |        $true$        |
+
 Hence the two pairs of statements are logically equivalent.
 
 Rewriting the 4 statements using $p$ and $q$, we get:
