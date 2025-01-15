@@ -406,6 +406,14 @@ $$
 
 This is what we call the **universal quantifier**. Think of this as a quantifier that says something about the entire universe. Here, the universe is the set of humans.
 
+To elaborate a little bit more, let's for now pretend that all the only two humans in the world were John and Sam. Then we would write the following:
+
+$$
+Human = \{John, Sam\}
+$$
+
+Then coming back to $\forall x \in Human [mortal(x)]$, since $x \in Human$ (in other words, $x$ comes from the set of humans), we have it so that $x$ will take value $John$, and then $x$ will also take value $Sam$. So $mortal(John)$ is true, and $mortal(Sam)$ is also true.
+
 There is another quantifier we have not mentioned, the **existential quantifier**. What if we instead wanted to say "some humans are mortal"? We write the following:
 
 $$
