@@ -2,8 +2,11 @@
 title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
 hidden: "true"
 ---
+# How to submit:
+- Submit before actual tutorial time for it to be graded.
+
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
 
 1. Questions 1 through 3 are related to **propositional logic**. 
@@ -15,6 +18,7 @@ After week 4's content, you should be able to attempt questions 6 and 7.
 
 
 ## Question 2: DeMorgan's Laws
+To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]].
 ### Part a: Equivalence
 Draw two truth tables to verify that:
 

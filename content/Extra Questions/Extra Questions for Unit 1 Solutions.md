@@ -5,12 +5,11 @@ hidden: "true"
 
 The **contrapositive** of the statement $p\rightarrow q$ is $\neg q\rightarrow \neg p$. Draw a truth table to verify that the statements are logically equivalent.
 
-**Solution:**
-
-|   $p$   |   $q$   | $\neg q$ | $\neg p$ | $p \rightarrow q$ | $\neg q \rightarrow \neg p$ |
+>[!Solutions]-
+> |   $p$   |   $q$   | $\neg q$ | $\neg p$ | $p \rightarrow q$ | $\neg q \rightarrow \neg p$ |
 | :-----: | :-----: | :------: | :------: | :---------------: | :-------------------------: |
 | $true$  | $true$  | $false$  | $false$  |      $true$       |           $true$            |
-| $true$  | $false$ |  $true$  | $false$  |      $false$      |           $false$           |
+| $true$  | $false$ |  $true$  | $false$  |      $false$      |           $false$          |
 | $false$ | $true$  | $false$  |  $true$  |      $true$       |           $true$            |
 | $false$ | $false$ |  $true$  |  $true$  |      $true$       |           $true$            |
 
