@@ -735,6 +735,8 @@ Look at the example again the two things: (1) the proof that Tabby has paws, and
 >  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
 ## Allowable Rules of Deductions
 
+In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. At the end of the unit we will show bigger proofs that use some of these rules in combination.
+
 ### Rule: Definition Unpacking
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
 
@@ -748,12 +750,49 @@ Formally, we can say:
 
 It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
 
+
 >[!Definition-Unpacking-Rule]
 > Given a definition, e.g. $even(x) \equiv \exists k \in \mathbb{Z}[x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is $\exists k \in \mathbb{Z}[x = 2\cdot k]$.
 > 
 > Similarly, if we are given the line $\exists k \in \mathbb{Z}[x = 2\cdot k]$, we may derive the line $even(x)$.
 
 Throughout the course we will see more and more definitions (also in the tutorial). For now let us use this one for our remaining examples for this unit.
+
+### Rule: Logical Equivalences
+Remember that we talked about how to check if two statements are logically equivalent? This is a step that we will allow in our proofs! Here's an example:
+
+>[!Theorem]
+> Assuming $\neg(p \lor q)$ is true, then $\neg p \land \neg q$ is true.
+
+Now this probably looks familiar, these was one of the examples we actually used to talk about equivalences. So here's how the proof step goes.
+
+>[!Proof]
+> 1. Assume $\neg(p \lor q)$.
+> 2. $\neg p \land \neg q$. \[Logically equivalent to line 1.]
+
+To be clear, we know that $\neg(p \lor q)$ and $\neg p \land \neg q$ are logically equivalent because before this, we verified it with a truth table. You can find it again in section [[#Truth tables, logical equivalences]].
+
+Here's another example, i.e. the opposite direction:
+
+>[!Theorem]
+> Assuming $\neg p \land \neg q$ is true, then $\neg(p \lor q)$ is true.
+
+How do you think you should prove this? Try writing it down by hand first if you wish. We have the solution here, you can click on it to reveal the answer.
+
+>[!Solution]+
+> 1. Assume $\neg p \land \neg q$.
+> 2. $\neg p \land \neg q$. \[Logically equivalent to line 1.]
+
+So to be clear, when can we use this rule? We can, if we have separately checked/verified their logical equivalence via a truth table.
+
+>[!Logical Equivalence Rule]
+> Given a statement, we may derive a new statement from the previous if the new statement it is **logically equivalent**.
+> Note that we may verify if two statements are logically equivalent via truth tables. 
+
+In the tutorial sheet, we will cover some special equivalences that are very useful and handy.
+### Rule: Using Lemma
+Think of a lemma as a helper statement. Like how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs. For example, let's say we wanted to prove something like 
+
 ### Rule: Basic Algebra
 
 Example usage:
@@ -1188,6 +1227,26 @@ Why is this okay? Recall in section [[#Contrapositivity]] we talked about how $p
 
 Look at the first proof again see how we got stuck. Then look at the second proof and notice that we could actually make something happen.
 ## Proof by Contradiction
+
+### Example 1
+
+This one might be one of the coolest ones you can do. We will show two examples of this proof strategy. A small one, and we will end on a really big proof.
+
+>[!Theorem]
+> $\forall x \in \mathbb{Z}[even(x) \lor odd(x)]$, where:
+>  1. $even(x)$ is the predicate that is defined to be $\exists k \in \mathbb{Z}[2k = x]$
+>  2. $odd(x)$ is the predicate that is defined to be $\exists k \in \mathbb{Z}[2k + 1 = x]$
+
+So what this theorem is trying to say is that: All integers are either even or odd. (Notice here this statement does not say whether a number can be both even and odd or not. But that it is **at least** one of the two cases)
+
+Let's try to prove this.
+
+**Proof:**
+1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+2. Assume for the sake of contradiction that: $\neg(even(x) \lor odd(x))$
+3. 
+
+### Example 2
 How about the following statement?
 
 > [!Theorem]

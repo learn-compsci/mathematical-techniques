@@ -99,7 +99,7 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 
 # Question 8:
-Prove that the following statement:
+Prove the following statement:
 
 > [!Theorem] 
 > $\forall x \in \mathbb{Z}[\neg (even(x) \land odd(x))]$
