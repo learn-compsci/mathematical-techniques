@@ -643,8 +643,16 @@ How do we tell? One way is to use the method used in the section: [[#Truth table
 
 Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. 
 
+Our plan of attack for **Part 3** is roughly the following:
+1. We will look at informal proofs in English with a hint of math.
+2. We will talk about proofs and how they correspond to the statements they prove.
+3. We will talk about **what rules we use in math in our proofs**.
+4. We will end on looking at bigger, and bigger proofs.
+
+As for point 3, it will be a bit overwhelming, but my reasoning is that I would like the page to also be a reference that you can come back to, to look at all the rules that are allowed. Over the semester we will try to get you more and more accustomed to the rules by doing proofs.
+
 Going into this part, it's helpful to take into the mindset that we are trying to understand a systematic way to form arguments. And to do this, the broad idea is that we start with our assumptions, and we make step-by-step logical deductions.
-#### First example of a proof:
+## First example of a proof:
 Let's re-visit the example we had just now:
 
 1. $\forall x \in Human [mortal(x)]$ \[Premise 1]
@@ -680,7 +688,9 @@ Okay this is a little abstract, what does **universal modus ponens** mean in Eng
 $$
 \forall x \in C[Q(x)]
 $$
-we are essentially saying "For every possible object $x$ from set $C$, $Q(x)$ holds true." Furthermore, the line 
+we are essentially saying "For every possible object $x$ from set $C$, $Q(x)$ holds true." 
+
+Furthermore, the line 
 
 $$
 x \in C
@@ -712,13 +722,13 @@ $$
 
 What is the above **proven statement**? The above statement says that if $Tabby \in Cat$ is true, and $\big(\forall x \in Cat \left(has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
 
-Okay, that was an example, to do more involved things, we need to first look at some rules of inference. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
+Okay, that was an example, to do more involved things, we need to first look at some rules of inferences. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
 
 1. What the premises are
 2. How we obtain the intermediate steps using rules of inferences
 3. What is the conclusion
 
-#### Correspondence between proofs and statements
+## Correspondence between proofs and statements
 Bear in mind that **very importantly, if we have given a proof that starts with premises $P_1, P_2, \ldots, P_n$, and we derive statement $C$ as our conclusion, then we have the following proven statement**.
 
 > Assume $P_1 \land P_2 \land \ldots \land P_n$, then it follows that $C$.
@@ -733,7 +743,7 @@ Look at the example again the two things: (1) the proof that Tabby has paws, and
 > Why do we do this? The idea is that we want a systematic approach in telling us what is true and what is not. In some sense, in the future when we are concerned with whether our algorithms/programs are correct, whether we can apply our concurrency guarantees, whether our database schemas are doing what we want, we want something better than having an arbitrary human be the arbiter of truth.
 > 
 >  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
-## Allowable Rules of Deductions
+## Allowable Rules of Deductions/Inferences
 
 In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. At the end of the unit we will show bigger proofs that use some of these rules in combination.
 
