@@ -18,7 +18,7 @@ After week 4's content, you should be able to attempt questions 6 and 7.
 ### Part a: Equivalence
 Draw two truth tables to verify that:
 
-1. $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$.
+1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
 These two equivalences (known as **De Morgan's Laws**) are among some of the most useful in discrete mathematics. 
