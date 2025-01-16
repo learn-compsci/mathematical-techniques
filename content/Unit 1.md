@@ -1086,7 +1086,9 @@ Here are the 4 final deduction rules in detail:
 ### Rule: Using Lemma
 Think of a lemma as a helper statement. They are proven theorems that can now be used in other, bigger proofs.
 
-This is like how how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs. For example, let's say we wanted to prove something like ""
+This is like how how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs.
+
+You'll see an example of this rule in action in the later examples. Keep an eye out for it!
 
 ### Rule: Contradiction
 Before our example, let's think about the following idea: What happens if someone comes up to you and says the following:
