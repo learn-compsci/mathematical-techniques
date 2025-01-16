@@ -861,13 +861,13 @@ Example usage:
 >[!Theorem]
 > Assume $x = 3 \lor x = 5$, then $x > 0$.
 
->[!Proof]
-> 1. Assume $x = 3 \lor x = 5$.
-> 2. Case 1: Assume $x = 3$
-> 	2.1 Then $x > 0$ \[Basic algebra]
-> 3. Case 2: Assume $x = 5$
-> 	3.1 Then $x > 0$ \[Basic algebra]
-> 4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
+**Proof:** 
+1. Assume $x = 3 \lor x = 5$.
+ 2. Case 1: Assume $x = 3$
+	 1. Then $x > 0$ \[Basic algebra]
+ 3. Case 2: Assume $x = 5$
+	 1. Then $x > 0$ \[Basic algebra]
+ 4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
 
 What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than $2$ cases, we need to prove more things. Here's yet another example:
 
