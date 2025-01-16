@@ -745,7 +745,9 @@ Look at the example again the two things: (1) the proof that Tabby has paws, and
 >  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
 ## Allowable Rules of Deductions/Inferences
 
-In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. At the end of the unit we will show bigger proofs that use some of these rules in combination.
+In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. In general, the example proofs will be really tiny to try to use only that rule in isolation. (But sometimes that might not be possible.)
+
+At the end of the unit we will show bigger proofs that use some of these rules in combination. 
 
 ### Rule: Definition Unpacking
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
