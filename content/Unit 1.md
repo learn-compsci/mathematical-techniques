@@ -790,8 +790,6 @@ So to be clear, when can we use this rule? We can, if we have separately checked
 > Note that we may verify if two statements are logically equivalent via truth tables. 
 
 In the tutorial sheet, we will cover some special equivalences that are very useful and handy.
-### Rule: Using Lemma
-Think of a lemma as a helper statement. Like how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs. For example, let's say we wanted to prove something like 
 
 ### Rule: Basic Algebra
 
@@ -876,17 +874,17 @@ What is going on here? We are saying that if $x$ is either $3$ or $5$, then in b
 
 And notice here how the proof changes:
 
->[!Proof]
-> 1. Assume $x = 1 \lor x = 0 \lor -10$.
-> 2. Case 1: Assume $x = 1$
-> 	2.1 Then $x - 1 = 0$ \[Basic algebra]
-> 	2.2 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-> 3. Case 2: Assume $x = 0$
-> 	3.1 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-> 4. Case 3: Assume $x = -10$
-> 	4.1 Then $x + 10 = 0$ \[Basic algebra]
-> 	4.2 Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-> 5. Therefore $x(x - 1)(x+10) = 0$ \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
+**Proof:** 
+1. Assume $x = 1 \lor x = 0 \lor -10$.
+2. Case 1: Assume $x = 1$
+	1. Then $x - 1 = 0$ \[Basic algebra]
+	2. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+3. Case 2: Assume $x = 0$
+	1. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+4. Case 3: Assume $x = -10$
+	1. Then $x + 10 = 0$ \[Basic algebra]
+	2. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
+5. Therefore $x(x - 1)(x+10) = 0$ \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
 
 In general:
 >[!Proof-by-cases-rule]
@@ -903,11 +901,11 @@ $$
 Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
 
 Here's a faulty proof that skips a case:
->[!Faulty-Proof]
-> 1. Assume $(x = 1 \lor x = 5)$.
-> 2. Case 1: $x = 1$
-> 	2.1 Then $x^2 = 1$ \[Basic algebra]
-> 3. In all cases, it is shown that $x^2 = 1$
+**Faulty Proof:** 
+1. Assume $(x = 1 \lor x = 5)$.
+2. Case 1: $x = 1$
+	1. Then $x^2 = 1$ \[Basic algebra]
+3. In all cases, it is shown that $x^2 = 1$
 ### Rule: Modus Ponens
 Example usage:
 
@@ -999,9 +997,8 @@ What is this theorem saying? It is saying that if we believe that any integer sq
 
 >[!Proof]
 > 1. Assume $\forall x \in \mathbb{Z}[x^2 \geq 0]$.
-> 2. $-5 \in \mathbb{Z}$ \[Definition of Integers]
+> 2. $-5 \in \mathbb{Z}$ \[Basic Algebra]
 > 3. $(-5)^2 \geq 0$ \[Universal instantiation on line $1$, $2$].
-
 
 What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise, it is assuming that all integers are such that if you square them, they are non-negative. Line $2$ is bringing up the fact that $-5$ is an integer. And line $3$ is basically stating the following:
 
@@ -1029,7 +1026,7 @@ Okay that's the idea, but how do we do it formally? Again, we will want to use s
 	 7. $\exists z \in \mathbb{Z} [x + 2 = 2 \cdot z]$ \[Existential Generalisation on line $1.5$, $1.6$]
 	 8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
 	 9. $even(x) \to even(x + 2)$ \[Implication Introduction on lines $1.1$, and $1.8$]
-2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
+ 2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
 
 Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses $3$ new rules here. What is going on?
 
@@ -1073,6 +1070,7 @@ And if you read back the concluding line, it makes sense! It's saying:
 Why is this reasonable? We took $x$ arbitrarily. What about the assumption we made? We used the implication introduction rule to turn that back into $even(x) \to even(x + 2)$, so you could technically say we made no assumptions about $x$ and did take it arbitrarily.
 
 Here are the 4 final deduction rules in detail:
+
 >[!Rule-Existential-Generalisation]
 > Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x [P(x)]$.
 
@@ -1084,6 +1082,11 @@ Here are the 4 final deduction rules in detail:
 
 >[!Rule-Universal-Instantiation]
 > Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
+
+### Rule: Using Lemma
+Think of a lemma as a helper statement. They are proven theorems that can now be used in other, bigger proofs.
+
+This is like how how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs. For example, let's say we wanted to prove something like ""
 
 ### Rule: Contradiction
 Before our example, let's think about the following idea: What happens if someone comes up to you and says the following:
