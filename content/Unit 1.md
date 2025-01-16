@@ -960,10 +960,10 @@ Okay this might look a little intimidating. Let's read it back in English, what 
 
 Here's the proof and how we use the deductive rule.
 
-> [!Proof]
-> 1. Assume $(p \land q)$.
-> 	1.1 $p$ \[By Specialisation on line $1$].
-> 2. $(p \land q) \to p$ \[By Implication Introduction on lines $1$, and $1.1$]
+**Proof:** 
+1. Assume $(p \land q)$.
+	1. $p$ \[By Specialisation on line $1$].
+ 1. $(p \land q) \to p$ \[By Implication Introduction on lines $1$, and $1.1$]
 
 So what is going on here? 
 
