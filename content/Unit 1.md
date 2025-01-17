@@ -1245,24 +1245,65 @@ Why is this okay? Recall in section [[#Contrapositivity]] we talked about how $p
 Look at the first proof again see how we got stuck. Then look at the second proof and notice that we could actually make something happen.
 ## Proof by Contradiction
 
-### Example 1
-
 This one might be one of the coolest ones you can do. We will show two examples of this proof strategy. A small one, and we will end on a really big proof.
 
+# Example 1
+
+Let's think about the following idea, take some number $n$. And consider all possible ways we can write this as $a \times b = n$, with integer values for $a, b$. Ever notice how no matter how hard we try, either $a$ or $b$ has to be at most $\sqrt{n}$?
+
+For example, take a number like $50$. We could write it as: $1 \times 50$, $2 \times 25$, $5 \times 10$ (or also $50 \times 1$, $25 \times 2$, $10 \times 5$). Notice across all 6 possible ways to write it, there is at least one of the numbers being at most $\sqrt{50}$
+
+How about something like $9$? That has: $1 \times 9$, $3 \times 3$, $9 \times 1$. Again, in all possible ways to write $9$ as $a \times b$, either $a$ or $b$ is at most $\sqrt{9} = 3$.
+
+Okay, we've tries this for $50$ and $9$. You might ask yourself at this point, are $50$ and $9$ special? Or does this work **for all** numbers? We'll set out to prove that this is indeed true!  Let's do that by proving the theorem below. 
+
 >[!Theorem]
-> $\forall x \in \mathbb{Z}[even(x) \lor odd(x)]$, where:
->  1. $even(x)$ is the predicate that is defined to be $\exists k \in \mathbb{Z}[2k = x]$
->  2. $odd(x)$ is the predicate that is defined to be $\exists k \in \mathbb{Z}[2k + 1 = x]$
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
 
-So what this theorem is trying to say is that: All integers are either even or odd. (Notice here this statement does not say whether a number can be both even and odd or not. But that it is **at least** one of the two cases)
+Let's read this back and see what it's saying:
 
-Let's try to prove this.
+> Let $n$ by any integer, let $a, b$ be any integer. If $a \times b = n$, then either $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$.
 
-**Proof:**
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. Assume for the sake of contradiction that: $\neg(even(x) \lor odd(x))$
-3. 
+Okay, let's try proving this. Also note that $\neg(a \leq b)$ is the same as $a > b$. Since if $a$ is not less than or equals to $b$, then $a$ has to be larger than $b$. They're actually the same.
 
+Here's how the proof goes:
+
+**Proof:** 
+1. Let $n \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+3. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+4. Assume that $a \times b = n$.
+	1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
+	2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
+	3. $a > \sqrt{n} \land b > \sqrt{n}$ 
+	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[Basic Algebra]
+	5. $a \times b > n$ \[Basic Algebra]
+	6. $\neg(a \times b = n)$ \[Basic Algebra]
+	7. $\neg(a \times b = n) \land a \times b = n$ \[ Conjunction rule on line 4.4 and 4.5 ]
+	8. $\bot$ \[Contradiction rule on line 7. ]
+	9. Therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Proof by contradiction rule on lines 4.1 and 4.8 ]
+5. $a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Implication introduction rule on lines 4. and 4.9]
+6. $\forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
+7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 2 and 6]
+8. $\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 1 and 8]
+
+Okay, as usual I like reading proofs back in English to see what sort of intuition they can convey. We are basically:
+
+1. Take any integers $n, a, b \in \mathbb{Z}$.
+2. Assuming that $a, b$ are integers such that $n = a \times b$. (I.e. we only care about the cases when $n$ is written as $a \times b$, whatever way that may be)
+3. Assume for a contradiction that "okay let's say it is possible that it is not the case that ($a \leq \sqrt{n}$ or that $b \leq \sqrt{n}$)".
+4. Then if that's the case, line 3 is also **equivalent** to saying "$\neg(a \leq \sqrt{n})$" **and** "$\neg(b \leq \sqrt{n})$".
+5. But wait, $\neg(a \leq \sqrt{n})$ means $a > \sqrt{n}$. Also, $\neg(b \leq \sqrt{n})$ , means $b > \sqrt{n}$.
+6. Okay so both $a > \sqrt{n}$ **and** $b > \sqrt{n}$.
+7. Well okay.. but doesn't that mean that $a \times b > n$?
+8. That also means that $a\times b$ cannot be equal to $n$. I.e. $a \times b \neq n$.
+9. We can re-write line 8 as $\neg(a \times b = n)$.
+10. Okay so $\neg(a \times b = n) \land (a \times b = n)$
+11. But that's a contradiction!
+12. That means that our assumption for a contradiction on line 3 was false. So therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$.
+13. Now, we made an assumption on line 2 that $a \times b = n$. So we can say $$a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})$$
+14. Since we took any $a, b, n$ to prove the statement on line 13, it means that: $$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$$
+Phew that was a bit of a doozy. But at the end of this chapter I will show you how this might be used in computer science.
 ### Example 2
 How about the following statement?
 
