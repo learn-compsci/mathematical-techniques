@@ -331,15 +331,137 @@ Write the negation for each of the statements.
 ---
 
 ## Question 6 Solutions:
-### Part a:
-1. (True)  $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z}, (x = y)$
-2. (False) $\forall p, q \in \mathbb{Q}, (q = p)$
-3. (False) $\forall a, b, c \in \mathbb{Z}, (a = 3b \lor a = 5c)$ 
-4. (True) $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land a = 5z)$      
-5. (True) $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
-6. (False) $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b)$
-### Part b:
-1. (True) $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
-2. (True) $\forall p \in \mathbb{Z},  (p > 5 \land p \leq 26\implies p \geq 0)$
-3. (True) $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
+### Part A:
+1. (True)  $\exists x \in \mathbb{N}, \forall y \in \mathbb{Z}, (x \neq y)$
+
+>[!Explanation:]
+>This is a practice on negating multiple quantifiers in the same statement.
+>1. $\lnot (\forall x \in \mathbb{N}, \exists y \in \mathbb{Z}, (x = y))$
+>2. $\equiv \exists x \in \mathbb{N}, \lnot (\exists y \in \mathbb{Z}, (x = y))$ (Negation of universal quantifier)
+>3. $\equiv \exists x \in \mathbb{N}, \forall y \in \mathbb{Z}, \lnot (x = y)$ (Negation of existential quantifier)
+>4. $\equiv \exists x \in \mathbb{N}, \forall y \in \mathbb{Z}, (x \neq y)$ (Negation of equals)
+>>**Deciphering the statement:**
+>>This statement says that every natural number, is equal to some integer. We know this to be intuitively true, by the definition of the sets of $\mathbb{N}$ and $\mathbb{Z}$.
+
+2. (False) $\exists p, q \in \mathbb{Q}, (q \neq p)$
+
+>[!Explanation:]
+>This is a practice on negating multiple objects in the same quantifier.
+>1. $\lnot (\forall p, q \in \mathbb{Q}, (q = p))$
+>2. $\equiv \exists p, q \in \mathbb{Q}, \lnot(q = p)$ (Negation of universal quantifier)
+>3. $\equiv \exists p, q \in \mathbb{Q}, (q \neq p)$ (Negation of equals)
+>>**Deciphering the statement:**
+>>This statement says any 2 rational numbers are equal. 
+>>We know this to be  false.
+
+3. (False) $\exists a, b, c \in \mathbb{Z}, (a \neq b \land a \neq c)$ 
+
+>[!Explanation:]
+>This is a practice on applying De Morgan's Law.
+>1. $\lnot (\forall a, b, c \in \mathbb{Z}, (a = b \lor a = c))$
+>2. $\equiv \exists a, b, c \in \mathbb{Z}, \lnot(a = b \lor a = c)$ (Negation of universal quantifier)
+>3. $\equiv \exists a, b, c \in \mathbb{Z}, (a \neq b \land a \neq c)$ (De Morgan's Law and negation of equals)
+>>**Deciphering the statement:**
+>>This statement says when you pick any 3 integers, one of the integers you picked will be equal to one of the other 2 integers. 
+>>
+>>This is false.
+
+4. (True) $\exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q}, (x \neq 3y \lor x \neq 5z)$
+
+>[!Explanation:]
+>This is another practice on applying De Morgan's Law, but with a little more complexity.
+>1. $\lnot (\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z))$
+>2. $\equiv \exists x \in \mathbb{Z}, \lnot (\exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z))$ (Negation of universal quantifier)
+>3. $\equiv \exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q}, \lnot (x = 3y \land x = 5z)$ (Negation of existential quantifier)
+>4. $\equiv \exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q}, (x \neq 3y \lor x \neq 5z)$ (De Morgan's Law and negation of equals)
+>>**Deciphering the statement:**
+>>This statement is a little tricker to unpack. It says that every integer, is 3 times of some rational number, and 5 times of another rational number.
+>>
+>>This is true, as for any integer $x$, $3 * \frac{x}{3} = x$ and $5 * \frac{x}{5} = x$, and we know that $\frac{x}{3}$ and $\frac{x}{5}$ are rational numbers.
+
+5. (False) $\forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z},(p + q = r)$
+
+>[!Explanation:]
+>This is an example of when negating a statement can make it easier to understand.
+>1. $\lnot (\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r))$
+>2. $\equiv \forall p, q \in \mathbb{Z}, \lnot (\forall r \in \mathbb{Z},(p + q \neq r))$ (Negation of existential quantifier)
+>3. $\equiv \forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z},\lnot (p + q \neq r))$ (Negation of universal quantifier)
+>4. $\equiv \forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z},(p + q = r)$ (Negation of equals)
+>>**Deciphering the statement:**
+>>This statement is not so easy to intuitively determine if it is true just by looking at the original statement, so we will instead consider the negation. 
+>>
+>>The negation says, any 2 integers added together is equal to another integer.
+>>
+>>We know this to be true. 
+>>Therefore, the original statement must be false.
+>>
+>>In contrast, the original says, there are 2 integers that are not equal to any integer when added together. Not that it is impossible to tell this is false, but consider how much easier negating the statement made it to digest the statement.
+
+6. (False) $\exists a, b \in \mathbb{Z}, (a^2 = b^2 \land a \neq b)$
+
+>[!Explanation:]
+>This is a practice on negating implication statements.
+>1. $\lnot (\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b))$
+>2. $\equiv \exists a, b \in \mathbb{Z}, \lnot (a^2 = b^2 \implies a = b))$ (Negation of universal quantifier)
+>3. $\equiv \exists a, b \in \mathbb{Z}, (a^2 = b^2 \land a \neq b))$ (Substitute with a [[Tutorial 1 Solutions#Part a Solutions|logically equivalent proposition]])
+>>**Deciphering the statement:**
+>>This statement says if the squares of 2 integers are equal, the 2 integers are also equal. 
+>>
+>>This is false as the square of a number and its negative counterpart are equal. 
+>>
+>>Important to note is the use of a commonly used logical equivalence to substitute away the implication connective, as that is the easiest way to negate them.
+
+
+### Part B:
+1. (True) $\forall a, b \in \mathbb{Z}, (a = b \implies a^2 = b^2)$
+
+>[!Explanation:]
+>This is a practice on finding the contrapositive of a simple implication statement.
+>1. $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
+>2. $\equiv \forall a, b \in \mathbb{Z}, (a = b \implies a^2 = b^2)$ (Substitution of contrapositive form)
+>>**Deciphering the statement:**
+>>This statement says if the squares of 2 integers are not equal, the 2 integers are also not equal. 
+>>
+>>This might be tricky to justify, so let's consider the contrapositive. 
+>>
+>>The contrapositive says that if 2 integers are equal, the squares of the 2 integers are also equal.
+>>
+>>Ah, this is significantly easier to justify and imagine.
+>>
+>>The contrapositive is thus true, making the original statement true.
+
+2. (True) $\forall p \in \mathbb{Z},  (p > 5 \land p \leq 26\implies p \geq 0)$ 
+
+>[!Explanation:]
+>This is a practice on finding the contrapositive of an implication statement with connectives.
+>1. $\forall p \in \mathbb{Z},  (p < 0 \implies p \leq 5 \lor p > 26)$
+>2. $\equiv \forall p \in \mathbb{Z},  (\lnot(p \leq 5 \lor p > 26)\implies p \geq 0)$ (Substitution of contrapositive form)
+>3. $\equiv \forall p \in \mathbb{Z},  (p > 5 \land p \leq 26\implies p \geq 0)$ (De Morgan's Law)
+>>**Deciphering the statement:**
+>>This statement says that any integer more than 5 and less than equal to 26 must be more than equal to 0.
+>>
+>>This statement is true.
+>>
+>>Technique of note in this question is the use of De Morgan's Law even when finding a contrapositive. 
+
+
+3. (True) $\forall x \in \mathbb{Z}, (x > 5  \implies \exists y \in \mathbb{N}, (x = y))$
+
+>[!Explanation:]
+>This is a practice on finding the contrapositive of an implication statement with quantifiers.
+>1. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
+>2. $\equiv \forall x \in \mathbb{Z}, (x > 5  \implies \lnot (\forall y \in \mathbb{N}, (x \neq y)))$ (Substitution of contrapositive form)
+>3. $\equiv \forall x \in \mathbb{Z}, (x > 5  \implies \exists y \in \mathbb{N}, \lnot (x \neq y))$ (Negation of universal quantifier)
+>4. $\equiv \forall x \in \mathbb{Z}, (x > 5  \implies \exists y \in \mathbb{N}, (x = y))$ (Negation of equals)
+>>**Deciphering the statement:**
+>>This statement says that any integer and any natural number, if the numbers are not equal, the integer is less than or equal to 5. 
+>>
+>>This statement is quite confusing to even approach from this angle, so let's consider the contrapositive.
+>>
+>>The contrapositive says that any integer greater than 5 has a natural number equal to it.
+>>
+>>Again, this is significantly easier to justify and digest.
+>>
+>>The contrapositive is thus true, making the original statement true.
+
 

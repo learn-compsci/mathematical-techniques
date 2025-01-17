@@ -17,7 +17,7 @@ After week 2's content, you should be able to attempt questions 1 through 5.
 After week 4's content, you should be able to attempt questions 6 and 7.
 
 
-# Question 1
+# Question 1:
 
 >[!Purpose] 
 > Practice translating English sentences into propositional formulae!
@@ -79,7 +79,7 @@ Answer template: <br>
 
 ---
 
-# Question 3
+# Question 3:
 
 >[!Purpose] 
 > This question aims to help you make sense of implications. There's really *nothing* deep behind implications.
@@ -174,7 +174,7 @@ Write the negation for each of the statements.
 # Question 6:
 
 >[!Purpose] 
-> In this next question, we will apply the understanding of first order logic to more commonly encountered sets and practice manipulating statements. The goals being to get more familiar and fluent with reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.
+> In this next question, we will apply the understanding of first order logic to more commonly encountered sets and practice manipulating statements. It's a chance to get more familiar with and fluent in reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.
 
 ## Useful notation for sets of numbers for easy reference:
 
@@ -183,7 +183,7 @@ Write the negation for each of the statements.
 | $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers 0, 1, 2, 3...                                                                                            |
 | $\mathbb{Z}$ | Set of integers         | Set containing the numbers ... , -3, -2, -1, 0, 1, 2, 3, ...                                                                        |
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
-### Part a: Negating statements
+## Part A: Negating statements
 
 >[!Why?] 
 > Sometimes when attempting to prove a statement, as you will see in the [[Unit 1#Part 3 Proofs in First Order Logic|second half of Unit 1]], rather than attempting to prove/disprove something directly, it may be easier or more intuitive to disprove/prove its [[Unit 1#Negating Quantifiers|negation]]. For some of the questions, notice how it is sometimes easier to determine if the negation is true rather than the original statement.
@@ -192,23 +192,23 @@ For each of the following statements, write out the negation of the statement, a
 
 1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z}, (x = y)$
 2. $\forall p, q \in \mathbb{Q}, (q = p)$
-3. $\forall a, b, c \in \mathbb{Z}, (a = 3b \lor a = 5c)$ 
-4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land a = 5z)$      
+3. $\forall a, b, c \in \mathbb{Z}, (a = b \lor a = c)$ 
+4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z)$      
 5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
 6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b)$
 
-
-### Part b: Contrapositive statements
+## Part B: Contrapositive statements
 
 >[!Why?] 
-> Very similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, for some questions, the contrapositive may be easier to digest than the original statement.
+>Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
 For each of the following implication statements, write its contrapositive, and determine if the statement is true or false.
 
 1. $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
-2. $\forall p \in \mathbb{Z},  (p > 5 \land p \leq 26\implies p \geq 0)$
+2. $\forall p \in \mathbb{Z},  (p < 0 \implies p \leq 5 \lor p > 26)$
 3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
 
+---
 # Question 8:
 Prove the following statement:
 
