@@ -38,3 +38,50 @@ Given the sets $A = \{0,1,4\}$ and $B = \{-2,-1,0,1,2\}$, determine which of the
 	- If $a = 0$, then taking $b = 1 \in B$, we find that $a = 0 \neq 1 = b^{2}$.
 	- If $a = 1$, then taking $b = 0 \in B$, we find that $a = 1 \neq 0 = b^{2}$.
 	- If $a = 4$, then taking $b = -1 \in B$, we find that $a = 4 \neq 1 = b^{2}$.
+
+## Question: Properties of integers
+
+>[!Purpose]
+>In this question, the goal is to practise unpacking definitions, in this case, of the integers. It is extremely common to encounter new definitions of mathematical objects, and it is useful to be able to understand what those definitions are.
+
+The set of **integers**, denoted $\mathbb{Z}$, is a set that is frequently used, so it is important to understand some of its properties. For this question, we will be unpacking the properties of multiplication on the integers.
+
+For each of the following properties, look through the definition of the property (written in first-order logic), and provide an example of the property. The first property has been done for you.
+
+>[!Question 1]
+>**Property 1 (Closure)**: $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \: [a \times b \in \mathbb{Z}]$
+>
+>**Example**: 
+>Let $a=2 \in \mathbb{Z}$ and let $b=-3 \in \mathbb{Z}$.
+>Then, $a \times b=2\ \times (-3) = -6$, which is also in $\mathbb{Z}$.
+
+**Solution**:
+
+>[!Question 2]
+>**Property 2 (Commutativity)**: $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \: [a \times b = b \times a]$
+>
+>**Example**:
+>Let $a=2 \in \mathbb{Z}$ and let $b=-3 \in \mathbb{Z}$.
+>Then, $a \times b=2\ \times (-3) = -6$, and $b \times a=(-3) \times 2=-6$ as well. Hence, $a \times b=b \times a$.
+
+>[!Question 3]
+>**Property 3 (Associativity)**: $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \: [a \times (b \times c) = (a \times b) \times c]$
+>
+>**Example**: 
+>Let $a=2 \in \mathbb{Z}$, let $b=-3 \in \mathbb{Z}$ and let $c=4 \in \mathbb{Z}$.
+>Then, $a \times (b \times c)=2 \times (-3 \times 4) = 2 \times (-12) = -24$, and $(a \times b) \times c = [2 \times (-3)] \times 4 = (-6) \times 4 = -24$ as well. Hence, $a \times (b \times c) = (a \times b) \times c$.
+
+>[!Question 4]
+>**Property 4 (Existence of identity element)**: $\exists e \in \mathbb{Z}, \forall a \in \mathbb{Z}, \: [a \times e = e \times a = a]$
+>
+>**Example**:
+>Let $e=1 \in \mathbb{Z}$ and let $a=397846 \in \mathbb{Z}$.
+>Then, $a \times e = 397846 \times 1 = 397846$, and $e \times a = 1 \times 397846 = 397846$ as well. Hence, $a \times e = e \times a = a$.
+
+>[!Question 5]
+>**Property 5 (Zero divisors)**: $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \: [(a \times b = 0) \to (a = 0 \lor b = 0)]$
+>
+>**Example**:
+>Let $a=2 \in \mathbb{Z}$ and let $b=0 \in \mathbb{Z}$.
+>Then, $a \times b = 2 \times 0 = 0$. Indeed, $b=0$, so it is also true that $a=0 \lor b=0$ (by generalisation). Hence, $(a \times b = 0) \to (a = 0 \lor b = 0)$.
+

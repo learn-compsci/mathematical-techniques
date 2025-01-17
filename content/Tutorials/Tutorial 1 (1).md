@@ -3,9 +3,11 @@ title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
 hidden: "true"
 ---
 # How to submit:
+
 - Submit before actual tutorial time for it to be graded.
 
 # Overview
+
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
 
@@ -17,9 +19,11 @@ After week 2's content, you should be able to attempt questions 1 through 5.
 After week 4's content, you should be able to attempt questions 6 and 7.
 
 
-## Question 2: DeMorgan's Laws
+## Question 2: De Morgan's Laws
+
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]].
 ### Part a: Equivalence
+
 Draw two truth tables to verify that:
 
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
@@ -42,6 +46,7 @@ These two equivalences (known as **De Morgan's Laws**) are among some of the mos
 | $false$ | $false$ |             |          |          |                    |                      |
 
 ### Part b: Translating Human Language to Logic
+
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
 1. It is not the case that it is raining or cold.
@@ -50,10 +55,8 @@ To see how these equivalences may be used, let $p$ be the statement "It is raini
 4. It is not the case that it is both raining and cold.
 
 Answer template: <br>
+*Statement ___ is logically equivalent to statement ___ .*<br>
 *Statement ___ is logically equivalent to statement ___ .*
-*Statement ___ is logically equivalent to statement ___ .*
-
-
 
 # Question 4:
 

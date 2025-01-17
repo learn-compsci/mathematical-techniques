@@ -17,7 +17,7 @@ After week 2's content, you should be able to attempt questions 1 through 5.
 After week 4's content, you should be able to attempt questions 6 and 7.
 
 
-## Question 2: DeMorgan's Laws
+## Question 2: De Morgan's Laws
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]].
 ### Part a: Equivalence
 Draw two truth tables to verify that:
