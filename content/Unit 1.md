@@ -1211,15 +1211,15 @@ Let's instead make use of the following statements for free (they can be proven 
 
 Writing this out in math, we have:
 
-1. $\forall x \in \mathbb{Z}[\neg even(x) \to odd(x)]$ (Fact 1)
-2. $\forall x \in \mathbb{Z}[odd(x) \to \neg even(x)]$ (Fact 2)
+1. $\forall x \in \mathbb{Z}[\neg even(x) \to odd(x)]$ (Lemma 1)
+2. $\forall x \in \mathbb{Z}[odd(x) \to \neg even(x)]$ (Lemma 2)
 
 Now that we have these facts, let's try proving the statement again. Pay attention to how we start, and how we end. Contrast it against the direct proof idea. Notice that we want to prove $p \to q$, but we begin by assuming $\neg q$, and proving $\neg p$.
 
 
 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
 2. Assume that $\neg even(x)$.
-	1. $\neg even(x) \to odd(x)$ \[Universal Instantiation of Fact 1]
+	1. $\neg even(x) \to odd(x)$ \[Universal Instantiation of Lemma 1]
 	2. $odd(x)$ \[Modus ponens on lines 2 and 2.1]
 	3. $\exists k \in \mathbb{Z}[x = 2k + 1]$ \[Unpacking definition of odd]
 	4. Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
@@ -1227,7 +1227,7 @@ Now that we have these facts, let's try proving the statement again. Pay attenti
 	6. $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
 	7. $\exists k \in \mathbb{Z}[x^2 = 2k + 1]$ \[Existential Generalisation]
 	8. $odd(x^2)$ \[Unpacking definition of odd]
-	9. $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Fact 2]
+	9. $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Lemma 2]
 	10. $\neg even(x^2)$ \[Modus ponens on lines 2.8, 2.9]
 3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on line 2, 2.10]
 4. $\forall x \in \mathbb{Z}[\neg even(x) \to \neg even(x^2)]$ \[Universal generalisation on line 1, 3]
@@ -1344,7 +1344,7 @@ The first two statements probably are familiar, we are saying that $x$ is a frac
 
 We will also make use of the previously proven fact:
 
->[!Theorem]
+>[!Lemma-1]
 > $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
 
 I will first show you the proof, it is really long and perhaps quite intimidating, there are a few things I need you to bear in mind. Every line is either:
@@ -1356,12 +1356,12 @@ I will first show you the proof, it is really long and perhaps quite intimidatin
 
 Try to appreciate how this means we are basically starting from assumptions and facts, and everything else is a deduction. We are basically like Sherlock!
 
-The final line is then the conclusion of our proof.
+The final line is then the conclusion of our proof. (Notice how we used the lemma on line $2$! We proved it previously so now we get to call it like a library function.)
 
 >[!Proof]
 > 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational. I.e. $\sqrt{2} \in \mathbb{Q}$
-> 2. $\forall x, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Fact 1]
-> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal Instantiation of Fact 1, replacing $x$ with $\sqrt{2}$]
+> 2. $\forall x, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 1]
+> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal Instantiation of Line 2, replacing $x$ with $\sqrt{2}$]
 > 4. Let $a, b \in \mathbb{Z}$ be such that $\sqrt{2} = \frac{a}{b} \land b \neq 0 \land \forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Existential instantiation on line 3]
 > 5. $\sqrt{2} = \frac{a}{b}$ \[Specialisation on line 4]
 > 6. Now $2 b^2 = a^2$ \[Basic algebra]
