@@ -17,7 +17,32 @@ After week 2's content, you should be able to attempt questions 1 through 5.
 After week 4's content, you should be able to attempt questions 6 and 7.
 
 
-## Question 2: De Morgan's Laws
+# Question 1
+
+>[!Purpose] 
+> Practice translating English sentences into propositional formulae!
+
+For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions ***p***, ***q***, ***r***, ***s*** and ***t*** as needed, where:
+	***p*** : "The program compiles."
+	***q*** : "The input is valid."
+	***r*** : "The output is correct."
+	***s*** : "The function is efficient."
+	***t*** : "The algorithm terminates."
+
+1. "If the program compiles but the input is not valid, then the output is not correct."
+
+2. "The function is efficient if and only if both the algorithm terminates and the output is correct." (Hint: "if and only if" means an implication in both directions)
+
+3. "The program compiles and the input is valid, or the function is efficient, but the algorithm does not terminate."
+
+4. "If the program compiles, then either the input is valid and the output is correct, or the algorithm does not terminate."
+
+5. "The function is efficient if and only if the program compiles and the input is valid, or if the output is correct implies that the algorithm terminates."
+
+
+---
+
+# Question 2
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]].
 ### Part a: Equivalence
 Draw two truth tables to verify that:
@@ -54,6 +79,25 @@ Answer template: <br>
 *Statement ___ is logically equivalent to statement ___ .*
 
 
+---
+
+# Question 3
+
+>[!Purpose] 
+> This question aims to help you make sense of implications. There's really *nothing* deep behind implications.
+
+Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
+
+a. How would you write this sentence in propositional logic?
+
+b. Determine whether the promise has been broken in each of the following cases:
+1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
+3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
+
+
+---
 
 # Question 4:
 
@@ -100,7 +144,34 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 ![[tarskis-drawn.png|500]]
 
+---
 
+# Question 5
+
+>[!Purpose] 
+> Play around with FOL statements! It's important to know how to manipulate them for writing proofs.
+
+### Part a: Contrapositive
+
+Consider the following first order logic statement:
+
+	$∀x∈D,∃y∈E,(P(x,y)  ⟹  Q(y))$
+
+Write its contrapositive, and prove that they are logically equivalent. 
+
+
+### Part b: Negating FOL statements
+
+Consider the following first order logic statements:
+	1. $∃x∈D, P(x)∧Q(x)$
+	2. $∀x∈D, P(x)∨Q(x)$
+	3. $∀x∈D,∃y∈E, P(x,y)∧Q(y)$
+	4. $∃x∈D,∀y∈E, P(x,y)⟹Q(y)$
+
+Write the negation for each of the statements.
+
+
+---
 
 # Question 8:
 Prove the following statement:
