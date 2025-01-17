@@ -42,22 +42,20 @@ For each of the following, write a propositional formula that accurately represe
 
 ---
 
-## Question 2: De Morgan's Laws
-To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]].
-### Part a: Equivalence
+## Question 2: Negating Propositional Formulae
+To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
+### Part a: Equivalences
 Draw two truth tables to verify that:
 
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
-These two equivalences (known as **De Morgan's Laws**) are among some of the most useful in discrete mathematics. 
-
-|   $p$   |   $q$   | $p \lor q$ | $\neg p$ | $\neg q$ | $\neg (p \lor q)$ | $\neg p \land \neg q$ |
-| :-----: | :-----: | :--------: | :------: | :------: | :---------------: | :-------------------: |
-| $true$  | $true$  |            |          |          |                   |                       |
-| $true$  | $false$ |            |          |          |                   |                       |
-| $false$ | $true$  |            |          |          |                   |                       |
-| $false$ | $false$ |            |          |          |                   |                       |
+|   $p$   |   $q$   | $p \to q$ | $\neg(p \to q)$ | $\neg q$ | $p \land \neg q$ |
+| :-----: | :-----: | :-------: | :-------------: | :------: | :--------------: |
+| $true$  | $true$  |           |                 |          |                  |
+| $true$  | $false$ |           |                 |          |                  |
+| $false$ | $true$  |           |                 |          |                  |
+| $false$ | $false$ |           |                 |          |                  |
 
 |   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
 | :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
