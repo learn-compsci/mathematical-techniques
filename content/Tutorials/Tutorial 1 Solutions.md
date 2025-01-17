@@ -52,7 +52,7 @@ Using De Morgan's Laws, **statements 1 and 3 and logically equivalent**, and **s
 
 
 
-# Question 3 Solutions:
+## Question 3 Solutions:
 
 Let:
 - $R=\{A,B,C\}$ be the set of circles,
@@ -105,3 +105,19 @@ Determine whether the following statements are true or false for the picture:
 	- The predicate $Black(a)$ is false.
 	- The predicate $Orange(d)$ is false, and so $\neg Grey(d)$ is true.
 	- Thus, $Black(a) \lor \neg Grey(d)$ evaluates to true.
+
+
+
+## Question 5 Solutions:
+### Part a:
+1. (True)  $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z}, (x = y)$
+2. (False) $\forall p, q \in \mathbb{Q}, (q = p)$
+3. (False) $\forall a, b, c \in \mathbb{Z}, (a = 3b \lor a = 5c)$ 
+4. (True) $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land a = 5z)$      
+5. (True) $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
+6. (False) $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b)$
+### Part b:
+1. (True) $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
+2. (True) $\forall p \in \mathbb{Z},  (p > 5 \land p \leq 26\implies p \geq 0)$
+3. (True) $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
+
