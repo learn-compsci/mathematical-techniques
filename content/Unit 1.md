@@ -1083,16 +1083,16 @@ Why is this reasonable? We took $x$ arbitrarily. What about the assumption we ma
 
 Here are the 4 final deduction rules in detail:
 
->[!Rule-Existential-Generalisation]
+>[!Existential-Generalisation-Rule]
 > Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x [P(x)]$.
 
->[!Rule-Existential-Instantiation]
+>[!Existential-Instantiation-Rule]
 > Given a line $\exists x \in A [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
 
->[!Rule-Universal-Generalisation]
+>[!Universal-Generalisation-Rule]
 > Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A[P(x)]$.
 
->[!Rule-Universal-Instantiation]
+>[!Universal-Instantiation-Rule]
 > Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
 
 ### Rule: Using Lemma
