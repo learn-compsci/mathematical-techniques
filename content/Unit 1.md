@@ -722,13 +722,13 @@ $$
 
 What is the above **proven statement**? The above statement says that if $Tabby \in Cat$ is true, and $\big(\forall x \in Cat \left(has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
 
-Okay, that was an example, to do more involved things, we need to first look at some rules of inferences. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
+Okay, that was our first example. To do more involved things, we need to first look at some rules of inferences. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
 
 1. What the premises are
 2. How we obtain the intermediate steps using rules of inferences
 3. What is the conclusion
 
-## Correspondence between proofs and statements
+### Correspondence between proofs and statements
 Bear in mind that **very importantly, if we have given a proof that starts with premises $P_1, P_2, \ldots, P_n$, and we derive statement $C$ as our conclusion, then we have the following proven statement**.
 
 > Assume $P_1 \land P_2 \land \ldots \land P_n$, then it follows that $C$.
