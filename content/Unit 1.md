@@ -676,7 +676,7 @@ where $C$ is some set, like $\mathbb{Z}$. And $Q(x)$ is any statement about $x$,
 and you **also** see a line like:
 
 $$
-x \in C
+c \in C
 $$
 
 like when we said $Socrates \in Human$,
