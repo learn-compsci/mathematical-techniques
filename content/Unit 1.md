@@ -1419,6 +1419,12 @@ I think this proof warrants a read-back in English, here's the proof again in En
 16. But $2$ is not $1$. 😱
 17. Therefore, our assumption needs to be negated. $\sqrt{2}$ cannot be written as a fraction $\frac{p}{q}$ where $p, q$ are integers.
 
+>[!Mini-Quiz]
+> In our very big proof above, in the second half of the proof, we are missing a line in the proof. One of the rules needs 2 lines to be applied, but we used the rule with only a single line. Where is the faulty application of the rule? What is missing? And how should we fix it?
+> 
+> >[!Answer]-
+> > Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$.
+
 
 ## Proof Technique: Goal Statements vs. Steps in Proofs
 Okay we've seen quite a few proofs and perhaps at some point you might have started asking yourself "ok but how do we know what to do in each step? I don't even know how to begin the proof."
