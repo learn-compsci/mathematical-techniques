@@ -1203,7 +1203,7 @@ With what we have right now this looks tricky, here's a first attempt:
 
 We could try saying $x = \sqrt{2t}$ but.. that doesn't prove to us that it is even.
 
-Let's instead make use of the following statements for free (they can be proven but let's take these as facts). I hope they are intuitive.
+Let's instead make use of the following statements for free (they can be proven but let's take these as **lemmas**). I hope they are intuitive.
 
 1. If an integer is not even, it is odd.
 2. If an integer is odd, it is not even.
