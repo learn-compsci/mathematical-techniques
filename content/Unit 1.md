@@ -698,7 +698,7 @@ $$
 
 is saying that $x$ is from set $C$.
 
-So since we know $x$ comes from set $C$, we can happily conclude that "A-ha! $x$ satisfies predicate $Q(\cdot)$!".
+So since we know $c$ comes from set $C$, we can happily conclude that "A-ha! $c$ satisfies predicate $Q(\cdot)$!".
 
 Notice here that the rule doesn't care about what we said about humanity or mortality. As long as it matches the pattern, it will be allowed. That means we can also write something like this:
 
