@@ -1326,6 +1326,9 @@ So we can re-state the theorem as:
 >[!Theorem]
 > $\neg(\sqrt{2} \in \mathbb{Q})$
 
+>[!Aside]+
+> As an aside, why do we care? One potential reason might be that if we know that we can represent $\sqrt{2}$ as a fraction, we might want to do so when involving this number in our programs. 
+
 Here is a _proof by contradiction_. Pay attention to how we are starting it by assuming the opposite of the theorem statement. The theorem statement says that $\sqrt{2}$ is irrational, and we start by assuming that $\sqrt{2}$ is not irrational (i.e. rational).
 
 To simplify things, let's use this following (yet unproven) fact:
@@ -1367,7 +1370,7 @@ The final line is then the conclusion of our proof. (Notice how we used the lemm
 
 >[!Proof]
 > 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational. I.e. $\sqrt{2} \in \mathbb{Q}$
-> 2. $\forall x, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 2]
+> 2. $\forall x \in \mathbb{Z}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 2]
 > 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal Instantiation of Line 2, replacing $x$ with $\sqrt{2}$]
 > 4. Let $a, b \in \mathbb{Z}$ be such that $\sqrt{2} = \frac{a}{b} \land b \neq 0 \land \forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Existential instantiation on line 3]
 > 5. $\sqrt{2} = \frac{a}{b}$ \[Specialisation on line 4]
