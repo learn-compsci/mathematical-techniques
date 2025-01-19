@@ -693,7 +693,7 @@ we are essentially saying "For every possible object $x$ from set $C$, $Q(x)$ ho
 Furthermore, the line 
 
 $$
-x \in C
+c \in C
 $$
 
 is saying that $x$ is from set $C$.
