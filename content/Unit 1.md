@@ -1073,7 +1073,7 @@ Okay! Let's keep chugging on. $1.8$ is more definition unpacking, and line $1.9$
 
 Finally, what's going on on line $2$? It's saying the following:
 
-> Since we took $x$ arbitrarily from $\mathbb{Z}$, and we were able to create the sub-conclusion $even(x) \to even(x + 2)$, we are able to write $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)$.
+> Since we took $x$ arbitrarily from $\mathbb{Z}$, and we were able to create the sub-conclusion $even(x) \to even(x + 2)$, we are able to write $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$.
 
 And if you read back the concluding line, it makes sense! It's saying:
 
