@@ -873,11 +873,11 @@ Example usage:
 
 **Proof:** 
 1. Assume $x = 3 \lor x = 5$.
- 2. Case 1: Assume $x = 3$
+2. Case 1: Assume $x = 3$
+	 1. Then $x > 0$ \[Basic algebra] 
+3. Case 2: Assume $x = 5$
 	 1. Then $x > 0$ \[Basic algebra]
- 3. Case 2: Assume $x = 5$
-	 1. Then $x > 0$ \[Basic algebra]
- 4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
+4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
 
 What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than $2$ cases, we need to prove more things. Here's yet another example:
 
@@ -1115,7 +1115,7 @@ $$
 
 We should be able to say "this makes no sense". We have a symbol for this: $\bot$. We call the symbol "bot". But you can think of this as just the "contradiction symbol".
 
-For once, allow me to state the deduction rule first before giving an example, since it is a little involved.
+Allow me to state the deduction rule first before giving an example, since it is a little involved.
 
 >[!Contradiction-Rule]
 > Given statement $a \land \neg a$, we are able to derive statement $\bot$.
@@ -1248,7 +1248,7 @@ Look at the first proof again see how we got stuck. Then look at the second proo
 
 This one might be one of the coolest ones you can do. We will show two examples of this proof strategy. A small one, and we will end on a really big proof.
 
-# Example 1
+### Example 1
 
 Let's think about the following idea, take some number $n$. And consider all possible ways we can write this as $a \times b = n$, with integer values for $a, b$. Ever notice how no matter how hard we try, either $a$ or $b$ has to be at most $\sqrt{n}$?
 
