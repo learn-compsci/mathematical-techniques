@@ -1501,3 +1501,50 @@ In fact, this seems doable! Let's see the proof.
 
 So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that at the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind: Every tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while you build your own techniques and tricks. The same thing applies here!
 
+
+# Bonus: How this math is useful
+Let's look at the statement proven previously again:
+
+>[!Theorem]
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
+
+This looks seemingly useless. Maybe just some random math "fun-fact". But what if I told you that ideas like this were useful in computer science?
+
+Let's think of the following idea, right now you're given an input number $x$. And your boss needs you to write a program that tests whether $x$ is prime or not. So let's state what $prime(x)$ means.
+
+>[!Definition]
+> $prime(x) \equiv \forall d \in \mathbb{N}[divides(d, x) \to (d = 1 \lor d = x)]$
+
+This basically says that a number $x$ is called a prime number, if the only two numbers that divide it are $1$ and $x$ itself. Examples of prime numbers are $2, 3, 5, 7, 31, \ldots$ and so on. On the other hand, numbers like $4, 6, 10$ are not prime. Prime numbers are super useful for many reasons! And we might want to test for whether a number is prime so we can use it in our program.
+
+So now that we know this, maybe we could write a Python script like this:
+
+```python
+def is_prime(x):
+	d = 2
+	while d < x:
+		if x % d == 0:
+			return False
+		d += 1
+	return True
+```
+
+So now our loop takes around $x$ iterations in the worst case. Because if a number is prime, we actually test all numbers up to $x - 1$ before quitting. But! We __can__ actually use the above theorem to help us!
+
+What if I told you, the following code also tests for whether $x$ is prime, but only uses around $\sqrt{x}$ iterations?
+
+```python
+import math
+
+def faster_is_prime(x):
+	d = 2
+	while d <= math.sqrt(x):
+		if x % d == 0:
+			return False
+		d += 1
+	return True
+```
+
+It only tests divisors from $2$ up to $\lfloor\sqrt{x}\rfloor$. Why is this enough? Because the theorem tells us that any number $x$ has a divisor that is at most $\sqrt{x}$. If a number is prime, it only has 2 divisors: $1$, and $x$ itself. That means that a prime number has no divisors from $2$ to $\sqrt{x}$. On the other hand, a non-prime number **will have** a divisor somewhere between $2$ to $\sqrt{x}$. So we only need to test those numbers.
+
+Ideas like this, speed the world up.
