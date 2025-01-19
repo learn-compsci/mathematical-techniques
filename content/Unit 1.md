@@ -1049,7 +1049,7 @@ Next up, we unpack the definition of $even(x)$. Remember that an integer is even
 What about line 1.3? This is the first new rule we have encountered. Intuitively in English, what is being done here is the following:
 
 > On line 1.2 we are saying "$x$ is equals to $2$ times an integer."
-> Therefore, we are able to deduce line 1.3 which states "Let call that integer $t$.".
+> Therefore, we are able to deduce line 1.3 which states "Let us call that integer $t$.".
 
 This might feel pedantic, but imagine how in English there is a subtle difference between:
 
