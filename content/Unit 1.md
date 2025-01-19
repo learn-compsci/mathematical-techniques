@@ -872,7 +872,7 @@ Example usage:
 > Assume $x = 3 \lor x = 5$, then $x > 0$.
 
 **Proof:** 
-1. Assume $x = 3 \lor x = 5$.
+1. Assume $x = 3 \lor x = 5 \lor x = 10$.
 2. Case 1: Assume $x = 3$
 	 1. Then $x > 0$ \[Basic algebra] 
 3. Case 2: Assume $x = 5$
