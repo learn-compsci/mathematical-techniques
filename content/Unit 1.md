@@ -1304,6 +1304,7 @@ Okay, as usual I like reading proofs back in English to see what sort of intuiti
 12. That means that our assumption for a contradiction on line 3 was false. So therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$.
 13. Now, we made an assumption on line 2 that $a \times b = n$. So we can say $$a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})$$
 14. Since we took any $a, b, n$ to prove the statement on line 13, it means that: $$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$$
+
 Phew that was a bit of a doozy. But at the end of this chapter I will show you how this might be used in computer science.
 ### Example 2
 How about the following statement?
