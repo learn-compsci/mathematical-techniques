@@ -717,7 +717,7 @@ Now, very importantly, **what have we done here**? We have written a proof that 
 Formally, we will write the **proven statement** in the following way:
 
 $$
-\bigg( cat(Tabby) \land \big(\forall x \left( cat(x) \to has\_paws(x) \right) \big)\bigg) \to has\_paws(Tabby)
+\bigg( Tabby \in Cat \land \big(\forall x \in Cat [has\_paws(x)]\big)\bigg) \to has\_paws(Tabby)
 $$
 
 What is the above **proven statement**? The above statement says that if $Tabby \in Cat$ is true, and $\big(\forall x \in Cat \left(has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
