@@ -816,7 +816,7 @@ Example usage:
 
 Here, line $1$ is our premise. Line $3$ is our conclusion. And the justifications are laid out in square brackets. Basic algebra is something we are happy for you to use (for free)! You can think of line $2$ as an intermediate step. It is neither a premise nor a conclusion, but we can write line $2$ because it is a derivation from line $1$. Similarly, line $3$ is derived from line $2$.
 
-One other thing to take note of is the theorem statement vs the proof. The statement starts with "Assuming "$x + 5 = 12$". This must be the very first line of our proof. Secondly, the proof ends with "then $x = 7$". This is the conclusion we must prove. So this must be the very last line of our proof. Every other intermediate line must be justified.
+One other thing to take note of is the theorem statement vs the proof. The statement starts with "Assuming $x + 5 = 12$". This must be the very first line of our proof. Secondly, the proof ends with "then $x = 7$". This is the conclusion we must prove. So this must be the very last line of our proof. Every other intermediate line must be justified.
 
 Don't worry too much about how much algebra you need to know. If you know how to add, multiply, divide, square root, exponentiate, and logarithms, that is all the algebra you need to know.
 ### Rule: Specialisation
@@ -828,7 +828,7 @@ Example usage:
 > 1. Assume that ($x < 10 \land x > 0$).
 > 2. Then $x < 10$. \[By Specialisation on line $1$]
 
-Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convince that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
+Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convinced that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
 
 >[!Specialisation-Rule]
 > Given statement $p \land q$, we are able to derive statement $p$.
