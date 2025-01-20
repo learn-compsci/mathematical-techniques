@@ -64,6 +64,14 @@ Draw two truth tables to verify that:
 | $false$ | $true$  |             |          |          |                    |                      |
 | $false$ | $false$ |             |          |          |                    |                      |
 
+**Key takeaway from this tutorial question and the notes:**
+1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
+2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$
+3. $\neg(\neg(p))$ is logically equivalent to $p$ (From the notes)
+4. $\neg(p \lor q)$ is logically equivalent to $\neg p \land \neg q$ (From the notes)
+
+**Sneak peek:** These negations are super useful because later on when we talk about considering proof by contradictions knowing how to negate statements comes in handy. (Relevant content in Week 4's chapter [[Unit 1#Proof Strategies|Unit 1: Proof Strategies]])
+
 ### Part b: Translating Human Language to Logic
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
@@ -82,11 +90,14 @@ Answer template: <br>
 # Question 3:
 
 >[!Purpose] 
-> This question aims to help you make sense of implications. There's really *nothing* deep behind implications.
+> This question aims to help you make sense of implications. There's really *nothing* deep behind implications. It is just a logical connective that has a certain behaviour.
+> 
+
+
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
 
-a. How would you write this sentence in propositional logic?
+a. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.
 
 b. Determine whether the promise has been broken in each of the following cases:
 1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
@@ -145,28 +156,19 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 ---
 
-# Question 5
+# Question 5: Negating FOL statements
 
 >[!Purpose] 
 > Play around with FOL statements! It's important to know how to manipulate them for writing proofs.
 
-### Part a: Contrapositive
-
-Consider the following first order logic statement:
-
-	$∀x∈D,∃y∈E,(P(x,y)  ⟹  Q(y))$
-
-Write its contrapositive. 
-
-### Part b: Negating FOL statements
 
 Consider the following first order logic statements:
-	1. $∃x∈D, P(x)∧Q(x)$
-	2. $∀x∈D, P(x)∨Q(x)$
-	3. $∀x∈D,∃y∈E, P(x,y)∧Q(y)$
-	4. $∃x∈D,∀y∈E, P(x,y)⟹Q(y)$
+	1. $\exists x \in D, (P(x) \land Q(x))$
+	2. $\forall x \in D, P(x)\lor Q(x)$
+	3. $\forall x\in D,\exists y\in E, P(x,y)\land Q(y)$
+	4. $\exists x \in D,\forall y \in E, P(x,y)\to Q(y)$
 
-Write the negation for each of the statements.
+Write the negation for each of the statements. You may refer to [[Unit 1#Negating Quantifiers]] on this.
 
 
 ---
@@ -180,8 +182,8 @@ Write the negation for each of the statements.
 
 |    Symbol    | Definition              | Explanation                                                                                                                         |
 | :----------: | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers 0, 1, 2, 3...                                                                                            |
-| $\mathbb{Z}$ | Set of integers         | Set containing the numbers ... , -3, -2, -1, 0, 1, 2, 3, ...                                                                        |
+| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                     |
+| $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                 |
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
 ## Part A: Negating statements
 
@@ -195,7 +197,7 @@ For each of the following statements, write out the negation of the statement, a
 3. $\forall a, b, c \in \mathbb{Z}, (a = b \lor a = c)$ 
 4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z)$      
 5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
-6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b)$
+6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \to a = b)$
 
 ## Part B: Contrapositive statements
 

@@ -230,21 +230,6 @@ Determine whether the following statements are true or false for the picture:
 
 # Question 5 Solutions:
 
-### Part (a) Solutions:
-
-Consider the following first order logic statement:
-
-	$∀x∈D,∃y∈E,(P(x,y)  ⟹  Q(y))$
-
-Write its contrapositive. 
-
->[!Solutions] 
-> 
-The contrapositive of $P  ⟹  Q$  is  $¬Q  ⟹  ¬P$. 
-Applying this inside the quantifiers, the contrapositive is $∀x∈D,∃y∈E,(¬Q(y)⟹¬P(x,y))$
-
-### Part (b) Solutions:
-
 Consider the following first order logic statements:
 	1. $∃x∈D, P(x)∧Q(x)$
 	2. $∀x∈D, P(x)∨Q(x)$
