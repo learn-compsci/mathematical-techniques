@@ -3,7 +3,16 @@ title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
 hidden: "true"
 ---
 # How to submit:
-- Submit before actual tutorial time for it to be graded.
+- Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
+	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
+	2. Submit your written attempts in-person during our tutorial.
+* **Official due date for submission**: **11-Feb-2025, 6:30PM
+
+# Collaboration Policy: 
+* You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
+* **Do not share your solutions**.
+* ChatGPT (and other LLMs) are **not allowed**. 
+* Your submission **must be of your own write-up**.
 
 # Overview
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
@@ -17,6 +26,7 @@ After week 2's content, you should be able to attempt questions 1 through 5. Que
 
 After week 4's content, you should be able to attempt questions 6 and 7. Question 6 is graded for participation.
 
+That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 # Question 1:
 
@@ -186,7 +196,7 @@ Write the negation for each of the statements. You may refer to [[Unit 1#Negatin
 | $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                     |
 | $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                 |
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
-## Part A: Negating statements
+## Part a: Negating statements
 
 >[!Why?] 
 > Sometimes when attempting to prove a statement, as you will see in the [[Unit 1#Part 3 Proofs in First Order Logic|second half of Unit 1]], rather than attempting to prove/disprove something directly, it may be easier or more intuitive to disprove/prove its [[Unit 1#Negating Quantifiers|negation]]. For some of the questions, notice how it is sometimes easier to determine if the negation is true rather than the original statement.
@@ -200,7 +210,7 @@ For each of the following statements, write out the negation of the statement, a
 5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
 6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \to a = b)$
 
-## Part B: Contrapositive statements
+## Part b: Contrapositive statements
 
 >[!Why?] 
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
