@@ -13,8 +13,9 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 2. Questions 4 through 6 are related to **first order logic**. 
 3. Questions 7 and 8 are related to **proofs**. 
 
-After week 2's content, you should be able to attempt questions 1 through 5. 
-After week 4's content, you should be able to attempt questions 6 and 7.
+After week 2's content, you should be able to attempt questions 1 through 5. Questions 2, and 4 are graded for participation.
+
+After week 4's content, you should be able to attempt questions 6 and 7. Question 6 is graded for participation.
 
 
 # Question 1:
@@ -42,7 +43,7 @@ For each of the following, write a propositional formula that accurately represe
 
 ---
 
-## Question 2: Negating Propositional Formulae
+## Question 2: Negating Propositional Formulae \[Graded Participation]
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
 ### Part a: Equivalences
 Draw two truth tables to verify that:
@@ -92,7 +93,7 @@ Answer template: <br>
 >[!Purpose] 
 > This question aims to help you make sense of implications. There's really *nothing* deep behind implications. It is just a logical connective that has a certain behaviour.
 > 
-
+> To this end, try to consider the following statement below and how we can write it as an implication statement.
 
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
@@ -108,7 +109,7 @@ b. Determine whether the promise has been broken in each of the following cases:
 
 ---
 
-# Question 4:
+# Question 4: \[Graded Participation]
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first order logic. This comes in a few parts: We will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -159,7 +160,7 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 # Question 5: Negating FOL statements
 
 >[!Purpose] 
-> Play around with FOL statements! It's important to know how to manipulate them for writing proofs.
+> Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
 
 
 Consider the following first order logic statements:
@@ -204,14 +205,31 @@ For each of the following statements, write out the negation of the statement, a
 >[!Why?] 
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
-For each of the following implication statements, write its contrapositive, and determine if the statement is true or false.
+For each of the following implication statements:
+1. Write its contrapositive.
+2. Determine if the statement is true or false.
 
-1. $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
-2. $\forall p \in \mathbb{Z},  (p < 0 \implies p \leq 5 \lor p > 26)$
-3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
+As an example, when given a statement like:
+
+$$
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [(a > b) \to (a > b - 234)]
+$$
+
+Then the contrapositive is:
+$$
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [ \neg (a > b -234) \to \neg(a > b)]
+$$
+Basically, take the inner implication statement, and re-write it in its contrapositive form.
+
+
+
+Statements:
+1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z}, (a^2 \neq b^2 \to a \neq b)$
+2. $\forall p \in \mathbb{Z},  (p < 0 \to p \leq 5 \lor p > 26)$
+3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \to x \leq 5)$
 
 ---
-# Question 8:
+# Question 7: \[Graded Participation]
 Prove the following statement:
 
 > [!Theorem] 
@@ -227,14 +245,42 @@ To get you started, we have filled in a few lines of the proof for you, you shou
 **Partial solution:**
 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
 2. Assume for the sake of contradiction that $(even(x) \land odd(x))$
-	2.1 (Your proof here...)
+	1. (Your proof here...)
 3.  Contradiction
 
-# Question 7:
+The clickable hint box below gives a hint on how to approach this proof.
+
+>[!Hint]-
+> Based on our assumption for contradiction, can we somehow argue something like $\frac{1}{2} \in \mathbb{Z}$?
+> 
+> We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ due to Basic Algebra. After all, $\frac{1}{2}$ is not an integer.
+
+
+# Question 8:
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
-Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total.
+Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service. E.g. $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server. And so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
 
-Prove to yourself and your boss that this is impossible.
+**Question:** Prove to yourself and your boss that this is impossible.
 
-**Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math.
+**Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life. And someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
+
+1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+2. Proving, or disproving that statement.
+3. Interpreting back their result.
+
+So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
+
+The clickable hint box below gives a the formal statement we should try to prove. But I encourage you to think a little bit first about what you might write. Then, compare your attempt with what we have written in the hint box.
+
+>[!Hint]+
+> There are a few possible ways we can formalise this. Here is one:
+> 
+> **Formalism 1:**
+> Assume $C \in \mathbb{N}, s_1 \in \mathbb{N}, s_2 \in \mathbb{N}, \ldots, s_C \in \mathbb{N}$ is such that $(C > 0) \land (\sum_{i = 1}^S = C)$. Then, $$\exists i \in \mathbb{N} [(1 \leq i \land i \leq S \land s_i \geq \frac{C}{S})]$$
+> 
+> Reading this back in English: Let $C$, $s_1, s_2, \ldots, s_C$ be natural numbers. Assume that $C$ is positive, and that the total clients served is exactly $C$. Then at least one of the servers serves at least $\frac{C}{S}$.
+
+
+
+
