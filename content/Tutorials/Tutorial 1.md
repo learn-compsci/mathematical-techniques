@@ -14,6 +14,12 @@ hidden: "true"
 * ChatGPT (and other LLMs) are **not allowed**. 
 * Your submission **must be of your own write-up**.
 
+# Late Policy:
+* < 1 week after submission deadline: 50% penalty
+* < 2 weeks after submission deadline: 75% penalty
+* No submissions after 2 weeks.
+
+
 # Overview
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
