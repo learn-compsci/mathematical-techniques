@@ -68,3 +68,14 @@ This website's intended usage by students taking discrete math courses at the [S
 	* Will be graded based on correctness.
 * 50%: Final paper
 	* In person, open-book. No electronic devices.
+
+# Collaboration Policy: 
+* You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
+* **Do not share your solutions**.
+* ChatGPT (and other LLMs) are **not allowed**. 
+* Your submission **must be of your own write-up**.
+
+# Late Policy:
+* < 1 week after submission deadline: 50% penalty
+* < 2 weeks after submission deadline: 75% penalty
+* No submissions after 2 weeks.
