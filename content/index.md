@@ -42,17 +42,22 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Lecture Video Links
 
-## Week 2 Videos
+## Week 2 Videos: Unit 1 - Part 1, Part 2
 1. [Introduction to Propositions, and Logical Connectives](https://youtu.be/q85U4qeTHVw)
 2. [Behaviour of Logical Connectives, Truth Tables, Logical Equivalences](https://www.youtube.com/watch?v=0nfoPqWhVUY)
 3. [Predicates, and Quantifiers for First Order Logic](https://www.youtube.com/watch?v=7dG3pgO6phg)
+
+## Week 4 Videos: Unit 1 - Part 3 (Released Early) 
+1. [First Example of a Proof, Premises, Conclusions](https://youtu.be/r8uw-zc7jpM)
+2. [Rules of Our Proof System](https://youtu.be/98B2_H_o0-c)
+3. [Proof Strategies, And Steps in Proofs vs Statements](https://youtu.be/wEVCCraLiJc)
 
 # Notes
 ## Week 2, 3
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
 
 # Tutorials
-* To be released
+1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
 
 # Course Grading
 
