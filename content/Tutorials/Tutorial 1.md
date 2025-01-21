@@ -3,7 +3,22 @@ title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
 hidden: "true"
 ---
 # How to submit:
-- Submit before actual tutorial time for it to be graded.
+- Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
+	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
+	2. Submit your written attempts in-person during our tutorial.
+* **Official due date for submission**: **11-Feb-2025, 6:30PM
+
+# Collaboration Policy: 
+* You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
+* **Do not share your solutions**.
+* ChatGPT (and other LLMs) are **not allowed**. 
+* Your submission **must be of your own write-up**.
+
+# Late Policy:
+* < 1 week after submission deadline: 50% penalty
+* < 2 weeks after submission deadline: 75% penalty
+* No submissions after 2 weeks.
+
 
 # Overview
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
@@ -13,9 +28,11 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 2. Questions 4 through 6 are related to **first order logic**. 
 3. Questions 7 and 8 are related to **proofs**. 
 
-After week 2's content, you should be able to attempt questions 1 through 5. 
-After week 4's content, you should be able to attempt questions 6 and 7.
+After week 2's content, you should be able to attempt questions 1 through 5. Questions 2, and 4 are graded for participation.
 
+After week 4's content, you should be able to attempt questions 6 and 7. Question 6 is graded for participation.
+
+That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 # Question 1:
 
@@ -42,7 +59,7 @@ For each of the following, write a propositional formula that accurately represe
 
 ---
 
-## Question 2: Negating Propositional Formulae
+## Question 2: Negating Propositional Formulae \[Graded Participation]
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
 ### Part a: Equivalences
 Draw two truth tables to verify that:
@@ -64,6 +81,14 @@ Draw two truth tables to verify that:
 | $false$ | $true$  |             |          |          |                    |                      |
 | $false$ | $false$ |             |          |          |                    |                      |
 
+**Key takeaway from this tutorial question and the notes:**
+1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
+2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$
+3. $\neg(\neg(p))$ is logically equivalent to $p$ (From the notes)
+4. $\neg(p \lor q)$ is logically equivalent to $\neg p \land \neg q$ (From the notes)
+
+**Sneak peek:** These negations are super useful because later on when we talk about considering proof by contradictions knowing how to negate statements comes in handy. (Relevant content in Week 4's chapter [[Unit 1#Proof Strategies|Unit 1: Proof Strategies]])
+
 ### Part b: Translating Human Language to Logic
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
@@ -82,11 +107,14 @@ Answer template: <br>
 # Question 3:
 
 >[!Purpose] 
-> This question aims to help you make sense of implications. There's really *nothing* deep behind implications.
+> This question aims to help you make sense of implications. There's really *nothing* deep behind implications. It is just a logical connective that has a certain behaviour.
+> 
+> To this end, try to consider the following statement below and how we can write it as an implication statement.
+
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
 
-a. How would you write this sentence in propositional logic?
+a. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.
 
 b. Determine whether the promise has been broken in each of the following cases:
 1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
@@ -97,7 +125,7 @@ b. Determine whether the promise has been broken in each of the following cases:
 
 ---
 
-# Question 4:
+# Question 4: \[Graded Participation]
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first order logic. This comes in a few parts: We will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -145,28 +173,19 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 ---
 
-# Question 5
+# Question 5: Negating FOL statements
 
 >[!Purpose] 
-> Play around with FOL statements! It's important to know how to manipulate them for writing proofs.
+> Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
 
-### Part a: Contrapositive
-
-Consider the following first order logic statement:
-
-	$∀x∈D,∃y∈E,(P(x,y)  ⟹  Q(y))$
-
-Write its contrapositive. 
-
-### Part b: Negating FOL statements
 
 Consider the following first order logic statements:
-	1. $∃x∈D, P(x)∧Q(x)$
-	2. $∀x∈D, P(x)∨Q(x)$
-	3. $∀x∈D,∃y∈E, P(x,y)∧Q(y)$
-	4. $∃x∈D,∀y∈E, P(x,y)⟹Q(y)$
+	1. $\exists x \in D, (P(x) \land Q(x))$
+	2. $\forall x \in D, P(x)\lor Q(x)$
+	3. $\forall x\in D,\exists y\in E, P(x,y)\land Q(y)$
+	4. $\exists x \in D,\forall y \in E, P(x,y)\to Q(y)$
 
-Write the negation for each of the statements.
+Write the negation for each of the statements. You may refer to [[Unit 1#Negating Quantifiers]] on this.
 
 
 ---
@@ -180,10 +199,10 @@ Write the negation for each of the statements.
 
 |    Symbol    | Definition              | Explanation                                                                                                                         |
 | :----------: | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers 0, 1, 2, 3...                                                                                            |
-| $\mathbb{Z}$ | Set of integers         | Set containing the numbers ... , -3, -2, -1, 0, 1, 2, 3, ...                                                                        |
+| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                     |
+| $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                 |
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
-## Part A: Negating statements
+## Part a: Negating statements
 
 >[!Why?] 
 > Sometimes when attempting to prove a statement, as you will see in the [[Unit 1#Part 3 Proofs in First Order Logic|second half of Unit 1]], rather than attempting to prove/disprove something directly, it may be easier or more intuitive to disprove/prove its [[Unit 1#Negating Quantifiers|negation]]. For some of the questions, notice how it is sometimes easier to determine if the negation is true rather than the original statement.
@@ -195,21 +214,38 @@ For each of the following statements, write out the negation of the statement, a
 3. $\forall a, b, c \in \mathbb{Z}, (a = b \lor a = c)$ 
 4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z)$      
 5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
-6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \implies a = b)$
+6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \to a = b)$
 
-## Part B: Contrapositive statements
+## Part b: Contrapositive statements
 
 >[!Why?] 
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
-For each of the following implication statements, write its contrapositive, and determine if the statement is true or false.
+For each of the following implication statements:
+1. Write its contrapositive.
+2. Determine if the statement is true or false.
 
-1. $\forall a, b \in \mathbb{Z}, (a^2 \neq b^2 \implies a \neq b)$
-2. $\forall p \in \mathbb{Z},  (p < 0 \implies p \leq 5 \lor p > 26)$
-3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \implies x \leq 5)$
+As an example, when given a statement like:
+
+$$
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [(a > b) \to (a > b - 234)]
+$$
+
+Then the contrapositive is:
+$$
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [ \neg (a > b -234) \to \neg(a > b)]
+$$
+Basically, take the inner implication statement, and re-write it in its contrapositive form.
+
+
+
+Statements:
+1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z}, (a^2 \neq b^2 \to a \neq b)$
+2. $\forall p \in \mathbb{Z},  (p < 0 \to p \leq 5 \lor p > 26)$
+3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \to x \leq 5)$
 
 ---
-# Question 8:
+# Question 7: \[Graded Participation]
 Prove the following statement:
 
 > [!Theorem] 
@@ -225,14 +261,42 @@ To get you started, we have filled in a few lines of the proof for you, you shou
 **Partial solution:**
 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
 2. Assume for the sake of contradiction that $(even(x) \land odd(x))$
-	2.1 (Your proof here...)
+	1. (Your proof here...)
 3.  Contradiction
 
-# Question 7:
+The clickable hint box below gives a hint on how to approach this proof.
+
+>[!Hint]-
+> Based on our assumption for contradiction, can we somehow argue something like $\frac{1}{2} \in \mathbb{Z}$?
+> 
+> We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ due to Basic Algebra. After all, $\frac{1}{2}$ is not an integer.
+
+
+# Question 8:
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
-Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total.
+Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service. E.g. $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server. And so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
 
-Prove to yourself and your boss that this is impossible.
+**Question:** Prove to yourself and your boss that this is impossible.
 
-**Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math.
+**Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life. And someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
+
+1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+2. Proving, or disproving that statement.
+3. Interpreting back their result.
+
+So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
+
+The clickable hint box below gives a the formal statement we should try to prove. But I encourage you to think a little bit first about what you might write. Then, compare your attempt with what we have written in the hint box.
+
+>[!Hint]+
+> There are a few possible ways we can formalise this. Here is one:
+> 
+> **Formalism 1:**
+> Assume $C \in \mathbb{N}, s_1 \in \mathbb{N}, s_2 \in \mathbb{N}, \ldots, s_C \in \mathbb{N}$ is such that $(C > 0) \land (\sum_{i = 1}^S = C)$. Then, $$\exists i \in \mathbb{N} [(1 \leq i \land i \leq S \land s_i \geq \frac{C}{S})]$$
+> 
+> Reading this back in English: Let $C$, $s_1, s_2, \ldots, s_C$ be natural numbers. Assume that $C$ is positive, and that the total clients served is exactly $C$. Then at least one of the servers serves at least $\frac{C}{S}$.
+
+
+
+
