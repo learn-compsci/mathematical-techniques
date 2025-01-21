@@ -1000,7 +1000,7 @@ Frankly speaking this rule is rarely ever used in isolation. We will see uses of
 ### Rules: (Existential/Universal) (Generalisation/Instantiation)
 For the sake of exposition, it is a lot more natural to consider all these 4 rules together at the same time for this section.
 
-Let's begin with a smaller example that demonstrates the use of existential instantiation. Let's see that in action by proving this theorem formally:
+Let's begin with a smaller example that demonstrates the use of **universal instantiation**. Let's see that in action by proving this theorem formally:
 
 >[!Theorem]
 > Assuming $\forall x \in \mathbb{Z}[x^2 \geq 0]$, then $(-5)^2 \geq 0$.
