@@ -294,7 +294,7 @@ So this question above comes with the question of what should we even write as a
 
 The clickable hint box below gives a the formal statement we should try to prove. But I encourage you to think a little bit first about what you might write. Then, compare your attempt with what we have written in the hint box.
 
->[!Hint]+
+>[!Hint]-
 > There are a few possible ways we can formalise this. Here is one:
 > 
 > **Formalism 1:**
