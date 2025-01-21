@@ -92,7 +92,7 @@ For each of the following, write a propositional formula that accurately represe
 
 ---
 
-## Question 2: DeMorgan's Laws
+# Question 2: DeMorgan's Laws
 
 ### Part a Solutions:
 
@@ -120,7 +120,7 @@ Hence, $\neg (p \lor q)$ and $\neg p \land \neg q$ are logically equivalent.
 
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
-### Part b Solutions:
+## Part b Solutions:
 
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
@@ -315,7 +315,7 @@ Write the negation for each of the statements.
 
 ---
 
-## Question 6 Solutions:
+# Question 6 Solutions:
 ### Part A:
 1. (True)  $\exists x \in \mathbb{N}, \forall y \in \mathbb{Z}, (x \neq y)$
 

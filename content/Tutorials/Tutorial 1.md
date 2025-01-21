@@ -6,7 +6,7 @@ hidden: "true"
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: **11-Feb-2025, 6:30PM
+* **Official due date for submission** : 11-Feb-2025, 6:30PM
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -39,29 +39,33 @@ That said, **we encourage you to try all the questions**, this way when you come
 >[!Purpose] 
 > Practice translating English sentences into propositional formulae!
 
-For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions ***p***, ***q***, ***r***, ***s*** and ***t*** as needed, where:
-	***p*** : "The program compiles."
-	***q*** : "The input is valid."
-	***r*** : "The output is correct."
-	***s*** : "The function is efficient."
-	***t*** : "The algorithm terminates."
+For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions ***p***, ***q***, ***r***, ***s*** and ***t*** as needed, where they're defined as:
+
+* ***p*** : "The program compiles."
+* ***q*** : "The input is valid."
+* ***r*** : "The output is correct."
+* ***s*** : "The function is efficient."
+* ***t*** : "The algorithm terminates."
+
+0. "If the input is valid, then the output is correct"
 
 1. "If the program compiles but the input is not valid, then the output is not correct."
 
-2. "The function is efficient if and only if both the algorithm terminates and the output is correct." (Hint: "if and only if" means an implication in both directions)
+2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)." (Hint: "if and only if" means an implication in both directions. $p$ if and only if $q$ is the same as $(p \to q) \land (q \to p)$)
 
-3. "The program compiles and the input is valid, or the function is efficient, but the algorithm does not terminate."
+3. "((The program compiles and the input is valid) or the function is efficient), and the algorithm does not terminate."
 
-4. "If the program compiles, then either the input is valid and the output is correct, or the algorithm does not terminate."
+4. "If the program compiles, then ((either the input is valid and the output is correct), or the algorithm does not terminate)."
 
-5. "The function is efficient if and only if the program compiles and the input is valid, or if the output is correct implies that the algorithm terminates."
+5. "The function is efficient if and only if ((the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates))."
 
+**Example:** The answer to point 0. is: "$q \to r$".
 
 ---
 
-## Question 2: Negating Propositional Formulae \[Graded Participation]
+# Question 2: Negating Propositional Formulae \[Graded Participation]
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
-### Part a: Equivalences
+## Part a: Equivalences
 Draw two truth tables to verify that:
 
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
@@ -89,7 +93,7 @@ Draw two truth tables to verify that:
 
 **Sneak peek:** These negations are super useful because later on when we talk about considering proof by contradictions knowing how to negate statements comes in handy. (Relevant content in Week 4's chapter [[Unit 1#Proof Strategies|Unit 1: Proof Strategies]])
 
-### Part b: Translating Human Language to Logic
+# Part b: Translating Human Language to Logic
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
 1. It is not the case that it is raining or cold.
@@ -114,9 +118,11 @@ Answer template: <br>
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
 
-a. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.
+## Part (a)
+How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
 
-b. Determine whether the promise has been broken in each of the following cases:
+## Part (b)
+Determine whether the promise has been broken in each of the following cases:
 1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
 2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
 3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
@@ -204,7 +210,7 @@ Write the negation for each of the statements. You may refer to [[Unit 1#Negatin
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
 ## Part a: Negating statements
 
->[!Why?] 
+>[!Purpose] 
 > Sometimes when attempting to prove a statement, as you will see in the [[Unit 1#Part 3 Proofs in First Order Logic|second half of Unit 1]], rather than attempting to prove/disprove something directly, it may be easier or more intuitive to disprove/prove its [[Unit 1#Negating Quantifiers|negation]]. For some of the questions, notice how it is sometimes easier to determine if the negation is true rather than the original statement.
 
 For each of the following statements, write out the negation of the statement, and determine if the original statement is true or false.
@@ -218,7 +224,7 @@ For each of the following statements, write out the negation of the statement, a
 
 ## Part b: Contrapositive statements
 
->[!Why?] 
+>[!Purpose] 
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
 For each of the following implication statements:
@@ -241,7 +247,7 @@ Basically, take the inner implication statement, and re-write it in its contrapo
 
 Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z}, (a^2 \neq b^2 \to a \neq b)$
-2. $\forall p \in \mathbb{Z},  (p < 0 \to p \leq 5 \lor p > 26)$
+2. $\forall p \in \mathbb{Z},  (p < 0 \to (p \leq 5 \lor p > 26))$
 3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \to x \leq 5)$
 
 ---
@@ -297,6 +303,7 @@ The clickable hint box below gives a the formal statement we should try to prove
 > 
 > Reading this back in English: Let $C$, $s_1, s_2, \ldots, s_C$ be natural numbers. Assume that $C$ is positive, and that the total clients served is exactly $C$. Then at least one of the servers serves at least $\frac{C}{S}$.
 
+Here's another hint on how you might approach the overall proof idea.
 
-
-
+>[!Hint]-
+> Refer to the proof done in [[Unit 1#Example 1]] and see how you might adapt it to prove the above statement instead.
