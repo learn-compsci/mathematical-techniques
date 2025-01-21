@@ -29,7 +29,7 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 
 After week 2's content, you should be able to attempt questions 1 through 5. Questions 2, and 4 are graded for participation.
 
-After week 4's content, you should be able to attempt questions 6 and 7. Question 6 is graded for participation.
+After week 4's content, you should be able to attempt questions 7 and 8. Question 7 is graded for participation.
 
 That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
