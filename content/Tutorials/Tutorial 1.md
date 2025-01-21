@@ -1,6 +1,5 @@
 ---
 title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
-hidden: "true"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
