@@ -1396,8 +1396,9 @@ The final line is then the conclusion of our proof. (Notice how we used the lemm
 > 25. $divides(2, a) \land divides(2, b) \to 2 = 1$ \[Universal instantiation on line 23]
 > 26. $2 = 1$ \[Modus Ponens on lines 24, 25]
 > 27. $2 \neq 1$ \[Basic algebra]
-> 28. $\bot$ \[Contradiction rule on lines 26, 27] (**Look! We used it here!**)
-> 29. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof By Contradiction rule. Assumption on line $1$, $\bot$ on line $28$]
+> 28. $2 = 1 \land 2 \neq 1$ 
+> 29. $\bot$ \[Contradiction rule on lines 28] (**Look! We used it here!**)
+> 30. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof By Contradiction rule. Assumption on line $1$, $\bot$ on line $29$]
 
 I think this proof warrants a read-back in English, here's the proof again in English that skips the rules and contains the essence of what we are trying to say:
 
