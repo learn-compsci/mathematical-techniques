@@ -53,7 +53,7 @@ This website's intended usage by students taking discrete math courses at the [S
 3. [Proof Strategies, And Steps in Proofs vs Statements](https://youtu.be/wEVCCraLiJc)
 
 # Notes
-## Week 2, 3
+## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
 
 # Tutorials
