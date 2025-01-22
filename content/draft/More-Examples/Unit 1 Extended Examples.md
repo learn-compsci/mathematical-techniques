@@ -25,6 +25,7 @@ Step 1: List out all 8 combinations of $p$, $q$ and $r$.
 | $false$ | $true$  | $false$ |
 | $false$ | $false$ | $true$  |
 | $false$ | $false$ | $false$ |
+
 Step 2: Evaluate the intermediate propositions. In this case, we need the intermediate steps $\neg q$, then $p \to \neg q$, and finally, $(p \to \neg q) \to r$. 
 
 We construct the $\neg q$ column by taking all the corresponding values of $q$ and negating them.
@@ -39,6 +40,7 @@ We construct the $\neg q$ column by taking all the corresponding values of $q$ a
 | $false$ | ==$true$==  | $false$ | ==$false$==  |                |                               |
 | $false$ | ==$false$== | $true$  | ==$true$==   |                |                               |
 | $false$ | ==$false$== | $false$ | ==$true$==   |                |                               |
+
 Then, we construct the $p \to \neg q$ column by taking the corresponding values of $p$ and $\neg q$ and performing an implication.
 
 | ==$p$==     | $q$     | $r$     | ==$\neg q$== | ==$p \to \neg q$== | $(p \to \neg q) \to r$ (goal) |
@@ -51,6 +53,7 @@ Then, we construct the $p \to \neg q$ column by taking the corresponding values 
 | ==$false$== | $true$  | $false$ | ==$false$==  | ==$true$==         |                               |
 | ==$false$== | $false$ | $true$  | ==$true$==   | ==$true$==         |                               |
 | ==$false$== | $false$ | $false$ | ==$true$==   | ==$true$==         |                               |
+
 Lastly, we construct the $(p \to \neg q) \to r$ column by taking the corresponding values of $(p \to \neg q)$ and $r$ and performing another implication.
 
 | $p$     | $q$     | ==$r$==     | $\neg q$ | ==$p \to \neg q$== | ==$(p \to \neg q) \to r$== (goal) |
@@ -63,6 +66,7 @@ Lastly, we construct the $(p \to \neg q) \to r$ column by taking the correspondi
 | $false$ | $true$  | ==$false$== | $false$  | ==$true$==         | ==$false$==                       |
 | $false$ | $false$ | ==$true$==  | $true$   | ==$true$==         | ==$true$==                        |
 | $false$ | $false$ | ==$false$== | $true$   | ==$true$==         | ==$false$==                       |
+
 And there we have our desired column!
 
 **Example 2: Evaluating truth values**
