@@ -120,6 +120,24 @@ $$(a \to b) \land (b \to a)$$
 > | $false$          | $true$        | $true$  | $false$ | $false$ |
 > | $false$          | $false$       | $true$ | $true$ | $true$ |
 
+Try creating the truth table for the formula:
+$$
+\neg (c \to a) \lor e
+$$
+
+> [!Answer]-
+> | $a$ |$c$  | $e$     | $c \to a$ | $\neg (c \to a)$ | $\neg (c \to a) \lor e$  |
+> | :--------------: | :--------------: | :-----------: | :--------: | :------------------: |  :------------------: |
+> | $true$  | $true$  | $true$  | $true$ |$false$ |$true$ |
+> | $true$  | $true$  | $false$ |$true$ |$false$ | $false$|
+> | $true$  | $false$ | $true$  |$true$ |$false$ |$true$ |
+> | $true$  | $false$ | $false$ |$true$ |$false$ |$false$ |
+> | $false$ | $true$  | $true$  |$false$ |$true$ |$true$ |
+> | $false$ | $true$  | $false$ |$false$ |$true$ |$true$ |
+> | $false$ | $false$ | $true$  |$true$ |$false$ |$true$ |
+> | $false$ | $false$ | $false$ |$true$ |$false$ | $false$ |
+
+
 #### Example 2: Evaluating Formulae 
 Given a propositional formula such as $\neg ((p \lor \neg q) \to r) \land (r \to p)$, and given the truth values of the starting propositions, we can evaluate the truth value of the original formula. This is done by evaluating the "inner" formulae, then gradually working outwards to reach the final statement.
 
@@ -239,6 +257,28 @@ Compare the two statements, what is the difference?
 > 
 > But in the second statement, since $Jason$ and $Kara$ are not free. We don't know if everyone will attend the dinner or not. It could be possible that no one goes. (It could actually still be possible that _some_ people go. Why is that? Hint: How does the $\to$ logical connective work?)
 
+What if we wanted to say:
+
+> All natural numbers are greater than 5
+
+Recall that the set of natural numbers is $\mathbb{N}$. The statement is clearly false, but how should we write it in first order logic?
+
+>[!Answer]-
+> $$
+> \forall x \in \mathbb{N} [ x > 5 ]
+> $$
+
+What about:
+
+> All integers are greater than or equals to $0$ when squared
+
+Recall that the set of natural numbers is $\mathbb{Z}$. How should we write it in first order logic?
+
+>[!Answer]-
+> $$
+> \forall x \in \mathbb{Z} [ x^2 \geq 0 ]
+> $$
+
 #### Example 2: Parsing Nested Quantifiers
 Nested quantifiers can be difficult to understand at first glance because of the different quantifiers regarding each variable, and the relationships between the variables. Let's look at a few more examples:
 
@@ -286,7 +326,7 @@ Let's try one more, but a little more mathematical this time.
 
 $$\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \: [(a \leq x \leq b) \to (a \leq x^{2} \leq b)]$$Is this statement true?
 
->[!Solution-Part-1]+
+>[!Solution-Part-1]-
 >**Translation:** "I can find (fixed) integers $a$ and $b$, such that no matter which rational number $x$ I choose, the following claim applies: 'If $x$ is between $a$ and $b$, then $x^{2}$ will still be between $a$ and $b$'." (For convenience's sake, let's call this secondary statement Claim 0.)
 >
 >**Discussion:**
