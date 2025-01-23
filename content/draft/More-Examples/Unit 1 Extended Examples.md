@@ -1,10 +1,50 @@
 ---
 title: "More Examples: Unit 1"
-hidden: "true"
 ---
-### Propositional Logic
+# Overview:
+In this page, we will provide more examples for each notable topic. There will also be a few examples for you to try out yourself, with solutions provided in case you wish to verify them yourself.
 
-**Example 1: Truth tables**
+Do post on Canvas if something is unclear or you wish for more explanations.
+
+### Propositional Logic
+#### Example: Propositions
+Here are some more examples of propositions:
+
+1. $5$ is greater than $2$.
+2. There exists a number that is between 9 and 20.
+3. $4$ is equal to $0$.
+
+Recall that propositions are statements that are either true or false. For example, examples 1 and 2 are **true**. But example 3 is **false**.
+
+Here are some **non-examples** of propositions:
+
+1. Close the door.
+2. I hope the it rains today.
+
+These statements don't have a clear "true or false" property to them.
+
+#### Example: Logical Connectives
+
+Here are some more examples on how to use logical connectives to connect propositions:
+
+1. $x = 5$ **and** $x = 6$
+2. **if** ($x > 5$ **or** $x \neq 30$), **then** $y = 55$
+3. (**not** $(x + 1 = 20)$) **or** ($55 + 1 = 70$)
+
+In example 1, $x = 5$, and $x = 6$ are propositions.
+
+And **and** is used to connect the two propositions.
+
+**Try it yourself!**
+What about the other 2 lines? What are the propositions? What are the connectives?
+
+>[!Answer]-
+> In example 2, the propositions are: $x > 5$, $x \neq 30$, $y = 55$.
+> The connectives used are: **or**, **if/then**.
+>
+> In example 3, the propositions are: $(x + 1 = 20)$, $55 + 1 = 70$.
+> The connectives used are: **or**, **not**.
+#### Example: Truth tables 
 
 Truth tables are a handy way to help us determine if two formulae are logically equivalent. To construct a truth table, we need to:
 
@@ -66,11 +106,21 @@ Lastly, we construct the $(p \to \neg q) \to r$ column by taking the correspondi
 | $false$ | $true$  | ==$false$== | $false$  | ==$true$==         | ==$false$==                       |
 | $false$ | $false$ | ==$true$==  | $true$   | ==$true$==         | ==$true$==                        |
 | $false$ | $false$ | ==$false$== | $true$   | ==$true$==         | ==$false$==                       |
-
 And there we have our desired column!
 
-**Example 2: Evaluating truth values**
+**Try it yourself!**
+Try creating the truth table for the formula:
+$$(a \to b) \land (b \to a)$$
 
+> [!Answer]-
+> | $a$ |$b$  | $a \to b$     | $b \to a$ | $(a \to b) \land (b \to a)$  |
+> | :--------------: | :--------------: | :-----------: | :--------: | :------------------: |
+> | $true$         | $true$           | $true$   | $true$ | $true$  |
+> | $true$         | $false$         | $false$  | $true$  | $false$ |
+> | $false$          | $true$        | $true$  | $false$ | $false$ |
+> | $false$          | $false$       | $true$ | $true$ | $true$ |
+
+#### Example 2: Evaluating Formulae 
 Given a propositional formula such as $\neg ((p \lor \neg q) \to r) \land (r \to p)$, and given the truth values of the starting propositions, we can evaluate the truth value of the original formula. This is done by evaluating the "inner" formulae, then gradually working outwards to reach the final statement.
 
 Suppose we had the following truth assignments for the propositions $p$, $q$ and $r$:
@@ -87,64 +137,156 @@ Then, we can begin evaluating $\neg ((p \lor \neg q) \to r) \land (r \to p)$ by 
 5. Since $r \equiv true$ and $p \equiv false$, we have $r \to p \equiv false$.
 6. Since $\neg ((p \to \neg q) \to r) \equiv false$ (from line 4) and $r \to p \equiv false$ (from line 5), we have $\neg ((p \lor \neg q) \to r) \land (r \to p) \equiv true$, as desired.
 
+**Try it yourself!**
+1. $(p \to q) \land (q\to p)$, with $p \equiv true, q \equiv false$.
+2. $a \lor (b \to c)$, with $a \equiv true, b \equiv true, c \equiv false$
+3. $(\neg(a) \land a) \lor (b \to c)$, with $a \equiv true, b \equiv true, c \equiv false$
+
+>[!Answers]-
+> For the first one, when $p \equiv true, q \equiv false$, then $(p \to q)$ is $false$, and $(q \to p)$ is $true$. $false \land true$ is $false$.
+> There is a _slightly_ faster way to evaluate it. Notice that since $(p \to q)$ is $false$, and we are about to use $\land$, we don't actually care what's on the other side: since $false \land false \equiv false$, and $false \land true \equiv false$. In both cases, it is $false$.
+> 
+> 
+> For the second one, when $a \equiv true, b \equiv true, c \equiv false$,  then $b \to c$ is $false$, and the entire formula is $true$.
+> Again there is a _slightly_ faster way to evaluate it. We already know that $a$ is $true$ and $true$ used with $\lor$ anything is also $true$.
+> 
+> For the third and last one, $\neg a \land a$ is $false$. On the other hand $b \to c$ is also $false$. Since both sides of the $\lor$ are $false$, the entire formula is $false$.
+
 ### First-Order Logic
 
-**Example 1: Parsing Nested Quantifiers**
+#### Example 1: Parsing Single Quantifiers
+When we encounter a universal quantifier, say $\forall x \in A$, we might decode it as "No matter which $x$ I choose from set $A$". Correspondingly, when we encounter an existential quantifier, say $\exists y \in B$, we might decode it as "I can find a single $y$ in set $B$". 
 
-Nested quantifiers can be difficult to understand at first glance because of the different quantifiers regarding each variable, and the relationships between the variables. One way to understand them more easily is to use English to decode these statements. A tip here is to use concrete examples to help you follow the train of logic so that you don't lose track of where you are in the statement.
 
-When we encounter a universal quantifier, say $\forall x \in A$, we might decode it as "No matter which $x$ I choose from $A$". Correspondingly, when we encounter an existential quantifier, say $\exists y \in B$, we might decode it as "I can find a single $y$ in $B$". 
+For example, let's say we're at a company dinner, and what to say every person is attending. We want to have a _set_ that contains every person in the company. Something like:
 
-For reference, the definition of rational numbers is as follows:
+$$
+Person = \{James, Jane, Keith, Kara\}
+$$
+(I guess this company only has $4$ people.)
 
->[!Definition]
->A number $x$ is **rational** if and only if there is an integer $a$ and a non-zero integer $b$, such that $x = \frac{a}{b}$.
->
->In other words, $x \in \mathbb{Q} \iff \exists a \in \mathbb{Z}, b \in \mathbb{Z} \: [x = \frac{a}{b} \land b \neq 0]$.
+Let's also make a predicate that represents the fact that a person is attending. Something like $is\_attending(\cdot)$. Then for example if $is\_attending(James)$ is $true$, then we know $James$ is attending the dinner. On the other hand, if $is\_attending(Keith)$ is $false$, we know $Keith$ is not attending. 
 
-Let's see how this technique can be used to parse nested quantifiers.
+So to say:
 
->[!Example 1]
->**Statement:** $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \: [\frac{x}{y} \in \mathbb{Q}]$. Is this statement true? 
+> "Every person in the company is attending"
 
->[!Solution 1]+
->**Translation**: "No matter which integers $x$ and $y$ I choose, $\frac{x}{y}$ must be rational."
->
->**Discussion:**
->One might start choosing random integers $x$ and $y$, say $2$ and $5$, and checking whether $\frac{x}{y}$ is rational. In this case, $\frac{2}{5}$ is indeed rational. How about $10$ and $-2$? Well, $\frac{10}{-2} = -5 = \frac{-5}{1}$, so it is also rational!
->
->But what about $4$ and $0$? After all, the statement does say that **any** $x$ and **any** $y$ I choose must satisfy the condition! However, we see that $\frac{4}{0}$ is not even defined, and so it can't be rational. This means that Statement 1 is **false**; as long as we have a *single* counterexample, we have our conclusion.
+We would write:
+$$
+\forall x \in Person[\ is\_attending(x)\ ]
+$$
 
->[!Example 2]
->**Statement:** $\exists x \in \mathbb{Z}, \exists y \in \mathbb{Q} \: [x = y]$. Is this statement true? 
+If we wanted to say:
 
->[!Solution 2]+
->**Translation**: "I can find an integer $x$ and a rational number $y$ such that $x = y$".
->
->**Discussion:**
->This one is perhaps more obvious: you only need to find a *single* integer $x$ and a *single* rational number $y$ that are equal to each other. For instance, one might even pick $x = 0$ and $y = \frac{0}{1}$, and it's immediately clear that we have our $x$ and $y$ as desired. Hence, the original statement is **true**.
->
->*Note: Although there are (infinitely) many such $y$ regardless of the chosen $x$, the statement is not concerned with how many examples there are, but more so with the fact that **they exist**.* 
+> "Someone in the company is attending"
 
-Examples 3 and 4 deal with alternating quantifiers, which may be more difficult to grasp.
+We would write:
+$$
+\exists x \in Person [\ is\_attending(x) \ ]
+$$
 
->[!Example 3]
->**Statement:** $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \: [\frac{x}{y} = 2]$. Is this statement true?
+If we wanted to say:
 
->[!Solution 3]+
->**Translation:** "No matter which integer $x$ I choose, it is guaranteed that I can find an integer $y$ such that $\frac{x}{y}$ is $2$."
->
->**Discussion:**
->One might begin by picking any integer $x$, say $6$, and checking if it is possible to find an integer $y$ where $\frac{6}{y} = 2$. Indeed, there is such a $y$, namely $3$. What about if $x = -6$? Yes, you can still let $y = -3$ and you get $\frac{-6}{-3} = 2$. 
->
->But what about $x = 1$? Is it possible to find a $y$ such that $\frac{1}{y} = 2$? Basic algebra says: no! If there *were* such a $y$, algebra tells us that $y$ would have to be $\frac{1}{2}$. However, $\frac{1}{2}$ is not an integer in the first place, as specified in the original statement with "$y \in \mathbb{Z}$". As a result, we can conclude that the original statement is **false**.
+> "No one is attending the company dinner".
 
-Take a moment to digest this last example before reading the solution!
+We could write:
 
->[!Example 4]
->**Statement:** $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \: [(a \leq x \leq b) \to (a \leq x^{2} \leq b)]$. Is this statement true?
+$$
+\forall x \in Person [\neg \ is\_attending(x) \ ]
+$$
 
->[!Solution 4.1]+
+There actually is a different way:
+$$
+\neg \big(\exists x \in Person [\ is\_attending(x) \ ]\big)
+$$
+
+You could also think of this as saying "There is not a single person that is attending."
+
+Okay, let's add one more predicate. $free(z)$ means person $z$ is free. What happens if $Jason$ says "if I am free, I will attend the dinner?" We can write:
+
+$$
+free(Jason) \to is\_attending(Jason)
+$$
+
+**Try it yourself!**
+
+Based on the above example, what if we wanted to say:
+
+> Anyone who is free at the company will attend the dinner.
+
+Write your answer as a statement in first-order logic.
+
+>[!Answer]-
+> $$
+   \forall p \in Persion[free(p) \to is\_attending(p)]
+$$
+
+What if we wanted to say: 
+
+> If everyone is free, then everyone will attend the dinner.
+
+Write your answer as a statement in first-order logic.
+
+>[!Answer]-
+> $$
+   \big(\forall p \in Persion[free(p)] \big) \to \big(\forall p \in Persion[is\_attending(p)] \big)
+   $$
+
+Compare the two statements, what is the difference?
+
+>[!Answer]-
+> For example, in the first statement, it could be the case that $Jason$ and $Kara$ are free, but $Jane$ and $Keith$ are not. This means $Jason$ and $Kara$ will attend.
+> 
+> But in the second statement, since $Jason$ and $Kara$ are not free. We don't know if everyone will attend the dinner or not. It could be possible that no one goes. (It could actually still be possible that _some_ people go. Why is that? Hint: How does the $\to$ logical connective work?)
+
+#### Example 2: Parsing Nested Quantifiers
+Nested quantifiers can be difficult to understand at first glance because of the different quantifiers regarding each variable, and the relationships between the variables. Let's look at a few more examples:
+
+
+Let's re-visit the same English sentence we had in the notes:
+
+> Statement 1: "There exists a planet that every person lives on."
+
+Also compare it with the following statement:
+
+> Statement 2: "Every person is such that, there exists a planet that person lives on."
+
+Again, let's make 2 sets, $Person$ (is the set of people), and $Planet$ (is the set of planets). And another predicate like $lives\_on(x, y)$. This time, the predicate takes 2 values as input, and it means "$x$ lives on $y$".
+
+So for example if $lives\_on(James, Mars)$ is true, it would mean $James$ lives on $Mars$.
+
+It also actually means **if we said** $lives\_on(Neptune, Chandler)$ is true, then we would be saying $Neptune$ lives on $Chandler$, as non-sensical as that sounds. 
+
+**Try it yourself!**
+
+Try to write statement 1, and statement 2 using the sets, and the predicate provided.
+>[!Answer]-
+> Statement 1:
+> $$
+   \exists x \in Planet, \forall y \in Person [ lives\_on(y, x) ]
+> $$
+> 
+> Statement 2:
+> $$
+   \forall y \in Person, \exists x \in Planet [ lives\_on(y, x) ]
+  $$
+
+What is the difference between the two statements? Are they the same? Can we think of a (potentially fictitious) scenario where statement 1 is $false$. but statement 2 is $true$?
+
+>[!Answer]-
+> Let's say $Jason$ is a person (i.e. $Jason \in Person$). And $lives\_on(Jason, Saturn)$ is $true$ (in other words, $Jason$ actually lives on $Saturn$. On the other hand, every other person who is not $Jason$ lives on $Neptune$.
+>  
+>  Then can we say there is a planet that every person lives on? No. Because we will need to **fix** a single planet. For that one planet, every person has to live on it. So Statement 1 is false.
+>  
+>  On the other hand, statement $2$ is true, because everyone lives on a planet. In our example, it's either $Saturn$ or $Neptune$.
+
+#### Example 2: Another example: Parsing Nested Quantifiers
+
+Let's try one more, but a little more mathematical this time.
+
+$$\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \: [(a \leq x \leq b) \to (a \leq x^{2} \leq b)]$$Is this statement true?
+
+>[!Solution-Part-1]+
 >**Translation:** "I can find (fixed) integers $a$ and $b$, such that no matter which rational number $x$ I choose, the following claim applies: 'If $x$ is between $a$ and $b$, then $x^{2}$ will still be between $a$ and $b$'." (For convenience's sake, let's call this secondary statement Claim 0.)
 >
 >**Discussion:**
@@ -156,10 +298,95 @@ Take a moment to digest this last example before reading the solution!
 >
 >Hopefully, after the "trial" above, you would've had a taste of what the statement is trying to say. Keep playing around with the values $a$ and $b$ to see if you can find the correct ones that prove the original statement is true. See Solution 4.2 below for the answers.
 
->[!Solution 4.2]-
+>[!Solution-Part-2]-
 >Choosing $a = 0$ and $b = 1$ will make the original statement true.  By basic algebra, for any rational number $x$, if $0 \leq x \leq 1$, then $0 \leq x^{2} \leq 1$ as well. 
+>
+>Remember, since it's $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}$, we only need to find one value for $a$, one value for $b$.
 
 
-**Example 2: Negating Nested Quantifiers**
+#### Example 1: Negating Quantifiers
+Here's another example, let's go back to the dinner. Let's say there are 4 people at the dinner. And let's think about the following statement:
 
-**smth else??**
+> There is a dish that everyone likes
+
+If we used the sets $Dish$, $People$, and the predicate $likes(x, y)$ to mean "$x$ likes $y$". And also let's say one of the dishes was $Kailan$.
+
+We can write "Every person likes $Kailan$" as:
+$$
+\forall x \in Person[ likes(x, Kailan) ]
+$$
+
+What if we wrote:
+
+$$
+\neg \big( \forall x \in Person[ likes(x, Kailan) ] \big)
+$$
+
+This means 
+
+> It is not true that everyone likes $Kailan$.
+
+Why was that? It's because **at least** one person does not like $Kailan$. 
+
+That means we can also write it as:
+$$
+  \exists x \in Person[ \neg \big(likes(x, Kailan)\big) ] 
+$$
+
+Similarly, if we instead want to say "no one likes $Kailan$" instead, there are 2 possible ways:
+
+$$
+\forall x \in Person[ \neg \big(likes(x, Kailan)\big) ] 
+$$
+
+$$
+\neg \big(\exists x \in Person[likes(x, Kailan) ] \big)
+$$
+
+The first statement is basically saying "Everyone does not like $Kailan$". The second statement is saying "It is not the case that there exists a person that likes $Kailan$." Like we mentioned in the notes, to move a $\neg$ symbol through a quantifier, we simply flip what the quantifier is.
+
+**Try it yourself!**
+
+What is the negation of the following?
+$$
+\forall x \in Person[ \big(likes(x, Shrimps)\big) ] 
+$$
+
+>[!Answer]-
+> The negation of the statement is
+> $$
+>   \neg \big(\forall x \in Person[ \big(likes(x, Shrimps)\big) ] \big)
+> $$ 
+> which is also:
+> $$
+>    \exists x \in Person[ \neg \big(likes(x, Shrimps)\big) ]
+> $$
+
+What if we wanted to say, there exists a dish that everyone does not like? 
+
+What if we wanted to say the negation of that statement? What does the negation mean?
+
+>[!Answer]-
+> The first statement is written as
+> $$
+>   \exists d \in Dishes, \forall p \in Person [ \neg likes(d, p)] 
+> $$ 
+> ------------
+> To negate it, we can do the following:
+> 
+> $$
+>  \neg \big( \exists d \in Dishes, \forall p \in Person [ \neg likes(d, p)] \big)
+> $$ 
+> 
+> Which we can simplify to:
+> $$
+>  \forall d \in Dishes, \exists p \in Person [ \neg (\neg likes(d, p))]
+> $$ 
+> 
+> which is also just:
+> $$
+>  \forall d \in Dishes, \exists p \in Person [  likes(d, p))]
+> $$ 
+> 
+> The negation of the first statement means "Every dish is liked by at least one person."
+
