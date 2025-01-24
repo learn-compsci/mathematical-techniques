@@ -189,12 +189,23 @@ $$
 
 Let's also make a predicate that represents the fact that a person is attending: $is\_attending(\cdot)$. 
 
-Then for example if:
+Then for example if: 
 
-$$is\_attending(James)$$ 
-is $true$, then we know $James$ is attending the dinner. On the other hand, if 
 
-$$is\_attending(Keith)$$
+$$
+is\_attending(James)
+$$
+
+
+
+is $true$, then we know $James$ is attending the dinner. 
+
+On the other hand, if 
+
+$$
+is\_attending(Keith)
+$$
+
 is $false$, we know $Keith$ is not attending. 
 
 So to say:
@@ -247,8 +258,8 @@ Write your answer as a statement in first-order logic.
 
 >[!Answer]-
 > $$
-   \forall p \in Persion[free(p) \to is\_attending(p)]
-$$
+>   \forall p \in Persion[free(p) \to is\_attending(p)]
+> $$
 
 What if we wanted to say: 
 
@@ -258,8 +269,8 @@ Write your answer as a statement in first-order logic.
 
 >[!Answer]-
 > $$
-   \big(\forall p \in Person \: [free(p)] \big) \to \big(\forall p \in Person \: [is\_attending(p)] \big)
-   $$
+>   \big(\forall p \in Person \: [free(p)] \big) \to \big(\forall p \in Person \: [is\_attending(p)] \big)
+>   $$
 
 Compare the two statements, what is the difference?
 
@@ -314,13 +325,13 @@ Try to write statement 1, and statement 2 using the sets, and the predicate prov
 >[!Answer]-
 > Statement 1:
 > $$
-   \exists x \in Planet, \forall y \in Person \: [ lives\_on(y, x) ]
+>   \exists x \in Planet, \forall y \in Person \: [ lives\_on(y, x) ]
 > $$
 > 
 > Statement 2:
 > $$
-   \forall y \in Person, \exists x \in Planet \: [ lives\_on(y, x) ]
-  $$
+>   \forall y \in Person, \exists x \in Planet \: [ lives\_on(y, x) ]
+>  $$
 
 What is the difference between the two statements? Are they the same? Can we think of a (potentially fictitious) scenario where statement 1 is $false$. but statement 2 is $true$?
 
