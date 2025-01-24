@@ -190,7 +190,12 @@ $$
 Let's also make a predicate that represents the fact that a person is attending: $is\_attending(\cdot)$. 
 
 Then for example if:
-$$is\_attending(James)$$ is $true$, then we know $James$ is attending the dinner. On the other hand, if $$is\_attending(Keith)$$ is $false$, we know $Keith$ is not attending. 
+
+$$is\_attending(James)$$ 
+is $true$, then we know $James$ is attending the dinner. On the other hand, if 
+
+$$is\_attending(Keith)$$
+is $false$, we know $Keith$ is not attending. 
 
 So to say:
 
