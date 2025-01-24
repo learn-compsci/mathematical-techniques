@@ -108,6 +108,7 @@ Lastly, we construct the $(p \to \neg q) \to r$ column by taking the correspondi
 | $false$ | $true$ | $false$ | $false$ | $true$ | $false$ |
 | $false$ | $false$ | $true$ | $true$ | $true$ | $true$ |
 | $false$ | $false$ | $false$ | $true$ | $true$ | $false$ |
+
 And there we have our desired column!
 
 **Try it yourself!**
@@ -186,7 +187,10 @@ Person = \{James, Jane, Keith, Kara\}
 $$
 (I guess this company only has $4$ people.)
 
-Let's also make a predicate that represents the fact that a person is attending. Something like $is\_attending(\cdot)$. Then for example if $is\_attending(James)$ is $true$, then we know $James$ is attending the dinner. On the other hand, if $is\_attending(Keith)$ is $false$, we know $Keith$ is not attending. 
+Let's also make a predicate that represents the fact that a person is attending: $is\_attending(\cdot)$. 
+
+Then for example if:
+$$is\_attending(James)$$ is $true$, then we know $James$ is attending the dinner. On the other hand, if $$is\_attending(Keith)$$ is $false$, we know $Keith$ is not attending. 
 
 So to say:
 
