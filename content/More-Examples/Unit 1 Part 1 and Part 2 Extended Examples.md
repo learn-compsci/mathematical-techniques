@@ -157,7 +157,7 @@ Then, we can begin evaluating $\neg ((p \lor \neg q) \to r) \land (r \to p)$ by 
 3. Since $p \lor \neg q \equiv true$ (from line 2) and $r \equiv true$, we have $(p \lor \neg q) \to r \equiv true$.
 4. Since $(p \lor \neg q) \to r \equiv true$ (from line 3), we have $\neg ((p \lor \neg q) \to r) \equiv false$.
 5. Since $r \equiv true$ and $p \equiv false$, we have $r \to p \equiv false$.
-6. Since $\neg ((p \to \neg q) \to r) \equiv false$ (from line 4) and $r \to p \equiv false$ (from line 5), we have $\neg ((p \lor \neg q) \to r) \land (r \to p) \equiv true$, as desired.
+6. Since $\neg ((p \lor \neg q) \to r) \equiv false$ (from line 4) and $r \to p \equiv false$ (from line 5), we have $\neg ((p \lor \neg q) \to r) \land (r \to p) \equiv false$, as desired.
 
 **Try it yourself!**
 1. $(p \to q) \land (q\to p)$, with $p \equiv true, q \equiv false$.
@@ -190,18 +190,13 @@ $$
 Let's also make a predicate that represents the fact that a person is attending: $is\_attending(\cdot)$. 
 
 Then for example if: 
-
-
 $$
 is\_attending(James)
 $$
 
-
-
 is $true$, then we know $James$ is attending the dinner. 
 
 On the other hand, if 
-
 $$
 is\_attending(Keith)
 $$
@@ -231,7 +226,6 @@ If we wanted to say:
 > "No one is attending the company dinner".
 
 We could write:
-
 $$
 \forall x \in Person \: [\neg \ is\_attending(x) \ ]
 $$
