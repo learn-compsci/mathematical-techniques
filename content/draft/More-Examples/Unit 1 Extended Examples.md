@@ -23,7 +23,7 @@ Here are some **non-examples** of propositions:
 1. Close the door.
 2. I hope it rains today.
 
-These statements don't have a clear "true" or "false" property to them.
+These statements don't have a clear "must be either true or false" property to them.
 
 #### Example: Logical Connectives
 
