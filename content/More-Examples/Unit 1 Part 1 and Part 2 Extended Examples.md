@@ -72,42 +72,42 @@ Step 2: Evaluate the intermediate propositions. In this case, we need the interm
 
 We construct the $\neg q$ column by taking all the corresponding values of $q$ and negating them.
 
-| $p$     | ==$q$==     | $r$     | ==$\neg q$== | $p \to \neg q$ | $(p \to \neg q) \to r$ (goal) |
+| $p$     | $q$     | $r$     | $\neg q$| $p \to \neg q$ | $(p \to \neg q) \to r$ (goal) |
 | ------- | ----------- | ------- | ------------ | -------------- | ----------------------------- |
-| $true$  | ==$true$==  | $true$  | ==$false$==  |                |                               |
-| $true$  | ==$true$==  | $false$ | ==$false$==  |                |                               |
-| $true$  | ==$false$== | $true$  | ==$true$==   |                |                               |
-| $true$  | ==$false$== | $false$ | ==$true$==   |                |                               |
-| $false$ | ==$true$==  | $true$  | ==$false$==  |                |                               |
-| $false$ | ==$true$==  | $false$ | ==$false$==  |                |                               |
-| $false$ | ==$false$== | $true$  | ==$true$==   |                |                               |
-| $false$ | ==$false$== | $false$ | ==$true$==   |                |                               |
+| $true$  | $true$  | $true$  | $false$  |                |                              
+| $true$  | $true$  | $false$ | $false$  |                |                               |
+| $true$  | $false$ | $true$  | $true$   |                |                               |
+| $true$  | $false$ | $false$ | $true$   |                |                               |
+| $false$ | $true$  | $true$  | $false$  |                |                               |
+| $false$ | $true$  | $false$ | $false$  |                |                               |
+| $false$ | $false$ | $true$  | $true$   |                |                               |
+| $false$ | $false$ | $false$ | $true$   |                |                               |
 
 Then, we construct the $p \to \neg q$ column by taking the corresponding values of $p$ and $\neg q$ and performing an implication.
 
-| ==$p$==     | $q$     | $r$     | ==$\neg q$== | ==$p \to \neg q$== | $(p \to \neg q) \to r$ (goal) |
-| ----------- | ------- | ------- | ------------ | ------------------ | ----------------------------- |
-| ==$true$==  | $true$  | $true$  | ==$false$==  | ==$false$==        |                               |
-| ==$true$==  | $true$  | $false$ | ==$false$==  | ==$false$==        |                               |
-| ==$true$==  | $false$ | $true$  | ==$true$==   | ==$true$==         |                               |
-| ==$true$==  | $false$ | $false$ | ==$true$==   | ==$true$==         |                               |
-| ==$false$== | $true$  | $true$  | ==$false$==  | ==$true$==         |                               |
-| ==$false$== | $true$  | $false$ | ==$false$==  | ==$true$==         |                               |
-| ==$false$== | $false$ | $true$  | ==$true$==   | ==$true$==         |                               |
-| ==$false$== | $false$ | $false$ | ==$true$==   | ==$true$==         |                               |
+| $p$ | $q$ | $r$ | $\neg q$ | $p \to \neg q$ | $(p \to \neg q) \to r$ (goal) |
+| ----------- | ------- | ------- | ------------ | ------------------ | ------------------------- |
+| $true$ | $true$ | $true$ | $false$ | $false$ | |
+| $true$ | $true$ | $false$ | $false$ | $false$ | |
+| $true$ | $false$ | $true$ | $true$ | $true$ | |
+| $true$ | $false$ | $false$ | $true$ | $true$ | |
+| $false$ | $true$ | $true$ | $false$ | $true$ | |
+| $false$ | $true$ | $false$ | $false$ | $true$ | |
+| $false$ | $false$ | $true$ | $true$ | $true$ |  |
+| $false$ | $false$ | $false$ | $true$ | $true$ |                           |
 
 Lastly, we construct the $(p \to \neg q) \to r$ column by taking the corresponding values of $(p \to \neg q)$ and $r$ and performing another implication.
 
-| $p$     | $q$     | ==$r$==     | $\neg q$ | ==$p \to \neg q$== | ==$(p \to \neg q) \to r$== (goal) |
+| $p$ | $q$ | $r$ | $\neg q$ | $p \to \neg q$ | $(p \to \neg q) \to r$ (goal) |
 | ------- | ------- | ----------- | -------- | ------------------ | --------------------------------- |
-| $true$  | $true$  | ==$true$==  | $false$  | ==$false$==        | ==$true$==                        |
-| $true$  | $true$  | ==$false$== | $false$  | ==$false$==        | ==$true$==                        |
-| $true$  | $false$ | ==$true$==  | $true$   | ==$true$==         | ==$true$==                        |
-| $true$  | $false$ | ==$false$== | $true$   | ==$true$==         | ==$false$==                       |
-| $false$ | $true$  | ==$true$==  | $false$  | ==$true$==         | ==$true$==                        |
-| $false$ | $true$  | ==$false$== | $false$  | ==$true$==         | ==$false$==                       |
-| $false$ | $false$ | ==$true$==  | $true$   | ==$true$==         | ==$true$==                        |
-| $false$ | $false$ | ==$false$== | $true$   | ==$true$==         | ==$false$==                       |
+| $true$ | $true$ | $true$ | $false$ | $false$ | $true$ |
+| $true$ | $true$ | $false$ | $false$ | $false$ | $true$ |
+| $true$ | $false$ | $true$ | $true$ | $true$ | $true$ |
+| $true$ | $false$ | $false$ | $true$ | $true$ | $false$ |
+| $false$ | $true$ | $true$ | $false$ | $true$ | $true$ |
+| $false$ | $true$ | $false$ | $false$ | $true$ | $false$ |
+| $false$ | $false$ | $true$ | $true$ | $true$ | $true$ |
+| $false$ | $false$ | $false$ | $true$ | $true$ | $false$ |
 And there we have our desired column!
 
 **Try it yourself!**
