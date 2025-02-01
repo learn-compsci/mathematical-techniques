@@ -8,7 +8,7 @@ This unit introduces the notion of sets and is for Week 5. The unit will introdu
 1. Basic Sets, Creating Sets
 2. Set Operations
 3. Ways To Prove Set Equivalence
-4. Common Sets in Discrete Math
+4. More proofs about sets
 
 
 Unit Introduction
@@ -88,7 +88,7 @@ And graphs are useful when talking about stuff like decision trees or neural net
 In conclusion, think of this as yet another part of the vocabulary that will be useful further down the road. Not to say that this isn't useful by itself. But perhaps the more application-oriented among you might want to look ahead and understand that this topic has uses down the road.
 
 
-# Basic Sets, Creating Sets
+# Basic Sets, Creating Sets, Set Operations
 
 #### Set Roster Notation
 Let's begin by talking about what is a set. A set is just a collection of objects. So for example, let's say we wanted to represent the collection of someone's favourite book authors, we could write something like:
@@ -141,23 +141,23 @@ $$
 $$
 
 
+![[element-of-illus.png]]
+
 #### Subset
 
 What happens if we have two sets, something like $A = \{1, 2, 3\}$ and $B = \{1, 2, 3, 10\}$, then we want to be able to say:
 
 > Every object in $A$ is also an object in $B$.
 
+
+![[element-of-subset.png]]
+
 Or, formally:
 
-$$
-\forall x \in A[x \in B]
-$$
-
-The symbol for this, is $\subseteq$. So using our example, we would write:
-
-$$
-A \subseteq B
-$$
+>[!Definition]
+> Let $A$ be a subset of $B$, then:
+> $$ \forall x \in A[x \in B] $$
+> The symbol for this, is $\subseteq$. So we would write $A \subseteq B$.
 
 What about if we had a set $C = \{1, 2\}$. Can we say that everything in $A$ is also in $C$? No we can't. In particular, $3 \in A$ but $3 \notin B$. So in fact, we can say:
 
@@ -196,6 +196,7 @@ $$
 \emptyset
 $$
 
+The empty set is so that **nothing is ever in the empty set**.
 
 One important thing to note is that the empty set is **always a subset of any other set**. For example, $\emptyset \subseteq \{1, 2\}$. It's also a subset of itself! $\emptyset \subseteq \emptyset$.
 #### Common Sets for Numbers
@@ -208,6 +209,7 @@ Let's start talking about a few well-established symbols for sets. The most comm
 | $\mathbb{Q}$ | Set of rational numbers          | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
 | $\mathbb{R}$ | Set of real numbers              | Set containing any number that is not complex.                                                                                      |
 | $\mathbb{C}$ | Set of imaginary/complex numbers | For example, something like $i$, or $-i$ is complex but not real.                                                                   |
+![[content/Images/number-sets-illus.png]]
 
 There is one more common notation that we use in computer science. It turns out for some natural number $n$, it's very convenient for us to think about the set $\{1, \ldots, n\}$. The notation for this is $[n]$.
 
@@ -218,9 +220,15 @@ There is one more common notation that we use in computer science. It turns out 
 
 >[!Example]
 > $$
-> [0] = \{0\}
+> [1] = \{1\}
 > $$
 
+>[!Example]
+> $$
+> [0] = \emptyset
+> $$
+> 
+> **Explanation:** There are no numbers that start from $1$ and end at $0$ ($\geq 1$ and $\leq 0$).
 #### Set Builder Notation
 Okay, well right now we've seen a bunch of sets, not really built or made anything too big. If we wanted some kind of special, custom set, we've had to manually list out all the elements. What if we wanted the set of even numbers? We can't just write everything out one-by-one.. that would take forever!
 
@@ -256,6 +264,17 @@ Here are a few more examples:
 > $$
 > 
 > So for example, $1 \notin C$, $3 \notin C$. But $2 \in C$, and since $\sqrt{2} \approx 1.414$, $\sqrt{2} \in C$.
+
+>[!Example]
+> The set of natural numbers that divides $6$ can be written as:
+> $$
+> D = \bigg\{ x \in \mathbb{N} : \exists k \in \mathbb{N} [ x\cdot k = 6 ] \bigg\}
+> $$
+> 
+> So $D = \{1, 2, 3, 6\}$. Why is $2 \in D$? Because we can find a $k \in \mathbb{N}$ such that $2 \cdot k = 6$. In particular, $3 \in \mathbb{N}$ and is such that $2 \cdot 3 = 6$. 
+> 
+> A similar reasoning applies for the rest of the elements.
+
 
 >[!Example]
 > The set of prime numbers can be written as:
@@ -297,11 +316,13 @@ As a summary, there are almost all the set operations:
 5. Cartesian Product
 
 ## Set Union
-Given two sets $A, B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$. Formally $C$ contains all the elements $x$ where: 
+Given two sets $A, B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$. Formally, $C$ contains only all the elements $x$ where: 
 
 $$
 x \in A \lor x \in B
 $$
+
+![[set-union]]
 
 >[!Example]
 > $$
@@ -333,6 +354,7 @@ $$
 x \in A \land x \in B
 $$
 
+![[set-intersection]]
 
 >[!Example]
 > $$
@@ -346,6 +368,9 @@ $$
 > C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z} [x = 2k] \} \cap \{ x \in \mathbb{Z} : x \leq -1 \}
 > $$
 
+>[!Example]
+> $A = \{1, 2\}$, $B = \{5\}$, then:
+> $$A \cap B = \emptyset$$
 ## Set Difference
 
 Given two sets $A, B$, we can create a new set $C = A \setminus B$, which we call the set **$A$ minus $B$**. The set $C$ contains elements that are from in $A$ that is not also in $B$. Formally $C$ contains all the elements $x$ where: 
@@ -353,6 +378,14 @@ Given two sets $A, B$, we can create a new set $C = A \setminus B$, which we cal
 $$
 x \in A \land x \notin B
 $$
+
+We can also write this in set builder notation as:
+
+$$
+\{ x \in A : x \notin B \}
+$$
+
+![[set-minus]]
 
 >[!Example]
 > Let $A =\{1, 2, 3, 4, 5, 10\}$, and $B = \{1, 7, 8, 9, 10\}$.
@@ -374,11 +407,13 @@ $$
 > Notice here $C$ contains any element from $\mathbb{N}$ that is not in set $B$ (which is the set of primes).
 
 ## Powerset
-The powerset operation is a little unorthodox, it does not look like a logical operation like the ones we have seen. Given a set $A$, the powerset of $A$ is denoted by $\mathcal{P}(A)$ is the set that contains all subsets of $A$. Formally:
+The powerset operation is a little unorthodox, it does not look like a logical operation like the ones we have seen. Given a set $A$, the powerset of $A$ is denoted by $\mathcal{P}(A)$ is the **set that contains all subsets of $A$**. Formally:
 
 $$
-X \subseteq A \to X \in \mathcal{P}(A)
+\bigg(X \subseteq A \to X \in \mathcal{P}(A)\bigg) \land \bigg(X \in \mathcal{P}(A) \to X \subseteq A\bigg)
 $$
+
+In other words, if $X$ is a subset of $A$, then $X$ is in the power set of $A$ and if $X$ is in the power set of $A$, then $X$ is a subset of $A$. 
 
 >[!Example]
 > $$\mathcal{P}(\{0, 1\}) = \{ \emptyset, \{0 \}, \{1\}, \{0, 1\} \}$$
@@ -412,11 +447,402 @@ Given a sets $A$, and $B$. The set $C = A \times B$ is the **cartesian product b
 Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \in A \times B$. But $(1, 2) \neq (2, 1)$.
 
 >[!Example]
-> $\mathbb{Z} \times \mathbb{Z}$ is the set that contains any pair of integers. For example, $(-1, 25) \in \mathbb{Z} \times \mathbb{Z}$. But $(\frac{1}{2}, 21) \notin \mathbb{Z}$.
+> $\mathbb{Z} \times \mathbb{Z}$ is the set that contains any pair of integers. For example, $(-1, 25) \in \mathbb{Z} \times \mathbb{Z}$. But $(\frac{1}{2}, 21) \notin \mathbb{Z} \times\mathbb{Z}$.
 
-
+>[!Example]
+> $\mathbb{Q} \times \mathbb{Z}$ is the set that contains any pair where the first element is from $\mathbb{Q}$ and the second is from $\mathbb{Z}$. For example, $(-1, 25) \in \mathbb{Q} \times \mathbb{Z}$, and also $(\frac{1}{2}, 21) \notin \mathbb{Q} \times\mathbb{Z}$.
 # Ways To Prove Set Equivalence
 
 So up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing when two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
 
-There's broadly two categories for how to show two sets are equivalent. We will be showing both ways.
+We say two sets $A, B$ are **equivalent** if they have the same elements. Formally speaking, we write this as:
+
+$$
+A \subseteq B \land B \subseteq A
+$$
+
+You can think of this as saying "every element in $A$ is also in $B$ **and** every element in $B$ is also in $A$."
+
+There's broadly two categories for how to show two sets are equivalent. We will be showing both ways. 
+
+## Directly Proving Two Sets are Subsets of Each Other
+
+So here's an example, let's say that we had these two sets:
+
+$$
+A = \{ x \in \mathbb{N} : odd(x) \}
+$$
+
+Which is the set of odd natural numbers. But what if we wrote it like this?
+
+$$
+B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
+$$
+
+Which is the set of natural numbers that are not even. These two are intuitively the same set right? Let's see a proof of this. We'll use these 2 lemmas.
+
+>[!Lemma]
+> 1. $\forall x \in \mathbb{N} (\neg even(x) \to odd(x))$. 
+> 2. $\forall x \in \mathbb{N} (odd(x) \to \neg even(x))$. 
+> 
+> Where $even(x) \equiv \exists k \in \mathbb{N}[x = 2k]$ and $odd(x) \equiv \exists k \in \mathbb{N}[x = 2k + 1]$.
+> 
+> 
+> In English, the first statement is saying "Every natural number is such that if it is not even, it is odd.".
+> 
+> The second statement is saying "Every natural number that is odd is not even.".
+
+Okay, so we've established that lemma, let's see how to prove the two sets are the same. Our **goal** is to show the statement $A \subseteq B \land B \subseteq A$. How do we do this? Remember that $A \subseteq B$ is defined to be $\forall x \in A[x \in B]$. So we effectively want to prove:
+
+$$
+\forall x \in A[x \in B] \land \forall x \in B[x \in A]
+$$
+And remember, the definitions of the sets $A, B$:
+
+$$
+A = \{ x \in \mathbb{N} : odd(x) \}
+$$
+$$
+B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
+$$
+
+**Proof:**
+1. Let $y \in A$, arbitrarily chosen.
+2. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
+3. $odd(y)$ \[Specialisation of line 2]
+4. $y \in \mathbb{N}$ \[Specialisation of line 2]
+5. $\forall x \in \mathbb{N} [odd(x) \to \neg(even(x))]$ \[Lemma 2]
+6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 4 and 5]
+7. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]
+8. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 4 and 7]
+9. $\neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Definition based on set builder]
+10. $y \in \mathbb{N} \land \neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Conjunction on lines 4 and 9]
+11. $y \in B$ \[Definition of $B$]
+12. $\forall y \in A[y \in B]$ \[Universal Generalisation on lines 1 and 11]
+13. Let $z \in B$, arbitrarily chosen.
+14. $z \in \mathbb{N} \land \neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Definition of $B$]
+15. $\neg(z \in \{x \in \mathbb{N} : even(x) \})$  \[Specialisation on line 14]
+16. $z \in \mathbb{N} \land \neg(even(z))$ \[Definition based on set builder]
+17. $\neg(even(z))$ \[Specialisation on line 16]
+18. $\forall x \in \mathbb{N}[\neg(even(x)) \to odd(x)]$ \[Lemma 1]
+19. $\neg(even(z))\to odd(z)$ \[Universal generalisation on line 18]
+19. $odd(z)$ \[Modus Ponens on lines 18 and 19]
+20. $z \in \mathbb{N}$ \[Specialisation on line 16]
+21. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 19 and 20]
+22. $z \in A$ \[Definition of $A$]
+23. $\forall z \in B[z \in A]$ \[Universal Generalisation on lines 12 and 22]
+24. $\forall y \in A[y \in B] \land \forall z \in B[z \in A]$ \[Conjunction of lines 12 and 24]
+
+And we've proven they're the same set! So again the takeaway is the following:
+
+> To prove two sets $A$ and $B$ have the same elements, we should prove $A \subseteq B \land B \subseteq A$. Or in other words:
+>$$
+	\big(\forall x \in A[x \in B]\big) \land \big(\forall x \in B[x \in A]\big)
+ $$
+
+
+>[!Example]
+> Let $A, B, C$ be any 3 sets. Then:
+> $$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$$
+> 
+
+Here's the proof:
+
+**Proof:**
+1. Let $x \in A \cup (B \cap C)$, arbitrarily chosen.
+2. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
+3. Case 1: $x \in A$
+	1. $x \in A \lor x \in B$ \[Generalisation on line 2.1]
+	2. $x \in (A \cup B)$ \[Definition of set union]
+	3. $x \in A \lor x \in C$ \[Generalisation on line 2.1]
+	4. $x \in (A \cup C)$ \[Definition of set union]
+	5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 2.3 and 2.5]
+	6.  $x \in \big( (A \cup B) \cap (A \cup C) \big)$\[Definition of set intersection]
+4. Case 2: $x \in B \cap C$
+	1. $x \in B \land x \in C$ \[Definition of set intersection]
+	2. $x \in B$ \[Specialisation on line 4.1]
+	3. $x \in A \lor x\in B$ \[Generalisation on line 4.2]
+	4. $x \in (A \cup B)$ \[Definition of set union]
+	5. $x \in C$ \[Specialisation on line 4.1]
+	6. $x \in A \lor x \in C$  \[Generalisation on line 4.5]
+	7. $x \in (A \cup C)$ \[Definition of set union]
+	8. $x \in (A \cup B) \land x\in (A \cup C)$ \[Conjunction on lines 4.4 and 4.8]
+	9. $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Definition of set intersection]
+5. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
+6. $\forall x \in A \cup (B \cap C)[x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1, 5]
+7. Let $x \in \big((A \cup B) \cap (A \cup C) \big)$, arbitrarily chosen.
+8. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
+9. $x \in (A \cup B)$ \[Specialisation on line 8]
+10. $x \in A \lor x \in B$ \[Definition of set union]
+11. $x \notin A \to x \in B$ \[Logically equivalent to line 10]
+12. $x \in (A \cup C)$ \[Specialisation on line 8]
+13. $x \in A \lor x \in C$ \[Definition of set union]
+14. $x \notin A \to x \in C$ \[Logically equivalent to line 13]
+16. Assume $x \notin A$ 
+	1. $x \in B$ \[Modus ponens on lines 11, 16]
+	2. $x \in C$ \[Modus ponens on lines 13, 16]
+	3. $x \in B \land x \in C$ \[Conjunction on lines 16.1, 16.2]
+	4. $x \in (B \cap C)$ \[Definition of set intersection]
+17. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 16, 16.4]
+18. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 17]
+19. $x \in A \cup (B \cap C)$ \[Definition of set union]
+
+Here's another small example of two sets you can try to prove are the same.
+
+>[!Example]
+> $A = \{ x \in \mathbb{N}: x \leq 5 \lor x \geq 10 \}$, $B = \{ x \in \mathbb{N} : x \leq 5 \}$, and $C = \{ x \in \mathbb{N} : x \geq 10\}$.
+> 
+> Then: $$
+> A = B \cup C
+> $$
+## Based on logical equivalences
+
+You might have noticed that the set operations we are doing bear some similarity to the logical operations. For example, a set intersection ($\cap$) operation really does look a little bit like the logical and ($\land$) operation. After all, if $C = A \cap B$, then $C$ contains all elements $x$ such that $x \in A \land x \in B$.  Similarly,  if $D = A \cup B$, then $D$ contains all elements $x$ such that $x \in A \lor x \in B$. 
+
+What about the set difference ($\setminus$) operation? If $E = A \setminus B$, then $E$ contains all elements such that $x \in A \land x \notin B$, in other words: $x \in A \land \neg(x \in B)$.
+
+|  Set Operation  | Logical Operation |
+| :-------------: | :---------------: |
+|   $A \cup B$    |    $a \lor b$     |
+|   $A \cap B$    |    $a \land b$    |
+| $A \setminus B$ | $a \land \neg b$  |
+
+
+You might actually have noticed this based on the previous sub-section, when we proved the following:
+
+$$
+A \cup (B \cap C) = (A \cup B) \cap (A \cup C)
+$$
+
+You might have noticed it mirrors this fact:
+
+$$
+x \in A \lor (x \in B \land x \in C) \equiv (x \in A \lor x \in B) \land (x \in A \lor x \in C)
+$$
+
+This is actually something we can do in general. So for the narrower use-case of involving only intersections, set minus and union in very specific ways, here are some examples:
+
+1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+4. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+
+Why? They mirror the following how the following pairs of propositions are logically equivalent:
+
+1. $a \lor (b \land c) \equiv (a \lor b) \land (a \lor c)$
+2. $a \land (b \lor c) \equiv (a \land b) \lor (a \land c)$
+3. $a \land \neg(b \lor c) \equiv a \land (\neg b \land \neg c) \equiv (a \land \neg b) \land (a \land \neg c)$
+4. $a \land \neg(b \land c) \equiv a \land (\neg b \lor \neg c) \equiv (a \land \neg b) \lor (a \land \neg c)$
+
+So what happens if someone asked you if something like whether these two sets are equal or not?
+
+$$
+(A \cup B) \setminus C \stackrel{?}{=} (A \setminus C) \cup B \setminus C
+$$
+
+Well, it's the same as asking whether the following is logically equivalent:
+$$
+(a \lor b) \land \neg c  \stackrel{?}{\equiv} (a \land \neg c) \lor (b \land \neg c)
+$$
+You can check that it is, and thus they are indeed the same set.
+
+What about this?
+$$
+(A \setminus B) \setminus C \stackrel{?}{\equiv} A \setminus (B \setminus C)
+$$
+
+We are basically checking whether this is equivalent:
+$$
+(a \land \neg b) \land \neg c \stackrel{?}{\equiv} a \land \neg (b \land \neg c)
+$$
+
+You might realise, they're not. In fact, in terms of the proposition, if we set $a \equiv true$, $b \equiv true$, $c \equiv true$, then the left hand side is $false$, but the right hand side is $true$.
+
+But what about the sets? The fact that we found a way to show the propositions were not logically equivalent gives us a hint. Let's try something like $A = \{1\}, B = \{1\}, C = \{1\}$.
+
+Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C) = \{1\}$. Try it step by step to check that what we've written here is correct! 
+
+
+# More Proofs About Sets
+Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences and talked about set unions and intersections. Let's explore a few more ideas that have to do with the powerset and cartesian product operation.
+
+## Reasoning about subsets
+
+Here are a example few intuitive facts we can prove involving subsets:
+1. If $A$ is a subset of $B$ and $B$ is a subset of $C$, then $A$ is a subset of $C$.
+2. If $A, B$ are subsets of $C$, then $A \cup B$ is a subset of $C$.
+3. $A \cap B$ is a subset of $A \cup B$.
+
+The key takeaway here are not the facts themselves. Rather, notice our approach has a common theme: We start with an element that is from the "smaller" set, and we show it is in the bigger set.
+
+
+>[!Example]
+>$$
+ (A \subseteq B \land B \subseteq C) \to A \subseteq C
+ $$
+
+**Proof:**
+1. Assume $A \subseteq B \land B \subseteq C$
+2. $A \subseteq B$ \[Specialisation on line 1]
+3. $\forall a \in A[a \in B]$ \[Definition of subset]
+4. $B \subseteq C$ \[Specialisation on line 1]
+5. $\forall b \in B[b \in C]$ \[Definition of subset]
+6. Let $x \in A$, arbitrarily chosen.
+7. $x \in B$ \[Universal instantiation on lines 3, 6]
+8. $x \in C$ \[Universal instantiation on lines 5, 7]
+9. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
+10. $A \subseteq C$ \[Definition of subset]
+11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
+
+>[!Example]
+>$$
+ (A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C
+ $$
+
+**Proof**
+1. Assume $A \subseteq C \land B \subseteq C$
+2. $A \subseteq C$ \[Specialisation on line 1]
+3. $\forall x \in A[x \in C]$ \[Definition of subset]
+4. $B \subseteq C$ \[Specialisation on line 1]
+5. $\forall x \in B[x \in C]$ \[Definition of subset]
+6. Let $y \in (A \cup B)$, arbitrarily chosen.
+7. $y \in A \lor y \in B$ \[Definition of union]
+8. Case 1: $y \in A$
+	1. Then $y \in C$ \[Universal instantiation on lines 3, 8]
+9. Case 2: $y \in B$
+	1. Then $y \in C$ \[Universal instantiation on lines 5, 9]
+10. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
+11. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
+12. $(A \cup B) \subseteq C$ \[Definition of subset]
+13. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
+
+>[!Example]
+>$$
+ (A \cap B) \subseteq (A \cup B)
+ $$
+
+You can try this one for yourself, and the answers have been hidden away in a spoiler tab.
+
+>[!Answer]-
+> 1. Let $x \in (A \cap B)$, arbitrarily chosen.
+> 2. $x \in A \land x \in B$ \[Definition of set intersection]
+> 3. $x \in A$ \[Specialisation on line 2]
+> 4. $x \in A \lor x \in B$ \[Generalisation on line 3]
+> 5. $x \in (A \cup B)$  \[Definition of set union]
+
+
+## Reasoning about power sets
+
+Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This means that if we had to reason about subsets, that might mean we should involve using the power set concept.
+
+Here are a few theorems that involve using the power set concept:
+
+1. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+2. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
+
+
+>[!Example]
+> $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$
+
+The proof of this is going to use the theorem that we proved in the previous section, namely that $$
+(A \subseteq B \land B \subseteq C) \to (A \subseteq C)
+$$
+
+**Proof:**
+1. Assume $A \subseteq B$
+	1. Let $x \in \mathcal{P}(A)$, arbitrarily chosen.
+	2. $x \subseteq A$ \[Definition of powerset]
+	3. $x \subseteq A \land A \subseteq B$ \[Conjunction of lines 1 and 1.2]
+	4. $x \subseteq B$ \[Lemma]
+	5. $x \in \mathcal{P}(B)$
+	6. $\forall x \in \mathcal{P}(A)[x \in \mathcal{P}(B)]$ \[Universal generalisation on lines 1.1, 1.5]
+	7. $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Definition of subset]
+2. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
+
+>[!Example]
+> $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
+>
+
+The proof for this has to work in two parts, we need to show two things:
+1. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
+2. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
+
+Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also use this lemma that will be left as an exercise for you to try to prove.
+
+>[!Lemma]
+> $(X \subseteq A \land X \subseteq B) \to (X \subseteq (A \cap B))$
+
+
+**Proof:**
+1. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
+2. Then $x \subseteq (A \cap B)$ \[Definition of power set]
+3. $(A \cap B) \subseteq A$ \[Lemma]
+4. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
+5. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2, 3]
+6. $x \subseteq A$ \[Modus ponens on lines 4, 5]
+7. $(A \cap B) \subseteq B$ \[Lemma]
+8. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
+9. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2, 7]
+10. $x \subseteq B$ \[Modus ponens on lines 8, 9]
+11. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
+12. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
+13. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11, 12]
+14. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
+15. $\forall x \in \mathcal{P}(A \cap B)[x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1, 14]
+16. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
+17. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
+18. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
+19. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
+20. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
+21. $y \subseteq A$ \[Definition of powerset on line 19]
+22. $y \subseteq B$ \[Definition of powerset on line 20]
+23. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21, 22]
+24. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
+25. $y \subseteq (A \cap B)$ \[Modus ponens on line 23, 24]
+26. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
+27. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B))[y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17, 26]
+28. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
+29. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16, 28]
+30. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
+
+
+# Bonus: Google Sheets
+
+Let's see some of the concepts in action. Let's say that we are some marathon event organiser, and we had an initial Google sheet that kept the data of the participants. For each participant, we keep their name, their gender, the marathon distance they have signed up for, and whether they signed up as a beginner, or are in the open category.
+
+So here's an example of a sheet:
+
+![[spreadsheet-eg-1.png]]
+
+
+Let's say we need to find out how which people are running 21.1KM or more because they need to start earlier compared to the 10KM runners. How should we do this? You'd use something like this formula:
+
+```
+=QUERY(Sheet1!A:D, "SELECT * WHERE C >= 21.1")
+```
+
+And if you did, you'd get this result on a new sheet:
+
+![[filtered-sheet-example.png]]
+
+What is the `QUERY` syntax doing on the Google sheet? It's saying: "Go to Sheet1, look at columns A to D. Select any of the rows where the C column is at least 21.1"
+
+In some sense, you could probably see how this somewhat uses the concept of [[#Set Builder Notation]]. 
+
+$$
+\{ x \in \text{Sheet1} : x\text{'s distance is }\geq 21.1  \}
+$$
+
+Okay, what if after the competition, we tracked the participants that actually arrived and competed. We want to find out how many participants registered but did not show up on the day itself. How should we get this information? We probably want something like a [[#Set Difference]] operation to help us out. Let $A$ be the set of registered participants, let $B$ be the set of participants we tracked that showed up. Then we can let $C = A \setminus B$ be the set we want to compute. And if you remember, we can write this in set builder notation as:
+
+$C = \{x \in A : x \notin B\}$
+
+Google sheets has something similar:
+
+```
+==FILTER(Sheet1!A:A, NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A)))
+```
+
+Which basically goes through all elements of Sheet1, and the `FILTER` formula basically means we are only allowing cells that satisfy the condition `NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A))` which is saying "not the case that the name in Sheet1 is also in Sheet2".
+
+Incidentally, databases like mySQL and Postgres also has similar ideas on how to manipulate data. While we will not go into detail in this module (since we do not cover databases), if you wish to have a sneak peek, you can look at documentation websites here: [postgresql](https://www.postgresql.org/docs/current/queries-union.html), [mysql](https://dev.mysql.com/doc/refman/8.4/en/union.html).
