@@ -38,7 +38,7 @@ How do we read this? See from the previous unit, we might get _some_ idea. For e
 
 Later on (beyond this module) you might learn about _databases_. Databases are a tool to help you manage data. Here's an oversimplification of some of the concepts (you will get to delve deeper when you take the module):
 
-Let's say we have two tables of data (don't worry about what a table is, you can pretend they're like Microsoft Excel spreadsheets):
+Let's say we have two tables of data (don't worry about what a table is, you can pretend they're like Excel spreadsheets):
 
 Table 1:
 
@@ -256,7 +256,11 @@ Let's read this back:
 
 Let's see how this works.. consider a number like $18$. Is $18 \in A$? Well, does it satisfy the statement? $18 = 2\cdot 9$ **and** $9 \in \mathbb{Z}$. So there exists a $k \in \mathbb{Z}$ such that $18 = 2 \cdot k$. So the condition holds! This means that $18 \in A$.
 
+##### When is something not in the set?
+
 What about something like $3$? Recall from [[Unit 1#Example 2 Delving a little deeper]], we proved that $\neg even(3)$, or in other words, $\neg(\exists k \in \mathbb{Z} [3 = 2k])$. So that means that $3$ does not fulfil the condition. So we can conclude that $3 \notin A$.
+
+What about something like $\frac{1}{2}$? Well $\frac{1}{2}$ is not even an integer in the first place, so it's not in set $A$ either. $3 \notin A$.
 
 Here are a few more examples:
 
@@ -477,6 +481,17 @@ $$
 
 You can think of this as saying "every element in $A$ is also in $B$ **and** every element in $B$ is also in $A$."
 
+What about when two sets are **not** equivalent? Well then we negate the statement:
+
+$$
+\neg(A \subseteq B \land B \subseteq A) \equiv \bigg( \neg(A \subseteq B) \lor \neg(B \subseteq A) \bigg) \equiv \bigg( (A \nsubseteq B) \lor (B \nsubseteq A) \bigg)
+$$
+
+Which is saying that either $A$ is not a subset of $B$, or $B$ is not a subset of $A$. So how do we prove that? We do either one of two things:
+
+1. Find an element in $A$ that is not in $B$; or
+2. Find an element in $B$ that is not in $A$.
+
 There's broadly two categories for how to show two sets are equivalent. We will be showing both ways. 
 
 ## Directly Proving Two Sets are Subsets of Each Other
@@ -493,7 +508,9 @@ $$
 B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
 $$
 
-Which is the set of natural numbers that are not even. These two are intuitively the same set right? Let's see a proof of this. We'll use these 2 lemmas.
+Which is the set of natural numbers that are not even. These two are intuitively the same set right? 
+
+Let's see a proof of this. We'll use these 2 lemmas.
 
 >[!Lemma]
 > 1. $\forall x \in \mathbb{N} (\neg even(x) \to odd(x))$. 
@@ -521,39 +538,40 @@ B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
 $$
 
 **Proof:**
-1. Let $y \in A$, arbitrarily chosen.
-2. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
-3. $odd(y)$ \[Specialisation of line 2]
-4. $y \in \mathbb{N}$ \[Specialisation of line 2]
-5. $\forall x \in \mathbb{N} [odd(x) \to \neg(even(x))]$ \[Lemma 2]
-6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 4 and 5]
-7. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]
-8. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 4 and 7]
-9. $\neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Definition based on set builder]
-10. $y \in \mathbb{N} \land \neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Conjunction on lines 4 and 9]
-11. $y \in B$ \[Definition of $B$]
-12. $\forall y \in A[y \in B]$ \[Universal Generalisation on lines 1 and 11]
-13. Let $z \in B$, arbitrarily chosen.
-14. $z \in \mathbb{N} \land \neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Definition of $B$]
-15. $\neg(z \in \{x \in \mathbb{N} : even(x) \})$  \[Specialisation on line 14]
-16. $z \in \mathbb{N} \land \neg(even(z))$ \[Definition based on set builder]
-17. $\neg(even(z))$ \[Specialisation on line 16]
-18. $\forall x \in \mathbb{N}[\neg(even(x)) \to odd(x)]$ \[Lemma 1]
-19. $\neg(even(z))\to odd(z)$ \[Universal generalisation on line 18]
-19. $odd(z)$ \[Modus Ponens on lines 18 and 19]
-20. $z \in \mathbb{N}$ \[Specialisation on line 16]
-21. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 19 and 20]
-22. $z \in A$ \[Definition of $A$]
-23. $\forall z \in B[z \in A]$ \[Universal Generalisation on lines 12 and 22]
-24. $\forall y \in A[y \in B] \land \forall z \in B[z \in A]$ \[Conjunction of lines 12 and 24]
+3. Let $y \in A$, arbitrarily chosen.
+4. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
+5. $odd(y)$ \[Specialisation of line 2]
+6. $y \in \mathbb{N}$ \[Specialisation of line 2]
+7. $\forall x \in \mathbb{N} [odd(x) \to \neg(even(x))]$ \[Lemma 2]
+8. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 4 and 5]
+9. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]
+10. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 4 and 7]
+11. $\neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Definition based on set builder]
+12. $y \in \mathbb{N} \land \neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Conjunction on lines 4 and 9]
+13. $y \in B$ \[Definition of $B$]
+14. $\forall y \in A[y \in B]$ \[Universal Generalisation on lines 1 and 11]
+15. Let $z \in B$, arbitrarily chosen.
+16. $z \in \mathbb{N} \land \neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Definition of $B$]
+17. $\neg(z \in \{x \in \mathbb{N} : even(x) \})$  \[Specialisation on line 14]
+18. $z \in \mathbb{N} \land \neg(even(z))$ \[Definition based on set builder]
+19. $\neg(even(z))$ \[Specialisation on line 16]
+20. $\forall x \in \mathbb{N}[\neg(even(x)) \to odd(x)]$ \[Lemma 1]
+21. $\neg(even(z))\to odd(z)$ \[Universal generalisation on line 18]
+22. $odd(z)$ \[Modus Ponens on lines 18 and 19]
+23. $z \in \mathbb{N}$ \[Specialisation on line 16]
+24. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 19 and 20]
+25. $z \in A$ \[Definition of $A$]
+26. $\forall z \in B[z \in A]$ \[Universal Generalisation on lines 12 and 22]
+27. $\forall y \in A[y \in B] \land \forall z \in B[z \in A]$ \[Conjunction of lines 12 and 24]
 
-And we've proven they're the same set! So again the takeaway is the following:
+And we've proven they're the same set! So again the **key takeaway** is the following:
 
-> To prove two sets $A$ and $B$ have the same elements, we should prove $A \subseteq B \land B \subseteq A$. Or in other words:
+> To prove two sets $A$ and $B$ have the same elements, we can do so via proving $A \subseteq B \land B \subseteq A$. Or in other words, proving that:
 >$$
 	\big(\forall x \in A[x \in B]\big) \land \big(\forall x \in B[x \in A]\big)
  $$
 
+Let's keep going by demonstrating this fact on another example.
 
 >[!Example]
 > Let $A, B, C$ be any 3 sets. Then:
@@ -563,16 +581,16 @@ And we've proven they're the same set! So again the takeaway is the following:
 Here's the proof:
 
 **Proof:**
-1. Let $x \in A \cup (B \cap C)$, arbitrarily chosen.
-2. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
-3. Case 1: $x \in A$
+28. Let $x \in A \cup (B \cap C)$, arbitrarily chosen.
+29. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
+30. Case 1: $x \in A$
 	1. $x \in A \lor x \in B$ \[Generalisation on line 2.1]
 	2. $x \in (A \cup B)$ \[Definition of set union]
 	3. $x \in A \lor x \in C$ \[Generalisation on line 2.1]
 	4. $x \in (A \cup C)$ \[Definition of set union]
 	5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 2.3 and 2.5]
 	6.  $x \in \big( (A \cup B) \cap (A \cup C) \big)$\[Definition of set intersection]
-4. Case 2: $x \in B \cap C$
+31. Case 2: $x \in B \cap C$
 	1. $x \in B \land x \in C$ \[Definition of set intersection]
 	2. $x \in B$ \[Specialisation on line 4.1]
 	3. $x \in A \lor x\in B$ \[Generalisation on line 4.2]
@@ -582,24 +600,24 @@ Here's the proof:
 	7. $x \in (A \cup C)$ \[Definition of set union]
 	8. $x \in (A \cup B) \land x\in (A \cup C)$ \[Conjunction on lines 4.4 and 4.8]
 	9. $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Definition of set intersection]
-5. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
-6. $\forall x \in A \cup (B \cap C)[x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1, 5]
-7. Let $x \in \big((A \cup B) \cap (A \cup C) \big)$, arbitrarily chosen.
-8. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
-9. $x \in (A \cup B)$ \[Specialisation on line 8]
-10. $x \in A \lor x \in B$ \[Definition of set union]
-11. $x \notin A \to x \in B$ \[Logically equivalent to line 10]
-12. $x \in (A \cup C)$ \[Specialisation on line 8]
-13. $x \in A \lor x \in C$ \[Definition of set union]
-14. $x \notin A \to x \in C$ \[Logically equivalent to line 13]
-16. Assume $x \notin A$ 
+32. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
+33. $\forall x \in A \cup (B \cap C)[x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1, 5]
+34. Let $x \in \big((A \cup B) \cap (A \cup C) \big)$, arbitrarily chosen.
+35. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
+36. $x \in (A \cup B)$ \[Specialisation on line 8]
+37. $x \in A \lor x \in B$ \[Definition of set union]
+38. $x \notin A \to x \in B$ \[Logically equivalent to line 10]
+39. $x \in (A \cup C)$ \[Specialisation on line 8]
+40. $x \in A \lor x \in C$ \[Definition of set union]
+41. $x \notin A \to x \in C$ \[Logically equivalent to line 13]
+42. Assume $x \notin A$ 
 	1. $x \in B$ \[Modus ponens on lines 11, 16]
 	2. $x \in C$ \[Modus ponens on lines 13, 16]
 	3. $x \in B \land x \in C$ \[Conjunction on lines 16.1, 16.2]
 	4. $x \in (B \cap C)$ \[Definition of set intersection]
-17. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 16, 16.4]
-18. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 17]
-19. $x \in A \cup (B \cap C)$ \[Definition of set union]
+43. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 16, 16.4]
+44. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 17]
+45. $x \in A \cup (B \cap C)$ \[Definition of set union]
 
 Here's another small example of two sets you can try to prove are the same.
 
@@ -609,6 +627,7 @@ Here's another small example of two sets you can try to prove are the same.
 > Then: $$
 > A = B \cup C
 > $$
+
 ## Based on logical equivalences
 
 You might have noticed that the set operations we are doing bear some similarity to the logical operations. For example, a set intersection ($\cap$) operation really does look a little bit like the logical and ($\land$) operation. After all, if $C = A \cap B$, then $C$ contains all elements $x$ such that $x \in A \land x \in B$.  Similarly,  if $D = A \cup B$, then $D$ contains all elements $x$ such that $x \in A \lor x \in B$. 
@@ -636,17 +655,17 @@ $$
 
 This is actually something we can do in general. So for the narrower use-case of involving only intersections, set minus and union in very specific ways, here are some examples:
 
-1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
-2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
-3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
-4. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+46. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+47. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+48. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+49. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 
 Why? They mirror the following how the following pairs of propositions are logically equivalent:
 
-1. $a \lor (b \land c) \equiv (a \lor b) \land (a \lor c)$
-2. $a \land (b \lor c) \equiv (a \land b) \lor (a \land c)$
-3. $a \land \neg(b \lor c) \equiv a \land (\neg b \land \neg c) \equiv (a \land \neg b) \land (a \land \neg c)$
-4. $a \land \neg(b \land c) \equiv a \land (\neg b \lor \neg c) \equiv (a \land \neg b) \lor (a \land \neg c)$
+50. $a \lor (b \land c) \equiv (a \lor b) \land (a \lor c)$
+51. $a \land (b \lor c) \equiv (a \land b) \lor (a \land c)$
+52. $a \land \neg(b \lor c) \equiv a \land (\neg b \land \neg c) \equiv (a \land \neg b) \land (a \land \neg c)$
+53. $a \land \neg(b \land c) \equiv a \land (\neg b \lor \neg c) \equiv (a \land \neg b) \lor (a \land \neg c)$
 
 So what happens if someone asked you if something like whether these two sets are equal or not?
 
@@ -674,18 +693,19 @@ You might realise, they're not. In fact, in terms of the proposition, if we set 
 
 But what about the sets? The fact that we found a way to show the propositions were not logically equivalent gives us a hint. Let's try something like $A = \{1\}, B = \{1\}, C = \{1\}$.
 
-Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C) = \{1\}$. Try it step by step to check that what we've written here is correct! 
+Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C) = \{1\}$. Try it step by step to check that what we've written here is correct!
 
+This method however, is less general, it typically does not work if we involve sets that use set builder notation to make.
 
 # More Proofs About Sets
-Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences and talked about set unions and intersections. Let's explore a few more ideas that have to do with the powerset and cartesian product operation.
+Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences and talked about set unions and intersections. Let's explore a few more ideas that have to do with the subsets and power sets. We will leave cartesian product for next week when we talk about relations, because they are more relevant there.
 
 ## Reasoning about subsets
 
 Here are a example few intuitive facts we can prove involving subsets:
-1. If $A$ is a subset of $B$ and $B$ is a subset of $C$, then $A$ is a subset of $C$.
-2. If $A, B$ are subsets of $C$, then $A \cup B$ is a subset of $C$.
-3. $A \cap B$ is a subset of $A \cup B$.
+54. If $A$ is a subset of $B$ and $B$ is a subset of $C$, then $A$ is a subset of $C$.
+55. If $A, B$ are subsets of $C$, then $A \cup B$ is a subset of $C$.
+56. $A \cap B$ is a subset of $A \cup B$.
 
 The key takeaway here are not the facts themselves. Rather, notice our approach has a common theme: We start with an element that is from the "smaller" set, and we show it is in the bigger set.
 
@@ -696,17 +716,17 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
  $$
 
 **Proof:**
-1. Assume $A \subseteq B \land B \subseteq C$
-2. $A \subseteq B$ \[Specialisation on line 1]
-3. $\forall a \in A[a \in B]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall b \in B[b \in C]$ \[Definition of subset]
-6. Let $x \in A$, arbitrarily chosen.
-7. $x \in B$ \[Universal instantiation on lines 3, 6]
-8. $x \in C$ \[Universal instantiation on lines 5, 7]
-9. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
-10. $A \subseteq C$ \[Definition of subset]
-11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
+57. Assume $A \subseteq B \land B \subseteq C$
+58. $A \subseteq B$ \[Specialisation on line 1]
+59. $\forall a \in A[a \in B]$ \[Definition of subset]
+60. $B \subseteq C$ \[Specialisation on line 1]
+61. $\forall b \in B[b \in C]$ \[Definition of subset]
+62. Let $x \in A$, arbitrarily chosen.
+63. $x \in B$ \[Universal instantiation on lines 3, 6]
+64. $x \in C$ \[Universal instantiation on lines 5, 7]
+65. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
+66. $A \subseteq C$ \[Definition of subset]
+67. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
 
 >[!Example]
 >$$
@@ -714,25 +734,25 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
  $$
 
 **Proof**
-1. Assume $A \subseteq C \land B \subseteq C$
-2. $A \subseteq C$ \[Specialisation on line 1]
-3. $\forall x \in A[x \in C]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall x \in B[x \in C]$ \[Definition of subset]
-6. Let $y \in (A \cup B)$, arbitrarily chosen.
-7. $y \in A \lor y \in B$ \[Definition of union]
-8. Case 1: $y \in A$
+68. Assume $A \subseteq C \land B \subseteq C$
+69. $A \subseteq C$ \[Specialisation on line 1]
+70. $\forall x \in A[x \in C]$ \[Definition of subset]
+71. $B \subseteq C$ \[Specialisation on line 1]
+72. $\forall x \in B[x \in C]$ \[Definition of subset]
+73. Let $y \in (A \cup B)$, arbitrarily chosen.
+74. $y \in A \lor y \in B$ \[Definition of union]
+75. Case 1: $y \in A$
 	1. Then $y \in C$ \[Universal instantiation on lines 3, 8]
-9. Case 2: $y \in B$
+76. Case 2: $y \in B$
 	1. Then $y \in C$ \[Universal instantiation on lines 5, 9]
-10. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
-11. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
-12. $(A \cup B) \subseteq C$ \[Definition of subset]
-13. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
+77. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
+78. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
+79. $(A \cup B) \subseteq C$ \[Definition of subset]
+80. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
 
 >[!Example]
->$$
- (A \cap B) \subseteq (A \cup B)
+>Let $A, B$ be any sets, then $$
+ (A \cap B) \subseteq A
  $$
 
 You can try this one for yourself, and the answers have been hidden away in a spoiler tab.
@@ -741,9 +761,8 @@ You can try this one for yourself, and the answers have been hidden away in a sp
 > 1. Let $x \in (A \cap B)$, arbitrarily chosen.
 > 2. $x \in A \land x \in B$ \[Definition of set intersection]
 > 3. $x \in A$ \[Specialisation on line 2]
-> 4. $x \in A \lor x \in B$ \[Generalisation on line 3]
-> 5. $x \in (A \cup B)$  \[Definition of set union]
-
+> 4. $\forall x \in (A \cap B)[x \in A]$ \[Universal generalisation on lines 1, 3]
+> 5. $(A \cap B) \subseteq x \in A$ \[Definition of subset]
 
 ## Reasoning about power sets
 
@@ -751,8 +770,8 @@ Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This
 
 Here are a few theorems that involve using the power set concept:
 
-1. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
-2. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
+81. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+82. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 
 
 >[!Example]
@@ -763,7 +782,7 @@ The proof of this is going to use the theorem that we proved in the previous sec
 $$
 
 **Proof:**
-1. Assume $A \subseteq B$
+83. Assume $A \subseteq B$
 	1. Let $x \in \mathcal{P}(A)$, arbitrarily chosen.
 	2. $x \subseteq A$ \[Definition of powerset]
 	3. $x \subseteq A \land A \subseteq B$ \[Conjunction of lines 1 and 1.2]
@@ -771,53 +790,53 @@ $$
 	5. $x \in \mathcal{P}(B)$
 	6. $\forall x \in \mathcal{P}(A)[x \in \mathcal{P}(B)]$ \[Universal generalisation on lines 1.1, 1.5]
 	7. $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Definition of subset]
-2. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
+84. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
 
 >[!Example]
 > $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 >
 
 The proof for this has to work in two parts, we need to show two things:
-1. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
-2. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
+85. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
+86. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
 
-Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also use this lemma that will be left as an exercise for you to try to prove.
+Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also use the theorems proven in the previous section as lemmas.
 
 >[!Lemma]
 > $(X \subseteq A \land X \subseteq B) \to (X \subseteq (A \cap B))$
 
 
 **Proof:**
-1. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
-2. Then $x \subseteq (A \cap B)$ \[Definition of power set]
-3. $(A \cap B) \subseteq A$ \[Lemma]
-4. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
-5. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2, 3]
-6. $x \subseteq A$ \[Modus ponens on lines 4, 5]
-7. $(A \cap B) \subseteq B$ \[Lemma]
-8. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
-9. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2, 7]
-10. $x \subseteq B$ \[Modus ponens on lines 8, 9]
-11. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
-12. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
-13. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11, 12]
-14. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
-15. $\forall x \in \mathcal{P}(A \cap B)[x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1, 14]
-16. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
-17. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
-18. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
-19. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
-20. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
-21. $y \subseteq A$ \[Definition of powerset on line 19]
-22. $y \subseteq B$ \[Definition of powerset on line 20]
-23. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21, 22]
-24. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
-25. $y \subseteq (A \cap B)$ \[Modus ponens on line 23, 24]
-26. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
-27. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B))[y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17, 26]
-28. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
-29. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16, 28]
-30. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
+87. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
+88. Then $x \subseteq (A \cap B)$ \[Definition of power set]
+89. $(A \cap B) \subseteq A$ \[Lemma]
+90. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
+91. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2, 3]
+92. $x \subseteq A$ \[Modus ponens on lines 4, 5]
+93. $(A \cap B) \subseteq B$ \[Lemma]
+94. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
+95. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2, 7]
+96. $x \subseteq B$ \[Modus ponens on lines 8, 9]
+97. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
+98. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
+99. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11, 12]
+100. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
+101. $\forall x \in \mathcal{P}(A \cap B)[x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1, 14]
+102. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
+103. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
+104. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
+105. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
+106. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
+107. $y \subseteq A$ \[Definition of powerset on line 19]
+108. $y \subseteq B$ \[Definition of powerset on line 20]
+109. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21, 22]
+110. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
+111. $y \subseteq (A \cap B)$ \[Modus ponens on line 23, 24]
+112. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
+113. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B))[y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17, 26]
+114. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
+115. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16, 28]
+116. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
 
 
 # Bonus: Google Sheets
