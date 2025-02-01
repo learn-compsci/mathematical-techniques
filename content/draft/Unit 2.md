@@ -709,7 +709,7 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
  (A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C
  $$
 
-**Proof**
+**Proof:**
 1. Assume $A \subseteq C \land B \subseteq C$.
 2. $A \subseteq C$ \[Specialisation on line 1]
 3. $\forall x \in A \ [x \in C]$ \[Definition of subset]
@@ -755,6 +755,7 @@ Here are a few theorems that involve using the power set concept:
 The proof of this is going to use the theorem that we proved in the previous section, namely that $$
 (A \subseteq B \land B \subseteq C) \to (A \subseteq C)
 $$
+
 **Proof:**
 1. Assume $A \subseteq B$.
 	1. Let $x \in \mathcal{P}(A)$, arbitrarily chosen.
