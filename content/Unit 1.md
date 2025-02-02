@@ -226,7 +226,7 @@ Let's move on to something slightly more unintuitive, the **or** operation.
 | false | false |   false    |
 
 
-Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p, q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
+Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p,q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
 
 
 ### The Implication Connective
@@ -393,7 +393,7 @@ With that, we have changed lines 2, and 3 of Proof 2. But what about line 1?
 The second thing to do, is to introduce quantifiers. We want to be able to say "every human is mortal". In order to do so, we will write the following:
 
 $$
-\forall x \in Human [mortal(x)]
+\forall x \in Human \ [mortal(x)]
 $$
 
 Okay, maybe a little intimidating. How do we read this? Let's begin with "$\forall x \in Human$". $x \in Human$ is mathematical notation that means "$x$ is in the set of humans". Think of a **set** here as just a collection of objects. Here we are _basically_ saying that $x$ is a human. The $\forall$ symbol means "every". So putting it together, the first part is essentially saying "Every human".
@@ -412,12 +412,12 @@ $$
 Human = \{John, Sam\}
 $$
 
-Then coming back to $\forall x \in Human [mortal(x)]$, since $x \in Human$ (in other words, $x$ comes from the set of humans), we have it so that $x$ will take value $John$, and then $x$ will also take value $Sam$. So $mortal(John)$ is true, and $mortal(Sam)$ is also true.
+Then coming back to $\forall x \in Human \ [mortal(x)]$, since $x \in Human$ (in other words, $x$ comes from the set of humans), we have it so that $x$ will take value $John$, and then $x$ will also take value $Sam$. So $mortal(John)$ is true, and $mortal(Sam)$ is also true.
 
 There is another quantifier we have not mentioned, the **existential quantifier**. What if we instead wanted to say "some humans are mortal"? We write the following:
 
 $$
-\exists x \in Human[mortal(x)]
+\exists x \in Human \ [mortal(x)]
 $$
 How do we read this? Now the $\exists x \in Human$ means "there exists is some human that we will call $x$". And the second part says that "$x$ is mortal.". In English:
 
@@ -427,7 +427,7 @@ $$
 
 Coming back to Proof 2, here is how we will write it:
 
-1. $\forall x \in Human [mortal(x)]$
+1. $\forall x \in Human \ [mortal(x)]$
 2. $Socrates \in Human$
 3. Therefore $mortal(Socrates)$
 
@@ -442,7 +442,7 @@ How should we say a number is even? In English we might say something like "A nu
 In discrete math, we say say that $x$ is an even number if:
 
 $$
-\exists k \in \mathbb{Z} [2\cdot k = x]
+\exists k \in \mathbb{Z} \ [2\cdot k = x]
 $$
 
 Let's read this back in English, and see what it means:
@@ -484,7 +484,7 @@ We will use the $\leq$ symbol to mean "smaller than or equals to", and $\geq$ to
 Let's begin with the first one, this is a prime example in nesting quantifiers. That is to say, using more than one.
 
 $$
-	\exists x \in \mathbb{N}, \forall y \in \mathbb{N} \big( x \leq y \big)
+	\exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [ x \leq y ]
 $$
 
 Very succinct right? Reading it back, here's how we should parse it:
@@ -496,7 +496,7 @@ One thing to take note of here is that $x$ is chosen before considering all valu
 Let's look at the second statement.
 
 $$
-\neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} (x \geq y) \big)
+\neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
 
 Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists a non-negative number that we will call $x$. Fix this $x$, for every non-negative number $y$, $x$ is greater than or equals to $y$". Since we want the opposite of that statement, we added the negation on the outside.
@@ -504,7 +504,7 @@ Notice that we have surrounded the entire statement with a "$\neg$". This is don
 The first question we might want to ask is: Do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
 
 $$
-\forall y \in \mathbb{N}, \exists x \in \mathbb{N} \big( x \leq y \big)
+\forall y \in \mathbb{N}, \exists x \in \mathbb{N} \ [x \leq y]
 $$
 Reading this back, this now says:
 
@@ -524,19 +524,19 @@ See how they don't mean the same thing?
 Let's also take a look at what it means to negate a statement that has quantifiers in it. Let's think about when a number $x$ is not even. We know that we can write this as:
 
 $$
-\neg \big( \exists k \in \mathbb{Z} [x = 2k] \big)
+\neg \big( \exists k \in \mathbb{Z} \ [x = 2k] \big)
 $$
 
 That's simply by negating it. But we can also write this as:
 
 $$
-\forall k \in \mathbb{Z}[ x \neq 2k]
+\forall k \in \mathbb{Z} \ [ x \neq 2k]
 $$
 
 Which basically says, "for every integer $k$, is it not the case that $x$ is equal to $2k$." In plainer terms: it means we cannot write $x$ as $2k$, where $k$ is an integer. Let's go through on more example, the second statement from the previous section:
 
 $$
-\neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} (x \geq y) \big)
+\neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
 
 Can we think of a way to write this where we do not have a negation on the outside? We're trying to say "It is not the case that there is a single value that is greater than or equals to all values". Why is this the case? We can think of this statement equivalently in the following way:
@@ -546,7 +546,7 @@ Can we think of a way to write this where we do not have a negation on the outsi
 Mathematically:
 
 $$
- \forall x \in \mathbb{N}, \neg \big(\forall y \in \mathbb{N} (x \geq y) \big)
+ \forall x \in \mathbb{N}, \neg \big(\forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
 Take a while sitting on this and reading it to convince yourself it makes sense.
 
@@ -557,7 +557,7 @@ We can go a little further, and say:
 Mathematically:
 
 $$
- \forall x \in \mathbb{N}, \exists y \in \mathbb{N} \big( \neg ( x \geq y) \big)
+ \forall x \in \mathbb{N}, \exists y \in \mathbb{N} \ \big[\neg ( x \geq y) \big]
 $$
 
 Again, take a while to sit on this and convince yourself that they are the same.
@@ -566,17 +566,17 @@ In general: We can move a $\neg$ further to the right past a quantifer by changi
 
 So for example, all of the following are equivalent:
 
-1. $\neg \big( \exists x, \forall y, \exists z (P(x, y, z)) \big)$
-2. $\forall x, \neg \big(\forall y, \exists z (P(x, y, z)) \big)$
-3. $\forall x, \exists y, \neg \big( \exists z (P(x, y, z)) \big)$
-4. $\forall x, \exists y,  \forall z, \neg \big( (P(x, y, z)) \big)$
+1. $\neg \big( \exists x, \forall y, \exists z \ [P(x, y, z)] \big)$
+2. $\forall x, \neg \big(\forall y, \exists z \ [P(x, y, z)] \big)$
+3. $\forall x, \exists y, \neg \big( \exists z \ [P(x, y, z)] \big)$
+4. $\forall x, \exists y,  \forall z, \big[ \neg P(x, y, z) \big]$
 
 ### Variable Naming does not matter
 The last thing you might wonder is whether the variable names matter. It does not! So, for example, these are all the same:
 
-1. $\exists a, \forall b, P(a, b)$
-2. $\exists x, \forall y, P(x, y)$
-3. $\exists y, \forall x, P(y, x)$
+1. $\exists a, \forall b \ [P(a, b)]$
+2. $\exists x, \forall y \ [P(x, y)]$
+3. $\exists y, \forall x \ [P(y, x)]$
 
 Pay special attention to lines 2 and 3 and notice that we have swapped the names for $x$ and $y$, but we have also swapped how we use them in the predicate $P(-, -)$.
 
@@ -607,7 +607,7 @@ Okay that was the intuitive direction. But can we also say "Statement 1 $\to$ St
 So we should not be able to say "Statement 1 $\to$ Statement 2".
 
 ### Contrapositivity
-This covers the idea of when a statement implies another statement. There are also a few other key features we should talk about implications in general. Let's say we knew "a $\to$ b". I.e. if $a$ is true, then $b$ must be true.
+This covers the idea of when a statement implies another statement. There are also a few other key features we should talk about implications in general. Let's say we knew "$x \to b$". I.e. if $a$ is true, then $b$ must be true.
 
 We can also argue that if $b$ is false, $a$ is false. I.e. $(\neg b) \to (\neg a)$. This is called the contrapositive form of the first statement. 
 
@@ -622,9 +622,9 @@ The idea behind the first statement is that either the person likes ice-cream, o
 
 What about the second statement? It might look a bit confusing, let's take this step by step. Reading the inner portion, "I do not like ice-cream and I do not like cake". This means that there is only one possible case, the person dislikes both. But once we add the outer "not", it means that this is the case that is impossible. So what are the possible cases then? If the person in the second statement either:
 
-1. Likes only cake.
-2. Likes only ice-cream.
-3. Likes both cake and ice-cream.
+1. Likes only cake
+2. Likes only ice-cream
+3. Likes both cake and ice-cream
 
 Then we can say it is not the case that they dislike both ice-cream and cake. But wait! Isn't that the same as the first statement? We used different words to say the same thing.
 
@@ -655,7 +655,7 @@ Going into this part, it's helpful to take into the mindset that we are trying t
 ## First example of a proof:
 Let's re-visit the example we had just now:
 
-1. $\forall x \in Human [mortal(x)]$ \[Premise 1]
+1. $\forall x \in Human \ [mortal(x)]$ \[Premise 1]
 2. $Socrates \in Human$  \[Premise 2]
 3. Therefore $mortal(Socrates)$  \[Conclusion]
 
@@ -668,7 +668,7 @@ In order to do so, we will use rules of deductions. We will exhaustively list th
 It's a very fancy name, but what it means is that if you see any line that looks like:
 
 $$
-\forall x \in C[Q(x)]
+\forall x \in C \ [Q(x)]
 $$
 
 where $C$ is some set, like $\mathbb{Z}$. And $Q(x)$ is any statement about $x$, like $mortal(x)$,
@@ -686,7 +686,7 @@ then the rule modus ponens allows you to **deduce** that $Q(c)$ is true in your 
 Okay this is a little abstract, what does **universal modus ponens** mean in English? Let's take a step back and try to think about it. If we have a line that says:
 
 $$
-\forall x \in C[Q(x)]
+\forall x \in C \ [Q(x)]
 $$
 we are essentially saying "For every possible object $x$ from set $C$, $Q(x)$ holds true." 
 
@@ -703,12 +703,12 @@ So since we know $c$ comes from set $C$, we can happily conclude that "A-ha! $c$
 Notice here that the rule doesn't care about what we said about humanity or mortality. As long as it matches the pattern, it will be allowed. That means we can also write something like this:
 
 1. $Tabby \in Cat$
-2. $\forall x \in Cat [has\_paws(x)]$
-3. Therefore $has\_paws(Tabby)$
+2. $\forall x \in Cat \ [has\_paws(x)]$
+3. Therefore $has\_paws(Tabby)$.
 
 The first line is saying that Tabby is a cat (or rather that Tabby is in the set of all Cats). The second line effectively is saying all cats have paws, and the last line is saying Tabby has paws.
 
-So let's re-cap a little at this point what has gone on. Lines $1, 2$ are **premises** (notice we didn't prove lines 1 and 2, we are assuming they are true on good faith). Line $3$ is a **deduced line** using lines $1, 2$, and the deduction rule used **modus ponens**.
+So let's re-cap a little at this point what has gone on. Lines 1 and 2 are **premises** (notice we didn't prove lines 1 and 2, we are assuming they are true on good faith). Line 3 is a **deduced line** using lines 1 and 2, and the deduction rule used **modus ponens**.
 
 Now, very importantly, **what have we done here**? We have written a proof that effectively has **proven the following statement**:
 
@@ -717,7 +717,7 @@ Now, very importantly, **what have we done here**? We have written a proof that 
 Formally, we will write the **proven statement** in the following way:
 
 $$
-\bigg( Tabby \in Cat \land \big(\forall x \in Cat [has\_paws(x)]\big)\bigg) \to has\_paws(Tabby)
+\bigg( Tabby \in Cat \land \big(\forall x \in Cat \ [has\_paws(x)]\big)\bigg) \to has\_paws(Tabby)
 $$
 
 What is the above **proven statement**? The above statement says that if $Tabby \in Cat$ is true, and $\big(\forall x \in Cat \left(has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
@@ -753,20 +753,20 @@ At the end of the unit we will show bigger proofs that use some of these rules i
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
 
 $$
-\exists k \in \mathbb{Z} [2 \cdot k = x]
+\exists k \in \mathbb{Z} \ [2 \cdot k = x]
 $$
 
 Formally, we can say:
 
-> **The predicate $even(x)$ is defined to be $\exists k \in \mathbb{Z} [2 \cdot k = x]$**.
+> **The predicate $even(x)$ is defined to be $\exists k \in \mathbb{Z} \ [2 \cdot k = x]$**.
 
 It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
 
 
 >[!Definition-Unpacking-Rule]
-> Given a definition, e.g. $even(x) \equiv \exists k \in \mathbb{Z}[x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is $\exists k \in \mathbb{Z}[x = 2\cdot k]$.
+> Given a definition, e.g. $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$.
 > 
-> Similarly, if we are given the line $\exists k \in \mathbb{Z}[x = 2\cdot k]$, we may derive the line $even(x)$.
+> Similarly, if we are given the line $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$, we may derive the line $even(x)$.
 
 Throughout the course we will see more and more definitions (also in the tutorial). For now let us use this one for our remaining examples for this unit.
 
@@ -780,7 +780,7 @@ Now this probably looks familiar, these was one of the examples we actually used
 
 >[!Proof]
 > 1. Assume $\neg(p \lor q)$.
-> 2. $\neg p \land \neg q$. \[Logically equivalent to line 1.]
+> 2. $\neg p \land \neg q$ \[Logically equivalent to line 1]
 
 To be clear, we know that $\neg(p \lor q)$ and $\neg p \land \neg q$ are logically equivalent because before this, we verified it with a truth table. You can find it again in section [[#Truth tables, logical equivalences]].
 
@@ -793,7 +793,7 @@ How do you think you should prove this? Try writing it down by hand first if you
 
 >[!Solution]+
 > 1. Assume $\neg p \land \neg q$.
-> 2. $\neg p \land \neg q$. \[Logically equivalent to line 1.]
+> 2. $\neg p \land \neg q$ \[Logically equivalent to line 1]
 
 So to be clear, when can we use this rule? We can, if we have separately checked/verified their logical equivalence via a truth table.
 
@@ -841,9 +841,9 @@ Example usage:
 
 >[!Proof]
 > 1. Assume that $x = 5$.
-> 2. Then $x < 10$. \[Basic Algebra from line $1$]
-> 3. Then $x > 0$. \[Basic Algebra from line $1$]
-> 4. $x < 10 \land x > 0$ \[Conjunction on lines 2, 3]
+> 2. Then $x < 10$. \[Basic Algebra from line 1]
+> 3. Then $x > 0$. \[Basic Algebra from line 1]
+> 4. $x < 10 \land x > 0$ \[Conjunction on lines 2 and 3]
 
 This time, the notice that lines 2, and 3 followed from line 1. Since we derived both of those statements, we know both of them to be true. Therefore we can say line 2 and line 3 are true. So, we can use the $\land$ connective on both lines.
 
@@ -858,7 +858,7 @@ Example usage:
 
 >[!Proof]
 > 1. Assume that $x < 10$.
-> 2. Then $x < 10 \lor x = 10$. \[By Generalisation on line $1$]
+> 2. Then $x < 10 \lor x = 10$. \[By Generalisation on line 1]
 
 This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
 
@@ -913,11 +913,12 @@ $$
 Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
 
 Here's a faulty proof that skips a case:
+
 **Faulty Proof:** 
 1. Assume $(x = 1 \lor x = 5)$.
 2. Case 1: $x = 1$
 	1. Then $x^2 = 1$ \[Basic algebra]
-3. In all cases, it is shown that $x^2 = 1$
+3. In all cases, it is shown that $x^2 = 1$.
 ### Rule: Modus Ponens
 Example usage:
 
@@ -928,14 +929,14 @@ Example usage:
  > [!Proof]
  >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
  >  2. Assume $\text{it is raining}$.
- >  3. Therefore $\text{I will bring an umbrella}$ \[By Modus Ponens on lines $1, 2$]
+ >  3. Therefore $\text{I will bring an umbrella}$ \[By Modus Ponens on lines 1 and 2]
 
 This example is a demonstration of a classic rule of inferences. It takes 2 lines:
 1. If we believe in $p$, we must also believe $q$ is true.
 2. We believe in $p$
 
 And makes the following conclusion:
-1. We believe in $q$.
+3. We believe in $q$.
 
 >[!Modus-Ponens-Rule]
 > Given statements $p \to q$, and $p$, we are able to derive statement $q$.
@@ -954,7 +955,7 @@ Can we say something about whether it is raining? Well we were promised if it wa
  > [!Proof]
  >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
  >  2. Assume $\neg(\text{I will bring an umbrella})$.
- >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines $1, 2$]
+ >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines 1 and 2]
 
 In general, here is the rule:
 >[!Modus-Tollens-Rule]
@@ -972,18 +973,18 @@ Here's the proof and how we use the deductive rule.
 
 **Proof:** 
 1. Assume $(p \land q)$.
-	1. $p$ \[By Specialisation on line $1$].
- 1. $(p \land q) \to p$ \[By Implication Introduction on lines $1$, and $1.1$]
+	1. $p$ \[By Specialisation on line 1].
+2. $(p \land q) \to p$ \[By Implication Introduction on lines 1 and 1.1]
 
 So what is going on here? 
 
 1. On line $1$ we have made it very explicit that we are making an assumption that $p \land q$ is true. 
-2. We derived line 1.1 using the Specialisation rule on line $1$.
-3. We derived our concluding line $2$ by using the Implication Introduction rule on lines $1$ and $1.1$.
+2. We derived line 1.1 using the Specialisation rule on line 1.
+3. We derived our concluding line 2 by using the Implication Introduction rule on lines 1 and 1.1.
 
 What's the idea? Intuitively, our proof system makes an assumption that $(p \land q)$ is true, so since we assumed it to be true, we can now start deriving other lines from it as well. In fact, line 1.1 is such a line. Line 1.1 is also the sub-conclusion from line 1. 
 
-Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line $2$. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
+Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line 2. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
 
 In general, here is the rule:
 >[!Implication-Introduction-Rule]
@@ -1003,23 +1004,23 @@ For the sake of exposition, it is a lot more natural to consider all these 4 rul
 Let's begin with a smaller example that demonstrates the use of **universal instantiation**. Let's see that in action by proving this theorem formally:
 
 >[!Theorem]
-> Assuming $\forall x \in \mathbb{Z}[x^2 \geq 0]$, then $(-5)^2 \geq 0$.
+> Assuming $\forall x \in \mathbb{Z} \ [x^2 \geq 0]$, then $(-5)^2 \geq 0$.
 
 What is this theorem saying? It is saying that if we believe that any integer squared is non-negative, then  $-5$ squared is non-negative. How do we prove this? Let's see this in action:
 
 >[!Proof]
-> 1. Assume $\forall x \in \mathbb{Z}[x^2 \geq 0]$.
+> 1. Assume $\forall x \in \mathbb{Z} \ [x^2 \geq 0]$.
 > 2. $-5 \in \mathbb{Z}$ \[Basic Algebra]
-> 3. $(-5)^2 \geq 0$ \[Universal instantiation on line $1$, $2$].
+> 3. $(-5)^2 \geq 0$ \[Universal instantiation on lines 1 and 2].
 
-What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise, it is assuming that all integers are such that if you square them, they are non-negative. Line $2$ is bringing up the fact that $-5$ is an integer. And line $3$ is basically stating the following:
+What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise, it is assuming that all integers are such that if you square them, they are non-negative. Line 2 is bringing up the fact that $-5$ is an integer. And line 3 is basically stating the following:
 
-> Since all integers are such that if you square them, they are non-negative. It is also true for any specific integer. We are convinced on line $2$ that $-5$ is an integer. Therefore, we are convinced by combining lines $1$ and $2$ that $(-5)^2$ is also non-negative.
+> Since all integers are such that if you square them, they are non-negative. It is also true for any specific integer. We are convinced on line 2 that $-5$ is an integer. Therefore, we are convinced by combining lines 1 and 2 that $(-5)^2$ is also non-negative.
 
 For the final proof of this section, let's think about how to **prove the following statement**:
 
 >[!Theorem]
-> $\forall x \in \mathbb{Z} [ even(x) \to even(x + 2) ]$.
+> $\forall x \in \mathbb{Z} \ [ even(x) \to even(x + 2) ]$.
 
 Let us read the statement we wish to prove in English, it is basically saying, "Take any integer $x$, if it is even, then $x + 2$ is even as well". Intuitive right? Let's see how a mathematician does it.
 
@@ -1030,21 +1031,21 @@ Okay that's the idea, but how do we do it formally? Again, we will want to use s
 **Proof:** 
  1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
 	 1. Assume that $even(x)$.
-	 2. $\exists k \in \mathbb{Z}[x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
-	 3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential Instantiation on line $1.2$]
+	 2. $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
+	 3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential instantiation on line 1.2]
 	 4. $x + 2 = 2 \cdot t + 2$ \[Basic Algebra]
 	 5. $x + 2 = 2 \cdot (t + 1)$ \[Basic Algebra]
 	 6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$ \[Basic Algebra]
-	 7. $\exists z \in \mathbb{Z} [x + 2 = 2 \cdot z]$ \[Existential Generalisation on line $1.5$, $1.6$]
+	 7. $\exists z \in \mathbb{Z} \ [x + 2 = 2 \cdot z]$ \[Existential generalisation on lines 1.5 and 1.6]
 	 8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
-	 9. $even(x) \to even(x + 2)$ \[Implication Introduction on lines $1.1$, and $1.8$]
- 2. $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$. \[Universal Generalisation on lines $1$, and $1.9$]
+	 9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
+ 2. $\forall x \in \mathbb{Z} \ [even(x) \to even(x + 2)]$. \[Universal generalisation on lines 1 and 1.9]
 
-Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses $3$ new rules here. What is going on?
+Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses 3 new rules here. What is going on?
 
 The proof starts off by taking $x$ to be an integer value (i.e. from $\mathbb{Z}$). So the subsequent lines (1.1 through 1.9) are allowed to treat $x$ as any arbitrarily chosen integer from $\mathbb{Z}$. It may be $5$, it may be $47142$, who knows. Then line 1.1 assumes that we consider only values $x$ that are even. This means that if we were given a value like $5$ for $x$, our proof is not applicable anymore. But that's okay! We don't want to say anything about odd numbers anyway.
 
-Next up, we unpack the definition of $even(x)$. Remember that an integer is even if we can write it as $2\cdot k$ for some value $k \in \mathbb{Z}$. Line $1.2$ is just reminding us of the definition of being an even value.
+Next up, we unpack the definition of $even(x)$. Remember that an integer is even if we can write it as $2\cdot k$ for some value $k \in \mathbb{Z}$. Line 1.2 is just reminding us of the definition of being an even value.
 
 What about line 1.3? This is the first new rule we have encountered. Intuitively in English, what is being done here is the following:
 
@@ -1057,11 +1058,11 @@ This might feel pedantic, but imagine how in English there is a subtle differenc
 
 The former sentence has not given the "cold thing" a name. The latter sentence has given it a name. Then deduction rule is basically trying to say "Since we know a cold thing exists, we can give it a name. Let's call it $x$". Similarly, in our proof above, the deduction rule is basically trying to say "Since we know $x$ is _some_ value times $2$, we can give such a value a name, call it $t$." In doing so, notice that the new line has effectively **removed** the $\exists$ symbol.
 
-Let's keep going. Now that we've given that value a name $t$, we can start referring to it, and manipulating it. So lines $1.4$ through $1.6$ are all just basic algebra. 
+Let's keep going. Now that we've given that value a name $t$, we can start referring to it, and manipulating it. So lines 1.4 through 1.6 are all just basic algebra. 
 
-What about line $1.7$? What is it doing? In some sense it is actually doing the opposite of line $1.3$.
+What about line 1.7? What is it doing? In some sense it is actually doing the opposite of line 1.3.
 
-> On line $1.5$ we said that $x + 2 = 2(t + 1)$. On line $1.6$ argue that $t + 1$ is also in $\mathbb{Z}$. Since we know a specific value $z$ from $\mathbb{Z}$ for which $x + 2 = 2\cdot z$, we know __some__ value from $\mathbb{Z}$ exists for which $x + 2 = 2 \cdot z$. Therefore, $\exists z \in \mathbb{Z} [x + 2 = 2\cdot z]$.
+> On line 1.5 we said that $x + 2 = 2(t + 1)$. On line 1.6 argue that $t + 1$ is also in $\mathbb{Z}$. Since we know a specific value $z$ from $\mathbb{Z}$ for which $x + 2 = 2\cdot z$, we know __some__ value from $\mathbb{Z}$ exists for which $x + 2 = 2 \cdot z$. Therefore, $\exists z \in \mathbb{Z} \ [x + 2 = 2\cdot z]$.
 
 Again, this might feel weird but it's basically doing the reverse of what we had explained earlier:
 
@@ -1069,11 +1070,11 @@ Again, this might feel weird but it's basically doing the reverse of what we had
 
 The deduction rule here basically takes the former sentence and deduces the latter.
 
-Okay! Let's keep chugging on. $1.8$ is more definition unpacking, and line $1.9$ re-uses the previous deduction rule of creating an implication statement.
+Okay! Let's keep chugging on. 1.8 is more definition unpacking, and line 1.9 re-uses the previous deduction rule of creating an implication statement.
 
-Finally, what's going on on line $2$? It's saying the following:
+Finally, what's going on on line 2? It's saying the following:
 
-> Since we took $x$ arbitrarily from $\mathbb{Z}$, and we were able to create the sub-conclusion $even(x) \to even(x + 2)$, we are able to write $\forall x \in \mathbb{Z}[even(x) \to even(x + 2)]$.
+> Since we took $x$ arbitrarily from $\mathbb{Z}$, and we were able to create the sub-conclusion $even(x) \to even(x + 2)$, we are able to write $\forall x \in \mathbb{Z} \ [even(x) \to even(x + 2)]$.
 
 And if you read back the concluding line, it makes sense! It's saying:
 
@@ -1084,16 +1085,16 @@ Why is this reasonable? We took $x$ arbitrarily. What about the assumption we ma
 Here are the 4 final deduction rules in detail:
 
 >[!Existential-Generalisation-Rule]
-> Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x [P(x)]$.
+> Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x \ [P(x)]$.
 
 >[!Existential-Instantiation-Rule]
-> Given a line $\exists x \in A [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
+> Given a line $\exists x \in A \ [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
 
 >[!Universal-Generalisation-Rule]
-> Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A[P(x)]$.
+> Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A \ [P(x)]$.
 
 >[!Universal-Instantiation-Rule]
-> Given a line $\forall x \in A [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
+> Given a line $\forall x \in A \ [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
 
 ### Rule: Using Lemma
 Think of a lemma as a helper statement. They are proven theorems that can now be used in other, bigger proofs.
@@ -1169,36 +1170,36 @@ Think of it this way, if we wish to prove a theorem like "Assuming $P$, then $Q$
 What about the following statement?
 
 >[!Theorem]
-> $\forall x \in \mathbb{Z}[even(x) \to even(x^2)]$
+> $\forall x \in \mathbb{Z} \ [even(x) \to even(x^2)]$
 
 Let's try.
 
 **Proof:** 
 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
 2. Assume that $even(x)$.
-	1. $\exists k \in \mathbb{Z}[x = 2k]$ \[Unpacking definition of even]
-	2. Let $t \in \mathbb{Z}$ be such that $x = 2t$ \[Existential Instantiation of line 2.1]
+	1. $\exists k \in \mathbb{Z} \ [x = 2k]$ \[Unpacking definition of even]
+	2. Let $t \in \mathbb{Z}$ be such that $x = 2t$ \[Existential instantiation of line 2.1]
 	3. Then $x^2 = 2\cdot (2 \cdot t^2)$ \[Basic algebra]
 	4. $2 \cdot t^2 \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists m \in \mathbb{Z}[x^2 = 2 \cdot m]$ \[Existential Generalisation on lines 2.3, 2.4]
+	5. $\exists m \in \mathbb{Z} \ [x^2 = 2 \cdot m]$ \[Existential generalisation on lines 2.3 and 2.4]
 	6. $even(x^2)$ \[Unpacking definition of even]
-3. $even(x) \to even(x^2)$ \[Implication introduction on lines 2, 2.6]
-4. $\forall y \in \mathbb{Z}[even(y) \to even(y^2)]$ \[Universal Generalisation on lines 1, 3]
+3. $even(x) \to even(x^2)$ \[Implication introduction on lines 2 and 2.6]
+4. $\forall y \in \mathbb{Z} \ [even(y) \to even(y^2)]$ \[Universal generalisation on lines 1 and 3]
  
 So what have we effectively said? We have effectively said that any even integer squared is also even.
 
 ## Proof by Contraposition
 What about the other direction? Can we say the following?
 >[!Theorem]
-> $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
+> $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$
 
 With what we have right now this looks tricky, here's a first attempt:
 
 **Attempted Proof:** 
  1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
  2. Assume that $even(x^2)$.  
-	1. $\exists k \in \mathbb{Z}[x^2 = 2k]$ \[Unpacking definition of even] 	
-	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2t$ \[Existential Instantiation of line 2.1]
+	1. $\exists k \in \mathbb{Z} \ [x^2 = 2k]$ \[Unpacking definition of even] 	
+	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2t$ \[Existential instantiation of line 2.1]
 	3. ... what now?
 
 We could try saying $x = \sqrt{2t}$ but.. that doesn't prove to us that it is even.
@@ -1207,37 +1208,37 @@ Let's instead make use of the following statements for free (they can be proven 
 
 1. If an integer is not even, it is odd.
 2. If an integer is odd, it is not even.
-3. $x$ is odd if $\exists k \in \mathbb{Z}[x = 2k + 1]$ (This is the definition of an odd integer)
+3. $x$ is odd if $\exists k \in \mathbb{Z} \ [x = 2k + 1]$ (This is the definition of an odd integer)
 
 Writing this out in math, we have:
 
-1. $\forall x \in \mathbb{Z}[\neg even(x) \to odd(x)]$ (Lemma 1)
-2. $\forall x \in \mathbb{Z}[odd(x) \to \neg even(x)]$ (Lemma 2)
+4. $\forall x \in \mathbb{Z} \ [\neg even(x) \to odd(x)]$ (Lemma 1)
+5. $\forall x \in \mathbb{Z} \ [odd(x) \to \neg even(x)]$ (Lemma 2)
 
 Now that we have these facts, let's try proving the statement again. Pay attention to how we start, and how we end. Contrast it against the direct proof idea. Notice that we want to prove $p \to q$, but we begin by assuming $\neg q$, and proving $\neg p$.
 
 
 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
 2. Assume that $\neg even(x)$.
-	1. $\neg even(x) \to odd(x)$ \[Universal Instantiation of Lemma 1]
+	1. $\neg even(x) \to odd(x)$ \[Universal instantiation of Lemma 1]
 	2. $odd(x)$ \[Modus ponens on lines 2 and 2.1]
-	3. $\exists k \in \mathbb{Z}[x = 2k + 1]$ \[Unpacking definition of odd]
+	3. $\exists k \in \mathbb{Z} \ [x = 2k + 1]$ \[Unpacking definition of odd]
 	4. Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
 	5. $x^2 = (2t + 1)^2 = 2(2t^2 + 2t) + 1$ \[Basic algebra]
 	6. $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
-	7. $\exists k \in \mathbb{Z}[x^2 = 2k + 1]$ \[Existential Generalisation]
+	7. $\exists k \in \mathbb{Z} \ [x^2 = 2k + 1]$ \[Existential generalisation on lines 2.5 and 2.6]
 	8. $odd(x^2)$ \[Unpacking definition of odd]
 	9. $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Lemma 2]
-	10. $\neg even(x^2)$ \[Modus ponens on lines 2.8, 2.9]
-3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on line 2, 2.10]
+	10. $\neg even(x^2)$ \[Modus ponens on lines 2.8 and 2.9]
+3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on lines 2 and 2.10]
 4. $even(x^2) \to even(x)$ \[Logically equivalent to line 3]
-5. $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$ \[Universal generalisation on line 1, 4]
+5. $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$ \[Universal generalisation on lines 1 and 4]
 
 Notice, we set out to prove:
-$$\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$$
+$$\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$$
 
 But instead we proved:
-$$\forall x \in \mathbb{Z}[\neg even(x) \to \neg even(x^2)]$$
+$$\forall x \in \mathbb{Z} \ [\neg even(x) \to \neg even(x^2)]$$
 
 Why is this okay? Recall in section [[#Contrapositivity]] we talked about how $p \to q$ is logically equivalent to $(\neg q) \to (\neg p)$. We are doing the same thing here: $even(x^2) \to even(x)$ is logically equivalent to $\neg even(x) \to \neg even(x^2)$.
 
@@ -1252,18 +1253,18 @@ This one might be one of the coolest ones you can do. We will show two examples 
 
 Let's think about the following idea, take some number $n$. And consider all possible ways we can write this as $a \times b = n$, with integer values for $a, b$. Ever notice how no matter how hard we try, either $a$ or $b$ has to be at most $\sqrt{n}$?
 
-For example, take a number like $50$. We could write it as: $1 \times 50$, $2 \times 25$, $5 \times 10$ (or also $50 \times 1$, $25 \times 2$, $10 \times 5$). Notice across all 6 possible ways to write it, there is at least one of the numbers being at most $\sqrt{50}$
+For example, take a number like $50$. We could write it as: $1 \times 50$, $2 \times 25$, $5 \times 10$ (or also $50 \times 1$, $25 \times 2$, $10 \times 5$). Notice across all 6 possible ways to write it, we have at least one of the numbers being at most $\sqrt{50}$.
 
 How about something like $9$? That has: $1 \times 9$, $3 \times 3$, $9 \times 1$. Again, in all possible ways to write $9$ as $a \times b$, either $a$ or $b$ is at most $\sqrt{9} = 3$.
 
-Okay, we've tries this for $50$ and $9$. You might ask yourself at this point, are $50$ and $9$ special? Or does this work **for all** numbers? We'll set out to prove that this is indeed true!  Let's do that by proving the theorem below. 
+Okay, we've tried this for $50$ and $9$. You might ask yourself at this point, are $50$ and $9$ special? Or does this work **for all** numbers? We'll set out to prove that this is indeed true!  Let's do that by proving the theorem below. 
 
 >[!Theorem]
->$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
 
 Let's read this back and see what it's saying:
 
-> Let $n$ by any integer, let $a, b$ be any integer. If $a \times b = n$, then either $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$.
+> Let $n$ be any integer, let $a, b$ be any two integers. If $a \times b = n$, then either $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$.
 
 Okay, let's try proving this. Also note that $\neg(a \leq b)$ is the same as $a > b$. Since if $a$ is not less than or equals to $b$, then $a$ has to be larger than $b$. They're actually the same.
 
@@ -1276,17 +1277,17 @@ Here's how the proof goes:
 4. Assume that $a \times b = n$.
 	1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
 	2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
-	3. $a > \sqrt{n} \land b > \sqrt{n}$ 
-	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[Basic Algebra]
-	5. $a \times b > n$ \[Basic Algebra]
-	6. $\neg(a \times b = n)$ \[Basic Algebra]
-	7. $\neg(a \times b = n) \land a \times b = n$ \[ Conjunction rule on line 4.4 and 4.5 ]
-	8. $\bot$ \[Contradiction rule on line 7. ]
+	3. $a > \sqrt{n} \land b > \sqrt{n}$ \[Basic algebra]
+	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[Basic algebra]
+	5. $a \times b > n$ \[Basic algebra]
+	6. $\neg(a \times b = n)$ \[Basic algebra]
+	7. $\neg(a \times b = n) \land a \times b = n$ \[Conjunction rule on lines 4.4 and 4.5]
+	8. $\bot$ \[Contradiction rule on line 7]
 	9. Therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Proof by contradiction rule on lines 4.1 and 4.8 ]
-5. $a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Implication introduction rule on lines 4. and 4.9]
-6. $\forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
-7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 2 and 6]
-8. $\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 1 and 8]
+5. $a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Implication introduction rule on lines 4 and 4.9]
+6. $\forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
+7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 2 and 6]
+8. $\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 1 and 8]
 
 Okay, as usual I like reading proofs back in English to see what sort of intuition they can convey. We are basically:
 
@@ -1296,7 +1297,7 @@ Okay, as usual I like reading proofs back in English to see what sort of intuiti
 4. Then if that's the case, line 3 is also **equivalent** to saying "$\neg(a \leq \sqrt{n})$" **and** "$\neg(b \leq \sqrt{n})$".
 5. But wait, $\neg(a \leq \sqrt{n})$ means $a > \sqrt{n}$. Also, $\neg(b \leq \sqrt{n})$ , means $b > \sqrt{n}$.
 6. Okay so both $a > \sqrt{n}$ **and** $b > \sqrt{n}$.
-7. Well okay.. but doesn't that mean that $a \times b > n$?
+7. Well okay... but doesn't that mean that $a \times b > n$?
 8. That also means that $a\times b$ cannot be equal to $n$. I.e. $a \times b \neq n$.
 9. We can re-write line 8 as $\neg(a \times b = n)$.
 10. Okay so $\neg(a \times b = n) \land (a \times b = n)$
@@ -1315,7 +1316,7 @@ How about the following statement?
 To be clear a **rational number** is a number that can be written as $\frac{a}{b}$ for _some value_ $a, b \in \mathbb{Z}$, where $b \neq 0$. Here, a rational number means a number that can be written as a fraction $\frac{a}{b}$ where $a, b$ are integer values, and $b$ is not $0$. So for example, $\frac{1}{3}$, and $0.75$ are examples of rational numbers. Even something like $0.1234567$ since that can be written as $\frac{1234567}{10000000}$. An example of an irrational number is something like $\pi$ or $\sqrt{2}$ (this is not obvious, but take this to be true for now).
 
 >[!Definition]
-> A number $x$ is rational if $\exists a \in \mathbb{Z}, b \in \mathbb{Z}[ b \neq 0 \land x = \frac{a}{b} ]$.
+> A number $x$ is rational if $\exists a \in \mathbb{Z}, b \in \mathbb{Z} \ [ b \neq 0 \land x = \frac{a}{b} ]$.
 > 
 > A number that is not rational can be referred to as _irrational_.
 > 
@@ -1343,62 +1344,62 @@ Which is basically saying that:
 
 For example, instead of writing $\frac{4}{6}$, we should write the fraction as $\frac{2}{3}$. How do we simplify fractions? We take the common divisors between the two numbers and remove them. E.g. $4$ and $6$ have a common divisor of $2$. So $4 / 2 =2$ and $6 / 2 = 3$. So now the only common divisor between $2$ and $3$ is $1$. Similarly, instead of $\frac{30}{105}$, the common factor here is $15$, so we should instead write the fraction as $\frac{2}{7}$. Again, between $2$ and $7$, the common divisor is $1$.
 
-So line $3$ is basically promising us that _the only divisor between $p$ and $q$ is $1$_.
+So line 3 is basically promising us that _the only divisor between $p$ and $q$ is $1$_.
 
 Again, notice that we want to formalise this in math, instead of English. So here's my proposed formalisation:
 
 >[!Lemma-2]
-> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
+> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z} \ [x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
 
-The first two statements probably are familiar, we are saying that $x$ is a fraction $\frac{p}{q}$, and that the denominator $q$ is non-zero. What about the last part? It's saying that we go through all the numbers, call them $d$. If $d$ divides both $p$ and $q$, then it must be $1$. This is our way of saying that "If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$".
+The first two statements probably are familiar, we are saying that $x$ is a fraction $\frac{p}{q}$, and that the denominator $q$ is non-zero. What about the last part? It's saying that we go through all the numbers, call them $d$. If $d$ divides both $p$ and $q$, then it must be $1$. This is our way of saying that "If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$."
 
 We will also make use of the previously proven fact:
 
 >[!Lemma-1]
-> $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$
+> $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$
 
 I will first show you the proof, it is really long and perhaps quite intimidating, there are a few things I need you to bear in mind. Every line is either:
 
-1. A fact we are assuming to be true. E.g. Fact 1.
+1. A fact we are assuming to be true, e.g., Fact 1.
 2. An explicit assumption we are making.
 3. A previously proven theorem.
 4. A line created by an application of a rule.
 
 Try to appreciate how this means we are basically starting from assumptions and facts, and everything else is a deduction. We are basically like Sherlock!
 
-The final line is then the conclusion of our proof. (Notice how we used the lemma on line $2$! We proved it previously so now we get to call it like a library function.)
+The final line is then the conclusion of our proof. (Notice how we used the lemma on line 2! We proved it previously so now we get to call it like a library function.)
 
 >[!Proof]
-> 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational. I.e. $\sqrt{2} \in \mathbb{Q}$
-> 2. $\forall x \in \mathbb{Z}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z}[x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 2]
-> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z}[\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal Instantiation of Line 2, replacing $x$ with $\sqrt{2}$]
+> 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational, i.e., $\sqrt{2} \in \mathbb{Q}$
+> 2. $\forall x \in \mathbb{Z}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z} \ [x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 2]
+> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z} \ [\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal instantiation of line 2, replacing $x$ with $\sqrt{2}$]
 > 4. Let $a, b \in \mathbb{Z}$ be such that $\sqrt{2} = \frac{a}{b} \land b \neq 0 \land \forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Existential instantiation on line 3]
 > 5. $\sqrt{2} = \frac{a}{b}$ \[Specialisation on line 4]
 > 6. Now $2 b^2 = a^2$ \[Basic algebra]
 > 7. $b^2 \in \mathbb{Z}$ \[Basic algebra]
-> 8. $\exists t \in \mathbb{Z}[a^2 = 2\cdot t]$ \[Existential generalisation over lines 6, 7]
+> 8. $\exists t \in \mathbb{Z} \ [a^2 = 2\cdot t]$ \[Existential generalisation on lines 6 and 7]
 > 9. $even(a^2)$ \[Unpacking definition of even]
 > 10. $even(a^2) \to even(a)$ \[Universal instantiation of Lemma 1]
-> 11. $even(a)$ \[Modus ponens on lines 9, 10]
-> 12. $\exists t \in \mathbb{Z}[a = 2\cdot t]$ \[Unpacking definition of even]
+> 11. $even(a)$ \[Modus ponens on lines 9 and 10]
+> 12. $\exists t \in \mathbb{Z} \ [a = 2\cdot t]$ \[Unpacking definition of even]
 > 13. Let $k \in \mathbb{Z}$, such that $a = 2\cdot k$ \[Existential instantiation on line 12]
 > 14. Therefore $a^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra]
-> 15. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra, merging lines 14, and 6]
+> 15. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra, merging lines 14 and 6]
 > 16. $b^2 = 2 \cdot k^2$ \[Basic algebra]
-> 17. Therefore $\exists t \in \mathbb{Z}[b^2 = 2\cdot t]$ \[Existential generalisation on line 16]
+> 17. Therefore $\exists t \in \mathbb{Z} \ [b^2 = 2\cdot t]$ \[Existential generalisation on line 16]
 > 18. Therefore $even(b^2)$  \[Unpacking definition of even]
 > 19. $even(b^2) \to even(b)$ \[Universal instantiation of previously proven theorem]
-> 20. $even(b)$ \[Modus ponens on lines 18, 19]
-> 21. $even(a) \land even(b)$ \[Conjunction of lines 10, 19]
+> 20. $even(b)$ \[Modus ponens on lines 18 and 19]
+> 21. $even(a) \land even(b)$ \[Conjunction of lines 10 and 19]
 > 22. $divides(2, a) \land divides(2, b)$  \[Basic Algebra]
-> 23. $\forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Specialisation on line 4]
+> 23. $\forall d \in \mathbb{Z} [ divides(d, a) \land divides(d, b) \to d = 1 ]$ \[Specialisation on line 4]
 > 24. $2 \in \mathbb{Z}$ \[Basic algebra]
 > 25. $divides(2, a) \land divides(2, b) \to 2 = 1$ \[Universal instantiation on line 23]
-> 26. $2 = 1$ \[Modus Ponens on lines 24, 25]
+> 26. $2 = 1$ \[Modus Ponens on lines 24 and 25]
 > 27. $2 \neq 1$ \[Basic algebra]
 > 28. $2 = 1 \land 2 \neq 1$ 
-> 29. $\bot$ \[Contradiction rule on lines 28] (**Look! We used it here!**)
-> 30. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof By Contradiction rule. Assumption on line $1$, $\bot$ on line $29$]
+> 29. $\bot$ \[Contradiction rule on line 28] (**Look! We used it here!**)
+> 30. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof by contradiction rule. Assumption on line 1, $\bot$ on line 29]
 
 I think this proof warrants a read-back in English, here's the proof again in English that skips the rules and contains the essence of what we are trying to say:
 
@@ -1413,7 +1414,7 @@ I think this proof warrants a read-back in English, here's the proof again in En
 9. So that means that $b^2$ is also even. 
 10. Which means that $b$ is also even. (Proven from previous parts)
 11. Which means $b = 2k$ for some integer $k$.
-12. Combining lines 5, and 10, we conclude $a$ is even, and $b$ is even.
+12. Combining lines 5 and 10, we conclude $a$ is even, and $b$ is even.
 13. This means $2$ is a common divisor of $a$ and $b$.
 14. The only common divisor of $a$ and $b$ should be $1$.
 15. This means $2$ is $1$.
@@ -1446,15 +1447,15 @@ Okay, let me use an initial example to show you what I mean.
 Let's say we had the following statement again:
 
 >[!Theorem]
-> $\forall x \in \mathbb{Z}[ even(x) \to even(x^2) ]$, where $even(x) \equiv \exists k \in \mathbb{Z}[x = 2k]$.
+> $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$, where $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
 
-Reading this back, it's saying that "For every integer $x$, if $x$ is even, then $x^2$ is even. And a number $x$ is considered 'even' means we can find an integer $k$ such that $x = 2k$.".
+Reading this back, it's saying that "For every integer $x$, if $x$ is even, then $x^2$ is even. And a number $x$ is considered 'even' means we can find an integer $k$ such that $x = 2k$."
 
-Right now at the very beginning, our goal statement, is really just $\forall x \in \mathbb{Z}[ even(x) \to even(x^2) ]$. This is the statement we want to prove. We haven't written any lines of proof yet. Also, we on the side, we have the definition that $even(x) \equiv \exists k \in \mathbb{Z}[x = 2k]$.
+Right now at the very beginning, our goal statement, is really just $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. This is the statement we want to prove. We haven't written any lines of proof yet. Also, we on the side, we have the definition that $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
 
 ![[proof-vs-goal.png]]
 
-**(Knowing what the goal statement is.)** The original statement to prove was $\forall x \in \mathbb{Z}[ even(x) \to even(x^2) ]$. Remember, this means we need to show the statement works for all integers. One way (but not the only way) to do this, is to start by letting $x \in \mathbb{Z}$ be arbitrarily chosen.
+**(Knowing what the goal statement is.)** The original statement to prove was $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. Remember, this means we need to show the statement works for all integers. One way (but not the only way) to do this, is to start by letting $x \in \mathbb{Z}$ be arbitrarily chosen.
 
 After we do that on line 1, the goal changes. Here's the idea, we already said that we were taking any $x$ from $\mathbb{Z}$ on line 1. So that means $x$ is now some chosen value. So what should we do next? The next thing to do is to prove that for this $x$, the statement $even(x) \to even(x^2)$ is true.
 
@@ -1463,7 +1464,7 @@ Okay, well how do we prove that? One possible way to do this, is to assume that 
 Now that we have assumed $even(x)$ is true? What is there left to do? Well.. the only thing left to do is to try to prove $even(x^2)$ is true. And the middle part, lines 2.1 through 2.6 do exactly that. 
 Notice that on line 2.6, we actually manage to prove the statement $even(x^2)$. But are we done? Not quite!
 
-Here's the reason: Originally we set out to prove $\forall x \in \mathbb{Z}[ even(x) \to even(x^2) ]$. Along the way, we took $x$ arbitrarily from $\mathbb{Z}$, and we also assumed $even(x)$. After we did that, we said "ok then all that remains to do is prove $even(x^2)$." We still need to go back to our original goal statement. So if you look at lines 3. and 4., you'll notice we need to recover the original statement. But that is okay because lines 1. and 2. help us out there. We use **implication introduction** rule to recreate $even(x) \to even(x^2)$ with the help of line 2. And we use **universal generalisation** rule to recreate $\forall x \in \mathbb{Z}[ even(x) \to even(x^2) ]$ with the help of line 1. In fact, that's precisely why line 1 and line 2 were there in the proof!
+Here's the reason: Originally we set out to prove $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. Along the way, we took $x$ arbitrarily from $\mathbb{Z}$, and we also assumed $even(x)$. After we did that, we said "ok then all that remains to do is prove $even(x^2)$." We still need to go back to our original goal statement. So if you look at lines 3 and 4, you'll notice we need to recover the original statement. But that is okay because lines 1 and 2 help us out there. We use **implication introduction** rule to recreate $even(x) \to even(x^2)$ with the help of line 2. And we use **universal generalisation** rule to recreate $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$ with the help of line 1. In fact, that's precisely why line 1 and line 2 were there in the proof!
 
 **(How do steps change what the goal statement is.)** Notice how the moment we created line 1, in some sense, the $\forall x \in \mathbb{Z}$ in the **goal statement** was taken care of. We knew that the moment we proved $even(x) \to even(x^2)$, we can then use the **universal generalisation** rule to put the $\forall x \in \mathbb{Z}$ back into the statement. That's exactly what happened on line 3. 
 
@@ -1471,13 +1472,13 @@ Similarly, the moment we created line 2, the goal statement was $even(x^2)$. We 
 
 One other thing you might notice is that the original goal statement wanted a $\forall x \in \mathbb{Z}$, so our line 1 literally starts with "Let $x \in \mathbb{Z}$, arbitrarily chosen.". This isn't the **only** way to do it, but it's usually a great starting point.
 
-If you notice, the proof for the other direction $\forall x \in \mathbb{Z}[even(x^2) \to even(x)]$ looks the same!
+If you notice, the proof for the other direction $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$ looks the same!
 
 #### Example 2: Delving a little deeper
 Okay, in light of what we mentioned just now. How do we think about proving this theorem?
 
 >[!Theorem]
-> $\neg(even(3))$, where $even(x) \equiv \exists k \in \mathbb{Z}[x = 2k]$
+> $\neg(even(3))$, where $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$
 
 Okay so the goal statement at the very beginning is: $\neg(even(3))$. So perhaps what might happen is the following:
 
@@ -1495,8 +1496,8 @@ Let's roll back a little bit, and instead try the following:
 
 In fact, this seems doable! Let's see the proof.
 
-1. Assume for the sake of contradiction that $\neg \big( \neg (\exists k \in \mathbb{Z}[3 = 2k]) \big)$
-2. $\exists k \in \mathbb{Z}[3 = 2k]$ \[Logically Equivalent to line 1]
+1. Assume for the sake of contradiction that $\neg \big( \neg (\exists k \in \mathbb{Z} \ [3 = 2k]) \big)$
+2. $\exists k \in \mathbb{Z} \ [3 = 2k]$ \[Logically equivalent to line 1]
 3. Let $t \in \mathbb{Z}$ be such that $3 = 2t$ \[Existential instantiation on line 2]
 4. $3 = 2 + 1$ \[Basic Algebra]
 5. $2t = 2 + 1$ \[Basic Algebra on lines 3 and 4]
@@ -1507,7 +1508,7 @@ In fact, this seems doable! Let's see the proof.
 10. $t \in \mathbb{Z}$ \[From line 3]
 11. $\big(t \in \mathbb{Z} \land \neg(t \in \mathbb{Z})\big)$ \[Conjunction rule on line 9 and 10]
 12. $\bot$ \[Contradiction rule on line $11$]
-13. $\neg (\exists k \in \mathbb{Z}[3 = 2k])$ \[Proof by contradiction rule on lines 1 and 12]
+13. $\neg (\exists k \in \mathbb{Z} \ [3 = 2k])$ \[Proof by contradiction rule on lines 1 and 12]
 14. $\neg (even(3))$ \[Definition unpacking on line 13]
 
 So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that at the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind: Every tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while you build your own techniques and tricks. The same thing applies here!
@@ -1517,14 +1518,14 @@ So what's the moral of the story here? Being mindful of the goal of the proof, h
 Let's look at the statement proven previously again:
 
 >[!Theorem]
->$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
 
 This looks seemingly useless. Maybe just some random math "fun-fact". But what if I told you that ideas like this were useful in computer science?
 
 Let's think of the following idea, right now you're given an input number $x$. And your boss needs you to write a program that tests whether $x$ is prime or not. So let's state what $prime(x)$ means.
 
 >[!Definition]
-> $prime(x) \equiv \forall d \in \mathbb{N}[divides(d, x) \to (d = 1 \lor d = x)]$
+> $prime(x) \equiv \forall d \in \mathbb{N} \ [divides(d, x) \to (d = 1 \lor d = x)]$
 
 This basically says that a number $x$ is called a prime number, if the only two numbers that divide it are $1$ and $x$ itself. Examples of prime numbers are $2, 3, 5, 7, 31, \ldots$ and so on. On the other hand, numbers like $4, 6, 10$ are not prime. Prime numbers are super useful for many reasons! And we might want to test for whether a number is prime so we can use it in our program.
 

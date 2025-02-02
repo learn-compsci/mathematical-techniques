@@ -99,7 +99,6 @@ In conclusion, think of this as yet another part of the vocabulary that will be 
 ### Set Roster Notation
 
 Let's begin by talking about what is a set. A set is just a collection of objects. So for example, let's say we wanted to represent the collection of someone's favourite book authors, we could write something like:
-
 $$
 A = \{\text{Agatha Christie}, \text{Cal Newport}, \text{Michael Crichton}\}
 $$
@@ -127,7 +126,6 @@ Set roster notation can be a little boring at times, we really have to hand-writ
 ### Element Of
 
 Using the same set again:
-
 $$
 A = \{\text{Agatha Christie}, \text{Cal Newport}, \text{Michael Crichton}\}
 $$
@@ -135,13 +133,11 @@ $$
 We say $\text{Agatha Christie}$ is _an element_ of set $A$. You might remember, we write this as $\text{Agatha Christie} \in A$. The "$\in$" symbol here means "is an element of". Similarly, this means we can also say $\text{Cal Newport} \in A$, and also $\text{Michael Crichton} \in A$.
 
 Let's say we had some other author: $\text{Stephen King}$, and notice here he's not in set $A$. We can write this in one of two ways, they're both the same:
-
 $$
 \text{Stephen King} \notin A
 $$
 
 or,
-
 $$
 \neg(\text{Stephen King} \in A)
 $$
@@ -165,13 +161,11 @@ Or, formally:
 > The symbol for this is $\subseteq$. So, we would write $A \subseteq B$.
 
 What about if we had a set $C = \{1, 2\}$. Can we say that everything in $A$ is also in $C$? No we can't. In particular, $3 \in A$ but $3 \notin C$. So in fact, we can say:
-
 $$
 \exists x \in A \ [x \notin C]
 $$
 
 which we know can be re-written:
-
 $$
 \exists x \in A \ [x \notin C] \equiv \exists x \in A \ [ \neg(x \in C)] \equiv \neg(\forall x \in A \ [x \in C])
 $$
@@ -258,9 +252,9 @@ Let's see how this works.. consider a number like $18$. Is $18 \in A$? Well, doe
 
 ##### When is something not in the set?
 
-What about something like $3$? Recall from [[Unit 1#Example 2 Delving a little deeper]], we proved that $\neg even(3)$, or in other words, $\neg(\exists k \in \mathbb{Z} [3 = 2k])$. So that means that $3$ does not fulfil the condition. So we can conclude that $3 \notin A$.
+What about something like $3$? Recall from [[Unit 1#Example 2 Delving a little deeper]], we proved that $\neg even(3)$, or in other words, $\neg(\exists k \in \mathbb{Z} \ [3 = 2k])$. So that means that $3$ does not fulfil the condition. So we can conclude that $3 \notin A$.
 
-What about something like $\frac{1}{2}$? Well $\frac{1}{2}$ is not even an integer in the first place, so it's not in set $A$ either. $3 \notin A$.
+What about something like $\frac{1}{2}$? Well $\frac{1}{2}$ is not even an integer in the first place, so it's not in set $A$ either, i.e., $\frac{1}{2} \notin A$.
 
 Here are a few more examples:
 
@@ -333,7 +327,6 @@ As a summary, these are almost all the set operations:
 ### Set Union
 
 Given two sets $A, B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$. Formally, $C$ contains only all the elements $x$ where: 
-
 $$
 x \in A \lor x \in B
 $$
@@ -537,8 +530,8 @@ $$
 **Proof:**
 1. Let $y \in A$, arbitrarily chosen.
 2. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
-3. $odd(y)$ \[Specialisation of line 2]
-4. $y \in \mathbb{N}$ \[Specialisation of line 2]
+3. $odd(y)$ \[Specialisation on line 2]
+4. $y \in \mathbb{N}$ \[Specialisation on line 2]
 5. $\forall x \in \mathbb{N} \ [odd(x) \to \neg(even(x))]$ \[Lemma 2]
 6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 4 and 5]
 7. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]

@@ -38,13 +38,13 @@ That said, **we encourage you to try all the questions**, this way when you come
 >[!Purpose] 
 > Practice translating English sentences into propositional formulae!
 
-For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions ***p***, ***q***, ***r***, ***s*** and ***t*** as needed, where they're defined as:
+For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
 
-* ***p*** : "The program compiles."
-* ***q*** : "The input is valid."
-* ***r*** : "The output is correct."
-* ***s*** : "The function is efficient."
-* ***t*** : "The algorithm terminates."
+* $p$: "The program compiles."
+* $q$: "The input is valid."
+* $r$: "The output is correct."
+* $s$: "The function is efficient."
+* $t$: "The algorithm terminates."
 
 0. "If the input is valid, then the output is correct"
 
@@ -64,10 +64,10 @@ For each of the following, write a propositional formula that accurately represe
 
 # Question 2: Negating Propositional Formulae \[Graded Participation]
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
-## Part a: Equivalences
+### Part A: Equivalences
 Draw two truth tables to verify that:
 
-1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
+1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
 |   $p$   |   $q$   | $p \to q$ | $\neg(p \to q)$ | $\neg q$ | $p \land \neg q$ |
@@ -92,7 +92,7 @@ Draw two truth tables to verify that:
 
 **Sneak peek:** These negations are super useful because later on when we talk about considering proof by contradictions knowing how to negate statements comes in handy. (Relevant content in Week 4's chapter [[Unit 1#Proof Strategies|Unit 1: Proof Strategies]])
 
-# Part b: Translating Human Language to Logic
+## Part B: Translating Human Language to Logic
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
 1. It is not the case that it is raining or cold.
@@ -117,10 +117,10 @@ Answer template: <br>
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
 
-## Part (a)
+## Part A:
 How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
 
-## Part (b)
+## Part B
 Determine whether the promise has been broken in each of the following cases:
 1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
 2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
@@ -152,7 +152,7 @@ Let:
 - $R=\{A,B,C\}$ be the set of circles,
 - $S=\{E,G,H,J\}$ be the set of squares,
 - $T=\{D,F,I\}$ be the set of triangles, and
-- $U=\{A, B, C, D, E, F, G, H, I\}$ be the set containing all the all the objects.
+- $U=\{A, B, C, D, E, F, G, H, I\}$ be the set containing all the objects.
 
 You are also given the following predicates, which you may use freely in your answers:
 - $Above(x,y)$ is true when object $x$ is above object $y$ in the grid.
@@ -164,12 +164,12 @@ You are also given the following predicates, which you may use freely in your an
 - $Triangle(x)$ is true when $x$ is a triangular object.
 
 Determine whether the following statements are true or false for the below picture:
-1. $\exists u \in U \: (Orange(u) \land Triangle(u))$
-2. $\forall u \in U \: (Circle(u)\rightarrow Blue(u))$
-3. $\forall s \in S, \exists t \in T \: (Above(t, s))$
-4. $\forall r \in R, \forall s \in S \: (Above(r, s))$
-5. $\exists u \in U, \forall r \in R \: (Above(u, r))$
-6. $\exists r \in R, \exists t \in T \: (Black(r) \lor \neg Grey(t))$
+1. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
+2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
+3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
+4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
+5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
+6. $\exists r \in R, \exists t \in T \ [Black(r) \lor \neg Grey(t)]$
 
 Take note of which set each variable comes from. E.g. in the first statement, which set does variable $u$ come from? What possible values can it take?
 
@@ -185,10 +185,10 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 
 Consider the following first order logic statements:
-	1. $\exists x \in D, (P(x) \land Q(x))$
-	2. $\forall x \in D, P(x)\lor Q(x)$
-	3. $\forall x\in D,\exists y\in E, P(x,y)\land Q(y)$
-	4. $\exists x \in D,\forall y \in E, P(x,y)\to Q(y)$
+	1. $\exists x \in D \ [P(x) \land Q(x)]$
+	2. $\forall x \in D \ [P(x)\lor Q(x)]$
+	3. $\forall x\in D,\exists y\in E \ [P(x,y)\land Q(y)]$
+	4. $\exists x \in D,\forall y \in E \ [P(x,y)\to Q(y)]$
 
 Write the negation for each of the statements. You may refer to [[Unit 1#Negating Quantifiers]] on this.
 
@@ -207,21 +207,21 @@ Write the negation for each of the statements. You may refer to [[Unit 1#Negatin
 | $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                     |
 | $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                 |
 | $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
-## Part a: Negating statements
+## Part A: Negating statements
 
 >[!Purpose] 
 > Sometimes when attempting to prove a statement, as you will see in the [[Unit 1#Part 3 Proofs in First Order Logic|second half of Unit 1]], rather than attempting to prove/disprove something directly, it may be easier or more intuitive to disprove/prove its [[Unit 1#Negating Quantifiers|negation]]. For some of the questions, notice how it is sometimes easier to determine if the negation is true rather than the original statement.
 
 For each of the following statements, write out the negation of the statement, and determine if the original statement is true or false.
 
-1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z}, (x = y)$
-2. $\forall p, q \in \mathbb{Q}, (q = p)$
-3. $\forall a, b, c \in \mathbb{Z}, (a = b \lor a = c)$ 
-4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q}, (x = 3y \land x = 5z)$      
-5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z},(p + q \neq r)$
-6. $\forall a, b \in \mathbb{Z}, (a^2 = b^2 \to a = b)$
+1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]$
+2. $\forall p, q \in \mathbb{Q} \ [q = p]$
+3. $\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]$ 
+4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$      
+5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]$
+6. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
 
-## Part b: Contrapositive statements
+## Part B: Contrapositive statements
 
 >[!Purpose] 
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
@@ -233,31 +233,30 @@ For each of the following implication statements:
 As an example, when given a statement like:
 
 $$
-\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [(a > b) \to (a > b - 234)]
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[(a > b) \to (a > b - 234)\big]
 $$
 
 Then the contrapositive is:
 $$
-\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} [ \neg (a > b -234) \to \neg(a > b)]
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[\neg (a > b -234) \to \neg(a > b)\big]
 $$
 Basically, take the inner implication statement, and re-write it in its contrapositive form.
 
 
-
 Statements:
-1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z}, (a^2 \neq b^2 \to a \neq b)$
-2. $\forall p \in \mathbb{Z},  (p < 0 \to (p \leq 5 \lor p > 26))$
-3. $\forall x \in \mathbb{Z}, (\forall y \in \mathbb{N}, (x \neq y) \to x \leq 5)$
+1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
+2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
+3. $\forall x \in \mathbb{Z} \ \big(\forall y \in \mathbb{N} \ [x \neq y)] \to x \leq 5\big)$
 
 ---
-# Question 7: \[Graded Participation]
+# Question 7 \[Graded Participation]:
 Prove the following statement:
 
 > [!Theorem] 
-> $\forall x \in \mathbb{Z}[\neg (even(x) \land odd(x))]$
+> $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
 > 
-> Where we define the predicate even to be: $even(x) \equiv \exists k \in \mathbb{Z}[2k = x]$, 
->  and we define the predicate odd to be: $odd(x) \equiv \exists j \in \mathbb{Z}[2j + 1 = x]$
+> Where we define the predicate even to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate odd to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
 
 Notice this theorem is basically say no integer is both odd and even at the same time.
 
@@ -286,9 +285,9 @@ Your boss tells you to keep costs down, that each server must service **less tha
 
 **Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life. And someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
 
-1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
-2. Proving, or disproving that statement.
-3. Interpreting back their result.
+4. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+5. Proving, or disproving that statement.
+6. Interpreting back their result.
 
 So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
 
@@ -298,7 +297,7 @@ The clickable hint box below gives a the formal statement we should try to prove
 > There are a few possible ways we can formalise this. Here is one:
 > 
 > **Formalism 1:**
-> Assume $C \in \mathbb{N}, s_1 \in \mathbb{N}, s_2 \in \mathbb{N}, \ldots, s_C \in \mathbb{N}$ is such that $(C > 0) \land (\sum_{i = 1}^S = C)$. Then, $$\exists i \in \mathbb{N} [(1 \leq i \land i \leq S \land s_i \geq \frac{C}{S})]$$
+> Assume $C \in \mathbb{N}, s_1 \in \mathbb{N}, s_2 \in \mathbb{N}, \ldots, s_C \in \mathbb{N}$ is such that $(C > 0) \land (\sum_{i = 1}^S = C)$. Then, $$\exists i \in \mathbb{N} \ \bigg[(1 \leq i \land i \leq S \land s_i \geq \frac{C}{S}) \bigg]$$
 > 
 > Reading this back in English: Let $C$, $s_1, s_2, \ldots, s_C$ be natural numbers. Assume that $C$ is positive, and that the total clients served is exactly $C$. Then at least one of the servers serves at least $\frac{C}{S}$.
 
