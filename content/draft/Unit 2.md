@@ -688,7 +688,7 @@ Now that we have seen a few ideas about sets. We will end this unit on a few mor
 Here are a example few intuitive facts we can prove involving subsets:
 1. If $A$ is a subset of $B$ and $B$ is a subset of $C$, then $A$ is a subset of $C$.
 2. If $A, B$ are subsets of $C$, then $A \cup B$ is a subset of $C$.
-3. $A \cap B$ is a subset of $A \cup B$.
+3. $A \cap B$ is a subset of $A$.
 
 The key takeaway here are not the facts themselves. Rather, notice our approach has a common theme: We start with an element that is from the "smaller" set, and we show it is in the bigger set.
 
@@ -699,17 +699,17 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
  $$
 
 **Proof:**
-1. Assume $A \subseteq B \land B \subseteq C$
-2. $A \subseteq B$ \[Specialisation on line 1]
-3. $\forall a \in A[a \in B]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall b \in B[b \in C]$ \[Definition of subset]
-6. Let $x \in A$, arbitrarily chosen.
-7. $x \in B$ \[Universal instantiation on lines 3, 6]
-8. $x \in C$ \[Universal instantiation on lines 5, 7]
-9. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
-10. $A \subseteq C$ \[Definition of subset]
-11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
+4. Assume $A \subseteq B \land B \subseteq C$
+5. $A \subseteq B$ \[Specialisation on line 1]
+6. $\forall a \in A[a \in B]$ \[Definition of subset]
+7. $B \subseteq C$ \[Specialisation on line 1]
+8. $\forall b \in B[b \in C]$ \[Definition of subset]
+9. Let $x \in A$, arbitrarily chosen.
+10. $x \in B$ \[Universal instantiation on lines 3, 6]
+11. $x \in C$ \[Universal instantiation on lines 5, 7]
+12. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
+13. $A \subseteq C$ \[Definition of subset]
+14. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
 
 >[!Example]
 >$$
@@ -717,25 +717,25 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
  $$
 
 **Proof**
-1. Assume $A \subseteq C \land B \subseteq C$
-2. $A \subseteq C$ \[Specialisation on line 1]
-3. $\forall x \in A[x \in C]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall x \in B[x \in C]$ \[Definition of subset]
-6. Let $y \in (A \cup B)$, arbitrarily chosen.
-7. $y \in A \lor y \in B$ \[Definition of union]
-8. Case 1: $y \in A$
+15. Assume $A \subseteq C \land B \subseteq C$
+16. $A \subseteq C$ \[Specialisation on line 1]
+17. $\forall x \in A[x \in C]$ \[Definition of subset]
+18. $B \subseteq C$ \[Specialisation on line 1]
+19. $\forall x \in B[x \in C]$ \[Definition of subset]
+20. Let $y \in (A \cup B)$, arbitrarily chosen.
+21. $y \in A \lor y \in B$ \[Definition of union]
+22. Case 1: $y \in A$
 	1. Then $y \in C$ \[Universal instantiation on lines 3, 8]
-9. Case 2: $y \in B$
+23. Case 2: $y \in B$
 	1. Then $y \in C$ \[Universal instantiation on lines 5, 9]
-10. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
-11. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
-12. $(A \cup B) \subseteq C$ \[Definition of subset]
-13. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
+24. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
+25. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
+26. $(A \cup B) \subseteq C$ \[Definition of subset]
+27. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
 
 >[!Example]
 >$$
- (A \cap B) \subseteq (A \cup B)
+ (A \cap B) \subseteq A
  $$
 
 You can try this one for yourself, and the answers have been hidden away in a spoiler tab.
@@ -744,8 +744,7 @@ You can try this one for yourself, and the answers have been hidden away in a sp
 > 1. Let $x \in (A \cap B)$, arbitrarily chosen.
 > 2. $x \in A \land x \in B$ \[Definition of set intersection]
 > 3. $x \in A$ \[Specialisation on line 2]
-> 4. $x \in A \lor x \in B$ \[Generalisation on line 3]
-> 5. $x \in (A \cup B)$  \[Definition of set union]
+> 4. $x \in (A \cup B)$  \[Definition of set union]
 
 ### Reasoning about power sets
 
@@ -753,8 +752,8 @@ Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This
 
 Here are a few theorems that involve using the power set concept:
 
-1. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
-2. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
+28. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+29. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 
 
 >[!Example]
@@ -765,7 +764,7 @@ The proof of this is going to use the theorem that we proved in the previous sec
 $$
 
 **Proof:**
-1. Assume $A \subseteq B$
+30. Assume $A \subseteq B$
 	1. Let $x \in \mathcal{P}(A)$, arbitrarily chosen.
 	2. $x \subseteq A$ \[Definition of powerset]
 	3. $x \subseteq A \land A \subseteq B$ \[Conjunction of lines 1 and 1.2]
@@ -773,15 +772,15 @@ $$
 	5. $x \in \mathcal{P}(B)$
 	6. $\forall x \in \mathcal{P}(A)[x \in \mathcal{P}(B)]$ \[Universal generalisation on lines 1.1, 1.5]
 	7. $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Definition of subset]
-2. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
+31. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
 
 >[!Example]
 > $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 >
 
 The proof for this has to work in two parts, we need to show two things:
-1. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
-2. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
+32. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
+33. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
 
 Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also use this lemma that will be left as an exercise for you to try to prove.
 
@@ -790,36 +789,36 @@ Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also 
 
 
 **Proof:**
-1. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
-2. Then $x \subseteq (A \cap B)$ \[Definition of power set]
-3. $(A \cap B) \subseteq A$ \[Lemma]
-4. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
-5. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2 and 3]
-6. $x \subseteq A$ \[Modus ponens on lines 4 and 5]
-7. $(A \cap B) \subseteq B$ \[Lemma]
-8. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
-9. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2 and 7]
-10. $x \subseteq B$ \[Modus ponens on lines 8 and 9]
-11. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
-12. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
-13. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11 and 12]
-14. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
-15. $\forall x \in \mathcal{P}(A \cap B) \ [x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1 and 14]
-16. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
-17. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
-18. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
-19. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
-20. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
-21. $y \subseteq A$ \[Definition of power set on line 19]
-22. $y \subseteq B$ \[Definition of power set on line 20]
-23. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21 and 22]
-24. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
-25. $y \subseteq (A \cap B)$ \[Modus ponens on line 23 and 24]
-26. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
-27. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B)) \ [y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17 and 26]
-28. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
-29. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16 and 28]
-30. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
+34. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
+35. Then $x \subseteq (A \cap B)$ \[Definition of power set]
+36. $(A \cap B) \subseteq A$ \[Lemma]
+37. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
+38. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2 and 3]
+39. $x \subseteq A$ \[Modus ponens on lines 4 and 5]
+40. $(A \cap B) \subseteq B$ \[Lemma]
+41. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
+42. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2 and 7]
+43. $x \subseteq B$ \[Modus ponens on lines 8 and 9]
+44. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
+45. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
+46. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11 and 12]
+47. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
+48. $\forall x \in \mathcal{P}(A \cap B) \ [x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1 and 14]
+49. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
+50. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
+51. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
+52. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
+53. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
+54. $y \subseteq A$ \[Definition of power set on line 19]
+55. $y \subseteq B$ \[Definition of power set on line 20]
+56. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21 and 22]
+57. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
+58. $y \subseteq (A \cap B)$ \[Modus ponens on line 23 and 24]
+59. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
+60. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B)) \ [y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17 and 26]
+61. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
+62. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16 and 28]
+63. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
 
 # Bonus: Google Sheets
 
