@@ -524,7 +524,7 @@ $$
 3. $odd(y)$ \[Specialisation of line 2]
 4. $y \in \mathbb{N}$ \[Specialisation of line 2]
 5. $\forall x \in \mathbb{N} \ [odd(x) \to \neg(even(x))]$ \[Lemma 2]
-6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 4 and 5]
+6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 3 and 5]
 7. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]
 8. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 4 and 7]
 9. $\neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Definition based on set builder]
