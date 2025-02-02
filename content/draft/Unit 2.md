@@ -544,7 +544,6 @@ $$
 23. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 15 and 22]
 24. $z \in A$ \[Definition of $A$]
 25. $\forall z \in B \ [z \in A]$ \[Universal generalisation on lines 13 and 24]
-
 26. $\forall y \in A \ [y \in B] \land \forall z \in B \ [z \in A]$ \[Conjunction of lines 12 and 25]
 
 And we've proven they're the same set! So again, the takeaway is the following:
