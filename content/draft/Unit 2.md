@@ -582,7 +582,6 @@ Here's the proof:
 	9. $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Definition of set intersection]
 5. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
 6. $\forall x \in A \cup (B \cap C) \ [x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1 and 5]
-
 7. Let $x \in \big((A \cup B) \cap (A \cup C) \big)$, arbitrarily chosen.
 8. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
 9. $x \in (A \cup B)$ \[Specialisation on line 8]
