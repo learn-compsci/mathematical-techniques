@@ -162,7 +162,7 @@ Or, formally:
 
 >[!Definition]
 > Let $A$ be a subset of $B$, then:
-> $$ \forall x \in A[x \in B] $$
+> $$ \forall x \in A \ [x \in B] $$
 > The symbol for this, is $\subseteq$. So we would write $A \subseteq B$.
 
 What about if we had a set $C = \{1, 2\}$. Can we say that everything in $A$ is also in $C$? No we can't. In particular, $3 \in A$ but $3 \notin C$. So in fact, we can say:
