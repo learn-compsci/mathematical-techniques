@@ -652,7 +652,7 @@ Why? They mirror the following how the following pairs of propositions are logic
 So what happens if someone asked you if something like whether these two sets are equal or not?
 
 $$
-(A \cup B) \setminus C \stackrel{?}{=} (A \setminus C) \cup B \setminus C
+(A \cup B) \setminus C \stackrel{?}{=} (A \setminus C) \cup (B \setminus C)
 $$
 
 Well, it's the same as asking whether the following is logically equivalent:
