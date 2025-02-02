@@ -453,3 +453,45 @@ Write the negation for each of the statements.
 
 # Question 7 Solutions \[Graded Participation]:
 
+Prove the following statement:
+
+> [!Theorem] 
+> $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
+> 
+> Where we define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
+
+>[!Solution]
+>1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+>2. Assume for the sake of contradiction that $even(x) \land odd(x)$.
+>	1. $even(x)$. \[Specialisation on line 2]
+>	2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even(x)$]
+>	3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
+>	4. $odd(x)$. \[Specialisation on line 2]
+>	5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd(x)$]
+>	6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
+>	7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
+>	8. $2(s - t) = 1$. \[Basic algebra]
+>	9. $s - t = \frac{1}{2}$. \[Basic algebra]
+>	10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
+>	11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[Basic algebra, from lines 2.3 and 2.6]
+>	12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
+>	13. $\bot$. \[Contradiction rule on line 2.12]
+>3. $\neg \big[even(x) \land odd(x)\big]$. \[Proof by contradiction rule on line 2.13]
+>4. $\forall x \in \mathbb{Z} \ \big[\neg (even(x) \land odd(x))\big]$. \[Universal generalisation on lines 1 and 3]
+
+---
+# Question 8:
+You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
+
+Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service. E.g. $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server. And so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
+
+**Question:** Prove to yourself and your boss that this is impossible.
+
+
+
+
+
+
+
+
