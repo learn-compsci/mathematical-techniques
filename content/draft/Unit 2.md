@@ -564,11 +564,11 @@ Here's the proof:
 1. Let $x \in A \cup (B \cap C)$, arbitrarily chosen.
 2. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
 3. Case 1: $x \in A$
-	1. $x \in A \lor x \in B$ \[Generalisation on line 2.1]
+	1. $x \in A \lor x \in B$ \[Generalisation on line 3]
 	2. $x \in (A \cup B)$ \[Definition of set union]
-	3. $x \in A \lor x \in C$ \[Generalisation on line 2.1]
+	3. $x \in A \lor x \in C$ \[Generalisation on line 3]
 	4. $x \in (A \cup C)$ \[Definition of set union]
-	5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 2.3 and 2.5]
+	5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 3.1 and 3.3]
 	6.  $x \in \big( (A \cup B) \cap (A \cup C) \big)$\[Definition of set intersection]
 4. Case 2: $x \in B \cap C$
 	1. $x \in B \land x \in C$ \[Definition of set intersection]
