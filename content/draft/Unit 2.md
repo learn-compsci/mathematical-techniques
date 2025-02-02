@@ -462,7 +462,7 @@ Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \
 > $\mathbb{Z} \times \mathbb{Z}$ is the set that contains any pair of integers. For example, $(-1, 25) \in \mathbb{Z} \times \mathbb{Z}$. But $(\frac{1}{2}, 21) \notin \mathbb{Z} \times\mathbb{Z}$.
 
 >[!Example]
-> $\mathbb{Q} \times \mathbb{Z}$ is the set that contains any pair where the first element is from $\mathbb{Q}$ and the second is from $\mathbb{Z}$. For example, $(-1, 25) \in \mathbb{Q} \times \mathbb{Z}$, and also $(\frac{1}{2}, 21) \notin \mathbb{Q} \times\mathbb{Z}$.
+> $\mathbb{Q} \times \mathbb{Z}$ is the set that contains any pair where the first element is from $\mathbb{Q}$ and the second is from $\mathbb{Z}$. For example, $(-1, 25) \in \mathbb{Q} \times \mathbb{Z}$, and also $(\frac{1}{2}, 21) \in \mathbb{Q} \times\mathbb{Z}$.
 # Ways To Prove Set Equivalence
 
 So up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing when two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
