@@ -255,8 +255,8 @@ Prove the following statement:
 > [!Theorem] 
 > $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
 > 
-> Where we define the predicate even to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate odd to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
+> Where we define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
 
 Notice this theorem is basically say no integer is both odd and even at the same time.
 
@@ -285,9 +285,9 @@ Your boss tells you to keep costs down, that each server must service **less tha
 
 **Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life. And someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
 
-4. Translating their scenario into a mathematical statement that they can either prove, or disprove.
-5. Proving, or disproving that statement.
-6. Interpreting back their result.
+1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+2. Proving, or disproving that statement.
+3. Interpreting back their result.
 
 So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
 
