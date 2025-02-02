@@ -595,7 +595,7 @@ Here's the proof:
 	2. $x \in C$ \[Modus ponens on lines 13 and 16]
 	3. $x \in B \land x \in C$ \[Conjunction on lines 15.1 and 15.2]
 	4. $x \in (B \cap C)$ \[Definition of set intersection]
-16. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 16, 16.4]
+16. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 15, 15.4]
 17. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 17]
 18. $x \in A \cup (B \cap C)$ \[Definition of set union]
 
