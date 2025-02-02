@@ -539,7 +539,7 @@ $$
 18. $z \in \mathbb{N} \to \neg(even(z))$ \[Logically equivalent to line 17]
 19. $\neg(even(z))$ \[Modus ponens on lines 15 and 18]
 20. $\forall x \in \mathbb{N} \ [\neg(even(x)) \to odd(x)]$ \[Lemma 1]
-21. $\neg(even(z))\to odd(z)$ \[Universal generalisation on lines 19 and 20]
+21. $\neg(even(z))\to odd(z)$ \[Universal instantiation on lines 15 and 20]
 22. $odd(z)$ \[Modus ponens on lines 18 and 19]
 23. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 15 and 22]
 24. $z \in A$ \[Definition of $A$]
