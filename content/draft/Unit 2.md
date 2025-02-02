@@ -578,7 +578,7 @@ Here's the proof:
 	5. $x \in C$ \[Specialisation on line 4.1]
 	6. $x \in A \lor x \in C$  \[Generalisation on line 4.5]
 	7. $x \in (A \cup C)$ \[Definition of set union]
-	8. $x \in (A \cup B) \land x\in (A \cup C)$ \[Conjunction on lines 4.4 and 4.8]
+	8. $x \in (A \cup B) \land x\in (A \cup C)$ \[Conjunction on lines 4.4 and 4.7]
 	9. $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Definition of set intersection]
 5. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
 6. $\forall x \in A \cup (B \cap C) \ [x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1 and 5]
