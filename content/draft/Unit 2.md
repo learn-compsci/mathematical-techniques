@@ -453,9 +453,22 @@ Given a sets $A$, and $B$. The set $C = A \times B$ is the **cartesian product b
 > $$
 > 
 > Pictorially, you can see how we got the elements.
-> ![[content/Images/cross-product.png]]
+> ![[cross-product.png]]
+
 
 Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \in A \times B$. But $(1, 2) \neq (2, 1)$. Also, $(1,3)\notin A \times B$.
+
+**Formally:** A pair $(a, b)$ is in set $A \times B$ if:
+
+$$
+a \in A \land b \in B
+$$
+
+Also, a pair $(a, b)$ is not in set $A \times B$ if:
+
+$$
+a \notin A \lor b \notin B
+$$
 
 >[!Example]
 > $\mathbb{Z} \times \mathbb{Z}$ is the set that contains any pair of integers. For example, $(-1, 25) \in \mathbb{Z} \times \mathbb{Z}$. But $(\frac{1}{2}, 21) \notin \mathbb{Z} \times\mathbb{Z}$.
