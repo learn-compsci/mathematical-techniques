@@ -758,7 +758,7 @@ You can try this one for yourself, and the answers have been hidden away in a sp
 > 3. $x \in A$ \[Specialisation on line 2]
 > 4. $x \in (A \cup B)$  \[Definition of set union]
 
-### Reasoning about power sets
+## Reasoning about power sets
 
 Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This means that if we had to reason about subsets, that might mean we should involve using the power set concept.
 
