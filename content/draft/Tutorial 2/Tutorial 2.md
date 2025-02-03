@@ -15,5 +15,27 @@
 * < 2 weeks after submission deadline: 75% penalty
 * No submissions after 2 weeks.
 
+---
 # Question 1
+
+Let $A = \emptyset$, $B = \{(3, 2), (1, 7), (-1, 5)\}$, and $C = \mathcal{P}(\{0, 1\})$. 
+
+Find $\mathcal{P}(A)$, $\mathcal{P}(B)$ and $\mathcal{P}(C)$.
+
+---
+# Question 2
+
+Consider the sets $A = \{x \in \mathbb{Z} : x^{2} \leq 16\}$ and $B = \big\{x \in \mathbb{N} : (x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$.
+
+Find the following sets:
+1. $A \cap B$
+2. $A \cup B$
+3. $A \setminus B$
+4. $A \times B$
+
+---
+
+
+
+
 
