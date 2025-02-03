@@ -1,7 +1,6 @@
 ---
 hidden: "true"
-
-title: "Unit 2: Sets, Relations"
+title: "Unit 2: Sets"
 ---
 
 This unit introduces the notion of sets and is for Week 5. The unit will introduce:
@@ -11,7 +10,7 @@ This unit introduces the notion of sets and is for Week 5. The unit will introdu
 4. More proofs about sets
 
 
-Unit Introduction
+# Unit Introduction
 Recall that in [[Unit 1#Quantifiers]] we had this spiffy diagram that explained how you should read quantified statements.
 
 ![[basic-quantifier.png]]
