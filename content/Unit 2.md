@@ -1,7 +1,5 @@
 ---
-hidden: "true"
-
-title: "Unit 2: Sets, Relations"
+title: "Unit 2: Introduction to Sets, Notations and Operations"
 ---
 
 This unit introduces the notion of sets and is for Week 5. The unit will introduce:
@@ -14,7 +12,7 @@ This unit introduces the notion of sets and is for Week 5. The unit will introdu
 Unit Introduction
 Recall that in [[Unit 1#Quantifiers]] we had this spiffy diagram that explained how you should read quantified statements.
 
-![[public/Images/basic-quantifier.png]]
+![[basic-quantifier.png]]
 
 And throughout [[Unit 1]] itself we had slowly introduced more and more common sets that mathematicians use. Here's a nice table that summarises the ones we have seen so far:
 
@@ -218,7 +216,8 @@ Let's start talking about a few well-established symbols for sets. The most comm
 | $\mathbb{Q}$ | Set of rational numbers          | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
 | $\mathbb{R}$ | Set of real numbers              | Set containing any number that is not complex.                                                                                      |
 | $\mathbb{C}$ | Set of imaginary/complex numbers | For example, something like $i$, or $-i$ is complex but not real.                                                                   |
-![[content/Images/number-sets-illus.png]]
+
+![[number-sets-illus.png]]
 
 There is one more common notation that we use in computer science. It turns out for some natural number $n$, it's very convenient for us to think about the set $\{1, \ldots, n\}$. The notation for this is $[n]$.
 
@@ -287,8 +286,9 @@ Here are a few more examples:
 
 >[!Example]
 > The set of prime numbers can be written as:
-> $$
- B = \bigg\{ x \in \mathbb{N} : x \geq 2 \land \big( \forall d \in \mathbb{N} \ [ divides(d, x) \to (d = 1 \lor d = x) ] \big) \bigg\}$$
+>
+>$$B = \bigg\{ x \in \mathbb{N} : x \geq 2 \land \big( \forall d \in \mathbb{N} \ [ divides(d, x) \to (d = 1 \lor d = x) ] \big) \bigg\}$$
+> 
 > where the predicate $divides(d, x)$  is defined as $\exists k \in \mathbb{Z} \ [d\cdot k = x]$.
 > 
 > Again, for example, is $7 \in B$? We know $7$ only has 2 divisors: $1$ and $7$ itself. So let's check: $7$ is greater than or equal to $2$; take any $d \in \mathbb{N}$, if $d$ does in fact divide $7$, we know it has to be either $1$ or $7$. So we can conclude that $7$ is indeed in $B$.
@@ -297,22 +297,18 @@ Here are a few more examples:
 
  Set builder notation is pretty handy, so let's talk about the general format now:
 
-![[public/Images/set-builder.png]]
+![[set-builder.png]]
 
 So again, we go through elements from some set $S$, and if it fulfils the conditions laid out by $P(x)$, we will admit element $x$. 
 
 >[!Example]
 > Let's try one more example: let's say we want the even integers between $1$ and $10$ inclusive. We could also write this:
 >
-> $$
-\{ x \in [10] : \exists k \in \mathbb{Z} \ [x = 2k] \}
-> $$
+> $$\{ x \in [10] : \exists k \in \mathbb{Z} \ [x = 2k] \}$$
 >
 > Pay special attention to how this time around we used $x \in [10]$, instead of $x \in \mathbb{Z}$ as before. There is an alternative way to write this:
->
-> $$
-\{ x \in \mathbb{Z} : x \geq 1 \land x \leq 10 \land (\exists k \in \mathbb{Z} \ [x = 2k]) \}
-$$
+> 
+> $$\{ x \in \mathbb{Z} : x \geq 1 \land x \leq 10 \land (\exists k \in \mathbb{Z} \ [x = 2k]) \}$$
 
 # Set Operations
 
@@ -332,7 +328,7 @@ $$
 x \in A \lor x \in B
 $$
 
-![[set-union]]
+![[set-union.png]]
 
 >[!Example]
 > $$
@@ -365,7 +361,7 @@ $$
 x \in A \land x \in B
 $$
 
-![[set-intersection]]
+![[set-intersection.png]]
 
 >[!Example]
 > $$
@@ -454,7 +450,7 @@ Given a sets $A$, and $B$. The set $C = A \times B$ is the **cartesian product b
 > $$
 > 
 > Pictorially, you can see how we got the elements.
-> ![[content/Images/cross-product.png]]
+> ![[cross-product.png]]
 
 Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \in A \times B$. But $(1, 2) \neq (2, 1)$. Also, $(1,3)\notin A \times B$.
 
@@ -549,9 +545,10 @@ $$
 And we've proven they're the same set! So again, the takeaway is the following:
 
 > To prove two sets $A$ and $B$ have the same elements, we should prove $A \subseteq B \land B \subseteq A$. Or in other words:
->$$
-	\big(\forall x \in A[x \in B]\big) \land \big(\forall x \in B[x \in A]\big)
- $$
+
+$$
+\big(\forall x \in A[x \in B]\big) \land \big(\forall x \in B[x \in A]\big)
+$$
 
 >[!Example]
 > Let $A, B, C$ be any 3 sets. Then:
@@ -606,9 +603,7 @@ Here's another small example of two sets you can try to prove are the same.
 >[!Example]
 > $A = \{ x \in \mathbb{N}: x \leq 5 \lor x \geq 10 \}$, $B = \{ x \in \mathbb{N} : x \leq 5 \}$, and $C = \{ x \in \mathbb{N} : x \geq 10\}$.
 > 
-> Then: $$
-> A = B \cup C
-> $$
+> Then: $$A = B \cup C$$
 
 ## Based on logical equivalences
 
@@ -694,9 +689,7 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
 
 
 >[!Example]
->$$
- (A \subseteq B \land B \subseteq C) \to A \subseteq C
- $$
+> $$(A \subseteq B \land B \subseteq C) \to A \subseteq C$$
 
 **Proof:**
 1. Assume $A \subseteq B \land B \subseteq C$
@@ -712,9 +705,7 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
 11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
 
 >[!Example]
->$$
- (A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C
- $$
+>$$(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$$
 
 **Proof**
 1. Assume $A \subseteq C \land B \subseteq C$
@@ -734,9 +725,7 @@ The key takeaway here are not the facts themselves. Rather, notice our approach 
 13. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
 
 >[!Example]
->$$
- (A \cap B) \subseteq A
- $$
+> $$(A \cap B) \subseteq A$$
 
 You can try this one for yourself, and the answers have been hidden away in a spoiler tab.
 
@@ -746,7 +735,7 @@ You can try this one for yourself, and the answers have been hidden away in a sp
 > 3. $x \in A$ \[Specialisation on line 2]
 > 4. $x \in (A \cup B)$  \[Definition of set union]
 
-### Reasoning about power sets
+## Reasoning about power sets
 
 Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This means that if we had to reason about subsets, that might mean we should involve using the power set concept.
 
@@ -759,9 +748,9 @@ Here are a few theorems that involve using the power set concept:
 >[!Example]
 > $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$
 
-The proof of this is going to use the theorem that we proved in the previous section, namely that $$
-(A \subseteq B \land B \subseteq C) \to (A \subseteq C)
-$$
+The proof of this is going to use the theorem that we proved in the previous section, namely that:
+
+$$(A \subseteq B \land B \subseteq C) \to (A \subseteq C)$$
 
 **Proof:**
 1. Assume $A \subseteq B$
