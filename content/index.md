@@ -27,9 +27,9 @@ This website's intended usage by students taking discrete math courses at the [S
 | :---------: | :------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :-------------: | :------------------: |
 |      1      |    Introduction and Course Overview    |                                                                                                             |                 |                      |
 |      2      | Propositional Logic, First Order Logic | [[Unit 1#Part 1 Propositional logic\|Unit 1 Part 1]],<br>[[Unit 1#Part 2 First Order Logic\|Unit 1 Part 2]] |                 |                      |
-|      3      |                 Break                  |                        [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]]                         | None due to CNY |                      |
-|      4      |      Proofs In First Order Logic       |                                                                                                             |                 |                      |
-|      5      |               Set Theory               |                                                                                                             |        1        |                      |
+|      3      |                 Break                  |                                                                                                             | None due to CNY |                      |
+|      4      |      Proofs In First Order Logic       |                        [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]]                         |                 |                      |
+|      5      |               Set Theory               |                                                 [[Unit 3]]                                                  |        1        |                      |
 |      6      |        Relations and Functions         |                                                                                                             |                 |        Friday        |
 | Recess Week |                                        |                                                                                                             |                 |                      |
 |      7      |         Induction, Recurrences         |                                                                                                             |        2        |                      |
@@ -47,14 +47,20 @@ This website's intended usage by students taking discrete math courses at the [S
 2. [Behaviour of Logical Connectives, Truth Tables, Logical Equivalences](https://www.youtube.com/watch?v=0nfoPqWhVUY)
 3. [Predicates, and Quantifiers for First Order Logic](https://www.youtube.com/watch?v=7dG3pgO6phg)
 
-## Week 4 Videos: Unit 1 - Part 3 (Released Early) 
+## Week 4 Videos: Unit 1 - Part 3
 1. [First Example of a Proof, Premises, Conclusions](https://youtu.be/r8uw-zc7jpM)
 2. [Rules of Our Proof System](https://youtu.be/98B2_H_o0-c)
 3. [Proof Strategies, And Steps in Proofs vs Statements](https://youtu.be/wEVCCraLiJc)
 
+## Week 5 Videos: Unit 2 (Early Release)
+1. [Introduction to Set Theory, Set Notations, and Set Operations](https://www.youtube.com/watch?v=ahNWhSrICH0&feature=youtu.be)
+2. [Proving Set Equivalences, and Other Proofs Involving Subsets and Power Sets](https://www.youtube.com/watch?v=I1RDj3g8-UI&feature=youtu.be)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
+
+## Week 5
+[[Unit 3|Introduction to Set Theory]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
