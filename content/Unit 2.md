@@ -14,7 +14,7 @@ This unit introduces the notion of sets and is for Week 5. The unit will introdu
 Unit Introduction
 Recall that in [[Unit 1#Quantifiers]] we had this spiffy diagram that explained how you should read quantified statements.
 
-![[basic-quantifier.png]]
+![[public/Images/basic-quantifier.png]]
 
 And throughout [[Unit 1]] itself we had slowly introduced more and more common sets that mathematicians use. Here's a nice table that summarises the ones we have seen so far:
 
