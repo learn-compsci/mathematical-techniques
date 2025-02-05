@@ -50,7 +50,8 @@ For each of the following, write a propositional formula that accurately represe
 
 1. "If the program compiles but the input is not valid, then the output is not correct."
 
-2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)." (Hint: "if and only if" means an implication in both directions. $p$ if and only if $q$ is the same as $(p \to q) \land (q \to p)$)
+2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)." 
+	(Hint: "if and only if" means an implication in both directions. $p$ if and only if $q$ is the same as $(p \to q) \land (q \to p)$)
 
 3. "((The program compiles and the input is valid) or the function is efficient), and the algorithm does not terminate."
 
@@ -185,10 +186,11 @@ Take note of which set each variable comes from. E.g. in the first statement, wh
 
 
 Consider the following first order logic statements:
-	1. $\exists x \in D \ [P(x) \land Q(x)]$
-	2. $\forall x \in D \ [P(x)\lor Q(x)]$
-	3. $\forall x\in D,\exists y\in E \ [P(x,y)\land Q(y)]$
-	4. $\exists x \in D,\forall y \in E \ [P(x,y)\to Q(y)]$
+
+1. $\exists x \in D \ [P(x) \land Q(x)]$
+2. $\forall x \in D \ [P(x)\lor Q(x)]$
+3. $\forall x\in D,\exists y\in E \ [P(x,y)\land Q(y)]$
+4. $\exists x \in D,\forall y \in E \ [P(x,y) \to Q(y)]$
 
 Write the negation for each of the statements. You may refer to [[Unit 1#Negating Quantifiers]] on this.
 
@@ -214,12 +216,12 @@ Write the negation for each of the statements. You may refer to [[Unit 1#Negatin
 
 For each of the following statements, write out the negation of the statement, and determine if the original statement is true or false.
 
-1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]$
-2. $\forall p, q \in \mathbb{Q} \ [q = p]$
-3. $\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]$ 
-4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$      
-5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]$
-6. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
+4. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]$
+5. $\forall p, q \in \mathbb{Q} \ [q = p]$
+6. $\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]$ 
+7. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$      
+8. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]$
+9. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
 
 ## Part B: Contrapositive statements
 
@@ -227,8 +229,8 @@ For each of the following statements, write out the negation of the statement, a
 >Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
 For each of the following implication statements:
-1. Write its contrapositive.
-2. Determine if the statement is true or false.
+10. Write its contrapositive.
+11. Determine if the statement is true or false.
 
 As an example, when given a statement like:
 
@@ -244,9 +246,9 @@ Basically, take the inner implication statement, and re-write it in its contrapo
 
 
 Statements:
-1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
-2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
-3. $\forall x \in \mathbb{Z} \ \big(\forall y \in \mathbb{N} \ [x \neq y)] \to x \leq 5\big)$
+12. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
+13. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
+14. $\forall x \in \mathbb{Z} \ \big(\forall y \in \mathbb{N} \ [x \neq y)] \to x \leq 5\big)$
 
 ---
 # Question 7 \[Graded Participation]:
@@ -263,10 +265,10 @@ Notice this theorem is basically say no integer is both odd and even at the same
 To get you started, we have filled in a few lines of the proof for you, you should try to make sure that the proof is complete:
 
 **Partial solution:**
-1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
-2. Assume for the sake of contradiction that $(even(x) \land odd(x))$
+15. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
+16. Assume for the sake of contradiction that $(even(x) \land odd(x))$
 	1. (Your proof here...)
-3.  Contradiction
+17.  Contradiction
 
 The clickable hint box below gives a hint on how to approach this proof.
 
@@ -285,9 +287,9 @@ Your boss tells you to keep costs down, that each server must service **less tha
 
 **Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life. And someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
 
-1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
-2. Proving, or disproving that statement.
-3. Interpreting back their result.
+18. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+19. Proving, or disproving that statement.
+20. Interpreting back their result.
 
 So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
 
