@@ -169,9 +169,9 @@ Determine whether the following statements are true or false for the below pictu
 3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
 4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
 5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-6. $\exists r \in R, \exists t \in T \ [Black(r) \lor \neg Grey(t)]$
+6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
 
-Take note of which set each variable comes from. E.g. in the first statement, which set does variable $u$ come from? What possible values can it take?
+Take note of which set each variable comes from, e.g., in the first statement, which set does variable $u$ come from? What possible values can it take?
 
 ![[tarskis-drawn.png|500]]
 
@@ -247,7 +247,7 @@ Basically, take the inner implication statement, and re-write it in its contrapo
 Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
 2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
-3. $\forall x \in \mathbb{Z} \ \big(\forall y \in \mathbb{N} \ [x \neq y)] \to x \leq 5\big)$
+3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5\big]$
 
 ---
 # Question 7 \[Graded Participation]:
