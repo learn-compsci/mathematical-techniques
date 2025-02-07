@@ -121,11 +121,158 @@ Try for yourself to write down what those sets look like, and what are they a su
 > $B = \{(Simon, CS), (Janice, Philo), (Meg, CS), (Sam, Science)\}$
 
 
-Formally, we will consider **any set** that is a subset of some cartesian product of sets to be a relation.
+Formally, we will consider **any set** that is a subset of some cartesian product of sets to be a **relation**. Alternatively, any set of pairs is **relation**. 
+
+Here are a few more examples:
 
 >[!Example]
-> $$
-> \begin{align*}
-T = \{\\&(Jon\ Snow, jsnow@gmail.com),\\&(Barry\ Allen, the\_flash@hotmail.com),\\& (Pikachu, pika@pokemail.com)\\\}
-\end{align*}
-> $$
+> Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people, then we can have a set $S$ that is a relation between people and the food they enjoy eating.
+> $$\begin{equation}S = \{(Jane, Laksa), (Marco, Toast), (Jane, Pasta), (Sam, Toast)\}\end{equation}$$
+> 
+> Notice here that we can relate one person to more than one food. We can also relate more than one person to one food. In general, since $S$ is a subset of $P \times F$, it is considered a relation.
+
+>[!Example]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> Then $D$ relates integers $y$ to other integers that divide it. For example $(10, 2) \in D$, because $2$ divides $10$. Also $(10, 3) \notin D$, because $3$ does not divide $10$.
+
+>[!Example]
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> 
+> Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 17) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
+
+# Operations on Relations
+
+Just like sets, there are a few common operations that we need to learn for relations. We will cover the two most common ones:
+
+1. Relation inversion
+2. Relation composition
+
+## Relation Inversion
+Given a relation $R = A \times B$, the **inversion** of a relation is written as $R^{-1}$, and is defined in the following way:
+
+$$\begin{equation}
+R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}
+\end{equation}$$
+
+Basically it is just saying that a pair $(b, a)$ is in $R^{-1}$ if and only if $(a, b)$ is in $R$. Think of $R^{-1}$ as just "reversing" the pairs in $R$.
+
+Let's see what this means for our previous 3 examples.
+
+>[!Example]
+> Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people, then we can have a set $S$ that is a relation between people and the food they enjoy eating. Previously, we gave an example of such a set.
+> $$\begin{equation}S = \{(Jane, Laksa), (Marco, Toast), (Jane, Pasta), (Sam, Toast)\}\end{equation}$$
+> 
+> Then $$\begin{equation}S^{-1} = \{(Laksa, Jane), (Toast, Marco), (Pasta, Jane), (Toast, Sam)\}\end{equation}$$
+
+>[!Example]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> Recall that $(10, 2) \in D$, because $2$ divides $10$. Also $(10, 3) \notin D$, because $3$ does not divide $10$.
+> 
+> So for example $(2, 10) \in D^{-1}$. $(3, 10) \notin D^{-1}$.
+
+>[!Example]
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> 
+> Since $(7, 17) \in M$, this means $(17, 7) \in M^{-1}$. For the same reason, $(6, 27) \in M^{-1}$. Also, since $(3, 11) \notin M$, then $(11, 3) \notin M$.
+
+## Relation Composition
+
+Next, is the relation composition operation. This one is slightly involved, so let me start with a few examples
+
+#### Example 1
+Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$. 
+
+![[bus-284.png]]
+
+So for example, $A$ looks something like this:
+
+$$\begin{align}
+A= \{ &\\
+	&(Clementi\ INT, Bef\ Blks\ 315/318),\\
+	&(Bef\ Blks\ 315/318, BLK\ 308),\\
+	&(BLK\ 308, BLK\ 376)\\
+	&(BLK\ 376, Clementi\ INT)\\
+\}&
+\end{align}$$
+
+
+What if we wanted to say that we wanted to take the 284 bus for **exactly** two stops? Well then we could write this as the **composition of $A$ with $A$, denoted by** $A{;}A$. And it is such that:
+
+$$\begin{align}
+A ; A= \{ &\\
+	&(Clementi\ INT, BLK\ 308),\\
+	&(Bef\ Blks\ 315/318, BLK\ 376),\\
+	&(BLK\ 308, Clementi\ INT)\\
+\}&
+\end{align}$$
+
+
+Notice how the reason why $(Clementi\ INT, BLK\ 308) \in A ; A$ was because there was **some** value $x$, such that $(Clementi\ INT, x) \in A$ and also $(x, BLK\ 308) \in A$. (Namely, $x = Bef\ Blks\ 315/318$.)
+
+
+#### Example 2
+Let's try another example, this time around let's make a set $E$ that relates any two MRT stations that are connected via the East-West line. So, this means for example, $(City\ Hall, Clementi) \in E$. (even if they are not directly next to each other)
+
+Let's also make another set $N$ that relates any two MRT stations that are connected via the North-South line. So for example, $(Toa\ Payoh, City\ Hall) \in N$.
+
+Okay, so this time around, we have two different relations. Think a little bit about what the relation $E; N$ represents.
+
+$E; N$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
+
+So for example, $(Yishun, Bedok) \in E; N$. But something like $(Redhill, Yew\ Tee)\notin E ; N$. Also, something like $(City\ Hall, Raffles\ Place) \in E; N$. Can you see why?
+
+
+Pictorially, here's what's going on:
+
+![[Images/mrt-composition.png]]
+
+We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
+
+![[Images/relations-middle-man.png]]
+
+
+### In General:
+In general, the definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
+
+$$\begin{equation}
+R ; S = \{ (a, c) \in A \times C : \exists b \in B[(a, b) \in R \land (b, c) \in S] \} 
+\end{equation}$$
+
+
+In English, this is basically just saying:
+
+> $a$ and $c$ are related by $(R; S)$ if we can find a $b \in B$ such that $a$ is related to this $b$ using relation $R$, and the same $b$ is related to $c$ using relation $S$.
+> 
+> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R, S)$.
+
+You can mentally picture this as "Taking one step using $R$, and then taking one step using $S$."
+
+So let's go back through the examples we had, and see what happens.
+
+>[!Example]
+> Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people, then we can have a set $S$ that is a relation between people and the food they enjoy eating. Previously, we gave an example of such a set.
+> $$\begin{equation}S = \{(Jane, Laksa), (Marco, Toast), (Jane, Pasta), (Sam, Toast)\}\end{equation}$$
+> 
+> Then $$\begin{equation}S; S = \emptyset \end{equation}$$
+> 
+
+>[!Example]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> For example, since $(5, 10) \in D$, and $(10, 200) \in D$, then $(5, 200) \in D; D$.
+> 
+> Do you notice something interesting? In general we can actually notice that if $x$ divides $y$, and $y$ divides $z$, then $x$ divides $z$ (this can be proven). So we can actually argue that if $(a, b) \in D$ then $(a, b) \in D; D$. Or in other words, $D \subseteq D; D$.
+
+>[!Example]
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> 
+> Since $(3, 27) \in M$ and $(27, 51) \in M$, we can say $(3, 51) \in M; M$.
+
+
+>[!Example]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$, and $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> 
+> Then $(2, 8) \in D$ and $(8, 14) \in M$, so $(2, 14) \in D; M$.
+
