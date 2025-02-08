@@ -276,3 +276,254 @@ So let's go back through the examples we had, and see what happens.
 > 
 > Then $(2, 8) \in D$ and $(8, 14) \in M$, so $(2, 14) \in D; M$.
 
+# Classic Examples of Relations
+
+Before moving on, we've been commonly using some relations that are good examples for the remaining concepts that we want to talk about. So let's explicitly give them a name first here.
+
+#### Divisibility Relation
+
+Let the set $D$ be such that:
+
+$$\begin{equation}D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}\end{equation}$$
+
+Then we will call $D$ the _divisibility relation_.
+
+#### Congruent Modulo $n$ Relation
+
+Let fix $n \in \mathbb{N}$, then let the set $C_n$ be a relation be such that:
+
+$$\begin{equation}C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = n\cdot k] \}\end{equation}$$
+
+Then we will call $C_n$ the _congruence modulo $n$ relation_. Intuitively, two integers $(x, y)$ are related by $C_n$ if they share the same remainder when divided by $n$.
+
+Again, $(5, 14)$ are related via relation $C_3$. But they are not related via relation $C_5$. On the other hand, $(6, 11)$ are not related via relation $C_3$, but are related via relation $C_5$.
+
+# Properties About Relations
+
+As you might have noticed, relations by themselves as just sets of pairs is nothing special. However, there are certain properties that _certain_ relations might have. In this section we will go through them. For these topics, we will restrict our attention to relations $R$ of the form $R \subseteq A \times A$. In other words, the relate items in the same set $A$. (We will not be considering relations $R \subseteq A \times B$, where $A \neq B$)
+
+## Reflexivity
+
+Consider a relation $R \subseteq A \times A$. We will say $R$ is _reflexive_ if the following holds:
+
+$$\begin{equation}
+\forall a \in A[(a, a) \in R]
+\end{equation}$$
+
+Here's a pictorial example:
+
+![[reflexivity.png]]
+
+Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_1), (a_2, a_2), (a_3, a_3), (a_1, a_2) \}$. Since $\forall a \in A[(a, a) \in R]$ (notice that in the picture there are self loops from each element of $A$). So the $R$ on the left is reflexive. Also notice that $(a_1, a_2)$, but that is irrelevant. We are only concerned with whether every element is related to itself.
+
+On the other hand, the relation on the right is **not** reflexive. Why? The relation on the right can be written as $\{ (a_1, a_1), (a_3, a_3), (a_1, a_2) \}$. Notice that $a_2 \in A$ and yet $(a_2, a_2) \notin R$. So we can say that $\exists a \in A[(a, a) \notin R]$, which as we know, is equivalent to $\neg\big( \forall a\in A[(a, a) \in R] \big)$. Which again, confirms that the $R$ on the right is not reflexive. The pictorial intuition is that some element is missing a self loop.
+
+So let's look at the certain natural mathematical relations and see if they are reflexive.
+
+Is the divisibility relation reflexive? Yes. After all every number divides itself. Let's see a proof of this.
+Our goal statement is to show that $\forall x \in \mathbb{Z}[(x, x) \in D]$
+
+**Proof**
+1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+2. $x = 1 \cdot x$ \[Basic algebra]
+3. $1 \in \mathbb{Z}$ \[Basic algebra]
+4. $\exists k \in \mathbb{Z}[x = k\cdot x]$ \[Existential generalisation]
+5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[x = k\cdot x]$ \[Conjunction on lines 1, 4]
+6. $(x, x) \in D$ \[Definition of $D$]
+7. $\forall x \in \mathbb{Z}[(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
+
+So the divisibility relation $D$ is reflexive!
+
+What about congruence modulo $n$ relation? Fix $n \in \mathbb{N}$, our goal statement is to show that $\forall x \in \mathbb{Z}[(x, x) \in C_n]$.
+
+**Proof**
+1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+2. $(x - x) = 0 \cdot n$ \[Basic algebra]
+3. $0 \in \mathbb{Z}$ \[Basic algebra]
+4. $\exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Existential generalisation]
+5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Conjunction on lines 1, 4]
+6. $(x, x) \in C_n$ \[Definition of $C_n$]
+7. $\forall x \in \mathbb{Z}[(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
+
+So the divisibility relation $C_n$ is also reflexive!
+
+Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg (\forall x \in \mathbb{Z}[(x, x) \in A])$.
+
+**Proof**
+1. $1 + 1 \neq 1$ \[Basic algebra]
+2. $1 \in \mathbb{Z}$ \[Basic algebra]
+3. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
+4. $(1, 1) \notin A$ \[Definition of $A$]
+5. $\exists x \in \mathbb{Z}[(x, x) \notin A]$ \[Existential generalisation]
+6. $\neg\big( \forall x \in \mathbb{Z}[(x, x) \in A] \big)$ \[Logically equivalent to line 5]
+
+
+## Symmetry
+Consider a relation $R \subseteq A \times A$. We will say $R$ is _symmetric_ if the following holds:
+
+$$\begin{equation}
+\forall a \in A, \forall b \in A[(a, b) \in R \to (b, a) \in R]
+\end{equation}$$
+
+In English:
+
+> For all possible $a \in A$, and $b \in B$, **if** $a$ is related to $b$ via relation $R$, then $b$ is related to $a$ via relation $R$.
+
+Notice here this means that if we chose some values $a$ and $b$ such that $a$ is **not** related to be, we don't care whether $b$ is related to $a$ or not.
+
+Here's a pictorial example:
+
+![[symmetry.png]]
+
+Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_2), (a_2, a_1) \}$. Notice that since $a_1$ is related to $a_2$, then we must have that $a_2$ is related to $a_1$. **Similarly**, since $a_2$ is related to $a_1$, we must have $a_2$ is related to $a_1$.
+
+On the other hand, the relation on the right is $\{(a_1, a_3), (a_3, a_1), (a_3, a_2), (a_2, a_3), (a_1, a_2)\}$. Notice there that $a_1$ is related to $a_2$, but $a_2$ is **not** related to $a_1$. So now we can say: 
+
+$$\exists a \in A, \exists b \in A[(a, b) \in R \land (b, a) \notin R]$$which is logically equivalent to:
+
+$$\exists a \in A, \exists b \in A[\neg\big((a, b) \in R \to (b, a) \in R\big)]$$
+which is also logically equivalent to:
+
+$$\neg\bigg(\forall a \in A, \forall b \in A[(a, b) \in R \to (b, a) \in R]\bigg)$$
+
+which means it is not symmetric.
+
+So is the divisibility relation symmetric? Well, we can think about this intuitively first. If we know that some integer $a$ divides some integer $b$, does this mean that $b$ divides $a$? Let's think about what happens when $a = 5$ and $b = 10$. Indeed $a$ does divide $b$, but $b$ does not divide $a$.
+
+So similar reasoning as before, this means that the divisibility relation is not symmetric.
+
+What about the congruence modulo $n$ relation $C_n$? Intuitively, $a$ and $b$ are related because they have the same remainder modulo $n$, so of course it doesn't matter if we said $a$ or $b$ first.
+
+Let's look at the formal proof now.
+
+**Proof:**
+1. Let $a \in A$, arbitrarily chosen.
+2. Let $b \in A$, arbitrarily chosen.
+3. Assume $(a, b) \in C_n$.
+	1. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
+	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = t\cdot n]$ \[Existential instantiation of line 3.1]
+	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
+	4. $-t \in \mathbb{Z}$ \[Basic algebra]
+	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Definition of $C_n$]
+	6. $(b, a) \in C_n$
+4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
+5. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
+6. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+
+## Anti-Symmetry
+
+Consider a relation $R \subseteq A \times A$. We will say $R$ is _anti-symmetric_ if the following holds:
+
+$$\begin{equation}
+\forall a \in A, \forall b \in A[\big((a, b) \in R \land (b, a) \in R\big) \to a = b]
+\end{equation}$$
+
+In English:
+
+> For all possible $a \in A$, and $b \in B$, **if** ($a$ is related to $b$ via relation $R$, and also $b$ is related to $a$ via relation $R$) **then** $a = b$.
+
+That's the standard way that is it written, but I find that confusing for newcomers. We can instead write it as the following (since it is logically equivalent):
+
+$$\begin{equation}
+\forall a \in A, \forall b \in A[a \neq b \to \big((a, b) \notin R \lor (b, a) \notin R\big)]
+\end{equation}$$
+
+which in English:
+
+> For all possible $a \in A$, and $b \in B$, **if** $a \neq b$, then either $a$ is not related to $b$, or $b$ is not related to $a$.
+
+This pretty much tells you the only time that $a$ and $b$ can be related to each other is when $a = b$.
+
+Here's a pictorial example:
+
+![[content/Images/anti-symmetry.png]]
+
+A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". Like $a_1$ is related to $a_2$ but not the other way around.
+
+On the other hand, on the relation on the right, $a_2$ is related to $a_3$ **and** $a_3$ is relate to $a_2$ but $a_2$ is not the same as $a_3$. So the relation on the right is not anti-symmetric.
+
+Is the divisibility relation anti-symmetric? Here's the intuition: If we know that $a$ divides $b$, and we also know that $b$ divides $a$, then the only possible case is that $a = b$. Here's the proof that confirms this:
+
+**Proof**
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+3. Assume that $(a, b) \in D \land (a, b) \in D$
+	1. $(a, b) \in D$
+	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$
+	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$
+	4. $(b, a) \in D$
+	5. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$
+	6. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$
+	7. $t_1 \cdot t_2 = 1$
+	8. $t_1 = 1$
+	9. $a = a\cdot 1 = a \cdot t_1 = b$
+4. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$
+5. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
+6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
+
+What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
+
+## Transitivity
+
+Consider a relation $R \subseteq A \times A$. We will say $R$ is _transitive_ if the following holds:
+
+$$\begin{equation}
+\forall a \in A, \forall b \in A, \forall c \in A[\big((a, b) \in R \land (b, c) \in R\big) \to (a, c) \in R]
+\end{equation}$$
+
+In English:
+
+> If $a$ is related to $b$, and $b$ is related to $c$, then $a$ is related to $c$.
+
+The quickest example that demonstrates this idea is the concept of $\leq$. When we know that $a \leq b$, and we know that $b \leq c$, then we know that $a \leq c$. So $\leq$ is actually a transitive relation.
+
+![[transitivity.png]]
+
+Pictorially, **because both** $(a_1, a_2)$ **and** $(a_2, a_3)$ are related, we **must** have that $(a_1, a_3)$ are related too. On the other hand, in the right side, **both $(a_1, a_2)$ and $(a_2, a_3)$ are related**, but $(a_1, a_3)$ are not related, so the relation on the right hand side is not transitive.
+
+To be clear, something like the following relations are also transitive:
+
+![[more-transitive-examples.png]]
+
+Let's end the chapter by proving our two usual examples of relations are both transitive. 
+
+**Proof**
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+4. Assume $(a, b) \in D \land (b, c) \in D$
+	1. $(a, b) \in D$
+	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$
+	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$
+	4. $(b, c) \in D$
+	5. $\exists k \in \mathbb{Z}[b \cdot k = c]$
+	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$
+	7. $c = b\cdot t_2 = a \cdot t_1 \cdot t_2$
+	8. $t_1\cdot t_2 \in \mathbb{Z}$
+	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$
+	10. $(a, c) \in D$
+5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$
+6. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
+7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
+8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
+
+
+**Proof**
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
+	1. $(a, b) \in C_n$
+	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$
+	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$
+	4. $(b, c) \in C_n$
+	5. $\exists k \in \mathbb{Z}[(b - c) = k \cdot n]$
+	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = t_2 \cdot n$
+	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n - t_2 \cdot n = (t_1 - t_2)\cdot n$
+	8. $(t_1 - t_2) \in \mathbb{Z}$
+	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$
+	10. $(a, c) \in C_n$
+5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$
+6. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
+7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
+8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
