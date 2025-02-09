@@ -34,8 +34,19 @@ Find the following sets:
 4. $A \times B$
 
 ---
+# Question 3
 
+Convert the following from set builder notation to set roster notation:
+1. $A = \{x \in Alphabets :  x \ is \ a \ letter \ in \ BANANA \}$
+2. $B = \{x \in \mathbb{N} :  (x > 1) \land (x < 10) \land even(x) \}$
+3. $C = \{x \in \mathbb{Z} :  \exists k \in \mathbb{Z} [(x = 7k) \land (x \geq 0) \land (x < 60) \}$.
+4. $D = \{x \in \mathbb{Z}: \forall a, b \in \mathbb{N} [(x > 1) \land ((x = ab) \to (a = 1 \land b = x) \lor (a = x \land b = 1))] \}$
 
+---
+# Question 4
 
+Prove the set equality  $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$
 
+Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$
 
+---

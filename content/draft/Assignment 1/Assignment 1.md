@@ -34,4 +34,13 @@ You may also use the following lemmas in your proof:
 
 ---
 
+# Question 3:
 
+Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
+
+Agnes: "Edith and Gru are of the same type"
+Edith: "Margo is a knave"
+Margo: "Gru is a knight"
+Gru: "Agnes is lying!"
+
+For each character, identify whether they are a knight or knave!
