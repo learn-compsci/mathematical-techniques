@@ -81,4 +81,30 @@ You may also use the following lemmas in your proof:
 7. $\forall n \in \mathbb{Z} \ \big[even\big(n(n + 1)\big)\big]$ \[Universal generalisation of lines 1 and 6]
 
 ---
+# Question 5 (?):
 
+For this question, we define the following predicates for all real numbers $x$:
+
+>[!Definition-1]
+>$$small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+>[!Definition-2]
+>$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+1. Is $small(1)$ true? What about $small(2)$?
+
+2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
+
+3. Write the contrapositive of the definition of $small(x)$.
+
+4. Let $A = \{x \in \mathbb{R} : small(x)\}$ and $B = \{x \in \mathbb{R} : tiny(x)\}$. State one element in $B \setminus A$.
+
+**Solutions**:
+
+1. $small(1) \equiv true$, but $small(2) \equiv false$.
+
+2. $big(x) \equiv \forall n_0 \in \mathbb{N}, \exists n \in \mathbb{N} \ \big[(n \geq n_0) \land \big(x - \frac{1}{n} \geq 1\big)\big]$
+
+3. $small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \big[\big(x - \frac{1}{n} \geq 1\big) \to (n < n_0)\big]$
+
+4. Any number in the set $\{x \in \mathbb{R} : x \geq 1\}$.

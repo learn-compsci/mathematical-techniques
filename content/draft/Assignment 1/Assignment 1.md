@@ -38,7 +38,6 @@ You may also use the following lemmas in your proof:
 >$\forall x \in \mathbb{N} \ [\neg odd(x) \to even(x)]$
 
 ---
-
 # Question 4:
 
 Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
@@ -49,3 +48,24 @@ Margo: "Gru is a knight"
 Gru: "Agnes is lying!"
 
 For each character, identify whether they are a knight or knave!
+
+---
+# Question 5 (?):
+
+For this question, we define the following predicates for all real numbers $x$:
+
+>[!Definition-1]
+>$$small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+>[!Definition-2]
+>$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+1. Is $small(1)$ true? What about $small(2)$?
+
+2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
+
+3. Write the contrapositive of the definition of $small(x)$.
+
+4. Let $A = \{x \in \mathbb{R} : small(x)\}$ and $B = \{x \in \mathbb{R} : tiny(x)\}$. State one element in $B \setminus A$.
+
+
