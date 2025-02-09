@@ -1,6 +1,11 @@
 
 # Question 1:
 
+By drawing a truth table, show that $p \land (p \to q) \equiv p \land q$.
+
+---
+# Question 2:
+
 Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine which of the following quantified statements are true:
 
 1. $\exists (b_1, b_2) \in B, \forall (a_1, a_2) \in A \ [b_2 \geq a_1]$
@@ -9,7 +14,7 @@ Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine 
 4. $\forall (b_1, b_2), (b_3, b_4) \in B \ \big[(b_1, b_3) \in A \to (b_2, b_4) \in A \big]$
 
 ---
-# Question 2:
+# Question 3:
 
 Prove the following statement:
 
@@ -34,7 +39,7 @@ You may also use the following lemmas in your proof:
 
 ---
 
-# Question 3:
+# Question 4:
 
 Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
 
