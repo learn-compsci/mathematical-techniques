@@ -68,3 +68,6 @@ You may also use the following lemmas in your proof:
 
 ---
 
+# Conflicting Q3:
+
+does this cause a conflict?
