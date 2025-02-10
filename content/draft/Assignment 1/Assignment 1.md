@@ -14,23 +14,21 @@ Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine 
 Prove the following statement:
 
 >[!Theorem]
->$\forall n \in \mathbb{N} \ [even(n(n+1))]$
+>$\forall n \in \mathbb{Z} \ \big[even\big(n(n+1)\big)\big]$
 
 You may use the following predicates in your proof:
-
 - $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2 \cdot k]$
 - $odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$
 
 You may also use the following lemmas in your proof:
 
 >[!Lemma-1]
->$\forall x \in \mathbb{N} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$
+>$\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$
 
 >[!Lemma-2]
->$\forall x \in \mathbb{N} \ [\neg even(x) \to odd(x)]$
+>$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
->[!Lemma-3]
->$\forall x \in \mathbb{N} \ [\neg odd(x) \to even(x)]$
+
 
 ---
 
