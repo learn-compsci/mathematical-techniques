@@ -1,5 +1,10 @@
 
-# Question 1:
+
+
+
+---
+
+# Question 2:
 
 Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine which of the following quantified statements are true:
 
@@ -9,7 +14,21 @@ Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine 
 4. $\forall (b_1, b_2), (b_3, b_4) \in B \ \big[(b_1, b_3) \in A \to (b_2, b_4) \in A \big]$
 
 ---
-# Question 2:
+
+# Question 3:
+
+Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
+
+Agnes: "Edith and Gru are of the same type"
+Edith: "Margo is a knave"
+Margo: "Gru is a knight"
+Gru: "Agnes is lying!"
+
+For each character, identify whether they are a knight or knave!
+
+---
+
+# Question 4:
 
 Prove the following statement:
 
@@ -29,16 +48,3 @@ You may also use the following lemmas in your proof:
 >$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
 
-
----
-
-# Question 3:
-
-Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
-
-Agnes: "Edith and Gru are of the same type"
-Edith: "Margo is a knave"
-Margo: "Gru is a knight"
-Gru: "Agnes is lying!"
-
-For each character, identify whether they are a knight or knave!
