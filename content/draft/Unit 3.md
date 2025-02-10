@@ -404,8 +404,8 @@ Let's look at the formal proof now.
 	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = t\cdot n]$ \[Existential instantiation of line 3.1]
 	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
 	4. $-t \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Definition of $C_n$]
-	6. $(b, a) \in C_n$
+	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Existential instantiation of line 3.5]
+	6. $(b, a) \in C_n$ \[Definition of $C_n$]
 4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
 5. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
 6. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
@@ -436,7 +436,7 @@ This pretty much tells you the only time that $a$ and $b$ can be related to each
 
 Here's a pictorial example:
 
-![[content/Images/anti-symmetry.png]]
+![[anti-symmetry.png]]
 
 A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". Like $a_1$ is related to $a_2$ but not the other way around.
 
@@ -448,18 +448,19 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
 2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
 3. Assume that $(a, b) \in D \land (a, b) \in D$
-	1. $(a, b) \in D$
-	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$
-	4. $(b, a) \in D$
-	5. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$
-	6. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$
-	7. $t_1 \cdot t_2 = 1$
-	8. $t_1 = 1$
-	9. $a = a\cdot 1 = a \cdot t_1 = b$
-4. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$
-5. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
-6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
+	1. $(a, b) \in D$ \[Specialisation on 3]
+	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$  \[Existential instantiation of 3.2]
+	4. $(b, a) \in D$ \[Specialisation on 3]
+	5. $\exists k \in \mathbb{Z}[b \cdot k = a]$ \[Definition of $D$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$ \[Existential instantiation of 3.2]
+	7. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
+	8. $t_1 \cdot t_2 = 1$ \[Basic algebra]
+	9. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are integers]
+	10. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
+4. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$ \[Implication introduction on 3, 3.9]
+5. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 2, 4]
+6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 1, 5]
 
 What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
@@ -492,20 +493,20 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
 3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
 4. Assume $(a, b) \in D \land (b, c) \in D$
-	1. $(a, b) \in D$
-	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$
-	4. $(b, c) \in D$
-	5. $\exists k \in \mathbb{Z}[b \cdot k = c]$
-	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$
-	7. $c = b\cdot t_2 = a \cdot t_1 \cdot t_2$
-	8. $t_1\cdot t_2 \in \mathbb{Z}$
-	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$
-	10. $(a, c) \in D$
-5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$
-6. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
+	1. $(a, b) \in D$ \[Specialisation on 4]
+	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$  \[Existential instantiation on 4.2]
+	4. $(b, c) \in D$  \[Specialisation on 4]
+	5. $\exists k \in \mathbb{Z}[b \cdot k = c]$  \[Definition of $D$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$ \[Existential instantiation on 4.5]
+	7. $c = b\cdot t_2 = a \cdot t_1 \cdot t_2$  \[Basic algebra]
+	8. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
+	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$ \[Existential generalisation 4.8]
+	10. $(a, c) \in D$ \[Definition of $D$]
+5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
+6. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
+7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
+8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
 
 
 **Proof**
@@ -513,17 +514,17 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
 3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
 4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
-	1. $(a, b) \in C_n$
-	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$
-	4. $(b, c) \in C_n$
-	5. $\exists k \in \mathbb{Z}[(b - c) = k \cdot n]$
-	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = t_2 \cdot n$
-	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n - t_2 \cdot n = (t_1 - t_2)\cdot n$
-	8. $(t_1 - t_2) \in \mathbb{Z}$
-	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$
-	10. $(a, c) \in C_n$
-5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$
-6. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
+	1. $(a, b) \in C_n$ \[Specialisation on 4]
+	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$ \[Existential instantiation on 4.2]
+	4. $(b, c) \in C_n$ \[Specialisation on 4]
+	5. $\exists k \in \mathbb{Z}[(b - c) = k \cdot n]$ \[Definition of $C_n$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = t_2 \cdot n$ \[Existential instantiation on 4.2]
+	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n - t_2 \cdot n = (t_1 - t_2)\cdot n$ \[Basic algebra]
+	8. $(t_1 - t_2) \in \mathbb{Z}$ \[Basic algebra]
+	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$ \[Existential generalisation on 4.7, 4.8]
+	10. $(a, c) \in C_n$ \[Definition of $C_n$]
+5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on 4, 4.10]
+6. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
+7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
+8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
