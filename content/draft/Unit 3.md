@@ -5,7 +5,6 @@ This unit introduces the notion of relations and is for Week 6. The unit will in
 1. Basic Relations, Creating Relations
 2. Relation Composition, Relation Inversion
 3. Transitivity, Symmetry, Anti-Symmetry, Reflexivity
-4. Equivalence Classes, Partial Orders
 
 # Unit Introduction
 In this unit, we'll move on and extend [[Unit 2]] on sets and talk about a special type of sets, called **relations**.
@@ -19,7 +18,7 @@ That said, relations are interesting for other reasons in their own right for di
 Our starting point is to talk about what a relation is. And there are **2 separate ways** to motivate this. Let's talk about both ways:
 
 ## Databases
-Let's say that you had to represent some data. We've already seen some examples of this at the start and end of [[Unit 2]] on sets. But let's try to motivate why data is organised that way. (While TCX1004 is not a course on databases, I think all the same it is great to talk about the relational data model here. You won't learn about databases until TCX2003, but seeing this in advance won't hurt)
+Let's say that you had to represent some data. We've already seen some examples of this at the start and end of [[Unit 2]] on sets. But let's try to motivate why data is organised that way. (While TCX1004 is not a course on databases, I think all the same it is great to talk about the relational data model here. You won't learn about databases until TCX2003, but seeing this in advance won't hurt.)
 
 Let's say we collected some data about people and their email addresses, perhaps via survey or something. So here's the example table we had again:
 
@@ -47,7 +46,6 @@ This way of representing data is called the [**relational model**](https://en.wi
 
 
 ## How to Represent Orderings
-
 Putting the cart before the horse for a little bit, (showing you how and why it's used before showing you the concept) one big application from a mathematical perspective is the ability to talk about orderings among objects. There is probably one you're quite familiar with: ordering numbers from sets like $\mathbb{N}, \mathbb{Z},$ or $\mathbb{R}$ using $\leq$. Perhaps that seems quite uninteresting. But understanding how to "order" or how to "sort" objects is actually quite a huge area of study, and has in the last 1-2 decades found its way into computer science as well.
 
 If you ever find yourself studying memory models for concurrency based applications, or designing a distributed systems algorithm, chances are you will have to know a little bit about partial orders (as special type of relation). The vague idea is that when you need to start saying things like "this memory event **happened before** the other memory event", that is also a kind of ordering.
@@ -77,9 +75,9 @@ $T$ here is a **relation** that relates elements from $N$ to elements in $E$. A 
 
 
 Here's another example, we could have had a table of student data that includes:
-1. Their name
-2. Their year of enrolment
-3. Their degree
+4. Their name
+5. Their year of enrolment
+6. Their degree
 
 Perhaps something like this:
 
@@ -105,8 +103,8 @@ $$
 
 Like a set of triples. But what if we wanted two sets $A$, $B$ that represented the following relations?
 
-1. Set $A$ relates the student names to the year of enrollments.
-2. Set $B$ relates the student names to the degree programmes.
+7. Set $A$ relates the student names to the year of enrollments.
+8. Set $B$ relates the student names to the degree programmes.
 
 Try for yourself to write down what those sets look like, and what are they a subset of? Check it with yourself in the hidden-away spoiler tag. We can let $M$ be the set of all possible names, and we can let $P = \{CS, Philo, CS, Science, Eng, Biz\}$.
 
@@ -141,12 +139,17 @@ Here are a few more examples:
 > 
 > Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 17) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
 
+
+>[!Question]
+> What about if we wanted to relate 3 things together? You will see this very commonly in databases. It is called a ternary relation. In general, a relation that relates $n$ things is called an $n$-ary relation.
+> 
+> For the purposes of our course, we will focus only on binary relations, i.e. sets of pairs only.
 # Operations on Relations
 
 Just like sets, there are a few common operations that we need to learn for relations. We will cover the two most common ones:
 
-1. Relation inversion
-2. Relation composition
+9. Relation inversion
+10. Relation composition
 
 ## Relation Inversion
 Given a relation $R = A \times B$, the **inversion** of a relation is written as $R^{-1}$, and is defined in the following way:
@@ -179,7 +182,7 @@ Let's see what this means for our previous 3 examples.
 
 ## Relation Composition
 
-Next, is the relation composition operation. This one is slightly involved, so let me start with a few examples
+Next is the relation composition operation. This one is slightly involved, so let me start with a few examples
 
 #### Example 1
 Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$. 
@@ -234,7 +237,7 @@ We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dh
 
 
 ### In General:
-In general, the definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
+The general definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
 
 $$\begin{equation}
 R ; S = \{ (a, c) \in A \times C : \exists b \in B[(a, b) \in R \land (b, c) \in S] \} 
@@ -280,7 +283,7 @@ So let's go back through the examples we had, and see what happens.
 
 Before moving on, we've been commonly using some relations that are good examples for the remaining concepts that we want to talk about. So let's explicitly give them a name first here.
 
-#### Divisibility Relation
+#### The Divisibility Relation
 
 Let the set $D$ be such that:
 
@@ -320,42 +323,51 @@ On the other hand, the relation on the right is **not** reflexive. Why? The rela
 
 So let's look at the certain natural mathematical relations and see if they are reflexive.
 
-Is the divisibility relation reflexive? Yes. After all every number divides itself. Let's see a proof of this.
-Our goal statement is to show that $\forall x \in \mathbb{Z}[(x, x) \in D]$
+Is the divisibility relation reflexive? Yes. After all, every number divides itself. Let's see a proof of this.
+
+>[!Theorem]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> Then $D$ is reflexive.
 
 **Proof**
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. $x = 1 \cdot x$ \[Basic algebra]
-3. $1 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z}[x = k\cdot x]$ \[Existential generalisation]
-5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[x = k\cdot x]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in D$ \[Definition of $D$]
-7. $\forall x \in \mathbb{Z}[(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
+11. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+12. $x = 1 \cdot x$ \[Basic algebra]
+13. $1 \in \mathbb{Z}$ \[Basic algebra]
+14. $\exists k \in \mathbb{Z}[x = k\cdot x]$ \[Existential generalisation]
+15. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[x = k\cdot x]$ \[Conjunction on lines 1, 4]
+16. $(x, x) \in D$ \[Definition of $D$]
+17. $\forall x \in \mathbb{Z}[(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
 
 So the divisibility relation $D$ is reflexive!
 
 What about congruence modulo $n$ relation? Fix $n \in \mathbb{N}$, our goal statement is to show that $\forall x \in \mathbb{Z}[(x, x) \in C_n]$.
 
+>[!Theorem]
+> Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = n\cdot k] \}$.
+> 
+> Then $C_n$ is reflexive.
+
 **Proof**
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. $(x - x) = 0 \cdot n$ \[Basic algebra]
-3. $0 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Existential generalisation]
-5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in C_n$ \[Definition of $C_n$]
-7. $\forall x \in \mathbb{Z}[(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
+18. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+19. $(x - x) = 0 \cdot n$ \[Basic algebra]
+20. $0 \in \mathbb{Z}$ \[Basic algebra]
+21. $\exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Existential generalisation]
+22. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Conjunction on lines 1, 4]
+23. $(x, x) \in C_n$ \[Definition of $C_n$]
+24. $\forall x \in \mathbb{Z}[(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
 
 So the divisibility relation $C_n$ is also reflexive!
 
 Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg (\forall x \in \mathbb{Z}[(x, x) \in A])$.
 
 **Proof**
-1. $1 + 1 \neq 1$ \[Basic algebra]
-2. $1 \in \mathbb{Z}$ \[Basic algebra]
-3. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
-4. $(1, 1) \notin A$ \[Definition of $A$]
-5. $\exists x \in \mathbb{Z}[(x, x) \notin A]$ \[Existential generalisation]
-6. $\neg\big( \forall x \in \mathbb{Z}[(x, x) \in A] \big)$ \[Logically equivalent to line 5]
+25. $1 + 1 \neq 1$ \[Basic algebra]
+26. $1 \in \mathbb{Z}$ \[Basic algebra]
+27. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
+28. $(1, 1) \notin A$ \[Definition of $A$]
+29. $\exists x \in \mathbb{Z}[(x, x) \notin A]$ \[Existential generalisation]
+30. $\neg\big( \forall x \in \mathbb{Z}[(x, x) \in A] \big)$ \[Logically equivalent to line 5]
 
 
 ## Symmetry
@@ -396,19 +408,24 @@ What about the congruence modulo $n$ relation $C_n$? Intuitively, $a$ and $b$ ar
 
 Let's look at the formal proof now.
 
+>[!Theorem]
+> Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = n\cdot k] \}$.
+> 
+> Then $C_n$ is symmetric.
+
 **Proof:**
-1. Let $a \in A$, arbitrarily chosen.
-2. Let $b \in A$, arbitrarily chosen.
-3. Assume $(a, b) \in C_n$.
+31. Let $a \in A$, arbitrarily chosen.
+32. Let $b \in A$, arbitrarily chosen.
+33. Assume $(a, b) \in C_n$.
 	1. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
 	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = t\cdot n]$ \[Existential instantiation of line 3.1]
 	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
 	4. $-t \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Definition of $C_n$]
-	6. $(b, a) \in C_n$
-4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
-5. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
-6. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Existential instantiation of line 3.5]
+	6. $(b, a) \in C_n$ \[Definition of $C_n$]
+34. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
+35. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
+36. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
 
 ## Anti-Symmetry
 
@@ -436,7 +453,7 @@ This pretty much tells you the only time that $a$ and $b$ can be related to each
 
 Here's a pictorial example:
 
-![[content/Images/anti-symmetry.png]]
+![[anti-symmetry.png]]
 
 A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". Like $a_1$ is related to $a_2$ but not the other way around.
 
@@ -444,22 +461,30 @@ On the other hand, on the relation on the right, $a_2$ is related to $a_3$ **and
 
 Is the divisibility relation anti-symmetric? Here's the intuition: If we know that $a$ divides $b$, and we also know that $b$ divides $a$, then the only possible case is that $a = b$. Here's the proof that confirms this:
 
+
+>[!Theorem]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> Then $D$ is anti-symmetric.
+
+
 **Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Assume that $(a, b) \in D \land (a, b) \in D$
-	1. $(a, b) \in D$
-	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$
-	4. $(b, a) \in D$
-	5. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$
-	6. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$
-	7. $t_1 \cdot t_2 = 1$
-	8. $t_1 = 1$
-	9. $a = a\cdot 1 = a \cdot t_1 = b$
-4. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$
-5. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
-6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$
+37. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+38. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+39. Assume that $(a, b) \in D \land (a, b) \in D$
+	1. $(a, b) \in D$ \[Specialisation on 3]
+	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$  \[Existential instantiation of 3.2]
+	4. $(b, a) \in D$ \[Specialisation on 3]
+	5. $\exists k \in \mathbb{Z}[b \cdot k = a]$ \[Definition of $D$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$ \[Existential instantiation of 3.2]
+	7. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
+	8. $t_1 \cdot t_2 = 1$ \[Basic algebra]
+	9. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are integers]
+	10. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
+40. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$ \[Implication introduction on 3, 3.9]
+41. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 2, 4]
+42. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 1, 5]
 
 What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
@@ -487,43 +512,76 @@ To be clear, something like the following relations are also transitive:
 
 Let's end the chapter by proving our two usual examples of relations are both transitive. 
 
-**Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume $(a, b) \in D \land (b, c) \in D$
-	1. $(a, b) \in D$
-	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$
-	4. $(b, c) \in D$
-	5. $\exists k \in \mathbb{Z}[b \cdot k = c]$
-	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$
-	7. $c = b\cdot t_2 = a \cdot t_1 \cdot t_2$
-	8. $t_1\cdot t_2 \in \mathbb{Z}$
-	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$
-	10. $(a, c) \in D$
-5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$
-6. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$
 
+>[!Theorem]
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> 
+> Then $D$ is transitive.
 
 **Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
-	1. $(a, b) \in C_n$
-	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$
-	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$
-	4. $(b, c) \in C_n$
-	5. $\exists k \in \mathbb{Z}[(b - c) = k \cdot n]$
-	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = t_2 \cdot n$
-	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n - t_2 \cdot n = (t_1 - t_2)\cdot n$
-	8. $(t_1 - t_2) \in \mathbb{Z}$
-	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$
-	10. $(a, c) \in C_n$
-5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$
-6. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$
+43. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+44. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+45. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+46. Assume $(a, b) \in D \land (b, c) \in D$
+	1. $(a, b) \in D$ \[Specialisation on 4]
+	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$  \[Existential instantiation on 4.2]
+	4. $(b, c) \in D$  \[Specialisation on 4]
+	5. $\exists k \in \mathbb{Z}[b \cdot k = c]$  \[Definition of $D$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$ \[Existential instantiation on 4.5]
+	7. $c = b\cdot t_2 = a \cdot t_1 \cdot t_2$  \[Basic algebra]
+	8. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
+	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$ \[Existential generalisation 4.8]
+	10. $(a, c) \in D$ \[Definition of $D$]
+47. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
+48. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
+49. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
+50. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
+
+>[!Theorem]
+> Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = n\cdot k] \}$.
+> 
+> Then $C_n$ is transitive.
+
+**Proof**
+51. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+52. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+53. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+54. Assume $(a, b) \in C_n \land (b, c) \in C_n$
+	1. $(a, b) \in C_n$ \[Specialisation on 4]
+	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$ \[Existential instantiation on 4.2]
+	4. $(b, c) \in C_n$ \[Specialisation on 4]
+	5. $\exists k \in \mathbb{Z}[(b - c) = k \cdot n]$ \[Definition of $C_n$]
+	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = t_2 \cdot n$ \[Existential instantiation on 4.2]
+	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n - t_2 \cdot n = (t_1 - t_2)\cdot n$ \[Basic algebra]
+	8. $(t_1 - t_2) \in \mathbb{Z}$ \[Basic algebra]
+	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$ \[Existential generalisation on 4.7, 4.8]
+	10. $(a, c) \in C_n$ \[Definition of $C_n$]
+55. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on 4, 4.10]
+56. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
+57. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
+58. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
+
+
+## In summary:
+
+Here's a table that summarises what we have proven about the two relations we've been using:
+
+|       Relation        | Reflexivity | Symmetry | Anti-symmetry | Transitivity |
+| :-------------------: | :---------: | :------: | :-----------: | :----------: |
+|   Divisibility, $D$   |     Yes     |    No    |      Yes      |     Yes      |
+| Congruence Modulo $n$ |     Yes     |   Yes    |      No       |     Yes      |
+
+# Relations in Computer Science (Bonus)
+The 4 properties we covered aren't the only possible _properties_ we care about for relations, but they are the main properties that everyone starts with. 
+
+
+In distributed systems, you might see other properties that they care about, stuff message and program ordering.
+
+Here's some example slides of relations being used in very high level computer science:
+
+* [Message Ordering and Group Communication](https://www.cs.uic.edu/~ajayk/Chapter6.pdf)
+* [Declarative Semantics for Concurrency](https://people.mpi-sws.org/~viktor/wmc/axiomatic.pdf)
+
+
