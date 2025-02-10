@@ -1,6 +1,15 @@
 
 
+# Question 1:
 
+By drawing a truth table, show that $p \land (p \to q) \equiv p \land q$.
+
+| $p$     | $q$     | $p \to q$ | $p \land (p \to q)$ | $p \land q$ |
+| ------- | ------- | --------- | ------------------- | ----------- |
+| $true$  | $true$  |           |                     |             |
+| $true$  | $false$ |           |                     |             |
+| $false$ | $true$  |           |                     |             |
+| $false$ | $false$ |           |                     |             |
 
 ---
 
@@ -48,3 +57,21 @@ You may also use the following lemmas in your proof:
 >$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
 
+---
+# Question 5 (?):
+
+For this question, we define the following predicates for all real numbers $x$:
+
+>[!Definition-1]
+>$$small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+>[!Definition-2]
+>$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+1. Is $small(1)$ true? What about $small(2)$?
+
+2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
+
+3. Write the contrapositive of the definition of $small(x)$.
+
+4. Let $A = \{x \in \mathbb{R} : small(x)\}$ and $B = \{x \in \mathbb{R} : tiny(x)\}$. State one element in $B \setminus A$.
