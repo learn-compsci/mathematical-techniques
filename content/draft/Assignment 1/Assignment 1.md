@@ -4,13 +4,6 @@
 
 By drawing a truth table, show that $p \land (p \to q) \equiv p \land q$.
 
-| $p$     | $q$     | $p \to q$ | $p \land (p \to q)$ | $p \land q$ |
-| ------- | ------- | --------- | ------------------- | ----------- |
-| $true$  | $true$  |           |                     |             |
-| $true$  | $false$ |           |                     |             |
-| $false$ | $true$  |           |                     |             |
-| $false$ | $false$ |           |                     |             |
-
 ---
 
 # Question 2:
@@ -56,8 +49,8 @@ You may also use the following lemmas in your proof:
 >[!Lemma-2]
 >$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
-
 ---
+
 # Question 5 (?):
 
 For this question, we define the following predicates for all real numbers $x$:

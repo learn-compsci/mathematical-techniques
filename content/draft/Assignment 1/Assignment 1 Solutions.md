@@ -18,6 +18,7 @@ Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine 
 4. **False**; consider $(b_1, b_2) = (3, 5) \in B$ and $(b_3, b_4) = (1, -1) \in B$. Then, $(3, 1) \in A$ but $(5, -1) \notin A$.
 
 ---
+
 # Question 2:
 
 Prove the following statement:
@@ -41,24 +42,23 @@ You may also use the following lemmas in your proof:
 **Solution**:
 1. Let $n \in \mathbb{Z}$, arbitrarily chosen.
 2. $\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$ \[Lemma 1]
-3. $even(n) \lor odd(n)$ \[Universal instantiation on lines 1, 2]
+3. $even(n) \lor odd(n)$ \[Universal instantiation on lines 1 and 2]
 4. Case 1: $even(n)$
-	1. $\exists k \in \mathbb{Z}[n = 2\cdot k]$ \[Definition of $even$]
-	2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t$ \[Existential instantiation on line 4.1]
-	3. $(n)(n+1) = (2\cdot t)\cdot (n + 1) = 2 \cdot (t(n+1))$ \[Basic Algebra]
+	1. $\exists k \in \mathbb{Z} \ [n = 2\cdot k]$ \[Definition of $even$]
+	2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t$. \[Existential instantiation on line 4.1]
+	3. $(n)(n+1) = (2\cdot t)\cdot (n + 1) = 2 \cdot (t(n+1))$ \[Basic algebra]
 	4. $(t(n + 1)) \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists k \in \mathbb{Z}[ (n)(n + 1) = 2\cdot k ]$ \[Existential generalisation on lines 4.3, 4.4]
+	5. $\exists k \in \mathbb{Z} \ [ (n)(n + 1) = 2\cdot k ]$ \[Existential generalisation on lines 4.3 and 4.4]
 	6. $even(n(n+1))$ \[Definition of $even$]
 5. Case 2: $odd(n)$
-	1. $\exists k \in \mathbb{Z}[n = 2\cdot k + 1]$ \[ Definition of $odd$ ]
-	2. Let $t \in \mathbb{Z}$, be such that $n = 2\cdot t + 1$ \[Existential instantiation of line 5.1]
+	1. $\exists k \in \mathbb{Z} \ [n = 2\cdot k + 1]$ \[ Definition of $odd$]
+	2. Let $t \in \mathbb{Z}$, be such that $n = 2\cdot t + 1$. \[Existential instantiation of line 5.1]
 	3. $(n)(n + 1) = (n)(2\cdot t + 2) = 2(n)(t+1)$ \[Basic algebra]
 	4. $(n)(t+1) \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists k \in \mathbb{Z}[(n)(n+1) = 2k]$ \[Existential generalisation on lines 5.3, 5.4]
+	5. $\exists k \in \mathbb{Z} \ [(n)(n+1) = 2k]$ \[Existential generalisation on lines 5.3 and 5.4]
 	6. $even(n(n+1))$ \[Definition of $even$]
-6. $even(n(n+1))$ \[Proof by cases on lines 3, 4.6, 5.6]
-7. $\forall n \in \mathbb{Z}[ even(n(n+1)) ]$ \[Universal generalisation on lines 1, 6]
-
+6. $even(n(n+1))$ \[Proof by cases on lines 3, 4.6 and 5.6]
+7. $\forall n \in \mathbb{Z} \ [ even(n(n+1)) ]$ \[Universal generalisation on lines 1 and 6]
 
 
 ---
