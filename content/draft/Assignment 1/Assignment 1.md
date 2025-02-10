@@ -61,7 +61,7 @@ For this question, we define the following predicates for all real numbers $x$:
 >[!Definition-2]
 >$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
 
-1. Is $small(1)$ true? What about $small(2)$?
+1. Is $small(1)$ true? What about $small(1.1)$?
 
 2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
 

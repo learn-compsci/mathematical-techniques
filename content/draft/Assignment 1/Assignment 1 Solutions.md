@@ -1,6 +1,20 @@
 
 # Question 1:
 
+By drawing a truth table, show that $p \land (p \to q) \equiv p \land q$.
+
+**Solutions**:
+
+| $p$     | $q$     | $p \to q$ | $p \land (p \to q)$ | $p \land q$ |
+| ------- | ------- | --------- | ------------------- | ----------- |
+| $true$  | $true$  | $true$    | $true$              | $true$      |
+| $true$  | $false$ | $false$   | $false$             | $false$     |
+| $false$ | $true$  | $true$    | $false$             | $false$     |
+| $false$ | $false$ | $true$    | $false$             | $false$     |
+
+---
+# Question 2:
+
 Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine which of the following quantified statements are true:
 
 1. $\exists (b_1, b_2) \in B, \forall (a_1, a_2) \in A \ [b_2 \geq a_1]$
@@ -19,7 +33,12 @@ Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine 
 
 ---
 
-# Question 2:
+# Question 3:
+
+
+
+---
+# Question 4:
 
 Prove the following statement:
 
@@ -39,7 +58,9 @@ You may also use the following lemmas in your proof:
 >$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
 
-**Solution**:
+**Solutions**:
+
+**Proof**:
 1. Let $n \in \mathbb{Z}$, arbitrarily chosen.
 2. $\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$ \[Lemma 1]
 3. $even(n) \lor odd(n)$ \[Universal instantiation on lines 1 and 2]
@@ -60,11 +81,29 @@ You may also use the following lemmas in your proof:
 6. $even(n(n+1))$ \[Proof by cases on lines 3, 4.6 and 5.6]
 7. $\forall n \in \mathbb{Z} \ [ even(n(n+1)) ]$ \[Universal generalisation on lines 1 and 6]
 
-
 ---
 
-# Question 3:
+# Question 5 (?):
 
-test
+For this question, we define the following predicates for all real numbers $x$:
 
-even more edits - Eldon
+>[!Definition-1]
+>$$small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+>[!Definition-2]
+>$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+
+1. Is $small(1)$ true? What about $small(1.1)$?
+
+2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
+
+3. Write the contrapositive of the definition of $small(x)$.
+
+4. Let $A = \{x \in \mathbb{R} : small(x)\}$ and $B = \{x \in \mathbb{R} : tiny(x)\}$. State one element in $B \setminus A$.
+
+**Solutions**:
+
+1. $small(1) \equiv true$, but $small(1.1) \equiv false$.
+2. $big(x) \equiv \forall n_0 \in \mathbb{N}, \exists n \in \mathbb{N} \ \big[(n \geq n_0) \land \big(x - \frac{1}{n} \geq 1\big)\big]$
+3. $small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \big[\big(x - \frac{1}{n} \geq 1\big) \to (n < n_0)\big]$
+4. Any number in the set $\{x \in \mathbb{R} : x \geq 1\}$.
