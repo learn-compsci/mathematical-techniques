@@ -106,4 +106,4 @@ For this question, we define the following predicates for all real numbers $x$:
 1. $small(1) \equiv true$, but $small(1.1) \equiv false$.
 2. $big(x) \equiv \forall n_0 \in \mathbb{N}, \exists n \in \mathbb{N} \ \big[(n \geq n_0) \land \big(x - \frac{1}{n} \geq 1\big)\big]$
 3. $small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \big[\big(x - \frac{1}{n} \geq 1\big) \to (n < n_0)\big]$
-4. Any number in the set $\{x \in \mathbb{R} : x \geq 1\}$.
+4. Any number in the set $\{x \in \mathbb{R} : x > 1\}$.
