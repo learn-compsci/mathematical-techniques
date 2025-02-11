@@ -1,43 +1,65 @@
 
+This is the first of two assignments and is worth 15% of the total grade. The assignment is due Friday 28th Feb 2025, 6:30PM. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 1".
 
-# Question 1:
+There are 5 questions for a total of 15 marks. There is also a bonus question that you may attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistake you may have made in the other parts of this assignment.)
 
-By drawing a truth table, show that $p \land (p \to q) \equiv p \land q$.
+_Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
+
+
+---
+# Question 1 (1 mark):
+
+Is $p \land (p \to q)$ logically equivalent to $p\land q$?
+
+| $p$     | $q$     | $p \land (p \to q)$ | $p \land q$ |
+| ------- | ------- | ------------------- | ----------- |
+| $true$  | $true$  |                     | $true$      |
+| $true$  | $false$ |                     | $false$     |
+| $false$ | $true$  |                     | $false$     |
+| $false$ | $false$ |                     | $false$     |
+
+Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working. (But you can if you feel that it helps you.)
+
+---
+# Question 2 (2 marks):
+
+Is the following logical equivalence true?
+$$\begin{equation}
+\big(p \to \neg q\big) \land \big(\neg p \to q\big) \stackrel{?}{\equiv} \big(p \lor q\big)\land \big(\neg p \lor \neg q\big)
+\end{equation}$$
+
+| $p$     | $q$     | $\big(p \to \neg q\big) \land \big(\neg p \to q\big)$ | $\big(p \lor q\big)\land \big(\neg p \lor \neg q\big)$ |
+| ------- | ------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| $true$  | $true$  |                                                       |                                                        |
+| $true$  | $false$ |                                                       |                                                        |
+| $false$ | $true$  |                                                       |                                                        |
+| $false$ | $false$ |                                                       |                                                        |
+
+Fill out the 8 remaining cells to check whether they are equivalent. You need not show intermediate working. (But you can if you feel that it helps you.)
 
 ---
 
-# Question 2:
+# Question 3 (4 marks): 
 
-Let $A = \{(0, 0), (3, 1), (-2, -4)\}$ and $B = \{(1, -1), (3, 5)\}$. Determine which of the following quantified statements are true:
+Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the following quantified statements are true:
 
-1. $\exists (b_1, b_2) \in B, \forall (a_1, a_2) \in A \ [b_2 \geq a_1]$
-2. $\forall (a_1, a_2) \in A, \exists (b_1, b_2) \in B \ [a_1 \leq b_1 \to a_2 \geq b_2]$
-3. $\exists (a_1, a_2), (a_3, a_4) \in A \ \big[(a_1 + a_3,\ a_2 + a_4) \in A \big]$
-4. $\forall (b_1, b_2), (b_3, b_4) \in B \ \big[(b_1, b_3) \in A \to (b_2, b_4) \in A \big]$
+1. $\exists b \in B[b < 1]$
+2. $\exists a \in A, \forall b \in B[a > b]$
+3. qn here
+4. qn here
 
----
-
-# Question 3:
-
-Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
-
-Agnes: "Edith and Gru are of the same type"
-Edith: "Margo is a knave"
-Margo: "Gru is a knight"
-Gru: "Agnes is lying!"
-
-For each character, identify whether they are a knight or knave!
+You do not have to give a formal proof of the statements, you may simply state whether the statements are true or false.
 
 ---
 
-# Question 4:
+# Question 4 (4 marks):
 
 Prove the following statement:
 
 >[!Theorem]
 >$\forall n \in \mathbb{Z} \ \big[even\big(n(n+1)\big)\big]$
 
-You may use the following predicates in your proof:
+You may use the following definitions of predicates in your proof:
 - $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2 \cdot k]$
 - $odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$
 
@@ -49,22 +71,33 @@ You may also use the following lemmas in your proof:
 >[!Lemma-2]
 >$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
 
+Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try to prove both cases separately.
+
 ---
 
-# Question 5 (?):
+# Question 5:
 
-For this question, we define the following predicates for all real numbers $x$:
 
->[!Definition-1]
->$$small(x) \equiv \exists n_0 \in \mathbb{N}, \forall n \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+---
 
->[!Definition-2]
->$$tiny(x) \equiv \forall n \in \mathbb{N}, \exists n_0 \in \mathbb{N} \ \bigg[(n \geq n_0) \to \bigg(x - \frac{1}{n} < 1\bigg)\bigg]$$
+# Bonus Question: (2 marks)
 
-1. Is $small(1)$ true? What about $small(1.1)$?
+Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
 
-2. We define $big(x) \equiv \neg small(x)$. Write the definition of $big(x)$ in first-order logic (**without simply adding a "$\neg$" to the front of the definition above**).
+Agnes: "Edith and Gru are of the same type"
+Edith: "Margo is a knave"
+Margo: "Gru is a knight"
+Gru: "Agnes is lying!"
 
-3. Write the contrapositive of the definition of $small(x)$.
+For each character, identify whether they are a knight or knave! (0.5m per correct identification)
 
-4. Let $A = \{x \in \mathbb{R} : small(x)\}$ and $B = \{x \in \mathbb{R} : tiny(x)\}$. State one element in $B \setminus A$.
+For you to solve this question, it might be helpful to think about how to formalise each statement into propositions and predicates. For example, the question statement states that every person is either only a knave or a knight. That means we could write statements such as the following:
+
+5. $Knight(x) \equiv x \text{ is a knight}$.
+6. $Knave(x) \equiv x \text{ is a knave}$
+7. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \lor Knight(Agnes))$
+
+The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
+
+While you don't have to write out each statement31, it might help you figure out who are knights and who are knaves.
+
