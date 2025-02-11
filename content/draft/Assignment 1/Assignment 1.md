@@ -1,7 +1,7 @@
 
 This is the first of two assignments and is worth 15% of the total grade. The assignment is due **Friday 28th Feb 2025, 6:30PM**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 1".
 
-There are 5 questions for a total of 15 marks. There is also a bonus question that you may attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistake you may have made in the other parts of this assignment.)
+There are 5 questions for a total of 15 marks. There is also a bonus question that you may attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistakes you may have made in the other parts of this assignment.)
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
 
@@ -31,7 +31,7 @@ Is $p \land (p \to q)$ logically equivalent to $p\land q$?
 | $false$ | $true$  |                     | $false$     |
 | $false$ | $false$ |                     | $false$     |
 
-Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working. (But you can if you feel that it helps you.)
+Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
 ---
 # Question 2 (2 marks):
@@ -48,7 +48,7 @@ $$\begin{equation}
 | $false$ | $true$  |                                                       |                                                        |
 | $false$ | $false$ |                                                       |                                                        |
 
-Fill out the 8 remaining cells to check whether they are equivalent. You need not show intermediate working. (But you can if you feel that it helps you.)
+Fill out the 8 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
 ---
 
@@ -61,7 +61,7 @@ Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the 
 3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$
 4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$ 
 
-You do not have to give a formal proof of the statements, you may simply state whether the statements are true or false.
+You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
 ---
 
@@ -95,24 +95,24 @@ $$\begin{equation}
 \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [has\_gap(a, b)]
 \end{equation}$$
 
-I.e. we believe that it is false. Your friend has already done part of it. In particular, your friend has already negated the statement:
+i.e., we believe that it is false. Your friend has already done part of it. In particular, your friend has already negated the statement:
 
 $$
-\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}[\neg has\_gap(a, b)]
+\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z} \ [\neg has\_gap(a, b)]
 $$
 
 And also started a proof. Your friend's proof has these steps, and they want you to help them fill in the remaining portions of the proof.
 
 1. $1 \in \mathbb{Z}$
-	1. Assume for the sake of $\bot$ that $has\_gap(1, 1)$
+	1. Assume for the sake of contradiction that $has\_gap(1, 1)$.
 	2. ...
 	3. ...
 	4. ...
 	5. $\bot$
 2.  $\neg has\_gap(1, 1)$ \[Proof by contradiction rule]
-3. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}[\neg has\_gap(1,1)]$ \[Existential generalisation on lines 1, 2]
+3. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z} \ [\neg has\_gap(1,1)]$ \[Existential generalisation on lines 1 and 2]
 
-Fill in the remaining portion of the proof in the middle. (you may need more than 3 lines, that is ok.)
+Fill in the remaining portion of the proof in the middle. (You may need more than 3 lines, that is ok.)
 
 ---
 
@@ -129,11 +129,11 @@ For each character, identify whether they are a knight or knave! (0.5m per corre
 
 For you to solve this question, it might be helpful to think about how to formalise each statement into propositions and predicates. For example, the question statement states that every person is either only a knave or a knight. That means we could write statements such as the following:
 
-4. $Knight(x) \equiv x \text{ is a knight}$.
-5. $Knave(x) \equiv x \text{ is a knave}$
-6. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \land Knight(Agnes))$
+1. $Knight(x) \equiv x \text{ is a knight}$
+2. $Knave(x) \equiv x \text{ is a knave}$
+3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \land Knight(Agnes))$
 
-The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
+The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith$, $Margo$ and $Gru$.
 
 While you don't have to write out each statement, it might help you figure out who are knights and who are knaves.
 
