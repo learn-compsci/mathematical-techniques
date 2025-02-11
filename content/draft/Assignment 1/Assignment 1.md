@@ -89,13 +89,30 @@ Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try 
 
 Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q} \ [x < q \land q < y]$ be the predicate that essentially says "We can find a rational number strictly in between values $x$ and $y$." 
 
-Is the following statement true?
+We want to disprove the following statement:
 
 $$\begin{equation}
 \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [has\_gap(a, b)]
 \end{equation}$$
 
-If the statement is true, prove it. If the statement is false, write down the negation of the statement and prove it.
+I.e. we believe that it is false. Your friend has already done part of it. In particular, your friend has already negated the statement:
+
+$$
+\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}[\neg has\_gap(a, b)]
+$$
+
+And also started a proof. Your friend's proof has these steps, and they want you to help them fill in the remaining portions of the proof.
+
+1. $1 \in \mathbb{Z}$
+	1. Assume for the sake of $\bot$ that $has\_gap(1, 1)$
+	2. ...
+	3. ...
+	4. ...
+	5. $\bot$
+2.  $\neg has\_gap(1, 1)$ \[Proof by contradiction rule]
+3. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}[\neg has\_gap(1,1)]$ \[Existential generalisation on lines 1, 2]
+
+Fill in the remaining portion of the proof in the middle. (you may need more than 3 lines, that is ok.)
 
 ---
 
@@ -112,9 +129,9 @@ For each character, identify whether they are a knight or knave! (0.5m per corre
 
 For you to solve this question, it might be helpful to think about how to formalise each statement into propositions and predicates. For example, the question statement states that every person is either only a knave or a knight. That means we could write statements such as the following:
 
-1. $Knight(x) \equiv x \text{ is a knight}$.
-2. $Knave(x) \equiv x \text{ is a knave}$
-3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \land Knight(Agnes))$
+4. $Knight(x) \equiv x \text{ is a knight}$.
+5. $Knave(x) \equiv x \text{ is a knave}$
+6. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \land Knight(Agnes))$
 
 The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
 
