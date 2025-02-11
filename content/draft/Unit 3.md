@@ -103,8 +103,8 @@ $$
 
 Like a set of triples. But what if we wanted two sets $A$, $B$ that represented the following relations?
 
-4. Set $A$ relates the student names to the year of enrollments.
-5. Set $B$ relates the student names to the degree programmes.
+1. Set $A$ relates the student names to the year of enrollments.
+2. Set $B$ relates the student names to the degree programmes.
 
 Try for yourself to write down what those sets look like, and what are they a subset of? Check it with yourself in the hidden-away spoiler tag. We can let $M$ be the set of all possible names, and we can let $P = \{CS, Philo, CS, Science, Eng, Biz\}$.
 
@@ -130,12 +130,12 @@ Here are a few more examples:
 > Notice here that we can relate one person to more than one food. We can also relate more than one person to one food. In general, since $S$ is a subset of $P \times F$, it is considered a relation.
 
 >[!Example]
-> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
 > 
 > Then $D$ relates integers $y$ to other integers that divide it. For example $(10, 2) \in D$, because $2$ divides $10$. Also $(10, 3) \notin D$, because $3$ does not divide $10$.
 
 >[!Example]
-> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
 > 
 > Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 17) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
 
@@ -144,12 +144,13 @@ Here are a few more examples:
 > What about if we wanted to relate 3 things together? You will see this very commonly in databases. It is called a ternary relation. In general, a relation that relates $n$ things is called an $n$-ary relation.
 > 
 > For the purposes of our course, we will focus only on binary relations, i.e. sets of pairs only.
+
 # Operations on Relations
 
 Just like sets, there are a few common operations that we need to learn for relations. We will cover the two most common ones:
 
-6. Relation inversion
-7. Relation composition
+1. Relation inversion
+2. Relation composition
 
 ## Relation Inversion
 Given a relation $R = A \times B$, the **inversion** of a relation is written as $R^{-1}$, and is defined in the following way:
@@ -169,20 +170,20 @@ Let's see what this means for our previous 3 examples.
 > Then $$\begin{equation}S^{-1} = \{(Laksa, Jane), (Toast, Marco), (Pasta, Jane), (Toast, Sam)\}\end{equation}$$
 
 >[!Example]
-> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
 > 
 > Recall that $(10, 2) \in D$, because $2$ divides $10$. Also $(10, 3) \notin D$, because $3$ does not divide $10$.
 > 
 > So for example $(2, 10) \in D^{-1}$. $(3, 10) \notin D^{-1}$.
 
 >[!Example]
-> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
 > 
 > Since $(7, 17) \in M$, this means $(17, 7) \in M^{-1}$. For the same reason, $(6, 27) \in M^{-1}$. Also, since $(3, 11) \notin M$, then $(11, 3) \notin M$.
 
 ## Relation Composition
 
-Next is the relation composition operation. This one is slightly involved, so let me start with a few examples
+Next is the relation composition operation. This one is slightly involved, so let me start with a few examples.
 
 #### Example 1
 Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$. 
@@ -231,7 +232,7 @@ Pictorially, here's what's going on:
 
 ![[Images/mrt-composition.png]]
 
-We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
+We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in E;N$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
 
 ![[Images/relations-middle-man.png]]
 
@@ -240,7 +241,7 @@ We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dh
 The general definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
 
 $$\begin{equation}
-R ; S = \{ (a, c) \in A \times C : \exists b \in B[(a, b) \in R \land (b, c) \in S] \} 
+R;S = \{ (a, c) \in A \times C : \exists b \in B \ [(a, b) \in R \land (b, c) \in S]\} 
 \end{equation}$$
 
 
@@ -248,7 +249,7 @@ In English, this is basically just saying:
 
 > $a$ and $c$ are related by $(R; S)$ if we can find a $b \in B$ such that $a$ is related to this $b$ using relation $R$, and the same $b$ is related to $c$ using relation $S$.
 > 
-> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R, S)$.
+> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R;S)$.
 
 You can mentally picture this as "Taking one step using $R$, and then taking one step using $S$."
 
@@ -331,13 +332,13 @@ Is the divisibility relation reflexive? Yes. After all, every number divides its
 > Then $D$ is reflexive.
 
 **Proof**
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. $x = 1 \cdot x$ \[Basic algebra]
-3. $1 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z}[x = k\cdot x]$ \[Existential generalisation]
-5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[x = k\cdot x]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in D$ \[Definition of $D$]
-7. $\forall x \in \mathbb{Z}[(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
+3. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+4. $x = 1 \cdot x$ \[Basic algebra]
+5. $1 \in \mathbb{Z}$ \[Basic algebra]
+6. $\exists k \in \mathbb{Z}[x = k\cdot x]$ \[Existential generalisation]
+7. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[x = k\cdot x]$ \[Conjunction on lines 1, 4]
+8. $(x, x) \in D$ \[Definition of $D$]
+9. $\forall x \in \mathbb{Z}[(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
 
 So the divisibility relation $D$ is reflexive!
 
@@ -349,25 +350,25 @@ What about congruence modulo $n$ relation? Fix $n \in \mathbb{N}$, our goal stat
 > Then $C_n$ is reflexive.
 
 **Proof**
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. $(x - x) = 0 \cdot n$ \[Basic algebra]
-3. $0 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Existential generalisation]
-5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in C_n$ \[Definition of $C_n$]
-7. $\forall x \in \mathbb{Z}[(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
+10. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+11. $(x - x) = 0 \cdot n$ \[Basic algebra]
+12. $0 \in \mathbb{Z}$ \[Basic algebra]
+13. $\exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Existential generalisation]
+14. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z}[(x - x) = k\cdot n]$ \[Conjunction on lines 1, 4]
+15. $(x, x) \in C_n$ \[Definition of $C_n$]
+16. $\forall x \in \mathbb{Z}[(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
 
 So the divisibility relation $C_n$ is also reflexive!
 
 Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg (\forall x \in \mathbb{Z}[(x, x) \in A])$.
 
 **Proof**
-1. $1 + 1 \neq 1$ \[Basic algebra]
-2. $1 \in \mathbb{Z}$ \[Basic algebra]
-3. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
-4. $(1, 1) \notin A$ \[Definition of $A$]
-5. $\exists x \in \mathbb{Z}[(x, x) \notin A]$ \[Existential generalisation]
-6. $\neg\big( \forall x \in \mathbb{Z}[(x, x) \in A] \big)$ \[Logically equivalent to line 5]
+17. $1 + 1 \neq 1$ \[Basic algebra]
+18. $1 \in \mathbb{Z}$ \[Basic algebra]
+19. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
+20. $(1, 1) \notin A$ \[Definition of $A$]
+21. $\exists x \in \mathbb{Z}[(x, x) \notin A]$ \[Existential generalisation]
+22. $\neg\big( \forall x \in \mathbb{Z}[(x, x) \in A] \big)$ \[Logically equivalent to line 5]
 
 
 ## Symmetry
@@ -414,18 +415,18 @@ Let's look at the formal proof now.
 > Then $C_n$ is symmetric.
 
 **Proof:**
-1. Let $a \in A$, arbitrarily chosen.
-2. Let $b \in A$, arbitrarily chosen.
-3. Assume $(a, b) \in C_n$.
+23. Let $a \in A$, arbitrarily chosen.
+24. Let $b \in A$, arbitrarily chosen.
+25. Assume $(a, b) \in C_n$.
 	1. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
 	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = t\cdot n]$ \[Existential instantiation of line 3.1]
 	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
 	4. $-t \in \mathbb{Z}$ \[Basic algebra]
 	5. $\exists k\in \mathbb{Z}[(b - a) = k\cdot n]$ \[Existential instantiation of line 3.5]
 	6. $(b, a) \in C_n$ \[Definition of $C_n$]
-4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
-5. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
-6. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+26. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
+27. $\forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
+28. $\forall a \in A, \forall b \in A[(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
 
 ## Anti-Symmetry
 
@@ -469,9 +470,9 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 
 
 **Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Assume that $(a, b) \in D \land (a, b) \in D$
+29. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+30. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+31. Assume that $(a, b) \in D \land (a, b) \in D$
 	1. $(a, b) \in D$ \[Specialisation on 3]
 	2. $\exists k \in \mathbb{Z}[a\cdot k = b]$ \[Definition of $D$]
 	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$  \[Existential instantiation of 3.2]
@@ -482,9 +483,9 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 	8. $t_1 \cdot t_2 = 1$ \[Basic algebra]
 	9. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are integers]
 	10. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
-4. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$ \[Implication introduction on 3, 3.9]
-5. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 2, 4]
-6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 1, 5]
+32. $\big((a, b) \in D \land (a, b) \in D\big)\to a = b$ \[Implication introduction on 3, 3.9]
+33. $\forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 2, 4]
+34. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[\big((a, b) \in D \land (a, b) \in D\big)\to a = b]$ \[Universal generalisation on 1, 5]
 
 What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
@@ -519,10 +520,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 > Then $D$ is transitive.
 
 **Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume $(a, b) \in D \land (b, c) \in D$
+35. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+36. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+37. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+38. Assume $(a, b) \in D \land (b, c) \in D$
 	1. $(a, b) \in D$ \[Specialisation on 4]
 	2. $\exists k \in \mathbb{Z}[a \cdot k = b]$ \[Definition of $D$]
 	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$  \[Existential instantiation on 4.2]
@@ -533,10 +534,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 	8. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
 	9. $\exists k \in \mathbb{Z}[a \cdot k = c]$ \[Existential generalisation 4.8]
 	10. $(a, c) \in D$ \[Definition of $D$]
-5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
-6. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
+39. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
+40. $\forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
+41. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
+42. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
 
 >[!Theorem]
 > Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = n\cdot k] \}$.
@@ -544,10 +545,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 > Then $C_n$ is transitive.
 
 **Proof**
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
+43. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+44. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+45. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+46. Assume $(a, b) \in C_n \land (b, c) \in C_n$
 	1. $(a, b) \in C_n$ \[Specialisation on 4]
 	2. $\exists k \in \mathbb{Z}[(a - b) = k \cdot n]$ \[Definition of $C_n$]
 	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = t_1 \cdot n$ \[Existential instantiation on 4.2]
@@ -558,10 +559,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 	8. $(t_1 - t_2) \in \mathbb{Z}$ \[Basic algebra]
 	9. $\exists k \in \mathbb{Z}[(a - c) = k\cdot n]$ \[Existential generalisation on 4.7, 4.8]
 	10. $(a, c) \in C_n$ \[Definition of $C_n$]
-5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on 4, 4.10]
-6. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
+47. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on 4, 4.10]
+48. $\forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
+49. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
+50. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z}[(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
 
 
 ## In summary:
