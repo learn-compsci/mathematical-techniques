@@ -56,10 +56,10 @@ Fill out the 8 remaining cells to check whether they are equivalent. You need no
 
 Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the following quantified statements are true:
 
-1. $\exists b \in B[b < 1]$
-2. $\exists a \in A, \forall b \in B[a > b]$
-3. $\forall a \in A, \lnot(\exists b \in B[odd(ab)])$
-4. $\exists c  \in B, \forall b \in B, \exists a \in A [a + b = c]$
+1. $\exists b \in B \ [b < 1]$
+2. $\exists a \in A, \forall b \in B \ [a > b]$
+3. $\forall a \in A, \lnot(\exists b \in B \ [odd(ab)])$
+4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$ 
 
 You do not have to give a formal proof of the statements, you may simply state whether the statements are true or false.
 
@@ -87,12 +87,12 @@ Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try 
 
 # Question 5 (5 marks):
 
-Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q}[x < q \land q < y]$ be the predicate that essentially says "we can find a rational number strictly in between values $x$ and $y$." 
+Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q} \ [x < q \land q < y]$ be the predicate that essentially says "We can find a rational number strictly in between values $x$ and $y$." 
 
 Is the following statement true?
 
 $$\begin{equation}
-\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, [has\_gap(a, b)]
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [has\_gap(a, b)]
 \end{equation}$$
 
 If the statement is true, prove it. If the statement is false, write down the negation of the statement and prove it.
@@ -103,9 +103,9 @@ If the statement is true, prove it. If the statement is false, write down the ne
 
 Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
 
-Agnes: "Edith and Gru are of the same type"
-Edith: "Margo is a knave"
-Margo: "Gru is a knight"
+Agnes: "Edith and Gru are of the same type."
+Edith: "Margo is a knave."
+Margo: "Gru is a knight."
 Gru: "Agnes is lying!"
 
 For each character, identify whether they are a knight or knave! (0.5m per correct identification)
@@ -116,7 +116,7 @@ For you to solve this question, it might be helpful to think about how to formal
 2. $Knave(x) \equiv x \text{ is a knave}$
 3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \lor Knight(Agnes))$
 
-The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
+The statement in point 3 is basically saying that "$Agnes$ is at least either a knight or a knave, but $Agnes$ is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
 
 While you don't have to write out each statement, it might help you figure out who are knights and who are knaves.
 
