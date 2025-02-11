@@ -2,7 +2,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission** : XX-XXX-2025, XX:XX PM
+* **Official due date for submission** : 04-Mar-2025, 06:30 PM
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -15,6 +15,19 @@
 * < 2 weeks after submission deadline: 75% penalty
 * No submissions after 2 weeks.
 
+# Overview
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 2]] and [[Unit 3]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+
+
+1. Questions 1 through 4 are related to set theory. 
+2. Questions 5 through 8 are related to relations.
+
+After week 5's content, you should be able to attempt questions 1 through 4. After week 6's content, you should be able to attempt questions 4 and 8.
+
+Questions 2, 4, 6, 7 are graded for participation.
+
+That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
+
 ---
 # Question 1
 
@@ -23,16 +36,16 @@ Let $A = \{0\}$, and $B = \mathcal{P}(\{0, 1\})$.
 Find $\mathcal{P}(A)$, and $\mathcal{P}(B)$.
 
 ---
-# Question 2
+# Question 2 \[Graded for Participation]
 
 Consider the sets $A = \{x \in \mathbb{Z} : x^{2} \leq 16\}$ and $B = \big\{x \in \mathbb{N} : (x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$, $C = \{1, 2\}$.
 
 Find the following sets:
 
-1. $A \cap B$
-2. $A \cup B$
-3. $A \setminus C$
-4. $A \times C$
+3. $A \cap B$
+4. $A \cup B$
+5. $A \setminus C$
+6. $A \times C$
 
 Note: Some of these can be written using [[Unit 2#Set Roster Notation]], these are the ones where you can list them out one by one. For the set, you can write them using [[Unit 2#Set Builder Notation|set builder notation]].
 
@@ -49,7 +62,7 @@ Convert the following from set builder notation to set roster notation:
 **Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
 ---
-# Question 4
+# Question 4 \[Graded for Participation]
 
 Prove the set equality  $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$
 
@@ -59,7 +72,7 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 ---
 
-# Question 5
+# Question 5 
 
 Let $R$ be the following relation:
 
@@ -75,7 +88,7 @@ It might be helpful to refer to [[Unit 3#Operations on Relations]].
 
 ---
 
-# Question 6
+# Question 6 \[Graded for Participation]
 
 Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$. 
 
@@ -108,7 +121,7 @@ Is the following statement true?
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Transitivity]].
 
 
-# Question 7
+# Question 7  \[Graded for Participation]
 
 Is the following statement true?
 
