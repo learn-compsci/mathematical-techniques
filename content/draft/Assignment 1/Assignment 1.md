@@ -52,7 +52,7 @@ You do not have to give a formal proof of the statements, you may simply state w
 
 ---
 
-# Question 4 (4 marks):
+# Question 4 (3 marks):
 
 Prove the following statement:
 
@@ -75,8 +75,17 @@ Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try 
 
 ---
 
-# Question 5:
+# Question 5 (5 marks):
 
+Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q}[x < q \land q < y]$ be the predicate that essentially says "we can find a rational number strictly in between values $x$ and $y$." 
+
+Is the following statement true?
+
+$$\begin{equation}
+\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, [has\_gap(a, b)]
+\end{equation}$$
+
+If the statement is true, prove it. If the statement is false, write down the negation of the statement and prove it.
 
 ---
 
