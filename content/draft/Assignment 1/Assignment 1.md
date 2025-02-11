@@ -102,11 +102,11 @@ For each character, identify whether they are a knight or knave! (0.5m per corre
 
 For you to solve this question, it might be helpful to think about how to formalise each statement into propositions and predicates. For example, the question statement states that every person is either only a knave or a knight. That means we could write statements such as the following:
 
-5. $Knight(x) \equiv x \text{ is a knight}$.
-6. $Knave(x) \equiv x \text{ is a knave}$
-7. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \lor Knight(Agnes))$
+1. $Knight(x) \equiv x \text{ is a knight}$.
+2. $Knave(x) \equiv x \text{ is a knave}$
+3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \lor Knight(Agnes))$
 
 The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
 
-While you don't have to write out each statement31, it might help you figure out who are knights and who are knaves.
+While you don't have to write out each statement, it might help you figure out who are knights and who are knaves.
 
