@@ -81,9 +81,6 @@ You may also use the following lemmas in your proof:
 >[!Lemma-1]
 >$\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$
 
->[!Lemma-2]
->$\forall x \in \mathbb{Z} \ [ odd(x) \to even(x + 1)]$
-
 Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try to prove both cases separately.
 
 ---
