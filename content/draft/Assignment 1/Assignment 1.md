@@ -45,8 +45,8 @@ Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the 
 
 1. $\exists b \in B[b < 1]$
 2. $\exists a \in A, \forall b \in B[a > b]$
-3. qn here
-4. qn here
+3. $\forall a \in A, \lnot(\exists b \in B[odd(ab)])$
+4. $\exists c  \in B, \forall b \in B, \exists a \in A [a + b = c]$
 
 You do not have to give a formal proof of the statements, you may simply state whether the statements are true or false.
 
