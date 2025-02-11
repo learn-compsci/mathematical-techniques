@@ -116,7 +116,7 @@ For you to solve this question, it might be helpful to think about how to formal
 2. $Knave(x) \equiv x \text{ is a knave}$
 3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \lor Knight(Agnes))$
 
-The statement in point 3 is basically saying that "$Agnes$ is at least either a knight or a knave, but $Agnes$ is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
+The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith, Margo,$ and $Gru$.
 
 While you don't have to write out each statement, it might help you figure out who are knights and who are knaves.
 
