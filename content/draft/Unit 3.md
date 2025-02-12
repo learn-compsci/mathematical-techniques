@@ -222,9 +222,9 @@ Let's also make another set $N$ that relates any two MRT stations that are conne
 
 Okay, so this time around, we have two different relations. Think a little bit about what the relation $E; N$ represents.
 
-$E; N$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
+$N; E$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
 
-So for example, $(Yishun, Bedok) \in E; N$. But something like $(Redhill, Yew\ Tee)\notin E ; N$. Also, something like $(City\ Hall, Raffles\ Place) \in E; N$. Can you see why?
+So for example, $(Yishun, Bedok) \in N; E$. But something like $(Redhill, Yew\ Tee)\notin N; E$. Also, something like $(City\ Hall, Raffles\ Place) \in N; E$. Can you see why?
 
 
 Pictorially, here's what's going on:
