@@ -63,6 +63,7 @@ Convert the following from set builder notation to set roster notation:
 
 **Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
+
 ---
 # Question 4 \[Graded for Participation]
 
@@ -85,7 +86,6 @@ R = \{(1, 2), (3, 3), (2, 1), (5, 6), (6, 7), (7, 8)\}
 Compute $R^{-1}$. Compute $R; R$.
 
 It might be helpful to refer to [[Unit 3#Operations on Relations]].
-
 
 ---
 
