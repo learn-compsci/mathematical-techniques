@@ -3,13 +3,13 @@
 
 In this page, we will provide more examples of proofs written using the proof system that we introduced in Unit 1. The goal of this page is to help you to get familiarised with:
 
-1. How the different proof strategies work
+1. How the different proof strategies (i.e., direct proof, proof by cases, proof by contradiction, proof by contrapositive) work
 2. How to justify each step of a proof
 
 *NB: As we go along, we will introduce relevant definitions, lemmas and theorems that will be used in the upcoming proofs.* 
 
 ---
-## Proof Strategy 1: Direct Proof
+## Proof Strategy #1: Direct Proof
 
 Proving directly is arguably one of the simplest ways of showing that a statement is true. The overarching concept is to start with a certain set of facts and work your way towards the end result: no fancy propositional logic involved, just a sequence of simple step-by-step deductions.
 
@@ -46,7 +46,9 @@ Observe that we have an *existential* statement, i.e., we need to show that such
 
 ### Example 1.2
 
-We will refer to the following definition of rational numbers: $$x \in \mathbb{Q} \iff \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]$$
+We will refer to the following definition of rational numbers: 
+$$x \in \mathbb{Q} \iff \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]$$
+
 >[!example] Example 1.2
 >Prove that $\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]$.
 
@@ -66,6 +68,12 @@ Regarding the statement itself, it is not hard to see why the statement should b
 >6. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land n = \frac{p}{q}\big]$ \[Existential generalisation on line 5]
 >7. $n \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
 >8. $\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]$ \[Universal generalisation on lines 1, 7]
+>---
+>**Rules of deduction/inference used:**
+>- On line 5, we performed a **conjunction** because the definition of $\mathbb{Q}$ required the proposition "$q \neq 0 \land n = \frac{p}{q}$" to appear. To make this explicit, we rewrite lines 3 and 4 into a form that looks *exactly* like it.
+>- On line 6, we used **existential generalisation** to rewrite line 5 *into a form that we recognise as the definition of $\mathbb{Q}$*.
+>- On line 7, we "reverse engineered" the definition of $\mathbb{Q}$.
+>- On line 8, we used **universal generalisation** to restore the statement to its original, universal form.
 
 >[!faq] Why do I need to mention that $1$ is in $\mathbb{Z}$?
 >This is because the *definition* of the rational numbers requires that the numerator and the denominator in our fraction have to be integers themselves ("$\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}$"). Therefore, to fit the definition explicitly, we should state that $n$ and $1$ are also integers.
@@ -76,7 +84,7 @@ Regarding the statement itself, it is not hard to see why the statement should b
 >[!tip]- Solution
 >**Proof:**
 >1. Let $n \in \mathbb{Q}$ be arbitrarily chosen.
->2. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ [q \neg 0 \land x = \frac{p}{q}]$ \[Definition of $\mathbb{Q}$]
+>2. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ [q \neq 0 \land x = \frac{p}{q}]$ \[Definition of $\mathbb{Q}$]
 >3. Let $s, t \in \mathbb{Z}$ be such that $t \neq 0 \land n = \frac{s}{t}$. \[Universal instantiation on lines 1, 2]
 >4. $n = \frac{s}{t}$ \[Specialisation on line 3]
 >5. Since $s \in \mathbb{Z}$, $2s \in \mathbb{Z}$. \[Basic algebra]
@@ -86,4 +94,78 @@ Regarding the statement itself, it is not hard to see why the statement should b
 >9. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ [q \neq 0 \land 2n = \frac{p}{q}]$ \[Existential generalisation on line 8]
 >10. $2n \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
 >11. $\forall n \in \mathbb{Q} \ [2n \in \mathbb{Q}]$ \[Universal generalisation on lines 1, 10]
+
+### Example 1.3
+
+For this example, we introduce the concept of congruence. 
+$$congruent(a,b,n) \iff \exists k \in \mathbb{Z} \ [a-b = k \cdot n]$$
+If $congruent(a,b,n)$, we say that "$a$ is congruent to $b$ modulo $n$".
+
+>[!example] Example 1.3
+>Prove that $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall n \in \mathbb{Z} \ [congruent(a,b,n) \to congruent(b,a,n)]$.
+
+**How do I know where to start?**
+
+Once again, there are three universal quantifiers involved, so we might instantiate each one of them. Now, our goal is to show that if $a$ is congruent to $b$ modulo $n$, then $b$ is also congruent to $a$ modulo $n$.
+
+Let's try out some examples to get a feel of why this statement would be true. Suppose we pick $25$, $10$ and $5$. Then, $congruent(25,10,5)$ since $25-10=15$, and $15$ is a multiple of $5$. What about $congruent(10,25,5)$? Well, that's also true, because $10-25=-15$, and $-15$ is also a multiple of $5$.
+
+At this point, you might observe that the quantities $a-b$ and $b-a$ are really just the same thing, except that one is positive and the other is negative. In that case, the sign does not affect whether they are multiples of $n$, i.e., if $a-b$ is a multiple of $n$, then $b-a$ must necessarily be a multiple of $n$ as well! And therein lies the insight of the proof.
+
+As for constructing the proof itself, we notice that there is an **implication** in the statement. In such situations, we *assume the antecedent* and try to *prove the consequent*. In other words, if we want to show that $p \to q$, then we assume $p$ and try to prove $q$ by the end.
+
+>[!example] Proof 1.3
+>**Proof:**
+>1. Let $a \in \mathbb{Z}$, $b \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume $congruent(a,b,n)$.
+>	1. $\exists k \in \mathbb{Z} \ [a-b = k \cdot n]$ \[Definition of $congruent$]
+>	2. Let $m \in \mathbb{Z}$ be such that $a-b = m \cdot n$. \[Existential instantiation on line 2.1]
+>	3. $b-a = -(a-b) = -(m \cdot n) = (-m) \cdot n$ \[Basic algebra]
+>	4. Since $m \in \mathbb{Z}$, $-m \in \mathbb{Z}$. \[Basic algebra]
+>	5. $\exists k \in \mathbb{Z} \ [b-a = k \cdot n]$ \[Existential generalisation on lines 2.3, 2.4]
+>	6. $congruent(b,a,n)$ \[Definition of $congruent$]
+>3. $congruent(a,b,n) \to congruent(b,a,n)$ \[Implication introduction on lines 2, 2.6]
+>4. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall n \in \mathbb{Z} \ [congruent(a,b,n) \to congruent(b,a,n)]$ \[Universal generalisation on lines 1, 3]
+>---
+>**Rules of deduction/inference used:**
+>- On line 2.1, we wanted to move from the predicate $congruent$ to an explicit quantified statement so that we can perform instantiation. This was done using **definition unpacking**.
+>- On line 2.2, we used **existential instantiation** in order to refer to $m$ as a particular integer instead of working with the variable $k$.
+>- On line 2.5, once we have found suitable values, we used **existential generalisation** to rewrite lines 2.3 and 2.4 *into a form that we recognise as the predicate $congruent$*.
+>- On line 2.6, we "reverse engineered" the definition unpacking to obtain $congruent$ again.
+>- On line 3, we used **implication introduction** so that we can explicitly obtain the statement "$congruent(a,b,n) \to congruent(b,a,n)$" from the original statement to be proved.
+>- On line 4, we used **universal generalisation** to restore the statement to its original, universal form.
+
+>[!tip] Try It Out!
+>Prove that $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ \big[odd(x) \land odd(y) \to odd(xy)\big]$.
+
+>[!tip]- Solution
+>**Proof:**
+>1. Let $x \in \mathbb{Z}$, $y \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $odd(x) \land odd(y)$.
+>	1. $odd(x)$ \[Specialisation on line 2]
+>	2. $\exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	3. Let $s \in \mathbb{Z}$ be such that $x = 2 \cdot s + 1$. \[Existential instantiation on line 2.2]
+>	4. $odd(y)$ \[Specialisation on line 2]
+>	5. $\exists k \in \mathbb{Z} \ [y = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	6. Let $t \in \mathbb{Z}$ be such that $y = 2 \cdot t + 1$. \[Existential instantiation on line 2.5]
+>	7. $xy = (2s + 1)(2t + 1) = 4st + 2s + 2t + 1 = 2 \cdot (st + s + t) + 1$ \[Basic algebra]
+>	8. Since $s,t \in \mathbb{Z}$, $st+s+t \in \mathbb{Z}$. \[Basic algebra]
+>	9. $\exists k \in \mathbb{Z} \ [xy = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.7, 2.8]
+>	10. $odd(xy)$ \[Definition of $odd$]
+>3. $odd(x) \land odd(y) \to odd(xy)$ \[Implication introduction on lines 2, 2.10]
+>4. $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ \big[odd(x) \land odd(y) \to odd(xy)\big]$ \[Universal generalisation on lines 1, 3]
+ 
+---
+
+## Proof Strategy #2: Proof by Cases
+
+
+---
+
+## Proof Strategy #3: Proof by Contradiction
+
+
+---
+
+## Proof Strategy #4: Proof by Contrapositive
 
