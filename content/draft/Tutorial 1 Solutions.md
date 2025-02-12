@@ -101,21 +101,21 @@ Draw two truth tables to verify that:
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
-|   $p$   |   $q$   | $\neg q$ | $p \to q$ | $\neg (p \to q)$ | $p \land \neg q$ |
-| :-----: | :-----: | :------: | :-------: | :--------------: | :--------------: |
-| $true$  | $true$  | $false$  |  $true$   |     $false$      |     $false$      |
-| $true$  | $false$ |  $true$  |  $false$  |      $true$      |      $true$      |
-| $false$ | $true$  | $false$  |  $true$   |     $false$      |     $false$      |
-| $false$ | $false$ |  $true$  |  $true$   |     $false$      |     $false$      |
+|   $p$   |   $q$   | $p \to q$ | $\neg (p \to q)$ | $\neg q$ | $p \land \neg q$ |
+| :-----: | :-----: | :-------: | :--------------: | :------: | :--------------: |
+| $true$  | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
+| $true$  | $false$ |  $false$  |      $true$      |  $true$  |      $true$      |
+| $false$ | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
+| $false$ | $false$ |  $true$   |     $false$      |  $true$  |     $false$      |
 
 Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent. 
 
-|   $p$   |   $q$   | $\neg p$ | $\neg q$ | $p \land q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
-| :-----: | :-----: | :------: | :------: | :---------: | :----------------: | :------------------: |
-| $true$  | $true$  | $false$  | $false$  |   $true$    |      $false$       |       $false$        |
-| $true$  | $false$ | $false$  |  $true$  |   $false$   |       $true$       |        $true$        |
-| $false$ | $true$  |  $true$  | $false$  |   $false$   |       $true$       |        $true$        |
-| $false$ | $false$ |  $true$  |  $true$  |   $false$   |       $true$       |        $true$        |
+|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
+| :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
+| $true$  | $true$  |   $true$    | $false$  | $false$  |      $false$       |       $false$        |
+| $true$  | $false$ |   $false$   | $false$  |  $true$  |       $true$       |        $true$        |
+| $false$ | $true$  |   $false$   |  $true$  | $false$  |       $true$       |        $true$        |
+| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       $true$       |        $true$        |
 
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
