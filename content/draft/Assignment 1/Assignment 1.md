@@ -1,13 +1,13 @@
 
-This is the first of two assignments and is worth 15% of the total grade. The assignment is due **Friday 28th Feb 2025, 6:30PM**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 1".
+This is the first of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 01st March 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 1".
 
-There are 5 questions for a total of 15 marks. There is also a bonus question that you may attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistakes you may have made in the other parts of this assignment.)
+There are 5 questions for a total of 15 marks. There is also a **optional** bonus question that you **may** attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistakes you may have made in the other parts of this assignment.)
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
 
 # How to submit:
 - Submit online on Canvas. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
-* **Official due date for submission** : **Friday 28th Feb 2025, 6:30PM**
+* **Official due date for submission** : **Sunday 01st March 2025, 2359**
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -83,6 +83,8 @@ You may also use the following lemmas in your proof:
 
 Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try to prove both cases separately.
 
+We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed.
+
 ---
 
 # Question 5 (5 marks):
@@ -108,11 +110,14 @@ And also started a proof. Your friend's proof has these steps, and they want you
 	2. ...
 	3. ...
 	4. ...
-	5. $\bot$
+	5. ...
+	6. $\bot$
 2.  $\neg has\_gap(1, 1)$ \[Proof by contradiction rule]
 3. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z} \ [\neg has\_gap(1,1)]$ \[Existential generalisation on lines 1 and 2]
 
-Fill in the remaining portion of the proof in the middle. (You may need more than 3 lines, that is ok.)
+Fill in the remaining portion of the proof in the middle. You may need more than 4 lines, that is okay, in which case the $\bot$ line should be shifted accordingly. For example if you used 8 lines in your proof after line 1.1, then $\bot$ should be on on line 1.10.
+
+We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed.
 
 ---
 
