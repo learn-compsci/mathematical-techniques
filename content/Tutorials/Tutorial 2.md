@@ -79,9 +79,9 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 Let $R$ be the following relation:
 
-$$\begin{equation}
+$$
 R = \{(1, 2), (3, 3), (2, 1), (5, 6), (6, 7), (7, 8)\}
-\end{equation}$$
+$$
 
 Compute $R^{-1}$. Compute $R; R$.
 
