@@ -132,6 +132,12 @@ Edith: "Margo is a knave."
 Margo: "Gru is a knight."
 Gru: "Agnes is lying!"
 
-For each character, identify whether they are a knight or knave!
+We can use predicates to encode these statements mathematically as follows:
 
+1. $Knave(x)$ means $x$ is a knave.
+2. $Knight(x)$ means $x$ is a knight.
+3. "Every person is either a knight or a knave" can be written as $\forall p \in Person[ Knight(p) \lor Knave(p) ]$
+4. "Every person cannot be both a knight and a knave" can be written as $\forall p \in Person[\neg( Knight(p) \land Knave(p))]$
+
+For each character, identify whether they are a knight or knave!
 
