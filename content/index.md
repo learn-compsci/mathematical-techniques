@@ -30,7 +30,7 @@ This website's intended usage by students taking discrete math courses at the [S
 |      3      |                 Break                  |                                                                                                             | None due to CNY |                      |
 |      4      |      Proofs In First Order Logic       |                        [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]]                         |                 |                      |
 |      5      |               Set Theory               |                                                 [[Unit 3]]                                                  |        1        |                      |
-|      6      |        Relations and Functions         |                                                                                                             |                 |        Friday        |
+|      6      |        Relations and Functions         |                                                                                                             |                 |     Sunday, 2359     |
 | Recess Week |                                        |                                                                                                             |                 |                      |
 |      7      |         Induction, Recurrences         |                                                                                                             |        2        |                      |
 |      8      |          Algorithmic Analysis          |                                                                                                             |                 |                      |
