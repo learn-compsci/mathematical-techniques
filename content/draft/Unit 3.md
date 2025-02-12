@@ -130,12 +130,12 @@ Here are a few more examples:
 > Notice here that we can relate one person to more than one food. We can also relate more than one person to one food. In general, since $S$ is a subset of $P \times F$, it is considered a relation.
 
 >[!Example]
-> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z}[x \cdot k = y]\}$.
+> Let $D = \{(y, x) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
 > 
 > Then $D$ relates integers $y$ to other integers that divide it. For example $(10, 2) \in D$, because $2$ divides $10$. Also $(10, 3) \notin D$, because $3$ does not divide $10$.
 
 >[!Example]
-> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z}[a- b = 3k] \}$.
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
 > 
 > Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 17) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
 
@@ -144,6 +144,7 @@ Here are a few more examples:
 > What about if we wanted to relate 3 things together? You will see this very commonly in databases. It is called a ternary relation. In general, a relation that relates $n$ things is called an $n$-ary relation.
 > 
 > For the purposes of our course, we will focus only on binary relations, i.e. sets of pairs only.
+
 # Operations on Relations
 
 Just like sets, there are a few common operations that we need to learn for relations. We will cover the two most common ones:
@@ -182,7 +183,7 @@ Let's see what this means for our previous 3 examples.
 
 ## Relation Composition
 
-Next is the relation composition operation. This one is slightly involved, so let me start with a few examples
+Next is the relation composition operation. This one is slightly involved, so let me start with a few examples.
 
 #### Example 1
 Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$. 
@@ -231,7 +232,7 @@ Pictorially, here's what's going on:
 
 ![[Images/mrt-composition.png]]
 
-We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
+We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in E;N$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
 
 ![[Images/relations-middle-man.png]]
 
@@ -240,7 +241,10 @@ We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar)$, because we know $(Dh
 The general definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
 
 $$\begin{equation}
+R;S = \{ (a, c) \in A \times C : \exists b \in B \ [(a, b) \in R \land (b, c) \in S]\} 
+
 R ; S = \{ (a, c) \in A \times C : \exists b \in B \ [(a, b) \in R \land (b, c) \in S] \} 
+
 \end{equation}$$
 
 
@@ -248,7 +252,8 @@ In English, this is basically just saying:
 
 > $a$ and $c$ are related by $(R; S)$ if we can find a $b \in B$ such that $a$ is related to this $b$ using relation $R$, and the same $b$ is related to $c$ using relation $S$.
 > 
-> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R; S)$.
+> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R;S)$.
+
 
 You can mentally picture this as "Taking one step using $R$, and then taking one step using $S$."
 
@@ -328,6 +333,7 @@ Is the divisibility relation reflexive? Yes. After all, every number divides its
 > Let $D = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
 > 
 > Then $D$ is reflexive.
+
 
 **Proof**:
 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
@@ -483,6 +489,7 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 5. $\forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 2, 4]
 6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 1, 5]
 
+
 What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
 ## Transitivity
@@ -559,6 +566,7 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 6. $\forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
 7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
 8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
+
 
 
 ## In summary:
