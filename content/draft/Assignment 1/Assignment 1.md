@@ -1,6 +1,7 @@
 
 This is the first of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 01st March 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 1".
 
+
 There are 5 questions for a total of 15 marks. There is also a **optional** bonus question that you **may** attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistakes you may have made in the other parts of this assignment.)
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
@@ -64,6 +65,7 @@ Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the 
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
 ---
+
 
 # Question 4 (3 marks):
 
@@ -130,15 +132,6 @@ Edith: "Margo is a knave."
 Margo: "Gru is a knight."
 Gru: "Agnes is lying!"
 
-For each character, identify whether they are a knight or knave! (0.5m per correct identification)
+For each character, identify whether they are a knight or knave!
 
-For you to solve this question, it might be helpful to think about how to formalise each statement into propositions and predicates. For example, the question statement states that every person is either only a knave or a knight. That means we could write statements such as the following:
-
-1. $Knight(x) \equiv x \text{ is a knight}$
-2. $Knave(x) \equiv x \text{ is a knave}$
-3. $(Knave(Agnes) \lor Knight(Agnes)) \land \neg(Knave(Agnes) \land Knight(Agnes))$
-
-The statement in point 3 is basically saying that "Agnes is at least either a knight or a knave, but Agnes is not both at the same time." You can imagine how we can probably say the same about $Edith$, $Margo$ and $Gru$.
-
-While you don't have to write out each statement, it might help you figure out who are knights and who are knaves.
 
