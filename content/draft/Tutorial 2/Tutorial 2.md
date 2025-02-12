@@ -3,7 +3,7 @@
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
 
-* **Official due date for submission** : 04-Mar-2025, 06:30 PM
+* **Official due date for submission** : 04-Mar-2025, 23:59 **or** during tutorial itself.
 
 
 # Collaboration Policy: 
@@ -26,7 +26,7 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 
 After week 5's content, you should be able to attempt questions 1 through 4. After week 6's content, you should be able to attempt questions 5 through 8.
 
-Questions 2, 4, 6, 7 are graded for participation.
+Questions 2, 4, 5, 7 are graded for participation.
 
 That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
@@ -49,7 +49,7 @@ Find the following sets:
 3. $A \setminus C$
 4. $A \times C$
 
-Note: Some of these can be written using [[Unit 2#Set Roster Notation]], these are the ones where you can list them out one by one. For the set, you can write them using [[Unit 2#Set Builder Notation|set builder notation]].
+Note: Some of these can be written using [[Unit 2#Set Roster Notation]], these are the ones where you can list them out one by one. For the rest, you can write them using [[Unit 2#Set Builder Notation|set builder notation]].
 
 ---
 # Question 3
@@ -74,7 +74,7 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 ---
 
-# Question 5 
+# Question 5 \[Graded for Participation]
 
 Let $R$ be the following relation:
 
@@ -89,7 +89,7 @@ It might be helpful to refer to [[Unit 3#Operations on Relations]].
 
 ---
 
-# Question 6 \[Graded for Participation]
+# Question 6
 
 Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$. 
 
