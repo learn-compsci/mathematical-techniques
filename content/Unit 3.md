@@ -218,7 +218,7 @@ What if we wanted to say that we wanted to take the 284 bus for **exactly** two 
 $$
 \begin{align*}
 A ; A= \{ &\\
-	&(Clementi\ INT, BLK\ 308),\\
+	&(Clementi\ INT, BLK\ 306,\\
 	&(Bef\ Blks\ 315/318, BLK\ 376),\\
 	&(BLK\ 306, Clementi\ INT)\\
 \}&
