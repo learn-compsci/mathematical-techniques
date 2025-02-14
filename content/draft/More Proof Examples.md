@@ -159,13 +159,127 @@ As for constructing the proof itself, we notice that there is an **implication**
 
 ## Proof Strategy #2: Proof by Cases
 
+Sometimes, a direct proof might not work because different instances might have different properties, so choosing arbitrarily might not be a good idea. In such situations, we can break down the statement into several cases, and prove each case separately. 
+
+There are **two important properties** to take note when proving by cases:
+1. You must consider *all possible cases*.
+2. In *every single case*, the statement mist hold true.
+
+Keep these two properties in mind as you go through the following proofs!
+
+### Example 2.1
+
+For this example, we introduce the definition of absolute values (also known as modulus) for any real number $x$:
+$$
+|x|= 
+\begin{cases}
+x, & \text{if } x > 0 \\
+0, & \text {if } x = 0 \\
+-x & \text {if } x < 0  
+\end{cases}
+$$
+We will also define the following for real numbers $x$ and $y$:
+$$x \geq y \iff x > y \lor x = y$$
+
+>[!example] Example 2.1
+>Prove that $\forall x \in \mathbb{R} \ [|x| \geq 0]$.
+
+**How do I know where to start?**
+
+Given the definition of $|x|$, it is not difficult to see how the proof by cases would work: consider each of the three cases, and show that $|x| \geq 0$. The first two cases are trivial, and the last case is easy to show given some basic knowledge of how inequalities work.
+
+>[!example] Proof 2.1
+>**Proof:**
+>1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
+>2. Since $x \in \mathbb{R}$, $x > 0 \lor x = 0 \lor x < 0$. \[Basic algebra]
+>	1. Case 1: $x > 0$.
+>		1. $|x| = x$ \[Definition of absolute value]
+>		2. $|x| > 0$ \[Basic algebra, from line 2.1]
+>		3. $|x| > 0 \lor |x| = 0$ \[Generalisation on lines 2.1.1, 2.1.2]
+>		4. $|x| \geq 0$ \[Definition of $\geq$]
+>	2. Case 2: $x = 0$.
+>		1. $|x| = 0$ \[Definition of absolute value]
+>		2. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.2.1]
+>		3. $|x| \geq 0$ \[Definition of $\geq$]
+>	3. Case 3: $x < 0$.
+>		1. $|x| = -x$ \[Definition of absolute value]
+>		2. $-x > 0$ \[Basic algebra, from line 2.3]
+>		3. $|x| > 0$ \[Basic algebra, from lines 2.3.1, 2.3.2]
+>		4. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.3.3]
+>		5. $|x| \geq 0$ \[Definition of $\geq$]
+>3. $|x| \geq 0$ \[Proof by cases on lines 2, 2.1.4, 2.2.3, 2.3.5]
+>4. $\forall \in \mathbb{R} \ [|x| \geq 0]$ \[Universal generalisation on lines 1, 3]
+
+>[!tip] Try It Out!
+>Prove that $\forall x \in \mathbb{R} \ [|x|^2 = x^2]$.
+
+>[!tip]- Solution
+>**Proof:**
+>1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
+>2. Since $x \in \mathbb{R}$, $x > 0 \lor x = 0 \lor x < 0$. \[Basic algebra]
+>	1. Case 1: $x > 0$.
+>		1. $|x| = x$ \[Definition of absolute value]
+>		2. $|x|^2 = x^2$ \[Basic algebra]
+>	2. Case 2: $x = 0$.
+>		1. $|x| = 0$ \[Definition of absolute value]
+>		2. $|x|^2 = 0^2 = x^2$ \[Basic algebra]
+>	3. Case 3: $x < 0$.
+>		1. $|x| = -x$ \[Definition of absolute value]
+>		2. $|x|^2 = (-x)^2 = x^2$ \[Basic algebra]
+>3. $|x|^2 = x^2$ \[Proof by cases on lines 2, 2.1, 2.2, 2.3]
+>4. $\forall x \in \mathbb{R} \ [|x|^2 = x^2]$ \[Universal generalisation on lines 1, 3]
+
+### Example 2.2
+
+>[!example] Example 2.2
+>Prove that $\forall n \in \mathbb{Z} \ \big[even(3n^2 + n + 14)\big]$.
+
+**How do I know where to start?**
+
+Clearly, our proof must involve finding the value of $3n^2 + n + 14$, then showing that it fits the definition of $even$. Direct proof probably will not be useful, since instantiating $n$ just gives us $3n^2 + n + 14$, and we are back to square one. What if we try proving by cases? Which cases do we consider?
+
+For a start, since we need to prove that something is even, we might just begin by trying even values of $n$ and seeing where that brings us. Suppose $n = 6$. Then, $$3n^2+n+14 = 3 \cdot 6^2 + 6 + 14 = \textcolor{green}{108} + \textcolor{green}{6} + 14 = 128$$
+Well, that wasn't too surprising, was it? Each term of the sum is clearly even, so their sum must be even as well! Ok, what about odd numbers then? Let's try $n = 5$: $$3n^2 + n + 14 = 3 \cdot 5^2 + 5 + 14 = \textcolor{red}{75} + \textcolor{red}{5} + 14 = 94$$
+Interesting! Somehow, even though the first two terms were not even, their sum ended up being even; one might say that their odd-ness "cancelled out". The question becomes: "Will this 'cancelling out' occur for all odd numbers?"
+
+As it turns out, the answer is **yes**, and we can show this algebraically.
+
+>[!example] Proof 2.2
+>**Proof:**
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Since $n \in \mathbb{Z}$, $even(n) \lor odd(n)$. \[Basic algebra, or by [[Assignment 1]], Q4]
+>	1. Case 1: $even(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
+>		2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
+>		3. $3n^2+n+14 = 3(2s)^2+2s+14 = 12s^2+2s+14 =\dots= 2 \cdot (6s^2+s+7)$ \[Basic algebra]
+>		4. Since $s \in \mathbb{Z}$, $6s^2+s+7 \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $even(3n^2+n+14)$ \[Definition of $even$]
+>	2. Case 2: $odd(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>		2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
+>		3. $3n^2+n+14 = 3(2t+1)^2+(2t+1)+14 =\dots=2 \cdot (6t^2+7t+9)$ \[Basic algebra]
+>		4. Since $t \in \mathbb{Z}$, $6t^2+7t+9 \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $even(3n^2+n+14)$ \[Definition of $even$]
+>3. $even(3n^2+n+14)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6]
+>4. $\forall n \in \mathbb{Z} \ \big[even(3n^2 + n + 14)\big]$ \[Universal generalisation on lines 1, 3]
+
+
 
 ---
-
 ## Proof Strategy #3: Proof by Contradiction
 
 
 ---
 
 ## Proof Strategy #4: Proof by Contrapositive
+
+
+---
+
+## Extra Practice Questions
+
+>[!note] Question 1
+>Prove that $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ \big[divides(a,b) \land divides(b,c) \to divides(a,c)\big]$.
 
