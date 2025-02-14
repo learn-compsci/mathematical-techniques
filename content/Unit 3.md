@@ -236,7 +236,7 @@ So, this means for example, $(City\ Hall, Clementi) \in E$. (even if they are no
 
 Let's also make another set $N$ that relates any two MRT stations that are connected via the North-South line. So for example, $(Toa\ Payoh, City\ Hall) \in N$.
 
-Okay, so this time around, we have two different relations. Think a little bit about what the relation $E; N$ represents.
+Okay, so this time around, we have two different relations. Think a little bit about what the relation $N; E$ represents.
 
 $N; E$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
 
