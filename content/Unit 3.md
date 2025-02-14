@@ -581,7 +581,7 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 	2. $\exists k \in \mathbb{Z} \ [k\neq 0 \land a \cdot k = b]$ \[Definition of $D$]
 	3. Let $t_1 \in \mathbb{Z}$ such that $t_1 \neq 0 \land a \cdot t_1 = b$ \[Existential instantiation on line 4.2]
 	4. $(b, c) \in D$  \[Specialisation on line 4]
-	5. $\exists k \in \mathbb{Z} \ [b \cdot k = c]$  \[Definition of $D$]
+	5. $\exists k \in \mathbb{Z} \ [k\neq 0 \land b \cdot k = c]$  \[Definition of $D$]
 	6. Let $t_2 \in \mathbb{Z}$ such that $t_2 \neq 0 \land b \cdot t_2 = c$ \[Existential instantiation on line 4.5]
 	7. $a\cdot t_1 = b$ \[Specialisation on line 4.3]
 	8. $b\cdot t_2 = c$ \[Specialisation on line 4.6]
