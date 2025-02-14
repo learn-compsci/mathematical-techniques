@@ -207,7 +207,7 @@ A = \{ &\\
 	&(Clementi\ INT, Bef\ Blks\ 315/318),\\
 	&(Bef\ Blks\ 315/318, BLK\ 306),\\
 	&(BLK\ 306, BLK\ 376),\\
-	&(BLK\ 308, Clementi\ INT)\\
+	&(BLK\ 376, Clementi\ INT)\\
 \}&
 \end{align*}
 $$
@@ -220,7 +220,7 @@ $$
 A ; A= \{ &\\
 	&(Clementi\ INT, BLK\ 308),\\
 	&(Bef\ Blks\ 315/318, BLK\ 376),\\
-	&(BLK\ 308, Clementi\ INT)\\
+	&(BLK\ 306, Clementi\ INT)\\
 \}&
 \end{align*}
 $$
