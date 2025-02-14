@@ -26,7 +26,7 @@ We will refer to the standard definitions of $even(x)$ and $odd(x)$:
 
 Observe that we have an *existential* statement, i.e., we need to show that such a value of $k \in \mathbb{Z}$ exists that fulfils $4 = 2 \cdot k$. Working backwards, we have $k = 2$, so perhaps we could start there.
 
->[!example] Proof 1.1
+>[!example]+ Proof 1.1
 >**Proof:**
 >1. $4 = 2 \cdot 2$ \[Basic algebra]
 >2. $2 \in \mathbb{Z}$ \[Basic algebra]
@@ -58,7 +58,7 @@ Now, we have a *universal* statement, so we need to prove the statement for ever
 
 Regarding the statement itself, it is not hard to see why the statement should be true: for every integer $x$, we have $x = \frac{x}{1}$, and $\frac{x}{1}$ is clearly a rational number!
 
->[!example] Proof 1.2
+>[!example]+ Proof 1.2
 >**Proof:**
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. $1 \in \mathbb{Z}$ \[Basic algebra]
@@ -114,7 +114,7 @@ At this point, you might observe that the quantities $a-b$ and $b-a$ are really 
 
 As for constructing the proof itself, we notice that there is an **implication** in the statement. In such situations, we *assume the antecedent* and try to *prove the consequent*. In other words, if we want to show that $p \to q$, then we assume $p$ and try to prove $q$ by the end.
 
->[!example] Proof 1.3
+>[!example]+ Proof 1.3
 >**Proof:**
 >1. Let $a \in \mathbb{Z}$, $b \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume $congruent(a,b,n)$.
@@ -136,34 +136,29 @@ As for constructing the proof itself, we notice that there is an **implication**
 >- On line 4, we used **universal generalisation** to restore the statement to its original, universal form.
 
 >[!tip] Try It Out!
->Prove that $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ \big[odd(x) \land odd(y) \to odd(xy)\big]$.
+>Prove that $\forall x \in \mathbb{Z} \ \big[odd(x) \to odd(x^2)\big]$.
 
 >[!tip]- Solution
 >**Proof:**
->1. Let $x \in \mathbb{Z}$, $y \in \mathbb{Z}$ be arbitrarily chosen.
->2. Assume that $odd(x) \land odd(y)$.
->	1. $odd(x)$ \[Specialisation on line 2]
->	2. $\exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$ \[Definition of $odd$]
->	3. Let $s \in \mathbb{Z}$ be such that $x = 2 \cdot s + 1$. \[Existential instantiation on line 2.2]
->	4. $odd(y)$ \[Specialisation on line 2]
->	5. $\exists k \in \mathbb{Z} \ [y = 2 \cdot k + 1]$ \[Definition of $odd$]
->	6. Let $t \in \mathbb{Z}$ be such that $y = 2 \cdot t + 1$. \[Existential instantiation on line 2.5]
->	7. $xy = (2s + 1)(2t + 1) = 4st + 2s + 2t + 1 = 2 \cdot (st + s + t) + 1$ \[Basic algebra]
->	8. Since $s,t \in \mathbb{Z}$, $st+s+t \in \mathbb{Z}$. \[Basic algebra]
->	9. $\exists k \in \mathbb{Z} \ [xy = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.7, 2.8]
->	10. $odd(xy)$ \[Definition of $odd$]
->3. $odd(x) \land odd(y) \to odd(xy)$ \[Implication introduction on lines 2, 2.10]
->4. $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ \big[odd(x) \land odd(y) \to odd(xy)\big]$ \[Universal generalisation on lines 1, 3]
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $odd(x)$.
+>	1. $\exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	2. Let $s \in \mathbb{Z}$ be such that $x = 2 \cdot s + 1$. \[Existential instantiation on line 2.1]
+>	3. $x^2 = (2s + 1)^2 = 4s^2 + 4s + 1 = 2 \cdot (2s^2 + 2s) + 1$ \[Basic algebra]
+>	4. Since $s \in \mathbb{Z}$, $2s^2 + 2s \in \mathbb{Z}$. \[Basic algebra]
+>	5. $\exists k \in \mathbb{Z} \ [x^2 = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.3, 2.4]
+>	6. $odd(x^2)$ \[Definition of $odd$]
+>3. $odd(x) \to odd(x^2)$ \[Implication introduction on lines 2, 2.6]
+>4. $\forall x \in \mathbb{Z} \ \big[odd(x) \to odd(x^2)\big]$ \[Universal generalisation on lines 1, 3]
  
 ---
-
 ## Proof Strategy #2: Proof by Cases
 
 Sometimes, a direct proof might not work because different instances might have different properties, so choosing arbitrarily might not be a good idea. In such situations, we can break down the statement into several cases, and prove each case separately. 
 
 There are **two important properties** to take note when proving by cases:
 1. You must consider *all possible cases*.
-2. In *every single case*, the statement mist hold true.
+2. In *every single case*, the statement must hold true.
 
 Keep these two properties in mind as you go through the following proofs!
 
@@ -178,6 +173,7 @@ x, & \text{if } x > 0 \\
 -x & \text {if } x < 0  
 \end{cases}
 $$
+
 We will also define the following for real numbers $x$ and $y$:
 $$x \geq y \iff x > y \lor x = y$$
 
@@ -188,7 +184,7 @@ $$x \geq y \iff x > y \lor x = y$$
 
 Given the definition of $|x|$, it is not difficult to see how the proof by cases would work: consider each of the three cases, and show that $|x| \geq 0$. The first two cases are trivial, and the last case is easy to show given some basic knowledge of how inequalities work.
 
->[!example] Proof 2.1
+>[!example]+ Proof 2.1
 >**Proof:**
 >1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
 >2. Since $x \in \mathbb{R}$, $x > 0 \lor x = 0 \lor x < 0$. \[Basic algebra]
@@ -209,6 +205,11 @@ Given the definition of $|x|$, it is not difficult to see how the proof by cases
 >		5. $|x| \geq 0$ \[Definition of $\geq$]
 >3. $|x| \geq 0$ \[Proof by cases on lines 2, 2.1.4, 2.2.3, 2.3.5]
 >4. $\forall \in \mathbb{R} \ [|x| \geq 0]$ \[Universal generalisation on lines 1, 3]
+>---
+>**Rules of deduction/inference used:**
+>- On lines 2.1, 2.2 and 2.3, we considered each of the propositions laid out in line 2. Then, in each of those cases, we used **generalisation** to arrive at the statement $|x| \geq 0$.
+>- On line 3, we "summarised" the cases using the **proof by cases** rule.
+>- On line 4, we used **universal generalisation** to restore the statement to its original, universal form.
 
 >[!tip] Try It Out!
 >Prove that $\forall x \in \mathbb{R} \ [|x|^2 = x^2]$.
@@ -231,6 +232,11 @@ Given the definition of $|x|$, it is not difficult to see how the proof by cases
 
 ### Example 2.2
 
+For this example, we refer to the lemma presented in Q4 of [[Assignment 1]]:
+
+>[!note] Lemma 1
+>$\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$.
+
 >[!example] Example 2.2
 >Prove that $\forall n \in \mathbb{Z} \ \big[even(3n^2 + n + 14)\big]$.
 
@@ -244,10 +250,10 @@ Interesting! Somehow, even though the first two terms were not even, their sum e
 
 As it turns out, the answer is **yes**, and we can show this algebraically.
 
->[!example] Proof 2.2
+>[!example]+ Proof 2.2
 >**Proof:**
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
->2. Since $n \in \mathbb{Z}$, $even(n) \lor odd(n)$. \[Basic algebra, or by [[Assignment 1]], Q4]
+>2. $even(n) \lor odd(n)$. \[Universal instantiation of Lemma 1]
 >	1. Case 1: $even(n)$.
 >		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
 >		2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
@@ -260,12 +266,112 @@ As it turns out, the answer is **yes**, and we can show this algebraically.
 >		2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
 >		3. $3n^2+n+14 = 3(2t+1)^2+(2t+1)+14 =\dots=2 \cdot (6t^2+7t+9)$ \[Basic algebra]
 >		4. Since $t \in \mathbb{Z}$, $6t^2+7t+9 \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
 >		6. $even(3n^2+n+14)$ \[Definition of $even$]
 >3. $even(3n^2+n+14)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6]
 >4. $\forall n \in \mathbb{Z} \ \big[even(3n^2 + n + 14)\big]$ \[Universal generalisation on lines 1, 3]
 
+>[!tip] Try It Out!
+>Prove that $\forall n \in \mathbb{Z} \ \big[odd(n^2 - 5n + 7)\big]$.
 
+>[!tip]- Solution
+>**Proof:**
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. $even(n) \lor odd(n)$. \[Universal instantiation of Lemma 1]
+>	1. Case 1: $even(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
+>		2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
+>		3. $n^2-5n+7 = (2s)^2-5(2s)+7 =\dots= 2 \cdot (2s^2-5s+3) + 1$ \[Basic algebra]
+>		4. Since $s \in \mathbb{Z}$, $2s^2-5s+3 \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n^2-5n+7 = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $odd(n^2-5n+7)$ \[Definition of $odd$]
+>	2. Case 2: $odd(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>		2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
+>		3. $n^2-5n+7 = (2t+1)^2-5(2t+1)+7 =\dots= 2 \cdot (2t^2-3t+1) + 1$ \[Basic algebra]
+>		4. Since $t \in \mathbb{Z}$, $2t^2-3t+1 \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n^2-5n+7 = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>		6. $odd(n^2-5n+7)$ \[Definition of $odd$]
+>3. $odd(n^2-5n+7)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6]
+>4. $\forall n \in \mathbb{Z} \ \big[odd(n^2 - 5n + 7)\big]$ \[Universal generalisation on lines 1, 3]
+
+### Example 2.3
+
+For this example, we will refer to the following definition of divisibility: $$divides(a,b) \iff \exists k \in \mathbb{Z} \ [b = a \cdot k]$$
+To aid our proof, we will also introduce the following lemma:
+
+>[!note] Lemma 2
+>$\forall n \in \mathbb{Z} \ \big[congruent(n,0,3) \lor congruent(n,1,3) \lor congruent(n,2,3)\big]$.
+
+>[!example] Example 2.3
+>Prove that $\forall n \in \mathbb{Z} \ \big[divides\big(3,n(n-1)(n+1)\big)\big]$.
+
+**How do I know where to start?**
+
+As always, when it doesn't seem obvious how a statement could be true, it is good practice to try out some values to get a sense of how the proof might work.
+
+Suppose we pick $n = 2$. Then, $n(n-1)(n+1) = 2 \cdot 1 \cdot 3 = 6$, which is divisible by $3$. How about $n = 6$? Then, $n(n-1)(n+1) = 6 \cdot 5 \cdot 7 = 210$, which is also divisible by $3$. One last one: $n = 10$. Then, $n(n-1)(n+1) = 10 \cdot 9 \cdot 11 = 990$, and that is also divisible by $3$. Ok, it seems plausible that the statement is true! Now, let's dig deeper and try to understand why.
+
+- When $n=2$, one might observe that the result was divisible by $3$ thanks to the last number: $3$, which was the "$n+1$" factor of our product.
+- When $n = 6$, the product is obviously divisible by $3$ thanks to the "$n$" factor of our product.
+- When $n = 10$, the product was divisible by $3$ because of the number $9$, which was due to the "$n-1$" factor of our product.
+
+Hmm, it seems like no matter which number we pick, there will always be a factor (either $n$, $n-1$, or $n+1$) that is divisible by $3$. How strange!
+
+>[!example]+ Proof 2.3
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. $congruent(n,0,3) \lor congruent(n,1,3) \lor congruent(n,2,3)$. \[Universal instantiation of Lemma 2]
+>	1. Case 1: $congruent(n,0,3)$.
+>		1. $\exists k \in \mathbb{Z} \ [n - 0 = 3 \cdot k]$ \[Definition of $congruent$]
+>		2. Let $r \in \mathbb{Z}$ be such that $n - 0 = 3 \cdot r$. \[Existential instantiation on line 2.1.1]
+>		3. $n(n-1)(n+1)=(3r)(3r-1)(3r+1)=3 \cdot [r(3r-1)(3r+1)]$ \[Basic algebra]
+>		4. Since $r \in \mathbb{Z}$, $r(3r-1)(3r+1) \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>	2. Case 2: $congruent(n,1,3)$.
+>		1. $\exists k \in \mathbb{Z} \ [n - 1 = 3 \cdot k]$ \[Definition of $congruent$]
+>		2. Let $s \in \mathbb{Z}$ be such that $n - 1 = 3 \cdot s$. \[Existential instantiation on line 2.2.1]
+>		3. $n(n-1)(n+1)=(3s+1)(3s)(3s+2)=3 \cdot [s(3s+1)(3s+2)]$ \[Basic algebra]
+>		4. Since $s \in \mathbb{Z}$, $s(3s+1)(3s+2) \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>	3. Case 3: $congruent(n,2,3)$.
+>		1. $\exists k \in \mathbb{Z} \ [n - 2 = 3 \cdot k]$ \[Definition of $congruent$]
+>		2. Let $t \in \mathbb{Z}$ be such that $n - 2 = 3 \cdot t$. \[Existential instantiation on line 2.3.1]
+>		3. $n(n-1)(n+1)=(3t+2)(3t+1)(3t)=3 \cdot [t(3t+2)(3t+1)]$ \[Basic algebra]
+>		4. Since $t \in \mathbb{Z}$, $t(3t+2)(3t+1) \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.3.3, 2.3.4]
+>		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>3. $divides\big(3, n(n-1)(n+1)\big)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6, 2.3.6]
+>4. $\forall n \in \mathbb{Z} \ \big[divides\big(3, n(n-1)(n+1)\big)\big]$ \[Universal generalisation on lines 1, 3]
+
+>[!tip] Try It Out!
+>Prove that $\forall n \in \mathbb{Z} \ \big[congruent(n^2,0,4) \lor congruent(n^2,1,4)\big]$.
+>
+>*Hint: There are **two** cases to consider.*
+
+>[!tip]- Solution
+>**Proof:**
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. $even(n) \lor odd(n)$ \[Universal instantiation of Lemma 1]
+>	1. Case 1: $even(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
+>		2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
+>		3. $n^2  - 0 = n^2 = (2s)^2 = 4 \cdot s^2$ \[Basic algebra]
+>		4. Since $s \in \mathbb{Z}$, $s^2 \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n^2 - 0 = 4 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $congruent(n^2,0,4)$ \[Definition of $congruent$]
+>		7. $congruent(n^2,0,4) \lor congruent(n^2,1,4)$ \[Generalisation on line 2.1.6]
+>	2. Case 2: $odd(n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>		2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
+>		3. $n^2 - 1 = (2t+1)^2 - 1 = 4t^2 + 4t + 1 - 1 = 4t^2 + 4t = 4 \cdot (t^2+t)$ \[Basic algebra]
+>		4. Since $t \in \mathbb{Z}$, $t^2 + t \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [n^2 - 1 = 4 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>		6. $congruent(n^2,1,4)$ \[Definition of $congruent$]
+>		7. $congruent(n^2,0,4) \lor congruent(n^2,1,4)$ \[Generalisation on line 2.2.6]
+>3. $congruent(n^2,0,4) \lor congruent(n^2,1,4)$ \[Proof by cases on lines 2, 2.1.7, 2.2.7]
+>4. $\forall n \in \mathbb{Z} \ [congruent(n^2,0,4) \lor congruent(n^2,1,4)]$ \[Universal generalisation on lines 1, 3]
 
 ---
 ## Proof Strategy #3: Proof by Contradiction
@@ -279,6 +385,7 @@ As it turns out, the answer is **yes**, and we can show this algebraically.
 ---
 
 ## Extra Practice Questions
+
 
 >[!note] Question 1
 >Prove that $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ \big[divides(a,b) \land divides(b,c) \to divides(a,c)\big]$.
