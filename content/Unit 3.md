@@ -310,7 +310,7 @@ Before moving on, we've been commonly using some relations that are good example
 Let the set $D$ be such that:
 
 $$
-D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}
+D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}
 $$
 
 Then we will call $D$ the _divisibility relation_. Here we will only consider natural numbers. So for example $(2, 10) \in D$. And $(3, 60) \in D$. But $(60, 3) \notin D$, and $(2, 3) \notin D$.
@@ -354,7 +354,7 @@ So let's look at the certain natural mathematical relations and see if they are 
 Is the divisibility relation reflexive? Yes. After all, every number divides itself. Let's see a proof of this.
 
 >[!Theorem]
-> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
+> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
 > 
 > Then $D$ is reflexive.
 
@@ -363,10 +363,12 @@ Is the divisibility relation reflexive? Yes. After all, every number divides its
 1. Let $x \in \mathbb{N}$, arbitrarily chosen.
 2. $x \cdot 1 = x$ \[Basic algebra]
 3. $1 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z} \ [x \cdot k = x]$ \[Existential generalisation on lines 2, 3]
-5. $x \in \mathbb{N} \land \exists k \in \mathbb{Z} \ [x \cdot k = x]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in D$ \[Definition of $D$]
-7. $\forall x \in \mathbb{N} \ [(x, x) \in D]$ \[Universal generalisation on lines 1, 6]
+4. $1 \neq 0$ \[Basic algebra]
+5. $x\cdot 1 = x \land 1 \neq 0$ \[Conjunction of lines 2, 4]
+6. $\exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = x]$ \[Existential generalisation on lines 2, 3]
+7. $x \in \mathbb{N} \land \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = x]$ \[Conjunction on lines 1, 6]
+8. $(x, x) \in D$ \[Definition of $D$]
+9. $\forall x \in \mathbb{N} \ [(x, x) \in D]$ \[Universal generalisation on lines 1, 8]
 
 So the divisibility relation $D$ is reflexive!
 
@@ -456,18 +458,18 @@ Let's look at the formal proof now.
 > Then $C_n$ is symmetric.
 
 **Proof**:
-14. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-15. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-16. Assume $(a, b) \in C_n$.
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+3. Assume $(a, b) \in C_n$.
 	1. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
 	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = n\cdot k]$ \[Existential instantiation of line 3.1]
 	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
 	4. $-t \in \mathbb{Z}$ \[Basic algebra]
 	5. $\exists k\in \mathbb{Z} \ [(b - a) = n\cdot k]$ \[Existential instantiation of line 3.5]
 	6. $(b, a) \in C_n$ \[Definition of $C_n$]
-17. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
-18. $\forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
-19. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
+5. $\forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
+6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
 
 ## Anti-Symmetry
 
@@ -509,7 +511,7 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 
 
 >[!Theorem]
-> Let $D = \{(y, x) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
+> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
 > 
 > Then $D$ is anti-symmetric.
 
@@ -519,16 +521,18 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 2. Let $b \in \mathbb{N}$, arbitrarily chosen.
 3. Assume that $(a, b) \in D \land (b, a) \in D$
 	1. $(a, b) \in D$ \[Specialisation on line 3]
-	2. $\exists k \in \mathbb{Z} \ [a\cdot k = b]$ \[Definition of $D$]
-	3. Let $t_1 \in \mathbb{Z}$ such that $a\cdot t_1 = b$  \[Existential instantiation of line 3.2]
-	4. $(b, a) \in D$ \[Specialisation on line 3]
-	5. $\exists k \in \mathbb{Z} \ [b \cdot k = a]$ \[Definition of $D$]
-	6. Let $t_2 \in \mathbb{Z}$ such that $b\cdot t_2 = a$ \[Existential instantiation of line 3.2]
-	7. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
-	8. $t_1 \cdot t_2 = 1$ \[Basic algebra]
-	9. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are natural numbers]
-	10. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
-4. $\big((a, b) \in D \land (b, a) \in D\big)\to a = b$ \[Implication introduction on lines 3, 3.9]
+	2. $\exists k \in \mathbb{Z} \ [k\neq 0 \land a\cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $t_1 \neq 0 \land a\cdot t_1 = b$  \[Existential instantiation of line 3.2]
+	4. $a\cdot t_1 = b$ \[Specialisation on line 3.3]
+	5. $(b, a) \in D$ \[Specialisation on line 3]
+	6. $\exists k \in \mathbb{Z} \ [k\neq 0 \land b \cdot k = a]$ \[Definition of $D$]
+	7. Let $t_2 \in \mathbb{Z}$ such that $t_2 \neq 0 \land b\cdot t_2 = a$ \[Existential instantiation of line 3.6]
+	8. $b\cdot t_2 = a$ \[Specialisation on line 3.7]
+	9. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
+	10. $t_1 \cdot t_2 = 1$ \[Basic algebra]
+	11. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are natural numbers]
+	12. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
+4. $\big((a, b) \in D \land (b, a) \in D\big)\to a = b$ \[Implication introduction on lines 3, 3.12]
 5. $\forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 2, 4]
 6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 1, 5]
 
@@ -564,7 +568,7 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 #### Divisibility is transitive
 
 >[!Theorem]
-> Let $D = \{(x, y) \in (y, x) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$.
+> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
 > 
 > Then $D$ is transitive.
 
@@ -574,19 +578,25 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 3. Let $c \in \mathbb{N}$, arbitrarily chosen.
 4. Assume $(a, b) \in D \land (b, c) \in D$
 	1. $(a, b) \in D$ \[Specialisation on line 4]
-	2. $\exists k \in \mathbb{Z} \ [a \cdot k = b]$ \[Definition of $D$]
-	3. Let $t_1 \in \mathbb{Z}$ such that $a \cdot t_1 = b$ \[Existential instantiation on line 4.2]
+	2. $\exists k \in \mathbb{Z} \ [k\neq 0 \land a \cdot k = b]$ \[Definition of $D$]
+	3. Let $t_1 \in \mathbb{Z}$ such that $t_1 \neq 0 \land a \cdot t_1 = b$ \[Existential instantiation on line 4.2]
 	4. $(b, c) \in D$  \[Specialisation on line 4]
 	5. $\exists k \in \mathbb{Z} \ [b \cdot k = c]$  \[Definition of $D$]
-	6. Let $t_2 \in \mathbb{Z}$ such that $b \cdot t_2 = c$ \[Existential instantiation on line 4.5]
+	6. Let $t_2 \in \mathbb{Z}$ such that $t_2 \neq 0 \land b \cdot t_2 = c$ \[Existential instantiation on line 4.5]
 	7. $c = b\cdot t_2 = a \cdot (t_1 \cdot t_2)$  \[Basic algebra]
-	8. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
-	9. $\exists k \in \mathbb{Z} \ [a \cdot k = c]$ \[Existential generalisation on line 4.8]
-	10. $(a, c) \in D$ \[Definition of $D$]
+	8. $a\cdot t_1 = b$ \[Specialisation on line 4.3]
+	9. $b\cdot t_2 = c$ \[Specialisation on line 4.6]
+	10. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
+	11. $t_1 \neq 0$ \[Specialisation on line 4.3]
+	12. $t_2 \neq 0$ \[Specialisation on line 4.6]
+	13. $t_1 \cdot t_2 \neq 0$ \[Basic algebra]'
+	14. $t_1 \cdot t_2 \neq 0 \land a \cdot (t_1\cdot t_2) = c$
+	15. $\exists k \in \mathbb{Z} \ [k\neq 0\land a \cdot k = c]$ \[Existential generalisation on line 4.10]
+	16. $(a, c) \in D$ \[Definition of $D$]
 5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
 6. $\forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
 7. $\forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
+8. $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on 1, 7]
 
 #### Congruence is transitive
 
