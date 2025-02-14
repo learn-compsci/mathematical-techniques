@@ -606,10 +606,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 > Then $C_n$ is transitive.
 
 **Proof**:
-9. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-10. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-11. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-12. Assume $(a, b) \in C_n \land (b, c) \in C_n$
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
+3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
+4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
 	1. $(a, b) \in C_n$ \[Specialisation on line 4]
 	2. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
 	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = n \cdot t_1$ \[Existential instantiation on line 4.2]
@@ -620,10 +620,10 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 	8. $(t_1 - t_2) \in \mathbb{Z}$ \[Basic algebra]
 	9. $\exists k \in \mathbb{Z} \ [(a - c) = n\cdot k]$ \[Existential generalisation on lines 4.7, 4.8]
 	10. $(a, c) \in C_n$ \[Definition of $C_n$]
-13. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on lines 4, 4.10]
-14. $\forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
-15. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
-16. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
+5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on lines 4, 4.10]
+6. $\forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
+7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
+8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
 
 ## In summary:
 
