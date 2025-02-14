@@ -462,7 +462,7 @@ Let's look at the formal proof now.
 2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
 3. Assume $(a, b) \in C_n$.
 	1. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
-	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = n\cdot k]$ \[Existential instantiation of line 3.1]
+	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = n\cdot t]$ \[Existential instantiation of line 3.1]
 	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
 	4. $-t \in \mathbb{Z}$ \[Basic algebra]
 	5. $\exists k\in \mathbb{Z} \ [(b - a) = n\cdot k]$ \[Existential instantiation of line 3.5]
