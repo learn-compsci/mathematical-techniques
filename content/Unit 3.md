@@ -457,8 +457,8 @@ Let's look at the formal proof now.
 > Then $C_n$ is symmetric.
 
 **Proof**:
-1. Let $a \in A$, arbitrarily chosen.
-2. Let $b \in A$, arbitrarily chosen.
+1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
+2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
 3. Assume $(a, b) \in C_n$.
 	1. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
 	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = n\cdot k]$ \[Existential instantiation of line 3.1]
@@ -467,8 +467,8 @@ Let's look at the formal proof now.
 	5. $\exists k\in \mathbb{Z} \ [(b - a) = n\cdot k]$ \[Existential instantiation of line 3.5]
 	6. $(b, a) \in C_n$ \[Definition of $C_n$]
 4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
-5. $\forall b \in A \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
-6. $\forall a \in A, \forall b \in A \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+5. $\forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
+6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
 
 ## Anti-Symmetry
 
