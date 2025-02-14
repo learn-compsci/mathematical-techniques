@@ -584,9 +584,9 @@ Let's end the chapter by proving our two usual examples of relations are both tr
 	9. $\exists k \in \mathbb{Z} \ [a \cdot k = c]$ \[Existential generalisation on line 4.8]
 	10. $(a, c) \in D$ \[Definition of $D$]
 5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
-6. $\forall c \in \mathbb{Z} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
+6. $\forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
+7. $\forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
+8. $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 1, 7]
 
 #### Congruence is transitive
 
