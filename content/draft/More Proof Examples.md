@@ -376,6 +376,167 @@ Hmm, it seems like no matter which number we pick, there will always be a factor
 ---
 ## Proof Strategy #3: Proof by Contradiction
 
+Often, proving directly (be it using direct proof or proving by cases) is infeasible or downright impossible. In such cases, we have two options: proving by contradiction, or proving by contrapositive. However, when there isn't an implication in the statement, it might be difficult to prove by contrapositive; here's where proofs by contradiction can be useful!
+
+Throughout the examples in this section, pay attention to the following:
+
+1. The "conjunction-contradiction-proof by contradiction" trio at the end of each proof
+2. How the contradictions were derived without circular reasoning
+
+### Example 3.1
+
+>[!example] Example 3.1
+>Prove that $\forall n \in \mathbb{Z} \ [3n \neq 1]$.
+
+**How do I know where to start?**
+
+Clearly, the statement is true, since $3n$ must be a multiple of $3$, which $1$ is evidently not. If we proceeded to prove the statement directly as per usual, we quickly run into a problem:
+
+**Attempt**:
+1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+2. $\dots \ ?$
+
+There is no property about an arbitrary integer $n$ that tells us $3n$ cannot be $1$, as painfully obvious as it might seem! In times like these, we can try a proof by contradiction instead.
+
+The contradiction arises when we suppose that there *is indeed* a number $n$ where $3n = 1$, namely that $n = \frac{1}{3}$ is not possible since we already assumed that $n$ is an integer.
+
+>[!example] Proof 3.1
+>**Proof:**
+>1. Assume, for the sake of contradiction, that $\neg \big(\forall n \in \mathbb{Z} \ [3n \neq 1]\big)$.
+>	1. $\exists n \in \mathbb{Z} \ [3n = 1]$ \[Logically equivalent to line 1]
+>	2. Let $k \in \mathbb{Z}$ be such that $3k = 1$. \[Existential instantiation on line 1.1]
+>	3. $k = \frac{1}{3}$ \[Basic algebra]
+>	4. $\neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Basic algebra]
+>	5. Since $k \in \mathbb{Z}$ and $k = \frac{1}{3}$, $\frac{1}{3} \in \mathbb{Z}$. \[Basic algebra, from line 1.2, 1.3]
+>	6. $\big(\frac{1}{3} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Conjunction on lines 1.4, 1.5]
+>	7. $\bot$. \[Contradiction rule on line 1.6]
+>2. $\forall n \in \mathbb{Z} \ [3n \neq 1]$ \[Proof by contradiction rule on lines 1, 1.7]
+
+>[!tip] Try It Out!
+>Prove that $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}\ [10a + 15b \neq 5]$.
+
+>[!tip]- Solution
+>**Proof:**
+>1. Assume, for the sake of contradiction, that $\neg \big(\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 5]\big)$.
+>	1. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z} \ [10a + 15b = 1]$. \[Logically equivalent to line 1]
+>	2. Let $m,n \in \mathbb{Z}$ be such that $10m + 15n = 1$. \[Existential instantiation on line 1.1]
+>	3. $2m + 3n = \frac{1}{5}$ \[Basic algebra]
+>	4. $\neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Basic algebra]
+>	5. Since $m, n \in \mathbb{Z}$, $2m + 3n \in \mathbb{Z}$, so $\frac{1}{5} \in \mathbb{Z}$. \[Basic algebra, from lines 1.2, 1.3]
+>	6. $\big(\frac{1}{5} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Conjunction on lines 1.4, 1.5]
+>	7. $\bot$. \[Contradiction rule on line 1.6]
+>2. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 1]$ \[Proof by contradiction rule on lines 1, 1.7]
+
+### Example 3.2
+
+For this example, we denote the set of positive rational numbers as $\mathbb{Q^+}$. That is: $$x \in \mathbb{Q^+} \iff x \in \mathbb{Q} \land x > 0$$
+>[!example] Example 3.2
+>Prove that **there is no smallest positive rational number**, i.e., prove that: $$\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+}\ [y < x]$$
+
+**How do I know where to start?**
+
+First, we might try to figure out if the statement is even true. What about $x = \frac{1}{2}$? Then we can just let $y = \frac{1}{3}$, for example, and we see that $y < x$ since $\frac{1}{3} < \frac{1}{2}$. What about $x = \frac{4}{7654321}$? Well, we can let $y = \frac{2}{7654321}$ and again find that $y < x$! 
+
+Let's think about this more abstractly. What does a "smallest positive rational number" $x$ that breaks this rule look like? If $x$ were indeed the smallest positive rational number, that means that every other positive rational number is somehow equal to or greater than it. However, as we've seen, that is clearly impossible since we can just halve $x$ to get a smaller rational number!
+
+Therefore, we assume that the original statement is false (i.e., there *is indeed* a smallest positive rational number), and then somehow conjure the aforementioned contradiction.
+
+>[!example]+ Proof 3.2
+>**Proof:**
+>1. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]\big)$.
+>	1. $\exists x \in \mathbb{Q^+}, \forall y \in \mathbb{Q^+} \ [y \geq x]$ \[Logically equivalent to line 1]
+>	2. Let $r \in \mathbb{Q^+}$ be such that $\forall y \in \mathbb{Q^+} \ [y \geq r]$. \[Existential instantiation on line 1.1]
+>	3. Consider $\frac{r}{2}$. 
+>		1. Since $r \in \mathbb{Q^+}$, $\frac{r}{2} \in \mathbb{Q^+}$. \[Basic algebra]
+>		2. Since $r > 0$, then $\frac{r}{2} > 0$. \[Basic algebra]
+>		3. $r - \frac{r}{2} = \frac{r}{2} > 0$. \[Basic algebra, from line 1.3.2]
+>		4. $\frac{r}{2} < r$ \[Basic algebra, from line 1.3.3]
+>		5. $\exists y \in \mathbb{Q^+} \ [y < r]$ \[Existential generalisation on lines 1.3.1, 1.3.4]
+>		6. $\neg \big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big)$ \[Logically equivalent to line 1.3.5]
+>	4. $\big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big) \land \neg \big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big)$ \[Conjunction on lines 1.2, 1.3.6]
+>	5. $\bot$. \[Contradiction rule on line 1.4]
+>2. $\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]$ \[Proof by contradiction rule on lines 1, 1.5]
+>---
+>**Rules of deduction/inference used:**
+>- On line 1, we **assume the negation of our original statement**. From here on, *there is no new information used*, only a sequence of logically deductions to derive the contradiction on line 1.3.5.
+>- On line 1.2, we produce the first half of our contradiction.
+>- On line 1.3, we construct a concrete number (in this case, $\frac{r}{2}$) so that by line 1.3.6 we are able to produce the second half of our contradiction.
+>- On line 1.4, we used **conjunction** to link the two halves (lines 1.2 and 1.3.6).
+>- On line 1.5, we used the **contradiction rule** to create the "$\bot$" statement.
+>- On line 2, we used the **proof by contradiction rule** to conclude that our initial assumption (line 1) was faulty, thereby proving our original statement.
+
+>[!faq] Can I do the following?
+>**(Bad, Informal) Proof:**
+>1. Assume, for the sake of contradiction, that there exists a smallest positive rational number.
+>2. Let $r \in \mathbb{Z}$ be the smallest positive number. \[Existential instantiation on line 1]
+>3. However, since there is no smallest positive rational number, $r$ cannot exist.
+>4. $\bot$. \[Contradiction rule on line 3]
+>5. Hence, there is no smallest positive rational number. \[Proof by contradiction rule on line 4]
+>---
+>**No, you cannot!**
+>
+>This is a classic example of *circular reasoning*: using the original statement as a justification for a proof of that same statement is not allowed. In essence, the proof does the following:
+>1. We are trying to prove that a smallest positive rational number, $r$, does not exist.
+>2. If we claim that $r$ exists, then we are wrong, because $r$ doesn't exist.
+>
+>**So how should it be done?**
+>
+>Instead, one should try to refute the statement that results from our (incorrect) assumption, **without referring to the original statement**, and relying on other facts instead, e.g., basic algebraic facts/axioms, or other intermediate conclusions that resulted due to our initial assumption.
+
+>[!tip] Try It Out!
+>Prove that **there is no largest integer**, i.e., prove that: $$\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$$
+
+>[!tip]- Solution
+>3. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]\big)$.
+>	1. $\exists x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 1]
+>	2. Let $N \in \mathbb{Z}$ be such that $\forall y \in \mathbb{Z} \ [N \geq y]$. \[Existential instantiation on line 1.1]
+>	3. Consider $N + 1$.
+>		1. Since $N \in \mathbb{Z}$, $N + 1 \in \mathbb{Z}$. \[Basic algebra]
+>		2. $N < N + 1$ \[Basic algebra]
+>		3. $\exists y \in \mathbb{Z} \ [N < y]$ \[Existential generalisation on lines 1.3.1, 1.3.2]
+>		4. $\neg \big(\forall y \in \mathbb{Z} \ [N \geq y]\big)$ \[Logically equivalent to line 1.3.3]
+>	4. $\big(\forall y \in \mathbb{Z} \ [N \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [N \geq y]\big)$ \[Conjunction on lines 1.2, 1.3.4]
+>	5. $\bot$. \[Contradiction rule on line 1.4]
+>4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 1, 1.5]
+
+### Example 3.3
+
+>[!note] Definition of irrational numbers
+>A real number $x$ is said to be **irrational** if and only if $x \notin \mathbb{Q}$.
+
+>[!example] Example 3.3
+>Prove that the sum of any irrational number and any rational number is itself irrational, i.e., prove that $$\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$$
+
+Here, the set $\mathbb{R} \setminus \mathbb{Q}$ refers to the set of real irrational numbers.
+
+**How do I know where to start?**
+
+Since irrational numbers do not have an explicit form of construction (unlike the rational numbers, which can be expressed as $\frac{p}{q}$ for some integers $p$ and $q$, with $q$ being non-zero), it is difficult to prove this directly. We can no longer instantiate an irrational number based on a quantified statement. Hence, it might be a good idea to try a proof by contradiction instead.
+
+Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does turn out to be rational; we want to show that leads us to a contradiction. An obvious contradiction we can attempt to show is that $y$ ends up being rational, i.e., we want to express $y$ in a way such that $y$ is some fraction of integers. Clearly, $y = s - x$, and the right-hand side is rational thanks to $s$ and $x$ — hmm, looks promising!
+
+>[!example] Proof 3.3
+>**Proof:**
+>1. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]\big)$.
+>	1. $\exists x \in \mathbb{R} \setminus \mathbb{Q}, \exists y \in \mathbb{Q} \ [x + y \in \mathbb{Q}]$ \[Logically equivalent to line 1]
+>	2. Let $a \in \mathbb{R} \setminus \mathbb{Q}$ and $b \in \mathbb{Q}$ be such that $a + b \in \mathbb{Q}$. \[Existential instantiation on line 1.1]
+>	3. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
+>	4. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 1.3]
+>	5. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
+>	6. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 1.5]
+>	7. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
+>	8. $q_1 \neq 0$ \[Specialisation on line 1.4]
+>	9. $q_2 \neq 0$ \[Specialisation on line 1.6]
+>	10. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 1.8, 1.9]
+>	11. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 1.4, 1.6]
+>	12. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 1.7, 1.10, 1.11]
+>	13. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
+>	14. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1.2]
+>	15. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
+>	16. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 1.15]
+>	17. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 1.13, 1.16]
+>	18. $\bot$. \[Contradiction rule on line 1.17]
+>2. $\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$ \[Proof by contradiction rule on lines 1, 1.18]
 
 ---
 
