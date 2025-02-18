@@ -402,30 +402,32 @@ The contradiction arises when we suppose that there *is indeed* a number $n$ whe
 
 >[!example] Proof 3.1
 >**Proof:**
->1. Assume, for the sake of contradiction, that $\neg \big(\forall n \in \mathbb{Z} \ [3n \neq 1]\big)$.
->	1. $\exists n \in \mathbb{Z} \ [3n = 1]$ \[Logically equivalent to line 1]
->	2. Let $k \in \mathbb{Z}$ be such that $3k = 1$. \[Existential instantiation on line 1.1]
->	3. $k = \frac{1}{3}$ \[Basic algebra]
->	4. $\neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Basic algebra]
->	5. Since $k \in \mathbb{Z}$ and $k = \frac{1}{3}$, $\frac{1}{3} \in \mathbb{Z}$. \[Basic algebra, from line 1.2, 1.3]
->	6. $\big(\frac{1}{3} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Conjunction on lines 1.4, 1.5]
->	7. $\bot$. \[Contradiction rule on line 1.6]
->2. $\forall n \in \mathbb{Z} \ [3n \neq 1]$ \[Proof by contradiction rule on lines 1, 1.7]
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume, for the sake of contradiction, that $\neg (3n \neq 1)$.
+>	1. $3n = 1$ \[Logically equivalent to line 2]
+>	2. $n = \frac{1}{3}$ \[Basic algebra]
+>	3. $\neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Basic algebra]
+>	4. Since $n \in \mathbb{Z}$ and $n = \frac{1}{3}$, $\frac{1}{3} \in \mathbb{Z}$. \[Basic algebra, from line 1, 2.2]
+>	5. $\big(\frac{1}{3} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Conjunction on lines 2.3, 2.4]
+>	6. $\bot$. \[Contradiction rule on line 2.5]
+>3. $3n \neq 1$ \[Proof by contradiction rule on lines 2, 2.6]
+>4. $\forall n \in \mathbb{Z} \ [3n \neq 1]$ \[Universal generalisation on lines 1, 3]
 
 >[!tip] Try It Out!
 >Prove that $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}\ [10a + 15b \neq 5]$.
 
 >[!tip]- Solution
 >**Proof:**
->1. Assume, for the sake of contradiction, that $\neg \big(\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 5]\big)$.
->	1. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z} \ [10a + 15b = 1]$. \[Logically equivalent to line 1]
->	2. Let $m,n \in \mathbb{Z}$ be such that $10m + 15n = 1$. \[Existential instantiation on line 1.1]
->	3. $2m + 3n = \frac{1}{5}$ \[Basic algebra]
->	4. $\neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Basic algebra]
->	5. Since $m, n \in \mathbb{Z}$, $2m + 3n \in \mathbb{Z}$, so $\frac{1}{5} \in \mathbb{Z}$. \[Basic algebra, from lines 1.2, 1.3]
->	6. $\big(\frac{1}{5} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Conjunction on lines 1.4, 1.5]
->	7. $\bot$. \[Contradiction rule on line 1.6]
->2. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 1]$ \[Proof by contradiction rule on lines 1, 1.7]
+>1. Let $a \in \mathbb{Z}$ and $b \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume, for the sake of contradiction, that $\neg (10a + 15b \neq 5)$.
+>	1. $10a + 15b = 1$. \[Logically equivalent to line 2]
+>	2. $2a + 3b = \frac{1}{5}$ \[Basic algebra]
+>	3. $\neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Basic algebra]
+>	4. Since $a, b \in \mathbb{Z}$, $2a + 3b \in \mathbb{Z}$, so $\frac{1}{5} \in \mathbb{Z}$. \[Basic algebra, from lines 1, 2.2]
+>	5. $\big(\frac{1}{5} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Conjunction on lines 2.3, 2.4]
+>	6. $\bot$. \[Contradiction rule on line 2.5]
+>3. $10a + 15b \neq 5$ \[Proof by contradiction rule on lines 2, 2.6]
+>4. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 1]$ \[Universal generalisation on lines 1, 3]
 
 ### Example 3.2
 
@@ -443,27 +445,28 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 
 >[!example]+ Proof 3.2
 >**Proof:**
->1. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]\big)$.
->	1. $\exists x \in \mathbb{Q^+}, \forall y \in \mathbb{Q^+} \ [y \geq x]$ \[Logically equivalent to line 1]
->	2. Let $r \in \mathbb{Q^+}$ be such that $\forall y \in \mathbb{Q^+} \ [y \geq r]$. \[Existential instantiation on line 1.1]
->	3. Consider $\frac{r}{2}$. 
->		1. Since $r \in \mathbb{Q^+}$, $\frac{r}{2} \in \mathbb{Q^+}$. \[Basic algebra]
->		2. Since $r > 0$, then $\frac{r}{2} > 0$. \[Basic algebra]
->		3. $r - \frac{r}{2} = \frac{r}{2} > 0$. \[Basic algebra, from line 1.3.2]
->		4. $\frac{r}{2} < r$ \[Basic algebra, from line 1.3.3]
->		5. $\exists y \in \mathbb{Q^+} \ [y < r]$ \[Existential generalisation on lines 1.3.1, 1.3.4]
->		6. $\neg \big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big)$ \[Logically equivalent to line 1.3.5]
->	4. $\big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big) \land \neg \big(\forall y \in \mathbb{Q^+} \ [y \geq r]\big)$ \[Conjunction on lines 1.2, 1.3.6]
->	5. $\bot$. \[Contradiction rule on line 1.4]
->2. $\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]$ \[Proof by contradiction rule on lines 1, 1.5]
+>1. Let $x \in \mathbb{Q^+}$ be arbitrarily chosen.
+>2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Q^+} \ [y < x]\big)$.
+>	1. $\forall y \in \mathbb{Q^+} \ [y \geq x]$ \[Logically equivalent to line 2]
+>	2. Consider $\frac{x}{2}$. 
+>		1. Since $x \in \mathbb{Q^+}$, $\frac{x}{2} \in \mathbb{Q^+}$. \[Basic algebra]
+>		2. Since $x > 0$, then $\frac{x}{2} > 0$. \[Basic algebra]
+>		3. $x - \frac{x}{2} = \frac{x}{2} > 0$. \[Basic algebra, from line 2.2.2]
+>		4. $\frac{x}{2} < x$ \[Basic algebra, from line 2.2.3]
+>		5. $\exists y \in \mathbb{Q^+} \ [y < x]$ \[Existential generalisation on lines 2.2.1, 2.2.4]
+>		6. $\neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Logically equivalent to line 2.2.5]
+>	3. $\big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big) \land \neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Conjunction on lines 2.1, 2.2.6]
+>	4. $\bot$. \[Contradiction rule on line 2.3]
+>3. $\exists y \in \mathbb{Q^+} \ [y < x]$ \[Proof by contradiction rule on lines 2, 2.4]
+>4. $\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]$ \[Universal generalisation on lines 1, 3]
 >---
 >**Rules of deduction/inference used:**
->- On line 1, we **assume the negation of our original statement**. From here on, *there is no new information used*, only a sequence of logically deductions to derive the contradiction on line 1.3.5.
->- On line 1.2, we produce the first half of our contradiction.
->- On line 1.3, we construct a concrete number (in this case, $\frac{r}{2}$) so that by line 1.3.6 we are able to produce the second half of our contradiction.
->- On line 1.4, we used **conjunction** to link the two halves (lines 1.2 and 1.3.6).
->- On line 1.5, we used the **contradiction rule** to create the "$\bot$" statement.
->- On line 2, we used the **proof by contradiction rule** to conclude that our initial assumption (line 1) was faulty, thereby proving our original statement.
+>- On line 2, we **assume the negation of our original statement**. From here on, *there is no new information used*, only a sequence of logically deductions to derive the contradiction on line 2.2.4.
+>- On line 2.1, we produce the first half of our contradiction.
+>- On line 2.2, we construct a concrete number (in this case, $\frac{x}{2}$) so that by line 2.2.6 we are able to produce the second half of our contradiction.
+>- On line 2.3, we used **conjunction** to link the two halves (lines 2.1 and 2.2.6).
+>- On line 2.4, we used the **contradiction rule** to create the "$\bot$" statement.
+>- On line 3, we used the **proof by contradiction rule** to conclude that our initial assumption (line 2) was faulty, thereby proving our original statement.
 
 >[!faq] Can I do the following?
 >**(Bad, Informal) Proof:**
@@ -487,17 +490,18 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >Prove that **there is no largest integer**, i.e., prove that: $$\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$$
 
 >[!tip]- Solution
->3. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]\big)$.
->	1. $\exists x \in \mathbb{Z}, \forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 1]
->	2. Let $N \in \mathbb{Z}$ be such that $\forall y \in \mathbb{Z} \ [N \geq y]$. \[Existential instantiation on line 1.1]
->	3. Consider $N + 1$.
->		1. Since $N \in \mathbb{Z}$, $N + 1 \in \mathbb{Z}$. \[Basic algebra]
->		2. $N < N + 1$ \[Basic algebra]
->		3. $\exists y \in \mathbb{Z} \ [N < y]$ \[Existential generalisation on lines 1.3.1, 1.3.2]
->		4. $\neg \big(\forall y \in \mathbb{Z} \ [N \geq y]\big)$ \[Logically equivalent to line 1.3.3]
->	4. $\big(\forall y \in \mathbb{Z} \ [N \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [N \geq y]\big)$ \[Conjunction on lines 1.2, 1.3.4]
->	5. $\bot$. \[Contradiction rule on line 1.4]
->4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 1, 1.5]
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
+>	1. $\forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 2]
+>	2. Consider $x + 1$.
+>		1. Since $x \in \mathbb{Z}$, $x + 1 \in \mathbb{Z}$. \[Basic algebra]
+>		2. $x < x + 1$ \[Basic algebra]
+>		3. $\exists y \in \mathbb{Z} \ [x < y]$ \[Existential generalisation on lines 2.2.1, 2.2.2]
+>		4. $\neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Logically equivalent to line 2.2.3]
+>	3. $\big(\forall y \in \mathbb{Z} \ [x \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Conjunction on lines 2.1, 2.2.4]
+>	4. $\bot$. \[Contradiction rule on line 2.3]
+>3. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
+>4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
 
 ### Example 3.3
 
@@ -517,30 +521,57 @@ Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does tu
 
 >[!example] Proof 3.3
 >**Proof:**
->1. Assume, for the sake of contradiction, that $\neg \big(\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]\big)$.
->	1. $\exists x \in \mathbb{R} \setminus \mathbb{Q}, \exists y \in \mathbb{Q} \ [x + y \in \mathbb{Q}]$ \[Logically equivalent to line 1]
->	2. Let $a \in \mathbb{R} \setminus \mathbb{Q}$ and $b \in \mathbb{Q}$ be such that $a + b \in \mathbb{Q}$. \[Existential instantiation on line 1.1]
->	3. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
->	4. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 1.3]
->	5. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
->	6. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 1.5]
->	7. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
->	8. $q_1 \neq 0$ \[Specialisation on line 1.4]
->	9. $q_2 \neq 0$ \[Specialisation on line 1.6]
->	10. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 1.8, 1.9]
->	11. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 1.4, 1.6]
->	12. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 1.7, 1.10, 1.11]
->	13. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
->	14. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1.2]
->	15. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
->	16. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 1.15]
->	17. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 1.13, 1.16]
->	18. $\bot$. \[Contradiction rule on line 1.17]
->2. $\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$ \[Proof by contradiction rule on lines 1, 1.18]
+>1. Let $a \in \mathbb{R} \setminus \mathbb{Q}$ and $b \in \mathbb{Q}$ be arbitrarily chosen.
+>2. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
+>3. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 2]
+>4. Assume, for the sake of contradiction, that $a + b in \mathbb{Q}$.
+>	1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
+>	2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
+>	3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
+>	4. $q_1 \neq 0$ \[Specialisation on line 3]
+>	5. $q_2 \neq 0$ \[Specialisation on line 4.2]
+>	6. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 4.4, 4.5]
+>	7. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 3, 4.2]
+>	8. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 4.3, 4.6, 4.7]
+>	9. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
+>	10. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1]
+>	11. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
+>	12. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 4.11]
+>	13. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 4.9, 4.12]
+>	14. $\bot$. \[Contradiction rule on line 4.13]
+>5. $a + b \notin \mathbb{Q}$. \[Proof by contradiction rule on lines 4, 4.14]
+>6. $\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$ \[Universal generalisation on lines 1, 5]
 
 ---
 
 ## Proof Strategy #4: Proof by Contrapositive
+
+Finally, we have proofs by contrapositive. This strategy is useful when there is an implication $p \to q$ in the statement we are trying to prove, and proving $q$ from $p$ directly is difficult. Instead, we suppose $\neg p$ and try to show $\neg q$. This gives us $\neg q \to \neg p$, which is [[Unit 1#Contrapositivity|logically equivalent]] to $p \to q$. 
+
+### Example 4.1
+
+>[!example] Example 4.1
+>Prove that $\forall x \in \mathbb{R} \ [x^2 \leq 0 \to x = 0]$.
+
+**How do I know where to start?**
+
+If we begin by assuming that $x^2 \leq 0$, we might have to break it up into two cases: $x^2 < 0$ or $x^2 = 0$. In the first case, we would need to say that $x^2$ is always non-negative and *somehow* state that no real number $x$ falls under that case. This is getting messy.
+
+Instead, if we look at the contrapositive, all we need to do is show that if $x \neq 0$, then $x^2 > 0$, which is simple algebra!
+
+>[!example] Proof 4.1
+>**Proof:**
+>1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
+>2. Assume that $x \neq 0$.
+>	1. $x > 0 \lor x < 0$ \[Basic algebra]
+>	2. Case 1: $x > 0$.
+>		1. $x^2 > 0$ \[Basic algebra]
+>	3. Case 2: $x < 0$.
+>		1. $x^2 > 0$ \[Basic algebra]
+>	4. $x^2 > 0$ \[Proof by cases on lines 2.1, 2.2.1, 2.2.2]
+>3. $x \neq 0 \to x^2 > 0$ \[Implication introduction on lines 2, 2.4]
+>4. $x^2 \leq 0 \to x = 0$ \[Logically equivalent to line 3]
+>5. $\forall x \in \mathbb{R} \ [x^2 \leq 0 \to x = 0]$ \[Universal generalisation on lines 1, 4]
 
 
 ---
