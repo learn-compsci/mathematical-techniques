@@ -555,7 +555,7 @@ Finally, we have proofs by contrapositive. This strategy is useful when there is
 
 **How do I know where to start?**
 
-If we begin by assuming that $x^2 \leq 0$, we might have to break it up into two cases: $x^2 < 0$ or $x^2 = 0$. In the first case, we would need to say that $x^2$ is always non-negative and *somehow* state that no real number $x$ falls under that case. This is getting messy.
+If we begin by assuming that $x^2 \leq 0$, we might have to break it up into two cases: $x^2 < 0$ or $x^2 = 0$. In the first case, we would need to say that $x^2$ is always non-negative and *somehow* mention that no real number $x$ falls under that case. This is getting messy.
 
 Instead, if we look at the contrapositive, all we need to do is show that if $x \neq 0$, then $x^2 > 0$, which is simple algebra!
 
@@ -572,13 +572,89 @@ Instead, if we look at the contrapositive, all we need to do is show that if $x 
 >3. $x \neq 0 \to x^2 > 0$ \[Implication introduction on lines 2, 2.4]
 >4. $x^2 \leq 0 \to x = 0$ \[Logically equivalent to line 3]
 >5. $\forall x \in \mathbb{R} \ [x^2 \leq 0 \to x = 0]$ \[Universal generalisation on lines 1, 4]
+>---
+>**Rules of deduction/inference used:**
+>- On line 2, we assumed the negation of the consequent (i.e., our $\neg q$).
+>- Through a series of algebraic deductions, line 2.4 concludes the negation of the antecedent (i.e., our $\neg p$).
+>- On line 3, we used **implication introduction** to connect our $\neg q$ with our $\neg p$, giving us $\neg q \to \neg p$.
+>- On line 4, we used the equivalence of contrapositive statements to recover our original statement $p \to q$.
 
+>[!tip] Try It Out!
+>Prove that $\forall n \in \mathbb{Z} \ \big[\neg divides(32, n^5) \to odd(n)\big]$.
 
----
+>[!tip]- Solution
+>**Proof:**
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $\neg odd(n)$.
+>	1. $even(n)$ \[Basic algebra]
+>	2. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
+>	3. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t$. \[Existential instantiation on line 2.2]
+>	4. $n^5 = (2t)^5 = 32 \cdot t^5$ \[Basic algebra]
+>	5. Since $t \in \mathbb{Z}$, $t^5 \in \mathbb{Z}$. \[Basic algebra]
+>	6. $\exists k \in \mathbb{Z} \ [n^5 = 32 \cdot k]$ \[Existential instantiation on lines 2.4, 2.5]
+>	7. $divides(32, n^5)$ \[Definition of $divides$]
+>3. $\neg odd(n) \to divides(32, n^5)$ \[Implication introduction on lines 2, 2.7]
+>4. $\neg divides(32, n^5) \to odd(n)$ \[Logically equivalent to line 3]
+>5. $\forall n \in \mathbb{Z} \ \big[\neg divides(32, n^5) \to odd(n)\big]$ \[Universal generalisation on lines 1, 4]
 
-## Extra Practice Questions
+### Example 4.2
 
+>[!example] Example 4.2
+>Prove that $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]$.
 
->[!note] Question 1
->Prove that $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ \big[divides(a,b) \land divides(b,c) \to divides(a,c)\big]$.
+**How do I know where to start?**
+
+Let's try the direct proof: Suppose that $mn = 2 \cdot k$ for some integer $k$, and we need to somehow show that either $m$ is even or $n$ is even. Hmm... looks like we're stuck, because we have no way of "splitting" the product $mn$ into anything meaningful! 
+
+Let's try the contrapositive instead: $$\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[\big(odd(m) \land odd(n)\big) \to odd(mn)\big]$$
+Ok, this looks much more promising! Now, we have both $odd(m)$ **and** $odd(n)$ to work with, and all we need to do is to show that $mn = 2 \cdot k + 1$ for some integer $k$. This is much simpler to show!
+
+>[!example] Proof 4.2
+>**Proof:**
+>1. Let $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $\neg \big(even(m) \lor even(n)\big)$.
+>	1. $odd(m) \land odd(n)$ \[Logically equivalent to line 2, using basic algebra]
+>	2. $odd(m)$ \[Specialisation on line 2.1]
+>	3. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	4. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.3]
+>	5. $odd(m)$ \[Specialisation on line 2.1]
+>	6. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	7. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.6]
+>	8. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$ \[Basic algebra]
+>	9. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra]
+>	10. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.8, 2.9]
+>	11. $odd(mn)$ \[Definition of $odd$]
+>	12. $\neg even(mn)$ \[Basic algebra]
+>3. $\neg \big(even(m) \lor even(n)\big) \to \neg even(mn)$ \[Implication introduction on lines 2, 2.12]
+>4. $even(mn) \to \big(even(m) \lor even(n)\big)$ \[Logically equivalent to line 3, and by basic algebra]
+>5. $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]$ \[Universal generalisation on lines 1, 4]
+
+>[!faq] Why the "basic algebra" on lines 2.1 and 2.12?
+>For the sake of illustrating the concept of proving by contrapositive, the nitty-gritty of $$\forall n \in \mathbb{Z} \ [\neg even(n) \to odd(n)]$$ and $$\forall n \in \mathbb{Z} \ [\neg odd(n) \to even(n)]$$ has been left as an exercise for the reader. However, you should still provide the full proof if these lemmas have not yet been established!
+
+>[!tip] Try It Out!
+>Prove that $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[\neg divides(3,mn) \to \neg \big(divides(3,m) \lor divides(3,n)\big)\big]$.
+
+>[!tip]- Solution
+>**Proof:**
+>1. Let $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $divides(3,m) \lor divides(3,n)$.
+>	1. Case 1: $divides(3,m)$.
+>		1. $\exists k \in \mathbb{Z} \ [m = 3 \cdot k]$ \[Definition of $divides$]
+>		2. Let $s \in \mathbb{Z}$ be such that $m = 3 \cdot s$. \[Existential instantiation on line 2.1.1]
+>		3. $mn = (3s)n = 3 \cdot (sn)$ \[Basic algebra]
+>		4. Since $s \in \mathbb{Z}$ and $n \in \mathbb{Z}$, $sn \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [mn = 3 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>		6. $divides(3, mn)$ \[Definition of $divides$]
+>	2. Case 2: $divides(3,n)$.
+>		1. $\exists k \in \mathbb{Z} \ [n = 3 \cdot k]$ \[Definition of $divides$]
+>		2. Let $t \in \mathbb{Z}$ be such that $n = 3 \cdot t$. \[Existential instantiation on line 2.2.1]
+>		3. $mn = m(3t) = 3 \cdot (mt)$ \[Basic algebra]
+>		4. Since $m \in \mathbb{Z}$ and $t \in \mathbb{Z}$, $mt \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [mn = 3 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>		6. $divides(3,mn)$ \[Definition of $divides$]
+>	3. $divides(3,mn)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6]
+>3. $\big(divides(3,m) \lor divides(3,n)\big) \to divides(3,mn)$ \[Implication introduction on lines 2, 2.3]
+>4. $\neg divides(3,mn) \to \neg \big(divides(3,m) \lor divides(3,n)\big)$ \[Logically equivalent to line 3]
+>5. $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[\neg divides(3,mn) \to \neg \big(divides(3,m) \lor divides(3,n)\big)\big]$ \[Universal generalisation on lines 1, 4]
 
