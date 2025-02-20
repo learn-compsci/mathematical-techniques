@@ -587,8 +587,8 @@ iframe.pdf {
   border-radius: 5px;
 }
 
-article > :is(ul, ol) li {
-	margin-bottom: 0.75em;
+.callout-content :is(ul, ol) li {
+	margin-bottom: 1em;
 	&:last-child {
 		margin-bottom: unset;
 	}
