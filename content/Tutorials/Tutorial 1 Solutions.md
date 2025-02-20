@@ -1,6 +1,3 @@
----
-hidden: "true"
----
 # Question 1 Solutions:
 
 For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions $p$, $q$, $r$, $s$ and $t$ as needed, where:
@@ -24,7 +21,7 @@ For each of the following, write a propositional formula that accurately represe
 "If ... then ..." translates to   $\to$  
 
 
-2. "The function is efficient if and only if both the algorithm terminates and the output is correct."
+2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)."
 
 >[!Solution] 
 > 
@@ -39,7 +36,7 @@ For each of the following, write a propositional formula that accurately represe
 "If and only if" translates to an implication in both directions, ie. $(p \to q) \land (q \to p)$
 
 
-3. "The program compiles and the input is valid, or the function is efficient, but the algorithm does not terminate."
+3. "((The program compiles and the input is valid) or the function is efficient), and the algorithm does not terminate."
 
 >[!Solution] 
 > $((p \land q) \lor s) \land \neg t$
@@ -56,7 +53,7 @@ For each of the following, write a propositional formula that accurately represe
 > 1. The parentheses are necessary!
 
 
-4. "If the program compiles, then either the input is valid and the output is correct, or the algorithm does not terminate."
+4. "If the program compiles, then ((either the input is valid and the output is correct), or the algorithm does not terminate)."
 
 >[!Solution] 
 > $p  \to  ((q \land r) \lor \neg t)$
@@ -72,7 +69,7 @@ For each of the following, write a propositional formula that accurately represe
 "If ... then ..." translates to   $\to$
 
 
-5. "The function is efficient if and only if the program compiles and the input is valid, or if the output is correct implies that the algorithm terminates."
+5. "The function is efficient if and only if ((the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates))."
 
 >[!Solution] 
 > $s  \leftrightarrow  (p \land q) \lor (r \to  t)$
@@ -101,21 +98,21 @@ Draw two truth tables to verify that:
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
-|   $p$   |   $q$   | $\neg q$ | $p \to q$ | $\neg (p \to q)$ | $p \land \neg q$ |
-| :-----: | :-----: | :------: | :-------: | :--------------: | :--------------: |
-| $true$  | $true$  | $false$  |  $true$   |     $false$      |     $false$      |
-| $true$  | $false$ |  $true$  |  $false$  |      $true$      |      $true$      |
-| $false$ | $true$  | $false$  |  $true$   |     $false$      |     $false$      |
-| $false$ | $false$ |  $true$  |  $true$   |     $false$      |     $false$      |
+|   $p$   |   $q$   | $p \to q$ | $\neg (p \to q)$ | $\neg q$ | $p \land \neg q$ |
+| :-----: | :-----: | :-------: | :--------------: | :------: | :--------------: |
+| $true$  | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
+| $true$  | $false$ |  $false$  |      $true$      |  $true$  |      $true$      |
+| $false$ | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
+| $false$ | $false$ |  $true$   |     $false$      |  $true$  |     $false$      |
 
 Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent. 
 
-|   $p$   |   $q$   | $\neg p$ | $\neg q$ | $p \land q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
-| :-----: | :-----: | :------: | :------: | :---------: | :----------------: | :------------------: |
-| $true$  | $true$  | $false$  | $false$  |   $true$    |      $false$       |       $false$        |
-| $true$  | $false$ | $false$  |  $true$  |   $false$   |       $true$       |        $true$        |
-| $false$ | $true$  |  $true$  | $false$  |   $false$   |       $true$       |        $true$        |
-| $false$ | $false$ |  $true$  |  $true$  |   $false$   |       $true$       |        $true$        |
+|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
+| :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
+| $true$  | $true$  |   $true$    | $false$  | $false$  |      $false$       |       $false$        |
+| $true$  | $false$ |   $false$   | $false$  |  $true$  |       $true$       |        $true$        |
+| $false$ | $true$  |   $false$   |  $true$  | $false$  |       $true$       |        $true$        |
+| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       $true$       |        $true$        |
 
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
@@ -189,12 +186,12 @@ You are also given the following predicates, which you may use freely in your an
 - $Triangle(x)$ is true when $x$ is a triangular object.
 
 Determine whether the following statements are true or false for the picture:
-1. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
-2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
-3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
-4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
-5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
+5. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
+6. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
+7. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
+8. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
+9. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
+10. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
 
 ![[tarskis-drawn.png|500]]
 
@@ -231,10 +228,10 @@ Determine whether the following statements are true or false for the picture:
 # Question 5 Solutions:
 
 Consider the following first order logic statements:
-	1. $∃x∈D \ [P(x) \land Q(x)]$
-	2. $∀x∈D \ [P(x) \lor Q(x)]$
-	3. $∀x∈D,∃y∈E \ [P(x,y) \land Q(y)]$
-	4. $∃x∈D,∀y∈E \ [P(x,y) \to Q(y)]$
+1. $∃x∈D \ [P(x) \land Q(x)]$
+2. $∀x∈D \ [P(x) \lor Q(x)]$
+3. $∀x∈D,∃y∈E \ [P(x,y) \land Q(y)]$
+4. $∃x∈D,∀y∈E \ [P(x,y) \to Q(y)]$
 
 Write the negation for each of the statements.
 

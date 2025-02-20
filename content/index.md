@@ -23,22 +23,22 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Course Schedule
 
-|    Week     |                 Topic                  |                                              Notes Unit, Part                                               |    Tutorial     | Assignment Due Dates |
-| :---------: | :------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :-------------: | :------------------: |
-|      1      |    Introduction and Course Overview    |                                                                                                             |                 |                      |
-|      2      | Propositional Logic, First Order Logic | [[Unit 1#Part 1 Propositional logic\|Unit 1 Part 1]],<br>[[Unit 1#Part 2 First Order Logic\|Unit 1 Part 2]] |                 |                      |
-|      3      |                 Break                  |                                                                                                             | None due to CNY |                      |
-|      4      |      Proofs In First Order Logic       |                        [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]]                         |                 |                      |
-|      5      |               Set Theory               |                                                 [[Unit 3]]                                                  |        1        |                      |
-|      6      |        Relations and Functions         |                                                                                                             |                 |        Friday        |
-| Recess Week |                                        |                                                                                                             |                 |                      |
-|      7      |         Induction, Recurrences         |                                                                                                             |        2        |                      |
-|      8      |          Algorithmic Analysis          |                                                                                                             |                 |                      |
-|      9      |             Graphs, Trees              |                                                                                                             |        3        |                      |
-|     10      |             Combinatorics              |                                                                                                             |                 |        Friday        |
-|     11      |             Probability 1              |                                                                                                             |        4        |                      |
-|     12      |             Probability 2              |                                                                                                             |                 |                      |
-|     13      |              Rounding Up               |                                                                                                             |        5        |                      |
+|    Week     |                 Topic                  |                                              Notes Unit, Part                                               |    Tutorial     |          Assignment Due Dates           |
+| :---------: | :------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :-------------: | :-------------------------------------: |
+|      1      |    Introduction and Course Overview    |                                                                                                             |                 |                                         |
+|      2      | Propositional Logic, First Order Logic | [[Unit 1#Part 1 Propositional logic\|Unit 1 Part 1]],<br>[[Unit 1#Part 2 First Order Logic\|Unit 1 Part 2]] |                 |                                         |
+|      3      |                 Break                  |                                                                                                             | None due to CNY |                                         |
+|      4      |      Proofs In First Order Logic       |                        [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]]                         |                 |                                         |
+|      5      |               Set Theory               |                                                 [[Unit 2]]                                                  |        1        | [[Assignment 1\|Assignment 1, Release]] |
+|      6      |               Relations                |                                                 [[Unit 3]]                                                  |                 |                                         |
+| Recess Week |                                        |                                                                                                             |                 |              Sunday, 2359               |
+|      7      |         Induction, Recurrences         |                                                                                                             |        2        |                                         |
+|      8      |          Algorithmic Analysis          |                                                                                                             |                 |                                         |
+|      9      |             Graphs, Trees              |                                                                                                             |        3        |                                         |
+|     10      |             Combinatorics              |                                                                                                             |                 |                 Friday                  |
+|     11      |             Probability 1              |                                                                                                             |        4        |                                         |
+|     12      |             Probability 2              |                                                                                                             |                 |                                         |
+|     13      |              Rounding Up               |                                                                                                             |        5        |                                         |
 
 # Lecture Video Links
 
@@ -52,7 +52,7 @@ This website's intended usage by students taking discrete math courses at the [S
 2. [Rules of Our Proof System](https://youtu.be/98B2_H_o0-c)
 3. [Proof Strategies, And Steps in Proofs vs Statements](https://youtu.be/wEVCCraLiJc)
 
-## Week 5 Videos: Unit 2 (Early Release)
+## Week 5 Videos: Unit 2
 1. [Introduction to Set Theory, Set Notations, and Set Operations](https://www.youtube.com/watch?v=ahNWhSrICH0&feature=youtu.be)
 2. [Proving Set Equivalences, and Other Proofs Involving Subsets and Power Sets](https://www.youtube.com/watch?v=I1RDj3g8-UI&feature=youtu.be)
 # Notes
@@ -64,6 +64,9 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
+
+# Assignment
+1. [[Assignment 1]] Released 12-Feb-2025. Due 02-Mar-2025 23:59 (Canvas submission)
 
 # Course Grading
 
