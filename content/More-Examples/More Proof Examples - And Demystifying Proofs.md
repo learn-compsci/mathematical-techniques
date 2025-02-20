@@ -6,7 +6,7 @@ In this page, we will provide more examples of proofs written using the proof sy
 1. How the different proof strategies (i.e., direct proof, proof by cases, proof by contradiction, proof by contrapositive) work
 2. How to justify each step of a proof
 
-*NB: As we go along, we will introduce relevant definitions, lemmas and theorems that will be used in the upcoming proofs.* 
+*Nota Bene: As we go along, we will introduce relevant definitions, lemmas and theorems that will be used in the upcoming proofs.* 
 
 ---
 ## Proof Strategy #1: Direct Proof
@@ -46,8 +46,8 @@ Observe that we have an *existential* statement, i.e., we need to show that such
 
 ### Example 1.2
 
-We will refer to the following definition of rational numbers: 
-$$x \in \mathbb{Q} \iff \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]$$
+We will refer to the following definition for rational numbers: 
+$$x \in \mathbb{Q} \equiv \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]$$
 
 >[!example] Example 1.2
 >Prove that $\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]$.
@@ -74,6 +74,8 @@ Regarding the statement itself, it is not hard to see why the statement should b
 >- On line 6, we used **existential generalisation** to rewrite line 5 *into a form that we recognise as the definition of $\mathbb{Q}$*.
 >- On line 7, we "reverse engineered" the definition of $\mathbb{Q}$.
 >- On line 8, we used **universal generalisation** to restore the statement to its original, universal form.
+>  
+>  
 
 >[!faq] Why do I need to mention that $1$ is in $\mathbb{Z}$?
 >This is because the *definition* of the rational numbers requires that the numerator and the denominator in our fraction have to be integers themselves ("$\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}$"). Therefore, to fit the definition explicitly, we should state that $n$ and $1$ are also integers.
