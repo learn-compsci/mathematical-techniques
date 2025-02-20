@@ -526,7 +526,7 @@ Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does tu
 >1. Let $a \in \mathbb{R} \setminus \mathbb{Q}$ and $b \in \mathbb{Q}$ be arbitrarily chosen.
 >2. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
 >3. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 2]
->4. Assume, for the sake of contradiction, that $a + b in \mathbb{Q}$.
+>4. Assume, for the sake of contradiction, that $a + b \in \mathbb{Q}$.
 >	1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
 >	2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
 >	3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
