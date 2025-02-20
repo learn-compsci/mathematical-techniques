@@ -102,7 +102,7 @@ We can't give a straight answer because now it depends. And that's why we can't 
 # The positives:
 Let us also mention some of the positives we the teaching team were very happy to see:
 
-1. Everyone did the truth tables correctly. Yay!
+1. Almost everyone did the truth tables correctly. Yay!
 2. A lot of submissions did faithfully negate quantified statements, and also the contrapositives. Nice!
 3. While most proofs did not follow the system exactly, there were still quite a number of proofs whose idea was correct, and of an acceptable state for us. We were very happy to see that people could get the idea, and write a working proof by contradiction. This is by no means an easy task. Well done!
 4. Quite a lot of people could interpret the nested quantified statements, which is a tall order for most newcomers to this concept. This usually takes some time to wrap your head around, and a little tedious. So well done for picking it up!
