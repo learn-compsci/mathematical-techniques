@@ -586,3 +586,10 @@ iframe.pdf {
   width: 100%;
   border-radius: 5px;
 }
+
+article > :is(ul, ol) li {
+	margin-bottom: 0.75em;
+	&:last-child {
+		margin-bottom: unset;
+	}
+}
