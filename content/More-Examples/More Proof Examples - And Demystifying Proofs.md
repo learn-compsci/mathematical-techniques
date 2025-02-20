@@ -259,7 +259,7 @@ As it turns out, the answer is **yes**, and we can show this algebraically.
 >		1. Case 1: $even(n)$.
 >			1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
 >			2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
->			3. $3n^2+n+14 = 3(2s)^2+2s+14 = 12s^2+2s+14 =\dots= 2 \cdot (6s^2+s+7)$ \[Basic algebra]
+>			3. $3n^2+n+14 = 3(2s)^2+2s+14 = 12s^2+2s+14= 2 \cdot (6s^2+s+7)$ \[Basic algebra]
 >			4. Since $s \in \mathbb{Z}$, $6s^2+s+7 \in \mathbb{Z}$. \[Basic algebra]
 >			5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
 >			6. $even(3n^2+n+14)$ \[Definition of $even$]
@@ -527,24 +527,7 @@ Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does tu
 >1. Let $a \in \mathbb{R} \setminus \mathbb{Q}$ and $b \in \mathbb{Q}$ be arbitrarily chosen.
 >2. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
 >3. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 2]
-<<<<<<< HEAD
 >4. Assume, for the sake of contradiction, that $a + b \in \mathbb{Q}$.
->	1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
->	2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
->	3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
->	4. $q_1 \neq 0$ \[Specialisation on line 3]
->	5. $q_2 \neq 0$ \[Specialisation on line 4.2]
->	6. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 4.4, 4.5]
->	7. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 3, 4.2]
->	8. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 4.3, 4.6, 4.7]
->	9. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
->	10. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1]
->	11. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
->	12. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 4.11]
->	13. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 4.9, 4.12]
->	14. $\bot$. \[Contradiction rule on line 4.13]
-=======
->1. Assume, for the sake of contradiction, that $a + b \in \mathbb{Q}$.
 >		1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
 >		2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
 >		3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
@@ -559,7 +542,6 @@ Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does tu
 >		12. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 4.11]
 >		13. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 4.9, 4.12]
 >		14. $\bot$. \[Contradiction rule on line 4.13]
->>>>>>> d48c8172cd6106f2c41daf51ab287f0e63f51053
 >5. $a + b \notin \mathbb{Q}$. \[Proof by contradiction rule on lines 4, 4.14]
 >6. $\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$ \[Universal generalisation on lines 1, 5]
 
