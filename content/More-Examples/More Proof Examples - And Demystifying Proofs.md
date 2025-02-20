@@ -120,12 +120,12 @@ As for constructing the proof itself, we notice that there is an **implication**
 >**Proof:**
 >1. Let $a \in \mathbb{Z}$, $b \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume $congruent(a,b,n)$.
->	1. $\exists k \in \mathbb{Z} \ [a-b = k \cdot n]$ \[Definition of $congruent$]
->	2. Let $m \in \mathbb{Z}$ be such that $a-b = m \cdot n$. \[Existential instantiation on line 2.1]
->	3. $b-a = -(a-b) = -(m \cdot n) = (-m) \cdot n$ \[Basic algebra]
->	4. Since $m \in \mathbb{Z}$, $-m \in \mathbb{Z}$. \[Basic algebra]
->	5. $\exists k \in \mathbb{Z} \ [b-a = k \cdot n]$ \[Existential generalisation on lines 2.3, 2.4]
->	6. $congruent(b,a,n)$ \[Definition of $congruent$]
+>		1. $\exists k \in \mathbb{Z} \ [a-b = k \cdot n]$ \[Definition of $congruent$]
+>		2. Let $m \in \mathbb{Z}$ be such that $a-b = m \cdot n$. \[Existential instantiation on line 2.1]
+>		3. $b-a = -(a-b) = -(m \cdot n) = (-m) \cdot n$ \[Basic algebra]
+>		4. Since $m \in \mathbb{Z}$, $-m \in \mathbb{Z}$. \[Basic algebra]
+>		5. $\exists k \in \mathbb{Z} \ [b-a = k \cdot n]$ \[Existential generalisation on lines 2.3, 2.4]
+>		6. $congruent(b,a,n)$ \[Definition of $congruent$]
 >3. $congruent(a,b,n) \to congruent(b,a,n)$ \[Implication introduction on lines 2, 2.6]
 >4. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall n \in \mathbb{Z} \ [congruent(a,b,n) \to congruent(b,a,n)]$ \[Universal generalisation on lines 1, 3]
 >---
@@ -190,21 +190,21 @@ Given the definition of $|x|$, it is not difficult to see how the proof by cases
 >**Proof:**
 >1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
 >2. Since $x \in \mathbb{R}$, $x > 0 \lor x = 0 \lor x < 0$. \[Basic algebra]
->	1. Case 1: $x > 0$.
->		1. $|x| = x$ \[Definition of absolute value]
->		2. $|x| > 0$ \[Basic algebra, from line 2.1]
->		3. $|x| > 0 \lor |x| = 0$ \[Generalisation on lines 2.1.1, 2.1.2]
->		4. $|x| \geq 0$ \[Definition of $\geq$]
->	2. Case 2: $x = 0$.
->		1. $|x| = 0$ \[Definition of absolute value]
->		2. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.2.1]
->		3. $|x| \geq 0$ \[Definition of $\geq$]
->	3. Case 3: $x < 0$.
->		1. $|x| = -x$ \[Definition of absolute value]
->		2. $-x > 0$ \[Basic algebra, from line 2.3]
->		3. $|x| > 0$ \[Basic algebra, from lines 2.3.1, 2.3.2]
->		4. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.3.3]
->		5. $|x| \geq 0$ \[Definition of $\geq$]
+>		1. Case 1: $x > 0$.
+>			1. $|x| = x$ \[Definition of absolute value]
+>			2. $|x| > 0$ \[Basic algebra, from line 2.1]
+>			3. $|x| > 0 \lor |x| = 0$ \[Generalisation on lines 2.1.1, 2.1.2]
+>			4. $|x| \geq 0$ \[Definition of $\geq$]
+>		2. Case 2: $x = 0$.
+>			1. $|x| = 0$ \[Definition of absolute value]
+>			2. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.2.1]
+>			3. $|x| \geq 0$ \[Definition of $\geq$]
+>		3. Case 3: $x < 0$.
+>			1. $|x| = -x$ \[Definition of absolute value]
+>			2. $-x > 0$ \[Basic algebra, from line 2.3]
+>			3. $|x| > 0$ \[Basic algebra, from lines 2.3.1, 2.3.2]
+>			4. $|x| > 0 \lor |x| = 0$ \[Generalisation on line 2.3.3]
+>			5. $|x| \geq 0$ \[Definition of $\geq$]
 >3. $|x| \geq 0$ \[Proof by cases on lines 2, 2.1.4, 2.2.3, 2.3.5]
 >4. $\forall \in \mathbb{R} \ [|x| \geq 0]$ \[Universal generalisation on lines 1, 3]
 >---
@@ -256,20 +256,20 @@ As it turns out, the answer is **yes**, and we can show this algebraically.
 >**Proof:**
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. $even(n) \lor odd(n)$. \[Universal instantiation of Lemma 1]
->	1. Case 1: $even(n)$.
->		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
->		2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
->		3. $3n^2+n+14 = 3(2s)^2+2s+14 = 12s^2+2s+14 =\dots= 2 \cdot (6s^2+s+7)$ \[Basic algebra]
->		4. Since $s \in \mathbb{Z}$, $6s^2+s+7 \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
->		6. $even(3n^2+n+14)$ \[Definition of $even$]
->	2. Case 2: $odd(n)$.
->		1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
->		2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
->		3. $3n^2+n+14 = 3(2t+1)^2+(2t+1)+14 =\dots=2 \cdot (6t^2+7t+9)$ \[Basic algebra]
->		4. Since $t \in \mathbb{Z}$, $6t^2+7t+9 \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
->		6. $even(3n^2+n+14)$ \[Definition of $even$]
+>		1. Case 1: $even(n)$.
+>			1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k]$ \[Definition of $even$]
+>			2. Let $s \in \mathbb{Z}$ be such that $n = 2 \cdot s$. \[Existential instantiation on line 2.1.1]
+>			3. $3n^2+n+14 = 3(2s)^2+2s+14 = 12s^2+2s+14 =\dots= 2 \cdot (6s^2+s+7)$ \[Basic algebra]
+>			4. Since $s \in \mathbb{Z}$, $6s^2+s+7 \in \mathbb{Z}$. \[Basic algebra]
+>			5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>			6. $even(3n^2+n+14)$ \[Definition of $even$]
+>		2. Case 2: $odd(n)$.
+>			1. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>			2. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.2.1]
+>			3. $3n^2+n+14 = 3(2t+1)^2+(2t+1)+14 =\dots=2 \cdot (6t^2+7t+9)$ \[Basic algebra]
+>			4. Since $t \in \mathbb{Z}$, $6t^2+7t+9 \in \mathbb{Z}$. \[Basic algebra]
+>			5. $\exists k \in \mathbb{Z} \ [3n^2+n+14 = 2 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>			6. $even(3n^2+n+14)$ \[Definition of $even$]
 >3. $even(3n^2+n+14)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6]
 >4. $\forall n \in \mathbb{Z} \ \big[even(3n^2 + n + 14)\big]$ \[Universal generalisation on lines 1, 3]
 
@@ -323,27 +323,27 @@ Hmm, it seems like no matter which number we pick, there will always be a factor
 >[!example]+ Proof 2.3
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. $congruent(n,0,3) \lor congruent(n,1,3) \lor congruent(n,2,3)$. \[Universal instantiation of Lemma 2]
->	1. Case 1: $congruent(n,0,3)$.
->		1. $\exists k \in \mathbb{Z} \ [n - 0 = 3 \cdot k]$ \[Definition of $congruent$]
->		2. Let $r \in \mathbb{Z}$ be such that $n - 0 = 3 \cdot r$. \[Existential instantiation on line 2.1.1]
->		3. $n(n-1)(n+1)=(3r)(3r-1)(3r+1)=3 \cdot [r(3r-1)(3r+1)]$ \[Basic algebra]
->		4. Since $r \in \mathbb{Z}$, $r(3r-1)(3r+1) \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
->		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
->	2. Case 2: $congruent(n,1,3)$.
->		1. $\exists k \in \mathbb{Z} \ [n - 1 = 3 \cdot k]$ \[Definition of $congruent$]
->		2. Let $s \in \mathbb{Z}$ be such that $n - 1 = 3 \cdot s$. \[Existential instantiation on line 2.2.1]
->		3. $n(n-1)(n+1)=(3s+1)(3s)(3s+2)=3 \cdot [s(3s+1)(3s+2)]$ \[Basic algebra]
->		4. Since $s \in \mathbb{Z}$, $s(3s+1)(3s+2) \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
->		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
->	3. Case 3: $congruent(n,2,3)$.
->		1. $\exists k \in \mathbb{Z} \ [n - 2 = 3 \cdot k]$ \[Definition of $congruent$]
->		2. Let $t \in \mathbb{Z}$ be such that $n - 2 = 3 \cdot t$. \[Existential instantiation on line 2.3.1]
->		3. $n(n-1)(n+1)=(3t+2)(3t+1)(3t)=3 \cdot [t(3t+2)(3t+1)]$ \[Basic algebra]
->		4. Since $t \in \mathbb{Z}$, $t(3t+2)(3t+1) \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.3.3, 2.3.4]
->		6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>		1. Case 1: $congruent(n,0,3)$.
+>			1. $\exists k \in \mathbb{Z} \ [n - 0 = 3 \cdot k]$ \[Definition of $congruent$]
+>			2. Let $r \in \mathbb{Z}$ be such that $n - 0 = 3 \cdot r$. \[Existential instantiation on line 2.1.1]
+>			3. $n(n-1)(n+1)=(3r)(3r-1)(3r+1)=3 \cdot [r(3r-1)(3r+1)]$ \[Basic algebra]
+>			4. Since $r \in \mathbb{Z}$, $r(3r-1)(3r+1) \in \mathbb{Z}$. \[Basic algebra]
+>			5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.1.3, 2.1.4]
+>			6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>		2. Case 2: $congruent(n,1,3)$.
+>			1. $\exists k \in \mathbb{Z} \ [n - 1 = 3 \cdot k]$ \[Definition of $congruent$]
+>			2. Let $s \in \mathbb{Z}$ be such that $n - 1 = 3 \cdot s$. \[Existential instantiation on line 2.2.1]
+>			3. $n(n-1)(n+1)=(3s+1)(3s)(3s+2)=3 \cdot [s(3s+1)(3s+2)]$ \[Basic algebra]
+>			4. Since $s \in \mathbb{Z}$, $s(3s+1)(3s+2) \in \mathbb{Z}$. \[Basic algebra]
+>			5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.2.3, 2.2.4]
+>			6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
+>		3. Case 3: $congruent(n,2,3)$.
+>			1. $\exists k \in \mathbb{Z} \ [n - 2 = 3 \cdot k]$ \[Definition of $congruent$]
+>			2. Let $t \in \mathbb{Z}$ be such that $n - 2 = 3 \cdot t$. \[Existential instantiation on line 2.3.1]
+>			3. $n(n-1)(n+1)=(3t+2)(3t+1)(3t)=3 \cdot [t(3t+2)(3t+1)]$ \[Basic algebra]
+>			4. Since $t \in \mathbb{Z}$, $t(3t+2)(3t+1) \in \mathbb{Z}$. \[Basic algebra]
+>			5. $\exists k \in \mathbb{Z} \ [n(n-1)(n+1) = 3 \cdot k]$ \[Existential generalisation on lines 2.3.3, 2.3.4]
+>			6. $divides\big(3, n(n-1)(n+1)\big)$ \[Definition of $divides$]
 >3. $divides\big(3, n(n-1)(n+1)\big)$ \[Proof by cases on lines 2, 2.1.6, 2.2.6, 2.3.6]
 >4. $\forall n \in \mathbb{Z} \ \big[divides\big(3, n(n-1)(n+1)\big)\big]$ \[Universal generalisation on lines 1, 3]
 
@@ -406,12 +406,12 @@ The contradiction arises when we suppose that there *is indeed* a number $n$ whe
 >**Proof:**
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume, for the sake of contradiction, that $\neg (3n \neq 1)$.
->	1. $3n = 1$ \[Logically equivalent to line 2]
->	2. $n = \frac{1}{3}$ \[Basic algebra]
->	3. $\neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Basic algebra]
->	4. Since $n \in \mathbb{Z}$ and $n = \frac{1}{3}$, $\frac{1}{3} \in \mathbb{Z}$. \[Basic algebra, from line 1, 2.2]
->	5. $\big(\frac{1}{3} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Conjunction on lines 2.3, 2.4]
->	6. $\bot$. \[Contradiction rule on line 2.5]
+>		1. $3n = 1$ \[Logically equivalent to line 2]
+>		2. $n = \frac{1}{3}$ \[Basic algebra]
+>		3. $\neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Basic algebra]
+>		4. Since $n \in \mathbb{Z}$ and $n = \frac{1}{3}$, $\frac{1}{3} \in \mathbb{Z}$. \[Basic algebra, from line 1, 2.2]
+>		5. $\big(\frac{1}{3} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{3} \in \mathbb{Z}\big)$ \[Conjunction on lines 2.3, 2.4]
+>		6. $\bot$. \[Contradiction rule on line 2.5]
 >3. $3n \neq 1$ \[Proof by contradiction rule on lines 2, 2.6]
 >4. $\forall n \in \mathbb{Z} \ [3n \neq 1]$ \[Universal generalisation on lines 1, 3]
 
@@ -449,16 +449,16 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >**Proof:**
 >1. Let $x \in \mathbb{Q^+}$ be arbitrarily chosen.
 >2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Q^+} \ [y < x]\big)$.
->	1. $\forall y \in \mathbb{Q^+} \ [y \geq x]$ \[Logically equivalent to line 2]
->	2. Consider $\frac{x}{2}$. 
->		1. Since $x \in \mathbb{Q^+}$, $\frac{x}{2} \in \mathbb{Q^+}$. \[Basic algebra]
->		2. Since $x > 0$, then $\frac{x}{2} > 0$. \[Basic algebra]
->		3. $x - \frac{x}{2} = \frac{x}{2} > 0$. \[Basic algebra, from line 2.2.2]
->		4. $\frac{x}{2} < x$ \[Basic algebra, from line 2.2.3]
->		5. $\exists y \in \mathbb{Q^+} \ [y < x]$ \[Existential generalisation on lines 2.2.1, 2.2.4]
->		6. $\neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Logically equivalent to line 2.2.5]
->	3. $\big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big) \land \neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Conjunction on lines 2.1, 2.2.6]
->	4. $\bot$. \[Contradiction rule on line 2.3]
+>		1. $\forall y \in \mathbb{Q^+} \ [y \geq x]$ \[Logically equivalent to line 2]
+>		2. Consider $\frac{x}{2}$. 
+>			1. Since $x \in \mathbb{Q^+}$, $\frac{x}{2} \in \mathbb{Q^+}$. \[Basic algebra]
+>			2. Since $x > 0$, then $\frac{x}{2} > 0$. \[Basic algebra]
+>			3. $x - \frac{x}{2} = \frac{x}{2} > 0$. \[Basic algebra, from line 2.2.2]
+>			4. $\frac{x}{2} < x$ \[Basic algebra, from line 2.2.3]
+>			5. $\exists y \in \mathbb{Q^+} \ [y < x]$ \[Existential generalisation on lines 2.2.1, 2.2.4]
+>			6. $\neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Logically equivalent to line 2.2.5]
+>		3. $\big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big) \land \neg \big(\forall y \in \mathbb{Q^+} \ [y \geq x]\big)$ \[Conjunction on lines 2.1, 2.2.6]
+>		4. $\bot$. \[Contradiction rule on line 2.3]
 >3. $\exists y \in \mathbb{Q^+} \ [y < x]$ \[Proof by contradiction rule on lines 2, 2.4]
 >4. $\forall x \in \mathbb{Q^+}, \exists y \in \mathbb{Q^+} \ [y < x]$ \[Universal generalisation on lines 1, 3]
 >---
@@ -469,6 +469,7 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >- On line 2.3, we used **conjunction** to link the two halves (lines 2.1 and 2.2.6).
 >- On line 2.4, we used the **contradiction rule** to create the "$\bot$" statement.
 >- On line 3, we used the **proof by contradiction rule** to conclude that our initial assumption (line 2) was faulty, thereby proving our original statement.
+
 
 >[!faq] Can I do the following?
 >**(Bad, Informal) Proof:**
@@ -481,8 +482,8 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >**No, you cannot!**
 >
 >This is a classic example of *circular reasoning*: using the original statement as a justification for a proof of that same statement is not allowed. In essence, the proof does the following:
->1. We are trying to prove that a smallest positive rational number, $r$, does not exist.
->2. If we claim that $r$ exists, then we are wrong, because $r$ doesn't exist.
+>6. We are trying to prove that a smallest positive rational number, $r$, does not exist.
+>7. If we claim that $r$ exists, then we are wrong, because $r$ doesn't exist.
 >
 >**So how should it be done?**
 >
@@ -492,8 +493,8 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >Prove that **there is no largest integer**, i.e., prove that: $$\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$$
 
 >[!tip]- Solution
->1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
->2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
+>8. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>9. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
 >	1. $\forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 2]
 >	2. Consider $x + 1$.
 >		1. Since $x \in \mathbb{Z}$, $x + 1 \in \mathbb{Z}$. \[Basic algebra]
@@ -502,8 +503,8 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >		4. $\neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Logically equivalent to line 2.2.3]
 >	3. $\big(\forall y \in \mathbb{Z} \ [x \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Conjunction on lines 2.1, 2.2.4]
 >	4. $\bot$. \[Contradiction rule on line 2.3]
->3. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
->4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
+>10. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
+>11. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
 
 ### Example 3.3
 
@@ -527,26 +528,27 @@ Suppose instead that the sum $s$ of some irrational $x$ and rational $y$ does tu
 >2. Since $b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land b = \frac{p}{q}\big]$ \[Definition of $\mathbb{Q}$]
 >3. Let $p_1 \in \mathbb{Z}$ and $q_1 \in \mathbb{Z}$ be such that $q_1 \neq 0 \land b = \frac{p_1}{q_1}$. \[Existential instantiation on line 2]
 >4. Assume, for the sake of contradiction, that $a + b in \mathbb{Q}$.
->	1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
->	2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
->	3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
->	4. $q_1 \neq 0$ \[Specialisation on line 3]
->	5. $q_2 \neq 0$ \[Specialisation on line 4.2]
->	6. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 4.4, 4.5]
->	7. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 3, 4.2]
->	8. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 4.3, 4.6, 4.7]
->	9. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
->	10. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1]
->	11. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
->	12. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 4.11]
->	13. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 4.9, 4.12]
->	14. $\bot$. \[Contradiction rule on line 4.13]
+>		1. Since $a + b \in \mathbb{Q}$, $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z}\ \big[q \neq 0 \land \big(a + b = \frac{p}{q}\big)\big]$ \[Definition of $\mathbb{Q}$]
+>		2. Let $p_2 \in \mathbb{Z}$ and $q_2 \in \mathbb{Z}$ be such that $q_2 \neq 0 \land \big(a + b = \frac{p_2}{q_2}\big)$. \[Existential instantiation on line 4.1]
+>		3. $a = (a + b) - b = \frac{p_2}{q_2} - \frac{p_1}{q_1} = \frac{p_2q_1 - p_1q_2}{q_1q_2}$ \[Basic algebra]
+>		4. $q_1 \neq 0$ \[Specialisation on line 3]
+>		5. $q_2 \neq 0$ \[Specialisation on line 4.2]
+>		6. Since $q_1 \neq 0$ and $q_2 \neq 0$, $q_1q_2 \neq 0$. \[Basic algebra, from lines 4.4, 4.5]
+>		7. Since $p_1, q_1, p_2, q_2 \in \mathbb{Z}$, $p_2q_1 - p_1q_2 \in \mathbb{Z}$. \[Basic algebra, from lines 3, 4.2]
+>		8. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \big[q \neq 0 \land a = \frac{p}{q}\big]$ \[Existential generalisation on lines 4.3, 4.6, 4.7]
+>		9. $a \in \mathbb{Q}$ \[Definition of $\mathbb{Q}$]
+>		10. $a \in \mathbb{R} \setminus \mathbb{Q}$ \[From line 1]
+>		11. $a \in \mathbb{R} \land \neg (a \in \mathbb{Q})$ \[Definition of [[Unit 2#Set Difference|set difference]]]
+>		12. $\neg (a \in \mathbb{Q})$ \[Specialisation on line 4.11]
+>		13. $(a \in \mathbb{Q}) \land \neg (a \in \mathbb{Q})$ \[Conjunction on lines 4.9, 4.12]
+>		14. $\bot$. \[Contradiction rule on line 4.13]
 >5. $a + b \notin \mathbb{Q}$. \[Proof by contradiction rule on lines 4, 4.14]
 >6. $\forall x \in \mathbb{R} \setminus \mathbb{Q}, \forall y \in \mathbb{Q} \ [x + y \notin \mathbb{Q}]$ \[Universal generalisation on lines 1, 5]
 
 ---
 
 ## Proof Strategy #4: Proof by Contrapositive
+
 
 Finally, we have proofs by contrapositive. This strategy is useful when there is an implication $p \to q$ in the statement we are trying to prove, and proving $q$ from $p$ directly is difficult. Instead, we suppose $\neg p$ and try to show $\neg q$. This gives us $\neg q \to \neg p$, which is [[Unit 1#Contrapositivity|logically equivalent]] to $p \to q$. 
 
@@ -565,12 +567,12 @@ Instead, if we look at the contrapositive, all we need to do is show that if $x 
 >**Proof:**
 >1. Let $x \in \mathbb{R}$ be arbitrarily chosen.
 >2. Assume that $x \neq 0$.
->	1. $x > 0 \lor x < 0$ \[Basic algebra]
->	2. Case 1: $x > 0$.
->		1. $x^2 > 0$ \[Basic algebra]
->	3. Case 2: $x < 0$.
->		1. $x^2 > 0$ \[Basic algebra]
->	4. $x^2 > 0$ \[Proof by cases on lines 2.1, 2.2.1, 2.2.2]
+>		1. $x > 0 \lor x < 0$ \[Basic algebra]
+>		2. Case 1: $x > 0$.
+>			1. $x^2 > 0$ \[Basic algebra]
+>		3. Case 2: $x < 0$.
+>			1. $x^2 > 0$ \[Basic algebra]
+>		4. $x^2 > 0$ \[Proof by cases on lines 2.1, 2.2.1, 2.2.2]
 >3. $x \neq 0 \to x^2 > 0$ \[Implication introduction on lines 2, 2.4]
 >4. $x^2 \leq 0 \to x = 0$ \[Logically equivalent to line 3]
 >5. $\forall x \in \mathbb{R} \ [x^2 \leq 0 \to x = 0]$ \[Universal generalisation on lines 1, 4]
@@ -615,18 +617,18 @@ Ok, this looks much more promising! Now, we have both $odd(m)$ **and** $odd(n)$ 
 >**Proof:**
 >1. Let $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume that $\neg \big(even(m) \lor even(n)\big)$.
->	1. $odd(m) \land odd(n)$ \[Logically equivalent to line 2, using basic algebra]
->	2. $odd(m)$ \[Specialisation on line 2.1]
->	3. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$ \[Definition of $odd$]
->	4. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.3]
->	5. $odd(m)$ \[Specialisation on line 2.1]
->	6. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
->	7. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.6]
->	8. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$ \[Basic algebra]
->	9. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra]
->	10. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.8, 2.9]
->	11. $odd(mn)$ \[Definition of $odd$]
->	12. $\neg even(mn)$ \[Basic algebra]
+>		1. $odd(m) \land odd(n)$ \[Logically equivalent to line 2, using basic algebra]
+>		2. $odd(m)$ \[Specialisation on line 2.1]
+>		3. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$ \[Definition of $odd$]
+>		4. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.3]
+>		5. $odd(m)$ \[Specialisation on line 2.1]
+>		6. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>		7. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.6]
+>		8. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$ \[Basic algebra]
+>		9. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra]
+>		10. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$ \[Existential generalisation on lines 2.8, 2.9]
+>		11. $odd(mn)$ \[Definition of $odd$]
+>		12. $\neg even(mn)$ \[Basic algebra]
 >3. $\neg \big(even(m) \lor even(n)\big) \to \neg even(mn)$ \[Implication introduction on lines 2, 2.12]
 >4. $even(mn) \to \big(even(m) \lor even(n)\big)$ \[Logically equivalent to line 3, and by basic algebra]
 >5. $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]$ \[Universal generalisation on lines 1, 4]
