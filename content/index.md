@@ -88,3 +88,12 @@ This website's intended usage by students taking discrete math courses at the [S
 * < 1 week after submission deadline: 50% penalty
 * < 2 weeks after submission deadline: 75% penalty
 * No submissions after 2 weeks.
+
+
+# Credits:
+This webpage, the content, running the course would not have been possible without the help of my lovely TAs:
+
+* Peh Hou Jin
+* Zhao Xin Tong
+* Maximus Ng
+* Shane Arkar Kyaw
