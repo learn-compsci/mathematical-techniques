@@ -395,12 +395,12 @@ So the divisibility relation $C_n$ is also reflexive!
 Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg (\forall x \in \mathbb{Z} \ [(x, x) \in A])$.
 
 **Proof**:
-8. $1 + 1 \neq 1$ \[Basic algebra]
-9. $1 \in \mathbb{Z}$ \[Basic algebra]
-10. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
-11. $(1, 1) \notin A$ \[Definition of $A$]
-12. $\exists x \in \mathbb{Z} \ [(x, x) \notin A]$ \[Existential generalisation on lines 2, 4]
-13. $\neg\big( \forall x \in \mathbb{Z} \ [(x, x) \in A] \big)$ \[Logically equivalent to line 5]
+1. $1 + 1 \neq 1$ \[Basic algebra]
+2. $1 \in \mathbb{Z}$ \[Basic algebra]
+4. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
+5. $(1, 1) \notin A$ \[Definition of $A$]
+6. $\exists x \in \mathbb{Z} \ [(x, x) \notin A]$ \[Existential generalisation on lines 2, 4]
+7. $\neg\big( \forall x \in \mathbb{Z} \ [(x, x) \in A] \big)$ \[Logically equivalent to line 5]
 
 ## Symmetry
 Consider a relation $R \subseteq A \times A$. We will say $R$ is _symmetric_ if the following holds:
