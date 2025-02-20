@@ -593,3 +593,10 @@ iframe.pdf {
 		margin-bottom: unset;
 	}
 }
+
+.popover-hint :is(ul, ol) li {
+	margin-bottom: 1em;
+	&:last-child {
+		margin-bottom: unset;
+	}
+}
