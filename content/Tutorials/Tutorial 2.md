@@ -147,4 +147,10 @@ Is the following statement true?
 > 
 > If $R$ is both reflexive and anti-symmetric, then $R$ is **not** symmetric.
 
-If it is, prove it. If it is not, give examples of $A$, and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is not symmetric.
+~~If it is, prove it. If it is not, give examples of $A$, and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is not symmetric.~~
+
+**Correction**: 
+
+If it is, prove it. 
+
+If it is not, give examples of $A$, and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
