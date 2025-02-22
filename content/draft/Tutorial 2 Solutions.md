@@ -40,7 +40,7 @@ Find $\mathcal{P}(A)$ and $\mathcal{P}(B)$.
 
 **Solutions**:
 
-$\mathcal{P}(A) = \{\emptyset, \{0\}\}$. Observe that $\mathcal{P}(A)$ has $2^1 = 2^{|A|} = 2$ elements.
+$\mathcal{P}(A) = \{\emptyset, \{0\}\}$. Observe that $\mathcal{P}(A)$ has $2^{|A|} = 2^1 = 2$ elements.
 
 $\mathcal{P}(\{0,1\}) = \big\{\emptyset, \{0\}, \{1\}, \{0,1\}\big\}$, so:
 
@@ -56,6 +56,8 @@ $$
 \end{align*}
 $$
 
+Observe that $\mathcal{P}(B)$ has $2^{|B|} = 2^4 = 16$ elements.
+
 ---
 # Question 2 \[Graded for Participation]
 
@@ -69,6 +71,16 @@ Find the following sets:
 4. $A \times C$
 
 Note: Some of these can be written using [[Unit 2#Set Roster Notation]], these are the ones where you can list them out one by one. For the rest, you can write them using [[Unit 2#Set Builder Notation|set builder notation]].
+
+**Solutions**:
+
+First, we write out $A$ in set-roster notation: $A = \{-4, -3, -2, -1, 0, 1, 2, 3, 4\}$.
+
+Next, set $B$ is simply all the positive natural numbers that are $1$ greater than a multiple of $3$.
+
+Then, we have the following sets:
+
+1. $A \cap B = \{-2, 1, 4\}$
 
 ---
 # Question 3
