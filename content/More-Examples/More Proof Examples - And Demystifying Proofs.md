@@ -86,7 +86,7 @@ Regarding the statement itself, it is not hard to see why the statement should b
 >[!tip]- Solution
 >**Proof:**
 >1. Let $n \in \mathbb{Q}$ be arbitrarily chosen.
->2. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ [q \neq 0 \land x = \frac{p}{q}]$ \[Definition of $\mathbb{Q}$]
+>2. $\exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ [q \neq 0 \land n = \frac{p}{q}]$ \[Definition of $\mathbb{Q}$]
 >3. Let $s, t \in \mathbb{Z}$ be such that $t \neq 0 \land n = \frac{s}{t}$. \[Universal instantiation on lines 1, 2]
 >4. $n = \frac{s}{t}$ \[Specialisation on line 3]
 >5. Since $s \in \mathbb{Z}$, $2s \in \mathbb{Z}$. \[Basic algebra]
@@ -416,19 +416,19 @@ The contradiction arises when we suppose that there *is indeed* a number $n$ whe
 >4. $\forall n \in \mathbb{Z} \ [3n \neq 1]$ \[Universal generalisation on lines 1, 3]
 
 >[!tip] Try It Out!
->Prove that $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}\ [10a + 15b \neq 5]$.
+>Prove that $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}\ [10a + 15b \neq 1]$.
 
 >[!tip]- Solution
 >**Proof:**
 >1. Let $a \in \mathbb{Z}$ and $b \in \mathbb{Z}$ be arbitrarily chosen.
->2. Assume, for the sake of contradiction, that $\neg (10a + 15b \neq 5)$.
+>2. Assume, for the sake of contradiction, that $\neg (10a + 15b \neq 1)$.
 >	1. $10a + 15b = 1$. \[Logically equivalent to line 2]
 >	2. $2a + 3b = \frac{1}{5}$ \[Basic algebra]
 >	3. $\neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Basic algebra]
 >	4. Since $a, b \in \mathbb{Z}$, $2a + 3b \in \mathbb{Z}$, so $\frac{1}{5} \in \mathbb{Z}$. \[Basic algebra, from lines 1, 2.2]
 >	5. $\big(\frac{1}{5} \in \mathbb{Z}\big) \land \neg \big(\frac{1}{5} \in \mathbb{Z}\big)$ \[Conjunction on lines 2.3, 2.4]
 >	6. $\bot$. \[Contradiction rule on line 2.5]
->3. $10a + 15b \neq 5$ \[Proof by contradiction rule on lines 2, 2.6]
+>3. $10a + 15b \neq 1$ \[Proof by contradiction rule on lines 2, 2.6]
 >4. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [10a + 15b \neq 1]$ \[Universal generalisation on lines 1, 3]
 
 ### Example 3.2
@@ -493,8 +493,8 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >Prove that **there is no largest integer**, i.e., prove that: $$\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$$
 
 >[!tip]- Solution
->8. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
->9. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
 >	1. $\forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 2]
 >	2. Consider $x + 1$.
 >		1. Since $x \in \mathbb{Z}$, $x + 1 \in \mathbb{Z}$. \[Basic algebra]
@@ -503,8 +503,8 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >		4. $\neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Logically equivalent to line 2.2.3]
 >	3. $\big(\forall y \in \mathbb{Z} \ [x \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Conjunction on lines 2.1, 2.2.4]
 >	4. $\bot$. \[Contradiction rule on line 2.3]
->10. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
->11. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
+>3. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
+>4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
 
 ### Example 3.3
 
@@ -621,7 +621,7 @@ Ok, this looks much more promising! Now, we have both $odd(m)$ **and** $odd(n)$ 
 >		2. $odd(m)$ \[Specialisation on line 2.1]
 >		3. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$ \[Definition of $odd$]
 >		4. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.3]
->		5. $odd(m)$ \[Specialisation on line 2.1]
+>		5. $odd(n)$ \[Specialisation on line 2.1]
 >		6. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
 >		7. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.6]
 >		8. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$ \[Basic algebra]
