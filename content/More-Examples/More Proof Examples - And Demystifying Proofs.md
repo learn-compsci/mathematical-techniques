@@ -495,14 +495,14 @@ Therefore, we assume that the original statement is false (i.e., there *is indee
 >[!tip]- Solution
 >1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume, for the sake of contradiction, that $\neg \big(\exists y \in \mathbb{Z} \ [y > x]\big)$.
->	1. $\forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 2]
->	2. Consider $x + 1$.
->		1. Since $x \in \mathbb{Z}$, $x + 1 \in \mathbb{Z}$. \[Basic algebra]
->		2. $x < x + 1$ \[Basic algebra]
->		3. $\exists y \in \mathbb{Z} \ [x < y]$ \[Existential generalisation on lines 2.2.1, 2.2.2]
->		4. $\neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Logically equivalent to line 2.2.3]
->	3. $\big(\forall y \in \mathbb{Z} \ [x \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Conjunction on lines 2.1, 2.2.4]
->	4. $\bot$. \[Contradiction rule on line 2.3]
+>		1. $\forall y \in \mathbb{Z} \ [x \geq y]$ \[Logically equivalent to line 2]
+>		2. Consider $x + 1$.
+>			1. Since $x \in \mathbb{Z}$, $x + 1 \in \mathbb{Z}$. \[Basic algebra]
+>			2. $x < x + 1$ \[Basic algebra]
+>			3. $\exists y \in \mathbb{Z} \ [x < y]$ \[Existential generalisation on lines 2.2.1, 2.2.2]
+>			4. $\neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Logically equivalent to line 2.2.3]
+>		3. $\big(\forall y \in \mathbb{Z} \ [x \geq y]\big) \land \neg \big(\forall y \in \mathbb{Z} \ [x \geq y]\big)$ \[Conjunction on lines 2.1, 2.2.4]
+>		4. $\bot$. \[Contradiction rule on line 2.3]
 >3. $\exists y \in \mathbb{Z} \ [y > x]$ \[Proof by contradiction rule on lines 2, 2.4]
 >4. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$ \[Universal generalisation on lines 1, 3]
 
