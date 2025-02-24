@@ -100,28 +100,28 @@ Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$.
 #### Sub-part 1
 Is the following statement true?
 
-> $A$ is reflexive.
+> $R$ is reflexive.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Reflexivity]].
 
 #### Sub-part 2
 Is the following statement true?
 
-> $A$ is symmetric.
+> $R$ is symmetric.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Symmetry]].
 
 #### Sub-part 3
 Is the following statement true?
 
-> $A$ is anti-symmetric.
+> $R$ is anti-symmetric.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Anti-Symmetry]].
 
 #### Sub-part 4
 Is the following statement true?
 
-> $A$ is transitive.
+> $R$ is transitive.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Transitivity]].
 
@@ -135,7 +135,9 @@ Is the following statement true?
 > 
 > If $R$ is symmetric, then $R; R$ is reflexive.
 
-If it is, prove it. If it is not, give examples of $A$, and $R$ such that the $R$ is symmetric, but $R; R$ is not reflexive.
+If it is, prove it. 
+
+If it is not, give examples of $A$ and $R$ such that $R$ is symmetric, but $R; R$ is not reflexive.
 
 ---
 
@@ -153,4 +155,4 @@ Is the following statement true?
 
 If it is, prove it. 
 
-If it is not, give examples of $A$, and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
+If it is not, give examples of $A$ and $R$ such that $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
