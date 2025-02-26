@@ -81,6 +81,17 @@ Next, set $B$ is simply all the positive natural numbers that are $1$ greater th
 Then, we have the following sets:
 
 1. $A \cap B = \{-2, 1, 4\}$
+2. $A \cup B = \big\{x \in \mathbb{Z} : (x^2 \leq 16) \lor \big((x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$
+3. $A \setminus C = \{-4, -3, -2, -1, 0, 3, 4\}$
+4. 
+$$
+\begin{align*}
+A \times C = \{
+\\&(-4, 1), (-3, 1), (-2, 1), (-1, 1), (0, 1), (1, 1), (2, 1), (3, 1), (4, 1),
+\\&(-4, 2), (-3, 2), (-2, 2), (-1, 2), (0, 2), (1, 2), (2, 2), (3, 2), (4, 2)
+\\&\}
+\end{align*}
+$$
 
 ---
 # Question 3
@@ -94,6 +105,12 @@ Convert the following from set builder notation to set roster notation:
 
 **Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
+**Solutions**:
+
+1. $A = \{5, 10\}$
+2. $B = \{2, 4, 6, 8\}$
+3. $C = \{0, 7, 14, 21, 28, 35, 42, 49, 56\}$
+4. $D = \{2, 3, 5, 7\}$, i.e., the set of prime numbers between $1$ and $10$
 
 ---
 # Question 4 \[Graded for Participation]
@@ -103,6 +120,88 @@ Prove the set equality $(A\setminus B) \setminus C =(A \setminus C) \setminus (B
 Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
 
 **Hint:** [[Unit 2#Based on logical equivalences]] shows a method that is helpful.
+
+**Solutions**:
+
+>[!note] Proof: $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$
+>1. $(\subseteq)$ **Let $x \in (A \setminus B) \setminus C$ be arbitrarily chosen.**
+>	1. $(x \in A \setminus B) \land (x \notin C)$ \[Definition of set difference]
+>	2. $(x \in A) \land (x \notin B) \land (x \notin C)$ \[Definition of set difference]
+>		1. $(x \in A)$ \[Specialisation on line 1.2]
+>		2. $(x \notin B)$ \[Specialisation on line 1.2]
+>		3. $(x \notin C)$ \[Specialisation on line 1.2]
+>	3. $(x \in A) \land (x \notin C)$ \[Conjunction on lines 1.2.1, 1.2.3]
+>	4. $x \in A \setminus C$ \[Definition of set difference]
+>	5. $(x \notin B) \land (x \notin C)$ \[Conjunction on lines 1.2.2, 1.2.3]
+>	6. $\neg \big((x \in B) \lor (x \in C)\big)$ \[Logically equivalent to line 1.5]
+>	7. $\neg \big(x \in B \cup C\big)$ \[Definition of set union]
+>	8. $x \notin B \cup C$ \[Equivalent to line 1.7]
+>	9. $(x \in A \setminus C) \land (x \notin B \cup C)$ \[Conjunction on lines 1.4, 1.8]
+>	10. $x \in (A \setminus C) \setminus (B \cup C)$ \[Definition of set difference]
+>	11. $\forall x \in (A \setminus B) \setminus C \ [x \in (A \setminus C) \setminus (B \cup C)]$ \[Universal generalisation on lines 1, 1.10]
+>	12. $(A \setminus B) \setminus C \subseteq (A \setminus C) \setminus (B \cup C)$ \[Definition of subset]
+>2. $(\supseteq)$ **Let $x \in (A \setminus C) \setminus (B \cup C)$ be arbitrarily chosen.**
+>	1. $(x \in A \setminus C) \land (x \notin B \cup C)$ \[Definition of set difference]
+>	2. $(x \in A) \land (x \notin C) \land (x \notin B \cup C)$ \[Definition of set difference]
+>	3. $(x \in A) \land (x \notin C) \land \neg (x \in B \cup C)$ \[Equivalent to line 2.2]
+>	4. $(x \in A) \land (x \notin C) \land \neg \big((x \in B) \lor (x \in C)\big)$ \[Definition of set union]
+>	5. $(x \in A) \land (x \notin C) \land (x \notin B) \land (x \notin C)$ \[Logically equivalent to line 2.4]
+>		1. $x \in A$ \[Specialisation on line 2.5]
+>		2. $x \notin B$ \[Specialisation on line 2.5]
+>		3. $x \notin C$ \[Specialisation on line 2.5]
+>	6. $(x \in A) \land (x \notin B)$ \[Conjunction on lines 2.5.1, 2.5.2]
+>	7. $x \in A \setminus B$ \[Definition of set difference]
+>	8. $(x \in A \setminus B) \land (x \notin C)$ \[Conjunction on lines 2.7, 2.5.3]
+>	9. $x \in (A \setminus B) \setminus C$ \[Definition of set difference]
+>	10. $\forall x \in (A \setminus C) \setminus (B \cup C) \ [x \in (A \setminus B) \setminus C]$ \[Universal generalisation on lines 2, 2.9]
+>	11. $(A \setminus C) \setminus (B \cup C) \subseteq (A \setminus B) \setminus C$ \[Definition of subset]
+>3. $\bigg((A \setminus B) \setminus C \subseteq (A \setminus C) \setminus (B \cup C)\bigg) \land \bigg((A \setminus C) \setminus (B \cup C) \subseteq (A \setminus B) \setminus C\bigg)$ \[Conjunction on lines 1.12, 2.11]
+>4. $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$ \[Definition of set equality]
+
+>[!note] Proof: $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$
+>1. **$(\subseteq)$ Let $x \in (A \setminus B) \cup C$ be arbitrarily chosen.**
+>	1. $\big((x \in A) \land (x \notin B)\big) \lor (x \in C)$. \[Definition of set difference]
+>	2. Case 1: $(x \in A) \land (x \notin B)$
+>		1. $x \in A$ \[Specialisation on line 1.2]
+>		2. $x \notin B$ \[Specialisation on line 1.2]
+>		3. $(x \in A) \lor (x \in C)$ \[Generalisation on line 1.2.1]
+>		4. $x \in A \cup C$ \[Definition of set union]
+>		5. $(x \notin B) \lor (x \in C)$ \[Generalisation on line 1.2.2]
+>		6. $\neg \big((x \in B) \land (x \notin C)\big)$ \[Logically equivalent to line 1.2.5]
+>		7. $\neg (x \in B \setminus C)$ \[Definition of set difference]
+>		8. $x \notin B \setminus C$ \[Equivalent to line 1.2.7]
+>		9. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Conjunction on lines 1.2.4, 1.2.8]
+>		10. $x \in (A \cup C) \setminus (B \setminus C)$ \[Definition of set difference]
+>	3. Case 2: $x \in C$
+>		1. $(x \in A) \lor (x \in C)$ \[Generalisation on line 1.3]
+>		2. $(x \notin B) \lor (x \in C)$ \[Generalisation on line 1.3]
+>		3. $\neg \big((x \in B) \land (x \notin C)\big)$ \[Logically equivalent to line 1.3.2]
+>		4. $\neg (x \in B \setminus C)$ \[Definition of set difference]
+>		5. $x \notin B \setminus C$ \[Equivalent to line 1.3.4]
+>		6. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Conjunction on lines 1.3.1, 1.3.5]
+>		7. $x \in (A \cup C) \setminus (B \setminus C)$ \[Definition of set difference]
+>	4. $x \in (A \cup C) \setminus (B \setminus C)$ \[Proof by cases on lines 1.1, 1.2.10, 1.3.7]
+>	5. $\forall x \in (A \setminus B) \cup C \ [x \in (A \cup C) \setminus (B \setminus C)]$ \[Universal generalisation on lines 1, 1.4]
+>	6. $(A \setminus B) \cup C \subseteq (A \cup C) \setminus (B \setminus C)$ \[Definition of subset]
+>2. **$(\supseteq)$ Let $x \in (A \cup C) \setminus (B \setminus C)$ be arbitrarily chosen.**
+>	1. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Definition of set difference]
+>	2. $\big((x \in A) \lor (x \in C)\big) \land (x \notin B \setminus C)$ \[Definition of set union]
+>	3. $\big((x \in A) \lor (x \in C)\big) \land \neg (x \in B \setminus C)$ \[Equivalent to line 2.2]
+>	4. $\big((x \in A) \lor (x \in C)\big) \land \neg \big((x \in B) \land (x \notin C)$ \[Definition of set difference]
+>	5. $\big((x \in A) \lor (x \in C)\big) \land \big((x \notin B) \lor (x \in C)$ \[Logically equivalent to line 2.4]
+>	6. $(x \in C) \lor \big((x \in A) \land (x \notin B)\big)$ \[Logically equivalent to line 2.5]
+>	7. Case 1: $x \in C$
+>		1. $(x \in A \setminus B) \lor (x \in C)$ \[Generalisation on line 2.7]
+>		2. $x \in (A \setminus B) \cup C$ \[Definition of set union]
+>	8. Case 2: $(x \in A) \land (x \notin B)$
+>		1. $x \in A \setminus B$ \[Definition of set difference]
+>		2. $(x \in A \setminus B) \lor (x \in C)$ \[Generalisation on line 2.8]
+>		3. $x \in (A \setminus B) \cup C$ \[Definition of set union]
+>	9. $x \in (A \setminus B) \cup C$ \[Proof by cases on lines 2.6, 2.7.2, 2.8.3]
+>	10. $\forall x \in (A \cup C) \setminus (B \setminus C) \ [x \in (A \setminus B) \cup C]$ \[Universal generalisation on lines 2, 2.9]
+>	11. $(A \cup C) \setminus (B \setminus C) \subseteq (A \setminus B) \cup C$ \[Definition of subset]
+>3. $\bigg((A \setminus B) \cup C \subseteq (A \cup C) \setminus (B \setminus C)\bigg) \land \bigg((A \cup C) \setminus (B \setminus C) \subseteq (A \setminus B) \cup C\bigg)$ \[Conjunction on lines 1.6, 2.11]
+>4. $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$ \[Definition of set equality]
 
 ---
 
@@ -118,6 +217,12 @@ Compute $R^{-1}$. Compute $R; R$.
 
 It might be helpful to refer to [[Unit 3#Operations on Relations]].
 
+**Solutions**:
+
+$R^{-1} = \{(2,1), (3,3), (1,2), (6,5), (7,6), (8,7)\}$
+
+$R;R = \{(1,1), (2,2), (3,3), (5,7), (6,8)\}$
+
 ---
 
 # Question 6
@@ -127,28 +232,52 @@ Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$.
 #### Sub-part 1
 Is the following statement true?
 
-> $A$ is reflexive.
+> $R$ is reflexive.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Reflexivity]].
+
+**Solutions**:
+
+**True.**
+
+>[!note] Proof: $R$ is reflexive
+>1. Let $x \in A$ be arbitrarily chosen.
+>2. $(x,x) \in A \times A$ \[Definition of cartesian product]
+>3. $(x,x) \in R$ \[Definition of $R$]
+>4. $\forall x \in A \ [(x,x) \in R]$ \[Universal generalisation on lines 1, 3]
+>5. $R$ is reflexive. \[Definition of reflexivity]
 
 #### Sub-part 2
 Is the following statement true?
 
-> $A$ is symmetric.
+> $R$ is symmetric.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Symmetry]].
+
+**Solutions**:
+
+**True**.
+
+>[!note] Proof: $R$ is symmetric
+>1. Let $x \in A$ and $y \in A$ be arbitrarily chosen.
+>2. Suppose that $(x,y) \in R$.
+>	1. Since $(x \in A) \land (y \in A)$, $(y,x) \in A \times A$. \[Definition of cartesian product, from line 1]
+>	2. $(y,x) \in R$ \[Definition of $R$]
+>3. $\big((x,y) \in R\big) \to \big((y,x) \in R\big)$ \[Implication introduction on lines 2, 2.2]
+>4. $\forall x \in A, y \in A \ \big[\big((x,y) \in R\big) \to \big((y,x) \in R\big)\big]$ \[Universal generalisation on lines 1, 3]
+>5. $R$ is symmetric. \[Definition of symmetry]
 
 #### Sub-part 3
 Is the following statement true?
 
-> $A$ is anti-symmetric.
+> $R$ is anti-symmetric.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Anti-Symmetry]].
 
 #### Sub-part 4
 Is the following statement true?
 
-> $A$ is transitive.
+> $R$ is transitive.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Transitivity]].
 
