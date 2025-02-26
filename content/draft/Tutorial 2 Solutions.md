@@ -123,7 +123,45 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 **Solutions**:
 
->[!note] Proof: $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$
+The first problem is equivalent to the following: 
+$$(a \land \neg b) \land \neg c \equiv (a \land \neg c) \land \neg (b \lor c)$$
+Using a truth table, we see that this equivalence is true:
+
+| $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \land \neg c$ | $b \lor c$ | $\neg (b \lor c)$ | $(a \land \neg b) \land \neg c$ | $(a \land \neg c) \land \neg (b \lor c)$ |
+| ------- | ------- | ------- | -------- | -------- | ---------------- | ---------------- | ---------- | ----------------- | ------------------------------- | ---------------------------------------- |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$           | $true$     | $false$           | $false$                         | $false$                                  |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$           | $false$    | $true$            | $true$                          | $true$                                   |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$          | $false$    | $true$            | $false$                         | $false$                                  |
+
+Hence, $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$.
+
+The second problem is equivalent to the following: 
+$$(a \land \neg b) \lor c \equiv (a \lor c) \land \neg (b \land \neg c)$$
+
+Using a truth table, we see that this equivalence is also true:
+
+| $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \lor c$ | $b \land \neg c$ | $\neg (b \land \neg c)$ | $(a \land \neg b) \lor c$ | $(a \lor c) \land \neg (b \land \neg c)$ |
+| ------- | ------- | ------- | -------- | -------- | ---------------- | ---------- | ---------------- | ----------------------- | ------------------------- | ---------------------------------------- |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$     | $true$           | $false$                 | $false$                   | $false$                                  |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$    | $true$           | $false$                 | $false$                   | $false$                                  |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$    | $false$          | $true$                  | $false$                   | $false$                                  |
+
+Hence, $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
+
+
+*For those who are interested in reading more rigorous proofs:*
+
+>[!note]- Proof: $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$
 >1. $(\subseteq)$ **Let $x \in (A \setminus B) \setminus C$ be arbitrarily chosen.**
 >	1. $(x \in A \setminus B) \land (x \notin C)$ \[Definition of set difference]
 >	2. $(x \in A) \land (x \notin B) \land (x \notin C)$ \[Definition of set difference]
@@ -158,7 +196,7 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 >3. $\bigg((A \setminus B) \setminus C \subseteq (A \setminus C) \setminus (B \cup C)\bigg) \land \bigg((A \setminus C) \setminus (B \cup C) \subseteq (A \setminus B) \setminus C\bigg)$ \[Conjunction on lines 1.12, 2.11]
 >4. $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$ \[Definition of set equality]
 
->[!note] Proof: $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$
+>[!note]- Proof: $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$
 >1. **$(\subseteq)$ Let $x \in (A \setminus B) \cup C$ be arbitrarily chosen.**
 >	1. $\big((x \in A) \land (x \notin B)\big) \lor (x \in C)$. \[Definition of set difference]
 >	2. Case 1: $(x \in A) \land (x \notin B)$
