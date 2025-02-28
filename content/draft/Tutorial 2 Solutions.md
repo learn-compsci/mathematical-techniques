@@ -80,7 +80,7 @@ Next, set $B$ is simply all the positive natural numbers that are $1$ greater th
 
 Then, we have the following sets:
 
-1. $A \cap B = \{-2, 1, 4\}$
+1. $A \cap B = \{1, 4\}$
 2. $A \cup B = \big\{x \in \mathbb{Z} : (x^2 \leq 16) \lor \big((x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$
 3. $A \setminus C = \{-4, -3, -2, -1, 0, 3, 4\}$
 4. 
@@ -282,7 +282,7 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >1. Let $x \in A$ be arbitrarily chosen.
 >2. $(x,x) \in A \times A$ \[Definition of cartesian product]
 >3. $(x,x) \in R$ \[Definition of $R$]
->4. $\forall x \in A \ [(x,x) \in R]$ \[Universal generalisation on lines 1, 3]
+>4. $\forall a \in A \ [(a,a) \in R]$ \[Universal generalisation on lines 1, 3]
 >5. $R$ is reflexive. \[Definition of reflexivity]
 
 #### Sub-part 2
@@ -302,7 +302,7 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >	1. Since $(x \in A) \land (y \in A)$, $(y,x) \in A \times A$. \[Definition of cartesian product, from line 1]
 >	2. $(y,x) \in R$ \[Definition of $R$]
 >3. $\big((x,y) \in R\big) \to \big((y,x) \in R\big)$ \[Implication introduction on lines 2, 2.2]
->4. $\forall x \in A, y \in A \ \big[\big((x,y) \in R\big) \to \big((y,x) \in R\big)\big]$ \[Universal generalisation on lines 1, 3]
+>4. $\forall a \in A, b \in A \ \big[\big((a,b) \in R\big) \to \big((b,a) \in R\big)\big]$ \[Universal generalisation on lines 1, 3]
 >5. $R$ is symmetric. \[Definition of symmetry]
 
 #### Sub-part 3
@@ -312,12 +312,48 @@ Is the following statement true?
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Anti-Symmetry]].
 
+**Solutions**:
+
+**False**.
+
+>[!note] Proof: $R$ is not antisymmetric
+>Lets start by taking the negation of the statement for antisymmetry. If we are be able to prove that the negation is **true** we can prove the the original statement is **false**. 
+>$\neg (\forall a \in A, \forall b \in A \big[((a, b)\in R \land (b, a) \in R) \to a = b\big])$
+>$\equiv \exists a \in A, \exists b \in A \neg \big[((a, b)\in R \land (b, a) \in R) \to a = b\big]$ [Negating universal quantifiers]
+>$\equiv \exists a \in A, \exists b \in A \neg \big[\neg((a, b)\in R \land (b, a) \in R) \lor a = b\big]$ [Implication law]
+>$\equiv \exists a \in A, \exists b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [De Morgan's law]
+>
+>1. Let $x = 0 \in A$ and $y = 1 \in A$.
+>2. $(x, y) \in A \times A$ [Definition of cartesian product, from line 1]
+>3. $(x, y) \in R$ [Definition of R]
+>4. $(y, x) \in A \times A$ [Definition of cartesian product, from line 1]
+>5. $(y, x) \in R$ [Definition of R]
+>6. $(x, y) \in R \land (y, x) \in R$ [Conjunction on lines 3 and 5]
+>7. $0 \neq 1$, therefore $x \neq y$ [By basic algebra]
+>8. $((x, y) \in R \land (y, x) \in R) \land (x \neq y)$ [Conjunction on lines 6 and 7]
+>9. Therefore, $\exists a \in A, b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Existential generalization]
+>10. Since the negation of antisymmetry is true for $R$, therefore $R$ is not antisymmetric [Definition of antisymmetry]
+
 #### Sub-part 4
 Is the following statement true?
 
 > $R$ is transitive.
 
 If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Transitivity]].
+
+**Solutions**:
+
+**True**.
+
+>[!note] Proof: $R$ is transitive
+>1. Let $x \in A$, $y \in A$ and $z \in A$ be arbitrarily chosen.
+>2. Suppose that $(x, y) \in R \land (y, z) \in R$.
+>	1. Since $(x \in A) \land (z \in A)$, $(x, z) \in A \times A$. [Definition of cartesian product, from line 1]
+>	2. $(x,z) \in R$ \[Definition of $R$]
+>3. $((x, y) \in R \land (y, z) \in R) \to (x, z) \in R$ [Implication introduction on lines 2, 2.2]
+>4. $\forall a \in A, b \in A, c \in A \ \big[((a, b) \in R \land (b, c) \in R) \to (a, c) \in R\big]$ [Universal generalisation on lines 1, 3]
+>5. $R$ is transitive. [Definition of transitive]
+
 
 ---
 
