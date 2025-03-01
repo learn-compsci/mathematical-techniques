@@ -42,16 +42,20 @@ Find $\mathcal{P}(A)$ and $\mathcal{P}(B)$.
 
 $\mathcal{P}(A) = \{\emptyset, \{0\}\}$. Observe that $\mathcal{P}(A)$ has $2^{|A|} = 2^1 = 2$ elements.
 
-$\mathcal{P}(\{0,1\}) = \big\{\emptyset, \{0\}, \{1\}, \{0,1\}\big\}$, so:
+$\mathcal{P}(\{0,1\}) = \big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}$, so:
 
 $$
 \begin{align*}
 \mathcal{P}(B) = \{
 \\&\emptyset, 
-\\&\{\emptyset\}, \big\{\{0\}\big\}, \big\{\{1\}\big\}, \big\{\{0,1\}\big\},
-\\&\big\{\emptyset, \{0\}\big\}, \big\{\emptyset, \{1\}\big\}, \big\{\emptyset, \{0,1\}\big\}, \big\{\{0\}, \{1\}\big\}, \big\{\{0\}, \{0,1\}\big\}, \big\{\{1\}, \{0,1\}\big\},
-\\&\big\{\emptyset, \{0\}, \{1\}\big\}, \big\{\emptyset, \{0\}, \{0,1\}\big\}, \big\{\emptyset, \{1\}, \{0,1\}\big\}, \big\{\{0\}, \{1\}, \{0,1\}\big\},
-\\&\big\{\emptyset, \{0\}, \{1\}, \{0,1\}\big\}
+\\&
+\\&\{\textcolor{green}{\emptyset}\}, \big\{\textcolor{blue}{\{0\}}\big\}, \big\{\textcolor{red}{\{1\}}\big\}, \big\{\textcolor{purple}{\{0,1\}}\big\},
+\\&
+\\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\},
+\\&
+\\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\},
+\\&
+\\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}
 \\\}
 \end{align*}
 $$
@@ -129,14 +133,14 @@ Using a truth table, we see that this equivalence is true:
 
 | $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \land \neg c$ | $b \lor c$ | $\neg (b \lor c)$ | $(a \land \neg b) \land \neg c$ | $(a \land \neg c) \land \neg (b \lor c)$ |
 | ------- | ------- | ------- | -------- | -------- | ---------------- | ---------------- | ---------- | ----------------- | ------------------------------- | ---------------------------------------- |
-| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
-| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$           | $true$     | $false$           | $false$                         | $false$                                  |
-| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
-| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$           | $false$    | $true$            | $true$                          | $true$                                   |
-| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
-| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
-| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $false$          | $true$     | $false$           | $false$                         | $false$                                  |
-| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$          | $false$    | $true$            | $false$                         | $false$                                  |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$           | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$           | $false$    | $true$            | $\textcolor{blue}{true}$        | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$          | $false$    | $true$            | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
 
 Hence, $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$.
 
@@ -147,14 +151,14 @@ Using a truth table, we see that this equivalence is also true:
 
 | $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \lor c$ | $b \land \neg c$ | $\neg (b \land \neg c)$ | $(a \land \neg b) \lor c$ | $(a \lor c) \land \neg (b \land \neg c)$ |
 | ------- | ------- | ------- | -------- | -------- | ---------------- | ---------- | ---------------- | ----------------------- | ------------------------- | ---------------------------------------- |
-| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
-| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$     | $true$           | $false$                 | $false$                   | $false$                                  |
-| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
-| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
-| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
-| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$    | $true$           | $false$                 | $false$                   | $false$                                  |
-| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $true$     | $false$          | $true$                  | $true$                    | $true$                                   |
-| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$    | $false$          | $true$                  | $false$                   | $false$                                  |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$     | $true$           | $false$                 | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$    | $true$           | $false$                 | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$    | $false$          | $true$                  | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
 
 Hence, $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
 
@@ -255,11 +259,12 @@ Compute $R^{-1}$. Compute $R; R$.
 
 It might be helpful to refer to [[Unit 3#Operations on Relations]].
 
-**Solutions**:
+**Solution**:
 
-$R^{-1} = \{(2,1), (3,3), (1,2), (6,5), (7,6), (8,7)\}$
-
-$R;R = \{(1,1), (2,2), (3,3), (5,7), (6,8)\}$
+>[!note] Solution
+>$R^{-1} = \{(2,1), (3,3), (1,2), (6,5), (7,6), (8,7)\}$
+>
+>$R;R = \{(1,1), (2,2), (3,3), (5,7), (6,8)\}$
 
 ---
 
@@ -280,10 +285,11 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 
 >[!note] Proof: $R$ is reflexive
 >1. Let $x \in A$ be arbitrarily chosen.
->2. $(x,x) \in A \times A$ \[Definition of cartesian product]
->3. $(x,x) \in R$ \[Definition of $R$]
->4. $\forall a \in A \ [(a,a) \in R]$ \[Universal generalisation on lines 1, 3]
->5. $R$ is reflexive. \[Definition of reflexivity]
+>2. $(x \in A) \land (x \in A)$ \[Conjunction on line 1]
+>3. $(x,x) \in A \times A$ \[Definition of cartesian product]
+>4. $(x,x) \in R$ \[Definition of $R$]
+>5. $\forall a \in A \ [(a,a) \in R]$ \[Universal generalisation on lines 1, 4]
+>6. $R$ is reflexive. \[Definition of reflexivity]
 
 #### Sub-part 2
 Is the following statement true?
@@ -299,10 +305,11 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >[!note] Proof: $R$ is symmetric
 >1. Let $x \in A$ and $y \in A$ be arbitrarily chosen.
 >2. Suppose that $(x,y) \in R$.
->	1. Since $(x \in A) \land (y \in A)$, $(y,x) \in A \times A$. \[Definition of cartesian product, from line 1]
->	2. $(y,x) \in R$ \[Definition of $R$]
->3. $\big((x,y) \in R\big) \to \big((y,x) \in R\big)$ \[Implication introduction on lines 2, 2.2]
->4. $\forall a \in A, b \in A \ \big[\big((a,b) \in R\big) \to \big((b,a) \in R\big)\big]$ \[Universal generalisation on lines 1, 3]
+>	1. $(y \in A) \land (x \in A)$ \[Conjunction on line 1]
+>	2. $(y,x) \in A \times A$ \[Definition of cartesian product, from line 2.1]
+>	3. $(y,x) \in R$ \[Definition of $R$]
+>3. $(x,y) \in R \to (y,x) \in R$ \[Implication introduction on lines 2, 2.3]
+>4. $\forall a \in A, b \in A \ \big[(a,b) \in R \to (b,a) \in R\big]$ \[Universal generalisation on lines 1, 3]
 >5. $R$ is symmetric. \[Definition of symmetry]
 
 #### Sub-part 3
@@ -365,7 +372,19 @@ Is the following statement true?
 > 
 > If $R$ is symmetric, then $R; R$ is reflexive.
 
-If it is, prove it. If it is not, give examples of $A$, and $R$ such that the $R$ is symmetric, but $R; R$ is not reflexive.
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$ is symmetric, but $R; R$ is not reflexive.
+
+**Solutions**:
+
+>[!note] Solution
+>**False**. 
+>
+>Consider the set $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$. 
+>Let $R = \{(1, 1)\}$. Then $R;R = \{(1, 1)\}$.
+>
+>Since $(\textcolor{green}{1}, \textcolor{red}{1}) \in R$, we need $(\textcolor{red}{1}, \textcolor{green}{1}) \in R$ for $R$ to be symmetric, which is true. 
+>
+>However, $R;R$ is not reflexive, since $2 \in A$ but $(2, 2) \notin R;R$.
 
 ---
 
@@ -381,6 +400,17 @@ Is the following statement true?
 
 **Correction**: 
 
-If it is, prove it. 
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
 
-If it is not, give examples of $A$, and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
+**Solutions**:
+
+>[!note] Solution
+>**False**.
+>
+>Consider $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$.
+>Let $R = \{(1, 1), (2, 2)\} \subseteq A \times A$.
+>
+>Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. Next, $R$ is also anti-symmetric, since $1 \neq 2$ and neither $(1, 2)$ nor $(2, 1)$ are in $R$ (refer to [[Unit 3#Anti-Symmetry]] for this equivalent definition).
+>
+>It is easy to check that $R$ is symmetric as well.
+

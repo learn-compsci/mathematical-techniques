@@ -505,7 +505,7 @@ A relation on the left is anti-symmetric because the only time $a$ and $b$ are r
 
 On the other hand, on the relation on the right, $a_2$ is related to $a_3$ **and** $a_3$ is related to $a_2$ but $a_2$ is not the same as $a_3$. So the relation on the right is not anti-symmetric.
 
-#### Divisibility is  anti-symmetric
+#### Divisibility is anti-symmetric
 
 Is the divisibility relation anti-symmetric? Here's the intuition: If we know that $a$ divides $b$, and we also know that $b$ divides $a$, then the only possible case is that $a = b$. Here's the proof that confirms this:
 
