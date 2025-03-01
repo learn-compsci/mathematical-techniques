@@ -96,6 +96,7 @@ You do not have to give a formal proof of the statements; you may simply state w
 >4. **True**. Let $c = 9 \in B$. Then, no matter which element $b \in B$ is chosen, there will be an element $a \in A$ such that $a + b = 9$. For example, if $b = 4$, then let $a = 5$.
 
 
+
 ---
 
 
