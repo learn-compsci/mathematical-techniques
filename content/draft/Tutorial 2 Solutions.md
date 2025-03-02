@@ -106,7 +106,6 @@ Convert the following from set builder notation to set roster notation:
 3. $C = \{x \in \mathbb{Z} : \exists k \in \mathbb{Z} \ [(x = 7k) \land (x \geq 0) \land (x < 60) \}$.
 4. $D = \big\{x \in \mathbb{Z}: \forall a, b \in \mathbb{N} \ \big[(x < 10) \land (x > 1) \land \big((x = ab) \to (a = 1 \land b = x) \lor (a = x \land b = 1)\big)\big]\big\}$
 
-
 **Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
 **Solutions**:
@@ -129,6 +128,7 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 The first problem is equivalent to the following: 
 $$(a \land \neg b) \land \neg c \equiv (a \land \neg c) \land \neg (b \lor c)$$
+
 Using a truth table, we see that this equivalence is true:
 
 | $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \land \neg c$ | $b \lor c$ | $\neg (b \lor c)$ | $(a \land \neg b) \land \neg c$ | $(a \land \neg c) \land \neg (b \lor c)$ |
@@ -411,7 +411,13 @@ If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$
 >Consider $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$.
 >Let $R = \{(1, 1), (2, 2)\} \subseteq A \times A$.
 >
->Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. Next, $R$ is also anti-symmetric, since $1 \neq 2$ and neither $(1, 2)$ nor $(2, 1)$ are in $R$ (refer to [[Unit 3#Anti-Symmetry]] for this equivalent definition).
+>Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. 
+>
+>Next, $R$ is also anti-symmetric. Let's examine the elements of $R$.
+>1. For $(1,1)$, we have $(1,1) \in R \land (1,1) \in R$, and $1 = 1$.
+>2. Similarly, for $(2,2)$, we have $(2,2) \in R \land (2,2) \in R$, and $2 = 2$.
+>
+>Hence, $R$ is anti-symmetric.
 >
 >It is easy to check that $R$ is symmetric as well.
 
