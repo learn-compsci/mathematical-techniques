@@ -325,10 +325,10 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 
 >[!note] Proof: $R$ is not antisymmetric
 >Lets start by taking the negation of the statement for antisymmetry. If we are be able to prove that the negation is **true** we can prove the the original statement is **false**. 
->$\neg (\forall a \in A, \forall b \in A \big[((a, b)\in R \land (b, a) \in R) \to a = b\big])$
->$\equiv \exists a \in A, \exists b \in A \neg \big[((a, b)\in R \land (b, a) \in R) \to a = b\big]$ [Negating universal quantifiers]
->$\equiv \exists a \in A, \exists b \in A \neg \big[\neg((a, b)\in R \land (b, a) \in R) \lor a = b\big]$ [Logically equivalent]
->$\equiv \exists a \in A, \exists b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Logically equivalent]
+>$\neg (\forall a \in A, \forall b \in A \ \big[((a, b)\in R \land (b, a) \in R) \to a = b\big])$
+>$\equiv \exists a \in A, \exists b \in A \ \neg \big[((a, b)\in R \land (b, a) \in R) \to a = b\big]$ [Negating universal quantifiers]
+>$\equiv \exists a \in A, \exists b \in A \ \neg \big[\neg((a, b)\in R \land (b, a) \in R) \lor a = b\big]$ [Logically equivalent]
+>$\equiv \exists a \in A, \exists b \in A \ \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Logically equivalent]
 >
 >1. $0 \in A$ 
 >2. $1 \in A$.
@@ -339,7 +339,7 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >7. $(0, 1) \in R \land (1, 0) \in R$ [Conjunction on lines 4 and 6]
 >8. $0 \neq 1$ [By basic algebra]
 >9. $((0, 1) \in R \land (1, 0) \in R) \land (0 \neq 1)$ [Conjunction on lines 7 and 8]
->10. Therefore, $\exists a \in A, b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Existential generalization]
+>10. Therefore, $\exists a \in A, b \in A \ \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Existential generalization]
 >11. Since the negation of antisymmetry is true for $R$, therefore $R$ is not antisymmetric [Definition of antisymmetry]
 
 #### Sub-part 4
