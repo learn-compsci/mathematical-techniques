@@ -253,7 +253,7 @@ def binary_search(arr, left, right, key):
 		return arr[left] == key
 
 	mid = (right + left) // 2
-	if arr[mid] <= key:
+	if arr[mid] >= key:
 		return binary_search(arr, mid, right, key)
 	else:
 		return binary_search(arr, low, mid, key)
