@@ -425,6 +425,24 @@ C( \lceil \frac{n}{2} \rceil ) + 1 & n > 1 \\
 \end{cases}
 $$
 
-How do we analyse this recurrence? This is something we will study in detail in the next unit.
+How do we analyse this recurrence? This is something we will study in detail in the next unit. But for now can we get a sense of its long-term behaviour?
 
-But for now, formulating and knowing the key features of recurrences are the first key step.
+We want to say this algorithm does not need to access too many elements in the array, only _about_ $\log_2(n)$ many elements. How do we do this?
+
+Let's prove that $\forall n \geq 2, [C(n) \leq \log_2(n - 1) + 2]$
+
+>[!Example] Proof
+> 1. (Base case). Let $n = 2$, then $C(2) = C(1) + 1 = 2 \leq \log_2(1) + 2$
+> 2. (Inductive case). For $2 \leq j < k$, assume that $C(j) \leq \log_2(j - 1) + 2$
+> 	1. Since $k > 2$, then $2 \leq \lceil \frac{k}{2} \rceil < k$.
+> 	   Therefore, our assumption applies to $\lceil \frac{k}{2} \rceil$.
+> 	2. $C(k) = C(\lceil \frac{k}{2} \rceil) + 1$
+> 	   $\leq \log_2(\lceil \frac{k}{2} \rceil) - 1) + 2 + 1$
+> 	   $\leq \log_2(\frac{k + 1}{2} - 1) + 2 + 1$
+> 	   $\leq \log_2(\frac{k - 1}{2}) + 2 + 1$
+> 	   $\leq \log_2(k - 1) - \log_2(2) + 2 + 1$
+> 	   $\leq \log_2(k - 1) + 2$
+> 3. For all $k \geq 2$, it holds true that $C(k) \leq \leq \log_2(k - 1) + 2$
+
+So what does this mean? This means that we know for arrays of size $2$ onwards, then the function $C(n)$ is upper bounded by some $\log_2(n)$ curve. This is a hint to us that we are not using many array accesses. And therefore the program is actually efficient!
+
