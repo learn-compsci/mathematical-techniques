@@ -294,7 +294,6 @@ Admittedly, our very first example of a recurrence was probably not very excitin
 
 For a recurrence to make sense, it needs to have at least one base case. And the inductive cases have to eventually reach a base case. For example, to compute $T(3)$, we need to know what $T(2)$ is. To know what $T(2)$ is, we need to know what $T(1)$ is. $T(1)$ is a base case, so we definitely know what it is. Which then means we know that $T(2)$ is, and what $T(3)$ is. 
 
-
 Let's look at more advanced examples of recurrences to show you more interesting concepts we can solve.
 
 ## Example 1.5: Factorial
@@ -317,6 +316,21 @@ F(n) = \begin{cases}
 F(n - 1) \times n & \text{if }n \geq 2\\
 1 & \text{if }n = 1\\
 \end{cases}
+$$
+
+So let's run through some examples. $F(5)$ is $F(4) \times 5$. $F(4) = F(3) \times 4$. $F(3) = F(2) \times 3$. $F(2) = F(1) \times 2$. Lastly, $F(1) = 1$.
+
+Let's run through an example of how to compute the value:
+
+$$
+\begin{align*}
+	F(5) &= F(4) \times 5\\
+	&= F(3) \times 4 \times 5\\
+	&= F(2) \times 3 \times 4 \times 5\\
+	&= F(1) \times 2 \times 3 \times 4 \times 5\\
+	&= 1 \times 2 \times 3 \times 4 \times 5\\
+	&= 120\\
+\end{align*}
 $$
 
 Also, here's a proof that the recurrence matches what we want.
@@ -387,7 +401,8 @@ def stair_climbing(n):
 	return stair_climbing(n - 1) + stair_climbing(n - 2)
 ```
 
-You might notice that for large enough values of $n$, the program is substantially slow. This is something we will talk about in the next unit!
+You might notice that for large enough values of $n$, the program is substantially slow. This is something we will talk about in the tutorial and the next unit!
+
 ## Example 3: Binary Search Recurrence
 
 Let's end on bringing it back to the motivating example of binary search. In terms of the big picture, recurrences are a tool used in program/algorithm analysis, among many things. So how about we ask ourselves, how many array accesses does the binary search program make?
