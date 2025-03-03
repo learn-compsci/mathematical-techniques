@@ -452,7 +452,7 @@ Let's prove that $\forall n \geq 2, [C(n) \leq \log_2(n - 1) + 2]$
 > 	1. Since $k > 2$, then $2 \leq \lceil \frac{k}{2} \rceil < k$.
 > 	   Therefore, our assumption applies to $\lceil \frac{k}{2} \rceil$.
 > 	2. $C(k) = C(\lceil \frac{k}{2} \rceil) + 1$
-> 	   $\leq \log_2(\lceil \frac{k}{2} \rceil) - 1) + 2 + 1$
+> 	   $\leq \log_2(\lceil \frac{k}{2} \rceil - 1) + 2 + 1$
 > 	   $\leq \log_2(\frac{k + 1}{2} - 1) + 2 + 1$
 > 	   $\leq \log_2(\frac{k - 1}{2}) + 2 + 1$
 > 	   $\leq \log_2(k - 1) - \log_2(2) + 2 + 1$
