@@ -431,7 +431,7 @@ $arr\left[left \dots \frac{(left + right)}{2} - 1 \right]$, and $arr\left[\frac{
 
 In either case, if we started with an array of length $n$, we are going to recurse on an array of length **at most** $\lceil \frac{n}{2} \rceil$.
 
-So if we let $C(n)$ be the number of comparisons our binary search makes on an array of length $n$, we can then say that:
+So if we let $C(n)$ be the number of array accesses our binary search makes on an array of length $n$, we can then say that:
 
 $$
 C(n) = \begin{cases}
@@ -457,7 +457,7 @@ Let's prove that $\forall n \geq 2, [C(n) \leq \log_2(n - 1) + 2]$
 > 	   $\leq \log_2(\frac{k - 1}{2}) + 2 + 1$
 > 	   $\leq \log_2(k - 1) - \log_2(2) + 2 + 1$
 > 	   $\leq \log_2(k - 1) + 2$
-> 3. For all $k \geq 2$, it holds true that $C(k) \leq \leq \log_2(k - 1) + 2$
+> 3. For all $k \geq 2$, it holds true that $C(k) \leq \log_2(k - 1) + 2$
 
 So what does this mean? This means that we know for arrays of size $2$ onwards, then the function $C(n)$ is upper bounded by some $\log_2(n)$ curve. This is a hint to us that we are not using many array accesses. And therefore the program is actually efficient!
 
