@@ -120,6 +120,28 @@ Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try 
 
 We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
 
+
+**Solution**:
+
+>[!note] Proof
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. $even(n) \lor odd(n)$ \[Universal instantiation on line 1]
+>3. Case 1: $even(n)$
+>	1. $\exists k \in \mathbb{Z}\ [n = 2 \cdot k]$ \[Definition of $even$]
+>	2. Let $t \in \mathbb{Z}$ be such that $n = 2t$. \[Existential instantiation on line 3.1]
+>	3. $n(n+1) = 2t(2t+1) = 2 \cdot t(2t+1)$ \[Basic algebra]
+>	4. Since $t \in \mathbb{Z}$, $t(2t+1) \in \mathbb{Z}$. \[Basic algebra]
+>	5. $\exists k \in \mathbb{Z}\ [n(n+1) = 2 \cdot k]$ \[Existential generalisation on lines 3.3, 3.4]
+>	6. $even\big(n(n+1)\big)$ \[Definition of $even$]
+>4. Case 2: $odd(n)$
+>	1. $\exists k \in \mathbb{Z}\ [n = 2 \cdot k + 1]$ \[Definition of $odd$]
+>	2. Let $t \in \mathbb{Z}$ be such that $n = 2t + 1$. \[Existential instantiation on line 4.1]
+>	3. $n(n+1) = (2t+1)(2t+2) = 2 \cdot (2t+1)(t+1)$ \[Basic algebra]
+>	4. Since $t \in \mathbb{Z}$, $(2t+1)(t+1) \in \mathbb{Z}$. \[Basic algebra]
+>	5. $\exists k \in \mathbb{Z}\ [n(n+1) = 2 \cdot k]$ \[Existential generalisation on lines 4.3, 4.4]
+>	6. $even\big(n(n+1)\big)$ \[Definition of $even$]
+>5. $even\big(n(n+1)\big)$ \[Proof by cases on lines 2, 3.6, 4.6]
+>6. $\forall n \in \mathbb{Z}\ \big[even\big(n(n+1)\big)\big]$ \[Universal generalisation on lines 1, 5]
 ---
 
 # Question 5 (5 marks):
