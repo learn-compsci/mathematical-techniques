@@ -96,7 +96,6 @@ You do not have to give a formal proof of the statements; you may simply state w
 >4. **True**. Let $c = 9 \in B$. Then, no matter which element $b \in B$ is chosen, there will be an element $a \in A$ such that $a + b = 9$. For example, if $b = 4$, then let $a = 5$.
 
 
-
 ---
 
 
@@ -142,6 +141,8 @@ We recommend doing the proof step by step following the rules laid out in [[Unit
 >	6. $even\big(n(n+1)\big)$ \[Definition of $even$]
 >5. $even\big(n(n+1)\big)$ \[Proof by cases on lines 2, 3.6, 4.6]
 >6. $\forall n \in \mathbb{Z}\ \big[even\big(n(n+1)\big)\big]$ \[Universal generalisation on lines 1, 5]
+
+
 ---
 
 # Question 5 (5 marks):
@@ -175,6 +176,23 @@ And also started a proof. Your friend's proof has these steps, and they want you
 Fill in the remaining portion of the proof in the middle. You may need more than 4 lines, that is okay, in which case the $\bot$ line should be shifted accordingly. For example if you used 8 lines in your proof after line 1.1, then $\bot$ should be on on line 1.10.
 
 We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
+
+
+**Solution**:
+
+>[!note] Proof
+>1. $1 \in \mathbb{Z}$. \[Basic algebra]
+>2. Assume, for the sake of contradiction, that $has\_gap(1, 1)$.
+>	1. $\exists q \in \mathbb{Q}\ [1 < q \land q < 1]$ \[Definition of $has\_gap$]
+>	2. Let $r \in \mathbb{Q}$ be such that $1 < r \land r < 1$. \[Existential instantiation on line 2.1]
+>	3. $1 < 1$ \[Basic algebra (by transitivity of $<$)]
+>	4. $\neg(1 = 1)$ \[Basic algebra]
+>	5. $1 = 1$ \[Basic algebra]
+>	6. $(1 = 1) \land \neg(1 = 1)$ \[Conjunction on lines 2.4, 2.5]
+>	7. $\bot$. \[Contradiction rule on line 2.6]
+>3. $\neg has\_gap(1, 1)$ \[Proof by contradiction rule on lines 2, 2.7]
+>4. $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}\ [\neg hap\_gap(a, b)]$ \[Existential generalisation on lines 1, 3]
+
 
 ---
 
