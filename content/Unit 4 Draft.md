@@ -35,10 +35,10 @@ Let me show you what I mean, then after that explain why this makes sense.
 >[!example]+ Proof
 >1. (Base Case) Let $n = 0$. Then $\sum_{i = 1}^0 i = 0 = 0(1) = \frac{0(0 + 1)}{2}$ \[Basic Algebra]
 >2. (Inductive Case) **Assume** that for $n = j$, where $j \in \mathbb{N}$, $\sum_{i = 1}^j i = \frac{j(j + 1)}{2}$.
->	1. $\sum_{i = 1}^{j + 1} i = \left(\sum_{i = 1}^{j} i \right) + (j + 1)$ \[Basic Algebra]
->	2. $\left(\sum_{i = 1}^{j} i \right) + (j + 1) = \frac{j(j + 1)}{2} + (j + 1)$ \[By assumption on line 2]
->	3. $\frac{j(j + 1)}{2} + (j + 1) = (j + 1)\left(\frac{j}{2} + 1\right) = (j + 1)\left(\frac{j + 2}{2}\right) = \frac{(j + 1)(j + 2)}{2}$ \[Basic Algebra]
->	4. $\sum_{i = 1}^{j + 1} i = \frac{(j + 1)(j + 2)}{2}$ \[Basic algebra using lines 2.1, 2.2, 2.3]
+>		1. $\sum_{i = 1}^{j + 1} i = \left(\sum_{i = 1}^{j} i \right) + (j + 1)$ \[Basic Algebra]
+>		2. $\left(\sum_{i = 1}^{j} i \right) + (j + 1) = \frac{j(j + 1)}{2} + (j + 1)$ \[By assumption on line 2]
+>		3. $\frac{j(j + 1)}{2} + (j + 1) = (j + 1)\left(\frac{j}{2} + 1\right) = (j + 1)\left(\frac{j + 2}{2}\right) = \frac{(j + 1)(j + 2)}{2}$ \[Basic Algebra]
+>		4. $\sum_{i = 1}^{j + 1} i = \frac{(j + 1)(j + 2)}{2}$ \[Basic algebra using lines 2.1, 2.2, 2.3]
 >3. $\forall n \in \mathbb{N}\left[ \sum_{i = 1}^n i = \frac{n(n+1)}{2}\right]$ \[Principle of mathematical induction]
 
 
@@ -52,7 +52,7 @@ We **assumed** the equality works for $n = j$, and we need to **prove** that the
 And what the induction principle does, is the following, given a statement $P(n)$ (in our example, $P(n)$ states that $\sum_{i = 1}^n i = \frac{n(n + 1)}{2}$):
 
 1. If you have proven the statement $P(n)$ for a base case (in our example, when $n = 0$).
-2. 2. You have proven the statement $P(n)$ for the inductive case (in our example, we assumed that $P(j)$ is true, then showed that $P(j + 1)$ is true).
+2. You have proven the statement $P(n)$ for the inductive case (in our example, we assumed that $P(j)$ is true, then showed that $P(j + 1)$ is true).
 Then the induction principle allows you to conclude that $\forall n \in \mathbb{N}$, the statement $P(n)$ is true. In other words, the statement is true no matter the natural number we give it.
 
 Formally:
@@ -100,13 +100,15 @@ $$(1+x)^n \geq 1+nx$$
 > 1. Let $x \in \mathbb{R}$ such that $x \geq 1$.
 > 2. (Base Case) Let $n = 0$. Then $(1 + x)^n = 1 = 1 + 0\cdot x$.
 > 3. (Inductive Case) **Assume** that for $j \in \mathbb{N}$, $(1 + x)^j \geq 1 + jx$
-> 	1. $(1 + x)^{j + 1} = (1 + x)^j (1 + x)$ \[Basic algebra]
-> 	2. $(1 + x)^j (1 + x) \geq (1 + jx)(1 + x)$ \[By assumption on line 3]
-> 	3. $(1 + jx)(1 + x) = 1 + x + jx + jx^2 \geq 1 + x + jx = 1 + x(j+1)$ \[Basic algebra]
-> 	4. $(1 + x)^{j + 1} \geq 1 + x(j+1)$ \[Combining lines 3.1, 3.2, 3.3]
+> 		1. $(1 + x)^{j + 1} = (1 + x)^j (1 + x)$ \[Basic algebra]
+> 		2. $(1 + x)^j (1 + x) \geq (1 + jx)(1 + x)$ \[By assumption on line 3]
+> 		3. $(1 + jx)(1 + x) = 1 + x + jx + jx^2 \geq 1 + x + jx = 1 + x(j+1)$ \[Basic algebra]
+> 		4. $(1 + x)^{j + 1} \geq 1 + x(j+1)$ \[Combining lines 3.1, 3.2, 3.3]
 > 4. $\forall n \in \mathbb{N}[(1 + x)^{j + 1} \geq 1 + x(j+1)]$ \[Principle of mathematical induction]
 
-Again, pay special attention to line 3.2, we used the assumption that $(1 + x)^j \geq 1 + jx$ in order to prove that $(1 + x)^{j + 1} \geq 1 + x(j+1)$.
+Again, pay special attention to line 3.2, we used the assumption that $(1 + x)^j \geq 1 + jx$ in order to prove that:
+
+$$(1 + x)^{j + 1} \geq 1 + x(j+1)$$
 
 ## What Happens If: Did Not Prove It For A Base Case
 Let's talk about a common issue that happens in induction proofs. It is quite common that people forget to include base cases in their proofs, and they end up thinking some statement is true, because they thought they had a proof for it.
@@ -123,7 +125,8 @@ $$
 
 Consider the following faulty proof:
 
-1. (Inductive case) Assume that for $j \in \mathbb{N}$, $\exists k \in \mathbb{Z}[j(j + 1) = 2k + 1]$.
+1. (Inductive case) Assume that for $j \in \mathbb{N}$, $\exists k \in \mathbb{Z}[j(j + 1) = 2k + 1]$
+	
 	1.  $(j + 1)(j + 2) = j(j + 1) + 2(j + 1) = 2k + 1 + 2(j + 1) = 2(k + j + 1) + 1$
 	2. $\exists t \in \mathbb{Z}[(j + 1)(j + 2) = 2t + 1]$ \[Existential Generalisation]
 
@@ -161,7 +164,7 @@ Notice how $n!$ seems to overtake $2^n$ only around $n = 4$ onwards. So how do w
 >[!example]+ Proof Attempt
 > 1. (Base case) Let $n = 4$, $2^n = 16 < 24 = n!$
 > 2. (Inductive Case) Let $n \geq 4$, assume that $2^n < n!$
-> 	1. $2^{n + 1} = 2^n \cdot 2 < n! \cdot 2 < n! \cdot (n + 1) = (n+1)!$ \[Basic Algebra]
+> 		1. $2^{n + 1} = 2^n \cdot 2 < n! \cdot 2 < n! \cdot (n + 1) = (n+1)!$ \[Basic Algebra]
 > 3. $\forall n \geq 4 [2^n < n!]$ \[Principle of mathematical induction]
 
 Again, pay attention to the how the base case has changed in on line 1 in order to do our proof. Basically, we are only claiming that $2^n < n!$ only from $n \geq 4$ onwards, and not saying anything about when $n = 0, 1, 2, 3$.
@@ -179,11 +182,11 @@ But why would we do this? Here's an example:
 
 ## Example Using Strong Induction:
 
-Let's say that we lived in a country, where the only denominations are the $4$-dollar and the $5$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that _we can use 4-dollar and 5-dollar denominations to make any dollar value that is **$8$ or larger_**. 
+Let's say that we lived in a country, where the only denominations are the $4$-dollar and the $5$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that we can use 4-dollar and 5-dollar denominations to make any dollar value that is $8$ or larger. 
 
 This seems true right? For example:
 
-8 itself uses two of the 4-dollar bills. 9 uses one 4-dollar bill, and one 5-dollar bill. 10 uses one 10-dollar bill.
+8 itself uses two of the 4-dollar bills. 9 uses one 4-dollar bill, and one 5-dollar bill. 10 uses two 5-dollar bills.
 
 Formally, we want to prove the following statement:
 
@@ -224,11 +227,11 @@ Okay, but what if I said that we could actually do this for dollar values 12 onw
 >[!example]+ Proof
 > 1. (Base cases) $12 = 3(4) + 0(5)$, $13 = 2(4) + 1(5)$, $14 = 1(4) + 2(5)$, $15 = 0(4) + 3(5)$
 > 2. (Inductive Case) Let $k \geq 16$, assume that for $12 \leq j < n$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[j = 4a + 5b]$
-> 	1. Since $k - 4 < k$ and $k \geq 12$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k - 4 = 4a + 5b]$
-> 	2. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = 4r + 5b$ \[Existential instantiation on line 2.1]
-> 	3. $k = 4(r + 1) + 5b$ \[Basic Algebra]
-> 	4. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$ \[Basic algebra]
-> 	5. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Existential generalisation]
+> 		1. Since $k - 4 < k$ and $k \geq 12$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k - 4 = 4a + 5b]$
+> 		2. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = 4r + 5b$ \[Existential instantiation on line 2.1]
+> 		3. $k = 4(r + 1) + 5b$ \[Basic Algebra]
+> 		4. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$ \[Basic algebra]
+> 		5. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Existential generalisation]
 > 3. $\forall n \geq 12, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Principle of mathematical induction]
 
 Pay special attention to the following:
@@ -343,9 +346,9 @@ As expected, we are going to do this by induction.
 >[!example]+ Proof
 > 1. (Base case) Let $n = 1$. Then $F(n) = 1 =  \prod_{i = 1}^n i$.
 > 2. (Inductive Case) Let $n \geq 1$, assume that $F(n) = \prod_{i = 1}^n i$.
-> 	1. $F(n + 1) = F(n) \times (n + 1)$ \[Definition of $F$]
-> 	2. $F(n) = \prod_{i = 1}^n i$ \[Assumption on line 2]
-> 	3. $F(n + 1) = F(n) \times (n + 1) = \prod_{i = 1}^n i \times (n + 1) = \prod_{i = 1}^{n + 1} i$ \[Combining lines 2.1, 2.2, 2.3]
+> 		1. $F(n + 1) = F(n) \times (n + 1)$ \[Definition of $F$]
+> 		2. $F(n) = \prod_{i = 1}^n i$ \[Assumption on line 2]
+> 		3. $F(n + 1) = F(n) \times (n + 1) = \prod_{i = 1}^n i \times (n + 1) = \prod_{i = 1}^{n + 1} i$ \[Combining lines 2.1, 2.2, 2.3]
 > 3. $\forall n \geq 1\left[ F(n) = \prod_{i = 1}^{n} i \right]$
 ## Example 2: Climbing Stairs
 
@@ -449,9 +452,9 @@ Let's prove that $\forall n \geq 2, [C(n) \leq \log_2(n - 1) + 2]$
 >[!Example] Proof
 > 1. (Base case). Let $n = 2$, then $C(2) = C(1) + 1 = 2 \leq \log_2(1) + 2$
 > 2. (Inductive case). For $2 \leq j < k$, assume that $C(j) \leq \log_2(j - 1) + 2$
-> 	1. Since $k > 2$, then $2 \leq \lceil \frac{k}{2} \rceil < k$.
+> 		1. Since $k > 2$, then $2 \leq \lceil \frac{k}{2} \rceil < k$.
 > 	   Therefore, our assumption applies to $\lceil \frac{k}{2} \rceil$.
-> 	2. $C(k) = C(\lceil \frac{k}{2} \rceil) + 1$
+> 		2. $C(k) = C(\lceil \frac{k}{2} \rceil) + 1$
 > 	   $\leq \log_2(\lceil \frac{k}{2} \rceil - 1) + 2 + 1$
 > 	   $\leq \log_2(\frac{k + 1}{2} - 1) + 2 + 1$
 > 	   $\leq \log_2(\frac{k - 1}{2}) + 2 + 1$
