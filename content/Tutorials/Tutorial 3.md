@@ -25,12 +25,12 @@ title: "Tutorial 3: Induction, Recurrences, Asymptotics"
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and Unit 5. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
 
-1. Questions 1 through 4 are related to induction and recurrences. 
-2. Questions 5 through 8 are related to asymptotic notation.
+1. Questions 1 through 5 are related to induction and recurrences. 
+2. Questions 6 through 8 are related to asymptotic notation.
 
-After week 7's content, you should be able to attempt questions 1 through 4. After week 8's content, you should be able to attempt questions 5 through 8.
+After week 7's content, you should be able to attempt questions 1 through 5. After week 8's content, you should be able to attempt questions 6 through 8.
 
-Questions 1, 3, 5, are graded for participation.
+Questions 1, 3, 6, are graded for participation.
 
 That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
@@ -67,6 +67,8 @@ A(n) = \begin{cases}
 \end{cases}
 $$
 
+
+## Sub-question 1
 Compute the following values:
 
 1. $A(0)$
@@ -74,8 +76,36 @@ Compute the following values:
 3. $A(2)$
 4. $A(5)$
 
+
+## Sub-question 2
+Prove via strong induction that $\forall n\geq 0[A(n) = 2n + 1]$
+
 ---
 # Question 4
+
+Let $M(n)$ be a recurrence defined in the following way.
+
+
+$$
+M(n) = \begin{cases}
+0 &, n = 1\\
+2 &, n = 2\\
+2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
+\end{cases}
+$$
+
+Prove via strong induction that:
+
+$$
+\forall n \geq 3 [M(n) \leq n\log_2(n)]
+$$
+
+You may find the following facts useful:
+1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
+2. $a \leq b \to \log_2(a) \leq \log_2(b)$
+
+---
+# Question 5
 
 Let $B(n)$ be a recurrence defined in the following way.
 
@@ -95,7 +125,7 @@ $$
 
 ---
 
-# Question 5 \[Graded for Participation]
+# Question 6 \[Graded for Participation]
 
 Let $B(n)$ be a recurrence defined in the following way.
 
@@ -132,7 +162,7 @@ Why/why not? You do not have to give a proof.
 (Hint: What is the definition of $\Theta$?)
 
 ---
-# Question 6
+# Question 7
 
 Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}[f(n) \geq 0]$ and $\forall n \in \mathbb{N}[g(n) \geq 0]$. I.e. the functions are always non-negative.
 
@@ -144,7 +174,7 @@ $$
 
 
 ---
-# Question 7 (Challenging!)
+# Question 8 (Challenging!)
 
 Prove that:
 
