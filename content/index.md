@@ -56,6 +56,9 @@ This website's intended usage by students taking discrete math courses at the [S
 ## Week 6 Videos: Unit 3
 1. [Relations, Operations on Relations](https://youtu.be/nfFbmTbB_6Q)
 2. [Properties on Relations](https://youtu.be/N_sON29brXI)
+## Week 7 Videos: Unit 4
+1. [Mathematical Induction](https://www.youtube.com/watch?v=nfFbmTbB_6Q&feature=youtu.be)
+2. [Recurrences](https://youtu.be/tMLoTLM6mLw)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
