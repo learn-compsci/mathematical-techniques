@@ -214,3 +214,23 @@ We can use predicates to encode these statements mathematically as follows:
 
 For each character, identify whether they are a knight or knave!
 
+**Solution**:
+
+>[!note] Who's a knight and who's a knave?
+>**Knights: Margo, Gru**
+>**Knaves: Agnes, Edith**
+>---
+>**(Informal) Proof**:
+>1. Suppose, for the sake of contradiction, that $Knight(\text{Edith})$. 
+>2.  $Knave(\text{Margo})$ \[Since $\text{Edith}$ tells the truth]
+>3. $Knave(\text{Gru})$ \[Since $\text{Margo}$ tells lies]
+>4. $\text{Agnes}$ is not lying. \[Since $\text{Gru}$ tells lies]
+>5. $\text{Edith}$ and $\text{Gru}$ are of the same type. \[Since $\text{Agnes}$ tells the truth]
+>6. $Knight(\text{Edith}) \land Knave(\text{Gru})$. \[Conjunction on lines 1, 3]
+>7. $\bot$. \[Contradiction, based on line 5, 6]
+>8. $Knave(\text{Edith})$. \[Proof by contradiction rule on line 7]
+>9. $Knight(\text{Margo})$. \[Since $\text{Edith}$ tells lies]
+>10. $Knight(\text{Gru})$. \[Since $\text{Margo}$ tells the truth]
+>11. $Knave(\text{Agnes})$. \[Since $\text{Gru}$ tells the truth, i.e., $\text{Agnes}$ lies]
+
+
