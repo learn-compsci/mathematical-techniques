@@ -182,6 +182,7 @@ $$
 $$
 ## Some properties about asymptotic notation
 
+#### The asymptotics of polynomials
 Now that we have these sets that talk about functions, let's cover some useful properties about them.
 
 Let's start with a function like $0.75n^3 - 10n^2 + 5n + 3000$. Can we say this is $O(n^3)$? After all, intuitively, for large enough $n$, the **dominant** term is $n^3$ here, and the smaller terms like $-10n^2$ and $5n$ start to become insignificant in comparison.
@@ -247,6 +248,72 @@ $$
 $$
 
 So what does this mean? Let's try working out an example being seeing the general idea:
+
+Consider a polynomial like $n^2 - 5n - 10$. We want to say that there is some $n_0$ and some positive $c$ such that $n^2 - 5n - 10 \geq cn^2$ for $n \geq n_0$. So how do we do this? We'll split $n^2$ into three parts $\frac{n^2}{3}$ and rearrange the sum:
+
+$$
+\begin{align*}
+n^2 - 5n - 10 &= \frac{n^2}{3} + \left(\frac{n^2}{3} - 5n\right) + \left(\frac{n^2}{3} - 10\right)\\
+			  &= \frac{n^2}{3} + \left(\frac{n^2}{3} - 5n\right) + \left(\frac{n^2}{3} - 10\right)\\
+\end{align*}
+$$
+
+Now we know that from the previous part, as long as $n$ is large enough, we know that $\frac{n^2}{3} - 5n\geq 0$, and $\frac{n^2}{3} - 10\geq 0$.  In particular, the previous lemma proved that as long as $n \geq \max(3 \times 5, 3 \times 10)$, then we can say that:
+
+$$
+\begin{align*}
+\frac{n^2}{3} + \left(\frac{n^2}{3} - 5n\right) + \left(\frac{n^2}{3} - 10\right)
+&\geq \frac{n^2}{3} + 0 + 0\\
+&\geq \frac{n^2}{3}\\
+\end{align*}
+$$
+
+So what about in general when we have a degree $k$ polynomial?
+
+**Proof:**
+1. Let $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ be a degree $k$ polynomial with $a_k > 0$
+2. $$
+	\begin{align*}
+	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+	\end{align*}
+   $$
+3. Then by setting $n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$,  we know that $\left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)$ is non-negative, so:
+4. $$
+	\begin{align*}
+	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+	&\geq \left(\frac{a_k}{k + 1}\right)n^k
+	\end{align*}
+   $$
+5. Since $a_k > 0$ and $k + 1 > 0$, we have that $\left(\frac{a_k}{k + 1}\right) > 0$. So setting $c = \left(\frac{a_k}{k + 1}\right)$  and $n_0 \geq n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we are able to conclude that $\forall n \geq n_0[f(n) \geq c\cdot n^k]$
+
+
+Now from the previous 2 parts, we know that $f(n) \in O(n^k)$ and $f(n) \in \Omega(n^k)$. So we can conclude that $f(n) = \Theta(n)$.
+
+> [!Claim]
+>  Given a degree $k$ polynomial $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ where $a_k > 0$, then $f(n) = \Theta(n^k)$. 
+
+#### The transitivity of Big O
+Let's say that we relate function $f(n)$ to function $g(n)$ if $f(n) \in O(g(n))$. Then this relationship is transitive.
+
+**Proof:**
+1. Let $f(n), g(n), h(n)$ be functions.
+2. Assume that $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$.
+	1. Since $f(n) \in O(g(n))$, $\exists c > 0, n_0 \geq 0$ such that $\forall n \geq n_0$, $f(n) \leq c\cdot g(n)$
+	2. Since $g(n) \in O(h(n))$, $\exists d > 0, m_0 \geq 0$ such that $\forall n \geq m_0$, $g(n) \leq d\cdot h(n)$
+	3. Consider $s = \max(n_0, m_0)$, and $t = c\cdot d$.
+		1. Since $c > 0$ and $d > 0$, therefore $t > 0$
+		2. Consider any $n \geq s$. Then $n \geq n_0$ and $n \geq m_0$.
+		3. $f(n) \leq c\cdot g(n) \leq c\cdot d\cdot h(n) = t\cdot h(n)$
+	4. $\exists s \geq 0, t > 0$ such that for all $n \geq s$ $f(n) \geq t\cdot h(n)$
+	5. $f(n) \in O(h(n))$
+3. If $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$ then $f(n) \in O(h(n))$
+
+#### The asymptotics of other functions
+Now that we have established transitivity, we can start comparing functions quite easily. Here are some observations:
+
+1. Fix any positive $\alpha, \beta$, then $\left(\log(n)\right)^\alpha \in O(n^\beta)$
+2. Fix any positive $\alpha, \beta$, such that $\alpha \leq \beta$, then $n^\alpha \in O(n^\beta)$
+3. 
 
 # Bounding Recurrences with Big O
 
