@@ -320,8 +320,246 @@ $$
 
 Okay, that's a very long list. We aren't going to prove all of this, but it's hopefully most of these are very intuitive. However, let's take a closer look at the following:
 
-
-
 >[!Claim]
 > $2^{(\frac{n}{2})} \in O(2^n)$ but $2^n \notin O(2^{(\frac{n}{2})})$
+
+This might look a little unintuitive at first. After all, isn't $n \in O(\frac{n}{2})$? 
+
+Let's prove the first part first.
+
+**Proof:**
+1. Consider $n_0 = 2$, and $c = 1$. Consider any $n \geq n_0$:
+2. $2^{\frac{n}{2}} \leq \left(2^{\frac{n}{2}}\right)^2 \leq 1\cdot 2^n$
+3. Thus, $2^{\frac{n}{2}} \in O(2^n)$
+
+Well that was pretty straightforward. But what about the other direction? We'll show no matter the $n_0$ and $c$ someone picks, we can find a value $t \geq n_0$ for which $2^t > c\cdot 2^{\frac{t}{2}}$. No matter the multiplier, the function $2^t$ will overtake $c\cdot 2^{\frac{t}{2}}$ at some point.
+
+**Proof:**
+1. Let $n_0 \geq 0$ and $c > 0$ arbitrarily chosen.
+2. Set $t > \max(2\log_2(c), 1)$.
+3. Then $2^t = 2^{\frac{t}{2}}\cdot 2^{\frac{t}{2}} > 2^{\frac{2\log_2(c)}{2}}\cdot 2^{\frac{t}{2}} = c\cdot 2^{t}$
+
+
+#### Big O vs Big Omega
+
+One last thing for us to think about: If $f(n) \in O(g(n))$, can we also say $g(n) \in \Omega(f(n))$? In fact, we can!
+
+> [!Claim]
+> If $f(n) \in O(g(n))$, then $g(n) \in \Omega(f(n))$.
+
+**Proof:**
+1. Assume $f(n) \in O(g(n))$
+2. Then $\exists n_0 \geq 0, c > 0$ such that $\forall n \geq n_0$, $f(n) \leq c\cdot g(n)$
+3. Since $c > 0$, $\frac{1}{c} > 0$.
+4. Thus, $\forall n \geq n_0$, $g(n) \geq \frac{1}{c} f(n)$
+5. So $\exists n_0 \geq 0, c > 0$ such that $\forall n \geq n_0$, $g(n) \geq \frac{1}{c}\cdot f(n)$
+6. Thus, $g(n) \in \Omega(f(n))$
+
+
+# Recurrences and Big O: The Substitution Method
+
+Now that we've talked about Big O, let's try relating it back to program analysis. There are quite recurrences that we might encounter when writing recursive programs. For example, here's a recursive program that computes $n!$ :
+
+```python
+def factorial(n):
+	if n == 1:
+		return 1
+	return n * factorial(n - 1)
+```
+
+For example, we want to say that this programs running time has a linear running time with respect to $n$. How do we even do that? 
+
+If we ever want to analyse this, there are 2 parts to it:
+1. We need to look at the program and derive the recurrence that corresponds to the program.
+2. We need to **bound** the recurrence.
+
+While we won't do much of part 1 here, we will be talking more about part 2. But for this example specifically, when $n = 1$, there is $O(1)$ work being done: the comparison, returning a value. When $n > 1$, the total work done is $T(n - 1) + O(1)$ work being done. Why? Because we need to do $T(n - 1)$ amount of work to solve $T(n - 1)$, and an additional $O(1)$ amount of work to multiply the answer by $n$, and return it.
+
+So, we obtain this recurrence:
+$$
+T(n) = \begin{cases}
+T(n - 1) + O(1) & n > 1\\
+O(1) & n = 1\\
+\end{cases}
+$$
+
+Okay, now we need to **bound** it. In this case we will prove that $T(n) \in O(n)$. How do we do this? This is done via the **substitution method**.
+
+Let's look at the proof before pointing out the features it has. To prove that $T(n) \in O(n)$, we need to show that $T(n) \leq c\cdot n$ for some constant $c > 0$. 
+
+**Proof**
+Let $c = 1$, **assume that** $\forall m < n$, $T(m) \leq c\cdot m = m$. Then:
+$$
+\begin{align*}
+T(n) &= T(n - 1) + 1\\
+	&\leq (n - 1) + 1\\
+	&= 1\cdot n
+\end{align*}
+$$
+
+This proof probably looks very different from the ones we have done so far. Here are the important steps:
+
+1. We first take the $O(1)$ in the definition of $T(n)$, and just re-write this as $1$. This is very informal, but this is a simplification that just makes it easier for us to do the proof. This is why you see it written as $T(n-1) + 1$ in the first line.
+2. We typically have to make use of our assumption to replace any recurrent terms. For example, $T(n - 1)$ is replaced by $n - 1$ due to our assumption.
+3. Since we wanted to show that $T(n) \in O(n)$, the assumption made was that $T(m) \leq c\cdot m$.
+4. Lastly, we need to conclude for $T(n)$ the exact same statement as our assumption: We assumed $T(m) \leq c\cdot m$, so we have to conclude that $T(n) \leq c\cdot n$.
+
+Notice here that while this looks like a proof of induction, we don't have a base case, and there is a reason for this: We are just trying to prove that $T(n) \in O(n)$. Since this means we only care about showing that $T(n) \leq c\cdot n$ for some $n \geq n_0$ onwards (where $c, n_0$ are of our choosing), this technically means we can set what we want to be our base case, and artificially choose constants for which the base case is always true. So there's really no point in covering the base case for the substitution method. This makes it a very quick and easy tool to bound recurrences.
+
+
+## A negative example of the method
+Now, before showing you a few more positive examples, let's go through a negative example of the substitution method.
+
+Let's say we were given the following recurrence:
+
+$$
+T(n) = \begin{cases}
+T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1 & n > 1\\
+1 & n = 1\\
+\end{cases}
+$$
+
+Let's say we suspect that $T(n) \in O(n)$. Given that, again, we are going to let $c = 1$ and assume that for all $m < n$, $T(m) \leq c\cdot m = m$.
+
+Then:
+**Faulty Proof:**
+Let $c = 1$, **assume that** $\forall m < n$, $T(m) \leq c\cdot m = m$. Then:
+$$
+\begin{align*}
+	T(n) &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
+		 &\leq \lfloor n / 2\rfloor + \lceil n / 2\rceil + 1\\
+		 &= n + 1\\
+\end{align*}
+$$
+
+Okay, this proof looks harmless enough. Where did we go wrong?
+
+>[!Hint]-
+> Does the conclusion look right to you?
+
+>[!Tip]- Answer
+> We have to conclude that $T(n) \leq n$, not conclude that $T(n) \leq n + 1$.
+
+Remember, we made an assumption that $T(m) \leq m$ for all $m < n$. To fulfill our end of the deal, we need to prove that $T(n) \leq n$. If we had instead shown that $T(n) \leq n + 1$, we are falling shy of that goal.
+
+How do we fix this proof? Here's an idea, instead of assuming $T(m) \leq m$, we are going to assume that $T(m) \leq m - 1$, for all $m < n$. This might seem counter-intuitive, but it works. After all, if we can conclude that for all $n$, $T(n) \leq n - 1$, then it holds that $T(n) \leq n$, which then means that $T(n) \in O(n)$.
+
+**Proof:**
+Let $c = 1$, **assume that** $\forall m < n$, $T(m) \leq c\cdot m - 1 = m = 1$. Then:
+$$
+\begin{align*}
+	T(n) &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
+		 &\leq \lfloor n / 2\rfloor - 1 + \lceil n / 2\rceil - 1 + 1\\
+		 &= n - 1\\
+\end{align*}
+$$
+
+Et voila! We are done. Again, notice how we assumed $T(m) \leq m - 1$, so our conclusion has to be $T(n) \leq n - 1$.
+
+## A few more involved examples
+
+Let's do 2 more examples demonstrating this method.
+
+#### Example 1:
+
+Let $T(n)$ be a function such that:
+
+$$
+T(n) = \begin{cases}
+2 \cdot T(\lfloor \frac{n}{4} \rfloor) + 5 & n > 4\\
+1 & n \leq 4\\
+\end{cases}
+$$
+
+Then to show that $T(n) \in O(\sqrt{n})$:
+
+**Proof:**
+Let $c = 1$. For all $m < n$, assume that $T(m) \leq c \cdot \sqrt{n} - 5 = \sqrt{n} - 5$. Then:
+$$
+\begin{align*}
+T(n) &= 2\cdot T(\lfloor \frac{n}{4} \rfloor) + 5\\
+&= 2\cdot \left(\sqrt{\lfloor \frac{n}{4}\rfloor} - 5 \right) + 5\\
+&= 2\cdot \sqrt{\lfloor \frac{n}{4}\rfloor} - 5\\
+&\leq 2\cdot \sqrt{\frac{n}{4}} - 5\\
+&\leq \frac{2}{\sqrt{4}}\sqrt{n} - 5\\
+&\leq \sqrt{n} - 5\\
+\end{align*}
+$$
+
+#### Example 2:
+$$
+T(n) = \begin{cases}
+2 \cdot T(\lfloor \frac{n}{2} \rfloor) + 2n & n > 2\\
+1 & n \leq 2\\
+\end{cases}
+$$
+
+Then to show that $T(n) \in O(n \log(n))$:
+
+**Proof:**
+Let $c = 2$. For all $m < n$, assume that $T(m) \leq c \cdot m\log_2(m) = 2\cdot m\log_2(m)$. Then:
+$$
+\begin{align*}
+T(n) &= 2 \cdot T\left(\lfloor \frac{n}{2} \rfloor \right) + 2n\\
+&\leq 2\left( 2\cdot \frac{n}{2} \log_2\left(\frac{n}{2}\right)\right) + 2n\\
+&\leq 2\cdot n \log_2\left(\frac{n}{2}\right) + 2n\\
+&\leq 2\cdot n \left(\log_2(n) - \log_2(2)\right) + 2n\\
+&\leq  2\cdot n\log_2(n) - 2\cdot n\log_2(2) + 2n\\
+&\leq  2\cdot n\log_2(n) - 2\cdot n + 2n\\
+&\leq  2\cdot n\log_2(n)\\
+\end{align*}
+$$
+
+# Program Correctness Via Induction
+
+We will end this unit on a technique for proving that programs are correct via induction. We will not go through very complicated programs, but it would be great to cover some to demonstrate this idea. The section is really a combination of both programming and math, which really is what computer science is all about sometimes.
+
+Let's look at this python program that adds up all the elements in an array.
+
+```python
+def adder(arr):
+	total = 0
+	for i in range(len(arr)):
+		total += arr[i]
+	return total 
+```
+
+Why is this correct? I mean perhaps it's obvious, we're just adding up everything in an array. But we're going to use this simple example so show you how we can actually prove programs are correct via induction. Of course, no sane programmer actually does this for simple programs, but if we were to use an actually complicated program right now, this might be too difficult.
+
+
+Here's the idea, we want to say that:
+
+1. The program is correct before the $0^{th}$ iteration.
+2. For $i$ from $0$ onwards, if before the $i^{th}$ iteration, the program was "correct", after the $i^{th}$ iteration, it is also correct.
+
+Does this look familiar? It does look like our induction base case and inductive cases! And again, we are going to look at proof formats that closely mimic this.
+
+We wish to claim the following:
+
+> At the start of the $i^{th}$ iteration (where $i$ starts from $0$), `total` is the sum of elements in the sub-array `arr[0..(i - 1)]`.  I.e. `total` is equal to $\sum_{j = 0}^{i - 1}arr[j]$.
+
+![[invariant.svg]]
+
+As an example with an array that holds $[5, 6, 11]$, think about how before the iteration where $i = 0$, `total` is 0 (because the sub-array $arr[0...-1]$ is empty). Before the iteration where $i = 1$, `total` is $5$, which is the sum of elements in the sub-array $arr[0...0]$. Before the iteration where $i = 2$, `total` is $5 + 6 = 11$, which is the sum of elements in the sub-array $arr[0...1]$. Before the iteration where $i = 3$, `total` is $5 + 6 + 11 = 22$, which is the sum of elements in the sub-array $arr[0...2]$. Which also means that when $i = 3$, our program has effectively computed the sum of the entire array!
+
+We call this statement that is always true throughout the run of the program as the **invariant**. So how do we justify the statement?
+
+Here's an inductive proof that does that.
+
+1. (**Initialisation**) When $i = 0$, the subarray $arr[0...-1]$ is empty. There are no elements, and thus the sum of an empty array is $0$. Since $total$ is $0$, so the invariant is true before the iteration where $i = 0$.
+2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration (where $i$ starts from $0$), $total$ is the sum of elements in the sub-array $arr[0..(i - 1)]$, or $\sum_{j = 0}^{i - 1} arr[j]$.
+   
+   Then, during the $i^{th}$ iteration, $total$ is updated to $total + arr[i]$. Thus, by our assumption, the new updated value of $total$ is $\sum_{j = 0}^{i - 1} arr[j] + arr[i] = \sum_{j = 0}^{i} arr[j]$.
+3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, $total = \sum_{j = 0}^{len(arr) - 1} arr[j]$, which is the sum of the entire array.
+
+Here's the intuition behind why this proof works: We're saying that assuming it maintained our invariant before the $i^{th}$ iteration, we just need to maintain the invariant so that it is still true after the $i^{th}$ iteration. Since when the loop ends, $i = len(arr)$, the invariant helps us argue that `total` is the sum of the entire array.
+
+
+Let's do two other examples to demonstrate this idea.
+
+#### Example 1: Linear Search in an Array
+
+
+#### Example 2: Majority Finding in an Array
+
 
