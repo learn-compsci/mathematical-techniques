@@ -309,12 +309,19 @@ Let's say that we relate function $f(n)$ to function $g(n)$ if $f(n) \in O(g(n))
 3. If $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$ then $f(n) \in O(h(n))$
 
 #### The asymptotics of other functions
-Now that we have established transitivity, we can start comparing functions quite easily. Here are some observations:
+Now that we have established transitivity, we can start comparing functions quite easily. In fact, this means we can start placing functions down in some kind of "ordering". Let's show how some common functions are ordered among each other. From "smaller" to "larger" function, we have that:
 
-1. Fix any positive $\alpha, \beta$, then $\left(\log(n)\right)^\alpha \in O(n^\beta)$
-2. Fix any positive $\alpha, \beta$, such that $\alpha \leq \beta$, then $n^\alpha \in O(n^\beta)$
-3. 
+$$
+\begin{equation}
+\sqrt{\log(n)} \ll \log(n) \ll \log^2(n) \ll \sqrt{n}  \ll n \ll n^2 \ll 2^{\sqrt{n}} \ll 2^\frac{n}{2} \ll 2^n \ll 2^n \ll 2^{n^2}
+\end{equation}
+$$
 
-# Bounding Recurrences with Big O
 
-# Program Correctness
+Okay, that's a very long list. We aren't going to prove all of this, but it's hopefully most of these are very intuitive. However, let's take a closer look at the following:
+
+
+
+>[!Claim]
+> $2^{(\frac{n}{2})} \in O(2^n)$ but $2^n \notin O(2^{(\frac{n}{2})})$
+
