@@ -1,5 +1,5 @@
 ---
-title: "Unit 5: Algorithmic Analysis, Big Oh Terminology"
+title: "Unit 5: Asymptotic Notation, and Algorithmic Analysis"
 ---
 # Overview
 
@@ -116,8 +116,8 @@ So how do we do this? We need to show that no matter the starting point $n_0$, a
 $$
 \begin{align*}
 	g(x) &= g(max(c, n_0) + 1)\\
-		 &> max(c, n_0)^2\\
-		 &\geq c\cdot max(c, n_0)\\
+		 &> max(c, n_0)(max(c, n_0) + 1)\\
+		 &\geq c\cdot (max(c, n_0) + 1)\\
 		 &\geq c\cdot x\\
 		 &= f(x)
 \end{align*}

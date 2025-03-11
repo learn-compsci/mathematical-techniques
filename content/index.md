@@ -33,7 +33,7 @@ This website's intended usage by students taking discrete math courses at the [S
 |      6      |               Relations                |                                                 [[Unit 3]]                                                  |                 |                                         |
 | Recess Week |                                        |                                                                                                             |                 |              Sunday, 2359               |
 |      7      |         Induction, Recurrences         |                                                 [[Unit 4]]                                                  |        2        |                                         |
-|      8      |          Algorithmic Analysis          |                                                                                                             |                 |                                         |
+|      8      |          Algorithmic Analysis          |                                                 [[Unit 5]]                                                  |                 |                                         |
 |      9      |             Graphs, Trees              |                                                                                                             |        3        |                                         |
 |     10      |             Combinatorics              |                                                                                                             |                 |                 Friday                  |
 |     11      |             Probability 1              |                                                                                                             |        4        |                                         |
@@ -59,6 +59,10 @@ This website's intended usage by students taking discrete math courses at the [S
 ## Week 7 Videos: Unit 4
 1. [Mathematical Induction](https://www.youtube.com/watch?v=nfFbmTbB_6Q&feature=youtu.be)
 2. [Recurrences](https://youtu.be/tMLoTLM6mLw)
+## Week 8 Videos: Unit 5
+1. [Big O/Omega/Theta notation](https://youtu.be/-3ce8JCNNPI)
+2. [Substitution Method](https://youtu.be/1ruoOWjQNz0)
+3. [Program Correctness via Induction](https://youtu.be/B9PnjXrdfzE)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
@@ -68,6 +72,8 @@ This website's intended usage by students taking discrete math courses at the [S
 [[Unit 3|Introduction to Relations]]
 ## Week 7
 [[Unit 4|Induction, Recurrences]]
+## Week 8
+[[Unit 5|Program Analysis and Asymptotic Notation]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
