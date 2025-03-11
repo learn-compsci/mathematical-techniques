@@ -103,7 +103,7 @@ For a function like $g(n) = 5\cdot n$, how do we argue that $g(n) \in O(n)$?  We
 
 What about something like $g(n) = 6\cdot \sqrt{n}$, how do we argue that $g(n) \in O(n)$?  We need to provide a value $n_0$ and a positive constant $c \in \mathbb{R}$. How about $n_0 = 1$, and $c = 6$. Then $c \geq 1$ and $g(n)  \leq g(n)^2 \leq 36\cdot f(n)$.
 
-Lastly, consider $g(n) = 20\cdot \log_2(n)$. $20\cdot \log_2(n) \leq 20\cdot 2^{\log_2(n)} \leq 20\cdot n$. So setting $n_0 = 1$ and $c = 20$ would help us justify this.
+Lastly, consider $g(n) = 20\cdot \log_2(n)$.  We have that $20\cdot \log_2(n) \leq 20\cdot 2^{\log_2(n)} \leq 20\cdot n$. So setting $n_0 = 1$ and $c = 20$ would help us justify this.
 
 What about $g(n) = n^2$? Why is that function not in $O(n)$? Remember, to **not** be in the set means the negation of the condition. I.e.
 
@@ -115,9 +115,8 @@ So how do we do this? We need to show that no matter the starting point $n_0$, a
 
 $$
 \begin{align*}
-	g(x) &= g(max(c, n_0)) + 1\\
-		 &> g(max(c, n_0))\\
-		 &= max(c, n_0)^2\\
+	g(x) &= g(max(c, n_0) + 1)\\
+		 &> max(c, n_0)^2\\
 		 &\geq c\cdot max(c, n_0)\\
 		 &\geq c\cdot x\\
 		 &= f(x)
@@ -199,13 +198,11 @@ Why is this true? Here's a sketch of the math behind it, we are going to show th
 2. $$
    \begin{align*}
 		f(n) &=  \sum_{i = 0}^k a_i \cdot n^i\\
-		&\leq  \sum_{i = 0}^k a_i \cdot n^k\\
-		&\leq  n^k \cdot \left(\sum_{i = 0}^k a_i \right)\\
-		&\leq  n^k \cdot \left(\sum_{i = 0}^k a_i \right)\\
-		&\leq  n^k \cdot \max\left(1, \left(\sum_{i = 0}^k a_i \right)\right)\\
+		&\leq  \sum_{i = 0}^k \lvert a_i \rvert \cdot n^k\\
+		&\leq  n^k \cdot \left(\sum_{i = 0}^k \lvert a_i \rvert \right)\\
    \end{align*}
    $$
-   3. So setting $n_0 = 1$ and $c = \max\left(1, \left(\sum_{i = 0}^k a_i \right)\right)$, we are guaranteed that $f(n) \leq c\cdot n^k$. Therefore, $f(n) \in O(n^k)$
+   3. So setting $n_0 = 1$ and $c=  \left(\sum_{i = 0}^k \lvert a_i \rvert \right)$, we are guaranteed that $f(n) \leq c\cdot n^k$. Therefore, $f(n) \in O(n^k)$
 
 
 In fact, perhaps a little unintuitively, we can also say the following:
@@ -313,7 +310,7 @@ Now that we have established transitivity, we can start comparing functions quit
 
 $$
 \begin{equation}
-\sqrt{\log(n)} \ll \log(n) \ll \log^2(n) \ll \sqrt{n}  \ll n \ll n^2 \ll 2^{\sqrt{n}} \ll 2^\frac{n}{2} \ll 2^n \ll 2^n \ll 2^{n^2}
+\sqrt{\log(n)} \ll \log(n) \ll \log^2(n) \ll \sqrt{n}  \ll n \ll n^2 \ll 2^{\sqrt{n}} \ll 2^\frac{n}{2} \ll 2^n \ll 2^{n^2}
 \end{equation}
 $$
 
@@ -352,7 +349,7 @@ One last thing for us to think about: If $f(n) \in O(g(n))$, can we also say $g(
 2. Then $\exists n_0 \geq 0, c > 0$ such that $\forall n \geq n_0$, $f(n) \leq c\cdot g(n)$
 3. Since $c > 0$, $\frac{1}{c} > 0$.
 4. Thus, $\forall n \geq n_0$, $g(n) \geq \frac{1}{c} f(n)$
-5. So $\exists n_0 \geq 0, c > 0$ such that $\forall n \geq n_0$, $g(n) \geq \frac{1}{c}\cdot f(n)$
+5. So $\exists n_0 \geq 0, d > 0$ such that $\forall n \geq n_0$, $g(n) \geq d\cdot f(n)$
 6. Thus, $g(n) \in \Omega(f(n))$
 
 
@@ -489,24 +486,25 @@ $$
 #### Example 2:
 $$
 T(n) = \begin{cases}
-2 \cdot T(\lfloor \frac{n}{2} \rfloor) + 2n & n > 2\\
+2 \cdot T(\lfloor \frac{n}{2} \rfloor) + 2n\log_2(n) & n > 2\\
 1 & n \leq 2\\
 \end{cases}
 $$
 
-Then to show that $T(n) \in O(n \log(n))$:
+Then to show that $T(n) \in O(n \log^2(n))$:
 
 **Proof:**
-Let $c = 2$. For all $m < n$, assume that $T(m) \leq c \cdot m\log_2(m) = 2\cdot m\log_2(m)$. Then:
+Let $c = 2$. For all $m < n$, assume that $T(m) \leq c \cdot m\log_2(m) = 2\cdot m\log^2(m)$. Then:
 $$
 \begin{align*}
-T(n) &= 2 \cdot T\left(\lfloor \frac{n}{2} \rfloor \right) + 2n\\
-&\leq 2\left( 2\cdot \frac{n}{2} \log_2\left(\frac{n}{2}\right)\right) + 2n\\
-&\leq 2\cdot n \log_2\left(\frac{n}{2}\right) + 2n\\
-&\leq 2\cdot n \left(\log_2(n) - \log_2(2)\right) + 2n\\
-&\leq  2\cdot n\log_2(n) - 2\cdot n\log_2(2) + 2n\\
-&\leq  2\cdot n\log_2(n) - 2\cdot n + 2n\\
-&\leq  2\cdot n\log_2(n)\\
+T(n) &= 2 \cdot T\left(\lfloor \frac{n}{2} \rfloor \right) + 2n\log_2(n)\\
+&\leq 2\left( 2\cdot \frac{n}{2} \log^2\left(\frac{n}{2}\right)\right) + 2n\log_2(n)\\
+&\leq 2\cdot n \log^2\left(\frac{n}{2}\right) + 2n\log(n)\\
+&\leq 2\cdot n \left(\log(n) - \log_2(2)\right)^2 + 2n\log(n)\\
+&\leq 2\cdot n \left(\log^2(n) - 2\log(n) + 1\right) + 2n\log(n)\\
+&\leq 2\cdot n \log^2(n) - 4n\log(n) + 2n + 2n\log(n)\\
+&\leq 2\cdot n \log^2(n) - 4n\log(n) + 4n\log(n)\\
+&\leq  2\cdot n \log^2(n)
 \end{align*}
 $$
 
