@@ -557,9 +557,72 @@ Here's the intuition behind why this proof works: We're saying that assuming it 
 
 Let's do two other examples to demonstrate this idea.
 
-#### Example 1: Linear Search in an Array
+#### Example 1: Finding Minimum in an Array
+
+Let's say we wanted to tell if a value is an array, we could also write it like this:
+
+```python
+def find_min(arr):
+	value = arr[0]
+	for i in range(1, len(arr)):
+		 value = min(arr[i], value)
+	return value
+```
+
+Then, to prove this is correct, we will use the following invariant:
+
+> At the start of the $i^{th}$ iteration, `value` is the smallest of elements in the sub-array `arr[0..(i - 1)]`.
+
+1. (**Initialisation**) When $i = 1$, the subarray $arr[0...0]$ has a single element. Since `value` is set to $arr[0]$, the invariant is true.
+2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration (where $i$ starts from $1$), `value` is the smallest of elements in the sub-array $arr[0..(i - 1)]$.
+   
+   Then, during the $i^{th}$ iteration, `value` is updated to $\min(value, arr[i])$. Thus, by our assumption, the new updated value of `value` is $min(arr[0..(i - 1)], arr[i]) = min(arr[0...i])$.
+3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, `value` is set to $min(arr[0...len(arr) - 1])$, which is the minimum of the entire array.
+
+Pictorially, here's how the maintenance is done.
+![[find-min-inv.svg]]
 
 
-#### Example 2: Majority Finding in an Array
 
 
+
+#### Example 2: Selection Sort
+
+Let's try something a little more involved, let's re-visit the sorting program at the beginning, and prove that it actually does correctly sort.
+
+
+```python
+def find_min_index(arr, starting_idx):
+	min_index = starting_idx
+	for index2 in range(starting_idx + 1, len(arr)):
+		if arr[min_indx] < arr[index2]:
+			min_index = index2
+	return min_index
+
+def sorter2(arr):
+	for index1 in range(len(arr) - 1):
+		min_index = find_min_index(arr, index1)
+		arr[min_index], arr[index1] = arr[min_index], arr[index1]
+```
+
+Let's assume that `find_min_index` correctly finds the index of the minimum element in the sub-array $arr[starting\_idx...len(arr) - 1]$. Then we just want to prove that `sorter2` is correct as a sorter.
+
+So what should our invariant be? 
+
+![[selection-inv.svg]]
+
+So the idea is that since $arr[0\ldots(i-1)]$ is sorted, we should try to find the item that belongs in the $i^{th}$ slot, which happens to be the smallest element in the sub-array $arr[i\ldots(len(arr) - 1)]$.
+
+> At the start of the $i^{th}$ iteration, the sub-array $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(i) - 1)]$.
+
+So let's look at the proof:
+
+1. (**Initialisation**) When $i = 0$, the subarray $arr[0...(-1)]$ is empty. Therefore, it is "trivially" sorted and contains the $0$ smallest elements of the entire array.
+2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration, the sub-array $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(arr) - 1)]$.
+   
+   Then at the $i^{th}$ iteration, let the smallest element of $arr[i\ldots (len(arr) - 1)]$ be called $x$. Now, by our assumption:
+   
+   (1) Since $arr[0\ldots (i - 1)]$ has the $i$ smallest elements of the array. We can say that $arr[0\ldots(i-1)] \leq x$. So if we put $x$ in the $i^{th}$ position, $arr[0\ldots i]$ is sorted.
+   
+   (2) Furthermore, since $x$ is the smallest element of $arr[i\ldots (len(arr) - 1)]$, if we put $x$ in the $i^{th}$ position, $arr[0\ldots i]$ now contains the smallest $i + 1$ elements in the array. 
+3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, by our invariant, $arr[0\ldots len(arr) - 1)]$ is sorted.

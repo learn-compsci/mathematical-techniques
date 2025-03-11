@@ -104,6 +104,8 @@ You may find the following facts useful:
 1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
 2. $a \leq b \to \log_2(a) \leq \log_2(b)$
 
+You may alternatively use the substitution method to prove that this is $O(n \log n)$.
+
 ---
 # Question 5
 
