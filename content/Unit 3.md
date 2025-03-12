@@ -139,7 +139,7 @@ Here are a few more examples:
 > Then $D$ relates integers $y$ to other integers that divide it. For example $(2, 10) \in D$, because $2$ divides $10$. Also $(3, 10) \notin D$, because $3$ does not divide $10$.
 
 >[!Example]
-> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
+> Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3t] \}$.
 > 
 > Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 16) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
 

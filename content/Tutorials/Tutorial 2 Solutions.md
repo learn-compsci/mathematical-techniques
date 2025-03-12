@@ -106,7 +106,6 @@ Convert the following from set builder notation to set roster notation:
 3. $C = \{x \in \mathbb{Z} : \exists k \in \mathbb{Z} \ [(x = 7k) \land (x \geq 0) \land (x < 60) \}$.
 4. $D = \big\{x \in \mathbb{Z}: \forall a, b \in \mathbb{N} \ \big[(x < 10) \land (x > 1) \land \big((x = ab) \to (a = 1 \land b = x) \lor (a = x \land b = 1)\big)\big]\big\}$
 
-
 **Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
 **Solutions**:
@@ -129,6 +128,7 @@ Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setmin
 
 The first problem is equivalent to the following: 
 $$(a \land \neg b) \land \neg c \equiv (a \land \neg c) \land \neg (b \lor c)$$
+
 Using a truth table, we see that this equivalence is true:
 
 | $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \land \neg c$ | $b \lor c$ | $\neg (b \lor c)$ | $(a \land \neg b) \land \neg c$ | $(a \land \neg c) \land \neg (b \lor c)$ |
@@ -325,21 +325,22 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 
 >[!note] Proof: $R$ is not antisymmetric
 >Lets start by taking the negation of the statement for antisymmetry. If we are be able to prove that the negation is **true** we can prove the the original statement is **false**. 
->$\neg (\forall a \in A, \forall b \in A \big[((a, b)\in R \land (b, a) \in R) \to a = b\big])$
->$\equiv \exists a \in A, \exists b \in A \neg \big[((a, b)\in R \land (b, a) \in R) \to a = b\big]$ [Negating universal quantifiers]
->$\equiv \exists a \in A, \exists b \in A \neg \big[\neg((a, b)\in R \land (b, a) \in R) \lor a = b\big]$ [Implication law]
->$\equiv \exists a \in A, \exists b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [De Morgan's law]
+>$\neg (\forall a \in A, \forall b \in A \ \big[((a, b)\in R \land (b, a) \in R) \to a = b\big])$
+>$\equiv \exists a \in A, \exists b \in A \ \neg \big[((a, b)\in R \land (b, a) \in R) \to a = b\big]$ [Negating universal quantifiers]
+>$\equiv \exists a \in A, \exists b \in A \ \neg \big[\neg((a, b)\in R \land (b, a) \in R) \lor a = b\big]$ [Logically equivalent]
+>$\equiv \exists a \in A, \exists b \in A \ \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Logically equivalent]
 >
->1. Let $x = 0 \in A$ and $y = 1 \in A$.
->2. $(x, y) \in A \times A$ [Definition of cartesian product, from line 1]
->3. $(x, y) \in R$ [Definition of R]
->4. $(y, x) \in A \times A$ [Definition of cartesian product, from line 1]
->5. $(y, x) \in R$ [Definition of R]
->6. $(x, y) \in R \land (y, x) \in R$ [Conjunction on lines 3 and 5]
->7. $0 \neq 1$, therefore $x \neq y$ [By basic algebra]
->8. $((x, y) \in R \land (y, x) \in R) \land (x \neq y)$ [Conjunction on lines 6 and 7]
->9. Therefore, $\exists a \in A, b \in A \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Existential generalization]
->10. Since the negation of antisymmetry is true for $R$, therefore $R$ is not antisymmetric [Definition of antisymmetry]
+>1. $0 \in A$ 
+>2. $1 \in A$.
+>3. $(0, 1) \in A \times A$ [Definition of cartesian product, from line 1]
+>4. $(0, 1) \in R$ [Definition of R]
+>5. $(1, 0) \in A \times A$ [Definition of cartesian product, from line 1]
+>6. $(1, 0) \in R$ [Definition of R]
+>7. $(0, 1) \in R \land (1, 0) \in R$ [Conjunction on lines 4 and 6]
+>8. $0 \neq 1$ [By basic algebra]
+>9. $((0, 1) \in R \land (1, 0) \in R) \land (0 \neq 1)$ [Conjunction on lines 7 and 8]
+>10. Therefore, $\exists a \in A, b \in A \ \big[((a, b)\in R \land (b, a) \in R) \land a \neq b\big]$ [Existential generalization]
+>11. Since the negation of antisymmetry is true for $R$, therefore $R$ is not antisymmetric [Definition of antisymmetry]
 
 #### Sub-part 4
 Is the following statement true?
@@ -410,7 +411,13 @@ If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$
 >Consider $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$.
 >Let $R = \{(1, 1), (2, 2)\} \subseteq A \times A$.
 >
->Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. Next, $R$ is also anti-symmetric, since $1 \neq 2$ and neither $(1, 2)$ nor $(2, 1)$ are in $R$ (refer to [[Unit 3#Anti-Symmetry]] for this equivalent definition).
+>Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. 
+>
+>Next, $R$ is also anti-symmetric. Let's examine the elements of $R$.
+>1. For $(1,1)$, we have $(1,1) \in R \land (1,1) \in R$, and $1 = 1$.
+>2. Similarly, for $(2,2)$, we have $(2,2) \in R \land (2,2) \in R$, and $2 = 2$.
+>
+>Hence, $R$ is anti-symmetric.
 >
 >It is easy to check that $R$ is symmetric as well.
 

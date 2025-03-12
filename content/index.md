@@ -32,8 +32,8 @@ This website's intended usage by students taking discrete math courses at the [S
 |      5      |               Set Theory               |                                                 [[Unit 2]]                                                  |        1        | [[Assignment 1\|Assignment 1, Release]] |
 |      6      |               Relations                |                                                 [[Unit 3]]                                                  |                 |                                         |
 | Recess Week |                                        |                                                                                                             |                 |              Sunday, 2359               |
-|      7      |         Induction, Recurrences         |                                                                                                             |        2        |                                         |
-|      8      |          Algorithmic Analysis          |                                                                                                             |                 |                                         |
+|      7      |         Induction, Recurrences         |                                                 [[Unit 4]]                                                  |        2        |                                         |
+|      8      |          Algorithmic Analysis          |                                                 [[Unit 5]]                                                  |                 |                                         |
 |      9      |             Graphs, Trees              |                                                                                                             |        3        |                                         |
 |     10      |             Combinatorics              |                                                                                                             |                 |                 Friday                  |
 |     11      |             Probability 1              |                                                                                                             |        4        |                                         |
@@ -46,24 +46,38 @@ This website's intended usage by students taking discrete math courses at the [S
 1. [Introduction to Propositions, and Logical Connectives](https://youtu.be/q85U4qeTHVw)
 2. [Behaviour of Logical Connectives, Truth Tables, Logical Equivalences](https://www.youtube.com/watch?v=0nfoPqWhVUY)
 3. [Predicates, and Quantifiers for First Order Logic](https://www.youtube.com/watch?v=7dG3pgO6phg)
-
 ## Week 4 Videos: Unit 1 - Part 3
 1. [First Example of a Proof, Premises, Conclusions](https://youtu.be/r8uw-zc7jpM)
 2. [Rules of Our Proof System](https://youtu.be/98B2_H_o0-c)
 3. [Proof Strategies, And Steps in Proofs vs Statements](https://youtu.be/wEVCCraLiJc)
-
 ## Week 5 Videos: Unit 2
 1. [Introduction to Set Theory, Set Notations, and Set Operations](https://www.youtube.com/watch?v=ahNWhSrICH0&feature=youtu.be)
 2. [Proving Set Equivalences, and Other Proofs Involving Subsets and Power Sets](https://www.youtube.com/watch?v=I1RDj3g8-UI&feature=youtu.be)
+## Week 6 Videos: Unit 3
+1. [Relations, Operations on Relations](https://youtu.be/nfFbmTbB_6Q)
+2. [Properties on Relations](https://youtu.be/N_sON29brXI)
+## Week 7 Videos: Unit 4
+1. [Mathematical Induction](https://www.youtube.com/watch?v=nfFbmTbB_6Q&feature=youtu.be)
+2. [Recurrences](https://youtu.be/tMLoTLM6mLw)
+## Week 8 Videos: Unit 5
+1. [Big O/Omega/Theta notation](https://youtu.be/-3ce8JCNNPI)
+2. [Substitution Method](https://youtu.be/1ruoOWjQNz0)
+3. [Program Correctness via Induction](https://youtu.be/B9PnjXrdfzE)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
-
 ## Week 5
-[[Unit 3|Introduction to Set Theory]]
+[[Unit 2|Introduction to Set Theory]]
+## Week 6
+[[Unit 3|Introduction to Relations]]
+## Week 7
+[[Unit 4|Induction, Recurrences]]
+## Week 8
+[[Unit 5|Program Analysis and Asymptotic Notation]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
+2. [[Tutorial 2]] Due 11-Feb-2025 **11:59PM**.
 
 # Assignment
 1. [[Assignment 1]] Released 12-Feb-2025. Due 02-Mar-2025 23:59 (Canvas submission)
