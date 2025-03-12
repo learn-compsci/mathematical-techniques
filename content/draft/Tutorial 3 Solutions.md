@@ -74,5 +74,77 @@ $$
 >9. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
 >10. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
 
+---
+# Question 3 \[Graded for Participation]
+
+Let $A(n)$ be a recurrence defined in the following way.
 
 
+$$
+A(n) = \begin{cases}
+1, & n = 0\\
+3, & n = 1\\
+2\times A(n - 1) - A(n - 2), & n \geq 2
+\end{cases}
+$$
+
+
+## Sub-question 1
+Compute the following values:
+
+1. $A(0)$
+2. $A(1)$
+3. $A(2)$
+4. $A(5)$
+
+
+## Sub-question 2
+Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
+
+
+**Solutions**:
+
+**Sub-question 1**:
+1. $A(0) = 1$
+2. $A(1) = 3$
+3. $A(2) = 2 \times A(1) - A(0) = 5$
+4. Since $A(3) = 2 \times A(2) - A(1) = 7$ and $A(4) = 2 \times A(3) - A(2) = 9$, we have $A(5) = 2 \times A(4) - A(3) = 11$.
+
+**Sub-question 2**:
+
+>[!note] Proof
+>1. (Base cases) We prove the statement for $n = 0$ and $n = 1$. Clearly, $A(0) = 1 = 2(0) + 1$ and $A(1) = 3 = 2(1) + 1$.
+>2. (Inductive step) Let $k \geq 2$, and assume that $\forall 0 \leq j < k\ [A(j) = 2j + 1]$.
+>3. $A(k) = 2 \times A(k-1) - A(k-2)$ \[By definition of $A(n)$]
+>4. Since $0 \leq k-1 < k$ and $0 \leq k-2 < k$, we have $A(k-1) = 2(k-1)+1 = 2k-1$ and $A(k-2) = 2(k-2)+1 = 2k-3$, respectively. \[By assumption on line 2]
+>5. $A(k) = 2 \times (2k-1) - (2k-3) = 4k-2-2k+3 = 2k+1$ \[Basic algebra, from lines 3, 4]
+>6. $\forall n \geq 0\ [A(n) = 2n + 1]$ \[Principle of mathematical induction]
+
+---
+# Question 4
+
+Let $M(n)$ be a recurrence defined in the following way.
+
+
+$$
+M(n) = \begin{cases}
+0 &, n = 1\\
+2 &, n = 2\\
+2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
+\end{cases}
+$$
+
+Prove via strong induction that:
+
+$$
+\forall n \geq 3 \ [M(n) \leq n\log_2(n)]
+$$
+
+You may find the following facts useful:
+1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
+2. $a \leq b \to \log_2(a) \leq \log_2(b)$
+
+You may alternatively use the substitution method to prove that this is $O(n \log n)$.
+
+
+**Solutions**:
