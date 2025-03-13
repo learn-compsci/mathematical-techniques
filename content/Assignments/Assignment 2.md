@@ -22,3 +22,45 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 
 
 ---
+
+# Question 1  \[3 marks]
+
+Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}[x = 2k] \}$.
+
+
+Write in **set roster notation** the following sets:
+1. $A \cap B$
+2. $A \setminus (B \setminus C)$
+3. $A \cap (B \setminus C)$
+
+---
+# Question 2  \[2 marks]
+
+
+
+
+
+
+---
+# Question 3
+
+
+
+Given a relation $R$ that is defined in the following way:
+
+$$
+R = \left\{ (a, b) \in \mathbb{N} \times \mathbb{N} : \exists d \in \mathbb{N}, \exists k \in \mathbb{N} [ divides(d, a) \land divides(d, b) \land d \neq 1 \land d \neq a \land d \neq b ] \right\}
+$$
+
+where $divides(d, n)$ is a predicate defined to be $\exists k \in \mathbb{N}[d\cdot k = n]$.
+
+## Part (a) \[4 marks]
+Is $R$ reflexive? If it is, give a proof that it is. If it is not, give an example value $n \in \mathbb{N}$ such that $(n, n) \notin R$ (you need not formally prove that $(n, n) \notin R$).
+
+
+## Part (b) \[4 marks]
+Is $R$ symmetric? If it is, give a proof that it is. If it is not, give an example value $n \in \mathbb{N}$ such that $(a, b) \in R \land (b, a) \notin R$ (you need not formally prove it, giving the example suffices).
+
+
+
+---
