@@ -35,9 +35,9 @@ This website's intended usage by students taking discrete math courses at the [S
 |      7      |         Induction, Recurrences         |                                                 [[Unit 4]]                                                  |        2        |                                         |
 |      8      |          Algorithmic Analysis          |                                                 [[Unit 5]]                                                  |                 |                                         |
 |      9      |             Graphs, Trees              |                                                                                                             |        3        |                                         |
-|     10      |             Combinatorics              |                                                                                                             |                 |                 Friday                  |
+|     10      |             Combinatorics              |                                                                                                             |                 |                                         |
 |     11      |             Probability 1              |                                                                                                             |        4        |                                         |
-|     12      |             Probability 2              |                                                                                                             |                 |                                         |
+|     12      |             Probability 2              |                                                                                                             |                 |              Sunday, 2359               |
 |     13      |              Rounding Up               |                                                                                                             |        5        |                                         |
 
 # Lecture Video Links
