@@ -4,7 +4,12 @@ title: Combinatorics
 # Overview
 In this unit, we will start moving onto topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
 
+We have broken this unit up into 4 parts:
 
+1. Basic Counting
+2. Principle of Inclusion-Exclusion
+3. Permutations and Combinations
+4. Applying Combinatorics for Problem Solving
 # Counting Based on Sets
 
 Let's begin by simplifying things a little bit, for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. So given a set $A$, the size of a set is written as $\lvert A \rvert$.
@@ -96,7 +101,7 @@ Now it works! So what about between more sets? Here's the general statement:
 Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that:
 
 1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$                                              (the $i^{th}$ set has size $s_i$)
-2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \neq A_j = \emptyset$     (any two distinct sets are **disjoint**)
+2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \cap A_j = \emptyset$     (any two distinct sets are **disjoint**)
 
 Then, $\sum_{i = 1}^n s_i = \lvert A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n\rvert$. The size of the all of the sets is just their individual sizes added up.
 
@@ -602,6 +607,45 @@ $$
 \binom{c + r}{r}
 $$
 
+## Counting Subsets
+
+Let's say we had a set $A$ of $100$ distinct elements.
+
+1. How many subsets are there of size $2$?
+2. How many subsets are there of size **at most** 2?
+3. How many subsets are there of size **at least** 3?
+
+To answer the first question, this was pretty much just $\binom{100}{2}$. But what about the other 2?
+
+**Part 2:** Note that there are $\binom{100}{0}$ many subsets of size $0$,  that there are $\binom{100}{1}$ many subsets of size $1$, and $\binom{100}{2}$ many subsets of size $2$.
+
+**Part 3:**  As for this part, we could solve it directly, like so:
+
+$$
+\sum_{i = 3}^{100} \binom{100}{i}
+$$
+
+Or, perhaps a little more simply: we could notice that there are $2^{100}$ possible subsets of $A$. To count the number of subsets that are $3$ or larger, we can just subtract away the subsets that are up to size $2$ from $2^n$. Which gives us:
+
+$$
+2^n - \binom{100}{0} - \binom{100}{1} - \binom{100}{2}
+$$
+
+Turns out, both these quantities are the same!
+
+## Counting Permutations:
+
+Let's say there were $4$ people: Alice, Bob, Clara, Dean. Let's say that we had to arrange then in a line but Bob refuses to stand next to Dean. How many ways are there to arrange them in a line?
+
+One way we could do this would be to count 3 cases separately, where we make $4$ slots, place Bob and Dean down first separately from each other, and then count how many permutations we could get.
+
+![[adjacent-pic-1.svg]]
+
+There are $3$ possible cases that we can treat similarly. Pick any of the $2$ non-adjacent slots. There are $2!$ ways to arrange Bob and Dean, and then there are also $2!$ ways to arrange Alice and Clara. So there are $(2! \times 2! + 2! \times 2! + 2! \times 2!) = 12$.
+
+There is an alternative way to count this: What about we count the number of ways where Bob and Dean are arranged together? We first treat them like a pair, attached at the hip. Then we count the number of ways we can arrange everyone so that Bob and Dean are stuck together, then subtract that number away from $4!$.
+
+So if we treat Bob and Dean as being stuck together. Then they're either arranged as Bob-Dean, or as Dean-Bob. Then for each of these cases (of which there are 2), there are $3!$ possible ways to permute: Alice, Clara, and the Bob-Dean pair. So in total, there are $2 \times 3! = 12$ ways to arrange the 4 people, such that Bob and Dean are next to each other. Subtracting this away from $4! = 24$ yields us $12$ as our answer.
 # A Sense of Scale
 
 Let's see some examples of why combinatorics is useful and helpful. 
