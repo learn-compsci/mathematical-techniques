@@ -604,6 +604,131 @@ $$
 
 # A Sense of Scale
 
+Let's see some examples of why combinatorics is useful and helpful. 
 ## Binomial Coefficients and Nested For Loops
 
+Let's say we had some code that looked like this:
+
+```python
+total = 0
+for i in range(n):
+	for j in range(i + 1, n):
+		for k in range(j + 1, n):
+			total += arr[i][j][k]	
+```
+
+How many iterations does this `for` loop make? Notice here that there is an iteration whenever $i < j < k$, and all 3 values are taken from the range $[0, n - 1]$. How do we count how many iterations we have done?
+
+One very straightforward way is to literally count based on the possible values:
+
+$$
+\sum_{i = 0}^{n - 1} \sum_{j = i + 1}^{n - 1} \sum_{k = j + 1}^{n - 1} 1 = 
+\sum_{i = 0}^{n - 1} \sum_{j = i + 1}^{n - 1}  (n - j - 1)\\
+$$
+
+then looking at the inner sum, we notice the values range from $(n - (i + 1) - 1) = (n - i - 2)$ to $n - (n - 1) - 1 = 0$. So we can say the following:
+
+$$ 
+\sum_{i = 0}^{n - 1} \sum_{j = i + 1}^{n - 1}  (n - j - 1) = \sum_{i = 0}^{n - 1} \sum_{t = 0}^{n - i - 2}  t\\
+$$
+
+Now the inner sum is just summing over an arithmetic progression:
+
+$$ 
+\sum_{i = 0}^{n - 1} \sum_{t = 0}^{n - i - 2}  t = \sum_{i = 0}^{n - 1} \frac{(n - i - 2)(n - i - 1)}{2}\\
+$$
+
+Since $i$ ranges from $0$ to $n - 1$, the fraction ranges from $\frac{(n  - 2)(n - 1)}{2}$ to $0$. So again, by changing variables:
+
+$$
+\begin{align*}
+\frac{1}{2}\sum_{i = 0}^{n - 1} (n-i-2)(n-i-1) &= \frac{1}{2}\sum_{r = 1}^{n} (r-1)(r) \\
+&= \frac{1}{2}\sum_{r = 1}^{n} (r^2-r) \\
+&= \frac{1}{2}\left(\sum_{r = 1}^{n} r^2 - \sum_{r = 1}^{n} r\right) \\
+&= \frac{1}{2}\left(\frac{n(n+1)(2n+1)}{6} - \frac{n(n+1)}{2}\right) \\
+&= \frac{1}{2}\left(\frac{n(n+1)(2n+1)}{6} - \frac{3n(n+1)}{6}\right) \\
+&= \frac{1}{2}\left(\frac{n(n+1)(2n+1) - 3n(n+1)}{6}\right) \\
+&= \frac{1}{2}\left(\frac{n(n+1)(2n+1-3)}{6}\right) \\
+&= \frac{1}{2}\left(\frac{n(n+1)(2n-2)}{6}\right) \\
+&= \frac{1}{2}\left(\frac{2n(n+1)(n-1)}{6}\right) \\
+&= \frac{n(n+1)(n-1)}{6} \\
+&= \frac{n(n^2-1)}{6} \\
+&= \frac{n(n-1)(n+1)}{6} \\
+\end{align*}
+$$
+
+That was a lot of effort! What if I told you there was a much more straightforward way? We basically just want to count how many distinct triplets $\{i, j, k\}$ we can pick from the set $[0, n - 1]$.
+
+This happens to be $\binom{n}{3}$. In fact, we can check this!
+
+$$
+\binom{n}{3} = \frac{n!}{(n-3)!\cdot 3!} = \frac{n(n-1)(n-2)}{3\cdot 2\cdot 1} = \frac{n(n-1)(n-2)}{6}
+$$
+
+Interestingly, this tells us at the program makes $\Theta(n^3)$ iterations.
+
 ## Some Useful Bounds on Combinatorial Properties
+Let us end this unit by getting a sense of scale whenever we are counting. This is particularly useful when we are thinking about "generating all possibilities" or "just trying all possible solutions".
+
+
+Often times, having an approximation of the quantities are "good enough" for us to eyeball values. Let's look at 2 very common approximations for factorials and binomial coefficients.
+### Stirling's Approximation
+
+The first is Stirling's asymptotic approximation for $n!$. Think of "asymptotic approximation" as meaning "the larger the value of $n$, the more accurate the approximation".
+
+Stirling's approximation states that:
+
+$$
+n! \sim \sqrt{2\pi n} \left(\frac{n}{e} \right)^n
+$$
+
+This makes the term of the right sometimes a little more useful to deal with.
+
+### Bounding Binomial Coefficients
+
+The second is for binomial coefficients. Given any $n$ and $0 \leq k \leq n$
+
+$$
+\left(\frac{n}{k}\right)^k \leq \binom{n}{k} \leq \left(\frac{n\cdot e}{k}\right)^k
+$$
+
+### An example application
+
+For example, consider the following problem statement:
+
+> Given a list $L$ of $n$ pairs $(s_1, e_1), (s_2, e_2), \ldots, (s_n, e_n)$ such that the $i^{th}$ pair denotes the start and end time of the $i^{th}$ event. We will say two distinct events $i \neq j$ are **clashing** if ($s_i \leq s_j$ and $e_i \leq e_j$) or ($s_j \leq s_i$ and $e_j \leq e_i$). Find out what largest subset $S \subseteq L$ of events we can schedule so that none of the events in $S$ clash with each other.
+
+This is a very classical algorithms problem, while we won't have the tools to solve it here, let's at least think about some very "straightforward" solutions.
+
+What about the following strategy?
+
+1. Set a variable $len = 0$.
+2. Go through all possible subsets $S$ of $L$.
+3. For each subset $S$, check whether they contain clashing events.
+		1. If they do, ignore this subset.
+		2. If they don't, update $len = max(len, \lvert S \rvert)$.
+4. Return $len$.
+
+This way we do find the largest subset. But how long did it take? What is the relationship between the running time of this strategy versus the number of events?
+
+For a subset of length $\ell \geq 2$, we need to check $\binom{\ell}{2}$ possible pairings to see if the subset contains any clashing events. There are $\binom{n}{\ell}$ many subsets of $L$ of length $\ell$. We need to check all possible subsets where $\ell$ ranges from $1$ to $n$. So in total, we take this many steps:
+
+$$
+\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} = \sum_{\ell = 1}^n\frac{n!}{(\ell!)(n-\ell)!} \cdot \frac{\ell!}{(\ell-2)!\cdot 2!} = \sum_{\ell = 1}^n\frac{n!}{2(n-\ell)!(\ell - 2)!}
+$$
+
+Let's say we want to **lower bound** the amount of steps needed minimum. How do we even begin approximating this?
+
+One way would be to lower bound the original summation:
+
+$$
+\begin{align*}
+\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} &\geq \sum_{\ell = 1}^n\left(\frac{n}{\ell}\right)^\ell \left(\frac{\ell}{2}\right)^2 \\
+&\geq \left(\frac{n}{\sqrt{n}}\right)^\sqrt{n} \left(\frac{\sqrt{n}}{2}\right)^2 \\
+&\geq \left(\sqrt{n}\right)^\sqrt{n} \cdot \frac{n}{4}\\
+&\geq n^{\frac{\sqrt{n}}{2}}\\
+&\geq 2^{\frac{\sqrt{n}}{2}}\\
+\end{align*}
+$$
+
+Which is close to being exponential in $n$. This means the strategy scales quite badly when we have more and more events.
