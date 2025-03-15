@@ -337,7 +337,7 @@ So finally:
 $$
 \begin{align*}
 \lvert A \rvert + \lvert B \rvert - \lvert A \cap B \rvert &= \left( \left \lfloor \frac{30}{6} \right \rfloor - \left \lfloor \frac{10 - 1}{6} \right \rfloor \right) + \left( \left \lfloor \frac{30}{10} \right \rfloor - \left \lfloor \frac{10 - 1}{10} \right \rfloor \right) - \left( \left \lfloor \frac{30}{30} \right \rfloor - \left \lfloor \frac{10 - 1}{30} \right \rfloor \right)\\
-&= (5 - 1) + (3 - 0) - (1 = 0)\\
+&= (5 - 1) + (3 - 0) - (1 - 0)\\
 &= 4 + 3 - 1\\
 &= 6\\
 \end{align*}
