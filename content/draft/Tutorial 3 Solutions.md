@@ -40,7 +40,7 @@ $$
 \forall n \geq 1 \left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
 $$
 
-**Solutions**:
+**Solution**:
 
 >[!note] Proof
 >1. (Base case) Let $n = 1$. Then, $\sum_{i=1}^{n} i^2 = 1^2 = 1 = \frac{1(1+1)(2+1)}{6}$. \[Basic algebra]
@@ -60,19 +60,19 @@ $$
 \forall n \geq 1, \exists k \in \mathbb{N} \left[ 6^n - 1 = 5\cdot k \right]
 $$
 
-**Solutions**:
+**Solution**:
 
 >[!note] Proof
 >1. (Base case) Let $n = 1$. Then, $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
->2. Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
->3. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]$.
->4. Let $m \in \mathbb{N}$ be such that $6^j - 1 = 5m$. \[Existential instantiation on line 3]
->5. $6^{j+1} - 1 = 6^j \cdot 6 - 1 = 6 \cdot (6^j - 1) + 5$. \[Basic algebra]
->6. $6 \cdot (6^j - 1) + 5 = 6 \cdot 5m + 5 = 30m + 5 = 5 \cdot (6m + 1)$. \[By assumption on line 3, 4]
->7. $6^{j+1} - 1 = 5 \cdot (6m + 1)$. \[Basic algebra, from lines 5, 6]
->8. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
->9. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
->10. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
+>	- Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
+>2. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]$.
+>3. Let $m \in \mathbb{N}$ be such that $6^j - 1 = 5m$. \[Existential instantiation on line 3]
+>4. $6^{j+1} - 1 = 6^j \cdot 6 - 1 = 6 \cdot (6^j - 1) + 5$. \[Basic algebra]
+>5. $6 \cdot (6^j - 1) + 5 = 6 \cdot 5m + 5 = 30m + 5 = 5 \cdot (6m + 1)$. \[By assumption on line 3]
+>6. $6^{j+1} - 1 = 5 \cdot (6m + 1)$. \[Basic algebra, from lines 5, 6]
+>7. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
+>8. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
+>9. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
 
 ---
 # Question 3 \[Graded for Participation]
@@ -97,12 +97,11 @@ Compute the following values:
 3. $A(2)$
 4. $A(5)$
 
-
 ## Sub-question 2
 Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 
 
-**Solutions**:
+**Solution**:
 
 **Sub-question 1**:
 1. $A(0) = 1$
@@ -147,4 +146,140 @@ You may find the following facts useful:
 You may alternatively use the substitution method to prove that this is $O(n \log n)$.
 
 
-**Solutions**:
+**Solution**:
+
+>[!note] Proof
+>1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
+>	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 2 = 2 \leq 3 \log_2(3)$
+>	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
+>	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$
+>2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
+>3. Since $k \geq 6$, $\lfloor \frac{k}{2} \rfloor \geq 3$, so our assumption applies to $\lfloor \frac{k}{2} \rfloor$.
+>4. $M(k) = 2 \times M(\lfloor \frac{k}{2} \rfloor) + k \leq 2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k$ \[By assumption on line 2]
+>5. $2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k = k\log_2(\frac{k}{2}) + k$ \[Facts 1, 2]
+>6. $k\log_2(\frac{k}{2}) + k = k \log_2 k - k \log_2 2 + k = k \log_2 k - k + k = k \log_2 k$ \[Basic algebra]
+>7. $M(k) \leq k \log_2 k$ \[From lines 4, 6]
+>8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
+
+---
+# Question 5
+
+Let $B(n)$ be a recurrence defined in the following way.
+
+
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
+
+Prove by induction that:
+$$
+\forall n \in \mathbb{N}\ [B(n) = 3^n]
+$$
+
+**Solution**:
+
+>[!note] Proof
+>1. (Base case) Let $n=0$. Then, $B(0) = 1 = 3^0$.
+>2. (Inductive step) Assume that for $n=j$, where $j \in \mathbb{N}$, $B(j) = 3^j$.
+>3. $B(j+1) = 3^{j+1} = 3 \times 3^j = 3 \times B(j)$ \[By assumption on line 2]
+>4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$ \[Principle of mathematical induction]
+
+---
+# Question 6 \[Graded for Participation]
+
+Let $B(n)$ be a recurrence defined in the following way.
+
+
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
+
+
+## Sub-part 1
+True or false? $B(n) \in O(3^n)$
+
+(Hint: You may want to use the statement at end of question 4)
+
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
+
+**Solution**:
+
+**True.** From Q5, we have that $B(n) = 3^n$.
+
+>[!note] Proof
+>1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
+>	- Then, $B(n) = 3^n \leq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$ \[Existential generalisation on line 1]
+>3. $B(n) \in O(3^n)$ \[Definition of $O$]
+
+## Sub-part 2
+True or false? $B(n) \in \Omega(3^n)$
+
+(Hint: You may want to use the statement at end of question 4)
+
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
+
+**Solution**:
+
+**True**. 
+
+>[!note] Proof
+>1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
+>	- Then, $B(n) = 3^n \geq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>1. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$ \[Existential generalisation on line 1]
+>2. $B(n) \in \Omega(3^n)$ \[Definition of $\Omega$]
+
+## Sub-part 3
+True or false? $B(n) \in \Theta(3^n)$
+
+Why/why not? You do not have to give a proof.
+
+**True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
+
+(Hint: What is the definition of $\Theta$?)
+
+---
+# Question 7
+
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}\ [f(n) \geq 0]$ and $\forall n \in \mathbb{N}\ [g(n) \geq 0]$. I.e. the functions are always non-negative.
+
+Prove that:
+
+$$
+\max(f(n), g(n)) \in O(f(n) + g(n))
+$$
+
+**Solution**:
+
+We refer to the following definition:
+$$
+\max(a,b) = \begin{cases}
+a, & a \geq b\\
+b, & b > a
+\end{cases}
+$$
+
+>[!note] Proof
+>1. Let $f(n)$ and $g(n)$ be arbitrarily chosen functions.
+>2. Observe that $\max(f(n),g(n)) \leq f(n) + g(n)$ since both functions are always non-negative. \[Basic algebra]
+>3. Then, $\max(f(n),g(n)) \leq f(n)+g(n) = 1 \cdot (f(n)+g(n))$, for all $n \in \mathbb{N}$, i.e. for all $n \geq 0$. \[Basic algebra]
+>4. Letting $n_0=0 \in \mathbb{N}$, $c=1 \in \mathbb{R^+}$, we see that $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ \big[\max\big(f(n),g(n)\big) \leq c \cdot (f(n)+g(n))\big]$. \[Existential generalisation on line 3]
+>5. $\max(f(n),g(n)) \in O(f(n)+g(n))$ \[Definition of $O$]
+
+---
+# Question 8 (Challenging!)
+
+Prove that:
+
+$$
+2^{2n} \notin O(2^n)
+$$
+
+\[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
+
