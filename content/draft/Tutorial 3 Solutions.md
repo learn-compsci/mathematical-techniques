@@ -150,7 +150,7 @@ You may alternatively use the substitution method to prove that this is $O(n \lo
 
 >[!note] Proof
 >1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
->	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 2 = 2 \leq 3 \log_2(3)$
+>	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2(3)$
 >	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
 >	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$
 >2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
