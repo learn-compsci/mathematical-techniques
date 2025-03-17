@@ -283,3 +283,16 @@ $$
 
 \[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
 
+>[!note] Proof
+>1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$
+>2. $\exists n \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 [2^{2n} \leq c \cdot 2^n]$ [Unpacking definition of O]
+>3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m [2^{2n} \leq c \cdot 2^n]$ [Existential instantiation on line 2]
+>4. $\forall n \geq m [ \frac{2^{2n}}{2^n} \leq k]$ [Basic algebra]
+>5. $\forall n \geq m [2^n \leq k]$ [Basic algebra]
+>6. As n approaches infinity, $2^n > k$ [Basic algebra]
+>7. $\therefore \exists m \geq m [2^n > k]$ [Existential generalization on line 6]
+>8. $\neg (\forall n \geq m [2^n \leq k])$  [Logically equivalent to line 7]
+>9. $\neg (\forall n \geq m [2^n \leq k]) \land (\forall n \geq m [2^n \leq k])$ [Conjunction on lines 5 and 8]
+>10. $\therefore \bot$ [Contradiction rule on line 9]
+>11. $\therefore 2^{2n} \notin 2^n$ [Proof by contradiction on line 10]
+
