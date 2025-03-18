@@ -42,14 +42,6 @@ $$
 
 **Solution**:
 
->[!note] Proof
->1. (Base case) Let $n = 1$. Then, $\sum_{i=1}^{n} i^2 = 1^2 = 1 = \frac{1(1+1)(2+1)}{6}$. \[Basic algebra]
->2. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\sum_{i=1}^{j} i^2 = \frac{j(j+1)(2j+1)}{6}$.
->3. $\sum_{i=1}^{j+1} i^2 = (\sum_{i=1}^{j} i^2) + (j+1)$ \[Basic algebra]
->4. $(\sum_{i=1}^{j} i^2) + (j+1) = \frac{j(j+1)(2j+1)}{6} + (j+1)$ \[By assumption on line 2]
->5. $\frac{j(j+1)(2j+1)}{6} + (j+1) = \frac{j(j+1)(2j+1)}{6} + \frac{6j+6}{6} = \frac{2j^3 + 3j^2 + 7j + 6}{6} = \frac{(j+1)(j+2)(2(j+1)+1)}{6}$ \[Basic algebra]
->6. $\sum_{i=1}^{j+1} i^2 = \frac{(j+1)(j+2)(2(j+1)+1)}{6}$ \[Basic algebra, from lines 3, 4, 5]
->7. $\forall n \geq 1 \left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]$ \[Principle of mathematical induction]
 
 ---
 # Question 2
