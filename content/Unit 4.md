@@ -27,7 +27,7 @@ And after that point, you'll need to show that $\sum_{i = 1}^n i = \frac{n(n + 1
 
 Here's the high-level strategy:
 
-1. (Base case) Firstly, we will prove that when $n = 1$, the left-hand side is the same right-hand side, i.e. $\sum_{i = 1}^1 i = \frac{1(1 + 1)}{2}$.
+1. (Base case) Firstly, we will prove that when $n = 1$, the left-hand side is the same right-hand side, i.e., $\sum_{i = 1}^1 i = \frac{1(1 + 1)}{2}$.
 2. (Inductive case) Secondly, we will **assume** that for $n = j$, the left-hand side is the same as the right-hand side, then **prove** that for $n = j + 1$, the left-hand side is the same as the right-hand side.
 
 Let me show you what I mean, then after that explain why this makes sense.
