@@ -34,7 +34,7 @@ This website's intended usage by students taking discrete math courses at the [S
 | Recess Week |                                        |                                                                                                             |                 |              Sunday, 2359               |
 |      7      |         Induction, Recurrences         |                                                 [[Unit 4]]                                                  |        2        |                                         |
 |      8      |          Algorithmic Analysis          |                                                 [[Unit 5]]                                                  |                 |                                         |
-|      9      |             Combinatorics              |                                                                                                             |        3        |                                         |
+|      9      |             Combinatorics              |                                                 [[Unit 6]]                                                  |        3        |                                         |
 |     10      |             Graphs, Trees              |                                                                                                             |                 |                                         |
 |     11      |             Probability 1              |                                                                                                             |        4        |                                         |
 |     12      |             Probability 2              |                                                                                                             |                 |              Sunday, 2359               |
@@ -63,6 +63,11 @@ This website's intended usage by students taking discrete math courses at the [S
 1. [Big O/Omega/Theta notation](https://youtu.be/-3ce8JCNNPI)
 2. [Substitution Method](https://youtu.be/1ruoOWjQNz0)
 3. [Program Correctness via Induction](https://youtu.be/B9PnjXrdfzE)
+
+## Week 9 Videos: Unit 6
+1. [Basic Counting/Set Counting](https://youtu.be/uMpAq8Ndky0)
+2. [Permutations and Combinations](https://youtu.be/za3zz6tk5Mk)
+3. [Applying PnC](https://youtu.be/JxaOqpF9ShI)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
@@ -74,10 +79,14 @@ This website's intended usage by students taking discrete math courses at the [S
 [[Unit 4|Induction, Recurrences]]
 ## Week 8
 [[Unit 5|Program Analysis and Asymptotic Notation]]
+## Week 9
+[[Unit 6|Combinatorics and Counting]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
 2. [[Tutorial 2]] Due 11-Feb-2025 **11:59PM**.
+3. [[Tutorial 3]] Due 18-Mar-2025 **11:59PM**.
+4. [[Tutorial 4]] Due 01-Apr-2025 **11:59PM**.
 
 # Assignment
 1. [[Assignment 1]] Released 12-Feb-2025. Due 02-Mar-2025 23:59 (Canvas submission)
