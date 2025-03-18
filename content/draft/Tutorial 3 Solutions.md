@@ -293,7 +293,7 @@ $$
 >4. $\forall n \geq m [ \frac{2^{2n}}{2^n} \leq k]$ [Basic algebra]
 >5. $\forall n \geq m [2^n \leq k]$ [Basic algebra]
 >6. As n approaches infinity, $2^n > k$ [Basic algebra]
->7. $\therefore \exists m \geq m [2^n > k]$ [Existential generalization on line 6]
+>7. $\therefore \exists n \geq m [2^n > k]$ [Existential generalization on line 6]
 >8. $\neg (\forall n \geq m [2^n \leq k])$  [Logically equivalent to line 7]
 >9. $\neg (\forall n \geq m [2^n \leq k]) \land (\forall n \geq m [2^n \leq k])$ [Conjunction on lines 5 and 8]
 >10. $\therefore \bot$ [Contradiction rule on line 9]
