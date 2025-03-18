@@ -31,7 +31,7 @@ That said, **we encourage you to try all the questions**, this way when you come
 
 ---
 
-# Question 1:
+# Question 1 \[Graded for Participation]:
 
 Let's say that we want to build a password system that only accepts: 
 
@@ -79,3 +79,56 @@ Let's say the password system says:
 So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+## Sub-question 5:
+
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
+
+So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorted in alphabetical order. But something like "bajoweaz" is not allowed.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+
+# Question 2:
+
+## Sub-question 1:
+Let's say we wanted to arrange 5 people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
+
+![[circ-perm.svg]]
+
+To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
+
+
+## Sub-question 2:
+Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
+
+![[circ-perm-direction.svg]]
+
+
+
+# Question 3:
+
+Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
+
+
+# Question 4:
+
+Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
+
+
+# Question 5 \[Graded for Participation]:
+
+Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
+
+
+# Question 6:
+
+Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+
+# Question 7:
+
+Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+
+Show that there will always been 2 teams that have played the exact same number of matches.
