@@ -227,12 +227,12 @@ Okay, but what if I said that we could actually do this for dollar values 12 onw
 >[!example]+ Proof
 > 1. (Base cases) $12 = 3(4) + 0(5)$, $13 = 2(4) + 1(5)$, $14 = 1(4) + 2(5)$, $15 = 0(4) + 3(5)$
 > 2. (Inductive Case) Let $k \geq 16$, assume that for $12 \leq j < n$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[j = 4a + 5b]$
-> 		3. Since $k - 4 < k$ and $k - 4\geq 12$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k - 4 = 4a + 5b]$
-> 		4. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = 4r + 5s$ \[Existential instantiation on line 2.1]
-> 		5. $k = 4(r + 1) + 5s$ \[Basic Algebra]
-> 		6. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$ \[Basic algebra]
-> 		7. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Existential generalisation]
-> 3.8. forall n \geq 12, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Principle of mathematical induction]
+> 3. Since $k - 4 < k$ and $k - 4\geq 12$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k - 4 = 4a + 5b]$
+> 4. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = 4r + 5s$ \[Existential instantiation on line 2.1]
+> 5. $k = 4(r + 1) + 5s$ \[Basic Algebra]
+> 6. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$ \[Basic algebra]
+> 7. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Existential generalisation]
+>  8. $\forall n \geq 12, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}[k = 4a + 5b]$ \[Principle of mathematical induction]
 
 Pay special attention to the following:
 
