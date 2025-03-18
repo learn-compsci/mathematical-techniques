@@ -552,6 +552,24 @@ Instead of picking $2$ items out of the $3$ distinct items a, b, c to create a s
 1. a, b (means we picked c to be excluded)
 2. a, c (means we picked b to be excluded)
 3. b, c (means we picked a to be excluded)
+
+## The special case of choosing/permuting nothing.
+
+One last thing we need to talk about: What is $\binom{n}{0}$? Or what is $P(0, 0)$?
+
+How many ways are there to choose _nothing_ from a set of $n$ elements? How many ways are there to permute _nothing_? It might be tempting to think the answer is $0$, but it's actually defined to be $1$.
+
+> There is exactly one way to choose _nothing_ from a set of $n$ elements: The empty set!
+
+> There is exactly one way to sequence/permute nothing: The empty sequence!
+
+For that reason, $n!$ is defined to be $1$ when $n = 0$.
+
+This actually helps make our computations make more sense. For example, we can say that 
+
+$$
+\binom{n}{n} = \frac{n!}{(n-n)!\cdot n!} = \frac{n!}{0!\cdot n!} = \frac{n!}{1\cdot n!} = 1
+$$
 # Applying Combinatorics
 
 Now that we've covered the basic quantities, let's see a few applications of the counting methods shown.
