@@ -42,16 +42,16 @@ $$
 
 **Solution**:
 >[!note] Proof
->1. (Base case) Let n = 1, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$ [Basic algebra]
+>1. (Base case) Let $n = 1$, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$. \[Basic algebra]
 >2. (Inductive step) Assume that for $n = j$, where $j\in \mathbb{N}, \sum_{i = 1}^1 i^2 = \frac{j(j + 1)(2j + 1)}{6}$
->3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ [Basic algebra]
->4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ [Assumption on line 2]
->5. $= (j+1)[\frac{j(2j+1)}{6} + (j+1)]$ [Basic algebra]
->6. $= (j+1)[\frac{2j^2+j+6j+6}{6}$ [Basic algebra]
->7. $= (j+1)[\frac{2j^2+7j+6}{6}]$ [Basic algebra]
->8. $= (j+1)[\frac{(j+2)(2j+3)}{6}]$ [Basic algebra]
->9. $= \frac{(j+1)((j+1)+1)(2(j+1)+1)}{6}$ [Basic algebra]
->10. $\therefore \forall n \in \mathbb{N}[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}]$ [Principle of mathematical induction]
+>3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ \[Basic algebra]
+>4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ \[By assumption on line 2]
+>5. $= (j+1)\bigg[\frac{j(2j+1)}{6} + (j+1)\bigg]$ \[Basic algebra]
+>6. $= (j+1)\big(\frac{2j^2+j+6j+6}{6}\big)$ \[Basic algebra]
+>7. $= (j+1)\big(\frac{2j^2+7j+6}{6}\big)$ \[Basic algebra]
+>8. $= (j+1)\big[\frac{(j+2)(2j+3)}{6}\big]$ \[Basic algebra]
+>9. $= \frac{(j+1)[(j+1)+1][2(j+1)+1]}{6}$ \[Basic algebra]
+>10. $\therefore \forall n \in \mathbb{N}\ \bigg[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}\bigg]$ \[Principle of mathematical induction]
 
 
 ---
@@ -243,9 +243,11 @@ True or false? $B(n) \in \Theta(3^n)$
 
 Why/why not? You do not have to give a proof.
 
-**True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
-
 (Hint: What is the definition of $\Theta$?)
+
+**Solution**:
+
+**True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
 
 ---
 # Question 7
@@ -287,15 +289,23 @@ $$
 \[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
 
 >[!note] Proof
->1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$
->2. $\exists n \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 [2^{2n} \leq c \cdot 2^n]$ [Unpacking definition of O]
->3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m [2^{2n} \leq c \cdot 2^n]$ [Existential instantiation on line 2]
->4. $\forall n \geq m [ \frac{2^{2n}}{2^n} \leq k]$ [Basic algebra]
->5. $\forall n \geq m [2^n \leq k]$ [Basic algebra]
->6. As n approaches infinity, $2^n > k$ [Basic algebra]
->7. $\therefore \exists n \geq m [2^n > k]$ [Existential generalization on line 6]
->8. $\neg (\forall n \geq m [2^n \leq k])$  [Logically equivalent to line 7]
->9. $\neg (\forall n \geq m [2^n \leq k]) \land (\forall n \geq m [2^n \leq k])$ [Conjunction on lines 5 and 8]
->10. $\therefore \bot$ [Contradiction rule on line 9]
->11. $\therefore 2^{2n} \notin 2^n$ [Proof by contradiction on line 10]
+>1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$.
+>2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ [2^{2n} \leq c \cdot 2^n]$ \[Unpacking definition of O]
+>3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m\ [2^{2n} \leq k \cdot 2^n]$ \[Existential instantiation on line 2]
+>4. $\forall n \geq m\ \big[\frac{2^{2n}}{2^n} \leq k\big]$ \[Basic algebra]
+>5. $\forall n \geq m\ [2^n \leq k]$ \[Basic algebra]
+>6. As $n$ approaches infinity, $2^n > k$. \[Basic algebra; see below for a more rigorous proof]
+>7. $\therefore \exists n \geq m\ [2^n > k]$ \[Existential generalization on line 6]
+>8. $\neg (\forall n \geq m\ [2^n \leq k])$  \[Logically equivalent to line 7]
+>9. $\neg (\forall n \geq m\ [2^n \leq k]) \land (\forall n \geq m\ [2^n \leq k])$ \[Conjunction on lines 5 and 8]
+>10. $\therefore \bot$ \[Contradiction rule on line 9]
+>11. $\therefore 2^{2n} \notin O(2^n)$ \[Proof by contradiction on line 10]
 
+To prove the idea that one can always find a value of $n$ such that $2^n > k$, we can do the following:
+
+**Sub-Proof**:
+1. Consider $n = \max(1 + \log_2 k, m)$.
+2. Then, $n > \log_2 k$. \[Basic algebra]
+3. $2^n > 2^{\log_2 k} = k$. \[Basic algebra]
+4. Also, $n \geq m$. \[Basic algebra, from line 2]
+5. $\exists n \geq m\ [2^n > k]$. \[Existential generalisation on line 3, 4]
