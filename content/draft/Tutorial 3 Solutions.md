@@ -41,6 +41,17 @@ $$
 $$
 
 **Solution**:
+>[!note] Proof
+>1. (Base case) Let n = 1, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$ [Basic algebra]
+>2. (Inductive step) Assume that for $n = j$, where $j\in \mathbb{N}, \sum_{i = 1}^1 i^2 = \frac{j(j + 1)(2j + 1)}{6}$
+>3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ [Basic algebra]
+>4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ [Assumption on line 2]
+>5. $= (j+1)[\frac{j(2j+1)}{6} + (j+1)]$ [Basic algebra]
+>6. $= (j+1)[\frac{2j^2+j+6j+6}{6}$ [Basic algebra]
+>7. $= (j+1)[\frac{2j^2+7j+6}{6}]$ [Basic algebra]
+>8. $= (j+1)[\frac{(j+2)(2j+3)}{6}]$ [Basic algebra]
+>9. $= \frac{(j+1)((j+1)+1)(2(j+1)+1)}{6}$ [Basic algebra]
+>10. $\therefore \forall n \in \mathbb{N}[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}]$ [Principle of mathematical induction]
 
 
 ---
