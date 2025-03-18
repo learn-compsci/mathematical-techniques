@@ -1,5 +1,5 @@
 ---
-title: Combinatorics
+title: "Unit 6: Combinatorics"
 ---
 # Overview
 In this unit, we will start moving onto topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
