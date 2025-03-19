@@ -1,6 +1,5 @@
 ---
 title: "Tutorial 4: Combinatorics and Graphs"
-hidden: "true"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
