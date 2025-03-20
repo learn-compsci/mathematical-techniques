@@ -64,7 +64,7 @@ We will relate two numbers $x, y \in \mathbb{Z}$, in the following way:
 
 $$
 R = \bigg\{ (x, y) \in \mathbb{Z} 
-\times \mathbb{Z} : \exists k \in \mathbb{Z} \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
+\times \mathbb{Z} : \exists k \in \mathbb{N} \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
 $$
 
 For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{Z}$. Whereas $(2, 3) \notin R$, because no such integer $k \in \mathbb{Z}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
