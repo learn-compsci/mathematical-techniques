@@ -68,17 +68,23 @@ R = \bigg\{ (x, y) \in \mathbb{Z}
 \times \mathbb{Z} : \exists k \in \mathbb{Z} \big[ divides(k, x) \land divides(k, y) \big] \bigg\}
 $$
 
+For example: $(15, 10) \in R$, because both $divides(5, 15)$ and $divides(10, 15)$ is true, and $5 \in \mathbb{Z}$. Whereas $(2, 3) \notin R$, because no such integer $k \in \mathbb{Z}$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
+
 ## Sub-question 1: \[6 Marks]
 Is $R$ reflexive? In other words, is it true that 
 
-$$\forall x \in \mathbb{Z} \big[ (x, x) \in R \big]$$
+$$
+\forall x \in \mathbb{Z} \big[ (x, x) \in R \big]
+$$
 
 If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
 
 ## Sub-question 2: \[6 Marks]
 Is $R$ anti-symmetric? In other words, is it true that 
 
-$$\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]$$
+$$
+\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
+$$
 If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
 
 
