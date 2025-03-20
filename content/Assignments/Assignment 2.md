@@ -67,7 +67,7 @@ R = \bigg\{ (x, y) \in \mathbb{Z}
 \times \mathbb{Z} : \exists k \in \mathbb{Z} \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
 $$
 
-For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ is true, and $5 \in \mathbb{Z}$. Whereas $(2, 3) \notin R$, because no such integer $k \in \mathbb{Z}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
+For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{Z}$. Whereas $(2, 3) \notin R$, because no such integer $k \in \mathbb{Z}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
 
 ## Sub-question 1: \[6 Marks]
 Is $R$ reflexive? In other words, is it true that 
