@@ -90,6 +90,7 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Assignment
 1. [[Assignment 1]] Released 12-Feb-2025. Due 02-Mar-2025 23:59 (Canvas submission)
+2. [[Assignment 2]] Released 20-Mar-2025. due 05-Apr-2025 23:59 (Canvas submission)
 
 # Course Grading
 
