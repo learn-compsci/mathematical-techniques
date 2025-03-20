@@ -1,6 +1,5 @@
 
-This is the second of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 5th April 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 2".
-
+This is the second of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 6th April 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
@@ -9,7 +8,7 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 
 # How to submit:
 - Submit online on Canvas. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
-* **Official due date for submission** : **Sunday 30th March 2025, 2359**
+* **Official due date for submission** : **Sunday 6th April 2025, 2359**
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
