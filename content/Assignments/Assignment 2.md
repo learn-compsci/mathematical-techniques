@@ -1,8 +1,8 @@
 
-This is the second of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 30th March 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 5th April 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 2".
 
 
-There are 5 questions for a total of 15 marks. There is also a **optional** bonus question that you **may** attempt, for 2 marks. The total earnable marks is 17 out of 15 marks. (Think of the bonus marks as potentially making up any minor mistakes you may have made in the other parts of this assignment.)
+There are 4 questions for a total of 30 marks.
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
 
@@ -23,7 +23,7 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 
 ---
 
-# Question 1  \[3 marks]
+# Question 1  \[6 marks]
 
 Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}[x = 2k] \}$.
 
@@ -34,33 +34,61 @@ Write in **set roster notation** the following sets:
 3. $A \cap (B \setminus C)$
 
 ---
-# Question 2  \[2 marks]
+# Question 2  \[6 marks]
+
+
+For the following sets, state whether the equality holds or not. If they are equal stating so suffices. If they are not equal, give an example of sets to justify it.
+
+
+**Example question:**
+For example, given the following: $(A \setminus A) \setminus A \stackrel{?}{=} A \setminus (A \setminus A)$ 
+
+**Example answer:**
+This equality does not hold.  Consider $A = \{1\}$, then the LHS is $\emptyset$, and the RHS is $A$. Since $\emptyset \neq A$, the equality does not hold.
 
 
 
-
-
+1. $(A \cup A) \cap (B \setminus A) \stackrel{?}{=} (B \setminus A)$
+2. $\{ x \in \mathbb{Z} : x^2 \leq 4 \} \stackrel{?}{=} \{ x \in \mathbb{Z} : x \leq 2 \}$
 
 ---
 # Question 3
 
-
-
-Given a relation $R$ that is defined in the following way:
+Consider the following predicate:
 
 $$
-R = \left\{ (a, b) \in \mathbb{N} \times \mathbb{N} : \exists d \in \mathbb{N}, \exists k \in \mathbb{N} [ divides(d, a) \land divides(d, b) \land d \neq 1 \land d \neq a \land d \neq b ] \right\}
+divides(a, b) \equiv \exists k \in \mathbb{Z} [a \cdot k = b]
 $$
 
-where $divides(d, n)$ is a predicate defined to be $\exists k \in \mathbb{N}[d\cdot k = n]$.
 
-## Part (a) \[4 marks]
-Is $R$ reflexive? If it is, give a proof that it is. If it is not, give an example value $n \in \mathbb{N}$ such that $(n, n) \notin R$ (you need not formally prove that $(n, n) \notin R$).
+We will relate two numbers $x, y \in \mathbb{Z}$, in the following way:
 
+$$
+R = \bigg\{ (x, y) \in \mathbb{Z} 
+\times \mathbb{Z} : \exists k \in \mathbb{Z} \big[ divides(k, x) \land divides(k, y) \big] \bigg\}
+$$
 
-## Part (b) \[4 marks]
-Is $R$ symmetric? If it is, give a proof that it is. If it is not, give an example value $n \in \mathbb{N}$ such that $(a, b) \in R \land (b, a) \notin R$ (you need not formally prove it, giving the example suffices).
+## Sub-question 1: \[6 Marks]
+Is $R$ reflexive? In other words, is it true that 
 
+$$\forall x \in \mathbb{Z} \big[ (x, x) \in R \big]$$
+
+If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
+
+## Sub-question 2: \[6 Marks]
+Is $R$ anti-symmetric? In other words, is it true that 
+
+$$\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]$$
+If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
 
 
 ---
+
+# Question 4: \[6 Marks]
+
+Prove via mathematical induction that for all $n \geq 1$:
+
+$$
+\sum_{r = 1}^n \frac{1}{r(r + 1)} = \frac{n}{n + 1}
+$$
+
