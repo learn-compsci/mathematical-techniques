@@ -516,7 +516,7 @@ For example, if there are $3$ items, $a$, $b$ and $c$. How many ways are there t
 3. $b$, $c$
 
 
-![[content/Images/combi32.svg]]
+![[combi-32.svg]]
 
 Notice, the ordering does not matter. What is the formula this time? Again, there are a few ways to prove this. But perhaps the most straightforward way is to again make use of the [[#Rule of Division]].
 
@@ -783,14 +783,8 @@ Let's say we want to **lower bound** the amount of steps needed minimum. How do 
 
 One way would be to lower bound the original summation:
 
-$$
-\begin{align*}
-\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} &\geq \sum_{\ell = 1}^n\left(\frac{n}{\ell}\right)^\ell \left(\frac{\ell}{2}\right)^2 \\
-&\geq \left(\frac{n}{\sqrt{n}}\right)^\sqrt{n} \left(\frac{\sqrt{n}}{2}\right)^2 \\
-&\geq \left(\sqrt{n}\right)^\sqrt{n} \cdot \frac{n}{4}\\
-&\geq n^{\frac{\sqrt{n}}{2}}\\
-&\geq 2^{\frac{\sqrt{n}}{2}}\\
-\end{align*}
-$$
+![[fixed-math.png]]
+
+
 
 Which is close to being exponential in $n$. This means the strategy scales quite badly when we have more and more events.
