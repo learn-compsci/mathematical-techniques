@@ -63,7 +63,7 @@ $$
 We will relate two numbers $x, y \in \mathbb{N}$, in the following way:
 
 $$
-R = \bigg\{ (x, y) \in \mathbb{Z} 
+R = \bigg\{ (x, y) \in \mathbb{N} 
 \times \mathbb{N} : \exists k \in \mathbb{N} \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
 $$
 
