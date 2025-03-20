@@ -73,7 +73,7 @@ For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)
 Is $R$ reflexive? In other words, is it true that 
 
 $$
-\forall x \in \mathbb{Z} \big[ (x, x) \in R \big]
+\forall x \in \mathbb{N} \big[ (x, x) \in R \big]
 $$
 
 If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
@@ -82,9 +82,9 @@ If it is not true, state that it is false, and give an example value $x$ for whi
 Is $R$ anti-symmetric? In other words, is it true that 
 
 $$
-\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
+\forall x \in \mathbb{N}, \forall y \in \mathbb{N} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
 $$
-If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
+If it is not true, state that it is false, and give an example values $x, y$ for which $(x, y) \in R$ and $(y, x) \in R$, but $x \neq y$. If it is true, prove it.
 
 
 ---
