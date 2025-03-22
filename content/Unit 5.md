@@ -128,7 +128,7 @@ $$
 
 So what's going on here? Let's try plotting out some example graphs.
 
-![[qvl.svg]]
+![[Images/qvl.svg]]
 
 Here, the red curve is $0.05x^{2}+0.6x+1$, the green curve is $x+5$, the blue curve is $2x$, and the purple curve is $\frac{x}{2} + 30$. Here's the idea: no matter the gradient of a linear curve, no matter how large, there will always be a point where the quadratic curve will be larger than it after some point.
 
@@ -140,7 +140,7 @@ $$
 
 The $n_0$ here is the point at which $c\cdot f(n)$ starts being larger. But what about the scaling factor $c$? Here's the idea, let's say I had 3 functions $f(n) = 5n$ and $g(n) = 10n$ and $h(n) = 5n + 5$. All of them actually scale the same way: they're all linearly related to $n$.
 
-![[linear-scaling.svg]]
+![[Images/linear-scaling.svg]]
 
 So you're free to pick a scaling factor $c$ to say something like $g(n) \in O(h(n))$.
 
