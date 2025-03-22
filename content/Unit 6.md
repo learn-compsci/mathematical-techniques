@@ -540,7 +540,7 @@ We write this quantity as $C(n, k)$, or also write it most commonly as $\binom{n
 Interestingly, we can also show that $\binom{n}{k} = \binom{n}{n - k}$. This might be "obvious" if you look at the fraction alone. In fact:
 
 $$
-\binom{n}{n - k} = \frac{n!}{(n - (n - k))!(n - k)!} = \frac{n!}{n! (n - k)!} =\binom{n}{k}
+\binom{n}{n - k} = \frac{n!}{(n - (n - k))!(n - k)!} = \frac{n!}{k! (n - k)!} =\binom{n}{k}
 $$
 
 But there's a very nice intuition behind why this is the case. Again, falling back to our trusty example of $n = 3$ and $k = 2$:
