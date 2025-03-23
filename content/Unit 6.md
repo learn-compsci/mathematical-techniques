@@ -281,7 +281,7 @@ Here's a question: How many $1$-digit numbers are there that are divisible by $2
 
 For this example we're picking $1$-digit numbers because it makes it easy for us to verify that we're indeed correct. This becomes very infeasible if we wanted to do this for $3$-digit numbers and so on.
 
-But we could have made $2$ sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
+But we could have made $2$ sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(3, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
 
 
 So let's compute $\lvert A \rvert$, $\lvert B\rvert$, and $\lvert A \cap B \rvert$. The first $2$ numbers are computed based on [[#Counting Multiples]].
