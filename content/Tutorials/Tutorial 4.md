@@ -140,13 +140,26 @@ Let's say we wanted to arrange $5$ people around a table. How many possible ways
 
 To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
 
+>[!note] Solution
+>Let's consider a simpler case of $3$ people, $\text{Alice}$, $\text{Bob}$ and $\text{Charlie}$. Writing each valid seating arrangement in a line instead of around a circle, we might have a particular seating arrangement as such: $$\text{Alice} \to \text{Bob} \to \text{Charlie}$$ where counting is done clockwise.
+>
+>Observe that this represents the same seating arrangement as $\text{Bob} \to \text{Charlie} \to \text{Alice}$ and $\text{Charlie} \to \text{Alice} \to \text{Bob}$. In a way, we can "shift" the people by a single position each time to generate a different way of representing the **same** seating arrangement, of which there are $3$.
+>
+>Hence, for $3$ people, we have $3!$ permutations (in a row), and for each actual valid seating arrangement, we have triple-counted them within these $3!$ permutations. Hence, we need to divide by $3$ to get the actual number of seating arrangements.
+>
+>Applying this concept for the case of $5$ people, we have $5!$ permutation (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
+>
+>More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
 
 ## Sub-question 2:
+
 Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
 
 ![[circ-perm-direction.svg]]
 
 
+>[!note] Solution
+>Now, each of the $(n - 1)!$ arrangements from sub-question 1 is double-counted since its anti-clockwise counterpart was previously treated as a distinct seating arrangement. Hence, we now only have $\frac{(5-1)!}{2} = 12$ distinct seating arrangements.
 
 # Question 3:
 
