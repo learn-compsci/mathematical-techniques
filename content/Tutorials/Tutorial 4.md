@@ -165,11 +165,19 @@ Again let's say we wanted to arrange $5$ people around a table, but an arrangeme
 
 Among a group of $7$ people, is it possible that every person is friends with exactly only $2$ other people? Is it possible that every person is friends with exactly $5$ other people?
 
+>[!note] Solution
+>For the first part, it is possible for each person to be friends with exactly $2$ other people. Consider the situation where $B$ is friends with $A$ and $C$, $C$ is friends with $B$ and $D$, $D$ is friends with $C$ and $E$, and so on.
+>
+>For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur.
 
 # Question 4:
 
 Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
 
+>[!note] Solution
+>The maximum number of edges possible is $\binom{\lvert V \rvert}{2}$, where there exists an edge between any two vertices in $V$. 
+>
+>Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
 
 # Question 5 \[Graded for Participation]:
 
