@@ -40,11 +40,11 @@ That said, **we encourage you to try all the questions**, this way when you come
 
 Let's say that we want to build a password system that only accepts: 
 
-1. Lowercase letters (a-z); there are 26 possible choices
-2. Uppercase letters (A-Z); there are 26 possible choices
-3. Numbers (0-9); there are 10 possible choices
+1. Lowercase letters ($a$-$z$); there are $26$ possible choices
+2. Uppercase letters ($A$-$Z$); there are $26$ possible choices
+3. Numbers ($0$-$9$); there are $10$ possible choices
 
-We are going to try to count how many possible password there are, depending on different rules that the system will allow.
+We are going to try to count how many possible passwords there are, depending on different rules that the system will allow.
 
 ## Sub-question 1:
 
@@ -58,7 +58,7 @@ If this is the only requirement, how many possible passwords are there? You need
 
 Let's say the password system says:
 
-> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric. I.e. At least one alphabet (either uppercase or lowercase), and at least one number.
+> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric, i.e., at least one alphabet (either uppercase or lowercase), and at least one number.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -70,7 +70,7 @@ Let's say the password system says:
 
 > Any password must be of length exactly $8$, and must **alternate** numbers and characters.
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "aa1b3d0p" is not allowed because we have adjacent characters.
+So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed, but something like "$aa1b3d0p$" is not allowed because we have adjacent characters.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -81,7 +81,7 @@ Let's say the password system says:
 
 > Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
+So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed. But something like "$a1b3d0pa$" is not allowed because "$a$" has been repeated.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -91,7 +91,7 @@ Let's say the password system says:
 
 > Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
 
-So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorted in alphabetical order. But something like "bajoweaz" is not allowed.
+So passwords like "$adgkwxyz$" or "$abcdefgh$" are allowed, because they are sorted in alphabetical order. But something like "$bajoweaz$" is not allowed.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -99,7 +99,7 @@ If this is the requirement, how many possible passwords are there? You need not 
 # Question 2:
 
 ## Sub-question 1:
-Let's say we wanted to arrange 5 people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
+Let's say we wanted to arrange $5$ people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
 
 ![[circ-perm.svg]]
 
@@ -115,7 +115,7 @@ Again let's say we wanted to arrange $5$ people around a table, but an arrangeme
 
 # Question 3:
 
-Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
+Among a group of $7$ people, is it possible that every person is friends with exactly only $2$ other people? Is it possible that every person is friends with exactly $5$ other people?
 
 
 # Question 4:
@@ -134,6 +134,6 @@ Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
 
 # Question 7:
 
-Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (a team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
 
-Show that there will always been 2 teams that have played the exact same number of matches.
+Show that there will always been $2$ teams that have played the exact same number of matches.
