@@ -69,6 +69,17 @@ If this is the requirement, how many possible passwords are there? You need not 
 
 **Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
 
+>[!note] Solution
+>Without restrictions, there are a total of $\sum_{n=8}^{32} 62^n$ passwords (from sub-question 1).
+>
+>Subtracting the number of passwords for the following cases leaves us with the required answer:
+>- Case 1: Passwords that contain only alphabets and no numbers
+>- Case 2: Passwords that contain only numbers and no alphabets
+>
+>For case 1, there are now only $52$ choices per character, so there are $\sum_{n=8}^{32} 52^n$ such passwords. For case 2, there are now only $10$ choices per character, so there are $\sum_{n=8}^{32} 10^n$ such passwords.
+>
+>Finally, subtracting these two values from the total gives us $\sum_{n=8}^{32} (62^n - 52^n - 10^n)$ as the answer.
+
 ## Sub-question 3:
 
 Let's say the password system says:
@@ -79,6 +90,16 @@ So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed, but 
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
+>[!note] Solution
+>There are two cases:
+>- Case 1: Starts with an alphabet
+>- Case 2: Starts with a number
+>
+>Logically, these two values are equal since we are only swapping the order in which the alphabets and numbers appear. This means we only need to calculate the value of one of the cases.
+>
+>For case 1, there are $52$ choices for each of the $4$ alphabets and $10$ choices for each of the $4$ numbers, giving us a total of $52^4 \times 10^4 = 520^4$ possible passwords. Case 2 gives us the same value.
+>
+>Hence, the total number of possible passwords is $2 \times 520^4$.
 
 ## Sub-question 4:
 
@@ -90,6 +111,11 @@ So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed. But 
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
+>[!note] Solution
+>We are now choosing any set of $8$ characters from the pool of $62$ alphanumeric characters given, which ensures that we do not choose any single character twice. However, after choosing the $8$ characters, we need to permute them.
+>
+>Hence, there are a total of $P(62,8)$ possible passwords.
+
 ## Sub-question 5:
 
 Let's say the password system says:
@@ -100,6 +126,10 @@ So passwords like "$adgkwxyz$" or "$abcdefgh$" are allowed, because they are sor
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
+>[!note] Solution
+>We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single character twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to account for their permutations.
+>
+>This gives us a total of $\binom{52}{8}$ possible passwords.
 
 # Question 2:
 
