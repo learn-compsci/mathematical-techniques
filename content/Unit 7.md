@@ -203,6 +203,19 @@ So for example, for 5 nodes, this is what the graph looks like.
 
 On the other hand, this is what the complete graph looks like for $4$ nodes.
 
+## Complement Graphs
+On the topic of complete graphs: we can now talk about the **complement** of a graph.
+
+So given a graph $G = (V, E)$, the  **complement** of G is written as $\bar{G}$, and is such that $\bar{G}$ has the same set of nodes, but if $(u, v)$ was an edge in $G$, it is not an edge in $\bar{G}$. And if $(u, v)$ was **not** an edge in $G$ then $(u, v)$ is an edge in $G$.
+
+Here's an example:
+
+![[complement.svg]]
+
+$G$ here has $4$ nodes, and notice since $(A, C)$ is an edge in $G$, $A$ and $C$ are not connected in $\bar{G}$. Similarly, since $A$ and $D$ are not connected in $G$, they are connected in $\bar{G}$. 
+
+One thing you might want to take note is that if we union the edges from $G$ and $\bar{G}$, we get back the complete graph.
+
 ---
 
 ## Theorems and Proofs
