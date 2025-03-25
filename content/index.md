@@ -35,7 +35,7 @@ This website's intended usage by students taking discrete math courses at the [S
 |      7      |         Induction, Recurrences         |                                                 [[Unit 4]]                                                  |        2        |                                         |
 |      8      |          Algorithmic Analysis          |                                                 [[Unit 5]]                                                  |                 |                                         |
 |      9      |             Combinatorics              |                                                 [[Unit 6]]                                                  |        3        |                                         |
-|     10      |             Graphs, Trees              |                                                                                                             |                 |                                         |
+|     10      |             Graphs, Trees              |                                                 [[Unit 7]]                                                  |                 |                                         |
 |     11      |             Probability 1              |                                                                                                             |        4        |                                         |
 |     12      |             Probability 2              |                                                                                                             |                 |              Sunday, 2359               |
 |     13      |              Rounding Up               |                                                                                                             |        5        |                                         |
@@ -68,6 +68,8 @@ This website's intended usage by students taking discrete math courses at the [S
 1. [Basic Counting/Set Counting](https://youtu.be/uMpAq8Ndky0)
 2. [Permutations and Combinations](https://youtu.be/za3zz6tk5Mk)
 3. [Applying PnC](https://youtu.be/JxaOqpF9ShI)
+## Week 10 Videos: Unit 7
+1. [Graphs](https://youtu.be/2VF__cuXfNI)
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
@@ -81,6 +83,8 @@ This website's intended usage by students taking discrete math courses at the [S
 [[Unit 5|Program Analysis and Asymptotic Notation]]
 ## Week 9
 [[Unit 6|Combinatorics and Counting]]
+## Week 10
+[[Unit 7|Graphs]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
@@ -90,6 +94,7 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Assignment
 1. [[Assignment 1]] Released 12-Feb-2025. Due 02-Mar-2025 23:59 (Canvas submission)
+	1. [[Assignment 1 Solutions]]
 2. [[Assignment 2]] Released 20-Mar-2025. due 05-Apr-2025 23:59 (Canvas submission)
 
 # Course Grading
