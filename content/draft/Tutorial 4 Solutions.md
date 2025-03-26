@@ -52,6 +52,11 @@ Let's say the password system says:
 
 If this is the only requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
+>[!note] Solution
+>For passwords of length $8$, there are $26 + 26 + 10 = 62$ choices for each character, giving us $62^8$ possible passwords. Similarly, for passwords of length $n$, there are $62^n$ possible passwords of that length.
+>
+>Hence, there are $\sum_{n=8}^{32} 62^n$ passwords in total.
+
 ## Sub-question 2:
 
 Let's say the password system says:
@@ -61,6 +66,18 @@ Let's say the password system says:
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 **Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
+
+
+>[!note] Solution
+>Without restrictions, there are a total of $\sum_{n=8}^{32} 62^n$ passwords (from sub-question 1).
+>
+>Subtracting the number of passwords for the following cases leaves us with the required answer:
+>- Case 1: Passwords that contain only alphabets and no numbers
+>- Case 2: Passwords that contain only numbers and no alphabets
+>
+>For case 1, there are now only $52$ choices per character, so there are $\sum_{n=8}^{32} 52^n$ such passwords. For case 2, there are now only $10$ choices per character, so there are $\sum_{n=8}^{32} 10^n$ such passwords.
+>
+>Finally, subtracting these two values from the total gives us $\sum_{n=8}^{32} (62^n - 52^n - 10^n)$ as the answer.
 
 ## Sub-question 3:
 
@@ -73,6 +90,17 @@ So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But some
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 
+>[!note] Solution
+>There are two cases:
+>- Case 1: Starts with an alphabet
+>- Case 2: Starts with a number
+>
+>Logically, these two values are equal since we are only swapping the order in which the alphabets and numbers appear. This means we only need to calculate the value of one of the cases.
+>
+>For case 1, there are $52$ choices for each of the $4$ alphabets and $10$ choices for each of the $4$ numbers, giving us a total of $52^4 \times 10^4 = 520^4$ possible passwords. Case 2 gives us the same value.
+>
+>Hence, the total number of possible passwords is $2 \times 520^4$.
+
 ## Sub-question 4:
 
 Let's say the password system says:
@@ -82,6 +110,12 @@ Let's say the password system says:
 So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+
+>[!note] Solution
+>We are now choosing any set of $8$ characters from the pool of $62$ alphanumeric characters given, which ensures that we do not choose any single character twice. However, after choosing the $8$ characters, we need to permute them.
+>
+>Hence, there are a total of $P(62,8)$ possible passwords.
 
 ## Sub-question 5:
 
@@ -94,6 +128,11 @@ So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorte
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 
+>[!note] Solution
+>We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single character twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to account for their permutations.
+>
+>This gives us a total of $\binom{52}{8}$ possible passwords.
+
 # Question 2:
 
 ## Sub-question 1:
@@ -104,6 +143,17 @@ Let's say we wanted to arrange 5 people around a table. How many possible ways a
 To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
 
 
+>[!note] Solution
+>Let's consider a simpler case of $3$ people, $\text{Alice}$, $\text{Bob}$ and $\text{Charlie}$. Writing each valid seating arrangement in a line instead of around a circle, we might have a particular seating arrangement as such: $$\text{Alice} \to \text{Bob} \to \text{Charlie}$$ where counting is done clockwise.
+>
+>Observe that this represents the same seating arrangement as $\text{Bob} \to \text{Charlie} \to \text{Alice}$ and $\text{Charlie} \to \text{Alice} \to \text{Bob}$. In a way, we can "shift" the people by a single position each time to generate a different way of representing the **same** seating arrangement, of which there are $3$.
+>
+>Hence, for $3$ people, we have $3!$ permutations (in a row), and for each actual valid seating arrangement, we have triple-counted them within these $3!$ permutations. Hence, we need to divide by $3$ to get the actual number of seating arrangements.
+>
+>Applying this concept for the case of $5$ people, we have $5!$ permutation (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
+>
+>More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
+
 ## Sub-question 2:
 Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
 
@@ -111,15 +161,28 @@ Again let's say we wanted to arrange $5$ people around a table, but an arrangeme
 
 
 
+>[!note] Solution
+>Now, each of the $(n - 1)!$ arrangements from sub-question 1 is double-counted since its anti-clockwise counterpart was previously treated as a distinct seating arrangement. Hence, we now only have $\frac{(5-1)!}{2} = 12$ distinct seating arrangements.
+
 # Question 3:
 
 Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
 
 
+>[!note] Solution
+>For the first part, it is possible for each person to be friends with exactly $2$ other people. Consider the situation where $B$ is friends with $A$ and $C$, $C$ is friends with $B$ and $D$, $D$ is friends with $C$ and $E$, and so on.
+>
+>For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur.
+
 # Question 4:
 
 Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
 
+
+>[!note] Solution
+>The maximum number of edges possible is $\binom{\lvert V \rvert}{2}$, where there exists an edge between any two vertices in $V$. 
+>
+>Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
 
 # Question 5 \[Graded for Participation]:
 
