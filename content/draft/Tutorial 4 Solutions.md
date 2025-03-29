@@ -189,12 +189,43 @@ Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G
 Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
 
 
+>[!note] Solution
+>From the lecture notes, we know that a full $k$-ary tree of height $h$ has $1$ node at level 0, $k$ nodes at level 1, $k^2$ nodes at level 2, and so on. Hence, the number of nodes in the tree is $$1 + k + k^2 + k^3 + \dots + k^h = \frac{k^{h+1}-1}{k-1}$$
+>
+>Observe that each node has $1$ edge to its parent, except for the root node (which has no parents). Hence, the number of edges in the tree is $$\frac{k^{h+1}-1}{k-1} - 1$$
+>
+>The number of leaves is simply the number of nodes at the $h^{th}$ level, which is $k^h$.
+
 # Question 6:
 
 Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+
+
+>[!note] Solution
+>Every cycle requires at least $3$ nodes, with each $k$-cycle involving exactly $k$ of the $n$ nodes. Hence, the total number of cycles that can be constructed for a graph with $n \geq 3$ nodes is $$\binom{n}{3} + \binom{n}{4} + \binom{n}{5} + \dots + \binom{n}{n} = \sum_{i=3}^{n} \binom{n}{i}$$
+>
+>For graphs with $0 \leq n < 3$ nodes, the number of cycles that can be made is $0$.
 
 # Question 7:
 
 Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
 
 Show that there will always been 2 teams that have played the exact same number of matches.
+
+
+>[!note] Solution
+>We use the pigeonhole principle, where the "pigeons" are the teams and the "pigeonholes" are the number of matches played.
+>
+>**Proof:**
+>1. There are two cases: either there is a team that has played exactly $n-1$ games, or there is no such team that has played exactly $n-1$ games.
+>2. Case 1: There is a team that has played exactly $n-1$ games.
+>	- Since that team has played everyone else, there cannot be a team that has played exactly $0$ games.
+>	- Hence, there are $n-1$ possible number of games played by each team, ranging from $1$ to $n-1$.
+>	- Since there are $n$ teams and only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>3. Case 2: No team has played exactly $n-1$ games.
+>	- Now, there are again $n-1$ possible number of games played by each team, but this time ranging from $0$ to $n-2$.
+>	- Since there are $n$ teams and still only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>1. Either way, there must be $2$ teams that have played the same number of games. \[Proof by cases]
+
+
+
