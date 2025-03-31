@@ -347,7 +347,7 @@ We can actually extend this idea for $3$ sets (actually it also works beyond $3$
 For $3$ sets $A, B, C$, it holds that:
 
 $$
-\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert B \cap C \rvert + \lvert A \cap B \cap C\rvert
+\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C\rvert
 $$
 
 Why is this true? Let's look at the following Venn diagram.
@@ -373,7 +373,7 @@ So consider $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap
 
 $$
 \begin{align*}
-\lvert A \cup B \cup C \rvert &= \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert B \cap C \rvert + \lvert A \cap B \cap C\rvert\\
+\lvert A \cup B \cup C \rvert &= \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C\rvert\\
 &= 10 + 7 + 9 - 3 - 5 - 2 + 1 = 17\\
 \end{align*}
 $$
