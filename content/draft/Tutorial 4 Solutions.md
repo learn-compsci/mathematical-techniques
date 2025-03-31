@@ -173,7 +173,7 @@ Among a group of 7 people, is it possible that every person is friends with exac
 >For the first part, it is possible for each person to be friends with exactly $2$ other people. Imagine all 7 people form a circle, they are friends with the people that are right next to them.
 >In the image below, consider if A is friends with B and G, B is friend with A and C, so on and so forth.
 >
->![[Pasted image 20250331143845.png]]
+>![[circle.png]]
 >
 >For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur.
 
