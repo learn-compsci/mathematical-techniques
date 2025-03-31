@@ -181,7 +181,7 @@ A graph $G = (V, E)$ is bipartite if we can take its vertices and divide them in
 
 ![[graph-bip-4.svg]]
 
-The graph on the left is bipartite. Why? Put nodes $A, B$ in set $X$, and nodes $B, C, E$ in set $Y$. Then the only edges are crossing between set $X$ and $Y$. To make it obvious, we can shift the nodes around a little bit so that the nodes in $X$ are on the left, and nodes in $Y$ are on the right.
+The graph on the left is bipartite. Why? Put nodes $A, D$ in set $X$, and nodes $B, C, E$ in set $Y$. Then the only edges are crossing between set $X$ and $Y$. To make it obvious, we can shift the nodes around a little bit so that the nodes in $X$ are on the left, and nodes in $Y$ are on the right.
 
 Also if you're curious, could we have done $X = \{A, D, E\}$ and $Y  = \{B, C\}$ instead? The answer is yes!
 
