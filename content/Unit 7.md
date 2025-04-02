@@ -163,7 +163,7 @@ A graph $G = (V, E)$ is a **tree** is a connected graph with no cycles. You can 
 
 So here's an example:
 
-![[content/Images/tree.svg]]
+![[tree-1.svg]]
 
 If you want, count the nodes, and count the edges, you'll realise that we have $7$ nodes, and exactly $7 - 1 = 6$ edges. Furthermore, all the nodes can reach each other.
 
