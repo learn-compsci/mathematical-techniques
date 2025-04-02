@@ -22,7 +22,7 @@ title: "Tutorial 5: Probability"
 # Overview
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 8]] and Unit 9. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 2 are related to basic probability
+1. Questions 1 through 2 are related to basic probability.
 2. Questions 3 through 4 are related to distributions and bounds.
 
 After week 11's content, you should be able to attempt questions 1 through 2. Question 1 is graded for participation.
@@ -33,7 +33,7 @@ That said, **we encourage you to try all the questions**, this way when you come
 
 # Question 1
 
-Let's consider a scenario where we have 2 dice: Dice 1 (call it $D_1$) is **six-sided** (with faces 1 through 6), and dice 2 (call it $D_1$) is **two-sided** (with faces 1 through 2). Here is a random process that we might consider:
+Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_1$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
 
 1. Roll the first dice.
 2. Roll the second dice.
@@ -52,7 +52,7 @@ Write down the events that correspond to the following:
 3. The event $E_3$ that $S = 7$
 
 ## Sub-question 3:
-Assume that dice $D_1$ produces any of its 6 possible values **uniformly at random**, and assume that dice $D_2$ produces value $1$ with probability $\frac{1}{3}$, and value $2$ with probability $\frac{2}{3}$ (like an unfair dice).
+Assume that die $D_1$ produces any of its $6$ possible values **uniformly at random**, and assume that die $D_2$ produces value $1$ with probability $\frac{1}{3}$, and value $2$ with probability $\frac{2}{3}$ (like an unfair dice).
 
 What is the probability that:
 1. $S = 3$?
@@ -64,34 +64,34 @@ Compute the following quantities:
 
 1. $\Pr[(S \leq 3) \cup (S = 7)]$
 2. $\Pr[(S < 7) \cap (S > 3)]$
-3. $Pr[S = 6 | D_1 = 5]$
+3. $\Pr[S = 6 | D_1 = 5]$
 
 # Question 2:
-Let's explore the concept of Bayes' theorem a little bit more. So recall that:
+Let's explore the concept of Bayes' Theorem a little bit more. So recall that:
 
 $$
 \Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]}
 $$
 
-but under Bayes' theorem, we also have that:
+but under Bayes' Theorem, we also have that:
 
 $$
-\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B]}
+\Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
 $$
 
 We can actually take this concept further. Notice here that we can combine the two lines to say the following:
 
 $$
-\frac{\Pr[A \cap B]}{\Pr[B]} = \Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B]}
+\frac{\Pr[A \cap B]}{\Pr[B]} = \Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
 $$
 
-Which, means that:
+Which means that:
 
 $$
-\Pr[A \cap B] = \Pr[B | A] \cdot Pr[A]
+\Pr[A \cap B] = \Pr[B | A] \cdot \Pr[A]
 $$
 
-Also, recall that we said that if two events $D, E$ are **disjoint**, then we can say that:
+Also, recall that we said that if two events $D$ and $E$ are **disjoint**, then we can say that:
 
 $$
 \Pr[D \cup E] = \Pr[D] + \Pr[E]
@@ -108,10 +108,10 @@ $$
 **Hint:** What if we told you that $B \cap \bar{A}$ is disjoint from $B \cap A$? How can you use this fact? What is $(B \cap A) \cup (B \cap \bar{A})$? 
 
 ## Sub-question 2:
-Let's say a disease F affects 1 out of every 1000 people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" 85% of the time. We also know that among all people who took the test, (positive or not) the test reported "positive" 10% of the time. 
+Let's say a disease $F$ affects $1$ out of every $1000$ people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" $85$% of the time. We also know that among all people who took the test (positive or not), the test reported "positive" $10$% of the time. 
 
 
-1. Let's say we took the test and the test reported "positive". What is the probability we have disease F?
+1. Let's say we took the test and the test reported "positive". What is the probability we have disease $F$?
 2. What is the probability that if we administered a test on a person that we know **does not** have the disease, the test will report positive?
 
 You will probably find the following identity helpful (for the second part):
@@ -123,15 +123,15 @@ $$
 
 # Question 3: Expectation
 
-Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the 3 random variables are all independent of each other.
+Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
 
 What is:
 
 1. $\mathbb{E}[X + Y + Z]$?
 2. $\mathbb{E}[X \cdot Z]$?
 3. $\mathbb{E}[Z\cdot Z]$?
-4. $Var[2X]$?
-5. $Var[X + Y]$?
+4. $\text{Var}[2X]$?
+5. $\text{Var}[X + Y]$?
 
 
 # Question 4: 
@@ -142,7 +142,7 @@ $$
 X = \sum_{i = 1}^n X_i
 $$
 
-Where $X_i$ is the random variable that is distributed as $Bernoulli(1/n)$.
+where $X_i$ is the random variable that is distributed as $Bernoulli(1/n)$.
 
 Compute the following:
 
