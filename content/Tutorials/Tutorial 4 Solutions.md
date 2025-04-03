@@ -150,7 +150,7 @@ To be clear, if we had $5$ people, then it doesn't matter where they sit, only t
 >
 >Hence, for $3$ people, we have $3!$ permutations (in a row), and for each actual valid seating arrangement, we have triple-counted them within these $3!$ permutations. Hence, we need to divide by $3$ to get the actual number of seating arrangements.
 >
->Applying this concept for the case of $5$ people, we have $5!$ permutation (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
+>Applying this concept for the case of $5$ people, we have $5!$ permutations (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
 >
 >More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
 
@@ -179,7 +179,7 @@ Among a group of 7 people, is it possible that every person is friends with exac
 >
 > From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
 >
->This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur. Since $|E|$ always has to be an even number.
+>This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur as $|E|$ always has to be an even number.
 
 # Question 4:
 
@@ -219,7 +219,7 @@ Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
 > 5. $a \to d \to b \to c \to a$.
 > 6. $a \to d \to c \to b \to a$.
 > 
-> Notice here for example that going from $a \to b \to c \to d \to a$ can be seen as the same as $a \to d\ to c\ to b \to a$.
+> Notice here for example that going from $a \to b \to c \to d \to a$ can be seen as the same as $a \to d \to c \to b \to a$.
 > 
 > So we can divide this by $2$ to get a total of $6 / 2 = 3$ possible cycles.
 >
