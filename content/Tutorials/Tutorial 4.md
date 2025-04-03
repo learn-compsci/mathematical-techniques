@@ -74,7 +74,6 @@ So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed, but 
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
-
 ## Sub-question 4:
 
 Let's say the password system says:
@@ -105,8 +104,8 @@ Let's say we wanted to arrange $5$ people around a table. How many possible ways
 
 To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
 
-
 ## Sub-question 2:
+
 Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
 
 ![[circ-perm-direction.svg]]
