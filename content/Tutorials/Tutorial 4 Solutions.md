@@ -175,7 +175,11 @@ Among a group of 7 people, is it possible that every person is friends with exac
 >
 >![[circle.png]]
 >
->For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur.
+>For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked (have an edge between them) if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. 
+>
+> From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
+>
+>This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur. Since $|E|$ always has to be an even number.
 
 # Question 4:
 
@@ -203,9 +207,23 @@ Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes 
 
 Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
 
-
 >[!note] Solution
->Every cycle requires at least $3$ nodes, with each $k$-cycle involving exactly $k$ of the $n$ nodes. Hence, the total number of cycles that can be constructed for a graph with $n \geq 3$ nodes is $$\binom{n}{3} + \binom{n}{4} + \binom{n}{5} + \dots + \binom{n}{n} = \sum_{i=3}^{n} \binom{n}{i}$$
+> Let's think about what happens if we had $3$ nodes first. Let's call them $a, b, c$. So the only possible cycle is $a \to b \to c \to a$. Think of going forwards as the same as going backwards. This is actually, again, a circular arrangement! Just like in [[#Question 3]].
+> 
+> Another example, let's say we had $4$ nodes, let's call them $a, b, c, d$. Then there are actually $4!/4 = 6$ possible cycles we can make (if we didn't care about clock-wise vs anti-clock-wise): 
+> 
+> 1. $a \to b \to c \to d \to a$.
+> 2. $a \to c \to b \to d \to a$.
+> 3. $a \to b \to c \to d \to a$.
+> 4. $a \to b \to d \to c \to a$.
+> 5. $a \to d \to b \to c \to a$.
+> 6. $a \to d \to c \to b \to a$.
+> 
+> Notice here for example that going from $a \to b \to c \to d \to a$ can be seen as the same as $a \to d\ to c\ to b \to a$.
+> 
+> So we can divide this by $2$ to get a total of $6 / 2 = 3$ possible cycles.
+>
+>Every cycle requires at least $3$ nodes, with each $k$-cycle involving exactly $k$ of the $n$ nodes. Hence, the total number of cycles that can be constructed for a graph with $n \geq 3$ nodes is $$\binom{n}{3} \frac{3!}{3\cdot2} + \binom{n}{4}\frac{4!}{4\cdot2} + \binom{n}{5}\frac{5!}{5\cdot 2} + \dots + \binom{n}{n}\frac{n!}{n\cdot 2} = \sum_{i=3}^{n} \binom{n}{i} \frac{n!}{n\cdot 2}$$
 >
 >For graphs with $0 \leq n < 3$ nodes, the number of cycles that can be made is $0$.
 
