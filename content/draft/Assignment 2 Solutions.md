@@ -98,6 +98,42 @@ $$
 If it is not true, state that it is false, and give an example values $x, y$ for which $(x, y) \in R$ and $(y, x) \in R$, but $x \neq y$. If it is true, prove it.
 
 
+>[!note] Sub-question 1
+>**No**, $R$ is not reflexive. Consider $x = 1 \in \mathbb{N}$. Now, we prove that $(1,1) \notin R$.
+>
+>**Proof:**
+>1. Suppose, for the sake of contradiction, that $(1,1) \in R$.
+>2. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,1) \land divides(k,1)]$ \[Definition of $R$]
+>3. Let $n \in \mathbb{N}$ be such that $n \neq 1 \land divides(n,1)$. \[Existential instantiation on line 2]
+>4. $divides(n,1)$ \[Specialisation on line 3]
+>5. $\exists k \in \mathbb{N}\ [k \cdot n = 1]$ \[Definition of $divides$]
+>6. Let $m \in \mathbb{N}$ be such that $m \cdot n = 1$. \[Existential instantiation on line 5]
+>7. $n \neq 1$ \[Specialisation on line 3]
+>8. $n = 0 \lor n > 1$ \[Basic algebra]
+>9. Case 1: $n = 0$. Then, $m \cdot n = m \cdot 0 = 0 \neq 1$. \[Basic algebra]
+>10. Case 2: $n > 1$. Then, $n \geq 2$, so $m \cdot n \geq 2m \neq 1$. \[Basic algebra]
+>11. Either way, $\neg (m \cdot n = 1)$. \[Proof by cases on lines 8, 9, 10]
+>12. $(m \cdot n = 1) \land \neg (m \cdot n = 1)$ \[Conjunction on lines 6, 11]
+>13. $\bot$. \[Contradiction rule on line 12]
+>14. $(1,1) \notin R$. \[Proof by contradiction on line 13]
+
+>[!note] Sub-question 2
+>**No**, $R$ is not anti-symmetric. Consider $x = 8 \in \mathbb{N}$ and $y = 10 \in \mathbb{N}$.
+>
+>**Proof:**
+>1. $2 \in \mathbb{N}$. \[Basic algebra]
+>2. $2 \cdot 4 = 8 \land 2 \cdot 5 = 10$. \[Basic algebra]
+>3. $\big(\exists k \in \mathbb{N}\ [2 \cdot k = 8] \big) \land \big(\exists k \in \mathbb{N}\ [2 \cdot k = 10] \big)$ \[Existential generalisation on lines 1, 2]
+>4. $divides(2,8) \land divides(2,10)$ \[Definition of $divides$]
+>5. $2 \neq 1$. \[Basic algebra]
+>6. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,8) \land divides(k,10)]$ \[Existential generalisation on lines 4, 5]
+>7. $(8,10) \in R$. \[Definition of $R$]
+>8. $divides(2,10) \land divides(2,8)$ \[Logically equivalent to line 4]
+>9. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,10) \land divides(k,8)]$ \[Existential generalisation on lines 5, 8]
+>10. $(10,8) \in R$. \[Definition of $R$]
+>11. $8 \neq 10$. \[Basic algebra]
+>12. $R$ is not anti-symmetric. \[Definition of anti-symmetry]
+
 ---
 
 # Question 4: \[6 Marks]
@@ -107,4 +143,17 @@ Prove via mathematical induction that for all $n \geq 1$:
 $$
 \sum_{r = 1}^n \frac{1}{r(r + 1)} = \frac{n}{n + 1}
 $$
+
+>[!note] Solution
+>**Proof:**
+>1. (Base case) Let $n = 1$. Then, $\sum_{r=1}^{1} \frac{1}{r(r+1)} = \frac{1}{1(2)} = \frac{1}{2} = \frac{1}{1+1}$. 
+>2. (Inductive step) Assume that for some $n = k$, where $k \geq 1$, we have $\sum_{r=1}^{k} \frac{1}{r(r+1)} = \frac{k}{k+1}$.
+>3. $\sum_{r=1}^{k+1} \frac{1}{r(r+1)}$
+>4. $= \big(\sum_{r=1}^{k} \frac{1}{r(r+1)}\big) + \frac{1}{(k+1)(k+2)}$
+>5. $= \frac{k}{k+1} + \frac{1}{(k+1)(k+2)}$ \[By assumption on line 2]
+>6. $= \frac{k(k+2)+1}{(k+1)(k+2)}$
+>7. $= \frac{(k+1)^2}{(k+1)(k+2)}$
+>8. $= \frac{k+1}{(k+1)+1}$
+>9. $\forall n \geq 1\ \big[\sum_{r=1}^{n} \frac{1}{r(r+1)} = \frac{n}{n+1}\big]$ \[Principle of mathematical induction]
+
 
