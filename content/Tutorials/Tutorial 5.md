@@ -31,7 +31,7 @@ After week 12's content, you should be able to attempt questions 3 through 4. Qu
 
 That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
-# Question 1
+# Question 1 \[Graded for Participation]:
 
 Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_1$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
 
@@ -121,7 +121,7 @@ $$
 $$
 
 
-# Question 3: Expectation
+# Question 3 \[Graded for Participation]: Expectation
 
 Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
 
