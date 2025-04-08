@@ -37,7 +37,7 @@ This website's intended usage by students taking discrete math courses at the [S
 |      9      |             Combinatorics              |                                                 [[Unit 6]]                                                  |        3        |                                         |
 |     10      |             Graphs, Trees              |                                                 [[Unit 7]]                                                  |                 |                                         |
 |     11      |             Probability 1              |                                                 [[Unit 8]]                                                  |        4        |                                         |
-|     12      |             Probability 2              |                                                                                                             |                 |              Sunday, 2359               |
+|     12      |             Probability 2              |                                                 [[Unit 9]]                                                  |                 |              Sunday, 2359               |
 |     13      |              Rounding Up               |                                                                                                             |        5        |                                         |
 
 # Lecture Video Links
@@ -70,8 +70,10 @@ This website's intended usage by students taking discrete math courses at the [S
 3. [Applying PnC](https://youtu.be/JxaOqpF9ShI)
 ## Week 10 Videos: Unit 7
 1. [Graphs](https://youtu.be/2VF__cuXfNI)
-## Week 10 Videos: Unit 8
+## Week 11 Videos: Unit 8
 1. [Probability Part 1](https://youtu.be/51OJzK_6egI) 
+## Week 12 Videos: Unit 8
+1. [Probability Part 2](https://youtu.be/rEf1fVgOG00) 
 # Notes
 ## Week 2 & 4
 [[Unit 1|Unit 1: Propositions, Predicates, First Order Logic, Proofs]]
@@ -89,6 +91,8 @@ This website's intended usage by students taking discrete math courses at the [S
 [[Unit 7|Graphs]]
 ## Week 11
 [[Unit 8|Probability Theory]]
+## Week 12
+[[Unit 9|Probability Theory Part 2]]
 
 # Tutorials
 1. [[Tutorial 1]] Released 21-Jan-2025. Due 11-Feb-2025 **6:30PM**.
