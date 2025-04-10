@@ -49,7 +49,7 @@ Let's look at $C$ again. If we split the sample space up, we notice that we can 
 
 1. For the event $\{TTT\}$, $C$ outputs $0$.
 2. For the event $\{HTT, THT, TTH\}$, $C$ outputs $1$.
-3. For the event $\{HHT, HTH, THH,\}$, $C$ outputs $2$.
+3. For the event $\{HHT, HTH, THH \}$, $C$ outputs $2$.
 4. For the event $\{HHH\}$, $C$ outputs $3$.
 
 So what is $\Pr[C = 2]$? Well it is just the probability that we either see: $HHT$, or $HTH$, or $THH$. In other words:
@@ -80,7 +80,7 @@ $$
 
 ## Functions on Random Variables
 
-Here's an interesting idea, can we operate on random variables? We sure can! And this idea is super useful. For example, what is $D^2$ is a random variable that first takes as input $D$, and outputs the square of it.
+Here's an interesting idea, can we operate on random variables? We sure can! And this idea is super useful. For example, what is $D^2$? It is a random variable that first takes as input $D$, and outputs the square of it.
 
 So for example, we could ask something like: What is $\Pr[D^2 = 1]$?
 
