@@ -164,7 +164,7 @@ What about the probability that $Y = 2$? Well that happens with probability $\fr
 
 What about the probability that $Y = i$? Do you see the pattern? We must have flipped $i - 1$ many tails in a row, then flipped a heads. So the probability is $\left(\frac{2}{3}\right)^{i - 1}\times \frac{1}{3}$.
 
-So in general, if we had a random variable that followed geometric probability distribution with parameter $p$, then $\Pr[Y = i] = \left(\frac{2}{3}\right)^{i - 1}\times \frac{1}{3}$.
+So in general, if we had a random variable that followed geometric probability distribution with parameter $p$, then $\Pr[Y = i] = \left(1-p\right)^{i - 1}\times p$.
 
 ## Binomial Distribution
 
@@ -243,7 +243,7 @@ $$
 
 So it boils down to asking what is $\mathbb{E}[5X]$? Since $X$ takes values either $0$ or $1$, then $5X$ takes values either $0$ or $5$. So
 $$
-\mathbb{E}[X] = 0 \cdot \Pr[5X = 0] + 5 \cdot \Pr[5X = 5] = 5\cdot\frac{1}{3}
+\mathbb{E}[5X] = 0 \cdot \Pr[5X = 0] + 5 \cdot \Pr[5X = 5] = 5\cdot\frac{1}{3}
 $$
 
 ## Properties About Expectation
