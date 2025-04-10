@@ -270,13 +270,13 @@ Except, that looks awfully complicated to analyse! So we're going to pull out a 
 We are going to let $X_i$ be an indicator random variable with parameter $p = \frac{1}{4}$, represent whether the $i^{th}$ trial was a success or not. Then:
 
 $$
-X = \sum_{i = 0}^{10} X_i
+X = \sum_{i = 1}^{10} X_i
 $$
 
 Why do we want to do this though? Here's the idea, using the property of expectations, we know that:
 
 $$
-\mathbb{E}[X] = \mathbb{E}\left[\sum_{i = 0}^{10} X_i \right] = \sum_{i = 0}^{10} \mathbb{E}[X_i] = \sum_{i = 0}^{10} \frac{1}{4} = \frac{10}{4}
+\mathbb{E}[X] = \mathbb{E}\left[\sum_{i = 1}^{10} X_i \right] = \sum_{i = 1}^{10} \mathbb{E}[X_i] = \sum_{i = 1}^{10} \frac{1}{4} = \frac{10}{4}
 $$
 
 Remember, $\mathbb{E}[X_i] = \frac{1}{4}$ because $X_i$ is an indicator random variable with probability $\frac{1}{4}$.
@@ -284,7 +284,7 @@ Remember, $\mathbb{E}[X_i] = \frac{1}{4}$ because $X_i$ is an indicator random v
 What about for general values of $n$ and $p$? Well then the math becomes:
 
 $$
-\mathbb{E}[X] = \mathbb{E}\left[\sum_{i = 0}^{n} X_i \right] = \sum_{i = 0}^{n} \mathbb{E}[X_i] = \sum_{i = 0}^{n} p = np
+\mathbb{E}[X] = \mathbb{E}\left[\sum_{i = 1}^{n} X_i \right] = \sum_{i = 1}^{n} \mathbb{E}[X_i] = \sum_{i = 1}^{n} p = np
 $$
 
 ## Example 5: Expectation of Geometric Distributions
