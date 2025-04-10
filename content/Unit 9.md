@@ -292,13 +292,13 @@ $$
 Since we've covered Bernoulli and Binomial, for the sake of completeness let's do Geometric as well. Let $X$ be a geometrically distributed random variable with parameter $p$. The math for this one is a little more involved, so let's jump straight into it. Again, by our definition of expectation, we have that:
 
 $$
-\mathbb{E}[X] = \sum_{i = 1}^{\infty} i \cdot \Pr[X = i] = \sum_{i = 0}^{\infty} i \cdot p \cdot (1-p)^{i - 1}
+\mathbb{E}[X] = \sum_{i = 1}^{\infty} i \cdot \Pr[X = i] = \sum_{i = 1}^{\infty} i \cdot p \cdot (1-p)^{i - 1}
 $$
 
 Now this is pretty hard to resolve, so let's work through some magic, first of all:
 
 $$
-(1-p)\mathbb{E}[X] = \sum_{i = 1}^{\infty} i \cdot (1-p) Pr[X = i] = \sum_{i = 0}^{\infty} i \cdot p \cdot (1-p) \cdot (1-p)^{i - 1} = \sum_{i = 0}^{\infty} i \cdot p \cdot (1-p)^{i}
+(1-p)\mathbb{E}[X] = \sum_{i = 1}^{\infty} i \cdot (1-p) Pr[X = i] = \sum_{i = 1}^{\infty} i \cdot p \cdot (1-p) \cdot (1-p)^{i - 1} = \sum_{i = 1}^{\infty} i \cdot p \cdot (1-p)^{i}
 $$
 
 So what is $\mathbb{E}[X] - (1-p)\mathbb{E}[X]$? Let me lay it out term by term:
@@ -324,8 +324,8 @@ And the last series is actually geometric! Re-writing this, we get:
 $$
 \begin{align*}
 \mathbb{E}[X] - (1-p)\mathbb{E}[X] &= (1p+p(1-p)+p(1-p)^2+\cdots)\\
-&= \sum_{i = 0}p(1-p)^i\\
-&= p\sum_{i = 0}(1-p)^i\\
+&= \sum_{i = 0}^\infty p(1-p)^i\\
+&= p\sum_{i = 0}^\infty(1-p)^i\\
 &= \frac{p}{1-(1-p)}\\
 &= 1\\
 \end{align*}
