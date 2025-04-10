@@ -476,7 +476,7 @@ $$
 \Pr[X \geq a]\leq \frac{E[X]}{a}
 $$
 
-For example, if $X$ is distributed random variable with n trials and success probability $p=0.4$. We can say something like:
+For example, if $X$ is a binomially distributed random variable with n trials and success probability $p=0.4$. We can say something like:
 
 $$
 \Pr[X \geq 20] = \sum_{i = 20}^n \binom{n}{i}(0.4)^i(0.6)^{n - i}
@@ -499,7 +499,7 @@ $$
 \Pr[|X - E[X]| \geq a]\leq \frac{Var[X]}{a^2}
 $$
 
-For example, if $X$ is distributed random variable with $n = 100$ trials and success probability $p=0.4$. We can say something like:
+For example, if $X$ is a binomially distributed random variable with $n = 100$ trials and success probability $p=0.4$. We can say something like:
 
 $$
 \Pr[|X - 40| \geq 20] = \left(\sum_{i = 0}^{19} \binom{n}{i}(0.4)^i(0.6)^{n - i} \right) + \left(\sum_{i = 61}^{100} \binom{n}{i}(0.4)^i(0.6)^{n - i} \right)
