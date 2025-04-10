@@ -61,8 +61,8 @@ $$
 Since we assumed each coin is fair and independent, each outcome occurs with probability $\frac{1}{2^3}$. There are $3$ such outcomes, so $\Pr[C = 2] = \frac{3}{8}$.
 
 What about $D$? This time around:
-1. For the event $\{HHT, HTH, HTT, THH, THT, TTH, TTT\}$, $C$ outputs $0$.
-2. For the event $\{HHH\}$, $C$ outputs $1$.
+1. For the event $\{HHT, HTH, HTT, THH, THT, TTH, TTT\}$, $D$ outputs $0$.
+2. For the event $\{HHH\}$, $D$ outputs $1$.
 
 So what is $\Pr[C \leq 1 | D = 0]$? Recall, that:
 
