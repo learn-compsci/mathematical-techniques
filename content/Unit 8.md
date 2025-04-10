@@ -57,7 +57,7 @@ $$
 
 Okay, so we know which outcomes are possible. What we care about is using this to help analyse the probability always switching wins us the car. For that, we first need to identify the **subset** of outcomes that we care about. We call these subset of outcomes as **events**.
 
-For example, if we cared about asking "what is the probability that the car is behind door B?". Then the set of outcomes that correspond to this **event** is ${ (C, A, B), (C, B, A), (C, C, A), (C, C, B) }$.
+For example, if we cared about asking ~~"what is the probability that the car is behind door B?"~~ "What is the probability that the car is behind door C?". Then the set of outcomes that correspond to this **event** is ${ (C, A, B), (C, B, A), (C, C, A), (C, C, B) }$.
 
 In this case, let's ask ourselves, "If we always choose the option to switch, what is the probability of winning?". Let's first think about which subset events correspond to us winning if we always chose to switch. For example, if the car was behind door $A$, we chose door $B$, and the host was forced to reveal door $C$. Then of the remaining options, we either choose to stay on door $B$ or switch to door $A$, so switching to door $A$ lets us win the car.
 
@@ -497,8 +497,8 @@ Let's look at a few events, and their probabilities. What are the following sets
 
 1. The event $E_1$ that $C_1$ is heads?
 2. The event $E_2$ that $C_1$ is tails and $C_2$ is heads?
-3. The event $E_3$ that $C_1$ is tails, $C_2$ is tails, and $C_3$ is heads?
-4. The event $E_4$ that $C_1$ is tails, $C_2$ is tails, and $C_3$ is tails?
+3. The event $E_3$ that $C_1$ is tails, $C_2$ is heads, and $C_3$ is heads?
+4. The event $E_4$ that $C_1$ is tails, $C_2$ is tails, and $C_3$ is heads?
 
 (**Question 1**) So there are a few ways to do this, let's begin with question 1. We really just want all the outcomes where the first value is $H$. So event $E_1$ is basically the set of outcomes $\{(H, H, T), (H, T, H)\}$.
 
