@@ -57,7 +57,7 @@ $$
 
 Okay, so we know which outcomes are possible. What we care about is using this to help analyse the probability always switching wins us the car. For that, we first need to identify the **subset** of outcomes that we care about. We call these subset of outcomes as **events**.
 
-For example, if we cared about asking ~~"what is the probability that the car is behind door B?"~~ "What is the probability that the car is behind door C?". Then the set of outcomes that correspond to this **event** is ${ (C, A, B), (C, B, A), (C, C, A), (C, C, B) }$.
+For example, if we cared about asking ~~"what is the probability that the car is behind door B?"~~ "What is the probability that the car is behind door C?". Then the set of outcomes that correspond to this **event** is $\{ (C, A, B), (C, B, A), (C, C, A), (C, C, B) \}$.
 
 In this case, let's ask ourselves, "If we always choose the option to switch, what is the probability of winning?". Let's first think about which subset events correspond to us winning if we always chose to switch. For example, if the car was behind door $A$, we chose door $B$, and the host was forced to reveal door $C$. Then of the remaining options, we either choose to stay on door $B$ or switch to door $A$, so switching to door $A$ lets us win the car.
 
@@ -505,7 +505,8 @@ Let's look at a few events, and their probabilities. What are the following sets
 (**Question 2**) What about the second one? Well, we could manually go through each outcome and find that the only one is $(T, H, H)$. Alternatively, we could also think first about the event that $C_2$ is heads. This is the set of outcomes $\{(H, H, T), (T, H, H)\}$. Also, similar to the previous question, we know that the the event where the first coin $C_1$ is tails is the set $\{(T, H, H), (T, T, T)\}$.
 
 So alternatively, we can think of this as the set
-$$E_2  = \{(H, H, T), (T, H, H)\} \cap \{(T, H, H), (T, T, T)\} = \{(T, H, H)\}$$Both methods work.
+$$E_2  = \{(H, H, T), (T, H, H)\} \cap \{(T, H, H), (T, T, T)\} = \{(T, H, H)\}$$
+Both methods work.
 
 (**Question 3**) The third one works in a similar way, but basically the only option is $(T, H, H)$. So the event $E_3 = \{(T, H, H)\}$.
 
