@@ -123,6 +123,17 @@ $$
 
 **Hint:** What if we told you that $B \cap \bar{A}$ is disjoint from $B \cap A$? How can you use this fact? What is $(B \cap A) \cup (B \cap \bar{A})$? 
 
+>[!Solution]
+>1. Notice here that $(B \cap A) \cup (B \cap \bar{A}) = B$. As seen in the picture below, the red shaded area is actually $B \cap A$ and the green area is actually $B \cap \bar{A}$, which adds up to be $B$
+>
+>![[Pasted image 20250412020047.png]]
+>
+> 2. $\therefore \Pr[A|B] = \frac{\Pr[A \cap B]}{\Pr[B]}$
+> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B]}$
+> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[(B \cap A) \cup (B \cap \bar{A})]}$ [From line 1]
+> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B \cap A] + \Pr[B \cap \bar{A}]}$ [Since $B \cap A$ and $B \cap \bar{A}$ are disjoint]
+> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B|A] \cdot \Pr[A] + \Pr[B|\bar{A}] \cdot \Pr[\bar{A}]}$
+
 ## Sub-question 2:
 Let's say a disease $F$ affects $1$ out of every $1000$ people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" $85$% of the time. We also know that among all people who took the test (positive or not), the test reported "positive" $10$% of the time. 
 
@@ -136,8 +147,30 @@ $$
 1 - \Pr[A | B] = \Pr[\bar{A} | B]
 $$
 
+>[!Solution]
+>[Part 1]
+> 		Analysing the question, we have that $\Pr[Disease] = 0.001$, $\Pr[Positive | Disease] = 0.85$ and $Pr[Positive] = 0.1$. 
+> 		
+> 		Also note that what we are trying to find here is $\Pr[Disease|Positive]$
+> 		
+> 		Therefore, we can use the formula from sub-question 1:
+> 		$\Pr[Disease|Positive] = \frac{\Pr[Positive|Disease] \cdot \Pr[Disease]}{\Pr[Positive]} = \frac{0.85 \times 0.001}{0.1} = 0.0085$
+>
+>
+>[Part 2]  
+>		What we are trying to find for this question is $\Pr[Positive|\bar{Disease}]$
+>		
+>		From sub-question 1, we have that: 
+>		$$\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}$$
+>		We can manipulate it such that it becomes:
+>		 $$\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]}$$
+>		 $$\Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]} - \Pr[B | A] \cdot \Pr[A]$$
+>		 
+>		$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
+>		$\Pr[Positive|\bar{Disease}] \cdot (1 - 0.001) = \frac{0.85 \times 0.001}{0.0085} - 0.85 \times 0.001$
+>		$\therefore \Pr[Positive|\bar{Disease}] \approx 0.09925$
 
-# Question 3: Expectation
+# Question 3: Expectation 
 
 Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
 
