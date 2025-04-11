@@ -44,12 +44,20 @@ Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **s
 ## Sub-question 1:
 What is the sample space of $D_1$? What is the sample space of $D_2$? What is the sample space of $D_1 \times D_2$?
 
+>[!Solution]
+>The sample space is the set of all possible outcomes. In this case, the sample space of a six-sided die $D_1$ is $\{1, 2, 3, 4, 5, 6\}$ and the sample space of a two-sided die $D_2$ is $\{1, 2\}$. The sample space of $D_1 \times D_2$ is the cartesian product of the sample space of $D_1$ and $D_2$ which is $\{(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6,2)\}$
+
 ## Sub-question 2:
 Write down the events that correspond to the following:
 
 1. The event $E_1$ that $S = 3$
 2. The event $E_2$ that $S \leq 3$
 3. The event $E_3$ that $S = 7$
+
+>[!Solution]
+>1.  $E_1 = \{(1, 2), (2, 1)\}$
+>2.  $E_2 = \{(1, 1), (1, 2), (2, 1)\}$
+>3. $E_3 = \{(5, 2), (6, 1)\}$
 
 ## Sub-question 3:
 Assume that die $D_1$ produces any of its $6$ possible values **uniformly at random**, and assume that die $D_2$ produces value $1$ with probability $\frac{1}{3}$, and value $2$ with probability $\frac{2}{3}$ (like an unfair dice).
@@ -59,6 +67,10 @@ What is the probability that:
 2. $S \leq 3$?
 3. $S = 7$?
 
+>[!Solution]
+>1. $\Pr(S = 3) = \Pr((1,2)) + \Pr((2,1)) = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
+>2. $\Pr(S \leq 3) = \Pr(S = 3) + \Pr(S = 2) = \frac{1}{6} + \frac{1}{6} \times \frac{1}{3} = \frac{2}{9}$
+>3. $\Pr(S = 7) = \Pr((5,2)) + \Pr((6,1)) = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
 ## Sub-question 4:
 Compute the following quantities:
 
@@ -66,6 +78,10 @@ Compute the following quantities:
 2. $\Pr[(S < 7) \cap (S > 3)]$
 3. $\Pr[S = 6 | D_1 = 5]$
 
+>[!Solution]
+>1. Since they are disjoint events, $\Pr[(S \leq 3) \cup (S = 7)] = \Pr(S \leq 3) + \Pr(S = 7) = \frac{2}{9} + \frac{1}{6} = \frac{7}{18}$
+>2. Let's try solving this by finding the complement of this event. The complement of this event would be $\Pr[(S \leq 3) \cup (S \geq 7)] = \frac{2}{9} + (\frac{1}{6} + \frac{1}{6} \times \frac{2}{3}) = \frac{1}{2}$. Therefore $\Pr[(S < 7) \cap (S > 3)] = 1 - \Pr[(S \leq 3) \cup (S \geq 7)] = 1 - \frac{1}{2} = \frac{1}{2}$ .
+>3. Recall Bayes' Theorem, $\Pr[S = 6 | D_1 = 5] = \frac{\Pr[(S = 6) \cap (D_1 = 5)]}{\Pr[D_1 = 5]} = \frac{\frac{1}{6} \times \frac{1}{3}}{\frac{1}{6}} = \frac{1}{3}$
 # Question 2:
 Let's explore the concept of Bayes' Theorem a little bit more. So recall that:
 
