@@ -169,7 +169,7 @@ $$
 >		$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
 >		$\Pr[Positive|\bar{Disease}] \cdot (1 - 0.001) = \frac{0.85 \times 0.001}{0.0085} - 0.85 \times 0.001$
 >		$\therefore \Pr[Positive|\bar{Disease}] \approx 0.09925$
-
+	
 # Question 3: Expectation 
 
 Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
@@ -181,6 +181,21 @@ What is:
 3. $\mathbb{E}[Z\cdot Z]$?
 4. $\text{Var}[2X]$?
 5. $\text{Var}[X + Y]$?
+
+>[!Solution]
+>Let's start by finding the expectations and variance for each of the random variables
+>$\mathbb{E}[X] = \frac{1}{p} = 1 \div \frac{1}{7} = 7$
+>$\mathbb{E}[Y] = np = 20 \times \frac{1}{4} = 5$
+>$\mathbb{E}[Z] = p = \frac{1}{3}$
+>$\text{Var}[X] = \frac{1-p}{p^2} = \frac{1 - 1/7}{(1/7)^2} = 42$
+>$\text{Var}[Y] = np(1-p) = (20)(\frac{1}{4})(1 - \frac{1}{4}) = \frac{15}{4}$
+>$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$
+>
+>1. $\mathbb{E}[X + Y + Z] = \mathbb{E}[X] + \mathbb{E}[Y] + \mathbb{E}[Z] =  7 + 5 + \frac{1}{3} = \frac{37}{3}$
+>2. Since $X$ and$ $Z$ are independent of each other, $\mathbb{E}[X \cdot Z]  = \mathbb{E}[X] \cdot \mathbb{E}[Z] = 7 \times \frac{1}{3} = \frac{7}{3}$
+>3. $\mathbb{E}[Z \cdot Z] = \mathbb{E}[Z^2] = p = \frac{1}{3}$
+>4. $\text{Var}[2X] = 2^2 \cdot \text{Var}[X] = 4 \cdot 42 = 168$
+>5. Since $X$ and $Y$ are independent of each other, $\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] = 42 + \frac{15}{4} = \frac{183}{4}$
 
 
 # Question 4: 
