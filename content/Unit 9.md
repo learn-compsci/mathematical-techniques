@@ -250,7 +250,7 @@ $$
 
 So the last example actually was a teaser into some nice properties about expectation. We won't prove it in this course, so you can take these as fact (though they are provable).
 
-1. $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb[Y]$
+1. $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$
 2. If $c$ is a constant, then $\mathbb{E}[cX] = c\mathbb{E}[X]$
 
 As a warning, we cannot generally say that $\mathbb{E}[X\cdot Y] = \mathbb{E}[X] \cdot \mathbb E[Y]$. This is true when $X$ and $Y$ are independent, but otherwise, we have to be careful.
