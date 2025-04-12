@@ -45,7 +45,7 @@ Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **s
 What is the sample space of $D_1$? What is the sample space of $D_2$? What is the sample space of $D_1 \times D_2$?
 
 >[!Solution]
->The sample space is the set of all possible outcomes. In this case, the sample space of a six-sided die $D_1$ is $\{1, 2, 3, 4, 5, 6\}$ and the sample space of a two-sided die $D_2$ is $\{1, 2\}$. The sample space of $D_1 \times D_2$ is the cartesian product of the sample space of $D_1$ and $D_2$ which is $\{(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6,2)\}$
+>The sample space is the set of all possible outcomes. In this case, the sample space of the six-sided die $D_1$ is $\{1, 2, 3, 4, 5, 6\}$ and the sample space of the two-sided die $D_2$ is $\{1, 2\}$. The sample space of $D_1 \times D_2$ is the cartesian product of the sample space of $D_1$ and $D_2$ which is $\{(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6,2)\}$.
 
 ## Sub-question 2:
 Write down the events that correspond to the following:
@@ -68,9 +68,9 @@ What is the probability that:
 3. $S = 7$?
 
 >[!Solution]
->1. $\Pr(S = 3) = \Pr((1,2)) + \Pr((2,1)) = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
->2. $\Pr(S \leq 3) = \Pr(S = 3) + \Pr(S = 2) = \frac{1}{6} + \frac{1}{6} \times \frac{1}{3} = \frac{2}{9}$
->3. $\Pr(S = 7) = \Pr((5,2)) + \Pr((6,1)) = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
+>1. $\Pr[S = 3] = \Pr[(1,2)] + \Pr[(2,1)] = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
+>2. $\Pr[S \leq 3] = \Pr[S = 3] + \Pr[S = 2] = \frac{1}{6} + \frac{1}{6} \times \frac{1}{3} = \frac{2}{9}$
+>3. $\Pr[S = 7] = \Pr[(5,2)] + \Pr[(6,1)] = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
 ## Sub-question 4:
 Compute the following quantities:
 
@@ -79,7 +79,7 @@ Compute the following quantities:
 3. $\Pr[S = 6 | D_1 = 5]$
 
 >[!Solution]
->1. Since they are disjoint events, $\Pr[(S \leq 3) \cup (S = 7)] = \Pr(S \leq 3) + \Pr(S = 7) = \frac{2}{9} + \frac{1}{6} = \frac{7}{18}$
+>1. Since they are disjoint events, $\Pr[(S \leq 3) \cup (S = 7)] = \Pr[S \leq 3] + \Pr[S = 7] = \frac{2}{9} + \frac{1}{6} = \frac{7}{18}$
 >2. Let's try solving this by finding the complement of this event. The complement of this event would be $\Pr[(S \leq 3) \cup (S \geq 7)] = \frac{2}{9} + (\frac{1}{6} + \frac{1}{6} \times \frac{2}{3}) = \frac{1}{2}$. Therefore $\Pr[(S < 7) \cap (S > 3)] = 1 - \Pr[(S \leq 3) \cup (S \geq 7)] = 1 - \frac{1}{2} = \frac{1}{2}$ .
 >3. Recall Bayes' Theorem, $\Pr[S = 6 | D_1 = 5] = \frac{\Pr[(S = 6) \cap (D_1 = 5)]}{\Pr[D_1 = 5]} = \frac{\frac{1}{6} \times \frac{1}{3}}{\frac{1}{6}} = \frac{1}{3}$
 # Question 2:
@@ -124,7 +124,7 @@ $$
 **Hint:** What if we told you that $B \cap \bar{A}$ is disjoint from $B \cap A$? How can you use this fact? What is $(B \cap A) \cup (B \cap \bar{A})$? 
 
 >[!Solution]
->1. Notice here that $(B \cap A) \cup (B \cap \bar{A}) = B$. As seen in the picture below, the red shaded area is actually $B \cap A$ and the green area is actually $B \cap \bar{A}$, which adds up to be $B$
+>1. Notice here that $(B \cap A) \cup (B \cap \bar{A}) = B$. As seen in the picture below, the red shaded area is actually $B \cap A$ and the green area is actually $B \cap \bar{A}$, which adds up to be $B$:
 >
 >![[Pasted image 20250412020047.png]]
 >
@@ -192,7 +192,7 @@ What is:
 >$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$
 >
 >1. $\mathbb{E}[X + Y + Z] = \mathbb{E}[X] + \mathbb{E}[Y] + \mathbb{E}[Z] =  7 + 5 + \frac{1}{3} = \frac{37}{3}$
->2. Since $X$ and$ $Z$ are independent of each other, $\mathbb{E}[X \cdot Z]  = \mathbb{E}[X] \cdot \mathbb{E}[Z] = 7 \times \frac{1}{3} = \frac{7}{3}$
+>2. Since $X$ and $Z$ are independent of each other, $\mathbb{E}[X \cdot Z]  = \mathbb{E}[X] \cdot \mathbb{E}[Z] = 7 \times \frac{1}{3} = \frac{7}{3}$
 >3. $\mathbb{E}[Z \cdot Z] = \mathbb{E}[Z^2] = p = \frac{1}{3}$
 >4. $\text{Var}[2X] = 2^2 \cdot \text{Var}[X] = 4 \cdot 42 = 168$
 >5. Since $X$ and $Y$ are independent of each other, $\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] = 42 + \frac{15}{4} = \frac{183}{4}$
@@ -212,3 +212,15 @@ Compute the following:
 
 1. What is $\mathbb{E}[X]$?
 2. What is a bound for $\Pr[X > a]$?
+
+>[!note] Solution
+>$$\mathbb{E}[X] = \mathbb{E}\big[\sum_{i=1}^{n} X_i\big] = \sum_{i=1}^{n} \mathbb{E}[X_i] = \sum_{i=1}^{n} \frac{1}{n} = n \cdot \frac{1}{n} = 1$$
+>
+>Since $X$ is a non-negative random variable, we have the following Markov bound: $$\Pr[X > a] \leq \Pr[X \geq a] \leq \frac{\mathbb{E}[X]}{a} = \frac{1}{a}$$
+
+
+
+
+
+
+
