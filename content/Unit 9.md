@@ -181,9 +181,9 @@ $$
 
 But what about in general? What if we had more coins than $3$? Manually counting gets very cumbersome. Let's try to be smarter with how we count.
 
-Of the $n$ coins, we choose $i$ of them to be heads, so the rest must be tails. So there are $\binom{n}{i}$ possible outcomes. For each outcome, the probability it occurs is $(p)^i(1-p)^{n - 1}$.
+Of the $n$ coins, we choose $i$ of them to be heads, so the rest must be tails. So there are $\binom{n}{i}$ possible outcomes. For each outcome, the probability it occurs is $(p)^i(1-p)^{n - i}$.
 
-So in general, the probability $\Pr[Y = i]$ is actually $\binom{n}{i}(p)^i(1-p)^{n - 1}$
+So in general, the probability $\Pr[Y = i]$ is actually $\binom{n}{i}(p)^i(1-p)^{n - i}$
 
 To be clear, the binomial distribution takes 2 parameters: $n$, the number of trials, and $p$ the probability of success of each independent trial.
 
