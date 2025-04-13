@@ -209,12 +209,13 @@ $$
 where $X_i$ is the random variable that is distributed as $Bernoulli(1/n)$.
 
 Compute the following:
-
 1. What is $\mathbb{E}[X]$?
 2. What is a bound for $\Pr[X > a]$?
 
 >[!note] Solution
 >$$\mathbb{E}[X] = \mathbb{E}\big[\sum_{i=1}^{n} X_i\big] = \sum_{i=1}^{n} \mathbb{E}[X_i] = \sum_{i=1}^{n} \frac{1}{n} = n \cdot \frac{1}{n} = 1$$
+>
+>$X$ actually follows a binomial distribution! $X \sim Binom(n, \frac{1}{n})$
 >
 >Since $X$ is a non-negative random variable, we have the following Markov bound: $$\Pr[X > a] \leq \Pr[X \geq a] \leq \frac{\mathbb{E}[X]}{a} = \frac{1}{a}$$
 
