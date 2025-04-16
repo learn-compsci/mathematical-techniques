@@ -121,8 +121,8 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >**No**, $R$ is not anti-symmetric. Consider $x = 8 \in \mathbb{N}$ and $y = 10 \in \mathbb{N}$.
 >
 >**Proof:**
->1. $2 \in \mathbb{N}$. \[Basic algebra]
->2. $2 \cdot 4 = 8 \land 2 \cdot 5 = 10$. \[Basic algebra]
+>1. $2, 4, 5 \in \mathbb{N}$. \[Basic algebra]
+>2. $(2 \cdot 4 = 8) \land (2 \cdot 5 = 10)$ \[Basic algebra]
 >3. $\big(\exists k \in \mathbb{N}\ [2 \cdot k = 8] \big) \land \big(\exists k \in \mathbb{N}\ [2 \cdot k = 10] \big)$ \[Existential generalisation on lines 1, 2]
 >4. $divides(2,8) \land divides(2,10)$ \[Definition of $divides$]
 >5. $2 \neq 1$. \[Basic algebra]
@@ -132,7 +132,7 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >9. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,10) \land divides(k,8)]$ \[Existential generalisation on lines 5, 8]
 >10. $(10,8) \in R$. \[Definition of $R$]
 >11. $8 \neq 10$. \[Basic algebra]
->12. $R$ is not anti-symmetric. \[Definition of anti-symmetry]
+>12. $R$ is not anti-symmetric. \[Definition of anti-symmetry, from lines 7, 10, 11]
 
 ---
 
