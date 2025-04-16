@@ -33,7 +33,7 @@ That said, **we encourage you to try all the questions**, this way when you come
 
 # Question 1 \[Graded for Participation]:
 
-Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_1$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
+Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_2$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
 
 1. Roll the first dice.
 2. Roll the second dice.
