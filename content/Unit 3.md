@@ -221,12 +221,13 @@ A ; A= \{ &\\
 	&(Clementi\ INT, BLK\ 306,\\
 	&(Bef\ Blks\ 315/318, BLK\ 376),\\
 	&(BLK\ 306, Clementi\ INT)\\
+	&(Blk 376, Bef Blks 315/318)\\
 \}&
 \end{align*}
 $$
 
 
-Notice how the reason why $(Clementi\ INT, BLK\ 308) \in A ; A$ was because there was **some** value $x$, such that $(Clementi\ INT, x) \in A$ and also $(x, BLK\ 308) \in A$. (Namely, $x = Bef\ Blks\ 315/318$.)
+Notice how the reason why $(Clementi\ INT, BLK\ 306) \in A ; A$ was because there was **some** value $x$, such that $(Clementi\ INT, x) \in A$ and also $(x, BLK\ 308) \in A$. (Namely, $x = Bef\ Blks\ 315/318$.)
 
 
 #### Example 2
