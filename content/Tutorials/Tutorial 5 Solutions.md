@@ -154,10 +154,14 @@ $$
 >\[Part 2]  
 >What we are trying to find for this question is $\Pr[Positive|\bar{Disease}]$
 >		
->From sub-question 1, we have that: <br>
+>From sub-question 1, we have that:
+>
 >$$\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}$$
+>
 >We can manipulate it such that it becomes:
+>
 > $$\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]}$$
+> 
 > $$\Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]} - \Pr[B | A] \cdot \Pr[A]$$
 >		 
 >$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
