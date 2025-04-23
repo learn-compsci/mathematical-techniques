@@ -122,12 +122,11 @@ $$
 
 >[!Solution]
 >1. Notice here that $(B \cap A) \cup (B \cap \bar{A}) = B$.
->
-> 2. $\therefore \Pr[A|B] = \frac{\Pr[A \cap B]}{\Pr[B]}$
-> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B]}$
-> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[(B \cap A) \cup (B \cap \bar{A})]}$ [From line 1]
-> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B \cap A] + \Pr[B \cap \bar{A}]}$ [Since $B \cap A$ and $B \cap \bar{A}$ are disjoint]
-> $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B|A] \cdot \Pr[A] + \Pr[B|\bar{A}] \cdot \Pr[\bar{A}]}$
+>2. $\therefore \Pr[A|B] = \frac{\Pr[A \cap B]}{\Pr[B]}$
+>3. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B]}$
+>4. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[(B \cap A) \cup (B \cap \bar{A})]}$ \[From line 1]
+>5. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B \cap A] + \Pr[B \cap \bar{A}]}$ \[Since $B \cap A$ and $B \cap \bar{A}$ are disjoint]
+>6. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B|A] \cdot \Pr[A] + \Pr[B|\bar{A}] \cdot \Pr[\bar{A}]}$
 
 ## Sub-question 2:
 Let's say a disease $F$ affects $1$ out of every $1000$ people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" $85$% of the time. We also know that among all people who took the test (positive or not), the test reported "positive" $10$% of the time. 
@@ -143,27 +142,27 @@ $$
 $$
 
 >[!Solution]
->[Part 1]
-> 		Analysing the question, we have that $\Pr[Disease] = 0.001$, $\Pr[Positive | Disease] = 0.85$ and $Pr[Positive] = 0.1$. 
+>\[Part 1]
+> Analysing the question, we have that $\Pr[Disease] = 0.001$, $\Pr[Positive | Disease] = 0.85$ and $Pr[Positive] = 0.1$. 
 > 		
-> 		Also note that what we are trying to find here is $\Pr[Disease|Positive]$
+> Also note that what we are trying to find here is $\Pr[Disease|Positive]$
 > 		
-> 		Therefore, we can use the formula from sub-question 1:
-> 		$\Pr[Disease|Positive] = \frac{\Pr[Positive|Disease] \cdot \Pr[Disease]}{\Pr[Positive]} = \frac{0.85 \times 0.001}{0.1} = 0.0085$
+> Therefore, we can use the formula from sub-question 1:
+> $\Pr[Disease|Positive] = \frac{\Pr[Positive|Disease] \cdot \Pr[Disease]}{\Pr[Positive]} = \frac{0.85 \times 0.001}{0.1} = 0.0085$
 >
 >
->[Part 2]  
->		What we are trying to find for this question is $\Pr[Positive|\bar{Disease}]$
+>\[Part 2]  
+>What we are trying to find for this question is $\Pr[Positive|\bar{Disease}]$
 >		
->		From sub-question 1, we have that: 
->		$$\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}$$
->		We can manipulate it such that it becomes:
->		 $$\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]}$$
->		 $$\Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]} - \Pr[B | A] \cdot \Pr[A]$$
+>From sub-question 1, we have that: 
+>$$\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}$$
+>We can manipulate it such that it becomes:
+> $$\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]}$$
+> $$\Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]} - \Pr[B | A] \cdot \Pr[A]$$
 >		 
->		$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
->		$\Pr[Positive|\bar{Disease}] \cdot (1 - 0.001) = \frac{0.85 \times 0.001}{0.0085} - 0.85 \times 0.001$
->		$\therefore \Pr[Positive|\bar{Disease}] \approx 0.09925$
+>$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
+>$\implies \Pr[Positive|\bar{Disease}] \cdot (1 - 0.001) = \frac{0.85 \times 0.001}{0.0085} - 0.85 \times 0.001$
+>$\implies \Pr[Positive|\bar{Disease}] \approx 0.09925$
 	
 # Question 3: Expectation 
 
@@ -178,13 +177,14 @@ What is:
 5. $\text{Var}[X + Y]$?
 
 >[!Solution]
->Let's start by finding the expectations and variance for each of the random variables
->$\mathbb{E}[X] = \frac{1}{p} = 1 \div \frac{1}{7} = 7$
->$\mathbb{E}[Y] = np = 20 \times \frac{1}{4} = 5$
->$\mathbb{E}[Z] = p = \frac{1}{3}$
->$\text{Var}[X] = \frac{1-p}{p^2} = \frac{1 - 1/7}{(1/7)^2} = 42$
->$\text{Var}[Y] = np(1-p) = (20)(\frac{1}{4})(1 - \frac{1}{4}) = \frac{15}{4}$
->$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$
+>Let's start by finding the expectations and variance for each of the random variables.
+>
+>$$\mathbb{E}[X] = \frac{1}{p} = 1 \div \frac{1}{7} = 7$$
+>$$\mathbb{E}[Y] = np = 20 \times \frac{1}{4} = 5$$
+>$$\mathbb{E}[Z] = p = \frac{1}{3}$$
+>$$\text{Var}[X] = \frac{1-p}{p^2} = \frac{1 - 1/7}{(1/7)^2} = 42$$
+>$$\text{Var}[Y] = np(1-p) = (20)(\frac{1}{4})(1 - \frac{1}{4}) = \frac{15}{4}$$
+>$$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$$
 >
 >1. $\mathbb{E}[X + Y + Z] = \mathbb{E}[X] + \mathbb{E}[Y] + \mathbb{E}[Z] =  7 + 5 + \frac{1}{3} = \frac{37}{3}$
 >2. Since $X$ and $Z$ are independent of each other, $\mathbb{E}[X \cdot Z]  = \mathbb{E}[X] \cdot \mathbb{E}[Z] = 7 \times \frac{1}{3} = \frac{7}{3}$
