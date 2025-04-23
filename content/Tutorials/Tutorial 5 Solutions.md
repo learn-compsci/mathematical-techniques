@@ -184,10 +184,15 @@ What is:
 >Let's start by finding the expectations and variance for each of the random variables.
 >
 >$$\mathbb{E}[X] = \frac{1}{p} = 1 \div \frac{1}{7} = 7$$
+>
 >$$\mathbb{E}[Y] = np = 20 \times \frac{1}{4} = 5$$
+>
 >$$\mathbb{E}[Z] = p = \frac{1}{3}$$
+>
 >$$\text{Var}[X] = \frac{1-p}{p^2} = \frac{1 - 1/7}{(1/7)^2} = 42$$
+>
 >$$\text{Var}[Y] = np(1-p) = (20)(\frac{1}{4})(1 - \frac{1}{4}) = \frac{15}{4}$$
+>
 >$$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$$
 >
 >1. $\mathbb{E}[X + Y + Z] = \mathbb{E}[X] + \mathbb{E}[Y] + \mathbb{E}[Z] =  7 + 5 + \frac{1}{3} = \frac{37}{3}$
