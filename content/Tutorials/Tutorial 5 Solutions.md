@@ -148,6 +148,7 @@ $$
 > Also note that what we are trying to find here is $\Pr[Disease|Positive]$
 > 		
 > Therefore, we can use the formula from sub-question 1:
+> 
 > $\Pr[Disease|Positive] = \frac{\Pr[Positive|Disease] \cdot \Pr[Disease]}{\Pr[Positive]} = \frac{0.85 \times 0.001}{0.1} = 0.0085$
 >
 >
@@ -219,7 +220,7 @@ Compute the following:
 >[!note] Solution
 >$$\mathbb{E}[X] = \mathbb{E}\big[\sum_{i=1}^{n} X_i\big] = \sum_{i=1}^{n} \mathbb{E}[X_i] = \sum_{i=1}^{n} \frac{1}{n} = n \cdot \frac{1}{n} = 1$$
 >
->$X$ actually follows a binomial distribution! $X \sim Binom(n, \frac{1}{n})$. I.e. the parameters are $n$ trials, and each trial succeeds with probability $\frac{1}{n}$.
+>$X$ actually follows a binomial distribution! $X \sim Binom(n, \frac{1}{n})$, i.e., the parameters are $n$ trials, and each trial succeeds with probability $\frac{1}{n}$.
 >
 >Since $X$ is a non-negative random variable, we have the following Markov bound: $$\Pr[X > a] \leq \Pr[X \geq a] \leq \frac{\mathbb{E}[X]}{a} = \frac{1}{a}$$
 
