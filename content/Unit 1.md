@@ -5,6 +5,7 @@ title: "Unit 1: Propositions, Predicates, First-Order Logic, Proofs"
 This unit introduces the notion of proofs, propositional and first-order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 4 sub-parts:
 0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first order-logic and proofs]]
 1. [[#Part 1 Propositional logic|Propositional logic]]
+	- Checkpoint #1
 2. [[#Part 2 First Order Logic|First-order logic]]
 3. [[#Part 3 Proofs in First Order Logic|Proof techniques (and patterns)]]
 
@@ -128,155 +129,163 @@ Just remind yourself, big picture: **we want to do proofs**.
 
 ## Basic Propositions
 
-Our starting point is forming propositions. Think of this as part 1 of the grammatical system. Let's re-examine that sentence again and see how we might view this in a new light:
+Our starting point is forming propositions. Think of this as part 1 of the grammatical system. Let's re-examine [[#Why must we do this?|that sentence]] again and see how we might view this in a new light:
 
-Instead of "No food and drink allowed in the computer lab.", let's first re-write it into "No food allowed in the computer lab and no drink allowed in the computer lab."
+Instead of "no food and drink allowed in the computer lab", let's first re-write it into "no food allowed in the computer lab and no drink allowed in the computer lab."
 
-Now in propositional logic, we will consider "No food allowed in the computer lab" as a **proposition**. We will also consider "no drink allowed in the computer lab" to also be a **proposition**. 
+Now in propositional logic, we will consider "*no food allowed in the computer lab*" as a **proposition**. We will also consider "*no drink allowed in the computer lab*" to also be a proposition.
 
-Think of a proposition as a statement that is either true or false. So these are more examples of propositions:
+>[!info] Definition: Propositions
+>A **proposition** is a statement that is either true or false.
+>
+>Examples of propositions:
+>1. $(20 + 25)(20 + 25) = 2025$
+>2. $50 - 20 = 1$
+>3. Birds can fly.
 
-1. (20 + 25)(20 + 25) = 2025
-2. 50 - 20 = 1
-3. Birds can fly.
+In physics, there are atoms, which are widely-assumed-to-be indivisible objects of this world. Here in propositional logic, propositions are the atoms (in that these are the smallest things in our system).
 
-In physics there are atoms the widely-assumed-to-be indivisible objects of this world. Here in propositional logic, propositions are the atoms (in that these are the smallest things).
+Now, the first statement is true, the second is false, but what about the last one? One might think: "Yes, of course birds can fly." But what about penguins, ostriches, and emus? So is the statement false? Is it true? Depending on who you ask, the answer might be different. Thankfully, this is not the type of statement that we are concerned with in CS and math.
 
-Now, the first statement is true, the second is false, but what about the last one? One might think yes, of course birds can fly. But what about penguins, ostriches, and emus? So is the statement false? Is it true? Depending on who you ask, the answer might be different but thankfully, this is not the type of statement that we are concerned with in CS and math.
 ## Logical Connectives
+
 Next thing to note is that we can form bigger and bigger **formulae** from smaller ones by using the following **logical connectives**:
-1. and
-2. or
-3. if, then
-4. not
+1. And
+2. Or
+3. If/then
+4. Not
 
-Again, using our example, we have the propositions "No food allowed in the computer lab", "No drink allowed in the computer lab", we can make the following formula:
+Again, using our example, we have the propositions "*no food allowed in the computer lab*" and "*no drink allowed in the computer lab*", which we can use to make the following formula:
 
-> No food allowed in the computer lab **and** no drink allowed in the computer lab.
+> *No food allowed in the computer lab* **and** *no drink allowed in the computer lab*.
 
 Likewise, we could also make the following other examples:
 
-1. No food allowed in the computer lab **or** no drink allowed in the computer lab.
-2. **If** no food allowed in the computer lab **then** no drink allowed in the computer lab.
-3. Not (no food allowed in the computer lab).
+1. *No food allowed in the computer lab* **or** *no drink allowed in the computer lab*.
+2. **If** *no food allowed in the computer lab* **then** *no drink allowed in the computer lab*.
+3. **Not** (*no food allowed in the computer lab*).
 
 Perhaps the last one is a little clunky, and over time we'll start avoiding English and these clunky issues will stop persisting.
 
 In general, we expect to do the following with logical connectives:
 1. \[Proposition 1] **and** \[Proposition 2]
 2. \[Proposition 1] **or** \[Proposition 2]
-3. **If** \[Proposition 1] **then** \[Proposition 2]
-3. Not \[Proposition]
+3. **Not** \[Proposition]
+4. **If** \[Proposition 1] **then** \[Proposition 2]
 
 To be clear, here some other examples of simple propositional formulae that we might see in math and CS:
-1. 1 + 1 = 3 **and** 25 + 1 = 26
-2. **not** 1 + 1 = 3
-3. 1 + 1 = 3 **or** 25 + 1 = 26
-4. **if** 1 + 1 = 3 **then** 25 + 1 = 26
+1. $1 + 1 = 3$ **and** $25 + 1 = 26$
+2. $1 + 1 = 3$ **or** $25 + 1 = 26$
+3. **Not** $1 + 1 = 3$
+4. **If** $1 + 1 = 3$ **then** $25 + 1 = 26$
 
 We can also chain these to make even bigger ones, like so:
 1. $1 + 3 = 24$ **and** $2 \times 2 = 4$ **and** $2 + 2 = 4$
-2. **if** $1 + 3 = 24$ and $1 + 2 = 5$ **then** $5 \times 5 = 25$ **or** $6^2 = 36$
+2. **If** ($1 + 3 = 24$ **and** $1 + 2 = 5$) **then** ($5 \times 5 = 25$ **or** $6^2 = 36$)
 
->[!Rounding-Up]
+>[!tldr] Rounding up
 > 1. **Propositions** are statements that are only either **true** or **false**, and never both at the same time.
-> 2. We can create even bigger formulae by connecting other propositions using either **and**, **or**, **if, then**, and **not**.
+> 2. We can create even bigger formulae by connecting propositions using **and**, **or**, **if/then**, and **not**.
 
-The next thing to ask is **how do we determine the truth values of the bigger propositions?** This is a key step in eliminating vagueness from our language: the wider math and CS community has agreed on these meanings and this behavior.
+The next thing to ask is **how do we determine the truth values of the bigger propositions?** This is a key step in eliminating vagueness from our language; the wider math and CS community has agreed on these meanings and their behaviours.
+
 ## Logical symbols
-One more thing before we proceed, in line with understanding conventions, let $p,q$ be propositions (substitute them with anything you like), we write the following:
 
-| logical connective | respective symbol |
-| :----------------: | :---------------: |
-|    $p$ and $q$     |    $p \land q$    |
-|     $p$ or $q$     |    $p \lor q$     |
-|  if $p$ then $q$   |     $p \to q$     |
-|      not $p$       |     $\neg p$      |
+One more thing before we proceed: in line with understanding conventions, let $p,q$ be propositions (substitute them with anything you like). We write the following:
 
+| Logical connective |            Symbol             |
+| :----------------: | :---------------------------: |
+|    $p$ and $q$     | $\textcolor{blue}{p \land q}$ |
+|     $p$ or $q$     | $\textcolor{green}{p \lor q}$ |
+|  If $p$ then $q$   |  $\textcolor{red}{p \to q}$   |
+|      Not $p$       |  $\textcolor{teal}{\neg p}$   |
 ## Behaviour of logical connectives
-Let's define the behaviours of the operations now.
 
-|  $p$  |  $q$  | $p \land q$ | $p \lor q$ | $\neg p$ | $p \to q$ |
-| :---: | :---: | :---------: | :--------: | :------: | :-------: |
-| true  | true  |    true     |    true    |  false   |   true    |
-| true  | false |    false    |    true    |  false   |   false   |
-| false | true  |    false    |    true    |   true   |   true    |
-| false | false |    false    |   false    |   true   |   true    |
+Let's define the behaviour of the operations now.
 
-Okay that table might be a little overwhelming, but it's a good summary of what you need to understand in this section. Let's get into it.
+|   $p$   |   $q$   | $\textcolor{blue}{p \land q}$ | $\textcolor{green}{p \lor q}$ | $\textcolor{teal}{\neg p}$ | $\textcolor{red}{p \to q}$ |
+| :-----: | :-----: | :---------------------------: | :---------------------------: | :------------------------: | :------------------------: |
+| $true$  | $true$  |   $\textcolor{blue}{true}$    |   $\textcolor{green}{true}$   | $\textcolor{teal}{false}$  |  $\textcolor{red}{true}$   |
+| $true$  | $false$ |   $\textcolor{blue}{false}$   |   $\textcolor{green}{true}$   | $\textcolor{teal}{false}$  |  $\textcolor{red}{false}$  |
+| $false$ | $true$  |   $\textcolor{blue}{false}$   |   $\textcolor{green}{true}$   |  $\textcolor{teal}{true}$  |  $\textcolor{red}{true}$   |
+| $false$ | $false$ |   $\textcolor{blue}{false}$   |  $\textcolor{green}{false}$   |  $\textcolor{teal}{true}$  |  $\textcolor{red}{true}$   |
 
-### The And Connective
-Let's focus on the **and** operation, here's the table containing only those relevant columns.
+Okay, that table might be a little overwhelming, but it's a good summary of what you need to understand in this section. Let's get into it.
 
-|  $p$  |  $q$  | $p \land q$ |
-| :---: | :---: | :---------: |
-| true  | true  |    true     |
-| true  | false |    false    |
-| false | true  |    false    |
-| false | false |    false    |
+### The And-Connective
+
+Let's focus on the **and** operation. Here's the table containing only those relevant columns.
+
+|   $p$   |   $q$   | $\textcolor{blue}{p \land q}$ |
+| :-----: | :-----: | :---------------------------: |
+| $true$  | $true$  |   $\textcolor{blue}{true}$    |
+| $true$  | $false$ |   $\textcolor{blue}{false}$   |
+| $false$ | $true$  |   $\textcolor{blue}{false}$   |
+| $false$ | $false$ |   $\textcolor{blue}{false}$   |
 
 So what's going on here? If we have two propositions $p, q$, then $p \land q$ is true only when both of them are true. Otherwise, if at least one of them is false, then $p \land q$ is false. This might be the most intuitive one.
 
+### The Not-Connective
 
-### The Not Connective
 Moving on, let's talk about the **not** operation.
 
-|  $p$  | $\neg p$ |
-| :---: | :------: |
-| true  |  false   |
-| false |   true   |
+|   $p$   | $\textcolor{teal}{\neg p}$ |
+| :-----: | :------------------------: |
+| $true$  | $\textcolor{teal}{false}$  |
+| $false$ |  $\textcolor{teal}{true}$  |
 
-So this one might be a little intuitive too, when a proposition is true, applying the **not** operation makes it false, and vice versa.
+So this one might be a little intuitive too. When a proposition is true, applying the **not** operation makes it false, and vice versa.
 
+### The Or-Connective
 
-### The Or Connective
-Let's move on to something slightly more unintuitive, the **or** operation.
+Let's move on to something slightly more unintuitive—the **or** operation.
 
-|  $p$  |  $q$  | $p \lor q$ |
-| :---: | :---: | :--------: |
-| true  | true  |    true    |
-| true  | false |    true    |
-| false | true  |    true    |
-| false | false |   false    |
+|   $p$   |   $q$   | $\textcolor{green}{p \lor q}$ |
+| :-----: | :-----: | :---------------------------: |
+| $true$  | $true$  |   $\textcolor{green}{true}$   |
+| $true$  | $false$ |   $\textcolor{green}{true}$   |
+| $false$ | $true$  |   $\textcolor{green}{true}$   |
+| $false$ | $false$ |  $\textcolor{green}{false}$   |
 
+Let's get the obvious stuff out of the way. When $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p,q$ are true? By convention we have chosen to say that $p \lor q$ is also true.
 
-Let's get the obvious stuff out of the way, when $p$ and $q$ are both false, $p \lor q$ has to be false. And when at least one of $p, q$ is true, then $p \lor q$ is true. But what about when **both** $p,q$ are true? By convention we have chosen to say that $p \lor q$ is also true. It might seem slightly unintuitive, in English it is common we think $p$ or $q$ means that only one of $p$ or $q$ is true but not both. But in mathematics, this is the more wieldy definition.
+This might seem slightly unintuitive, since in English it is common to think that "$p$ or $q$" means that only one of $p$ or $q$ is true but not both. However in mathematics, this is the more wieldy definition.
 
+### The Implication-Connective
 
-### The Implication Connective
-Lastly, the most unintuitive of the bunch. Let's spend some time on this one:
+Lastly, the most unintuitive of the bunch—the **if/then** operation. Let's spend some time on this one:
 
-|  $p$  |  $q$  | $p \to q$ |
-| :---: | :---: | :-------: |
-| true  | true  |   true    |
-| true  | false |   false   |
-| false | true  |   true    |
-| false | false |   true    |
+|   $p$   |   $q$   | $\textcolor{red}{p \to q}$ |
+| :-----: | :-----: | :------------------------: |
+| $true$  | $true$  |  $\textcolor{red}{true}$   |
+| $true$  | $false$ |  $\textcolor{red}{false}$  |
+| $false$ | $true$  |  $\textcolor{red}{true}$   |
+| $false$ | $false$ |  $\textcolor{red}{true}$   |
 
 Let's use this statement as an analogy:
 
-> **If** "Sam is a cat", **then** "Sam has paws".
+> **If** *Sam is a cat*, **then** *Sam has paws*.
 
-When is the statement true? What is the statement false?
+When is the statement true? When is the statement false?
+
+Here's the intuition in English: the statement is a commitment—a promise that as long as Sam is a cat, then in return we know Sam must have paws. Therefore, the moment we find out it is otherwise, the statement is false.
 
 Notice that if Sam is indeed a cat, but Sam does not have paws, then the entire statement is false. Think of this as a promise that has been broken.
 
-Here's the intuition in English: The statement is a commitment. A promise that as long as Sam is a cat, then in return we know Sam must have paws. So the moment we find out it is otherwise, the statement is false.
+Okay, so far we've been considering when Sam is a cat. But what about if Sam is not even a cat? Do we care if Sam has paws? Should we expect the promise to be broken? No! It is not applicable anymore, so in this case we consider the statement to be true regardless.
 
-Okay, so far we've been considering when Sam is a cat. But what about if Sam is not a cat? Do we care if Sam has paws? Should we expect the promise to hold? No. It is not applicable anymore, so in this case we consider the statement to be true regardless.
+So let's move back to the bigger picture: given a statement $p \to q$, here are the important things to note:
 
-So let's move back to the bigger picture, given a statement $p \to q$, here are the important things to note:
-
-1. We call $p$ the antecedent.
-2. We call $q$ the consequent.
+1. We call $p$ the *antecedent*.
+2. We call $q$ the *consequent*.
 3. When the antecedent (which is $p$ here) is true, then $q$ must be true.
-4. When the antecedent (which is $p$ here) is false, then it does not matter what $q$ is, $p \to q$ is always true.
+4. When the antecedent (which is $p$ here) is false, then it does not matter what $q$ is — $p \to q$ is always true.
 
-You might wonder at this point "why is it defined this way?" and you will see the answer when we start doing mathematical proofs with them. The answer is like an onion, there's many layers to it:
+You might wonder at this point "Why is it defined this way?" You will see the answer when we start doing mathematical proofs with them. The answer is like an onion, there's many layers to it:
 
 1. At a beginner level, the answer is that "It is actually quite intuitive to think of it that way."
 2. At an intermediate level, the answer is that "A lot of the proofs line up and things work out."
-3. At an even higher level, there's nothing too special about the "if, then" connective... but it does work out nicely for what we want it to do.
+3. At an even higher level, "There's nothing too special about the "if/then" connective... But it does work out nicely for what we want it to do."
 
 Here's yet another example of how to use $\to$:
 
@@ -286,18 +295,22 @@ $$
 
 Which reads:
 
-> If $x$ is $1$, then $x^2$ is  $1$.
+> If $x$ is $1$, then $x^2$ is $1$.
 
-What happens if $x$ is not $1$? Then can we say $x^2$ is not $1$? We can't! After all, consider when $x = -1$. Then $x = 1$ is $false$, but $x^2 = 1$ is still true.
+What happens if $x$ is not $1$? Then can we say $x^2$ is not $1$? We can't! After all, consider when $x = -1$. Then $x = 1$ is false, but $x^2 = 1$ is still true.
 
-Anyway! Don't worry too much about it, my recommended way of viewing it right now is just that these are very common logical operations we wish to perform, and therefore we have chosen to give these a name.
+Anyway, don't worry too much about it for now. My recommended way of viewing it right now is just that these are very common logical operations we wish to perform, and therefore we have chosen to give them names.
 
 ## Evaluating formulae
-So given a formula, for example, $(p \to q) \land (q \to s)$, a **truth value assignment** to this formula is when we set each proposition (which we can also call a variable) to either true or false. Here's an example, $p \equiv true, q \equiv false, s \equiv true$ means that: $(p \to q)$ is now $false$ because of the values of $p, q$. Furthermore, $(q \to s)$ is now $true$ because of the values of $q, s$. Now, the entire formula is basically $false \land true$, which is, as we know, $false$.
 
-In plainer terms: we are just substituting variables for truth values then seeing what the resulting truth value is. Maybe in high school you might have seen something like $y = x + 5$, and if you substitute $x = 10$ then we know $y = 15$.
+Given a formula (e.g., $(p \to q) \land (q \to s)$), a **truth value assignment** to this formula is when we set each proposition (which we can also call a variable) to either true or false.
 
-## Truth tables, logical equivalences
+As an example, setting $p \equiv true, q \equiv false, s \equiv true$ means that $(p \to q)$ is now $false$ because of the values of $p, q$. (You may refer to the truth table [[#The Implication Connective|here]].) Furthermore, $(q \to s)$ is now $true$ because of the values of $q, s$. Now, the entire formula is basically $false \land true$, which is, as we know, $false$.
+
+In plainer terms, we are simply substituting variables for truth values then seeing what the resulting truth value is. Maybe in high school you might have seen something like $y = x + 5$, and if you substitute $\textcolor{blue}{x = 10}$ then we know $y = \textcolor{blue}{10} + 5 = 15$.
+
+## Truth tables and logical equivalences
+
 At this point it might be a good thing to talk about when two formulae are the same. Let's consider these two as an example:
 
 1. $\neg ( p \lor q )$
@@ -305,27 +318,27 @@ At this point it might be a good thing to talk about when two formulae are the s
 
 Are these two the same? Perhaps we could work intuitively first and see what it means. When is the first formula true? When is it false? One way to figure that out is work it out by hand, and using something called a **truth table**.
 
-|  $p$  |  $q$  | $p \lor q$ | $\neg ( p \lor q )$ |
-| :---: | :---: | :--------: | :-----------------: |
-| true  | true  |    true    |        false        |
-| true  | false |    true    |        false        |
-| false | true  |    true    |        false        |
-| false | false |   false    |        true         |
+|   $p$   |   $q$   | $p \lor q$ | $\neg ( p \lor q )$ |
+| :-----: | :-----: | :--------: | :-----------------: |
+| $true$  | $true$  |   $true$   |       $false$       |
+| $true$  | $false$ |   $true$   |       $false$       |
+| $false$ | $true$  |   $true$   |       $false$       |
+| $false$ | $false$ |  $false$   |       $true$        |
 
-In the table, we write out all possible truth value assignments (we have $p, q$ so there are 4 possible truth value assignments) and work out each intermediate step. The last column is the last one we care about. And here notice that the third column depends on the first two, and the final column depends only on the third column.
+In the table, we write out all possible truth value assignments (we have two variables and hence four possible truth value assignments) and work out each intermediate step. The last column is the one we care about. Also, notice that the third column depends on the first two, and the final column depends only on the third column.
 
 Let's do the same for the second formula:
 
-|  $p$  |  $q$  | $\neg p$ | $\neg q$ | $\neg p \land \neg q$ |
-| :---: | :---: | :------: | :------: | :-------------------: |
-| true  | true  |  false   |  false   |         false         |
-| true  | false |  false   |   true   |         false         |
-| false | true  |   true   |  false   |         false         |
-| false | false |   true   |   true   |         true          |
+|   $p$   |   $q$   | $\neg p$ | $\neg q$ | $\neg p \land \neg q$ |
+| :-----: | :-----: | :------: | :------: | :-------------------: |
+| $true$  | $true$  | $false$  | $false$  |        $false$        |
+| $true$  | $false$ | $false$  |  $true$  |        $false$        |
+| $false$ | $true$  |  $true$  | $false$  |        $false$        |
+| $false$ | $false$ |  $true$  |  $true$  |        $true$         |
 
-This time, the third column depends on the first. The fourth column depends on the second, and the final column depends on the third and fourth.
+This time, the third column depends on the first, the fourth column depends on the second, and the final column depends on the third and fourth.
 
-Oh look! The final column is the same. This means the two formulae are **logically equivalent**. The other way of seeing this, is that no matter how we set $p, q$ in the first formula, if we also set $p, q$ the same way in the second formula, it evaluates to the same truth value.
+Oh look! The final columns are the same. This means the two formulae are **logically equivalent**. The other way of seeing this, is that no matter how we set $p$ and $q$ in the first formula, if we also set $p$ and $q$ the same way in the second formula, they evaluate to the same truth value.
 
 Consider instead these 2 examples:
 1. $p \to q$
@@ -333,46 +346,52 @@ Consider instead these 2 examples:
 
 Are these equivalent? Let's try making another truth table:
 
-|  $p$  |  $q$  | $p \to q$ | $q \to p$ |
-| :---: | :---: | :-------: | :-------: |
-| true  | true  |   true    |   true    |
-| true  | false |   false   |   true    |
-| false | true  |   true    |   false   |
-| false | false |   true    |   true    |
+|   $p$   |   $q$   | $p \to q$ | $q \to p$ |
+| :-----: | :-----: | :-------: | :-------: |
+| $true$  | $true$  |  $true$   |  $true$   |
+| $true$  | $false$ |  $false$  |  $true$   |
+| $false$ | $true$  |  $true$   |  $false$  |
+| $false$ | $false$ |  $true$   |  $true$   |
 
-Notice how when $p$ is set to true, and $q$ is set to false, $p \to q$ is false, but $q \to p$ is true. So these two formulae are not **logically equivalent**.
+Notice how when $p$ is set to $true$ and $q$ is set to $false$, $p \to q$ is $false$, but $q \to p$ is $true$. This means that these two formulae are ***not* logically equivalent**.
 
 > Is there a different way for us to tell if two formulae are equivalent or not?
 
-Yes, there are a few ways, but for now this is the most reliable way. To be clear: If for all possible truth value assignments, the two formulae always evaluate to the same value, they are logically equivalent, otherwise, they are not.
+Yes, there are a few ways, but for now this is the most reliable way.
 
->[!Rounding-Up]
+>[!info] Definition: Logical Equivalence
+>Two propositional formulae are considered **logically equivalent** if they evaluate to the same values *for all truth value assignments* of their variables.
+>
+>If one or more of the assignments result in different values, they are **not logically equivalent**.
+
+>[!tldr] Rounding up
 > 1. We can evaluate the truth value of formulae.
 > 2. We can create truth tables from formulae.
-> 3. We can compare to see if two formulae are **logically equivalent**.
+> 3. We can compare to see if two formulae are logically equivalent.
 
+> [!question] What's the point of all this?
+> In due time, you'll see that this is one of the few tools we have to understand and navigate this new language. It is a little hard to see the forest for the trees right now. But trust that understanding this and getting used to it is builds a strong foundation for everything we will be doing throughout the semester.
 
-> [!What is the point of all this?]
-> In due time you'll see that this is one of the few tools we have to understand and navigate this new language. It is a little hard to see the forest for the trees right now. But trust that understanding this and getting used to it is builds a strong foundation for everything we will be doing throughout the semester.
+## Keeping sight of the goal: A sneak peek into how we might use this
 
-## A sneak peek into how we might use this: Keeping sight of the goal
-We have not gone into yet but here's a rough idea of how we might expect to use this tool.
+We have not gone into yet but here's a rough idea of how we might expect to use this tool:
 
 1. If Socrates is a human, then Socrates is mortal.
 2. Socrates is a human.
 3. Therefore, Socrates is mortal.
 
-Think of this as a **proof** that Socrates is mortal. It consists of a few parts that we have not yet covered, and will see at the end of this unit. But for now, what you can understand is that each line is made of propositions. The propositions here are "Socrates is a human", "Socrates is mortal". Then re-writing this, we can think "Socrates is a human" as $p$, and "Socrates is mortal" as $q$.
+Think of this as a **proof** that Socrates is mortal. It consists of a few parts that we have not yet covered, and will see at the end of this unit. But for now, what you can understand is that each line is made of propositions. The propositions here are "*Socrates is a human*", "*Socrates is mortal*". Re-writing this, we can think of "*Socrates is a human*" as $p$, and "*Socrates is mortal*" as $q$.
 
-Then instead the above **proof** looks like:
+Now, the above **proof** looks like:
 
 1. $p \to q$
 2. $p$
 3. Therefore, $q$.
 
-For now we have not talked about how to take lines 1 and 2 and create the conclusion on line 3. But the first step is being able to build up the sentences. Perhaps one thing we can take away right now is the following: "If $p$ is true then $q$ is true. $p$ is true, therefore $q$ is true.".
+For now we have not talked about how to take lines 1 and 2 and create the conclusion on line 3., but the first step is being able to build up the sentences. Perhaps one thing we can take away right now is the following: "Suppose that if $p$ is true, then $q$ is true. $p$ is true, therefore $q$ is true."
 
-Let's move onto part 2 where we want slightly more sophisticated sentences.
+Let's move onto Part 2 where we create slightly more sophisticated sentences.
+
 # Part 2: First-Order Logic
 
 Let's compare the two following proofs:
