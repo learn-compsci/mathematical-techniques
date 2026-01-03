@@ -400,10 +400,11 @@ Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly m
 >1. What tool can you use to determine if these two formulae are logically equivalent?
 >2. Determine if the two formulae are logically equivalent.
 
+
 >[!success]- Solution
->3. Use a truth table!
+>1. Use a truth table!
 >
->4. First, we draw the truth table for $\neg (p \to q)$.
+>2. First, we draw the truth table for $\neg (p \to q)$.
 > > |   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ |
 | :-----: | :-----: | :-------: | :-------: |
 | $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
