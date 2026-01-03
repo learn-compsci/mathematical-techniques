@@ -2,8 +2,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-
-* **Official due date for submission** : 15-Apr-2025, 23:59 **or** during tutorial itself.
+* **Official due date for submission**: 14 Apr 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -17,17 +16,18 @@
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 8]] and Unit 9. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 8]] and [[Unit 9]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 2 are related to basic probability.
-2. Questions 3 through 4 are related to distributions and bounds.
+1. Questions 1 and 2 are related to basic probability.
+2. Questions 3 and 4 are related to distributions and bounds.
 
-After week 11's content, you should be able to attempt questions 1 through 2. Question 1 is graded for participation.
+After Week 11's content, you should be able to attempt questions 1 and 2. After Week 12's content, you should be able to attempt questions 3 and 4.
 
-After week 12's content, you should be able to attempt questions 3 through 4. Question 3 is graded for participation.
+**Questions 1 and 3** are graded for participation.
 
-That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
+That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
+---
 # Question 1
 
 Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_1$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:

@@ -19,7 +19,6 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 * No late submissions for the assignment allowed.
 
 ---
-
 # Question 1  \[6 marks]
 
 Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}[x = 2k] \}$.

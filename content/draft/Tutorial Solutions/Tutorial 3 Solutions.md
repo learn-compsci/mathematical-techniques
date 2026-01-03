@@ -3,9 +3,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-
-* **Official due date for submission** : 18-Mar-2025, 23:59 **or** during tutorial itself.
-
+* **Official due date for submission**: 17 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -19,17 +17,16 @@
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and Unit 5. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
-
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and [[Unit 5]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
 1. Questions 1 through 5 are related to induction and recurrences. 
 2. Questions 6 through 8 are related to asymptotic notation.
 
-After week 7's content, you should be able to attempt questions 1 through 5. After week 8's content, you should be able to attempt questions 6 through 8.
+After Week 7's content, you should be able to attempt questions 1 through 5. After Week 8's content, you should be able to attempt questions 6 through 8.
 
-Questions 1, 3, 6, are graded for participation.
+**Questions 1, 3 and 6** are graded for participation.
 
-That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
+That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
 # Question 1 \[Graded for Participation]

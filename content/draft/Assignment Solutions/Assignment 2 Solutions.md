@@ -1,14 +1,13 @@
 
-This is the second of two assignments and is worth 15% of the total grade. The assignment is due **Sunday 6th April 2025, 2359**. Submit your solutions digitally on Canvas, a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 5 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
 
-
 # How to submit:
-- Submit online on Canvas. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
-* **Official due date for submission** : **Sunday 6th April 2025, 2359**
+- Submit online on Canvas. There will be a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
+* **Official due date for submission**: **5 Apr 2026, 11:59 PM**
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -19,9 +18,7 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 # Late Policy:
 * No late submissions for the assignment allowed.
 
-
 ---
-
 # Question 1  \[6 marks]
 
 Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}\ [x = 2k] \}$.
