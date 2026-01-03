@@ -5,7 +5,7 @@ title: "Unit 1: Propositions, Predicates, First-Order Logic, Proofs"
 This unit introduces the notion of proofs, propositional and first-order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 4 sub-parts:
 0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first order-logic and proofs]]
 1. [[#Part 1 Propositional logic|Propositional logic]]
-	- Checkpoint #1
+	- [[#Checkpoint 1]]
 2. [[#Part 2 First Order Logic|First-order logic]]
 3. [[#Part 3 Proofs in First Order Logic|Proof techniques (and patterns)]]
 
@@ -125,7 +125,7 @@ But to sum up:
 Just remind yourself, big picture: **we want to do proofs**.
 
 ---
-# Part 1: Propositional logic
+# Part 1: Propositional Logic
 
 ## Basic Propositions
 
@@ -390,8 +390,38 @@ Now, the above **proof** looks like:
 
 For now we have not talked about how to take lines 1 and 2 and create the conclusion on line 3., but the first step is being able to build up the sentences. Perhaps one thing we can take away right now is the following: "Suppose that if $p$ is true, then $q$ is true. $p$ is true, therefore $q$ is true."
 
-Let's move onto Part 2 where we create slightly more sophisticated sentences.
+Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly more sophisticated sentences.
 
+### Checkpoint #1
+
+>[!question] Checkpoint #1
+>Consider the formulae $\neg (p \to q)$ and $p \land \neg q$.
+>
+>1. What tool can you use to determine if these two formulae are logically equivalent?
+>2. Determine if the two formulae are logically equivalent.
+
+>[!success]- Solution
+>3. Use a truth table!
+>
+>4. First, we draw the truth table for $\neg (p \to q)$.
+> > |   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ |
+| :-----: | :-----: | :-------: | :-------: |
+| $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
+| $true$  | $false$ |  $false$  |  $\textcolor{red}{true}$   |
+| $false$ | $true$  |  $true$   |  $\textcolor{red}{false}$  |
+| $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+>
+> > Next, we draw the truth table for $p \land \neg q$.
+> > > |   $p$   |   $q$   | $\neg q$ | $\textcolor{red}{p \land \neg q}$ |
+| :-----: | :-----: | :-------: | :-------: |
+| $true$  | $true$  |  $false$   |  $\textcolor{red}{false}$   |
+| $true$  | $false$ |  $true$  |  $\textcolor{red}{true}$   |
+| $false$ | $true$  |  $false$   |  $\textcolor{red}{false}$  |
+| $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+>
+> > Looking at the rightmost columns of the two truth tables, we see that the corresponding rows have the same values. Hence, $\neg (p \to q)$ and $p \land \neg q$ are **logically equivalent**.
+
+---
 # Part 2: First-Order Logic
 
 Let's compare the two following proofs:
@@ -406,32 +436,37 @@ Proof 2:
 2. Socrates is a human.
 3. Therefore, Socrates is mortal.
 
-The two proofs seem to have the same idea, they want to conclude that Socrates is mortal. Yet, the way that they do it is very different. Based on part 1, we can clearly mark out what the propositions are. If we tried to do the same with Proof 2, we would instead get the following: "All humans are mortal" is a proposition, "Socrates is a human" is a proposition, and "Socrates is mortal" is a proposition.
+The two proofs seem to have the same idea in that they conclude that Socrates is mortal. Yet, the way that they do so is very different. Based on [[#Part 1 Propositional logic|Part 1]], we can clearly mark out what the propositions are. If we tried to do the same with Proof 2, we would instead get the following propositions: "*All humans are mortal*", "*Socrates is a human*" and "*Socrates is mortal*".
 
 So we would end up seeing this:
 1. $p$
 2. $q$
 3. Therefore $r$.
 
-At this level, the 3 lines of proof 2 look unrelated to each other. And that seems to be an issue. After all, we would be very happy to accept something like Proof 2. It does look quite reasonable. So what are we missing? Remember that when talking about [[#Basic Propositions |basic propositions]], we said that propositions were like "atoms", indivisible and we were not allowed to pick apart the internals or the meanings of it. The other thing that will be useful will be to say "everything" or "something". So to do this, we have 2 new concepts to introduce to our "sentences": Predicates, and Quantifiers.
+At this level, the three lines of Proof 2 look unrelated to each other, and that seems to be an issue. After all, we would be very happy to accept something like Proof 2. It does look quite reasonable. So what are we missing? Remember that when talking about [[#Basic Propositions |basic propositions]], we said that propositions were like atoms—they are indivisible, and we were not allowed to pick apart its internals. The other thing that would be useful is to able to say "everything" or "something". To do this, we have two new concepts to introduce to our "sentences": *predicates* and *quantifiers*.
 
 ## Predicates
-The first thing to do, is to create a new kind of "word" in our sentences, called predicates. In proof 2, we want to create a predicate called $human(x)$. You can think of $human$ like a function that takes objects, and outputs either true or false. So based on this, instead of saying "Socrates is a human.", we will instead say "$human(Socrates)$ is true". Here, $Socrates$ is an object, and the predicate $human()$ evaluates to true when given $Socrates$ as input. Perhaps $Car$ is another kind of object, and $human(Car)$ evaluates to false.
 
-Very similarly, instead of "Socrates is mortal", we will instead write $mortal(Socrates)$.
+The first thing to do is to create a new kind of "word" in our sentences, called **predicates**. In Proof 2, we want to create a predicate called $human(x)$. You can think of $human$ like a function that takes objects, and outputs either $true$ or $false$. So based on this, instead of saying "$\text{Socrates}$ is a human", we will instead say "$human(\text{Socrates})$ is true". Here, $\text{Socrates}$ is an object, and the predicate $human$ evaluates to true when given $\text{Socrates}$ as input. Perhaps $\text{Car}$ is another kind of object, and $human(\text{Car})$ evaluates to $false$.
 
-With that, we have changed lines 2, and 3 of Proof 2. But what about line 1?
+Very similarly, instead of "*Socrates is mortal*", we will instead write $mortal(\text{Socrates})$.
+
+With that, we have changed lines 2 and 3 of Proof 2. But what about line 1?
 
 ## Quantifiers
-The second thing to do, is to introduce quantifiers. We want to be able to say "every human is mortal". In order to do so, we will write the following:
+
+The second thing to do is to introduce **quantifiers**.
+### Universal Quantifier ($\forall$)
+
+We want to be able to say "Every human is mortal." In order to do so, we will write the following:
 
 $$
-\forall x \in Human \ [mortal(x)]
+\forall x \in Humans \ \big[mortal(x)\big]
 $$
 
-Okay, maybe a little intimidating. How do we read this? Let's begin with "$\forall x \in Human$". $x \in Human$ is mathematical notation that means "$x$ is in the set of humans". Think of a **set** here as just a collection of objects. Here we are _basically_ saying that $x$ is a human. The $\forall$ symbol means "every". So putting it together, the first part is essentially saying "Every human".
+Okay, that's perhaps a little intimidating. How do we read this? Let's begin with "$\forall x \in Humans$". $x \in Humans$ is mathematical notation that means "$x$ is in the set of humans". Think of a **set** here as just a collection of objects. Here we are _basically_ saying that $x$ is a human. The $\forall$ symbol means "every". Putting it together, the first part says "every human".
 
-The second part is probably a little more readable: "$x$ is mortal.". So putting that together, we have:
+The second part is probably a little more readable: "$x$ is mortal". So putting that together, we have:
 
 $$
 \text{For every possible human that we will call $x$, $x$ is mortal.}
@@ -442,17 +477,19 @@ This is what we call the **universal quantifier**. Think of this as a quantifier
 To elaborate a little bit more, let's for now pretend that all the only two humans in the world were John and Sam. Then we would write the following:
 
 $$
-Human = \{John, Sam\}
+Humans = \{John, Sam\}
 $$
 
-Then coming back to $\forall x \in Human \ [mortal(x)]$, since $x \in Human$ (in other words, $x$ comes from the set of humans), we have it so that $x$ will take value $John$, and then $x$ will also take value $Sam$. So $mortal(John)$ is true, and $mortal(Sam)$ is also true.
+Coming back to $\forall x \in Humans \ \big[mortal(x)\big]$, since $x \in Humans$ (in other words, $x$ comes from the set of humans), we can let $x$ take the values of $John$ and $Sam$. Therefore, $mortal(John)$ is true, and $mortal(Sam)$ is also true.
+
+### Existential Quantifier ($\exists$)
 
 There is another quantifier we have not mentioned, the **existential quantifier**. What if we instead wanted to say "some humans are mortal"? We write the following:
 
 $$
-\exists x \in Human \ [mortal(x)]
+\exists x \in Humans \ \big[mortal(x)\big]
 $$
-How do we read this? Now the $\exists x \in Human$ means "there exists is some human that we will call $x$". And the second part says that "$x$ is mortal.". In English:
+How do we read this? Now the $\exists x \in Humans$ means "there exists some human that we will call $x$". And the second part says that "$x$ is mortal". In English:
 
 $$
 \text{There exists a human that we will call $x$, and $x$ is mortal.}
@@ -460,16 +497,18 @@ $$
 
 Coming back to Proof 2, here is how we will write it:
 
-1. $\forall x \in Human \ [mortal(x)]$
-2. $Socrates \in Human$
-3. Therefore $mortal(Socrates)$
+1. $\forall x \in Humans \ \big[mortal(x)\big]$
+2. $Socrates \in Humans$
+3. Therefore, $mortal(Socrates)$.
 
-Again, we have not talked about how to tell this proof is valid (or even what is a proof), but the goal of this part is to make sure you are able to at least read back each line to yourself in English and be convinced of its meaning.
+Again, we have not talked about how to tell this proof is valid (or even what a proof is), but the goal of this part is to make sure you are able to at least read back each line to yourself in English and be convinced of its meaning.
 
 Here's a diagram that roughly explains the format:
+
 ![[basic-quantifier.png]]
 
 ### Another example: Expressing Even Numbers
+
 How should we say a number is even? In English we might say something like "A number is even if it is divisible by 2." What does it mean here to be "divisible by 2"? After all, we **can** divide $3$ by $2$, we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. We will also need to take our numbers from a set. For this, the symbol $\mathbb{Z}$ denotes the **set of all whole numbers (integers)**.
 
 In discrete math, we say say that $x$ is an even number if:
