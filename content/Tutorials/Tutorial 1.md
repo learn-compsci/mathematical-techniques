@@ -25,12 +25,13 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 2. Questions 4 through 6 are related to **first-order logic**. 
 3. Questions 7 and 8 are related to **proofs**. 
 
-After Week 2 and 3's content, you should be able to attempt questions 1 through 6. Questions 2 and 4 are graded for participation.
+After Week 2's content, you should be able to attempt questions 1 through 3. After Week 3's content, you should be able to attempt questions 4 through 6. After Week 4's content, you should be able to attempt questions 7 and 8.
 
-After Week 4's content, you should be able to attempt questions 7 and 8. Question 7 is graded for participation.
+**Questions 2, 4 and 7** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
+---
 # Question 1:
 
 >[!Purpose] 

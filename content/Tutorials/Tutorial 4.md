@@ -5,9 +5,7 @@ title: "Tutorial 4: Combinatorics and Graphs"
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-
-* **Official due date for submission** : 01-Apr-2025, 23:59 **or** during tutorial itself.
-
+* **Official due date for submission**: 31 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -21,18 +19,17 @@ title: "Tutorial 4: Combinatorics and Graphs"
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and Unit 7. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and [[Unit 7]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 2 are related to **combinatorics**. 
-2. Questions 3 through 6 are related to **graph theory**. 
-3. Question 8 is related to **pigeonhole principle**. 
+1. Questions 1 and 2 are related to combinatorics. 
+2. Questions 3 through 6 are related to graph theory. 
+3. Question 8 is related to the pigeonhole principle. 
 
-After week 9's content, you should be able to attempt questions 1 through 2. Questions 1 is graded for participation.
+After Week 9's content, you should be able to attempt questions 1 and 2. After Week 10's content, you should be able to attempt questions 2 through 7.
 
-After week 10's content, you should be able to attempt questions 2 through 7. Question 5 is graded for participation.
+**Questions 1 and 5** are graded for participation.
 
-That said, **we encourage you to try all the questions**, this way when you come for tutorial we can best make use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
-
+That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
 
