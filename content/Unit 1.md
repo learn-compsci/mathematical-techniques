@@ -729,7 +729,7 @@ This is part of a general phenomenon. Here are some other intuitively equivalent
 3. $p \lor q$ and $q \lor p$ are equivalent
 4. $p \to q$ and $\neg p \lor q$ are equivalent
 
-How do we tell? One way is to use the method used in the section: [[#Truth tables, logical equivalences]].
+How do we tell? One way is to use the method used in the section on [[#Truth tables, logical equivalences|truth tables and logical equivalences]].
 
 ### Checkpoint #2
 
@@ -778,80 +778,82 @@ Our plan of attack for **Part 3** is roughly the following:
 1. We will look at informal proofs in English with a hint of math.
 2. We will talk about proofs and how they correspond to the statements they prove.
 3. We will talk about **what rules we use in math in our proofs**.
-4. We will end on looking at bigger, and bigger proofs.
+4. We will end on looking at bigger and more complicated proofs.
 
 As for point 3, it will be a bit overwhelming, but my reasoning is that I would like the page to also be a reference that you can come back to, to look at all the rules that are allowed. Over the semester we will try to get you more and more accustomed to the rules by doing proofs.
 
 Going into this part, it's helpful to take into the mindset that we are trying to understand a systematic way to form arguments. And to do this, the broad idea is that we start with our assumptions, and we make step-by-step logical deductions.
+
 ## First example of a proof:
+
 Let's re-visit the example we had just now:
 
-1. $\forall x \in Human \ [mortal(x)]$ \[Premise 1]
-2. $Socrates \in Human$  \[Premise 2]
-3. Therefore $mortal(Socrates)$  \[Conclusion]
+1. $\forall x \in Humans \ [mortal(x)]$ \[Premise 1]
+2. $Socrates \in Humans$ \[Premise 2]
+3. Therefore, $mortal(Socrates)$. \[Conclusion]
 
-I understand it takes a little getting used to reading symbols, but the more you do it, the sooner you get used to it. The first feature of a proof are what we call the **premises**. In the above proof, lines $1$ and $2$ are **premises**. Think of **premises** as statements that we _assume to be true_. After all, we do believe every human is mortal, and we do believe the Socrates was a human.
+I understand it takes a little getting used to reading symbols, but the more you do it, the sooner you get used to it. The first feature of a proof are what we call the **premises**. In the above proof, lines 1 and 2 are **premises**. Think of **premises** as statements that we _assume to be true_. After all, we do believe every human is mortal, and we do believe the Socrates was a human.
 
-What about line $3$? Line $3$ is the **conclusion** of the proof. This is the final statement that we wish to conclude. To be clear, **we are not assuming that Socrates is mortal, we want to be able to conclude it**. To do so, we must **deduce** line $3$ using lines $1$ and $2$. 
+What about line 3? Line 3 is the **conclusion** of the proof. This is the final statement that we wish to conclude. To be clear, **we are not assuming that Socrates is mortal, we want to be able to conclude it**. To do so, we must **deduce** line 3 using lines 1 and 2. 
 
 In order to do so, we will use rules of deductions. We will exhaustively list them out later. But for this current introductory example, we are using a rule called **universal modus ponens**.
 
 It's a very fancy name, but what it means is that if you see any line that looks like:
 
 $$
-\forall x \in C \ [Q(x)]
+\forall x \in S \ [P(x)]
 $$
 
-where $C$ is some set, like $\mathbb{Z}$. And $Q(x)$ is any statement about $x$, like $mortal(x)$,
+where $S$ is some set, like $\mathbb{Z}$, and $P(x)$ is any statement about $x$, like $mortal(x)$,
 
 and you **also** see a line like:
 
 $$
-c \in C
+s \in S
 $$
 
 like when we said $Socrates \in Human$,
 
-then the rule modus ponens allows you to **deduce** that $Q(c)$ is true in your proof.
+then modus ponens allows you to **deduce** that $P(s)$ is true in your proof.
 
 Okay this is a little abstract, what does **universal modus ponens** mean in English? Let's take a step back and try to think about it. If we have a line that says:
 
 $$
-\forall x \in C \ [Q(x)]
+\forall x \in S \ [P(x)]
 $$
-we are essentially saying "For every possible object $x$ from set $C$, $Q(x)$ holds true." 
+we are essentially saying "For every possible object $x$ from set $S$, $P(x)$ holds true." 
 
 Furthermore, the line 
 
 $$
-c \in C
+s \in S
 $$
 
-is saying that $x$ is from set $C$.
+is saying that $s$ is from set $S$.
 
-So since we know $c$ comes from set $C$, we can happily conclude that "A-ha! $c$ satisfies predicate $Q(\cdot)$!".
+So since we know $s$ comes from set $S$, we can happily conclude that "A-ha! $s$ satisfies predicate $P(\cdot)$!".
 
 Notice here that the rule doesn't care about what we said about humanity or mortality. As long as it matches the pattern, it will be allowed. That means we can also write something like this:
 
-1. $Tabby \in Cat$
-2. $\forall x \in Cat \ [has\_paws(x)]$
-3. Therefore $has\_paws(Tabby)$.
+1. $Tabby \in Cats$
+2. $\forall x \in Cats \ \big[has\_paws(x) \big]$
+3. Therefore, $has\_paws(Tabby)$.
 
-The first line is saying that Tabby is a cat (or rather that Tabby is in the set of all Cats). The second line effectively is saying all cats have paws, and the last line is saying Tabby has paws.
+The first line is saying that Tabby is a cat (or rather that $Tabby$ is in the set of all $Cats$). The second line effectively is saying all cats have paws, and the last line is saying Tabby has paws.
 
 So let's re-cap a little at this point what has gone on. Lines 1 and 2 are **premises** (notice we didn't prove lines 1 and 2, we are assuming they are true on good faith). Line 3 is a **deduced line** using lines 1 and 2, and the deduction rule used **modus ponens**.
 
 Now, very importantly, **what have we done here**? We have written a proof that effectively has **proven the following statement**:
 
-> "Assuming that Tabby is a cat and assuming that all cats have paws, then we conclude that Tabby has paws"
+> "Assuming that Tabby is a cat and assuming that all cats have paws, then we conclude that Tabby has paws."
 
 Formally, we will write the **proven statement** in the following way:
 
 $$
-\bigg( Tabby \in Cat \land \big(\forall x \in Cat \ [has\_paws(x)]\big)\bigg) \to has\_paws(Tabby)
+\bigg( \big(Tabby \in Cats \big) \land \big(\forall x \in Cats \ [has\_paws(x)]\big)\bigg) \to has\_paws(Tabby)
 $$
 
-What is the above **proven statement**? The above statement says that if $Tabby \in Cat$ is true, and $\big(\forall x \in Cat \left(has\_paws(x) \right) \big)$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
+What is the above **proven statement**? The above statement says that if $Tabby \in Cats$ is true, and $\forall x \in Cats \ \big[has\_paws(x) \big]$ is true, then $has\_paws(Tabby)$ is true. See how this matches what we have in quotes? Take some time to appreciate the similarities between what we have in English, and what we have written out here in the formula.
 
 Okay, that was our first example. To do more involved things, we need to first look at some rules of inferences. In the later parts, we will show examples of proofs that we want to do. Focus on the following:
 
@@ -860,7 +862,8 @@ Okay, that was our first example. To do more involved things, we need to first l
 3. What is the conclusion
 
 ### Correspondence between proofs and statements
-Bear in mind that **very importantly, if we have given a proof that starts with premises $P_1, P_2, \ldots, P_n$, and we derive statement $C$ as our conclusion, then we have the following proven statement**.
+
+Bear in mind that **very importantly, if we have given a proof that starts with premises $P_1, P_2, \ldots, P_n$, and we derive statement $C$ (using the rules of deduction) as our conclusion, then we have the following proven statement**.
 
 > Assume $P_1 \land P_2 \land \ldots \land P_n$, then it follows that $C$.
 
@@ -868,19 +871,32 @@ We call proven statements as **theorems**.
 
 Look at the example again the two things: (1) the proof that Tabby has paws, and also (2) the proven statement that we obtained **due to the proof**. Look at how it corresponds.
 
->[!An-Aside]
-> Take some time to appreciate that what we are doing is actually making formal, rigorous arguments using **first order logic**.
+>[!info] An aside
+> Take some time to appreciate that what we are doing is actually making formal, rigorous arguments using **first-order logic**.
 > 
-> Why do we do this? The idea is that we want a systematic approach in telling us what is true and what is not. In some sense, in the future when we are concerned with whether our algorithms/programs are correct, whether we can apply our concurrency guarantees, whether our database schemas are doing what we want, we want something better than having an arbitrary human be the arbiter of truth.
+> Why do we do this? The idea is that we want a systematic approach to tell us what is true and what is not. In some sense, in the future when we are concerned with whether our algorithms/programs are correct, whether we can apply our concurrency guarantees, whether our database schemas are doing what we want, we want something better than having an arbitrary human be the arbiter of truth.
 > 
->  In other words, whether an algorithms works should not be based on gut feeling, or based on our subjective moods. Having an intuition and being convinced that something works is important, yes. But the tools that we are about to present to you are say that you may derive truth in a more objective manner.
+> In other words, whether an algorithm works should not be based on gut feeling or based on our subjective moods. Having an intuition and being convinced that something works is important, yes, but the tools that we are about to present to you help you to derive truth in a more objective manner.
+
 ## Allowable Rules of Deductions/Inferences
 
-In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. In general, the example proofs will be really tiny to try to use only that rule in isolation. (But sometimes that might not be possible.)
+In this section, we are going to list almost all of the allowable rules in proofs. We will show one or two proofs that try to demonstrate how each rule is used. In general, the example proofs will be really tiny to try to use only that rule in isolation (but sometimes that might not be possible).
 
 At the end of the unit we will show bigger proofs that use some of these rules in combination. 
 
-### Rule: Definition Unpacking
+>[!tldr] Contents: Permissible rules of deduction
+>1. [[#Rule 1 Definition unpacking|Rule 1: Definition unpacking]]
+>2. [[#Rule 2 Logical equivalence|Rule 2: Logical equivalence]]
+>3. [[#Rule 3 Basic algebra|Rule 3: Basic algebra]]
+>4. [[#Rule 4 Specialisation|Rule 4: Specialisation]]
+>5. [[#Rule 5 Conjunction|Rule 5: Conjunction]]
+>6. [[#Rule 6 Generalisation|Rule 6: Generalisation]]
+>7. [[#Rule 7 Proof by cases|Rule 7: Proof by cases]]
+>8. [[#Rule 8 Modus ponens|Rule 8: Modus ponens]]
+>9. [[#Rule 9 Modus tollens|Rule 9: Modus tollens]]
+
+### Rule 1: Definition unpacking
+
 Throughout discrete math, we like giving common and important concepts names. Again, a formal way of saying $x$ is even is to write:
 
 $$
@@ -893,15 +909,15 @@ Formally, we can say:
 
 It is hard to demonstrate this rule in isolation so we will see it being used later on in the subsequent rules.
 
-
->[!Definition-Unpacking-Rule]
-> Given a definition, e.g. $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$.
+>[!info] Definition: Definition unpacking rule
+> Given a definition, e.g., $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2\cdot k]$, and a line of the proof $even(y)$, we may derive the line on the other side of the $\equiv$, which is that $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$.
 > 
 > Similarly, if we are given the line $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$, we may derive the line $even(x)$.
 
 Throughout the course we will see more and more definitions (also in the tutorial). For now let us use this one for our remaining examples for this unit.
 
-### Rule: Logical Equivalences
+### Rule 2: Logical equivalence
+
 Remember that we talked about how to check if two statements are logically equivalent? This is a step that we will allow in our proofs! Here's an example:
 
 >[!Theorem]
@@ -913,7 +929,7 @@ Now this probably looks familiar, these was one of the examples we actually used
 > 1. Assume $\neg(p \lor q)$.
 > 2. $\neg p \land \neg q$ \[Logically equivalent to line 1]
 
-To be clear, we know that $\neg(p \lor q)$ and $\neg p \land \neg q$ are logically equivalent because before this, we verified it with a truth table. You can find it again in section [[#Truth tables, logical equivalences]].
+To be clear, we know that $\neg(p \lor q)$ and $\neg p \land \neg q$ are logically equivalent because before this, we verified it with a truth table. You can find it again in the section on [[#Truth tables, logical equivalences|truth tables and logical equivalences]].
 
 Here's another example, i.e. the opposite direction:
 
@@ -922,157 +938,169 @@ Here's another example, i.e. the opposite direction:
 
 How do you think you should prove this? Try writing it down by hand first if you wish. We have the solution here, you can click on it to reveal the answer.
 
->[!Solution]+
+>[!Solution]-
 > 1. Assume $\neg p \land \neg q$.
 > 2. $\neg p \land \neg q$ \[Logically equivalent to line 1]
 
 So to be clear, when can we use this rule? We can, if we have separately checked/verified their logical equivalence via a truth table.
 
->[!Logical Equivalence Rule]
+>[!info] Definition: Logical equivalence rule
 > Given a statement, we may derive a new statement from the previous if the new statement it is **logically equivalent**.
+> 
 > Note that we may verify if two statements are logically equivalent via truth tables. 
 
 In the tutorial sheet, we will cover some special equivalences that are very useful and handy.
 
-### Rule: Basic Algebra
+### Rule 3: Basic algebra
 
 Example usage:
+
 >[!Theorem]
 > Assuming $x + 5 = 12$, then $x = 7$.
 
 >[!Proof]
 > 1. Assume that $x + 5 = 12$.
-> 2. Then $x = 12 - 5$ \[By Basic Algebra from line $1$]
-> 3. Then $x = 7$ \[By Basic Algebra from line $2$]
+> 2. Then $x = 12 - 5$. \[By basic algebra from line 1]
+> 3. Then $x = 7$. \[By basic algebra from line 2]
 
-Here, line $1$ is our premise. Line $3$ is our conclusion. And the justifications are laid out in square brackets. Basic algebra is something we are happy for you to use (for free)! You can think of line $2$ as an intermediate step. It is neither a premise nor a conclusion, but we can write line $2$ because it is a derivation from line $1$. Similarly, line $3$ is derived from line $2$.
+Here, line 1 is our premise, line 3 is our conclusion, and the justifications are laid out in square brackets. Basic algebra is something we are happy for you to use (for free)! You can think of line 2 as an intermediate step. It is neither a premise nor a conclusion, but we can write line 2 because it is a derivation from line 1. Similarly, line 3 is derived from line 2.
 
-One other thing to take note of is the theorem statement vs the proof. The statement starts with "Assuming $x + 5 = 12$". This must be the very first line of our proof. Secondly, the proof ends with "then $x = 7$". This is the conclusion we must prove. So this must be the very last line of our proof. Every other intermediate line must be justified.
+One other thing to take note of is the theorem statement vs. the proof. The statement starts with "Assuming $x + 5 = 12$." This must be the very first line of our proof. Secondly, the proof ends with "Then $x = 7$." This is the conclusion we must prove, so this must be the very last line of our proof. Every other intermediate line must be justified.
 
 Don't worry too much about how much algebra you need to know. If you know how to add, multiply, divide, square root, exponentiate, and logarithms, that is all the algebra you need to know.
-### Rule: Specialisation
+
+### Rule 4: Specialisation
+
 Example usage:
+
 >[!Theorem]
 > Assume ($x < 10 \land x > 0$), then $x < 10$.
 
 >[!Proof]
 > 1. Assume that ($x < 10 \land x > 0$).
-> 2. Then $x < 10$. \[By Specialisation on line $1$]
+> 2. Then $x < 10$. \[By specialisation on line 1]
 
-Again, line $1$ is our premise, line $2$ is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line $1$. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$. Let's think about what it means. Intuitively, if you are convinced that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
+Again, line 1 is our premise, line 2 is our conclusion. How did we derive our conclusion? We used the rule of **specialisation** on line 1. What is specialisation? In English, it takes a statement like $p \land q$, and says that you are allowed to conclude $p$ (likewise, you may also conclude $q$). Let's think about what it means. Intuitively, if you are convinced that both $p$ and $q$ are both true. We should be able to say that $p$ is true.
 
->[!Specialisation-Rule]
+>[!info] Definition: Specialisation rule
 > Given statement $p \land q$, we are able to derive statement $p$.
+> 
 > Furthermore, given statement $p \land q$, we are able to derive statement $q$.
 
-### Rule: Conjunction
+### Rule 5: Conjunction
+
 Example usage:
+
 >[!Theorem]
-> Assuming $x = 5$ then $x < 10 \land x > 0$.
+> Assuming $x = 5$, then $x < 10 \land x > 0$.
 
 >[!Proof]
 > 1. Assume that $x = 5$.
-> 2. Then $x < 10$. \[Basic Algebra from line 1]
-> 3. Then $x > 0$. \[Basic Algebra from line 1]
-> 4. $x < 10 \land x > 0$ \[Conjunction on lines 2 and 3]
+> 2. Then $x < 10$. \[By basic algebra from line 1]
+> 3. Then $x > 0$. \[By basic algebra from line 1]
+> 4. $x < 10 \land x > 0$. \[By conjunction on lines 2 and 3]
 
-This time, the notice that lines 2, and 3 followed from line 1. Since we derived both of those statements, we know both of them to be true. Therefore we can say line 2 and line 3 are true. So, we can use the $\land$ connective on both lines.
+This time, the notice that lines 2 and 3 followed from line 1. Since we derived both of those statements, we know both of them to be true. Therefore we can say lines 2 and 3 are true. So, we can use the $\land$ connective on both lines.
 
->[!Conjunction-Rule]
-> Given statement $p$, and separately $q$. We are able to derive statement $p \land q$.
+>[!info] Definition: Conjunction rule
+> Given statement $p$, and separately, statement $q$, we are able to derive statement $p \land q$.
 
-### Rule: Generalisation
+### Rule 6: Generalisation
 
 Example usage:
+
 >[!Theorem]
 > Assume $x < 10$, then $x < 10 \lor x = 10$.
 
 >[!Proof]
 > 1. Assume that $x < 10$.
-> 2. Then $x < 10 \lor x = 10$. \[By Generalisation on line 1]
+> 2. Then $x < 10 \lor x = 10$. \[By generalisation on line 1]
 
 This looks a little different. Let's think about what this means intuitively in English: "If we are convinced that statement $p$ is true, then we are convinced that statement $p \lor q$ is true.".
 
->[!Generalisation-Rule]
-> Given statement $p$, we are able to derive statement $p \lor q$.
-> Furthermore, given statement $p$, we are able to derive statement $q \lor p$.
-### Rule: Proof By Cases
+>[!info] Definition: Generalisation rule
+> Given statement $p$, we are able to derive the statement $p \lor q$.
+> 
+> Furthermore, given statement $p$, we are able to derive the statement $q \lor p$.
+
+### Rule 7: Proof by cases
 
 Example usage:
+
 >[!Theorem]
 > Assume $x = 3 \lor x = 5$, then $x > 0$.
 
-**Proof:** 
-1. Assume $x = 3 \lor x = 5 \lor x = 10$.
-2. Case 1: Assume $x = 3$
-	 1. Then $x > 0$ \[Basic algebra] 
-3. Case 2: Assume $x = 5$
-	 1. Then $x > 0$ \[Basic algebra]
-4.  $x > 0$ \[Proof by cases on lines 1, 2.1, 3.1]
+>[!Proof] 
+>1. Assume $x = 3 \lor x = 5 \lor x = 10$.
+>2. Case 1: Assume $x = 3$.
+>	1. Then $x > 0$ \[By basic algebra on line 2] 
+>3. Case 2: Assume $x = 5$.
+>	1. Then $x > 0$ \[By basic algebra on line 3]
+>4. Therefore, $x > 0$. \[Proof by cases on lines 1, 2.1, 3.1]
 
-What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than $2$ cases, we need to prove more things. Here's yet another example:
+What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than two cases, we need to prove more things. Here's yet another example:
 
 >[!Theorem]
 > Assume $x = 1 \lor x = 0 \lor x = -10$, then $x(x - 1)(x+10) = 0$.
 
 And notice here how the proof changes:
 
-**Proof:** 
-1. Assume $x = 1 \lor x = 0 \lor -10$.
-2. Case 1: Assume $x = 1$
-	1. Then $x - 1 = 0$ \[Basic algebra]
-	2. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-3. Case 2: Assume $x = 0$
-	1. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-4. Case 3: Assume $x = -10$
-	1. Then $x + 10 = 0$ \[Basic algebra]
-	2. Then $x(x - 1)(x+10) = 0$ \[Basic algebra]
-5. Therefore $x(x - 1)(x+10) = 0$ \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
+>[!Proof] 
+>1. Assume $x = 1 \lor x = 0 \lor -10$.
+>2. Case 1: Assume $x = 1$.
+>	1. Then $x - 1 = 0$ \[By basic algebra on line 2]
+>	2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 2.1]
+>3. Case 2: Assume $x = 0$.
+>	1. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 3]
+>4. Case 3: Assume $x = -10$.
+>	1. Then $x + 10 = 0$. \[By basic algebra on line 4]
+>	2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 4.1]
+>5. Therefore, $x(x - 1)(x+10) = 0$. \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
 
 In general:
->[!Proof-by-cases-rule]
-> Given a statement $p \lor q$, and if we can assume $p$ to prove $r$, and if we can assume $q$ to prove $r$, then we can conclude $r$.
 
-> Must we handle each case?
+>[!info] Definition: Proof by cases rule
+>Suppose we are given a statement $p \lor q$. If we can assume $p$ and conclude $r$, and if we can assume $q$ and conclude $r$, then we can conclude $r$ overall.
 
-Yes. Here's an example of how you could go wrong if you don't. Consider this faulty statement:
-
-$$
-(x = 1 \lor x = 5) \to x^2 = 1
-$$
-
-Which says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$. So let's consider setting $x = 5$. Then $(x = 1 \lor x = 5)$ evaluates to true, but $x^2 = 25$, which means $x^2 = 1$ is false.
+>[!question] Must we handle each case?
+>Yes. Here's an example of how you could go wrong if you don't. Consider this faulty statement:
+>$$(x = 1 \lor x = 5) \to x^2 = 1$$
+>This says that if $x$ is $1$, or $x$ is $5$, then $x^2 = 1$.
+>
+>So let's consider setting $x = 5$. Then, $(x = 1 \lor x = 5)$ evaluates to $true$, but $x^2 = 25$, which means $x^2 = 1$ evaluates to $false$.
 
 Here's a faulty proof that skips a case:
 
-**Faulty Proof:** 
-1. Assume $(x = 1 \lor x = 5)$.
-2. Case 1: $x = 1$
-	1. Then $x^2 = 1$ \[Basic algebra]
-3. In all cases, it is shown that $x^2 = 1$.
-### Rule: Modus Ponens
+>[!bug] Faulty Proof 
+>1. Assume $(x = 1 \lor x = 5)$.
+>2. Case 1: $x = 1$.
+>	1. Then, $x^2 = 1$. \[By basic algebra on line 2]
+>3. In all cases, it is shown that $x^2 = 1$.
+
+### Rule 8: Modus ponens
+
 Example usage:
 
 > [!Theorem]
-> Assume that $(\text{it is raining} \to \text{I will bring an umbrella})$, and further assume $\text{it is raining}$. Therefore $\text{I will bring an umbrella}$.
-
+> Assume that $(\text{It is raining} \to \text{I will bring an umbrella})$, and further assume $\text{It is raining}$. Therefore $\text{I will bring an umbrella}$.
 
  > [!Proof]
- >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
- >  2. Assume $\text{it is raining}$.
- >  3. Therefore $\text{I will bring an umbrella}$ \[By Modus Ponens on lines 1 and 2]
+ >  1. Assume $(\text{It is raining} \to \text{I will bring an umbrella})$.
+ >  2. Assume $\text{It is raining}$.
+ >  3. Therefore $\text{I will bring an umbrella}$ \[By modus ponens on lines 1 and 2]
 
 This example is a demonstration of a classic rule of inferences. It takes 2 lines:
 1. If we believe in $p$, we must also believe $q$ is true.
-2. We believe in $p$
+2. We believe in $p$.
 
 And makes the following conclusion:
 3. We believe in $q$.
 
->[!Modus-Ponens-Rule]
-> Given statements $p \to q$, and $p$, we are able to derive statement $q$.
+>[!info] Definition: Modus ponens rule
+> Given statements $p \to q$ and $p$, we are able to derive statement $q$.
 
-### Rule: Modus Tollens
+### Rule 9: Modus tollens
+
 To make things a little simpler in our proof system, and a little more flexibility: let's also think (intuitively first, before formally) about what else we could say. What if instead we were given the following?
 
 1. If it is raining, then I will bring an umbrella.
