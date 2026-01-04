@@ -884,7 +884,7 @@ In this section, we are going to list almost all of the allowable rules in proof
 
 At the end of the unit we will show bigger proofs that use some of these rules in combination. 
 
->[!tldr] Contents: Permissible rules of deduction
+>[!tldr]+ Contents: Permissible rules of deduction
 >1. [[#Rule 1 Definition unpacking|Rule 1: Definition unpacking]]
 >2. [[#Rule 2 Logical equivalence|Rule 2: Logical equivalence]]
 >3. [[#Rule 3 Basic algebra|Rule 3: Basic algebra]]
@@ -894,6 +894,12 @@ At the end of the unit we will show bigger proofs that use some of these rules i
 >7. [[#Rule 7 Proof by cases|Rule 7: Proof by cases]]
 >8. [[#Rule 8 Modus ponens|Rule 8: Modus ponens]]
 >9. [[#Rule 9 Modus tollens|Rule 9: Modus tollens]]
+>10. [[#Rule 10 Implication introduction|Rule 10: Implication introduction]]
+>11. [[#Rule 11 Double negation|Rule 11: Double negation]]
+>12. [[#Rules 12a-12d (Existential/Universal) (Generalisation/Instantiation)|Rules 12a-12d: Existential/Universal generalisation/instantiation]]
+>13. [[#Rule 13 Using lemma|Rule 13: Using lemma]]
+>14. [[#Rule 14 Contradiction|Rule 14: Contradiction]]
+>15. [[#Rule 15 Proof by contradiction|Rule 15: Proof by contradiction]]
 
 ### Rule 1: Definition unpacking
 
@@ -1101,7 +1107,7 @@ And makes the following conclusion:
 
 ### Rule 9: Modus tollens
 
-To make things a little simpler in our proof system, and a little more flexibility: let's also think (intuitively first, before formally) about what else we could say. What if instead we were given the following?
+To make things a little simpler in our proof system, and to have a little more flexibility: let's also think (intuitively first, before formally) about what else we could say. What if instead we were given the following?
 
 1. If it is raining, then I will bring an umbrella.
 2. It is not the case that I will bring an umbrella.
@@ -1109,55 +1115,62 @@ To make things a little simpler in our proof system, and a little more flexibili
 Can we say something about whether it is raining? Well we were promised if it was raining, we would have brought an umbrella. Considering how we are not bringing an umbrella, it cannot be raining. So we can actually also do the following:
 
 > [!Theorem]
-> Assume that $(\text{it is raining}) \to (\text{I will bring an umbrella})$, and further assume $\neg(\text{I will bring an umbrella})$. Therefore $\neg(\text{it is raining})$.
+> Assume that $(\text{It is raining}) \to (\text{I will bring an umbrella})$, and further assume $\neg(\text{I will bring an umbrella})$. Therefore $\neg(\text{It is raining})$.
 
  > [!Proof]
- >  1. Assume $(\text{it is raining} \to \text{I will bring an umbrella})$.
+ >  1. Assume $(\text{It is raining} \to \text{I will bring an umbrella})$.
  >  2. Assume $\neg(\text{I will bring an umbrella})$.
- >  3. Therefore $\neg(\text{it is raining})$ \[By Modus Tollens on lines 1 and 2]
+ >  3. Therefore, $\neg(\text{It is raining})$. \[By modus tollens on lines 1 and 2]
+
+Another way of looking at this rule is to recognise that the statements $p \to q$ and $\neg q \to \neg p$ are [[#Contrapositivity|contrapositives]], and are therefore logically equivalent. With this, and also the assumption that $\neg q$ is true, we can naturally conclude $\neg p$ (by [[#Rule 8 Modus ponens|modus ponens]]).
 
 In general, here is the rule:
->[!Modus-Tollens-Rule]
+
+>[!info] Definition: Modus tollens rule
 > Given statements $p \to q$, and $\neg q$, we are able to derive statement $\neg p$.
 
-### Rule: Implication Introduction
+### Rule 10: Implication introduction
+
 So far, in the previous rules, we have been using implication statements in one way or another. What if we wanted to **create** implication statements? Here's an example statement we can try to prove:
 
 > [!Theorem]
 > $(p \land q) \to p$
 
-Okay this might look a little intimidating. Let's read it back in English, what is it saying? The statement here is that "If we believe $p \land q$ is true, we believe $p$ is true". Hold on a minute, this looks very familiar! Doesn't this look like the Specialisation rule? Yes! Except now the statement has an implication $(\to)$ instead of "Assume $p \land q$, therefore $q$".
+Okay, this might look a little intimidating. Let's read it back in English—what is it saying? The statement here is that "If we believe $p \land q$ is true, then we believe $p$ is true." Hold on a minute, this looks very familiar! Doesn't this look like the [[#Rule 4 Specialisation|specialisation rule]]? Yes! Except now, the statement has an implication $(\to)$ instead of "Assume $p \land q$, therefore $q$".
 
 Here's the proof and how we use the deductive rule.
 
-**Proof:** 
-1. Assume $(p \land q)$.
-	1. $p$ \[By Specialisation on line 1].
-2. $(p \land q) \to p$ \[By Implication Introduction on lines 1 and 1.1]
+>[!Proof] 
+>1. Assume $(p \land q)$.
+>	1. Therefore, $p$. \[By specialisation on line 1]
+>2. Therefore, $(p \land q) \to p$. \[Implication introduction on lines 1 and 1.1]
 
 So what is going on here? 
 
-1. On line $1$ we have made it very explicit that we are making an assumption that $p \land q$ is true. 
-2. We derived line 1.1 using the Specialisation rule on line 1.
-3. We derived our concluding line 2 by using the Implication Introduction rule on lines 1 and 1.1.
+1. On line 1 we have made it very explicit that we are making an assumption that $p \land q$ is true. 
+2. We derived line 1.1 using the specialisation rule on line 1.
+3. We derived our concluding line 2 by using the implication introduction rule on lines 1 and 1.1.
 
-What's the idea? Intuitively, our proof system makes an assumption that $(p \land q)$ is true, so since we assumed it to be true, we can now start deriving other lines from it as well. In fact, line 1.1 is such a line. Line 1.1 is also the sub-conclusion from line 1. 
+What's the idea? Intuitively, our proof system makes an assumption that $p \land q$ is true, so since we assumed it to be true, we can now start deriving other lines from it as well. In fact, line 1.1 is such a line. Line 1.1 is also the sub-conclusion from line 1. 
 
-Since we assumed $(p \land q)$ and we concluded $p$ from it, the Implication Introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**. In this case line 2. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
+Since we assumed $p \land q$ and we concluded $p$ from it, the implication introduction rule **takes the assumption, and also the sub-conclusion, to create the final line**—in this case, line 2. It takes on the form $\text{assumption} \to \text{sub-conclusion}$. So in our example, we obtain line $(p \land q) \to p$.
 
 In general, here is the rule:
->[!Implication-Introduction-Rule]
-> Assuming statement $a$, if statement $b$ is derived as a sub-conclusion, then the Implication Introduction rule derives statement $a \to b$.
 
-### Rule: Double Negation
+>[!info] Definition: Implication introduction rule
+> Assuming statement $p$, if statement $q$ is derived as a sub-conclusion, then the implication introduction rule derives statement $p \to q$.
+
+### Rule 11: Double negation
+
 Here's another (perhaps intuitive rule) that we have about the negations. In math, a double negative is pretty much the same as the original thing. That is to say: $\neg (\neg p)$ is logically equivalent to $p$. While this might not make sense in real life, this is something that math abides by.
 
->[!Double-Negation-Rule]
+>[!info] Definition: Double negation rule
 > If we have a statement $\neg (\neg p)$, we are able to derive statement $p$.
 
-Frankly speaking this rule is rarely ever used in isolation. We will see uses of this in bigger proofs.
+Frankly speaking, this rule is rarely ever used in isolation. We will see uses of this in bigger proofs.
 
-### Rules: (Existential/Universal) (Generalisation/Instantiation)
+### Rules 12a-12d: (Existential/Universal) (generalisation/instantiation)
+
 For the sake of exposition, it is a lot more natural to consider all these 4 rules together at the same time for this section.
 
 Let's begin with a smaller example that demonstrates the use of **universal instantiation**. Let's see that in action by proving this theorem formally:
@@ -1165,14 +1178,14 @@ Let's begin with a smaller example that demonstrates the use of **universal inst
 >[!Theorem]
 > Assuming $\forall x \in \mathbb{Z} \ [x^2 \geq 0]$, then $(-5)^2 \geq 0$.
 
-What is this theorem saying? It is saying that if we believe that any integer squared is non-negative, then  $-5$ squared is non-negative. How do we prove this? Let's see this in action:
+What is this theorem saying? It is saying that if we believe that any integer squared is non-negative, then $-5$ squared is non-negative. How do we prove this? Let's see this in action:
 
 >[!Proof]
 > 1. Assume $\forall x \in \mathbb{Z} \ [x^2 \geq 0]$.
-> 2. $-5 \in \mathbb{Z}$ \[Basic Algebra]
-> 3. $(-5)^2 \geq 0$ \[Universal instantiation on lines 1 and 2].
+> 2. $-5 \in \mathbb{Z}$. \[By basic algebra]
+> 3. $(-5)^2 \geq 0$. \[Universal instantiation on lines 1 and 2]
 
-What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise, it is assuming that all integers are such that if you square them, they are non-negative. Line 2 is bringing up the fact that $-5$ is an integer. And line 3 is basically stating the following:
+What has happened here? Let's explain the idea of the proof in English. Line 1 is our premise—it assumes that all integers are such that if you square them, they are non-negative. Line 2 is bringing up the fact that $-5$ is an integer. And line 3 is basically stating the following:
 
 > Since all integers are such that if you square them, they are non-negative. It is also true for any specific integer. We are convinced on line 2 that $-5$ is an integer. Therefore, we are convinced by combining lines 1 and 2 that $(-5)^2$ is also non-negative.
 
@@ -1181,39 +1194,39 @@ For the final proof of this section, let's think about how to **prove the follow
 >[!Theorem]
 > $\forall x \in \mathbb{Z} \ [ even(x) \to even(x + 2) ]$.
 
-Let us read the statement we wish to prove in English, it is basically saying, "Take any integer $x$, if it is even, then $x + 2$ is even as well". Intuitive right? Let's see how a mathematician does it.
+Let us read the statement we wish to prove in English, it is basically saying, "Take any integer $x$, if it is even, then $x + 2$ is even as well." Intuitive right? Let's see how a mathematician does it.
 
 Why is this true? Here's the high level idea, we know that if $x$ is an even integer, we can re-write $x$ as $2\cdot k$. Then we also know that $x + 2 = 2\cdot k + 2 = 2\cdot (k + 1)$. Since $k$ is an integer, $k+1$ is also an integer. So that means we can write $x + 2$ can be written as $2 \cdot s$ where $s$ is **some** integer.
 
 Okay that's the idea, but how do we do it formally? Again, we will want to use some rules to help us make the deduction. Let's see them in action:
 
-**Proof:** 
- 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
-	 1. Assume that $even(x)$.
-	 2. $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
-	 3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential instantiation on line 1.2]
-	 4. $x + 2 = 2 \cdot t + 2$ \[Basic Algebra]
-	 5. $x + 2 = 2 \cdot (t + 1)$ \[Basic Algebra]
-	 6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$ \[Basic Algebra]
-	 7. $\exists z \in \mathbb{Z} \ [x + 2 = 2 \cdot z]$ \[Existential generalisation on lines 1.5 and 1.6]
-	 8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
-	 9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
- 2. $\forall x \in \mathbb{Z} \ [even(x) \to even(x + 2)]$. \[Universal generalisation on lines 1 and 1.9]
+>[!Proof] 
+>1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
+>	1. Assume that $even(x)$.
+>	2. $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
+>	3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential instantiation on line 1.2]
+>	4. $x + 2 = 2 \cdot t + 2$ \[By basic algebra]
+>	5. $x + 2 = 2 \cdot (t + 1)$ \[By basic algebra]
+>	6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$. \[By basic algebra]
+>	7. $\exists s \in \mathbb{Z} \ [x + 2 = 2 \cdot s]$ \[Existential generalisation on lines 1.5 and 1.6]
+>	8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
+>	9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
+>2. $\forall x \in \mathbb{Z} \ [even(x) \to even(x + 2)]$. \[Universal generalisation on lines 1 and 1.9]
 
-Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses 3 new rules here. What is going on?
+Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses three new rules here. What is going on?
 
-The proof starts off by taking $x$ to be an integer value (i.e. from $\mathbb{Z}$). So the subsequent lines (1.1 through 1.9) are allowed to treat $x$ as any arbitrarily chosen integer from $\mathbb{Z}$. It may be $5$, it may be $47142$, who knows. Then line 1.1 assumes that we consider only values $x$ that are even. This means that if we were given a value like $5$ for $x$, our proof is not applicable anymore. But that's okay! We don't want to say anything about odd numbers anyway.
+The proof starts off by taking $x$ to be an integer value (i.e., from $\mathbb{Z}$). So the subsequent lines (1.1 through 1.9) are allowed to treat $x$ as any arbitrarily chosen integer from $\mathbb{Z}$. It may be $5$, it may be $47142$, who knows. Then line 1.1 assumes that we consider only values $x$ that are even. This means that if we were given a value like $5$ for $x$, our proof is not applicable anymore. But that's okay! We don't want to say anything about odd numbers anyway.
 
 Next up, we unpack the definition of $even(x)$. Remember that an integer is even if we can write it as $2\cdot k$ for some value $k \in \mathbb{Z}$. Line 1.2 is just reminding us of the definition of being an even value.
 
 What about line 1.3? This is the first new rule we have encountered. Intuitively in English, what is being done here is the following:
 
-> On line 1.2 we are saying "$x$ is equals to $2$ times an integer."
-> Therefore, we are able to deduce line 1.3 which states "Let us call that integer $t$.".
+> On line 1.2 we are saying "$x$ is equal to $2$ times an integer."
+> Therefore, we are able to deduce line 1.3 which states "Let us call that integer $t$."
 
 This might feel pedantic, but imagine how in English there is a subtle difference between:
 
-> "Something is cold" vs "Call the cold thing $x$".
+> "Something is cold" vs. "Call the cold thing $x$"
 
 The former sentence has not given the "cold thing" a name. The latter sentence has given it a name. Then deduction rule is basically trying to say "Since we know a cold thing exists, we can give it a name. Let's call it $x$". Similarly, in our proof above, the deduction rule is basically trying to say "Since we know $x$ is _some_ value times $2$, we can give such a value a name, call it $t$." In doing so, notice that the new line has effectively **removed** the $\exists$ symbol.
 
@@ -1221,15 +1234,15 @@ Let's keep going. Now that we've given that value a name $t$, we can start refer
 
 What about line 1.7? What is it doing? In some sense it is actually doing the opposite of line 1.3.
 
-> On line 1.5 we said that $x + 2 = 2(t + 1)$. On line 1.6 argue that $t + 1$ is also in $\mathbb{Z}$. Since we know a specific value $z$ from $\mathbb{Z}$ for which $x + 2 = 2\cdot z$, we know __some__ value from $\mathbb{Z}$ exists for which $x + 2 = 2 \cdot z$. Therefore, $\exists z \in \mathbb{Z} \ [x + 2 = 2\cdot z]$.
+> On line 1.5 we said that $x + 2 = 2(t + 1)$. Line 1.6 argues that $t + 1$ is also in $\mathbb{Z}$. Since we know a specific value $z$ from $\mathbb{Z}$ for which $x + 2 = 2\cdot z$, we know __some__ value from $\mathbb{Z}$ exists for which $x + 2 = 2 \cdot z$. Therefore, $\exists z \in \mathbb{Z} \ [x + 2 = 2\cdot z]$.
 
 Again, this might feel weird but it's basically doing the reverse of what we had explained earlier:
 
-> "We know ice is a cold thing" vs "Exists something that is cold".
+> "We know ice is a cold thing" vs. "Exists something that is cold"
 
 The deduction rule here basically takes the former sentence and deduces the latter.
 
-Okay! Let's keep chugging on. 1.8 is more definition unpacking, and line 1.9 re-uses the previous deduction rule of creating an implication statement.
+Okay! Let's keep chugging on. Line 1.8 is more definition unpacking, and line 1.9 re-uses the previous deduction rule of creating an implication statement.
 
 Finally, what's going on on line 2? It's saying the following:
 
@@ -1243,31 +1256,33 @@ Why is this reasonable? We took $x$ arbitrarily. What about the assumption we ma
 
 Here are the 4 final deduction rules in detail:
 
->[!Existential-Generalisation-Rule]
-> Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can then derive the line $\exists x \ [P(x)]$.
+>[!info] Definition: Existential generalisation rule
+> Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g., $P(x)$, we can then derive the line $\exists x \in A \ [P(x)]$.
 
->[!Existential-Instantiation-Rule]
-> Given a line $\exists x \in A \ [P(x)]$, we are able to derive the line "Let $c$ be such that $c \in A \land P(c)$.
+>[!info] Definition: Existential instantiation rule
+> Given a line $\exists x \in A \ [P(x)]$, we are able to derive the line "Let $c$ be such that $(c \in A) \land P(c)$.
 
->[!Universal-Generalisation-Rule]
-> Given a line that states $x$ was arbitrarily chosen from set $A$, and another line that makes a statement about $x$, e.g. $P(x)$, we can derive the line $\forall x \in A \ [P(x)]$.
+>[!info] Definition: Universal generalisation rule
+> Given a line that states that $x$ was *arbitrarily* chosen from set $A$, and another line that makes a statement about $x$, e.g., $P(x)$, we can derive the line $\forall x \in A \ [P(x)]$.
 
->[!Universal-Instantiation-Rule]
+>[!info] Definition: Universal instantiation rule
 > Given a line $\forall x \in A \ [P(x)]$, and another line that says $x \in A$, we are able to derive the line $P(x)$.
 
-### Rule: Using Lemma
+### Rule 13: Using lemma
+
 Think of a lemma as a helper statement. They are proven theorems that can now be used in other, bigger proofs.
 
 This is like how how in programming we have library functions, think of lemmas as "given for free" truths we can use in our proofs.
 
 You'll see an example of this rule in action in the later examples. Keep an eye out for it!
 
-### Rule: Contradiction
+### Rule 14: Contradiction
+
 Before our example, let's think about the following idea: What happens if someone comes up to you and says the following:
 
 > I am in the house **and** I am **not** in the house.
 
-What do we make of this? Does this sound _absurd_? It doesn't make sense right? Similarly, we have a rule in first order logic that does _exactly that_. We call this concept a **contradiction**. Since it is seemingly contradictory to both be in the house and not in the house at the same time. Here's an example in math. What if we said:
+What do we make of this? Does this sound _absurd_? It doesn't make sense right? Similarly, we have a rule in first-order logic that does _exactly that_. We call this concept a **contradiction**, since it is seemingly contradictory to both be in the house and not in the house at the same time. Here's an example in math. What if we said:
 
 $$
 x = 1 \land x \neq 1
@@ -1277,16 +1292,16 @@ We should be able to say "this makes no sense". We have a symbol for this: $\bot
 
 Allow me to state the deduction rule first before giving an example, since it is a little involved.
 
->[!Contradiction-Rule]
+>[!info] Definition: Contradiction rule
 > Given statement $a \land \neg a$, we are able to derive statement $\bot$.
 
+### Rule 15: Proof by contradiction
 
-### Rule: Proof by Contradiction
 Let's build off of the previous rule, and continue exploring that idea. Recall in the previous rule we talked about how if we have two contradictory statements, we can write a line in our proof that says $\bot$. Basically that line is declaring "A-ha! We've found a contradiction."
 
 What can we do with that line?
 
-Here's the rough idea: let's say we want to prove as a conclusion that a statement like $\neg p$ is true. One way to do that is to assume $p$, then using our assumption, somehow derive $\bot$. (See how we can use the previous rule to do this)? Then from there, the rule of proof by contradiction tells us that if from $p$ we derived $\bot$, we can conclude $\neg p$ in our proof.  
+Here's the rough idea: let's say we want to prove as a conclusion that a statement like $\neg p$ is true. One way to do that is to assume $p$, then using our assumption, somehow derive $\bot$. (See how we can use the previous rule to do this?) Then from there, the rule of proof by contradiction tells us that if from $p$ we derived $\bot$, we can conclude $\neg p$ in our proof.  
 
 This rule is a little tricky, and let's take a step back to think about what it means, and why this is okay. Here's the basic example of this idea in action (in English). Let's say we want to convince someone that the moon is **not** made of cheese. Here's one way we might do that:
 
@@ -1298,18 +1313,19 @@ This rule is a little tricky, and let's take a step back to think about what it 
 
 We can do the same thing in math, and that is via the **proof by contradiction rule**. 
 
->[!Proof-By-Contradiction-Rule]
-> If assuming $\neg p$, we are able to derive $\bot$, we may conclude in our proof $p$.
+>[!info] Definition: Proof by contradiction rule
+> If by assuming $\neg p$, we are able to derive $\bot$, we may conclude in our proof $p$.
 
 An example of this proof is deferred to the end of this unit. We will first start showing a few proofs before ending on a proof that uses this rule.
 
-# Proof Strategies
+## Proof Strategies
 
 For the remainder of this part, we will be talking about how to prove certain types of statements.
 To do this we will give general strategies you can stick to to try to prove everything throughout the semester. After this unit, we will basically start doing proofs for most of the topics.
 
 Also, you may have noticed right now we are only showing very basic statements about math. This is a deliberate choice. As we go on in the semester we will be showing newer and newer concepts, and applying what we have learned here.
-## Direct Proof
+
+### Direct proof
 
 So if the goal of a task is to prove something like:
 
