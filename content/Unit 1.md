@@ -1731,6 +1731,22 @@ In fact, this seems doable! Let's see the proof.
 
 So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that in the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind—ever tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while, you build your own techniques and tricks. The same thing applies here!
 
+### Checkpoint #4
+
+>[!question] Checkpoint #4
+>Which of the following are good practices/techniques to use when writing proofs?
+>- [ ] Imagining the "rough idea" of the proof in your head when you're still inexperienced with proof writing
+>- [ ] Try writing down the full proof, including the rules of deduction used
+>- [ ] Asking ChatGPT to write your proofs and calling it a day
+>- [ ] Exploring the different proof techniques to see which methods work and which ones don't
+>- [ ] Keeping track of goal statements along the way
+
+>[!success]- Solution
+>- Try writing down the full proof, including the rules of deduction used
+>- Exploring the different proof techniques to see which methods work and which ones don't
+>- Keeping track of goal statements along the way
+
+---
 # Bonus: How this math is useful
 
 Let's look at the statement proven previously again:
