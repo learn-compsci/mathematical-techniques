@@ -1581,46 +1581,46 @@ Try to appreciate how this means we are basically starting from assumptions and 
 The final line is then the conclusion of our proof. (Notice how we used Lemma 2 on line 2! We proved it previously so now we get to call it like a library function.)
 
 >[!Proof]
-> 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational, i.e., $\sqrt{2} \in \mathbb{Q}$
-> 2. $\forall x \in \mathbb{Z}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \exists d \in \mathbb{Z} \ [x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Using Lemma 2]
-> 3. $\exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z} \ [\sqrt{2} = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$ \[Universal instantiation of line 2, replacing $x$ with $\sqrt{2}$]
-> 4. Let $a, b \in \mathbb{Z}$ be such that $\sqrt{2} = \frac{a}{b} \land b \neq 0 \land \forall d \in \mathbb{Z} ( divides(d, a) \land divides(d, b) \to d = 1 )]$ \[Existential instantiation on line 3]
+> 1. Assume for the sake of contradiction that $\textcolor{blue}{\sqrt{2}}$ is rational, i.e., $\textcolor{blue}{\sqrt{2}} \in \mathbb{Q}$.
+> 2. $\forall \textcolor{blue}{x} \in \mathbb{Z}, \exists \textcolor{red}{p} \in \mathbb{Z}, \textcolor{red}{q} \in \mathbb{Z}, \exists \textcolor{green}{d} \in \mathbb{Z} \ \bigg[\textcolor{blue}{x} = \frac{\textcolor{red}{p}}{\textcolor{red}{q}} \land \textcolor{red}{q} \neq 0 \land \big( divides(\textcolor{green}{d}, \textcolor{red}{p}) \land divides(\textcolor{green}{d}, \textcolor{red}{q}) \to \textcolor{green}{d} = 1 \big) \bigg]$ \[Unpacking definition from Lemma 2]
+> 3. $\exists \textcolor{red}{p} \in \mathbb{Z}, \textcolor{red}{q} \in \mathbb{Z}, \forall \textcolor{green}{d} \in \mathbb{Z} \ \bigg[\textcolor{blue}{\sqrt{2}} = \frac{\textcolor{red}{p}}{\textcolor{red}{q}} \land \textcolor{red}{q} \neq 0 \land \big( divides(\textcolor{green}{d}, \textcolor{red}{p}) \land divides(\textcolor{green}{d}, \textcolor{red}{q}) \to \textcolor{green}{d} = 1 \big) \bigg]$ \[Universal instantiation on line 2, replacing $\textcolor{blue}{x}$ with $\textcolor{blue}{\sqrt{2}}$]
+> 4. Let $\textcolor{red}{a}, \textcolor{red}{b} \in \mathbb{Z}$ be such that $\textcolor{blue}{\sqrt{2}} = \frac{\textcolor{red}{a}}{\textcolor{red}{b}} \land \textcolor{red}{b} \neq 0 \land \forall \textcolor{green}{d} \in \mathbb{Z} \ \big[ divides(\textcolor{green}{d}, \textcolor{red}{a}) \land divides(\textcolor{green}{d}, \textcolor{red}{b}) \to \textcolor{green}{d} = 1 \big]$ \[Existential instantiation on line 3]
 > 5. $\sqrt{2} = \frac{a}{b}$ \[Specialisation on line 4]
-> 6. Now $2 b^2 = a^2$ \[Basic algebra]
-> 7. $b^2 \in \mathbb{Z}$ \[Basic algebra]
+> 6. Now, $2 b^2 = a^2$. \[By basic algebra on line 5]
+> 7. $b^2 \in \mathbb{Z}$ \[By basic algebra on line 6]
 > 8. $\exists t \in \mathbb{Z} \ [a^2 = 2\cdot t]$ \[Existential generalisation on lines 6 and 7]
-> 9. $even(a^2)$ \[Unpacking definition of even]
+> 9. $even(a^2)$ \[Unpacking definition of $even$]
 > 10. $even(a^2) \to even(a)$ \[Universal instantiation of Lemma 1]
-> 11. $even(a)$ \[Modus ponens on lines 9 and 10]
-> 12. $\exists t \in \mathbb{Z} \ [a = 2\cdot t]$ \[Unpacking definition of even]
-> 13. Let $k \in \mathbb{Z}$, such that $a = 2\cdot k$ \[Existential instantiation on line 12]
-> 14. Therefore $a^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra]
-> 15. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[Basic algebra, merging lines 14 and 6]
-> 16. $b^2 = 2 \cdot k^2$ \[Basic algebra]
-> 17. Therefore $\exists t \in \mathbb{Z} \ [b^2 = 2\cdot t]$ \[Existential generalisation on line 16]
-> 18. Therefore $even(b^2)$  \[Unpacking definition of even]
+> 11. $even(a)$ \[By modus ponens on lines 9 and 10]
+> 12. $\exists t \in \mathbb{Z} \ [a = 2\cdot t]$ \[Unpacking definition of $even$]
+> 13. Let $k \in \mathbb{Z}$ such that $a = 2\cdot k$. \[Existential instantiation on line 12]
+> 14. Therefore, $a^2 = 4k^2 = 2 \cdot(2 \cdot k^2)$. \[By basic algebra on line 13]
+> 15. $2 \cdot b^2 = 2 \cdot(2 \cdot k^2)$ \[By basic algebra, merging lines 14 and 6]
+> 16. $b^2 = 2 \cdot k^2$ \[By basic algebra on line 15]
+> 17. Therefore, $\exists t \in \mathbb{Z} \ [b^2 = 2\cdot t]$. \[Existential generalisation on line 16]
+> 18. Therefore, $even(b^2)$.  \[Unpacking definition of $even$]
 > 19. $even(b^2) \to even(b)$ \[Universal instantiation of previously proven theorem]
-> 20. $even(b)$ \[Modus ponens on lines 18 and 19]
+> 20. $even(b)$ \[By modus ponens on lines 18 and 19]
 > 21. $even(a) \land even(b)$ \[Conjunction of lines 10 and 19]
-> 22. $divides(2, a) \land divides(2, b)$  \[Basic Algebra]
-> 23. $\forall d \in \mathbb{Z} [ divides(d, a) \land divides(d, b) \to d = 1 ]$ \[Specialisation on line 4]
-> 24. $2 \in \mathbb{Z}$ \[Basic algebra]
+> 22. $divides(2, a) \land divides(2, b)$  \[By basic algebra on line 21]
+> 23. $\forall d \in \mathbb{Z} \ \big[ divides(d, a) \land divides(d, b) \to d = 1  \big]$ \[Specialisation on line 4]
+> 24. $2 \in \mathbb{Z}$ \[By basic algebra]
 > 25. $divides(2, a) \land divides(2, b) \to 2 = 1$ \[Universal instantiation on line 23]
-> 26. $2 = 1$ \[Modus Ponens on lines 24 and 25]
-> 27. $2 \neq 1$ \[Basic algebra]
-> 28. $2 = 1 \land 2 \neq 1$ 
-> 29. $\bot$ \[Contradiction rule on line 28] (**Look! We used it here!**)
-> 30. $\sqrt{2}$ is **not** rational. I.e. $\sqrt{2} \notin \mathbb{Q}$. \[Proof by contradiction rule. Assumption on line 1, $\bot$ on line 29]
+> 26. $2 = 1$ \[By modus ponens on lines 22 and 25]
+> 27. $2 \neq 1$ \[By basic algebra]
+> 28. $2 = 1 \land 2 \neq 1$ \[Conjunction of lines 26 and 27]
+> 29. $\bot$. \[Contradiction rule on line 28] (**Look! We used it here!**)
+> 30. $\sqrt{2}$ is **not** rational, i.e., $\sqrt{2} \notin \mathbb{Q}$. \[Proof by contradiction: assumption on line 1, $\bot$ on line 29]
 
 I think this proof warrants a read-back in English, here's the proof again in English that skips the rules and contains the essence of what we are trying to say:
 
-1. Assume for the sake of contradiction that $\sqrt{2}$ can be written as a fraction $\frac{p}{q}$, where $p, q$ are integers.
-2. We know all fractions can be simplified, so let's re-write $\sqrt{2} = \frac{p}{q}$ as $\sqrt{2} = \frac{a}{b}$, where $\frac{a}{b}$ is simplified. In other words, the **only** common factor between $a, b$ is $1$, and $a, b$ are integers.
+1. Assume for the sake of contradiction that $\sqrt{2}$ can be written as a fraction $\frac{p}{q}$, where $p$ and $q$ are integers.
+2. We know all fractions can be simplified, so let's re-write $\sqrt{2} = \frac{p}{q}$ as $\sqrt{2} = \frac{a}{b}$, where $\frac{a}{b}$ is simplified. In other words, the **only** common factor between $a$ and $b$ is $1$, and $a, b$ are integers.
 3. Now we know that $2 b^2 = a^2$.
 4. That means that $a^2$ is even.
 5. That means that $a$ is also even. (Proven from previous parts)
 6. So $a = 2t$ for some integer $t$.
-7. So $2b^2 = (2t)^2 = 2(2t^2)$.
+7. So $2b^2 = a^2 = (2t)^2 = 2(2t^2)$.
 8. So that means that $b^2 = 2t^2$.
 9. So that means that $b^2$ is also even. 
 10. Which means that $b$ is also even. (Proven from previous parts)
@@ -1630,30 +1630,31 @@ I think this proof warrants a read-back in English, here's the proof again in En
 14. The only common divisor of $a$ and $b$ should be $1$.
 15. This means $2$ is $1$.
 16. But $2$ is not $1$. 😱
-17. Therefore, our assumption needs to be negated. $\sqrt{2}$ cannot be written as a fraction $\frac{p}{q}$ where $p, q$ are integers.
+17. Therefore, our assumption needs to be negated. $\sqrt{2}$ cannot be written as a fraction $\frac{p}{q}$ where $p$ and $q$ are integers.
 
 >[!question] Mini quiz
 > In our very big proof above, in the second half of the proof, we are missing a line in the proof. One of the rules needs **two** lines to be applied, but we used the rule with only a single line. Where is the faulty application of the rule? What is missing? And how should we fix it?
 > 
 > >[!Answer]-
-> > Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$.
-
+> > Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$ \[by basic algebra].
 
 ## Proof Technique: Goal Statements vs. Steps in Proofs
 
-Okay we've seen quite a few proofs and perhaps at some point you might have started asking yourself "ok but how do we know what to do in each step? I don't even know how to begin the proof."
+We've seen quite a few proofs so far, and perhaps at some point you might have started asking yourself "Okay, but how do we know what to do in each step? I don't even know how to begin the proof!"
 
-Okay, there are a few general features of proofs that I can start showing you. These might be a little helpful. (Full disclaimer, this stuff does take a while to get used to. Don't rush it, but I will encourage you to try out different proofs through either the extra questions or the tutorials. Just like how best way to learn programming is to write them yourself. The best way to learn proofs is to do them yourself, and have our tutors vet them for you.)
+Well, there are a few general features of proofs that I can start showing you, which might be a little helpful. (Full disclaimer, this stuff does take a while to get used to. Don't rush it, but I will encourage you to try out different proofs through either the extra questions or the tutorials. Just like how best way to learn programming is to write them yourself. The best way to learn proofs is to do them yourself, and have our tutors vet them for you.)
+
+(Addendum: [[More Proof Examples - And Demystifying Proofs|Here's a more detailed list of practice problems]] for you to try your hand at proving.)
 
 ### A certain way to look at proofs:
 
 Let's re-visit the proofs we did in the previous sections, and I want to show you certain techniques I use to figure out what I need to do.
 
 There are a few key aspects to this:
-1. Knowing what the goal statement is.
-2. How do steps change what the goal statement is.
+1. Knowing what the goal statement is
+2. How each step changes what the goal statement is
 
-**To be clear: knowing these alone will not create the entire proof for you**. But it helps keep you focused on what you need to do next.
+**To be clear: knowing these alone will not create the entire proof for you**, but it does help keep you focused on what you need to do next.
 
 #### Example 1:
 
@@ -1662,36 +1663,36 @@ Okay, let me use an initial example to show you what I mean.
 Let's say we had the following statement again:
 
 >[!Theorem]
-> $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$, where $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
+> $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x^2) \big]$, where $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
 
-Reading this back, it's saying that "For every integer $x$, if $x$ is even, then $x^2$ is even. And a number $x$ is considered 'even' means we can find an integer $k$ such that $x = 2k$."
+Reading this back, it's saying that "For every integer $x$, if $x$ is even, then $x^2$ is even. A number $x$ being "even" means we can find an integer $k$ such that $x = 2k$."
 
-Right now at the very beginning, our goal statement, is really just $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. This is the statement we want to prove. We haven't written any lines of proof yet. Also, we on the side, we have the definition that $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
+Right now at the very beginning, our goal statement is really just $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x^2) \big]$. This is the statement we want to prove. We haven't written any lines of proof yet. Also on the side, we have the definition that $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$.
 
 ![[proof-vs-goal.png]]
 
-**(Knowing what the goal statement is.)** The original statement to prove was $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. Remember, this means we need to show the statement works for all integers. One way (but not the only way) to do this, is to start by letting $x \in \mathbb{Z}$ be arbitrarily chosen.
+**(Knowing what the goal statement is.)** The original statement to prove was $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x^2) \big]$. Remember, this means we need to show the statement works for all integers. One way (but not the only way) to do this, is to start by letting $x \in \mathbb{Z}$ be arbitrarily chosen.
 
-After we do that on line 1, the goal changes. Here's the idea, we already said that we were taking any $x$ from $\mathbb{Z}$ on line 1. So that means $x$ is now some chosen value. So what should we do next? The next thing to do is to prove that for this $x$, the statement $even(x) \to even(x^2)$ is true.
+After we do that on line 1, the goal changes. Here's the idea, we already said that we were taking any $x$ from $\mathbb{Z}$ on line 1. So that means $x$ is now some chosen value. Then what should we do next? The next thing to do is to prove that for this $x$, the statement $even(x) \to even(x^2)$ is true.
 
-Okay, well how do we prove that? One possible way to do this, is to assume that $even(x)$ is true. And that's exactly what we do on line 2.
+Okay, well how do we prove that? One possible way to do this is to assume that $even(x)$ is true. And that's exactly what we do on line 2.
 
-Now that we have assumed $even(x)$ is true? What is there left to do? Well.. the only thing left to do is to try to prove $even(x^2)$ is true. And the middle part, lines 2.1 through 2.6 do exactly that. 
-Notice that on line 2.6, we actually manage to prove the statement $even(x^2)$. But are we done? Not quite!
+Now that we have assumed $even(x)$ is true, what is there left to do? Well... the only thing left to do is to try to prove $even(x^2)$ is true. And the middle part, lines 2.1 through 2.6, do exactly that. 
+Notice that on line 2.6, we actually managed to prove the statement $even(x^2)$. But are we done? Not quite!
 
-Here's the reason: Originally we set out to prove $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$. Along the way, we took $x$ arbitrarily from $\mathbb{Z}$, and we also assumed $even(x)$. After we did that, we said "ok then all that remains to do is prove $even(x^2)$." We still need to go back to our original goal statement. So if you look at lines 3 and 4, you'll notice we need to recover the original statement. But that is okay because lines 1 and 2 help us out there. We use **implication introduction** rule to recreate $even(x) \to even(x^2)$ with the help of line 2. And we use **universal generalisation** rule to recreate $\forall x \in \mathbb{Z} \ [ even(x) \to even(x^2) ]$ with the help of line 1. In fact, that's precisely why line 1 and line 2 were there in the proof!
+Here's the reason: Originally we set out to prove $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x^2) \big]$. Along the way, we took $x$ arbitrarily from $\mathbb{Z}$, and we also assumed $even(x)$. After we did that, we said "Okay, then all that remains to do is prove $even(x^2)$." We still need to go back to our original goal statement. If you look at lines 3 and 4, you'll notice we need to recover the original statement, but that is okay because lines 1 and 2 help us out there. We use the **implication introduction** rule to recreate $even(x) \to even(x^2)$ with the help of line 2, and we use the **universal generalisation** rule to recreate $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x^2) \big]$ with the help of line 1. In fact, that's precisely why lines 1 and 2 were there in the proof!
 
 **(How do steps change what the goal statement is.)** Notice how the moment we created line 1, in some sense, the $\forall x \in \mathbb{Z}$ in the **goal statement** was taken care of. We knew that the moment we proved $even(x) \to even(x^2)$, we can then use the **universal generalisation** rule to put the $\forall x \in \mathbb{Z}$ back into the statement. That's exactly what happened on line 3. 
 
-Similarly, the moment we created line 2, the goal statement was $even(x^2)$. We know for a fact that the moment we can prove that, we can use **implication introduction** rule to recreate $even(x)\to even(x^2)$.
+Similarly, the moment we created line 2, the goal statement was $even(x^2)$. We know for a fact that the moment we can prove that, we can use the **implication introduction** rule to recreate $even(x)\to even(x^2)$.
 
-One other thing you might notice is that the original goal statement wanted a $\forall x \in \mathbb{Z}$, so our line 1 literally starts with "Let $x \in \mathbb{Z}$, arbitrarily chosen.". This isn't the **only** way to do it, but it's usually a great starting point.
+One other thing you might notice is that the original goal statement wanted a $\forall x \in \mathbb{Z}$, so our line 1 literally starts with "Let $x \in \mathbb{Z}$ be arbitrarily chosen." This isn't the **only** way to do it, but it's usually a great starting point.
 
-If you notice, the proof for the other direction $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$ looks the same!
+If you notice, the proof for the other direction $\forall x \in \mathbb{Z} \ \big[even(x^2) \to even(x) \big]$ looks the same!
 
 #### Example 2: Delving a little deeper
 
-Okay, in light of what we mentioned just now. How do we think about proving this theorem?
+Okay, in light of what we mentioned just now, how do we think about proving this theorem?
 
 >[!Theorem]
 > $\neg(even(3))$, where $even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]$
@@ -1704,7 +1705,7 @@ Instead of doing any lines of the proof first, we could also think about certain
 
 ![[re-write-1.png]]
 
-Okay... but let's think about this a little bit. The moment we start line 1, we're setting out to prove that no integer value $k$ is such that $2k = 3$. While this is definitely true... _how_ you can prove this might feel clunky. Or at least even personally, I don't know how to convince someone directly that $3$ is never equal to $2$ times any integer value.
+Okay... but let's think about this a little bit. The moment we start line 1, we're setting out to prove that no integer value $k$ is such that $2k = 3$. While this is definitely true, _how_ you can prove this might feel clunky. At least even personally, I don't know how to convince someone directly that $3$ is never equal to $2$ times any integer value.
 
 Let's roll back a little bit, and instead try the following:
 
@@ -1712,38 +1713,39 @@ Let's roll back a little bit, and instead try the following:
 
 In fact, this seems doable! Let's see the proof.
 
-1. Assume for the sake of contradiction that $\neg \big( \neg (\exists k \in \mathbb{Z} \ [3 = 2k]) \big)$
-2. $\exists k \in \mathbb{Z} \ [3 = 2k]$ \[Logically equivalent to line 1]
-3. Let $t \in \mathbb{Z}$ be such that $3 = 2t$ \[Existential instantiation on line 2]
-4. $3 = 2 + 1$ \[Basic Algebra]
-5. $2t = 2 + 1$ \[Basic Algebra on lines 3 and 4]
-6. $2(t-1) = 1$ \[Basic Algebra]
-7. $t - 1 = \frac{1}{2}$ \[Basic Algebra]
-8. $t = \frac{3}{2}$ \[Basic Algebra]
-9. $\neg(t \in \mathbb{Z})$ \[Basic Algebra from line 7]
-10. $t \in \mathbb{Z}$ \[From line 3]
-11. $\big(t \in \mathbb{Z} \land \neg(t \in \mathbb{Z})\big)$ \[Conjunction rule on line 9 and 10]
-12. $\bot$ \[Contradiction rule on line $11$]
-13. $\neg (\exists k \in \mathbb{Z} \ [3 = 2k])$ \[Proof by contradiction rule on lines 1 and 12]
-14. $\neg (even(3))$ \[Definition unpacking on line 13]
+>[!Proof]
+>1. Assume for the sake of contradiction that $\neg \big( \neg (\exists k \in \mathbb{Z} \ [3 = 2k]) \big)$.
+>2. $\exists k \in \mathbb{Z} \ [3 = 2k]$ \[Logically equivalent to line 1]
+>3. Let $t \in \mathbb{Z}$ be such that $3 = 2t$. \[Existential instantiation on line 2]
+>4. $3 = 2 + 1$ \[By basic algebra]
+>5. $2t = 2 + 1$ \[By basic algebra on lines 3 and 4]
+>6. $2(t-1) = 1$ \[By basic algebra]
+>7. $t - 1 = \frac{1}{2}$ \[By basic algebra]
+>8. $t = \frac{3}{2}$ \[By basic algebra]
+>9. $\neg(t \in \mathbb{Z})$ \[By basic algebra from line 8]
+>10. $t \in \mathbb{Z}$ \[From line 3]
+>11. $t \in \mathbb{Z} \land \neg(t \in \mathbb{Z})$ \[Conjunction of lines 9 and 10]
+>12. $\bot$. \[Contradiction rule on line 11]
+>13. $\neg (\exists k \in \mathbb{Z} \ [3 = 2k])$ \[Proof by contradiction on lines 1 and 12]
+>14. $\neg (even(3))$ \[Unpacking definition of $even$ from line 13]
 
-So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that at the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind: Every tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while you build your own techniques and tricks. The same thing applies here!
+So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that in the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind—ever tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while, you build your own techniques and tricks. The same thing applies here!
 
 # Bonus: How this math is useful
 
 Let's look at the statement proven previously again:
 
 >[!Theorem]
->$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n}) \big]$
 
-This looks seemingly useless. Maybe just some random math "fun-fact". But what if I told you that ideas like this were useful in computer science?
+This looks seemingly useless. Maybe just some random math "fun fact". But what if I told you that ideas like this were useful in computer science?
 
 Let's think of the following idea, right now you're given an input number $x$. And your boss needs you to write a program that tests whether $x$ is prime or not. So let's state what $prime(x)$ means.
 
->[!Definition]
-> $prime(x) \equiv \forall d \in \mathbb{N} \ [divides(d, x) \to (d = 1 \lor d = x)]$
+>[!info] Definition: Prime numbers
+> $prime(x) \equiv \forall d \in \mathbb{N} \ \big[divides(d, x) \to (d = 1 \lor d = x) \big]$
 
-This basically says that a number $x$ is called a prime number, if the only two numbers that divide it are $1$ and $x$ itself. Examples of prime numbers are $2, 3, 5, 7, 31, \ldots$ and so on. On the other hand, numbers like $4, 6, 10$ are not prime. Prime numbers are super useful for many reasons! And we might want to test for whether a number is prime so we can use it in our program.
+This basically says that a number $x$ is called a prime number if the only two numbers that divide it are $1$ and $x$ itself. Examples of prime numbers are $2, 3, 5, 7, 31, \ldots$ and so on. On the other hand, numbers like $4, 6, 10$ are not prime. Prime numbers are super useful for many reasons! And we might want to test for whether a number is prime so we can use it in our program.
 
 So now that we know this, maybe we could write a Python script like this:
 
@@ -1757,9 +1759,9 @@ def is_prime(x):
 	return True
 ```
 
-So now our loop takes around $x$ iterations in the worst case. Because if a number is prime, we actually test all numbers up to $x - 1$ before quitting. But! We __can__ actually use the above theorem to help us!
+So now our loop takes around $x$ iterations in the worst case, because if a number is prime, we actually test all numbers up to $x - 1$ before quitting. But! We __can__ actually use the above theorem to help us!
 
-What if I told you, the following code also tests for whether $x$ is prime, but only uses around $\sqrt{x}$ iterations?
+What if I told you that the following code also tests for whether $x$ is prime, but only uses around $\sqrt{x}$ iterations?
 
 ```python
 import math
@@ -1773,6 +1775,6 @@ def faster_is_prime(x):
 	return True
 ```
 
-It only tests divisors from $2$ up to $\lfloor\sqrt{x}\rfloor$. Why is this enough? Because the theorem tells us that any number $x$ has a divisor that is at most $\sqrt{x}$. If a number is prime, it only has 2 divisors: $1$, and $x$ itself. That means that a prime number has no divisors from $2$ to $\sqrt{x}$. On the other hand, a non-prime number **will have** a divisor somewhere between $2$ to $\sqrt{x}$. So we only need to test those numbers.
+It only tests divisors from $2$ up to $\lfloor\sqrt{x}\rfloor$. Why is this enough? Because the theorem tells us that any number $x$ has a divisor that is at most $\sqrt{x}$. If a number is prime, it only has two divisors: $1$, and $x$ itself. That means that a prime number has no divisors from $2$ to $\sqrt{x}$. On the other hand, a non-prime number **will have** a divisor somewhere between $2$ to $\sqrt{x}$, so we only need to test those numbers.
 
-Ideas like this, speed the world up.
+Ideas like this speed the world up.
