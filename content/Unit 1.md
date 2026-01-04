@@ -10,6 +10,8 @@ This unit introduces the notion of proofs, propositional and first-order logic, 
 2. [[#Part 2 First Order Logic|First-order logic]]
 	- [[#Checkpoint 2]]
 3. [[#Part 3 Proofs in First Order Logic|Proof techniques (and patterns)]]
+	- [[#Checkpoint 3]]
+	- [[#Checkpoint 4]]
 
 ---
 # Part 0: Unit Introduction
@@ -402,7 +404,6 @@ Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly m
 >1. What tool can you use to determine if these two formulae are logically equivalent?
 >2. Determine if the two formulae are logically equivalent.
 
-
 >[!success]- Solution
 >1. Use a truth table!
 >
@@ -743,7 +744,6 @@ How do we tell? One way is to use the method used in the section on [[#Truth tab
 >- [ ] $\forall n \in \mathbb{Z}, \exists m \in \mathbb{Z} \ [m^2 = n]$
 >
 >Is this statement true? Why or why not?
-
 
 >[!success]- Solution
 >✅ Option 1: $\exists n \in \mathbb{Z}, \forall m \in \mathbb{Z} \ [m = n^2]$
@@ -1192,7 +1192,7 @@ What has happened here? Let's explain the idea of the proof in English. Line 1 i
 For the final proof of this section, let's think about how to **prove the following statement**:
 
 >[!Theorem]
-> $\forall x \in \mathbb{Z} \ [ even(x) \to even(x + 2) ]$.
+> $\forall x \in \mathbb{Z} \ \big[ even(x) \to even(x + 2) \big]$.
 
 Let us read the statement we wish to prove in English, it is basically saying, "Take any integer $x$, if it is even, then $x + 2$ is even as well." Intuitive right? Let's see how a mathematician does it.
 
@@ -1211,7 +1211,7 @@ Okay that's the idea, but how do we do it formally? Again, we will want to use s
 >	7. $\exists s \in \mathbb{Z} \ [x + 2 = 2 \cdot s]$ \[Existential generalisation on lines 1.5 and 1.6]
 >	8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
 >	9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
->2. $\forall x \in \mathbb{Z} \ [even(x) \to even(x + 2)]$. \[Universal generalisation on lines 1 and 1.9]
+>2. $\forall x \in \mathbb{Z} \ \big[even(x) \to even(x + 2) \big]$. \[Universal generalisation on lines 1 and 1.9]
 
 Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses three new rules here. What is going on?
 
@@ -1260,7 +1260,7 @@ Here are the 4 final deduction rules in detail:
 > Given a line where $x \in A$, where $x$ is some object in some set $A$, and another line that makes a statement about $x$, e.g., $P(x)$, we can then derive the line $\exists x \in A \ [P(x)]$.
 
 >[!info] Definition: Existential instantiation rule
-> Given a line $\exists x \in A \ [P(x)]$, we are able to derive the line "Let $c$ be such that $(c \in A) \land P(c)$.
+> Given a line $\exists x \in A \ [P(x)]$, we are able to derive the line "Let $c$ be such that $(c \in A) \land P(c)$."
 
 >[!info] Definition: Universal generalisation rule
 > Given a line that states that $x$ was *arbitrarily* chosen from set $A$, and another line that makes a statement about $x$, e.g., $P(x)$, we can derive the line $\forall x \in A \ [P(x)]$.
@@ -1318,6 +1318,35 @@ We can do the same thing in math, and that is via the **proof by contradiction r
 
 An example of this proof is deferred to the end of this unit. We will first start showing a few proofs before ending on a proof that uses this rule.
 
+### Checkpoint #3
+
+>[!question] Checkpoint #3
+>For each of the following statements, identify the rule of deduction used.
+>1. From $x < 1 \land \neg (x < 1)$, conclude $\bot$.
+>2. From $n \leq 0 \land n \geq 0$ and deducing $n = 0$, conclude $(n \leq 0 \land n \geq 0) \to (n = 0)$.
+>3. From $\forall x \in \mathbb{Z} \ \big[ \lvert x \rvert \geq 0 \big]$ and $-2 \in \mathbb{Z}$, conclude $\lvert -2 \rvert \geq 0$.
+>4. From $\pi \in \mathbb{N} \to \pi \in \mathbb{Z}$, and given that $\pi \notin \mathbb{Z}$, conclude $\pi \notin \mathbb{N}$.
+>5. Given an arbitrarily chosen $x \in \mathbb{N}$ and deducing that $x^2 \leq (x+1)^2$, conclude $\forall n \in \mathbb{N} \ \big[n^2 \leq (n+1)^2 \big]$.
+>6. From $(1 + 1 = 2) \land (5 - 3 = 0)$, conclude $5 - 3 = 0$.
+>7. From $\exists n \in \mathbb{Z} \ [n^3 < n]$, deriving "Let $k \in \mathbb{Z}$ such that $k^3 < k$."
+>8. From assuming that $\exists n \in \mathbb{Z} \ [1 = 3 \cdot n]$ and deriving $\bot$, conclude $\forall n \in \mathbb{Z} \ [1 \neq 3 \cdot n]$.
+>9. From $x = 1$, conclude $x = 1 \lor x = -1$.
+>10. From $(x = 0 \lor y = 0) \to xy = 0$ and given $y = 0$, conclude $xy = 0$.
+>11. From $2 \in \mathbb{Z}$ and $\frac{1}{2} < 2$, conclude $\exists k \in \mathbb{Z} \ \big[\frac{1}{k} < k \big]$.
+
+>[!success]- Solution
+>1. Contradiction.
+>2. Implication introduction.
+>3. Universal instantiation.
+>4. Modus tollens.
+>5. Universal generalisation.
+>6. Specialisation.
+>7. Existential instantiation.
+>8. Proof by contradiction.
+>9. Generalisation.
+>10. Modus ponens.
+>11. Existential generalisation.
+
 ## Proof Strategies
 
 For the remainder of this part, we will be talking about how to prove certain types of statements.
@@ -1331,16 +1360,15 @@ So if the goal of a task is to prove something like:
 
 > If $x^2 - 1 = 0$ then $x = 1 \lor x = -1$.
 
-Then one way is to do this via a _direct proof_. This is the most straightforward, and we have been doing this all the time, this is when we assume the antecedent of the statement, and prove the consequent. As an example, here is how we accomplish our task:
+Then one way is to do this via a _direct proof_. This is the most straightforward, and we have been doing this all the time: we assume the antecedent of the statement and prove the consequent. As an example, here is how we accomplish our task:
 
 >[!Proof]
 > 1. Assume $x^2 - 1 = 0$.
-> 2. Then $x^2 = 1$ \[Basic Algebra]
-> 3. Then $x = \pm \sqrt{1}$ \[Basic Algebra]
-> 4. Therefore $x = 1 \lor x = -1$
+> 2. Then $x^2 = 1$. \[By basic algebra]
+> 3. Then $x = \pm \sqrt{1} = \pm 1$. \[By basic algebra]
+> 4. Therefore, $x = 1 \lor x = -1$.
 
-
-Think of it this way, if we wish to prove a theorem like "Assuming $P$, then $Q$ is true.", then our proof should work in the same way, where the first line starts with "Assume $P$", then we make some logical deductions along the way, and our concluding line should be $Q$.
+Think of it this way, if we wish to prove a theorem like "Assuming $p$, then $q$ is true.", then our proof should work in the same way, where the first line starts with "Assume $p$", then we make some logical deductions along the way, and our concluding line should be $q$.
 
 What about the following statement?
 
@@ -1349,153 +1377,158 @@ What about the following statement?
 
 Let's try.
 
-**Proof:** 
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. Assume that $even(x)$.
-	1. $\exists k \in \mathbb{Z} \ [x = 2k]$ \[Unpacking definition of even]
-	2. Let $t \in \mathbb{Z}$ be such that $x = 2t$ \[Existential instantiation of line 2.1]
-	3. Then $x^2 = 2\cdot (2 \cdot t^2)$ \[Basic algebra]
-	4. $2 \cdot t^2 \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists m \in \mathbb{Z} \ [x^2 = 2 \cdot m]$ \[Existential generalisation on lines 2.3 and 2.4]
-	6. $even(x^2)$ \[Unpacking definition of even]
-3. $even(x) \to even(x^2)$ \[Implication introduction on lines 2 and 2.6]
-4. $\forall y \in \mathbb{Z} \ [even(y) \to even(y^2)]$ \[Universal generalisation on lines 1 and 3]
+>[!Proof] 
+>1. Let $\textcolor{blue}{x} \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $even(\textcolor{blue}{x})$.
+>	1. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k}]$ \[Unpacking definition of $even$]
+>	2. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t}$. \[Existential instantiation on line 2.1]
+>	3. Then $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t})^2 = 4\textcolor{red}{t}^2 = 2 \cdot (\textcolor{green}{2 \cdot t^2})$. \[By basic algebra]
+>	4. $\textcolor{green}{2 \cdot t^2} \in \mathbb{Z}$ \[By basic algebra]
+>	5. $\exists \textcolor{green}{m} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{m}]$ \[Existential generalisation on lines 2.3 and 2.4]
+>	6. $even(\textcolor{teal}{x^2})$. \[Unpacking definition of $even$]
+>3. $even(\textcolor{blue}{x}) \to even(\textcolor{teal}{x^2})$ \[Implication introduction on lines 2 and 2.6]
+>4. $\forall \textcolor{blue}{y} \in \mathbb{Z} \ [even(\textcolor{blue}{y}) \to even(\textcolor{teal}{y^2})]$ \[Universal generalisation on lines 1 and 3]
  
 So what have we effectively said? We have effectively said that any even integer squared is also even.
 
-## Proof by Contraposition
+### Proof by contraposition
+
 What about the other direction? Can we say the following?
+
 >[!Theorem]
 > $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$
 
 With what we have right now this looks tricky, here's a first attempt:
 
-**Attempted Proof:** 
- 1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
- 2. Assume that $even(x^2)$.  
-	1. $\exists k \in \mathbb{Z} \ [x^2 = 2k]$ \[Unpacking definition of even] 	
-	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2t$ \[Existential instantiation of line 2.1]
-	3. ... what now?
+>[!note] Attempted Proof 
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $even(x^2)$.  
+>	1. $\exists k \in \mathbb{Z} \ [x^2 = 2 \cdot k]$ \[Unpacking definition of $even$] 	
+>	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2 \cdot t$. \[Existential instantiation on line 2.1]
+>	3. ... What now?
 
-We could try saying $x = \sqrt{2t}$ but.. that doesn't prove to us that it is even.
+We could try saying $x = \sqrt{2t}$ but... that doesn't help to prove that $x$ is even.
 
 Let's instead make use of the following statements for free (they can be proven but let's take these as **lemmas**). I hope they are intuitive.
 
 1. If an integer is not even, it is odd.
 2. If an integer is odd, it is not even.
-3. $x$ is odd if $\exists k \in \mathbb{Z} \ [x = 2k + 1]$ (This is the definition of an odd integer)
+3. $x$ is odd if $\exists k \in \mathbb{Z} \ [x = 2 \cdot k + 1]$ (This is the definition of an odd integer.)
 
 Writing this out in math, we have:
 
-4. $\forall x \in \mathbb{Z} \ [\neg even(x) \to odd(x)]$ (Lemma 1)
-5. $\forall x \in \mathbb{Z} \ [odd(x) \to \neg even(x)]$ (Lemma 2)
+1. $\forall x \in \mathbb{Z} \ [\neg even(x) \to odd(x)]$ (Lemma 1)
+2. $\forall x \in \mathbb{Z} \ [odd(x) \to \neg even(x)]$ (Lemma 2)
 
 Now that we have these facts, let's try proving the statement again. Pay attention to how we start, and how we end. Contrast it against the direct proof idea. Notice that we want to prove $p \to q$, but we begin by assuming $\neg q$, and proving $\neg p$.
 
-
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. Assume that $\neg even(x)$.
-	1. $\neg even(x) \to odd(x)$ \[Universal instantiation of Lemma 1]
-	2. $odd(x)$ \[Modus ponens on lines 2 and 2.1]
-	3. $\exists k \in \mathbb{Z} \ [x = 2k + 1]$ \[Unpacking definition of odd]
-	4. Let $t \in \mathbb{Z}$ be such that $x = 2t + 1$ \[Existential instantiation on line 2.3]
-	5. $x^2 = (2t + 1)^2 = 2(2t^2 + 2t) + 1$ \[Basic algebra]
-	6. $(4t^2 + 4t) \in \mathbb{Z}$ \[Basic algebra]
-	7. $\exists k \in \mathbb{Z} \ [x^2 = 2k + 1]$ \[Existential generalisation on lines 2.5 and 2.6]
-	8. $odd(x^2)$ \[Unpacking definition of odd]
-	9. $odd(x^2) \to \neg even(x^2)$ \[Universal instantiation of Lemma 2]
-	10. $\neg even(x^2)$ \[Modus ponens on lines 2.8 and 2.9]
-3.  $\neg even(x) \to \neg even(x^2)$ \[Implication introduction on lines 2 and 2.10]
-4. $even(x^2) \to even(x)$ \[Logically equivalent to line 3]
-5. $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$ \[Universal generalisation on lines 1 and 4]
+>[!Proof]
+>1. Let $\textcolor{blue}{x} \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $\neg even(\textcolor{blue}{x})$.
+>	1. $\neg even(\textcolor{blue}{x}) \to odd(\textcolor{blue}{x})$ \[Universal instantiation of Lemma 1]
+>	2. $odd(\textcolor{blue}{x})$ \[By modus ponens on lines 2 and 2.1]
+>	3. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k} + 1]$ \[Unpacking definition of $odd$]
+>	4. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t} + 1$. \[Existential instantiation on line 2.3]
+>	5. $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t} + 1)^2 = 2 \cdot (\textcolor{green}{2t^2 + 2t}) + 1$ \[By basic algebra]
+>	6. $\textcolor{green}{2t^2 + 2t} \in \mathbb{Z}$ \[By basic algebra]
+>	7. $\exists \textcolor{green}{k} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{k} + 1]$ \[Existential generalisation on lines 2.5 and 2.6]
+>	8. $odd(\textcolor{teal}{x^2})$ \[Unpacking definition of $odd$]
+>	9. $odd(\textcolor{teal}{x^2}) \to \neg even(\textcolor{teal}{x^2})$ \[Universal instantiation of Lemma 2]
+>	10. $\neg even(\textcolor{teal}{x^2})$ \[By modus ponens on lines 2.8 and 2.9]
+>3.  $\neg even(\textcolor{blue}{x}) \to \neg even(\textcolor{teal}{x^2})$ \[Implication introduction on lines 2 and 2.10]
+>4. $even(\textcolor{teal}{x^2}) \to even(\textcolor{blue}{x})$ \[Logically equivalent to line 3]
+>5. $\forall \textcolor{blue}{x} \in \mathbb{Z} \ [even(\textcolor{teal}{x^2}) \to even(\textcolor{blue}{x})]$ \[Universal generalisation on lines 1 and 4]
 
 Notice, we set out to prove:
-$$\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$$
+$$\forall x \in \mathbb{Z} \ \big[even(x^2) \to even(x) \big]$$
 
 But instead we proved:
-$$\forall x \in \mathbb{Z} \ [\neg even(x) \to \neg even(x^2)]$$
+$$\forall x \in \mathbb{Z} \ \big[\neg even(x) \to \neg even(x^2) \big]$$
 
-Why is this okay? Recall in section [[#Contrapositivity]] we talked about how $p \to q$ is logically equivalent to $(\neg q) \to (\neg p)$. We are doing the same thing here: $even(x^2) \to even(x)$ is logically equivalent to $\neg even(x) \to \neg even(x^2)$.
+Why is this okay? Recall in the section on [[#Contrapositivity|contrapositivity]] we talked about how $p \to q$ is logically equivalent to $\neg q \to \neg p$. We are doing the same thing here: $even(x^2) \to even(x)$ is logically equivalent to $\neg even(x) \to \neg even(x^2)$.
 
 > Even though they are logically equivalent, why do we prefer doing this?
 
 Look at the first proof again see how we got stuck. Then look at the second proof and notice that we could actually make something happen.
-## Proof by Contradiction
+
+### Proof by contradiction
 
 This one might be one of the coolest ones you can do. We will show two examples of this proof strategy. A small one, and we will end on a really big proof.
 
-### Example 1
+#### Example 1
 
-Let's think about the following idea, take some number $n$. And consider all possible ways we can write this as $a \times b = n$, with integer values for $a, b$. Ever notice how no matter how hard we try, either $a$ or $b$ has to be at most $\sqrt{n}$?
+Let's think about the following idea, take some number $n$. Consider all possible ways we can write this as $a \times b = n$, with integer values for $a$ and $b$. Ever notice how no matter how hard we try, either $a$ or $b$ has to be at most $\sqrt{n}$?
 
-For example, take a number like $50$. We could write it as: $1 \times 50$, $2 \times 25$, $5 \times 10$ (or also $50 \times 1$, $25 \times 2$, $10 \times 5$). Notice across all 6 possible ways to write it, we have at least one of the numbers being at most $\sqrt{50}$.
+For example, take a number like $50$. We could write it as: $1 \times 50$, $2 \times 25$, $5 \times 10$ (or also $50 \times 1$, $25 \times 2$, $10 \times 5$). Notice across all six possible ways to write it, we have at least one of the numbers being at most $\sqrt{50} \approx 7.07$.
 
 How about something like $9$? That has: $1 \times 9$, $3 \times 3$, $9 \times 1$. Again, in all possible ways to write $9$ as $a \times b$, either $a$ or $b$ is at most $\sqrt{9} = 3$.
 
 Okay, we've tried this for $50$ and $9$. You might ask yourself at this point, are $50$ and $9$ special? Or does this work **for all** numbers? We'll set out to prove that this is indeed true!  Let's do that by proving the theorem below. 
 
 >[!Theorem]
->$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})]$
+>$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[n = a \times b \to (a \leq \sqrt{n} \lor b \leq \sqrt{n}) \big]$
 
 Let's read this back and see what it's saying:
 
-> Let $n$ be any integer, let $a, b$ be any two integers. If $a \times b = n$, then either $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$.
+> Let $n$ be any integer, and let $a, b$ be any two integers. If $n = a \times b$, then either $a \leq \sqrt{n}$ or $b \leq \sqrt{n}$.
 
-Okay, let's try proving this. Also note that $\neg(a \leq b)$ is the same as $a > b$. Since if $a$ is not less than or equals to $b$, then $a$ has to be larger than $b$. They're actually the same.
+Okay, let's try proving this. Also note that $\neg(a \leq b)$ is the same as $a > b$, since if $a$ is not less than or equals to $b$, then $a$ has to be larger than $b$. They're actually the same.
 
 Here's how the proof goes:
 
-**Proof:** 
-1. Let $n \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume that $a \times b = n$.
-	1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
-	2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
-	3. $a > \sqrt{n} \land b > \sqrt{n}$ \[Basic algebra]
-	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[Basic algebra]
-	5. $a \times b > n$ \[Basic algebra]
-	6. $\neg(a \times b = n)$ \[Basic algebra]
-	7. $\neg(a \times b = n) \land a \times b = n$ \[Conjunction rule on lines 4.4 and 4.5]
-	8. $\bot$ \[Contradiction rule on line 7]
-	9. Therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Proof by contradiction rule on lines 4.1 and 4.8 ]
-5. $a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}$ \[Implication introduction rule on lines 4 and 4.9]
-6. $\forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
-7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 2 and 6]
-8. $\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 1 and 8]
+>[!Proof]
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Let $a \in \mathbb{Z}$ be arbitrarily chosen.
+>3. Let $b \in \mathbb{Z}$ be arbitrarily chosen.
+>4. Assume that $a \times b = n$.
+>	1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
+>	2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
+>	3. $a > \sqrt{n} \land b > \sqrt{n}$ \[By basic algebra]
+>	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[By basic algebra]
+>	5. $a \times b > n$ \[By basic algebra]
+>	6. $\neg(a \times b = n)$ \[By basic algebra]
+>	7. $\neg(a \times b = n) \land a \times b = n$ \[Conjunction rule on lines 4.4 and 4.5]
+>	8. $\bot$ \[Contradiction rule on line 7]
+>	9. Therefore, $a \leq \sqrt{n} \lor b \leq \sqrt{n}$. \[Proof by contradiction rule on lines 4.1 and 4.8]
+>5. $a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})$ \[Implication introduction rule on lines 4 and 4.9]
+>6. $\forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
+>7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n}) \big]$ \[Universal generalisation on lines 2 and 6]
+>8. $\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n}) \big]$ \[Universal generalisation on lines 1 and 8]
 
-Okay, as usual I like reading proofs back in English to see what sort of intuition they can convey. We are basically:
+As usual, I like reading proofs back in English to see what sort of intuition they can convey. 
 
+We basically:
 1. Take any integers $n, a, b \in \mathbb{Z}$.
-2. Assuming that $a, b$ are integers such that $n = a \times b$. (I.e. we only care about the cases when $n$ is written as $a \times b$, whatever way that may be)
-3. Assume for a contradiction that "okay let's say it is possible that it is not the case that ($a \leq \sqrt{n}$ or that $b \leq \sqrt{n}$)".
-4. Then if that's the case, line 3 is also **equivalent** to saying "$\neg(a \leq \sqrt{n})$" **and** "$\neg(b \leq \sqrt{n})$".
+2. Assuming that $a$ and $b$ are integers such that $n = a \times b$ (i.e., we only care about the cases when $n$ can be written as $a \times b$, whatever way that may be).
+3. Assume for a contradiction that "Let's say it is possible that it is not the case that ($a \leq \sqrt{n}$ or that $b \leq \sqrt{n}$)."
+4. Then, if that's the case, line 3 is also **equivalent** to saying "$\neg(a \leq \sqrt{n})$" **and** "$\neg(b \leq \sqrt{n})$".
 5. But wait, $\neg(a \leq \sqrt{n})$ means $a > \sqrt{n}$. Also, $\neg(b \leq \sqrt{n})$ , means $b > \sqrt{n}$.
-6. Okay so both $a > \sqrt{n}$ **and** $b > \sqrt{n}$.
+6. Okay, so we have both $a > \sqrt{n}$ **and** $b > \sqrt{n}$.
 7. Well okay... but doesn't that mean that $a \times b > n$?
-8. That also means that $a\times b$ cannot be equal to $n$. I.e. $a \times b \neq n$.
+8. That also means that $a\times b$ cannot be equal to $n$, i.e., $a \times b \neq n$.
 9. We can re-write line 8 as $\neg(a \times b = n)$.
-10. Okay so $\neg(a \times b = n) \land (a \times b = n)$
+10. So we have $\neg(a \times b = n) \land (a \times b = n)$.
 11. But that's a contradiction!
-12. That means that our assumption for a contradiction on line 3 was false. So therefore $a \leq \sqrt{n} \lor b \leq \sqrt{n}$.
+12. That means that our assumption for a contradiction on line 3 was false. Therefore, $a \leq \sqrt{n} \lor b \leq \sqrt{n}$.
 13. Now, we made an assumption on line 2 that $a \times b = n$. So we can say $$a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})$$
 14. Since we took any $a, b, n$ to prove the statement on line 13, it means that: $$\forall n \in \mathbb{Z}, \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}[a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$$
+Phew, that was a bit of a doozy. But at the end of this chapter I will show you how this might be used in computer science.
 
-Phew that was a bit of a doozy. But at the end of this chapter I will show you how this might be used in computer science.
-### Example 2
+#### Example 2
+
 How about the following statement?
 
 > [!Theorem]
 > $\sqrt{2}$ is an irrational number.
 
-To be clear a **rational number** is a number that can be written as $\frac{a}{b}$ for _some value_ $a, b \in \mathbb{Z}$, where $b \neq 0$. Here, a rational number means a number that can be written as a fraction $\frac{a}{b}$ where $a, b$ are integer values, and $b$ is not $0$. So for example, $\frac{1}{3}$, and $0.75$ are examples of rational numbers. Even something like $0.1234567$ since that can be written as $\frac{1234567}{10000000}$. An example of an irrational number is something like $\pi$ or $\sqrt{2}$ (this is not obvious, but take this to be true for now).
+To be clear, a **rational number** is a number that can be written as $\frac{a}{b}$ for _some values_ $a, b \in \mathbb{Z}$, where $b \neq 0$. For example, $\frac{1}{3}$ and $0.75 = \frac{3}{4}$ are examples of rational numbers. Even something like $0.1234567$ since that can be written as $\frac{1234567}{10000000}$. An example of an irrational number is something like $\pi$ or $\sqrt{2}$ (this is not obvious, but take this to be true for now).
 
->[!Definition]
-> A number $x$ is rational if $\exists a \in \mathbb{Z}, b \in \mathbb{Z} \ [ b \neq 0 \land x = \frac{a}{b} ]$.
+>[!info] Definition: Rational and irrational numbers
+> A number $x$ is **rational** if $\exists a \in \mathbb{Z}, b \in \mathbb{Z} \ \big[x = \frac{a}{b} \land b \neq 0 \big]$.
 > 
-> A number that is not rational can be referred to as _irrational_.
+> A number that is not rational is **irrational**.
 > 
-> The set of rational numbers is denoted by $\mathbb{Q}$.
+> The set of rational numbers is denoted $\mathbb{Q}$.
 
 So we can re-state the theorem as:
 
@@ -1505,9 +1538,10 @@ So we can re-state the theorem as:
 >[!Aside]+
 > As an aside, why do we care? One potential reason might be that if we know that we can represent $\sqrt{2}$ as a fraction, we might want to do so when involving this number in our programs. 
 
-Here is a _proof by contradiction_. Pay attention to how we are starting it by assuming the opposite of the theorem statement. The theorem statement says that $\sqrt{2}$ is irrational, and we start by assuming that $\sqrt{2}$ is not irrational (i.e. rational).
+Here is a _proof by contradiction_. Pay attention to how we are starting it by assuming the opposite of the theorem statement. The theorem statement says that $\sqrt{2}$ is irrational, and we start by assuming that $\sqrt{2}$ is not irrational (i.e., rational).
 
 To simplify things, let's use this following (yet unproven) fact:
+
 >[!Lemma]
 > For any $x \in \mathbb{Q}$, $x$ can be written as $\frac{p}{q}$, where:
 > 1. $q \neq 0$
@@ -1517,21 +1551,23 @@ To simplify things, let's use this following (yet unproven) fact:
 Which is basically saying that:
 > Any rational number $x$ can be written as a fraction $\frac{p}{q}$ where $q \neq 0$, and both $p, q$ are integers, and the fraction is simplified.
 
-For example, instead of writing $\frac{4}{6}$, we should write the fraction as $\frac{2}{3}$. How do we simplify fractions? We take the common divisors between the two numbers and remove them. E.g. $4$ and $6$ have a common divisor of $2$. So $4 / 2 =2$ and $6 / 2 = 3$. So now the only common divisor between $2$ and $3$ is $1$. Similarly, instead of $\frac{30}{105}$, the common factor here is $15$, so we should instead write the fraction as $\frac{2}{7}$. Again, between $2$ and $7$, the common divisor is $1$.
+For example, instead of writing $\frac{4}{6}$, we should write the fraction as $\frac{2}{3}$. How do we simplify fractions? We take the common divisors between the two numbers and remove them, i.e., $4$ and $6$ have a common divisor of $2$, so the numerator becomes $4 / 2 =2$ and the denominator becomes $6 / 2 = 3$. Now, the only common divisor between $2$ and $3$ is $1$. Similarly, instead of writing $\frac{30}{105}$, the common factor here is $15$, so we should instead write the fraction as $\frac{2}{7}$. Again, between $2$ and $7$, the common divisor is $1$.
 
 So line 3 is basically promising us that _the only divisor between $p$ and $q$ is $1$_.
 
-Again, notice that we want to formalise this in math, instead of English. So here's my proposed formalisation:
+Again, notice that we want to formalise this in math, instead of English. Here's my proposed formalisation:
 
 >[!Lemma-2]
-> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z} \ [x = \frac{p}{q} \land q \neq 0 \land ( divides(d, p) \land divides(d, q) \to d = 1 )]$
+> $\forall x \in \mathbb{Q}, \exists p \in \mathbb{Z}, q \in \mathbb{Z}, \forall d \in \mathbb{Z} \ \bigg[x = \frac{p}{q} \land q \neq 0 \land \big(divides(d, p) \land divides(d, q) \to d = 1 \big) \bigg]$
 
-The first two statements probably are familiar, we are saying that $x$ is a fraction $\frac{p}{q}$, and that the denominator $q$ is non-zero. What about the last part? It's saying that we go through all the numbers, call them $d$. If $d$ divides both $p$ and $q$, then it must be $1$. This is our way of saying that "If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$."
+Here, the predicate $divides(a,b)$ means that $b$ is divisible by $a$ (i.e., $\exists k \in \mathbb{Z} \ [b = a \cdot k]$). For instance, $divides(2,6)$ evaluates to $true$, but $divides(3,8)$ evaluates to $false$.
+
+The first two statements probably are familiar, we are saying that $x$ is a fraction $\frac{p}{q}$, and that the denominator $q$ is non-zero. What about the last part? It's saying that we go through all the numbers, call each one $d$. If $d$ divides both $p$ and $q$, then it must be $1$. This is our way of saying that "If $d$ is a divisor of $p$ and a divisor of $q$, then $d$ is $1$."
 
 We will also make use of the previously proven fact:
 
 >[!Lemma-1]
-> $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$
+> $\forall x \in \mathbb{Z} \ \big[even(x^2) \to even(x) \big]$
 
 I will first show you the proof, it is really long and perhaps quite intimidating, there are a few things I need you to bear in mind. Every line is either:
 
@@ -1542,7 +1578,7 @@ I will first show you the proof, it is really long and perhaps quite intimidatin
 
 Try to appreciate how this means we are basically starting from assumptions and facts, and everything else is a deduction. We are basically like Sherlock!
 
-The final line is then the conclusion of our proof. (Notice how we used the lemma on line 2! We proved it previously so now we get to call it like a library function.)
+The final line is then the conclusion of our proof. (Notice how we used Lemma 2 on line 2! We proved it previously so now we get to call it like a library function.)
 
 >[!Proof]
 > 1. Assume for the sake of contradiction that: $\sqrt{2}$ is rational, i.e., $\sqrt{2} \in \mathbb{Q}$
@@ -1596,18 +1632,21 @@ I think this proof warrants a read-back in English, here's the proof again in En
 16. But $2$ is not $1$. 😱
 17. Therefore, our assumption needs to be negated. $\sqrt{2}$ cannot be written as a fraction $\frac{p}{q}$ where $p, q$ are integers.
 
->[!Mini-Quiz]
-> In our very big proof above, in the second half of the proof, we are missing a line in the proof. One of the rules needs 2 lines to be applied, but we used the rule with only a single line. Where is the faulty application of the rule? What is missing? And how should we fix it?
+>[!question] Mini quiz
+> In our very big proof above, in the second half of the proof, we are missing a line in the proof. One of the rules needs **two** lines to be applied, but we used the rule with only a single line. Where is the faulty application of the rule? What is missing? And how should we fix it?
 > 
 > >[!Answer]-
 > > Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$.
 
 
 ## Proof Technique: Goal Statements vs. Steps in Proofs
+
 Okay we've seen quite a few proofs and perhaps at some point you might have started asking yourself "ok but how do we know what to do in each step? I don't even know how to begin the proof."
 
 Okay, there are a few general features of proofs that I can start showing you. These might be a little helpful. (Full disclaimer, this stuff does take a while to get used to. Don't rush it, but I will encourage you to try out different proofs through either the extra questions or the tutorials. Just like how best way to learn programming is to write them yourself. The best way to learn proofs is to do them yourself, and have our tutors vet them for you.)
+
 ### A certain way to look at proofs:
+
 Let's re-visit the proofs we did in the previous sections, and I want to show you certain techniques I use to figure out what I need to do.
 
 There are a few key aspects to this:
@@ -1617,6 +1656,7 @@ There are a few key aspects to this:
 **To be clear: knowing these alone will not create the entire proof for you**. But it helps keep you focused on what you need to do next.
 
 #### Example 1:
+
 Okay, let me use an initial example to show you what I mean.
 
 Let's say we had the following statement again:
@@ -1650,6 +1690,7 @@ One other thing you might notice is that the original goal statement wanted a $\
 If you notice, the proof for the other direction $\forall x \in \mathbb{Z} \ [even(x^2) \to even(x)]$ looks the same!
 
 #### Example 2: Delving a little deeper
+
 Okay, in light of what we mentioned just now. How do we think about proving this theorem?
 
 >[!Theorem]
@@ -1688,8 +1729,8 @@ In fact, this seems doable! Let's see the proof.
 
 So what's the moral of the story here? Being mindful of the goal of the proof, how to accomplish the goal, and how to shift the goalpost are all tricks in the bag you can try. It is true that at the beginning, most people won't know what to try. Knowing how to do proofs is like puzzle-solving of any kind: Every tried solving chess puzzles, sudoku puzzles or crossword puzzles? After a while you build your own techniques and tricks. The same thing applies here!
 
-
 # Bonus: How this math is useful
+
 Let's look at the statement proven previously again:
 
 >[!Theorem]
