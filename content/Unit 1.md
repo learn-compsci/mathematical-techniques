@@ -4,12 +4,12 @@ title: "Unit 1: Propositions, Predicates, First-Order Logic, Proofs"
 # Overview
 
 This unit introduces the notion of proofs, propositional and first-order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 4 sub-parts:
-0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first order-logic and proofs]]
+0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first-order logic and proofs]]
 1. [[#Part 1 Propositional logic|Propositional logic]]
 	- [[#Checkpoint 1]]
-2. [[#Part 2 First Order Logic|First-order logic]]
+2. [[#Part 2 First-Order Logic|First-order logic]]
 	- [[#Checkpoint 2]]
-3. [[#Part 3 Proofs in First Order Logic|Proof techniques (and patterns)]]
+3. [[#Part 3 Proofs in First-Order Logic|Proof techniques (and patterns)]]
 	- [[#Checkpoint 3]]
 	- [[#Checkpoint 4]]
 
@@ -216,7 +216,7 @@ Let's define the behaviour of the operations now.
 
 Okay, that table might be a little overwhelming, but it's a good summary of what you need to understand in this section. Let's get into it.
 
-### The And-Connective
+### The and-connective
 
 Let's focus on the **and** operation. Here's the table containing only those relevant columns.
 
@@ -229,7 +229,7 @@ Let's focus on the **and** operation. Here's the table containing only those rel
 
 So what's going on here? If we have two propositions $p, q$, then $p \land q$ is true only when both of them are true. Otherwise, if at least one of them is false, then $p \land q$ is false. This might be the most intuitive one.
 
-### The Not-Connective
+### The not-connective
 
 Moving on, let's talk about the **not** operation.
 
@@ -240,7 +240,7 @@ Moving on, let's talk about the **not** operation.
 
 So this one might be a little intuitive too. When a proposition is true, applying the **not** operation makes it false, and vice versa.
 
-### The Or-Connective
+### The or-connective
 
 Let's move on to something slightly more unintuitive—the **or** operation.
 
@@ -255,7 +255,7 @@ Let's get the obvious stuff out of the way. When $p$ and $q$ are both false, $p 
 
 This might seem slightly unintuitive, since in English it is common to think that "$p$ or $q$" means that only one of $p$ or $q$ is true but not both. However in mathematics, this is the more wieldy definition.
 
-### The Implication-Connective
+### The implication-connective
 
 Lastly, the most unintuitive of the bunch—the **if/then** operation. Let's spend some time on this one:
 
@@ -305,7 +305,7 @@ What happens if $x$ is not $1$? Then can we say $x^2$ is not $1$? We can't! Afte
 
 Anyway, don't worry too much about it for now. My recommended way of viewing it right now is just that these are very common logical operations we wish to perform, and therefore we have chosen to give them names.
 
-## Evaluating formulae
+## Evaluating Formulae
 
 Given a formula (e.g., $(p \to q) \land (q \to s)$), a **truth value assignment** to this formula is when we set each proposition (which we can also call a variable) to either true or false.
 
@@ -313,7 +313,7 @@ As an example, setting $p \equiv true, q \equiv false, s \equiv true$ means that
 
 In plainer terms, we are simply substituting variables for truth values then seeing what the resulting truth value is. Maybe in high school you might have seen something like $y = x + 5$, and if you substitute $\textcolor{blue}{x = 10}$ then we know $y = \textcolor{blue}{10} + 5 = 15$.
 
-## Truth tables and logical equivalences
+## Truth Tables and Logical Equivalences
 
 At this point it might be a good thing to talk about when two formulae are the same. Let's consider these two as an example:
 
