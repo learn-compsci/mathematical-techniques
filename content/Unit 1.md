@@ -2,11 +2,13 @@
 title: "Unit 1: Propositions, Predicates, First-Order Logic, Proofs"
 ---
 # Overview
+
 This unit introduces the notion of proofs, propositional and first-order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 4 sub-parts:
 0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first order-logic and proofs]]
 1. [[#Part 1 Propositional logic|Propositional logic]]
 	- [[#Checkpoint 1]]
 2. [[#Part 2 First Order Logic|First-order logic]]
+	- [[#Checkpoint 2]]
 3. [[#Part 3 Proofs in First Order Logic|Proof techniques (and patterns)]]
 
 ---
@@ -189,7 +191,7 @@ We can also chain these to make even bigger ones, like so:
 
 The next thing to ask is **how do we determine the truth values of the bigger propositions?** This is a key step in eliminating vagueness from our language; the wider math and CS community has agreed on these meanings and their behaviours.
 
-## Logical symbols
+## Logical Symbols
 
 One more thing before we proceed: in line with understanding conventions, let $p,q$ be propositions (substitute them with anything you like). We write the following:
 
@@ -199,7 +201,7 @@ One more thing before we proceed: in line with understanding conventions, let $p
 |     $p$ or $q$     | $\textcolor{green}{p \lor q}$ |
 |  If $p$ then $q$   |  $\textcolor{red}{p \to q}$   |
 |      Not $p$       |  $\textcolor{teal}{\neg p}$   |
-## Behaviour of logical connectives
+## Behaviour of Logical Connectives
 
 Let's define the behaviour of the operations now.
 
@@ -425,7 +427,7 @@ Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly m
 ---
 # Part 2: First-Order Logic
 
-Let's compare the two following proofs:
+Let's compare the following two proofs:
 
 Proof 1:
 1. If Socrates is a human, then Socrates is mortal.
@@ -457,7 +459,8 @@ With that, we have changed lines 2 and 3 of Proof 2. But what about line 1?
 ## Quantifiers
 
 The second thing to do is to introduce **quantifiers**.
-### Universal Quantifier ($\forall$)
+
+### Universal quantifier ($\forall$)
 
 We want to be able to say "Every human is mortal." In order to do so, we will write the following:
 
@@ -483,7 +486,7 @@ $$
 
 Coming back to $\forall x \in Humans \ \big[mortal(x)\big]$, since $x \in Humans$ (in other words, $x$ comes from the set of humans), we can let $x$ take the values of $John$ and $Sam$. Therefore, $mortal(John)$ is true, and $mortal(Sam)$ is also true.
 
-### Existential Quantifier ($\exists$)
+### Existential quantifier ($\exists$)
 
 There is another quantifier we have not mentioned, the **existential quantifier**. What if we instead wanted to say "some humans are mortal"? We write the following:
 
@@ -508,32 +511,28 @@ Here's a diagram that roughly explains the format:
 
 ![[basic-quantifier.png]]
 
-### Another example: Expressing Even Numbers
+### Another example: Expressing even numbers
 
-How should we say a number is even? In English we might say something like "A number is even if it is divisible by 2." What does it mean here to be "divisible by 2"? After all, we **can** divide $3$ by $2$, we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. We will also need to take our numbers from a set. For this, the symbol $\mathbb{Z}$ denotes the **set of all whole numbers (integers)**.
+How should we say a number is even? In English, we might say something like "A number is even if it is divisible by $2$." What does it mean here to be "divisible by $2$"? After all, we **can** divide $3$ by $2$—we just get $1.5$. Perhaps what we mean to say is that a whole number $x$ is even when $\frac{x}{2}$ is also a whole number. We will also need to take our numbers from a set. For this, the symbol $\mathbb{Z}$ denotes the **set of all integers**, e.g., $-2, -1, 0, 1, 2, \dots$.
 
-In discrete math, we say say that $x$ is an even number if:
+>[!info] Definition: Even numbers
+>A number $x$ is an **even number** (equivalently, the predicate $even(x)$ is true) if (and only if) the following statement holds true for $x$:
+>$$\exists k \in \mathbb{Z} \ [2 \cdot k = x]$$
+>where $\mathbb{Z}$ is the set of integers.
 
-$$
-\exists k \in \mathbb{Z} \ [2\cdot k = x]
-$$
-
-Let's read this back in English, and see what it means:
+Let's read this back in English and see what it means:
 
 > There exists a value from the set called $\mathbb{Z}$ that we will call $k$. For this value $k$, $2$ times $k$ is equal to $x$.
 
-When we write $\exists k \in \mathbb{Z}$, this means $k$ is in the set of whole numbers. That is to say: $k$ is a whole number. (It can be negative, it can be $0$, it can be positive, but it is a whole number). We call $\mathbb{Z}$ _the set of integers_.
-
-
->[!Rounding-Up]
+>[!tldr] Rounding up
 > 1. We have seen uses of predicates.
 > 2. We have seen uses of existential and universal quantifiers.
 
+For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in [[#Part 3 Proofs in First-Order Logic|Part 3]] (and the rest of the semester). For the time being, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
 
-For now, perhaps when and how we can make predicates is a little vague but the best way to understand them is via seeing them in action in Part 3 (and the rest of the semester). For now, take them to be the way we give "properties" to objects, like how we can say "Socrates" (as an object) has both the property of being human, and also mortal.
+## Certain manipulations and properties of quantifiers
 
-## Certain manipulations and properties about quantifiers
-There is an interesting aspect about quantifiers we need two talk about: up to the previous part, we have been able to say things like:
+There is an interesting aspect about quantifiers we need two talk about. Up to the previous part, we have been able to say things like:
 
 >"Every person is mortal."
 >
@@ -547,14 +546,14 @@ What about if we wanted to say something like:
 
 Then, we need to use **more than one quantifier**.
 
-What happens if we have more than a few of them? Let's see some examples relating to numbers that does that. We will need a set to work with,  let's consider the set of all non-negative integers, i.e. the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$. We call these **natural numbers**.
+What happens if we have more than a few of them? Let's see some examples relating to numbers that does that. We will need a set to work with; let's consider the set of all non-negative integers, i.e., the set that contains $0, 1, 2, 3, \ldots$ and so on. This set is denoted by the symbol $\mathbb{N}$. We call these **natural numbers**.
 
-We will use the $\leq$ symbol to mean "smaller than or equals to", and $\geq$ to mean "greater than or equals to". What if we wanted to write the following mathematically?
+We will use the $\leq$ symbol to mean "smaller than or equal to", and $\geq$ to mean "greater than or equal to". What if we wanted to write the following mathematically?
 
-1. There exists a natural numbers  that is smaller than or equals to all natural numbers.
-2. It is not the case that there exists a natural numbers that is greater than or equals to all natural numbers.
+1. There exists a natural number that is smaller than or equal to all natural numbers.
+2. It is not the case that there exists a natural number that is greater than or equal to all natural numbers.
 
-Let's begin with the first one, this is a prime example in nesting quantifiers. That is to say, using more than one.
+Let's begin with the first one—this is a prime example in nesting quantifiers. That is to say, using more than one.
 
 $$
 	\exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [ x \leq y ]
@@ -562,9 +561,11 @@ $$
 
 Very succinct right? Reading it back, here's how we should parse it:
 
-> There exists a non-negative number that we will call $x$, fix this $x$. For this $x$, for all non-negative numbers $y$, $x$ is less than or equals to $y$.
+> There exists a non-negative number that we will call $x$—fix this $x$. For all non-negative numbers $y$, this particular $x$ is less than or equal to $y$.
 
 One thing to take note of here is that $x$ is chosen before considering all values of $y$. Do we believe this statement to be true? To prove that this statement is true, we need to pick a value for $x$. What should the value be? It should be $0$!
+
+![[x_less_than_y_1.png]]
 
 Let's look at the second statement.
 
@@ -572,27 +573,32 @@ $$
 \neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
 
-Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists a non-negative number that we will call $x$. Fix this $x$, for every non-negative number $y$, $x$ is greater than or equals to $y$". Since we want the opposite of that statement, we added the negation on the outside.
-### Alternating Quantifiers
-The first question we might want to ask is: Do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
+Notice that we have surrounded the entire statement with a "$\neg$". This is done to say that we want the negation of the inner statement. What is the inner statement saying? It is saying "there exists a non-negative number that we will call $x$—fix this $x$. For every non-negative number $y$, $x$ is greater than or equal to $y$". Since we want the opposite of that statement, we added the negation on the outside.
+
+### Alternating quantifiers
+
+The first question we might want to ask is: do the order of the quantifiers matter? For example, for the first statement, what if we had instead written:
 
 $$
 \forall y \in \mathbb{N}, \exists x \in \mathbb{N} \ [x \leq y]
 $$
 Reading this back, this now says:
 
-> For every possible value, call it $y$, we can find at least one $x$ for which $x$ is smaller than or equals to $y$.
+> For every possible value, call it $y$, we can find at least one $x$ for which $x$ is smaller than or equal to $y$.
 
 Do they mean the same thing? The original is saying we can find a value that is smaller than or equals to all other values. The latter is saying that no matter the value we pick, we can always find something smaller than or equals to it. These do not mean the same thing!
+
+![[x_less_than_y_2.png]]
 
 Here's an analogy, are these two statements the same?
 
 > "Every car has a steering wheel."
 >  vs.
-> "There is a steering wheel, that every car has."
+> "There is a steering wheel that every car has."
 
 See how they don't mean the same thing?
-### Negating Quantifiers
+
+### Negating quantifiers
 
 Let's also take a look at what it means to negate a statement that has quantifiers in it. Let's think about when a number $x$ is not even. We know that we can write this as:
 
@@ -606,13 +612,13 @@ $$
 \forall k \in \mathbb{Z} \ [ x \neq 2k]
 $$
 
-Which basically says, "for every integer $k$, is it not the case that $x$ is equal to $2k$." In plainer terms: it means we cannot write $x$ as $2k$, where $k$ is an integer. Let's go through on more example, the second statement from the previous section:
+Which basically says, "for every integer $k$, it is not the case that $x$ is equal to $2k$." In plainer terms: we cannot write $x$ as $2k$, where $k$ is an integer. Let's go through on more example, the second statement from the previous section:
 
 $$
 \neg \big( \exists x \in \mathbb{N}, \forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
 
-Can we think of a way to write this where we do not have a negation on the outside? We're trying to say "It is not the case that there is a single value that is greater than or equals to all values". Why is this the case? We can think of this statement equivalently in the following way:
+Can we think of a way to write this where we do not have a negation on the outside? We're trying to say "It is not the case that there is a single value that is greater than or equal to all values". Why is this the case? We can think of this statement equivalently in the following way:
 
 > For every value $x$, it is not the case that $x$ is greater than or equal to all values.
 
@@ -621,7 +627,7 @@ Mathematically:
 $$
  \forall x \in \mathbb{N}, \neg \big(\forall y \in \mathbb{N} \ [x \geq y] \big)
 $$
-Take a while sitting on this and reading it to convince yourself it makes sense.
+Take a while to sit on this and reading it to convince yourself it makes sense.
 
 We can go a little further, and say:
 
@@ -635,7 +641,7 @@ $$
 
 Again, take a while to sit on this and convince yourself that they are the same.
 
-In general: We can move a $\neg$ further to the right past a quantifer by changing it from a $\forall$ to a $\exists$, and vice versa.
+In general: we can move a $\neg$ further to the right past a quantifier by changing it from a $\forall$ to a $\exists$, and vice versa.
 
 So for example, all of the following are equivalent:
 
@@ -644,7 +650,10 @@ So for example, all of the following are equivalent:
 3. $\forall x, \exists y, \neg \big( \exists z \ [P(x, y, z)] \big)$
 4. $\forall x, \exists y,  \forall z, \big[ \neg P(x, y, z) \big]$
 
-### Variable Naming does not matter
+where $P$ is some predicate on $x$, $y$ and $z$.
+
+### Variable naming does not matter
+
 The last thing you might wonder is whether the variable names matter. It does not! So, for example, these are all the same:
 
 1. $\exists a, \forall b \ [P(a, b)]$
@@ -653,53 +662,63 @@ The last thing you might wonder is whether the variable names matter. It does no
 
 Pay special attention to lines 2 and 3 and notice that we have swapped the names for $x$ and $y$, but we have also swapped how we use them in the predicate $P(-, -)$.
 
+## Implications and Equivalences
 
-## Implications, and Equivalences
+Let us end Parts 1 and 2 on two important concepts: *implications* and *equivalences*.
 
-Let us end part 1 and 2 on 2 important concepts: Implications, and Equivalences.
-### Implications of Statements
+### Implications of statements
+
 We have been talking a lot about forming statements, and it's time to start talking about two potential relationships between statements.
 
-For example, let's say we had the two following fictional statements:
+For example, let's say we had the following two fictional statements:
 
 > Statement 1: All blargs have paws.
 > Statement 2: All zorps and blargs have paws.
 
-What can we say about Statement 1 vs Statement 2? Let's say we believe in statement 1. Can we then say "**Therefore** statement 2 is true."?
+What can we say about Statement 1 vs. Statement 2? Let's say we believe Statement 1. Can we then say "**Therefore** Statement 2 is true."?
 
-What about the other way around? If we believe statement 2, can we then say "**Therefore** statement 1 is true."?
+What about the other way around? If we believe Statement 2, can we then say "**Therefore** Statement 1 is true."?
 
-We have yet to talk about how to formally make these deductions (in Part 3), but let's appeal to your sense of intuition for now. It makes more sense that Statement 2 follows from Statement 1. Because of this, we will say that "Statement 2 **implies** Statement 1". Reminder that we can write this as "Statement 2 $\to$ Statement 1".
+We have yet to talk about how to formally make these deductions (in [[#Part 3 Proofs in First-Order Logic|Part 3]]), but let's appeal to your sense of intuition for now. It makes more sense that Statement 2 follows from Statement 1. Because of this, we will say that "Statement 2 **implies** Statement 1". Reminder that we can write this as "Statement 2 $\to$ Statement 1".
 
-Okay that was the intuitive direction. But can we also say "Statement 1 $\to$ Statement 2"? Let's think about whether that seems reasonable. A good counter-argument might be the following:
+Okay, that was the intuitive direction. But can we also say "Statement 1 $\to$ Statement 2"? Let's think about whether that seems reasonable. A good counter-argument might be the following:
 
-> If we believed statement 1, we are only convinced that all blargs have paws. From this statement alone, we actually don't know anything about zorps. 
+> If we believed Statement 1, we are only convinced that all blargs have paws. From this statement alone, we actually don't know anything about zorps. 
 > 
 > In the case that it turns out that zorps did not actually have paws, we cannot believe that Statement 2 is true.
 
 So we should not be able to say "Statement 1 $\to$ Statement 2".
 
 ### Contrapositivity
-This covers the idea of when a statement implies another statement. There are also a few other key features we should talk about implications in general. Let's say we knew "$x \to b$". I.e. if $a$ is true, then $b$ must be true.
 
-We can also argue that if $b$ is false, $a$ is false. I.e. $(\neg b) \to (\neg a)$. This is called the contrapositive form of the first statement. 
+This covers the idea of when a statement implies another statement. There are also a few other key features we should talk about implications in general. Let's say we knew that "$a \to b$" (i.e., if $a$ is true, then $b$ must be true).
+
+We can also argue that if $b$ is false, $a$ is false (i.e., $\neg b \to \neg a$). This is called the **contrapositive** form of the first statement.
+
+>[!info] Definition: Contrapositive
+>The **contrapositive** of an implication $a \to b$ is the implication $\neg b \to \neg a$. These two formulae are logically equivalent to each other.
+
+>[!question] Why are those two formulae logically equivalent? Can you prove it?
 
 ### Equivalences
-The last thing to round up on is talking about when two statements are equivalent. Consider the two following statements:
 
-> I like ice-cream or I like cake
+The last thing to round up on is talking about when two statements are equivalent. Consider the following two statements:
 
-> It is not the case that (I do not like ice-cream and I do not like cake)
+> Statement 1: I like ice cream or I like cake.
 
-The idea behind the first statement is that either the person likes ice-cream, or likes cake, or likes both ice-cream and cake.
+> Statement 2: It is not the case that (I do not like ice cream and I do not like cake).
 
-What about the second statement? It might look a bit confusing, let's take this step by step. Reading the inner portion, "I do not like ice-cream and I do not like cake". This means that there is only one possible case, the person dislikes both. But once we add the outer "not", it means that this is the case that is impossible. So what are the possible cases then? If the person in the second statement either:
+The idea behind the first statement is that either the person likes ice cream, or likes cake, or likes both ice cream and cake.
+
+What about the second statement? It might look a bit confusing, let's take this step by step. Reading the inner portion, "I do not like ice cream and I do not like cake". This means that there is only one possible case, the person dislikes both. But once we add the outer "not", it means that this is the case that is impossible. So what are the possible cases then? If the person in the second statement either:
 
 1. Likes only cake
-2. Likes only ice-cream
-3. Likes both cake and ice-cream
+2. Likes only ice cream
+3. Likes both cake and ice cream
 
-Then we can say it is not the case that they dislike both ice-cream and cake. But wait! Isn't that the same as the first statement? We used different words to say the same thing.
+Then we can say it is not the case that they dislike both ice cream and cake. But wait! Isn't that the same as the first statement? We used different words to say the same thing.
+
+![[ice_cream_and_cake.png]]
 
 This might already look familiar to you, earlier on we talked about how these two formulae are logically equivalent: $p \lor q$ and $\neg \big( \neg p  \land \neg  q   \big)$.
 
@@ -712,6 +731,45 @@ This is part of a general phenomenon. Here are some other intuitively equivalent
 
 How do we tell? One way is to use the method used in the section: [[#Truth tables, logical equivalences]].
 
+### Checkpoint #2
+
+>[!question] Checkpoint #2
+>Select all statements that are logically equivalent to the following:
+>$$\exists m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ [m^2 = n]$$
+>
+>- [ ] $\exists n \in \mathbb{Z}, \forall m \in \mathbb{Z} \ [m = n^2]$
+>- [ ] $\forall m \in \mathbb{Z}, \exists n \in \mathbb{Z} \ [m^2 \neq n]$
+>- [ ] $\neg \big(\forall m \in \mathbb{Z}, \exists n \in \mathbb{Z} \ [m^2 \neq n] \big)$
+>- [ ] $\forall n \in \mathbb{Z}, \exists m \in \mathbb{Z} \ [m^2 = n]$
+>
+>Is this statement true? Why or why not?
+
+
+>[!success]- Solution
+>✅ Option 1: $\exists n \in \mathbb{Z}, \forall m \in \mathbb{Z} \ [m = n^2]$
+>
+>This is equivalent, since the naming of the variables do not matter.
+>
+>❌ Option 2: $\forall m \in \mathbb{Z}, \exists n \in \mathbb{Z} \ [m^2 \neq n]$
+>
+>This is **not** equivalent; in fact, this is the negation of option 3.
+>
+>✅ Option 3: $\neg \big(\forall m \in \mathbb{Z}, \exists n \in \mathbb{Z} \ [m^2 \neq n] \big)$
+>
+>This is equivalent, since we can move the $\neg$ rightward and swap the quantifiers correspondingly:
+>$$\neg \big(\forall m \in \mathbb{Z}, \exists n \in \mathbb{Z} \ [m^2 \neq n] \big)$$
+>$$\equiv \exists m \in \mathbb{Z} \ \neg \big(\exists n \in \mathbb{Z} \ [m^2 \neq n] \big)$$
+>$$\equiv \exists m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[\neg (m^2 \neq n) \big]$$
+>$$\equiv \exists m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ [m^2 = n]$$
+>
+>❌ Option 4: $\forall n \in \mathbb{Z}, \exists m \in \mathbb{Z} \ [m^2 = n]$
+>
+>This is **not** equivalent; in general, swapping the order of universal and existential quantifiers produces a different statement. The original statement talks about a specific, fixed $m$, and then comparing all $n$ against it. Instead, Option 4 talks about all values $n$, and then finding an instance of $m$ that fulfils the equation.
+>
+>---
+>The original statement itself is **false**—there is no single integer $m$ that is equal to the square of every other natural number.
+
+---
 # Part 3: Proofs in First-Order Logic
 
 Okay! We are finally in place to start making **proofs**! Now that we know what the words and sentences look like, the next and final step in this unit is how we are to go about deducing statements that we want. For us to do this, we need to recognise the form a proof, what it is, what are steps that we can take in proofs. 
