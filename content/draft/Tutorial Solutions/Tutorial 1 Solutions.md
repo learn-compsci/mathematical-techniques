@@ -1,94 +1,75 @@
-# Question 1 Solutions:
+# Question 1:
 
-For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions $p$, $q$, $r$, $s$ and $t$ as needed, where:
-	$p$ : "The program compiles."
-	$q$: "The input is valid."
-	$r$ : "The output is correct."
-	$s$: "The function is efficient."
-	$t$ : "The algorithm terminates."
-
+For each of the following, write a propositional formula that accurately represents the given English statement. Use the variables $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
+* $p \equiv$ "The program compiles"
+* $q \equiv$ "The input is valid"
+* $r \equiv$ "The output is correct"
+* $s \equiv$ "The function is efficient"
+* $t \equiv$ "The algorithm terminates"
 
 1. "If the program compiles but the input is not valid, then the output is not correct."
 
 >[!Solution]
->$(p \land \neg q)  \to \neg r$
->1. Break down the components:
-"The program compiles": $p$
-"The input is not valid": $\neg q$
-"The output is not correct": $\neg r$
->2. Combine using logical operators:
-"The program compiles but the input is not valid" is $p \land \neg q$
-"If ... then ..." translates to   $\to$  
+>$(p \land \neg q) \to \neg r$
+>
+>Breaking down the sentence, we have:
+>- "*The program compiles*": $p$
+>- "*The input is not valid*": $\neg q$
+>- "*The output is **not** correct*": $\neg r$
+>
+>Combining them using connectives, we have:
+>- "*The program compiles* **but** *the input is not valid*": $p \land \neg q$
+>- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": ==$(p \land \neg q) \to \neg r$==
 
+2. "The function is efficient if and only if both the algorithm terminates and the output is correct."
 
-2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)."
+>[!Solution]
+>$s \leftrightarrow (t \land r)$, or $\big(s \to (t \land r) \big) \lor \big( (t \land r) \to s \big)$
+>
+>Breaking down the sentence, we have:
+>- "*The function is efficient*": $s$
+>- "*The algorithm terminates*": $t$
+>- "*The output is correct*": $r$
+>
+>Combining them using connectives, we have:
+>- "Both *the algorithm terminates* **and** *the output is correct*": $t \land r$
+>- "*The function is efficient* **if and only if** both *the algorithm terminates* **and** *the output is correct*.": ==$\big(s \to (t \land r) \big) \lor \big( (t \land r) \to s \big)$==
+>
+>>[!tip] If and only if
+>> "**If and only if**" is typically written using the double-headed arrow $\leftrightarrow$.
 
->[!Solution] 
-> 
-> $s \leftrightarrow (t \land r)$ or $(s \to (t \land r)) \land ((t \land r) \to s)$
- > 1. Break down the components:
-"The function is efficient": $s$
-"The algorithm terminates": $t$
-"The output is correct": $r$
-"Both ... and ..." is $\land$
->1. Combine using logical operators:
-"The algorithm terminates and the output is correct" is $t \land r$
-"If and only if" translates to an implication in both directions, ie. $(p \to q) \land (q \to p)$
+3. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
+>[!Solution]
+>$\big( (p \land q) \lor s \big) \land \neg t$
+>
+>Breaking down the sentence, we have:
+>- "*The program compiles*": $p$
+>- "*The input is valid*": $q$
+>- "*The function is efficient*": $s$
+>- "*The algorithm **does not** terminate*": $\neg t$
+>
+>Combining these using connectives, we have:
+>- "*The program compiles* **and** *the input is valid*": $p \land q$
+>- "(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*": $(p \land q) \lor s$
+>- "\[(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*], **and** *the algorithm does not terminate*.": ==$\big( (p \land q) \lor s \big) \land \neg t$==
+>
+>>[!tip] Order of operations
+>>Just like in normal arithmetic, the application of logical connectives follows an order. Namely, connectives are applied in the following order: parentheses, $\neg$, $\land$, $\lor$, $\to$.
+>>
+>>Hence, the parentheses are necessary in this particular case. Without them, $p \land q$ and $s \land \neg t$ are evaluated first, instead of $p \land q$ followed by $(p \land q) \lor s$.
 
-3. "((The program compiles and the input is valid) or the function is efficient), and the algorithm does not terminate."
+4. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
 
->[!Solution] 
-> $((p \land q) \lor s) \land \neg t$
->1. Break down the components:
-"The program compiles": $p$
-"The input is valid": $q$
-"The function is efficient": $s$
-"The algorithm does not terminate": $\neg t$
-"And": $\land$, "Or": $\lor$, "But": treated as $\land$ in context.
->1. Combine using logical operators:
-"The program compiles and the input is valid" is $p \land q$
-"The program compiles and the input is valid, or the function is efficient" is $(p \land q) \lor s$
- "But the algorithm does not terminate" adds $\land \neg t$
-> 1. The parentheses are necessary!
+>[!Solution]
+>$p \to \big( (q \land r) \lor \neg t \big)$
 
+5. "The function is efficient if and only if \[(the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates)]."
 
-4. "If the program compiles, then ((either the input is valid and the output is correct), or the algorithm does not terminate)."
-
->[!Solution] 
-> $p  \to  ((q \land r) \lor \neg t)$
-> 1. Break down the components:
-"The program compiles": $p$
- "The input is valid": $q$
-"The output is correct": $r$
-"The algorithm does not terminate": $\neg t$
-"Either ... or ..." translates to $\lor$
->1. Combine using logical operators:
-"The input is valid and the output is correct" is $q \land r$
- "Either the input is valid and the output is correct, or the algorithm does not terminate" is $(q \land r) \lor \neg t$
-"If ... then ..." translates to   $\to$
-
-
-5. "The function is efficient if and only if ((the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates))."
-
->[!Solution] 
-> $s  \leftrightarrow  (p \land q) \lor (r \to  t)$
-> 1. Break down the components:
-"The function is efficient": $s$
-"The program compiles": $p$
-"The input is valid": $q$
-"The output is correct": $r$
-"The algorithm terminates": $t$
-"If ... then ..." translates to   $\to$ , "If and only if" translates to  $\leftrightarrow$.
->1. Combine using logical operators:
-"The program compiles and the input is valid" is $p \land q$
-"The output is correct implies that the algorithm terminates" is $r \to  t$
-"The function is efficient if and only if" translates to  $s \leftrightarrow$
->1. Combine everything: $s \leftrightarrow (p \land q) \lor (r \to t)$
-
+>[!Solution]
+>$s \leftrightarrow \big( (p \land q) \lor (r \to t) \big)$
 
 ---
-
 # Question 2: Negating Propositional Formulae \[Graded Participation]
 
 ### Part A Solutions:

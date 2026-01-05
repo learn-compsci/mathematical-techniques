@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 1: Propositions, Predicates, First Order Logic, Proofs"
+title: "Tutorial 1: Propositions, Predicates, First-Order Logic, Proofs"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
@@ -38,25 +38,24 @@ That said, **we encourage you to try all the questions**, this way when you come
 >[!Purpose] 
 > Practice translating English sentences into propositional formulae!
 
-For each of the following, write a propositional formula that accurately represents the given English statement. Use the propositions $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
+For each of the following, write a propositional formula that accurately represents the given English statement. Use the variables $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
+* $p \equiv$ "The program compiles"
+* $q \equiv$ "The input is valid"
+* $r \equiv$ "The output is correct"
+* $s \equiv$ "The function is efficient"
+* $t \equiv$ "The algorithm terminates"
 
-* $p$: "The program compiles."
-* $q$: "The input is valid."
-* $r$: "The output is correct."
-* $s$: "The function is efficient."
-* $t$: "The algorithm terminates."
-
-0. "If the input is valid, then the output is correct"
+0. "If the input is valid, then the output is correct."
 
 1. "If the program compiles but the input is not valid, then the output is not correct."
 
-2. "The function is efficient if and only if (both the algorithm terminates and the output is correct)." (Hint: "if and only if" means an implication in both directions. $p$ if and only if $q$ is the same as $(p \to q) \land (q \to p)$)
+2. "The function is efficient if and only if both the algorithm terminates and the output is correct." \[Hint: "if and only if" means an implication in both directions. "$p$ if and only if $q$" is equivalent to $(p \to q) \land (q \to p)$.]
 
-3. "((The program compiles and the input is valid) or the function is efficient), and the algorithm does not terminate."
+3. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
-4. "If the program compiles, then ((either the input is valid and the output is correct), or the algorithm does not terminate)."
+4. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
 
-5. "The function is efficient if and only if ((the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates))."
+5. "The function is efficient if and only if \[(the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates)]."
 
 **Example:** The answer to point 0. is: "$q \to r$".
 
