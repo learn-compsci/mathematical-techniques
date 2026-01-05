@@ -115,22 +115,17 @@ Answer template: <br>
 > 
 > To this end, try to consider the following statement below and how we can write it as an implication statement.
 
+> "Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner."
 
-Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
+1. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
 
-## Part A:
-How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
-
-## Part B
-Determine whether the promise has been broken in each of the following cases:
-1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
-3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
-
+2. Determine whether the promise has been broken in each of the following cases:
+	1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+	2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
+	3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
 
 ---
-
 # Question 4: \[Graded Participation]
 
 >[!Purpose] 

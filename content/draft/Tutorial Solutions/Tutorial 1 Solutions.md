@@ -115,23 +115,22 @@ Rewriting the 4 statements using $p$ and $q$, we get:
 Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra), **statements 1 and 3 and logically equivalent**, and **statements 2 and 4 are logically equivalent**.
 
 ---
-# Question 3 Solutions:
+# Question 3:
 
-Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
+> "Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner."
 
-a. How would you write this sentence in propositional logic?
+1. How would you write this sentence in propositional logic?
 
 >[!Solution] 
 > We let the proposition "Dueet watches anime with Aiken" to be $p$ and "Aiken treats Dueet to a pizza dinner" to be $q$.
 > 
 > Then we can write this sentence as $p \to q$.
 
-
-b. Determine whether the promise has been broken in each of the following cases:
-1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
-3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
+2. Determine whether the promise has been broken in each of the following cases:
+	1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+	2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
+	3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
+	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
 
 >[!Solution] 
 > In the examples we have seen truth tables where different truth values of $p$ and $q$ lead to a different truth value of $p\to q$. To make sense of this, we can look at this example.
@@ -141,10 +140,9 @@ b. Determine whether the promise has been broken in each of the following cases:
 >Case 4 doesn't break the promise either; since Dueet didn't do his part, he gets no pizza. 
 >But Case 3 doesn't break the promise either! 
 >
->Why is this so? In the notes we said that in an implication, we don't really care about what happens when the antecedent is false. An implication, or Aiken's *promise*, only guarantees what happens when the antecedent is true. If we know $p$ is true, we know that $q$ will follow through. It doesn't promise us anything about what happens when the antecedent $p$ is false!
+>Why is this so? [[Unit 1#The Implication Connective|In the notes]] we said that in an implication, we don't really care about what happens when the antecedent is false. An implication (Aiken's *promise*), only guarantees what happens when the antecedent is true. If we know $p$ is true, we know that $q$ will follow. It doesn't promise us anything about what happens when the antecedent $p$ is false!
 >
 >Another example would be buying things from a store. You could pay for a soda, and get the soda (Case 1). Or don't pay for the soda, and leave (Case 4). Or the owner might give it to you as a free gift, and you didn't pay for the soda (Case 3). The only case that is upsetting is when you pay but you don't get the soda (Case 2).
-
 
 ---
 
