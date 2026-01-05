@@ -1,4 +1,36 @@
-# Question 1:
+
+# How to submit:
+- Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
+	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
+	2. Submit your written attempts in-person during our tutorial.
+* **Official due date for submission**: 10 Feb 2026, 11:59 PM **or** during tutorial itself.
+
+# Collaboration Policy: 
+* You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
+* **Do not share your solutions**.
+* ChatGPT (and other LLMs) are **not allowed**. 
+* Your submission **must be of your own write-up**.
+
+# Late Policy:
+* < 1 week after submission deadline: 50% penalty
+* < 2 weeks after submission deadline: 75% penalty
+* No submissions after 2 weeks.
+
+# Overview
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+
+1. Questions 1 through 3 are related to **propositional logic**. 
+2. Questions 4 through 6 are related to **first-order logic**. 
+3. Questions 7 and 8 are related to **proofs**. 
+
+After Week 2's content, you should be able to attempt questions 1 through 3. After Week 3's content, you should be able to attempt questions 4 through 6. After Week 4's content, you should be able to attempt questions 7 and 8.
+
+**Questions 2, 4 and 7** are graded for participation.
+
+That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
+
+---
+# Question 1 Solutions:
 
 For each of the following, write a propositional formula that accurately represents the given English statement. Use the variables $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
 * $p \equiv$ "The program compiles"
