@@ -149,29 +149,37 @@ Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolea
 # Question 4 Solutions:
 
 Let:
-- $R=\{A,B,C\}$ be the set of circles,
-- $S=\{E,G,H,J\}$ be the set of squares,
-- $T=\{D,F,I\}$ be the set of triangles, and
-- $U=\{A, B, C, D, E, F, G, H, I\}$ be the set containing all the objects.
+- $C=\{C_1,C_2,C_3\}$ be the set of circles,
+- $S=\{S_1,S_2,S_3,S_4\}$ be the set of squares,
+- $D=\{D_1,D_2,D_3\}$ be the set of diamonds, and
+- $U=\{C_1, C_2, C_3, S_1, S_2, S_3, S_4, D_1, D_2, D_3\}$ be the set containing all the objects.
 
 You are also given the following predicates, which you may use freely in your answers:
-- $Above(x,y)$ is true when object $x$ is above object $y$ in the grid.
+- $Above(x,y)$ is true when object $x$ is in anywhere in a row that is strictly above object $y$. For example, we consider $Above(D_1, D_2) \equiv true$ and $Above(S_1, D_2) \equiv false$.
 - $Blue(x)$ is true when object $x$ is blue.
 - $Grey(x)$ is true when object $x$ is grey.
 - $Orange(x)$ is true when the object $x$ is orange.
-- $Circle(x)$ is true when the object $x$ is a circle
-- $Square(x)$ is true when $x$ is a square object.
-- $Triangle(x)$ is true when $x$ is a triangular object.
+- $Circle(x)$ is true when the object $x$ is a circle.
+- $Square(x)$ is true when $x$ is a square.
+- $Diamond(x)$ is true when $x$ is a diamond.
 
-Determine whether the following statements are true or false for the picture:
-5. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
-6. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
-7. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
-8. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
-9. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-10. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
+Determine whether the following statements are true or false for the below picture:
+1. $\exists u \in U \ [Orange(u) \land Diamond(u)]$
+2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
+3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
+4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
+5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
+6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
+![[tarski.png]]
+>[!Solution]
+>1. $\exists u \in U \ \big[Orange(u) \land Diamond(u) \big]$
+>	 **True**: Consider $u = D_2$.
+>>
+>2. $\forall u \in U \ \big[Circle(u) \to Blue(u) \big]$
+>	**False**: Consider $u = C_2$. Then, $Circle(C_2) \equiv true$, but $Blue(C_2) \equiv false$, and hence $Circle(C_2) \to Blue(C_2) \equiv false$.
+>> 
+>3. 
 
-![[tarskis-drawn.png|500]]
 
 **Solution:**
 

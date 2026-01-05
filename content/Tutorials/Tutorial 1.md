@@ -92,7 +92,7 @@ Draw two truth tables to verify that:
 3. $\neg(\neg p)$ is logically equivalent to $p$ (From the notes)
 4. $\neg(p \lor q)$ is logically equivalent to $\neg p \land \neg q$ (From the notes)
 
-**Sneak peek:** Equivalences 2 and 4 are collectively known as [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra). These negations are super useful because later on when we talk about proofs by contradiction, knowing how to negate complex statements comes in handy. (Relevant content in Week 4's chapter on [[Unit 1#Proof Strategies|proof strategies]].)
+**Sneak peek:** Equivalences 2 and 4 are collectively known as [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra). These negations are super useful because later on when we talk about proofs by contradiction, knowing how to negate complex statements comes in handy. (Relevant content in Week 4's section on [[Unit 1#Proof Strategies|proof strategies]].)
 
 ## Part B: Translating human language to propositional logic
 
@@ -129,14 +129,14 @@ Answer template: <br>
 # Question 4: \[Graded Participation]
 
 >[!Purpose] 
-> In this tutorial question, we will try to reinforce the concept of reading the notation for first order logic. This comes in a few parts: We will try to get you used to basic set notation, the quantifiers, as well as the predicates.
+> In this tutorial question, we will try to reinforce the concept of reading the notation for first-order logic. This comes in a few parts: we will try to get you used to basic set notation, the quantifiers, as well as the predicates.
 
-Recall we mentioned in the chapter [[Unit 1#Quantifiers|Unit 1: Quantifiers]] that the basic format for quantified statement looks something like this:
+Recall we mentioned in the section on [[Unit 1#Quantifiers|quantifiers]] that the basic format for quantified statement looks something like this:
 
 ![[basic-quantifier.png|450]]
 
 
-And furthermore as an example, a set can be specified like this: $Human = \{John, Sam\}$. Here, $Human$ is the set, and we are saying that that set **contains two elements**, namely: $John$ and $Sam$.
+And furthermore as an example, a set can be specified like this: $Humans = \{John, Sam\}$. Here, $Humans$ is the set, and we are saying that that set **contains two elements**, namely: $John$ and $Sam$.
 
 > "What if I want to make a set with the name $S$ that contains elements $1, 5, 20, 560, 1000$?" 
 
@@ -145,22 +145,22 @@ Good question! Then you could just write $S = \{1, 5, 20, 560, 1000\}$. So $S$ i
 With that in mind, we have made some sets here for you, we also have listed some predicates. We will specify their behaviours for you.
 
 Let:
-- $R=\{A,B,C\}$ be the set of circles,
-- $S=\{E,G,H,J\}$ be the set of squares,
-- $T=\{D,F,I\}$ be the set of triangles, and
-- $U=\{A, B, C, D, E, F, G, H, I\}$ be the set containing all the objects.
+- $C=\{C_1,C_2,C_3\}$ be the set of circles,
+- $S=\{S_1,S_2,S_3,S_4\}$ be the set of squares,
+- $D=\{D_1,D_2,D_3\}$ be the set of diamonds, and
+- $U=\{C_1, C_2, C_3, S_1, S_2, S_3, S_4, D_1, D_2, D_3\}$ be the set containing all the objects.
 
 You are also given the following predicates, which you may use freely in your answers:
-- $Above(x,y)$ is true when object $x$ is above object $y$ in the grid.
+- $Above(x,y)$ is true when object $x$ is in anywhere in a row that is strictly above object $y$. For example, we consider $Above(D_1, D_2) \equiv true$ and $Above(S_1, D_2) \equiv false$.
 - $Blue(x)$ is true when object $x$ is blue.
 - $Grey(x)$ is true when object $x$ is grey.
 - $Orange(x)$ is true when the object $x$ is orange.
-- $Circle(x)$ is true when the object $x$ is a circle
-- $Square(x)$ is true when $x$ is a square object.
-- $Triangle(x)$ is true when $x$ is a triangular object.
+- $Circle(x)$ is true when the object $x$ is a circle.
+- $Square(x)$ is true when $x$ is a square.
+- $Diamond(x)$ is true when $x$ is a diamond.
 
 Determine whether the following statements are true or false for the below picture:
-1. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
+1. $\exists u \in U \ [Orange(u) \land Diamond(u)]$
 2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
 3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
 4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
@@ -168,9 +168,7 @@ Determine whether the following statements are true or false for the below pictu
 6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
 
 Take note of which set each variable comes from, e.g., in the first statement, which set does variable $u$ come from? What possible values can it take?
-
-![[tarskis-drawn.png|500]]
-
+![[tarski.png]]
 
 ---
 
