@@ -451,9 +451,9 @@ At this level, the three lines of Proof 2 look unrelated to each other, and that
 
 ## Predicates
 
-The first thing to do is to create a new kind of "word" in our sentences, called **predicates**. In Proof 2, we want to create a predicate called $human(x)$. You can think of $human$ like a function that takes objects, and outputs either $true$ or $false$. So based on this, instead of saying "$\text{Socrates}$ is a human", we will instead say "$human(\text{Socrates})$ is true". Here, $\text{Socrates}$ is an object, and the predicate $human$ evaluates to true when given $\text{Socrates}$ as input. Perhaps $\text{Car}$ is another kind of object, and $human(\text{Car})$ evaluates to $false$.
+The first thing to do is to create a new kind of "word" in our sentences, called **predicates**. In Proof 2, we want to create a predicate called $human(x)$. You can think of $human$ like a function that takes objects, and outputs either $true$ or $false$. So based on this, instead of saying "$Socrates$ is a human", we will instead say "$human(Socrates)$ is true". Here, $Socrates$ is an object, and the predicate $human$ evaluates to true when given $Socrates$ as input. Perhaps $Car$ is another kind of object, and $human(Car)$ evaluates to $false$.
 
-Very similarly, instead of "*Socrates is mortal*", we will instead write $mortal(\text{Socrates})$.
+Very similarly, instead of "*Socrates is mortal*", we will instead write $mortal(Socrates)$.
 
 With that, we have changed lines 2 and 3 of Proof 2. But what about line 1?
 
