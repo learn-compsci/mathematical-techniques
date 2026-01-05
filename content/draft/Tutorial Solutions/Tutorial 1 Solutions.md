@@ -102,7 +102,7 @@ For each of the following, write a propositional formula that accurately represe
 >$s \leftrightarrow \big( (p \land q) \lor (r \to t) \big)$
 
 ---
-# Question 2: Negating Propositional Formulae \[Graded Participation]
+# Question 2 \[Graded Participation]:
 
 ### Part A:
 
@@ -177,7 +177,7 @@ Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolea
 >Another example would be buying things from a store. You could pay for a soda, and get the soda (Case 1). Or don't pay for the soda, and leave (Case 4). Or the owner might give it to you as a free gift, and you didn't pay for the soda (Case 3). The only case that is upsetting is when you pay but you don't get the soda (Case 2).
 
 ---
-# Question 4:
+# Question 4 \[Graded Participation]:
 
 Let:
 - $C=\{C_1,C_2,C_3\}$ be the set of circles,
@@ -436,28 +436,28 @@ Prove the following statement:
 > [!Theorem] 
 > $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
 > 
-> Where we define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
+> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
 
 >[!Solution]
 >**Proof:**
->1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume for the sake of contradiction that $even(x) \land odd(x)$.
 >	1. $even(x)$. \[Specialisation on line 2]
->	2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even(x)$]
+>	2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
 >	3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
 >	4. $odd(x)$. \[Specialisation on line 2]
->	5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd(x)$]
+>	5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
 >	6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
 >	7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
 >	8. $2(s - t) = 1$. \[Basic algebra]
 >	9. $s - t = \frac{1}{2}$. \[Basic algebra]
 >	10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
->	11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[Basic algebra, from lines 2.3 and 2.6]
+>	11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.3 and 2.6]
 >	12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
 >	13. $\bot$. \[Contradiction rule on line 2.12]
 >3. $\neg \big(even(x) \land odd(x)\big)$. \[Proof by contradiction rule on line 2.13]
->4. $\forall x \in \mathbb{Z} \ \big[\neg (even(x) \land odd(x))\big]$. \[Universal generalisation on lines 1 and 3]
+>4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
 
 ---
 # Question 8:

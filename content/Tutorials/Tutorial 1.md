@@ -59,7 +59,7 @@ For each of the following, write a propositional formula that accurately represe
 **Example:** The answer to point 0. is: "$q \to r$".
 
 ---
-# Question 2: Negating Propositional Formulae \[Graded Participation]
+# Question 2 \[Graded Participation]: Negating Propositional Formulae
 
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
 
@@ -125,7 +125,7 @@ Answer template: <br>
 	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
 
 ---
-# Question 4: Tarski's World \[Graded Participation]
+# Question 4 \[Graded Participation]: Tarski's World 
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first-order logic. This comes in a few parts: we will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -238,15 +238,16 @@ Statements:
 
 ---
 # Question 7 \[Graded Participation]:
+
 Prove the following statement:
 
 > [!Theorem] 
-> $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
+> $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big) \big]$
 > 
-> Where we define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$
+> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
 
-Notice this theorem is basically say no integer is both odd and even at the same time.
+Notice this theorem is basically saying that no integer is both odd and even at the same time.
 
 To get you started, we have filled in a few lines of the proof for you, you should try to make sure that the proof is complete:
 
@@ -261,10 +262,11 @@ The clickable hint box below gives a hint on how to approach this proof.
 >[!Hint]-
 > Based on our assumption for contradiction, can we somehow argue something like $\frac{1}{2} \in \mathbb{Z}$?
 > 
-> We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ due to Basic Algebra. After all, $\frac{1}{2}$ is not an integer.
+> We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ by basic algebra. After all, $\frac{1}{2}$ is not an integer.
 
-
+---
 # Question 8:
+
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
 Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service, e.g., $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server, and so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
