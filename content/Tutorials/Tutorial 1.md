@@ -159,12 +159,12 @@ You are also given the following predicates, which you may use freely in your an
 - $Diamond(x)$ is true when $x$ is a diamond.
 
 Determine whether the following statements are true or false for the below picture:
-1. $\exists u \in U \ [Orange(u) \land Diamond(u)]$
-2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
-3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
-4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
-5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
+1. $\exists u \in U \ \big[Orange(u) \land Diamond(u) \big]$
+2. $\forall u \in U \ \big[Circle(u)\rightarrow Blue(u) \big]$
+3. $\forall s \in S, \exists d \in D \ \big[Above(d, s) \big]$
+4. $\forall c \in C, \forall s \in S \ \big[Above(c, s) \big]$
+5. $\exists u \in U, \forall c \in C \ \big[Above(u, c) \big]$
+6. $\exists c \in C, \exists d \in D \ \big[Grey(c) \lor \neg Orange(d) \big]$
 
 Take note of which set each variable comes from, e.g., in the first statement, which set does variable $u$ come from? What possible values can it take?
 ![[tarski.png]]

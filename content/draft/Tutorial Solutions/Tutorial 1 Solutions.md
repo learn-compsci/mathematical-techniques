@@ -178,7 +178,7 @@ Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolea
 
 ---
 
-# Question 4 Solutions:
+# Question 4:
 
 Let:
 - $C=\{C_1,C_2,C_3\}$ be the set of circles,
@@ -196,12 +196,12 @@ You are also given the following predicates, which you may use freely in your an
 - $Diamond(x)$ is true when $x$ is a diamond.
 
 Determine whether the following statements are true or false for the below picture:
-1. $\exists u \in U \ [Orange(u) \land Diamond(u)]$
-2. $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$
-3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
-4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$
-5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
+1. $\exists u \in U \ \big[Orange(u) \land Diamond(u) \big]$
+2. $\forall u \in U \ \big[Circle(u)\rightarrow Blue(u) \big]$
+3. $\forall s \in S, \exists d \in D \ \big[Above(d, s) \big]$
+4. $\forall c \in C, \forall s \in S \ \big[Above(c, s) \big]$
+5. $\exists u \in U, \forall c \in C \ \big[Above(u, c) \big]$
+6. $\exists c \in C, \exists d \in D \ \big[Grey(c) \lor \neg Orange(d) \big]$
 ![[tarski.png]]
 >[!Solution]
 >1. $\exists u \in U \ \big[Orange(u) \land Diamond(u) \big]$
@@ -210,40 +210,21 @@ Determine whether the following statements are true or false for the below pictu
 >2. $\forall u \in U \ \big[Circle(u) \to Blue(u) \big]$
 >	**False**: Consider $u = C_2$. Then, $Circle(C_2) \equiv true$, but $Blue(C_2) \equiv false$, and hence $Circle(C_2) \to Blue(C_2) \equiv false$.
 >> 
->3. 
-
-
-**Solution:**
-
-1. $\exists u \in U \ [Orange(u) \land Triangle(u)]$
-   **True**; let that object $u$ be the orange triangle $F$.
-
-2. $\forall u \in U \ [Circle(u) \to Blue(u)]$
-   **False**; consider letting the object $u$ be the orange circle $b$. 
-	- The predicate $Circle(b)$ is true.
-	- The predicate $Blue(b)$ is false.
-	- But, $Circle(b) \rightarrow Blue(b)$ evaluates to false.
-	 Since $\forall u \in U \ [Circle(u)\rightarrow Blue(u)]$ is stating that: "For every object $u$, if $u$ is a circle then $u$ is blue", and we have found a circle that is not blue, the statement is false.
-
-3. $\forall s \in S, \exists t \in T \ [Above(t, s)]$
-   **True**; no matter which square $s$ is picked, we can always find at least one triangle $t$ such that $t$ lies above $s$ in the grid: consider triangle $d$, it is above all squares.
-
-4. $\forall r \in R, \forall s \in S \ [Above(r, s)]$ 
-   **True**; no matter which circle $r$ and which square $s$ are picked from the sets of circles and squares, $r$ will lie above $s$ in the grid, since all the circles lie above all the squares.
-
-5. $\exists u \in U, \forall r \in R \ [Above(u, r)]$
-   **False**; no matter which object $u$ is picked, we can always find at least circle $r$ such that $u$ does not lie above $r$, since there is no object that lies above the circle $a$.
-
-6. $\exists r \in R, \exists t \in T \ [Grey(r) \lor \neg Orange(t)]$
-   **True**; consider letting the object $r$ be the blue circle $a$ and letting the object $t$ be the grey triangle $d$.
-	- The predicate $Grey(a)$ is false.
-	- The predicate $Orange(d)$ is false, and so $\neg Orange(d)$ is true.
-	- Thus, $Grey(a) \lor \neg Orange(d)$ evaluates to true.
-
+>3. $\forall s \in S, \exists d \in D \ \big[Above(d, s) \big]$
+>	**True**: No matter which square $s$ is chosen, we can always find at least one diamond $d$ such that $d$ lies above $s$ in the grid. For example, for all the squares, we can let $d = D_1$.
+>	\[Note that **this does not mean that the $d$ chosen has to be the same one for every $s$**! In this case, this choice of $d$ *happens* to work for all the squares.]
+>> 
+>4. $\forall c \in C, \forall s \in S \ \big[Above(c, s) \big]$
+>	**True**: No matter which circle $c$ and which square $s$ are chosen, the circle will lie above the square.
+>> 
+>5. $\exists u \in U, \forall c \in C \ \big[Above(u, c) \big]$
+>	**False**: There does not exist a single object $u$ that lies above all the circles, because the topmost object is itself a circle (i.e., $C_1$), and therefore $Above(u, C_1) \equiv false$ no matter the choice of $u$.
+>> 
+>6. $\exists c \in C, \exists d \in D \ \big[Grey(c) \lor \neg Orange(d) \big]$
+>	**True**: Consider $c = C_1, d = D_1$. Then, $\neg Orange(D_1) \equiv true$. By generalisation, $Grey(C_1) \lor \neg Orange(D_1) \equiv true$.
 
 ---
-
-# Question 5 Solutions:
+# Question 5:
 
 Consider the following first order logic statements:
 1. $∃x∈D \ [P(x) \land Q(x)]$
