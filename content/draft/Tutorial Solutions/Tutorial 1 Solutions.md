@@ -5,7 +5,7 @@
 	2. Submit your written attempts in-person during our tutorial.
 * **Official due date for submission**: 10 Feb 2026, 11:59 PM **or** during tutorial itself.
 
-# Collaboration Policy: 
+# Collaboration Policy:
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
 * **Do not share your solutions**.
 * ChatGPT (and other LLMs) are **not allowed**. 
@@ -17,6 +17,7 @@
 * No submissions after 2 weeks.
 
 # Overview
+
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
 1. Questions 1 through 3 are related to **propositional logic**. 
@@ -461,17 +462,18 @@ Prove the following statement:
 
 ---
 # Question 8:
+
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
-Your boss tells you to keep costs down, that each server must service **less than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service. e.g., $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server, and so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
+Your boss tells you to keep costs down, that each server must service **fewer than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service, i.e., $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server, and so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
 
 **Question:** Prove to yourself and your boss that this is impossible.
 
 **Solution:**
 
-Before we begin the proof, let's formalise what the question wants us to prove. We need to show that the following statement is true: 
+Before we begin the proof, let's formalise what the question wants us to prove. We need to show that the following statement is true:
 
-Given $C \in \mathbb{N}, S \in \mathbb{N}, c_{1} \in \mathbb{N}, c_{2} \in \mathbb{Z}, \dots, c_{S} \in \mathbb{N}$ such that $(C > 0) \land (\sum_{i=1}^S c_i = C)$, and the set $[S] = \{1, 2, \dots, S\}$ (refer to [[Unit 2#Common Sets for Numbers]] for an explanation of this notation),
+Given $C \in \mathbb{N}, S \in \mathbb{N}, c_{1} \in \mathbb{N}, c_{2} \in \mathbb{Z}, \dots, c_{S} \in \mathbb{N}$ such that $(C > 0) \land (\sum_{i=1}^S c_i = C)$, and the set $[S] = \{1, 2, \dots, S\}$ (refer to [[Unit 2#Common Sets for Numbers|this section]] for an explanation of this notation),
 
 $$\neg \bigg(\forall i \in [S] \ \bigg[c_{i} < \frac{C}{S}\bigg]\bigg)$$
 
