@@ -184,19 +184,18 @@ Consider the following first-order logic statements:
 Write the negation of each of the statements. You may refer to the section on [[Unit 1#Negating Quantifiers|negating quantifiers]] for this.
 
 ---
-
 # Question 6:
 
 >[!Purpose] 
-> In this next question, we will apply the understanding of first order logic to more commonly encountered sets and practice manipulating statements. It's a chance to get more familiar with and fluent in reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.
+> In this next question, we will apply the understanding of first-order logic to more commonly encountered sets and practice manipulating statements. It's a chance to get more familiar with and fluent in reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.
 
 ## Useful notation for sets of numbers for easy reference:
 
-|    Symbol    | Definition              | Explanation                                                                                                                         |
-| :----------: | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                     |
-| $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                 |
-| $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of 2 integers, eg: $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
+|    Symbol    | Definition              | Explanation                                                                                                                             |
+| :----------: | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| $\mathbb{N}$ | Set of natural numbers  | Set containing the numbers $0, 1, 2, 3, \ldots$                                                                                         |
+| $\mathbb{Z}$ | Set of integers         | Set containing the numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$                                                                     |
+| $\mathbb{Q}$ | Set of rational numbers | Set containing numbers that can be expressed as a fraction of two integers, e.g., $0.33\bar3 = \dfrac{1}{3}$ and $-20 = \dfrac{40}{-2}$ |
 ## Part A: Negating statements
 
 >[!Purpose] 
@@ -214,7 +213,7 @@ For each of the following statements, write out the negation of the statement, a
 ## Part B: Contrapositive statements
 
 >[!Purpose] 
->Similar to part a, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
+>Similar to Part A, when attempting to prove implication statements, instead of trying to prove/disprove an implication directly, we can consider the [[Unit 1#Contrapositivity|contrapositive]]. Again, in some cases, the contrapositive may be more intuitive or easier to digest than the original statement.
 
 For each of the following implication statements:
 1. Write its contrapositive.
@@ -232,11 +231,10 @@ $$
 $$
 Basically, take the inner implication statement, and re-write it in its contrapositive form.
 
-
 Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
 2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
-3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5\big]$
+3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$
 
 ---
 # Question 7 \[Graded Participation]:

@@ -307,10 +307,12 @@ Write the negation of each of the statements.
 
 ---
 # Question 6:
-### Part A Solutions:
-1. (**True**)  $\exists x \in \mathbb{N}, \forall y \in \mathbb{Z} \ [x \neq y]$
 
->[!Explanation:]
+### Part A:
+
+1. (**True**) $\exists x \in \mathbb{N}, \forall y \in \mathbb{Z} \ [x \neq y]$
+
+>[!Explanation]
 >This is a practice on negating multiple quantifiers in the same statement.
 >1. $\neg \big(\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]\big)$
 >2. $\equiv \exists x \in \mathbb{N}, \neg \big(\exists y \in \mathbb{Z} \ [x = y]\big)$ (Negation of universal quantifier)
@@ -321,30 +323,27 @@ Write the negation of each of the statements.
 
 2. (**False**) $\exists p, q \in \mathbb{Q} \ [q \neq p]$
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on negating multiple objects in the same quantifier.
 >1. $\neg \big(\forall p, q \in \mathbb{Q} \ [q = p]\big)$
 >2. $\equiv \exists p, q \in \mathbb{Q} \ \big[\neg (q = p)\big]$ (Negation of universal quantifier)
 >3. $\equiv \exists p, q \in \mathbb{Q} \ [q \neq p]$ (Negation of equals)
 >>**Deciphering the statement:**
->>This statement says any 2 rational numbers are equal. 
->>We know this to be  false.
+>>This statement says any two rational numbers are equal, which we know to be false.
 
 3. (**False**) $\exists a, b, c \in \mathbb{Z} \ [a \neq b \land a \neq c]$ 
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on applying De Morgan's Law.
 >1. $\neg \big(\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]\big)$
 >2. $\equiv \exists a, b, c \in \mathbb{Z} \ \big[\neg (a = b \lor a = c)\big]$ (Negation of universal quantifier)
 >3. $\equiv \exists a, b, c \in \mathbb{Z} \ [a \neq b \land a \neq c]$ (De Morgan's Law and negation of equals)
 >>**Deciphering the statement:**
->>This statement says when you pick any 3 integers, one of the integers you picked will be equal to one of the other 2 integers. 
->>
->>This is false.
+>>This statement says when you pick any three integers, one of the integers you picked will be equal to one of the other two integers. This is false.
 
 4. (**True**) $\exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q} \ [x \neq 3y \lor x \neq 5z]$
 
->[!Explanation:]
+>[!Explanation]
 >This is another practice on applying De Morgan's Law, but with a little more complexity.
 >1. $\neg \big(\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]\big)$
 >2. $\equiv \exists x \in \mathbb{Z}, \neg \big(\exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]\big)$ (Negation of universal quantifier)
@@ -357,7 +356,7 @@ Write the negation of each of the statements.
 
 5. (**False**) $\forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z} \ [p + q = r]$
 
->[!Explanation:]
+>[!Explanation]
 >This is an example of when negating a statement can make it easier to understand.
 >1. $\neg \big(\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]\big)$
 >2. $\equiv \forall p, q \in \mathbb{Z}, \neg \big(\forall r \in \mathbb{Z} \ [p + q \neq r]\big)$ (Negation of existential quantifier)
@@ -366,7 +365,7 @@ Write the negation of each of the statements.
 >>**Deciphering the statement:**
 >>This statement is not so easy to intuitively determine if it is true just by looking at the original statement, so we will instead consider the negation. 
 >>
->>The negation says, any 2 integers added together is equal to another integer.
+>>The negation says, any two integers added together is equal to another integer.
 >>
 >>We know this to be true. 
 >>Therefore, the original statement must be false.
@@ -375,74 +374,62 @@ Write the negation of each of the statements.
 
 6. (**False**) $\exists a, b \in \mathbb{Z} \ [a^2 = b^2 \land a \neq b]$
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on negating implication statements.
 >1. $\neg \big(\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]\big)$
 >2. $\equiv \exists a, b \in \mathbb{Z} \ \big[\neg (a^2 = b^2 \to a = b)\big]$ (Negation of universal quantifier)
 >3. $\equiv \exists a, b \in \mathbb{Z} \ [a^2 = b^2 \land a \neq b]$ (Substitute with a [[Tutorial 1 Solutions#Part a Solutions|logically equivalent proposition]])
 >>**Deciphering the statement:**
->>This statement says if the squares of 2 integers are equal, the 2 integers are also equal. 
+>>This statement says if the squares of two integers are equal, the two integers are also equal. 
 >>
 >>This is false as the square of a number and its negative counterpart are equal. 
 >>
->>Important to note is the use of a commonly used logical equivalence to substitute away the implication connective, as that is the easiest way to negate them.
+>>It is important to note the use of a commonly used logical equivalence to substitute away the implication connective, as that is the easiest way to negate them.
 
+### Part B:
 
-### Part B Solutions:
 1. (**True**) $\forall a, b \in \mathbb{Z} \ [a = b \to a^2 = b^2]$
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on finding the contrapositive of a simple implication statement.
 >1. $\forall a, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
 >2. $\equiv \forall a, b \in \mathbb{Z} \ [a = b \to a^2 = b^2]$ (Substitution of contrapositive form)
 >>**Deciphering the statement:**
->>This statement says if the squares of 2 integers are not equal, the 2 integers are also not equal. 
+>>This statement says if the squares of two integers are not equal, the two integers are also not equal. This might be tricky to justify, so let's consider the contrapositive. 
 >>
->>This might be tricky to justify, so let's consider the contrapositive. 
->>
->>The contrapositive says that if 2 integers are equal, the squares of the 2 integers are also equal.
->>
->>Ah, this is significantly easier to justify and imagine.
+>>The contrapositive says that if two integers are equal, the squares of the two integers are also equal. This is significantly easier to justify and imagine.
 >>
 >>The contrapositive is thus true, making the original statement true.
 
 2. (**True**) $\forall p \in \mathbb{Z} \ \big[(p > 5 \land p \leq 26) \to p \geq 0\big]$
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on finding the contrapositive of an implication statement with connectives.
 >1. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
 >2. $\equiv \forall p \in \mathbb{Z} \ \big[\neg(p \leq 5 \lor p > 26) \to p \geq 0\big]$ (Substitution of contrapositive form)
 >3. $\equiv \forall p \in \mathbb{Z} \ \big[(p > 5 \land p \leq 26) \to p \geq 0\big]$ (De Morgan's Law)
 >>**Deciphering the statement:**
->>This statement says that any integer more than 5 and less than equal to 26 must be more than equal to 0.
->>
->>This statement is true.
+>>This statement says that any integer more than $5$ and less than or equal to $26$ must be greater than or equal to $0$. This statement is true.
 >>
 >>Technique of note in this question is the use of De Morgan's Law even when finding a contrapositive. 
 
 3. (**True**) $\forall x \in \mathbb{Z} \ \big(x > 5  \to \exists y \in \mathbb{N} \ [x = y]\big)$
 
->[!Explanation:]
+>[!Explanation]
 >This is a practice on finding the contrapositive of an implication statement with quantifiers.
 >1. $\forall x \in \mathbb{Z} \ \big(\forall y \in \mathbb{N} \ [x \neq y] \to x \leq 5\big)$
 >2. $\equiv \forall x \in \mathbb{Z} \ \big(x > 5 \to \neg (\forall y \in \mathbb{N} \ [x \neq y])\big)$ (Substitution of contrapositive form)
 >3. $\equiv \forall x \in \mathbb{Z} \ \big(x > 5 \to \exists y \in \mathbb{N} \ [\neg (x \neq y)]\big)$ (Negation of universal quantifier)
 >4. $\equiv \forall x \in \mathbb{Z} \ \big(x > 5 \to \exists y \in \mathbb{N} \ [x = y]\big)$ (Negation of equals)
 >>**Deciphering the statement:**
->>This statement says that any integer and any natural number, if the numbers are not equal, the integer is less than or equal to 5. 
+>>This statement says that any integer and any natural number, if the numbers are not equal, the integer is less than or equal to $5$. This statement is quite confusing to even approach from this angle, so let's consider the contrapositive.
 >>
->>This statement is quite confusing to even approach from this angle, so let's consider the contrapositive.
->>
->>The contrapositive says that any integer greater than 5 has a natural number equal to it.
->>
->>Again, this is significantly easier to justify and digest.
+>>The contrapositive says that any integer greater than $5$ has a natural number equal to it. Again, this is significantly easier to justify and digest.
 >>
 >>The contrapositive is thus true, making the original statement true.
 
-
 ---
-
-# Question 7 Solutions \[Graded Participation]:
+# Question 7 \[Graded Participation]:
 
 Prove the following statement:
 
