@@ -60,14 +60,15 @@ For each of the following, write a propositional formula that accurately represe
 **Example:** The answer to point 0. is: "$q \to r$".
 
 ---
-
 # Question 2: Negating Propositional Formulae \[Graded Participation]
+
 To do this question, make sure you have read the section on [[Unit 1#Truth tables, logical equivalences|logical equivalences]]. In that section, we showed that $\neg (p \lor q)$ is logically equivalent to $\neg p \land \neg q$. In this tutorial question, we will look at now the negation connective works in the other cases.
+
 ### Part A: Equivalences
+
 Draw two truth tables to verify that:
 
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
-2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
 |   $p$   |   $q$   | $p \to q$ | $\neg(p \to q)$ | $\neg q$ | $p \land \neg q$ |
 | :-----: | :-----: | :-------: | :-------------: | :------: | :--------------: |
@@ -76,6 +77,8 @@ Draw two truth tables to verify that:
 | $false$ | $true$  |           |                 |          |                  |
 | $false$ | $false$ |           |                 |          |                  |
 
+2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
+
 |   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
 | :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
 | $true$  | $true$  |             |          |          |                    |                      |
@@ -83,15 +86,16 @@ Draw two truth tables to verify that:
 | $false$ | $true$  |             |          |          |                    |                      |
 | $false$ | $false$ |             |          |          |                    |                      |
 
-**Key takeaway from this tutorial question and the notes:**
+**Key takeaways from this tutorial question and the notes:**
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$
-3. $\neg(\neg(p))$ is logically equivalent to $p$ (From the notes)
+3. $\neg(\neg p)$ is logically equivalent to $p$ (From the notes)
 4. $\neg(p \lor q)$ is logically equivalent to $\neg p \land \neg q$ (From the notes)
 
-**Sneak peek:** These negations are super useful because later on when we talk about considering proof by contradictions knowing how to negate statements comes in handy. (Relevant content in Week 4's chapter [[Unit 1#Proof Strategies|Unit 1: Proof Strategies]])
+**Sneak peek:** Equivalences 2 and 4 are collectively known as [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra). These negations are super useful because later on when we talk about proofs by contradiction, knowing how to negate complex statements comes in handy. (Relevant content in Week 4's chapter on [[Unit 1#Proof Strategies|proof strategies]].)
 
-## Part B: Translating Human Language to Logic
+## Part B: Translating human language to propositional logic
+
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
 1. It is not the case that it is raining or cold.
@@ -103,9 +107,7 @@ Answer template: <br>
 *Statement ___ is logically equivalent to statement ___ .*
 *Statement ___ is logically equivalent to statement ___ .*
 
-
 ---
-
 # Question 3:
 
 >[!Purpose] 

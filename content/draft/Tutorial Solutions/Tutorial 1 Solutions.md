@@ -72,32 +72,30 @@ For each of the following, write a propositional formula that accurately represe
 ---
 # Question 2: Negating Propositional Formulae \[Graded Participation]
 
-### Part A Solutions:
+### Part A:
 
 Draw two truth tables to verify that:
 
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
-|   $p$   |   $q$   | $p \to q$ | $\neg (p \to q)$ | $\neg q$ | $p \land \neg q$ |
-| :-----: | :-----: | :-------: | :--------------: | :------: | :--------------: |
-| $true$  | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
-| $true$  | $false$ |  $false$  |      $true$      |  $true$  |      $true$      |
-| $false$ | $true$  |  $true$   |     $false$      | $false$  |     $false$      |
-| $false$ | $false$ |  $true$   |     $false$      |  $true$  |     $false$      |
-
+|   $p$   |   $q$   | $p \to q$ | ==$\neg (p \to q)$== | $\neg q$ | ==$p \land \neg q$== |
+| :-----: | :-----: | :-------: | :------------------: | :------: | :--------------: |
+| $true$  | $true$  |  $true$   |     ==$false$==      | $false$  |     ==$false$==      |
+| $true$  | $false$ |  $false$  |      ==$true$==      |  $true$  |      ==$true$==      |
+| $false$ | $true$  |  $true$   |     ==$false$==      | $false$  |     ==$false$==      |
+| $false$ | $false$ |  $true$   |     ==$false$==      |  $true$  |     ==$false$==      |
 Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent. 
 
-|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\neg (p \land q)$ | $\neg p \lor \neg q$ |
+|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | ==$\neg (p \land q)$== | ==$\neg p \lor \neg q$== |
 | :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
-| $true$  | $true$  |   $true$    | $false$  | $false$  |      $false$       |       $false$        |
-| $true$  | $false$ |   $false$   | $false$  |  $true$  |       $true$       |        $true$        |
-| $false$ | $true$  |   $false$   |  $true$  | $false$  |       $true$       |        $true$        |
-| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       $true$       |        $true$        |
-
+| $true$  | $true$  |   $true$    | $false$  | $false$  |      ==$false$==       |       ==$false$==        |
+| $true$  | $false$ |   $false$   | $false$  |  $true$  |       ==$true$==       |        ==$true$==        |
+| $false$ | $true$  |   $false$   |  $true$  | $false$  |       ==$true$==       |        ==$true$==        |
+| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       ==$true$==       |        ==$true$==        |
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
-## Part B Solutions:
+## Part B:
 
 To see how these equivalences may be used, let $p$ be the statement "It is raining" and let $q$ be the statement "It is cold". Match each of the following statements with its logically equivalent; you might rewrite each statement using $p$ and $q$ to assist you.
 
@@ -114,8 +112,9 @@ Rewriting the 4 statements using $p$ and $q$, we get:
 3. $\neg p \land \neg q$
 4. $\neg (p \land q)$
 
-Using De Morgan's Laws, **statements 1 and 3 and logically equivalent**, and **statements 2 and 4 are logically equivalent**.
+Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra), **statements 1 and 3 and logically equivalent**, and **statements 2 and 4 are logically equivalent**.
 
+---
 # Question 3 Solutions:
 
 Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner.
