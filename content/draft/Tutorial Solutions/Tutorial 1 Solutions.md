@@ -30,7 +30,7 @@ After Week 2's content, you should be able to attempt questions 1 through 3. Aft
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1 Solutions:
+# Question 1:
 
 For each of the following, write a propositional formula that accurately represents the given English statement. Use the variables $p$, $q$, $r$, $s$ and $t$ as needed, where they're defined as:
 * $p \equiv$ "The program compiles"
@@ -177,7 +177,6 @@ Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolea
 >Another example would be buying things from a store. You could pay for a soda, and get the soda (Case 1). Or don't pay for the soda, and leave (Case 4). Or the owner might give it to you as a free gift, and you didn't pay for the soda (Case 3). The only case that is upsetting is when you pay but you don't get the soda (Case 2).
 
 ---
-
 # Question 4:
 
 Let:
@@ -226,20 +225,22 @@ Determine whether the following statements are true or false for the below pictu
 ---
 # Question 5:
 
-Consider the following first order logic statements:
-1. $∃x∈D \ [P(x) \land Q(x)]$
-2. $∀x∈D \ [P(x) \lor Q(x)]$
-3. $∀x∈D,∃y∈E \ [P(x,y) \land Q(y)]$
-4. $∃x∈D,∀y∈E \ [P(x,y) \to Q(y)]$
+Consider the following first-order logic statements:
+1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
+2. $\forall x \in D \ \big[P(x) \lor Q(x) \big]$
+3. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
+4. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
-Write the negation for each of the statements.
+Write the negation of each of the statements.
 
-#### Part 1 Solutions:
+**Solutions:**
+
+1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
 
 >[!Solution] 
-> 1. Put a negation sign outside: $\neg \bigg(\exists x \in D \ [P(x) \land Q(x)] \bigg)$
+> 1. Put a negation sign outside: $\neg \bigg( \exists x \in D \ \big[P(x) \land Q(x) \big] \bigg)$
 > 2. Using **negation of an existential quantifier**: $\forall x \in D \ \bigg[\neg \big(P(x) \land Q(x) \big) \bigg]$ 
-> 3. Using **De Morgan’s Law**: $\forall x \in D \ \big[\neg P(x) \lor \neg Q(x) \big]$
+> 3. Using **De Morgan’s Law**: ==$\forall x \in D \ \big[\neg P(x) \lor \neg Q(x) \big]$==
 
 >[!Further Explanations] 
 >Sometimes we may be confused when we see a bunch of mathematical symbols. It certainly takes time to familiarise yourselves with FOL. When it comes to negating these statements, one way to think about it is to translate it into English.
@@ -248,56 +249,52 @@ Write the negation for each of the statements.
 >
 >If there exists NO $x$ in set $D$ such that $P(x)$ and $Q(x)$ are both true, this means that for ALL $x$ in set $D$, it either does not satisfy $P(x)$, or it doesn't satisfy $Q(x)$. There is just no $x$ that satisfies both at the same time.
 >
->And how would we then write this into FOL? We would write $\forall x \in D \ \big[\neg P(x) \lor \neg Q(x) \big]$.
+>And how would we then write this using FOL? We would write $\forall x \in D \ \big[\neg P(x) \lor \neg Q(x) \big]$.
 
-
-#### Part 2 Solutions: 
+2. $\forall x \in D \ \big[P(x) \lor Q(x) \big]$
 
 >[!Solution] 
 > 1. Put a negation sign outside: $\neg \bigg(\forall x \in D \ \big[P(x) \lor Q(x)\big] \bigg)$
 > 2. Using **negation of an existential quantifier**: $\exists x \in D \ \bigg[\neg \big(P(x) \lor Q(x) \big) \bigg]$
-> 3. Using **De Morgan’s Law**: $\exists x \in D \ \big[\neg P(x) \land \neg Q(x) \big]$
+> 3. Using **De Morgan’s Law**: ==$\exists x \in D \ \big[\neg P(x) \land \neg Q(x) \big]$==
 
 >[!Further Explanations] 
 >Statement 2 is a universal statement that says: Every $x$ in set $D$ satisfies $P(x)$ or $Q(x)$ (or both), either one of them is fine. To negate it, think of the opposite.
 >
 >NOT every $x$ in set $D$ satisfies at least one of $P(x)$ or $Q(x)$. This means that there exists one (or more) $x$ that does not satisfy both $P(x)$ and $Q(x)$.
 >
->And then we write this into FOL, $\exists x \in D \ \big[\neg P(x) \land \neg Q(x)\big]$.
+>And then we write this using FOL: $\exists x \in D \ \big[\neg P(x) \land \neg Q(x)\big]$.
 
-
-#### Part 3 Solutions: 
+3. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
 
 >[!Solution] 
 >1. Put a negation sign outside: $\neg \bigg(\forall x \in D,\exists y \in E \ \big[P(x,y) \land Q(y) \big] \bigg)$
 >2. Using **negation of a universal quantifier**: $∃x∈D,\neg \bigg(\exists y \in E \ \big[P(x,y) \land Q(y)\big] \bigg)$
 >
->1. Using **negation of an existential quantifier**: $\exists x \in D,\forall y \in E \ \bigg[\neg \big(P(x,y) \land Q(y)\big) \bigg]$
->2. Using **De Morgan’s Law**: $\exists x \in D,\forall y \in E \ \big[\neg P(x,y) \lor  \neg Q(y)\big]$
+>3. Using **negation of an existential quantifier**: $\exists x \in D,\forall y \in E \ \bigg[\neg \big(P(x,y) \land Q(y)\big) \bigg]$
+>4. Using **De Morgan’s Law**: ==$\exists x \in D,\forall y \in E \ \big[\neg P(x,y) \lor  \neg Q(y)\big]$==
 
 >[!Further Explanations] 
 >Statement 3 is a little more complex. What it means is that for every $x$ in set $D$, there exists some corresponding $y$ in set $E$, such that both $P(x,y)$ and $Q(y)$ are true. To negate this, think of the opposite. 
 >
-> NOT every $x$ in set $D$ has some corresponding $y$ in set $E$ such that both $P(x,y)$ and $Q(y)$ are true. This means that there should exist (at least one) $x$ in set $D$ where you CANNOT find any $y$ in set $E$ such that *both* $P(x,y)$ and $Q(y)$ are true. In other words, there exists $x$ in set $D$ where for ALL $y$ in set $E$, $P(x,y)$ and $Q(y)$ are not true at the same time (ie. *at least* one of them is not true), so either $P(x,y)$ is not true, or $Q(y)$ is not true, or both.
+> NOT every $x$ in set $D$ has some corresponding $y$ in set $E$ such that both $P(x,y)$ and $Q(y)$ are true. This means that there should exist (at least one) $x$ in set $D$ where you CANNOT find any $y$ in set $E$ such that *both* $P(x,y)$ and $Q(y)$ are true. In other words, there exists $x$ in set $D$ where for ALL $y$ in set $E$, $P(x,y)$ and $Q(y)$ are not true at the same time (i.e., *at least* one of them is not true), so either $P(x,y)$ is not true, or $Q(y)$ is not true, or both.
 > 
-> Now we just write this into FOL. There exists $x$ in set $D$ where for all $y$ in set $E$, either $P(x,y)$ is not true, or $Q(y)$ is not true. Thus we write $\exists x \in D, \forall y \in E \ \big[\neg P(x,y) \lor \neg Q(y)\big]$.
+> Now we just write this using FOL: there exists $x$ in set $D$ where for all $y$ in set $E$, either $P(x,y)$ is not true, or $Q(y)$ is not true. Thus we write $\exists x \in D, \forall y \in E \ \big[\neg P(x,y) \lor \neg Q(y)\big]$.
 
-
-#### Part 4 Solutions: 
+4. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
 >[!Solution] 
 > 1. Put a negative sign outside: $\neg \bigg(\exists x \in D,\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
 >
->1. Using **negation of an existential quantifier**: $\forall x \in D,\neg \bigg(\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
+>2. Using **negation of an existential quantifier**: $\forall x \in D,\neg \bigg(\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
 >
->1. Using **negation of a universal quantifier**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(P(x,y) \to  Q(y)\big)\bigg]$
+>3. Using **negation of a universal quantifier**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(P(x,y) \to  Q(y)\big)\bigg]$
 >
->1. Using **implication law**: $P(x,y) \to Q(y) \equiv \neg P(x,y) \lor Q(y)$, we replace $P(x,y) \to Q(y)$ with $\neg P(x,y) \lor Q(y)$, thus we write: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y) \lor Q(y)\big)\bigg]$.
+>4. Using **implication law**: $P(x,y) \to Q(y) \equiv \neg P(x,y) \lor Q(y)$, we replace $P(x,y) \to Q(y)$ with $\neg P(x,y) \lor Q(y)$, thus we write: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y) \lor Q(y)\big)\bigg]$.
 >
->1. Using **De Morgan’s Law**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y)\big) \land \neg Q(y)\bigg]$
+>5. Using **De Morgan’s Law**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y)\big) \land \neg Q(y)\bigg]$
 >
->1. Double negation: $\neg \big(\neg P(x,y)\big) \equiv P(x,y)$, thus we get $\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$.
-
+>6. Double negation: $\neg \big(\neg P(x,y)\big) \equiv P(x,y)$, thus we get ==$\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$==.
 
 >[!Further Explanations] 
 >After looking at the statement 3, this one should make more sense. What this statement means is that there exists some $x$ in set $D$ where for all $y$ in set $E$, $P(x,y) \to Q(y)$ is true. To negate this, think of the opposite.
@@ -308,10 +305,8 @@ Write the negation for each of the statements.
 >
 >In other words, for every $x$ in set $D$, there exists some $y$ in set $E$, such that $P(x,y) \land \neg Q(y)$. Now we just have to translate this into FOL, and we have $\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$.
 
-
 ---
-
-# Question 6 Solutions:
+# Question 6:
 ### Part A Solutions:
 1. (**True**)  $\exists x \in \mathbb{N}, \forall y \in \mathbb{Z} \ [x \neq y]$
 

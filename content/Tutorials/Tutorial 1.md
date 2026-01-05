@@ -125,7 +125,7 @@ Answer template: <br>
 	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
 
 ---
-# Question 4: \[Graded Participation]
+# Question 4: Tarski's World \[Graded Participation]
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first-order logic. This comes in a few parts: we will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -170,22 +170,18 @@ Take note of which set each variable comes from, e.g., in the first statement, w
 ![[tarski.png]]
 
 ---
-
-# Question 5: Negating FOL statements
+# Question 5: Negating FOL Statements
 
 >[!Purpose] 
 > Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
 
+Consider the following first-order logic statements:
+1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
+2. $\forall x \in D \ \big[P(x) \lor Q(x) \big]$
+3. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
+4. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
-Consider the following first order logic statements:
-
-1. $\exists x \in D \ [P(x) \land Q(x)]$
-2. $\forall x \in D \ [P(x)\lor Q(x)]$
-3. $\forall x\in D,\exists y\in E \ [P(x,y)\land Q(y)]$
-4. $\exists x \in D,\forall y \in E [P(x,y) \to Q(y)]$
-
-Write the negation for each of the statements. You may refer to [[Unit 1#Negating Quantifiers]] on this.
-
+Write the negation of each of the statements. You may refer to the section on [[Unit 1#Negating Quantifiers|negating quantifiers]] for this.
 
 ---
 
