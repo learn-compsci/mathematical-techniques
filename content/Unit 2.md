@@ -5,7 +5,7 @@ This unit introduces the notion of sets and set operations. The unit will introd
 0. [[#Unit Introduction|Motivation for this unit]]
 1. [[#Part 1 Basic Sets, Creating Sets, Set Operations|Basic sets, creating sets, set operations]]
 2. [[#Part 2 Ways to Prove Set Equivalence|Ways to prove set equivalence]]
-3. [[#Part 3 More Proofs About Sets|More proofs about sets]]
+3. [[#Part 3 More Proofs With Sets|More proofs with sets]]
 
 ---
 # Part 0: Unit Introduction
@@ -480,10 +480,10 @@ Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \
 
 Up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing *when* two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
 
-We say that two sets $A$ and $B$ are **equivalent** if they have the same elements.
+We say that two sets $A$ and $B$ are **equivalent** or **equal** if they have the same elements.
 
 >[!note] Definition: Set equivalence
->Two sets $A$ and $B$ are **equivalent** if and only if every element in $A$ is in $B$ **and** every element in $B$ is also in $A$.
+>Two sets $A$ and $B$ are **equivalent** or **equal** if and only if every element in $A$ is in $B$ **and** every element in $B$ is also in $A$.
 >
 >Formally, $$A = B \leftrightarrow \big(\forall x \in A \ [x \in B] \big) \land \big(\forall y \in B \ [y \in A] \big)$$
 >
@@ -580,14 +580,14 @@ Here's the proof:
 >[!note]+ Proof
 >1. Let $x \in A \cup (B \cap C)$ be arbitrarily chosen.
 >	1. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
->	2. Case 1: $x \in A$
+>	2. Case 1: $x \in A$.
 >		1. $x \in A \lor x \in B$ \[Generalisation on line 1.2]
 >		2. $x \in (A \cup B)$ \[Definition of set union]
 >		3. $x \in A \lor x \in C$ \[Generalisation on line 1.2]
 >		4. $x \in (A \cup C)$ \[Definition of set union]
 >		5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 1.2.2 and 1.2.4]
 >		6.  $x \in (A \cup B) \cap (A \cup C)$ \[Definition of set intersection]
->	3. Case 2: $x \in B \cap C$
+>	3. Case 2: $x \in B \cap C$.
 >		1. $x \in B \land x \in C$ \[Definition of set intersection]
 >		2. $x \in B$ \[Specialisation on line 1.3.1]
 >		3. $x \in A \lor x\in B$ \[Generalisation on line 1.3.2]
@@ -607,7 +607,7 @@ Here's the proof:
 >	5. $x \in (A \cup C)$ \[Specialisation on line 2.1]
 >	6. $x \in A \lor x \in C$ \[Definition of set union]
 >	7. $x \notin A \to x \in C$ \[Logically equivalent to line 2.6]
->	8. Assume $x \notin A$.
+>	8. Suppose $x \notin A$.
 >		1. $x \in B$ \[Modus ponens on lines 2.4 and 2.8]
 >		2. $x \in C$ \[Modus ponens on lines 2.7 and 2.8]
 >		3. $x \in B \land x \in C$ \[Conjunction on lines 2.8.1 and 2.8.2]
@@ -732,11 +732,12 @@ Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C)
 
 This method however, is less general—it typically does not work if we involve sets that use set-builder notation to construct.
 
-# Part 3: More Proofs About Sets
+---
+# Part 3: More Proofs With Sets
 
-Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences and talked about set unions and intersections. Let's explore a few more ideas that have to do with the powerset and cartesian product operation.
+Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences, unions and intersections. Let's explore a few more ideas that have to do with the power set and cartesian product operations.
 
-## Reasoning about subsets
+## Reasoning About Subsets
 
 Here are a example few intuitive facts we can prove involving subsets:
 1. If $A$ is a subset of $B$ and $B$ is a subset of $C$, then $A$ is a subset of $C$.
@@ -745,82 +746,81 @@ Here are a example few intuitive facts we can prove involving subsets:
 
 The key takeaway here are not the facts themselves. Rather, notice our approach has a common theme: We start with an element that is from the "smaller" set, and we show it is in the bigger set.
 
-
 >[!Example]
 > $$(A \subseteq B \land B \subseteq C) \to A \subseteq C$$
 
-**Proof:**
-1. Assume $A \subseteq B \land B \subseteq C$
-2. $A \subseteq B$ \[Specialisation on line 1]
-3. $\forall a \in A[a \in B]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall b \in B[b \in C]$ \[Definition of subset]
-6. Let $x \in A$, arbitrarily chosen.
-7. $x \in B$ \[Universal instantiation on lines 3, 6]
-8. $x \in C$ \[Universal instantiation on lines 5, 7]
-9. $\forall x \in A[x \in C]$ \[Universal generalisation on lines 6, 8]
-10. $A \subseteq C$ \[Definition of subset]
-11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1, 10]
+>[!note] Proof
+>1. Suppose $A \subseteq B \land B \subseteq C$.
+>2. $A \subseteq B$ \[Specialisation on line 1]
+>3. $\forall a \in A \ [a \in B]$ \[Definition of subset]
+>4. $B \subseteq C$ \[Specialisation on line 1]
+>5. $\forall b \in B \ [b \in C]$ \[Definition of subset]
+>6. Let $x \in A$ be arbitrarily chosen.
+>7. $x \in B$ \[Universal instantiation on lines 3 and 6]
+>8. $x \in C$ \[Universal instantiation on lines 5 and 7]
+>9. $\forall x \in A \ [x \in C]$ \[Universal generalisation on lines 6 and 8]
+>10. $A \subseteq C$ \[Definition of subset]
+>11. $(A \subseteq B \land B \subseteq C) \to A \subseteq C$ \[Implication introduction on lines 1 and 10]
 
 >[!Example]
 >$$(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$$
 
-**Proof**
-1. Assume $A \subseteq C \land B \subseteq C$
-2. $A \subseteq C$ \[Specialisation on line 1]
-3. $\forall x \in A[x \in C]$ \[Definition of subset]
-4. $B \subseteq C$ \[Specialisation on line 1]
-5. $\forall x \in B[x \in C]$ \[Definition of subset]
-6. Let $y \in (A \cup B)$, arbitrarily chosen.
-7. $y \in A \lor y \in B$ \[Definition of union]
-8. Case 1: $y \in A$
-	1. Then $y \in C$ \[Universal instantiation on lines 3, 8]
-9. Case 2: $y \in B$
-	1. Then $y \in C$ \[Universal instantiation on lines 5, 9]
-10. In all cases, $y \in C$ \[Proof by cases on lines 7, 8.1, 9.1]
-11. $\forall y \in (A \cup B)[y \in C]$ \[Universal generalisation on lines 6, 10]
-12. $(A \cup B) \subseteq C$ \[Definition of subset]
-13. $(A \subseteq C \land B \subseteq C) \to (A \cup B) \subseteq C$ \[Implication introduction on lines 1, 12]
+>[!note] Proof
+>1. Suppose $A \subseteq C \land B \subseteq C$.
+>2. $A \subseteq C$ \[Specialisation on line 1]
+>3. $\forall x \in A \ [x \in C]$ \[Definition of subset]
+>4. $B \subseteq C$ \[Specialisation on line 1]
+>5. $\forall x \in B \ [x \in C]$ \[Definition of subset]
+>6. Let $y \in A \cup B$ be arbitrarily chosen.
+>7. $y \in A \lor y \in B$ \[Definition of set union]
+>8. Case 1: $y \in A$.
+>	1. Then $y \in C$. \[Universal instantiation on lines 3 and 8]
+>9. Case 2: $y \in B$.
+>	1. Then $y \in C$. \[Universal instantiation on lines 5 and 9]
+>10. In all cases, $y \in C$. \[Proof by cases on lines 7, 8.1, 9.1]
+>11. $\forall y \in A \cup B \ [y \in C]$ \[Universal generalisation on lines 6 and 10]
+>12. $A \cup B \subseteq C$ \[Definition of subset]
+>13. $(A \subseteq C \land B \subseteq C) \to A \cup B \subseteq C$ \[Implication introduction on lines 1 and 12]
 
 >[!Example]
-> $$(A \cap B) \subseteq A$$
+> $$A \cap B \subseteq A$$
 
-You can try this one for yourself, and the answers have been hidden away in a spoiler tab.
+You can try this one for yourself; the answer has been hidden away in a spoiler tab.
 
->[!Answer]-
-> 1. Let $x \in (A \cap B)$, arbitrarily chosen.
+>[!note]- Proof
+> 1. Let $x \in A \cap B$ be arbitrarily chosen.
 > 2. $x \in A \land x \in B$ \[Definition of set intersection]
 > 3. $x \in A$ \[Specialisation on line 2]
-> 4. $x \in (A \cup B)$  \[Definition of set union]
+> 4. $\forall x \in A \cup B \ [x \in A]$  \[Universal generalisation on lines 1 and 1.4]
+> 5. $A \cap B \subseteq A$ \[Definition of subset]
 
+## Reasoning About Power Sets
 
-## Reasoning about power sets
+Recall that $\mathcal{P}(A)$ is the set that contains all the subsets of $A$. This means that if we had to reason about subsets, that might mean we should use the concept of power sets.
 
-Recall that $\mathcal{P}(A)$ is a set that contains all the subsets of $A$. This means that if we had to reason about subsets, that might mean we should involve using the power set concept.
+Here are a few theorems that involve this concept:
 
-Here are a few theorems that involve using the power set concept:
-
-1. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+1. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$
 2. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
 
 
 >[!Example]
 > $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$
 
-The proof of this is going to use the theorem that we proved in the previous section, namely that:
+The proof of this uses the theorem that we proved in the previous section, namely:
 
 $$(A \subseteq B \land B \subseteq C) \to (A \subseteq C)$$
 
-**Proof:**
-1. Assume $A \subseteq B$
-	1. Let $x \in \mathcal{P}(A)$, arbitrarily chosen.
-	2. $x \subseteq A$ \[Definition of powerset]
-	3. $x \subseteq A \land A \subseteq B$ \[Conjunction of lines 1 and 1.2]
-	4. $x \subseteq B$ \[Lemma]
-	5. $x \in \mathcal{P}(B)$
-	6. $\forall x \in \mathcal{P}(A)[x \in \mathcal{P}(B)]$ \[Universal generalisation on lines 1.1, 1.5]
-	7. $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Definition of subset]
-2. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1, 1.7]
+>[!note] Proof
+>1. Suppose $A \subseteq B$.
+>	1. Let $x \in \mathcal{P}(A)$ be arbitrarily chosen.
+>	2. $x \subseteq A$ \[Definition of power set]
+>	3. $x \subseteq A \land A \subseteq B$ \[Conjunction of lines 1 and 1.2]
+>	4. $x \subseteq B$ \[Lemma]
+>	5. $x \in \mathcal{P}(B)$ \[Definition of power set]
+>	6. $\forall x \in \mathcal{P}(A) \ [x \in \mathcal{P}(B)]$ \[Universal generalisation on lines 1.1 and 1.5]
+>	7. $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Definition of subset]
+>2. $A \subseteq B \to \mathcal{P}(A) \subseteq \mathcal{P}(B)$ \[Implication introduction on lines 1 and 1.7]
 
 >[!Example]
 > $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
@@ -830,54 +830,53 @@ The proof for this has to work in two parts, we need to show two things:
 1. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ 
 2. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
 
-Lines 1 through 16 will do part 1, and the remaining will do part 2. We'll also use this lemma that will be left as an exercise for you to try to prove.
+Lines 1 through 1.15 will address part 1, and the remaining will address part 2. We'll also use this lemma that will be left as an exercise for you to try to prove.
 
 >[!Lemma]
-> $(X \subseteq A \land X \subseteq B) \to (X \subseteq (A \cap B))$
+> $(X \subseteq A \land X \subseteq B) \to (X \subseteq A \cap B)$
 
-
-**Proof:**
-1. Let $x \in \mathcal{P}(A \cap B)$, arbitrarily chosen.
-2. Then $x \subseteq (A \cap B)$ \[Definition of power set]
-3. $(A \cap B) \subseteq A$ \[Lemma]
-4. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A) \to x \subseteq A$ \[Lemma]
-5. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq A)$ \[Conjunction of lines 2 and 3]
-6. $x \subseteq A$ \[Modus ponens on lines 4 and 5]
-7. $(A \cap B) \subseteq B$ \[Lemma]
-8. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B) \to x \subseteq B$ \[Lemma]
-9. $(x \subseteq (A \cap B)) \land ((A \cap B) \subseteq B)$ \[Conjunction of lines 2 and 7]
-10. $x \subseteq B$ \[Modus ponens on lines 8 and 9]
-11. $x \in \mathcal{P}(A)$ \[Definition of power set from line 6]
-12. $x \in \mathcal{P}(B)$ \[Definition of power set from line 10]
-13. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 11 and 12]
-14. $x \in (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set intersection]
-15. $\forall x \in \mathcal{P}(A \cap B) \ [x \in \mathcal{P}(A) \cap \mathcal{P}(B)]$ \[Universal generalisation on lines 1 and 14]
-16. $\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of subset]
-17. Let $y \in (\mathcal{P}(A) \cap \mathcal{P}(B))$, arbitrarily chosen.
-18. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
-19. $y \in \mathcal{P}(A)$ \[Specialisation of line 18] 
-20. $y \in \mathcal{P}(B)$ \[Specialisation of line 18] 
-21. $y \subseteq A$ \[Definition of power set on line 19]
-22. $y \subseteq B$ \[Definition of power set on line 20]
-23. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 21 and 22]
-24. $(y \subseteq A \land y \subseteq B) \to (y \subseteq (A \cap B))$ \[Lemma]
-25. $y \subseteq (A \cap B)$ \[Modus ponens on line 23 and 24]
-26. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
-27. $\forall y \in (\mathcal{P}(A) \cap \mathcal{P}(B)) \ [y \in \mathcal{P}(A \cap B)]$ \[Universal generalisation on lines 17 and 26]
-28. $(\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
-29. $\bigg(\mathcal{P}(A \cap B) \subseteq (\mathcal{P}(A) \cap \mathcal{P}(B))\bigg) \land \bigg( (\mathcal{P}(A) \cap \mathcal{P}(B)) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 16 and 28]
-30. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equality]
+>[!note] Proof
+>1. Let $x \in \mathcal{P}(A \cap B)$ be arbitrarily chosen.
+>	1. Then $x \subseteq A \cap B$. \[Definition of power set]
+>	2. $A \cap B \subseteq A$ \[Lemma]
+>	3. $(x \subseteq A \cap B) \land (A \cap B \subseteq A) \to x \subseteq A$ \[Lemma]
+>	4. $(x \subseteq A \cap B) \land (A \cap B \subseteq A)$ \[Conjunction on lines 1.1 and 1.2]
+>	5. $x \subseteq A$ \[Modus ponens on lines 1.3 and 1.4]
+>	6. $A \cap B \subseteq B$ \[Lemma]
+>	7. $(x \subseteq A \cap B) \land (A \cap B \subseteq B) \to x \subseteq B$ \[Lemma]
+>	8. $(x \subseteq A \cap B) \land (A \cap B \subseteq B)$ \[Conjunction of lines 1.1 and 1.6]
+>	9. $x \subseteq B$ \[Modus ponens on lines 1.7 and 1.8]
+>	10. $x \in \mathcal{P}(A)$ \[Definition of power set from line 1.5]
+>	11. $x \in \mathcal{P}(B)$ \[Definition of power set from line 1.9]
+>	12. $x \in \mathcal{P}(A) \land x \in \mathcal{P}(B)$ \[Conjunction on lines 1.10 and 1.11]
+>	13. $x \in \mathcal{P}(A) \cap \mathcal{P}(B)$ \[Definition of set intersection]
+>	14. $\forall x \in \mathcal{P}(A \cap B) \ \big[x \in \mathcal{P}(A) \cap \mathcal{P}(B) \big]$ \[Universal generalisation on lines 1 and 1.13]
+>	15. $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$ \[Definition of subset]
+>2. Let $y \in \mathcal{P}(A) \cap \mathcal{P}(B)$ be arbitrarily chosen.
+>	1. $y \in \mathcal{P}(A) \land y \in \mathcal{P}(B)$ \[Definition of set intersection]
+>	2. $y \in \mathcal{P}(A)$ \[Specialisation of line 2.1] 
+>	3. $y \in \mathcal{P}(B)$ \[Specialisation of line 2.1] 
+>	4. $y \subseteq A$ \[Definition of power set on line 2.2]
+>	5. $y \subseteq B$ \[Definition of power set on line 2.3]
+>	6. $y \subseteq A \land y \subseteq B$ \[Conjunction of lines 2.4 and 2.5]
+>	7. $(y \subseteq A \land y \subseteq B) \to (y \subseteq A \cap B)$ \[Lemma]
+>	8. $y \subseteq A \cap B$ \[Modus ponens on line 2.6 and 2.7]
+>	9. $y \in \mathcal{P}(A \cap B)$ \[Definition of power set]
+>	10. $\forall y \in \mathcal{P}(A) \cap \mathcal{P}(B) \ \big[y \in \mathcal{P}(A \cap B) \big]$ \[Universal generalisation on lines 2 and 2.9]
+>	11. $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$ \[Definition of subset]
+>3. $\bigg(\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B) \bigg) \land \bigg( \mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B) \bigg)$ \[Conjunction on lines 1.15 and 2.11]
+>4. $\mathcal{P}(A \cap B) = (\mathcal{P}(A) \cap \mathcal{P}(B))$ \[Definition of set equivalence]
 
 # Bonus: Google Sheets
 
-Let's see some of the concepts in action. Let's say that we are some marathon event organiser, and we had an initial Google sheet that kept the data of the participants. For each participant, we keep their name, their gender, the marathon distance they have signed up for, and whether they signed up as a beginner, or are in the open category.
+Let's see some of the concepts in action. Let's say that we are some marathon event organiser, and we had an initial Google Sheet that kept the data of the participants. For each participant, we keep track of their name, their gender, the marathon distance they have signed up for, and whether they have signed up as a beginner, or are in the open category.
 
 So here's an example of a sheet:
 
 ![[spreadsheet-eg-1.png]]
 
 
-Let's say we need to find out how which people are running 21.1KM or more because they need to start earlier compared to the 10KM runners. How should we do this? You'd use something like this formula:
+Let's say we need to find out how which people are running 21.1 KM or more because they need to start earlier compared to the 10 KM runners. How should we do this? You'd use something like this formula:
 
 ```
 =QUERY(Sheet1!A:D, "SELECT * WHERE C >= 21.1")
@@ -887,24 +886,24 @@ And if you did, you'd get this result on a new sheet:
 
 ![[filtered-sheet-example.png]]
 
-What is the `QUERY` syntax doing on the Google sheet? It's saying: "Go to Sheet1, look at columns A to D. Select any of the rows where the C column is at least 21.1"
+What is the `QUERY` syntax doing on the Google Sheet? It's saying: "Go to `Sheet1`, look at columns `A` to `D`. Select any of the rows where the value in column `C` is at least `21.1`."
 
-In some sense, you could probably see how this somewhat uses the concept of [[#Set Builder Notation]]. 
+In some sense, you could probably see how this somewhat uses the concept of [[#Set Builder Notation|set-builder notation]].
 
 $$
 \{ x \in \text{Sheet1} : x\text{'s distance is }\geq 21.1  \}
 $$
 
-Okay, what if after the competition, we tracked the participants that actually arrived and competed. We want to find out how many participants registered but did not show up on the day itself. How should we get this information? We probably want something like a [[#Set Difference]] operation to help us out. Let $A$ be the set of registered participants, let $B$ be the set of participants we tracked that showed up. Then we can let $C = A \setminus B$ be the set we want to compute. And if you remember, we can write this in set builder notation as:
+Okay, what if after the competition, we tracked the participants that actually arrived and competed. We want to find out how many participants registered but did not show up on the day itself. How should we get this information? We probably want something like a [[#Set Difference|set difference]] operation to help us out. Let $A$ be the set of registered participants and let $B$ be the set of participants we tracked that showed up. Then we can let $C = A \setminus B$ be the set we want to compute. And if you remember, we can write this in set-builder notation as:
 
 $C = \{x \in A : x \notin B\}$
 
-Google sheets has something similar:
+Google Sheets has something similar:
 
 ```
-==FILTER(Sheet1!A:A, NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A)))
+=FILTER(Sheet1!A:A, NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A)))
 ```
 
-Which basically goes through all elements of Sheet1, and the `FILTER` formula basically means we are only allowing cells that satisfy the condition `NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A))` which is saying "not the case that the name in Sheet1 is also in Sheet2".
+This goes through all elements of `Sheet1`, and the `FILTER` formula basically means we are only allowing cells that satisfy the condition `NOT(COUNTIF(Sheet2!A:A, Sheet1!A:A))` which is saying "not the case that the name in `Sheet1` is also in `Sheet2`".
 
-Incidentally, databases like mySQL and Postgres also has similar ideas on how to manipulate data. While we will not go into detail in this module (since we do not cover databases), if you wish to have a sneak peek, you can look at documentation websites here: [postgresql](https://www.postgresql.org/docs/current/queries-union.html), [mysql](https://dev.mysql.com/doc/refman/8.4/en/union.html).
+Incidentally, databases like MySQL and PostgreSQL also have similar ideas on how to manipulate data. While we will not go into details in this module (since we do not cover databases), if you wish to have a sneak peek, you can take a look at their documentation here: [MySQL](https://dev.mysql.com/doc/refman/8.4/en/union.html), [PostgreSQL](https://www.postgresql.org/docs/current/queries-union.html).
