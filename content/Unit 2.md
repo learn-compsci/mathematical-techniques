@@ -2,10 +2,10 @@
 title: "Unit 2: Introduction to Sets, Notations and Operations"
 ---
 This unit introduces the notion of sets and set operations. The unit will introduce:
-0. [[#Unit Introduction|Motivation]]
+0. [[#Unit Introduction|Motivation for this unit]]
 1. [[#Part 1 Basic Sets, Creating Sets, Set Operations|Basic sets, creating sets, set operations]]
 2. [[#Part 2 Ways to Prove Set Equivalence|Ways to prove set equivalence]]
-3. More proofs about sets
+3. [[#Part 3 More Proofs About Sets|More proofs about sets]]
 
 ---
 # Part 0: Unit Introduction
@@ -478,51 +478,50 @@ Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \
 ---
 # Part 2: Ways to Prove Set Equivalence
 
-So up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing when two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
+Up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing *when* two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
 
-We say two sets $A, B$ are **equivalent** if they have the same elements. Formally speaking, we write this as:
+We say that two sets $A$ and $B$ are **equivalent** if they have the same elements.
 
-$$
-A \subseteq B \land B \subseteq A
-$$
-
-You can think of this as saying "every element in $A$ is also in $B$ **and** every element in $B$ is also in $A$."
+>[!note] Definition: Set equivalence
+>Two sets $A$ and $B$ are **equivalent** if and only if every element in $A$ is in $B$ **and** every element in $B$ is also in $A$.
+>
+>Formally, $$A = B \leftrightarrow \big(\forall x \in A \ [x \in B] \big) \land \big(\forall y \in B \ [y \in A] \big)$$
+>
+>Equivalently, $$A = B \leftrightarrow (A \subseteq B) \land (B \subseteq A)$$
 
 There's broadly two categories for how to show two sets are equivalent. We will be showing both ways. 
 
-## Directly Proving Two Sets are Subsets of Each Other
+### Method 1: Directly proving two sets are subsets of each other
 
-So here's an example, let's say that we had these two sets:
+Consider the following set:
 
 $$
 A = \{ x \in \mathbb{N} : odd(x) \}
 $$
 
-Which is the set of odd natural numbers. But what if we wrote it like this?
+which is the set of odd natural numbers. But what if we wrote it like this?
 
 $$
 B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
 $$
 
-Which is the set of natural numbers that are not even. These two are intuitively the same set right? Let's see a proof of this. We'll use these 2 lemmas.
+which is the set of natural numbers that are not even. These two are intuitively the same set right? Let's see a proof of this. We'll use these two lemmas:
 
->[!Lemma]
-> 1. $\forall x \in \mathbb{N} (\neg even(x) \to odd(x))$. 
-> 2. $\forall x \in \mathbb{N} (odd(x) \to \neg even(x))$. 
+>[!Lemmas]
+> 1. $\forall x \in \mathbb{N} \ \big[\neg even(x) \to odd(x) \big]$
+> 2. $\forall x \in \mathbb{N} \ \big[odd(x) \to \neg even(x) \big]$
 > 
-> Where $even(x) \equiv \exists k \in \mathbb{N}[x = 2k]$ and $odd(x) \equiv \exists k \in \mathbb{N}[x = 2k + 1]$.
+> where $even(x) \equiv \exists k \in \mathbb{N} \ [x = 2k]$ and $odd(x) \equiv \exists k \in \mathbb{N} \ [x = 2k + 1]$.
 > 
 > 
-> In English, the first statement is saying "Every natural number is such that if it is not even, it is odd.".
-> 
-> The second statement is saying "Every natural number that is odd is not even.".
+> In English, the first statement is saying "Every natural number is such that if it is not even, it is odd." The second statement is saying "Every natural number that is odd is not even."
 
-Okay, so we've established that lemma, let's see how to prove the two sets are the same. Our **goal** is to show the statement $A \subseteq B \land B \subseteq A$. How do we do this? Remember that $A \subseteq B$ is defined to be $\forall x \in A[x \in B]$. So we effectively want to prove:
+Okay, so we've established those lemmas, let's see how to prove the two sets are the same. Our **goal** is to show the statement $A \subseteq B \land B \subseteq A$. How do we do this? Remember that $A \subseteq B$ is defined to be $\forall x \in A \ [x \in B]$. So we effectively want to prove:
 
 $$
-\forall x \in A[x \in B] \land \forall x \in B[x \in A]
+\big(\forall x \in A \ [x \in B] \big) \land \big(\forall x \in B \ [x \in A] \big)
 $$
-And remember, the definitions of the sets $A, B$:
+And remember the definitions of the sets $A$ and $B$:
 
 $$
 A = \{ x \in \mathbb{N} : odd(x) \}
@@ -531,40 +530,44 @@ $$
 B = \mathbb{N} \setminus \{ x \in \mathbb{N} : even(x) \}
 $$
 
-**Proof:**
-1. Let $y \in A$, arbitrarily chosen.
-2. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
-3. $odd(y)$ \[Specialisation of line 2]
-4. $y \in \mathbb{N}$ \[Specialisation of line 2]
-5. $\forall x \in \mathbb{N} \ [odd(x) \to \neg(even(x))]$ \[Lemma 2]
-6. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 3 and 5]
-7. $\neg(even(y))$ \[Modus ponens on lines 3 and 6]
-8. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 4 and 7]
-9. $\neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Definition based on set builder]
-10. $y \in \mathbb{N} \land \neg(y \in \{x \in \mathbb{N} : even(x) \})$ \[Conjunction on lines 4 and 9]
-11. $y \in B$ \[Definition of $B$]
-12. $\forall y \in A \ [y \in B]$ \[Universal generalisation on lines 1 and 11]
-13. Let $z \in B$, arbitrarily chosen.
-14. $z \in \mathbb{N} \land \neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Definition of $B$]
-15. $z \in \mathbb{N}$ \[Specialisation on line 14]
-16. $\neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Specialisation on line 14]
-17. $z \notin \mathbb{N} \lor \neg(even(z))$ \[Definition based on set builder]
-18. $z \in \mathbb{N} \to \neg(even(z))$ \[Logically equivalent to line 17]
-19. $\neg(even(z))$ \[Modus ponens on lines 15 and 18]
-20. $\forall x \in \mathbb{N} \ [\neg(even(x)) \to odd(x)]$ \[Lemma 1]
-21. $\neg(even(z))\to odd(z)$ \[Universal instantiation on lines 15 and 20]
-22. $odd(z)$ \[Modus ponens on lines 18 and 19]
-23. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 15 and 22]
-24. $z \in A$ \[Definition of $A$]
-25. $\forall z \in B \ [z \in A]$ \[Universal generalisation on lines 13 and 24]
-26. $\forall y \in A \ [y \in B] \land \forall z \in B \ [z \in A]$ \[Conjunction of lines 12 and 25]
+>[!note] Proof
+>1. Let $y \in A$ be arbitrarily chosen.
+>	1. $y \in \mathbb{N} \land odd(y)$ \[Definition of $A$]
+>	2. $odd(y)$ \[Specialisation on line 1.1]
+>	3. $y \in \mathbb{N}$ \[Specialisation on line 1.1]
+>	4. $\forall x \in \mathbb{N} \ [odd(x) \to \neg(even(x))]$ \[Lemma 2]
+>	5. $odd(y) \to \neg(even(y))$ \[Universal instantiation on lines 1.3 and 1.4]
+>	6. $\neg(even(y))$ \[Modus ponens on lines 1.2 and 1.5]
+>	7. $y \in \mathbb{N} \land \neg(even(y))$ \[Conjunction on lines 1.3 and 1.6]
+>	8. $\neg \big(y \in \{x \in \mathbb{N} : even(x) \} \big)$ \[Definition based on set-builder]
+>	9. $y \in \mathbb{N} \land \neg \big(y \in \{x \in \mathbb{N} : even(x) \} \big)$ \[Conjunction on lines 1.3 and 1.8]
+>	10. $y \in B$ \[Definition of $B$ and set difference]
+>	11. $\forall y \in A \ [y \in B]$ \[Universal generalisation on lines 1 and 1.10]
+>2. Let $z \in B$ be arbitrarily chosen.
+>	1. $z \in \mathbb{N} \land \neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Definition of $B$]
+>	2. $z \in \mathbb{N}$ \[Specialisation on line 2.1]
+>	3. $\neg(z \in \{x \in \mathbb{N} : even(x) \})$ \[Specialisation on line 2.1]
+>	4. $z \notin \mathbb{N} \lor \neg(even(z))$ \[Definition based on set-builder]
+>	5. $z \in \mathbb{N} \to \neg(even(z))$ \[Logically equivalent to line 2.4 **(Why?)**]
+>	6. $\neg(even(z))$ \[Modus ponens on lines 2.2 and 2.5]
+>	7. $\forall x \in \mathbb{N} \ [\neg(even(x)) \to odd(x)]$ \[Lemma 1]
+>	8. $\neg(even(z))\to odd(z)$ \[Universal instantiation on lines 2.2 and 2.7]
+>	9. $odd(z)$ \[Modus ponens on lines 2.6 and 2.8]
+>	10. $z \in \mathbb{N} \land odd(z)$ \[Conjunction on lines 2.2 and 2.9]
+>	11. $z \in A$ \[Definition of $A$]
+>	12. $\forall z \in B \ [z \in A]$ \[Universal generalisation on lines 2 and 2.11]
+>3. $\big(\forall y \in A \ [y \in B] \big) \land \big(\forall z \in B \ [z \in A] \big)$ \[Conjunction on lines 1.11 and 2.12]
+>4. $A = B$. \[Definition of set equivalence]
+
+>[!question]- Why is line 2.5 valid?
+>The step from line 2.4 to line 2.5 corresponds to the following equivalence: $$p \to q \equiv \neg p \lor q$$ where $p \equiv z \in \mathbb{N}$ and $q \equiv \neg (even(z))$. Try convincing yourself that this equivalence is true!
 
 And we've proven they're the same set! So again, the takeaway is the following:
 
 > To prove two sets $A$ and $B$ have the same elements, we should prove $A \subseteq B \land B \subseteq A$. Or in other words:
 
 $$
-\big(\forall x \in A[x \in B]\big) \land \big(\forall x \in B[x \in A]\big)
+\big(\forall x \in A \ [x \in B] \big) \land \big(\forall x \in B \ [x \in A] \big)
 $$
 
 >[!Example]
@@ -574,46 +577,47 @@ $$
 
 Here's the proof:
 
-**Proof:**
-1. Let $x \in A \cup (B \cap C)$, arbitrarily chosen.
-2. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
-3. Case 1: $x \in A$
-	1. $x \in A \lor x \in B$ \[Generalisation on line 3]
-	2. $x \in (A \cup B)$ \[Definition of set union]
-	3. $x \in A \lor x \in C$ \[Generalisation on line 3]
-	4. $x \in (A \cup C)$ \[Definition of set union]
-	5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 3.2 and 3.4
-	6.  $x \in \big( (A \cup B) \cap (A \cup C) \big)$\[Definition of set intersection]
-4. Case 2: $x \in B \cap C$
-	1. $x \in B \land x \in C$ \[Definition of set intersection]
-	2. $x \in B$ \[Specialisation on line 4.1]
-	3. $x \in A \lor x\in B$ \[Generalisation on line 4.2]
-	4. $x \in (A \cup B)$ \[Definition of set union]
-	5. $x \in C$ \[Specialisation on line 4.1]
-	6. $x \in A \lor x \in C$  \[Generalisation on line 4.5]
-	7. $x \in (A \cup C)$ \[Definition of set union]
-	8. $x \in (A \cup B) \land x\in (A \cup C)$ \[Conjunction on lines 4.4 and 4.7]
-	9. $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Definition of set intersection]
-5. In all cases, it is shown that $x \in \big((A \cup B) \cap (A \cup C) \big)$ \[Proof by cases on lines 2, 3.6, 4.9]
-6. $\forall x \in A \cup (B \cap C) \ [x \in \big((A \cup B) \cap (A \cup C) \big)]$. \[Universal generalisation on lines 1 and 5]
-7. Let $x \in \big((A \cup B) \cap (A \cup C) \big)$, arbitrarily chosen.
-8. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
-9. $x \in (A \cup B)$ \[Specialisation on line 8]
-10. $x \in A \lor x \in B$ \[Definition of set union]
-11. $x \notin A \to x \in B$ \[Logically equivalent to line 10]
-12. $x \in (A \cup C)$ \[Specialisation on line 8]
-13. $x \in A \lor x \in C$ \[Definition of set union]
-14. $x \notin A \to x \in C$ \[Logically equivalent to line 13]
-15. Assume $x \notin A$.
-	1. $x \in B$ \[Modus ponens on lines 11 and 16]
-	2. $x \in C$ \[Modus ponens on lines 13 and 16]
-	3. $x \in B \land x \in C$ \[Conjunction on lines 15.1 and 15.2]
-	4. $x \in (B \cap C)$ \[Definition of set intersection]
-16. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 15, 15.4]
-17. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 16]
-18. $x \in A \cup (B \cap C)$ \[Definition of set union]
-19. $\forall x\in \big((A \cup B) \cap (A \cup C) \big)[x \in A \cup (B \cap C)]$ \[Universal generalisation on lines 7, 18]
-20. $\forall x \in A \cup (B \cap C) \ [x \in \big((A \cup B) \cap (A \cup C) \big)] \land \forall x\in \big((A \cup B) \cap (A \cup C) \big)[x \in A \cup (B \cap C)]$ \[Conjunction of lines 6, 19]
+>[!note]+ Proof
+>1. Let $x \in A \cup (B \cap C)$ be arbitrarily chosen.
+>	1. $(x \in A) \lor (x \in B \cap C)$ \[Definition of set union]
+>	2. Case 1: $x \in A$
+>		1. $x \in A \lor x \in B$ \[Generalisation on line 1.2]
+>		2. $x \in (A \cup B)$ \[Definition of set union]
+>		3. $x \in A \lor x \in C$ \[Generalisation on line 1.2]
+>		4. $x \in (A \cup C)$ \[Definition of set union]
+>		5. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction of lines 1.2.2 and 1.2.4]
+>		6.  $x \in (A \cup B) \cap (A \cup C)$ \[Definition of set intersection]
+>	3. Case 2: $x \in B \cap C$
+>		1. $x \in B \land x \in C$ \[Definition of set intersection]
+>		2. $x \in B$ \[Specialisation on line 1.3.1]
+>		3. $x \in A \lor x\in B$ \[Generalisation on line 1.3.2]
+>		4. $x \in (A \cup B)$ \[Definition of set union]
+>		5. $x \in C$ \[Specialisation on line 1.3.1]
+>		6. $x \in A \lor x \in C$  \[Generalisation on line 1.3.5]
+>		7. $x \in (A \cup C)$ \[Definition of set union]
+>		8. $x \in (A \cup B) \land x \in (A \cup C)$ \[Conjunction on lines 1.3.4 and 1.3.7]
+>		9. $x \in (A \cup B) \cap (A \cup C)$ \[Definition of set intersection]
+>	4. In all cases, it is shown that $x \in (A \cup B) \cap (A \cup C)$ \[Proof by cases on lines 1.1, 1.2.6, 1.3.9]
+>	5. $\forall x \in A \cup (B \cap C) \ \big[x \in (A \cup B) \cap (A \cup C) \big]$ \[Universal generalisation on lines 1 and 1.4]
+>2. Let $x \in (A \cup B) \cap (A \cup C)$ be arbitrarily chosen.
+>	1. $x \in (A \cup B) \land x \in (A \cup C)$ \[Definition of set intersection]
+>	2. $x \in (A \cup B)$ \[Specialisation on line 2.1]
+>	3. $x \in A \lor x \in B$ \[Definition of set union]
+>	4. $x \notin A \to x \in B$ \[Logically equivalent to line 2.3 **(Why?)**]
+>	5. $x \in (A \cup C)$ \[Specialisation on line 2.1]
+>	6. $x \in A \lor x \in C$ \[Definition of set union]
+>	7. $x \notin A \to x \in C$ \[Logically equivalent to line 2.6]
+>	8. Assume $x \notin A$.
+>		1. $x \in B$ \[Modus ponens on lines 2.4 and 2.8]
+>		2. $x \in C$ \[Modus ponens on lines 2.7 and 2.8]
+>		3. $x \in B \land x \in C$ \[Conjunction on lines 2.8.1 and 2.8.2]
+>		4. $x \in (B \cap C)$ \[Definition of set intersection]
+>	9. $x \notin A \to x \in (B \cap C)$ \[Implication introduction on lines 2.8, 2.8.4]
+>	10. $x\in A \lor x \in (B \cap C)$ \[Logically equivalent to line 2.10]
+>	11. $x \in A \cup (B \cap C)$ \[Definition of set union]
+>	12. $\forall x\in (A \cup B) \cap (A \cup C) \ \big[x \in A \cup (B \cap C) \big]$ \[Universal generalisation on lines 2, 2.11]
+>3. $\forall x \in A \cup (B \cap C) \ \big[x \in (A \cup B) \cap (A \cup C) \big] \land \forall x \in (A \cup B) \cap (A \cup C) \ \big[x \in A \cup (B \cap C) \big]$ \[Conjunction on lines 1.5, 2.12]
+>4. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ \[Definition of set equivalence]
 
 Here's another small example of two sets you can try to prove are the same.
 
@@ -622,7 +626,45 @@ Here's another small example of two sets you can try to prove are the same.
 > 
 > Then: $$A = B \cup C$$
 
-## Based on logical equivalences
+>[!note]- Proof
+>1. Let $x \in A$ be arbitrarily chosen.
+>	1. $(x \in \mathbb{N}) \land (x \leq 5 \lor x \geq 10)$ \[Definition of $A$]
+>	2. $x \in \mathbb{N}$ \[Specialisation on line 1.1]
+>	3. $x \leq 5 \lor x \geq 10$ \[Specialisation on line 1.1]
+>	4. Case 1: $x \leq 5$.
+>		1. $x \in \mathbb{N} \land x \leq 5$ \[Conjunction on lines 1.2 and 1.4]
+>		2. $x \in B$ \[Definition of $B$]
+>		3. $x \in B \lor x \in C$ \[Generalisation on line 1.4.2]
+>		4. $x \in B \cup C$ \[Definition of set union]
+>	5. Case 2: $x \geq 10$.
+>		1. $x \in \mathbb{N} \land x \geq 10$ \[Conjunction on lines 1.2 and 1.5]
+>		2. $x \in C$ \[Definition of $C$]
+>		3. $x \in B \lor x \in C$ \[Generalisation on line 1.5.2]
+>		4. $x \in B \cup C$ \[Definition of set union]
+>	6. In all cases, we have $x \in B \cup C$. \[Proof by cases on lines 1.3, 1.4.4, 1.5.4]
+>	7. $\forall x \in A \ [x \in B \cup C]$ \[Universal generalisation on lines 1 and 1.6]
+>2. Let $y \in B \cup C$ be arbitrarily chosen.
+>	1. $y \in B \lor y \in C$ \[Definition of set union]
+>	2. Case 1: $y \in B$.
+>		1. $y \in \mathbb{N} \land y \leq 5$ \[Definition of $B$]
+>		2. $y \in \mathbb{N}$ \[Specialisation on line 2.2.1]
+>		3. $y \leq 5$ \[Specialisation on line 2.2.1]
+>		4. $y \leq 5 \lor y \geq 10$ \[Generalisation on line 2.2.3]
+>		5. $y \in \mathbb{N} \land (y \leq 5 \lor y \geq 10)$ \[Conjunction on lines 2.2.2 and 2.2.4]
+>		6. $y \in A$ \[Definition of $A$]
+>	3. Case 2: $y \in C$.
+>		1. $y \in \mathbb{N} \land y \geq 10$ \[Definition of $C$]
+>		2. $y \in \mathbb{N}$ \[Specialisation on line 2.3.1]
+>		3. $y \geq 10$ \[Specialisation on line 2.3.1]
+>		4. $y \leq 5 \lor y \geq 10$ \[Generalisation on line 2.3.3]
+>		5. $y \in \mathbb{N} \land (y \leq 5 \lor y \geq 10)$ \[Conjunction on lines 2.3.2 and 2.3.4]
+>		6. $y \in A$ \[Definition of $A$]
+>	4. In all cases, we have $y \in A$. \[Proof by cases on lines 2.1, 2.2.6, 2.3.6]
+>	5. $\forall y \in B \cup C \ [x \in A]$ \[Universal generalisation on lines 2 and 2.4]
+>3. $\big(\forall x \in A \ [x \in B \cup C] \big) \land \big(\forall y \in B \cup C \ [y \in A] \big)$ \[Conjunction on lines 1.7 and 2.5]
+>4. $A = B \cup C$. \[Definition of set equivalence]
+
+### Method 2: Based on logical equivalences
 
 You might have noticed that the set operations we are doing bear some similarity to the logical operations. For example, a set intersection ($\cap$) operation really does look a little bit like the logical and ($\land$) operation. After all, if $C = A \cap B$, then $C$ contains all elements $x$ such that $x \in A \land x \in B$.  Similarly,  if $D = A \cup B$, then $D$ contains all elements $x$ such that $x \in A \lor x \in B$. 
 
@@ -691,7 +733,7 @@ Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C)
 
 This method however, is less general, it typically does not work if we involve sets that use set builder notation to make.
 
-# More Proofs About Sets
+# Part 3: More Proofs About Sets
 
 Now that we have seen a few ideas about sets. We will end this unit on a few more commonly proven concepts about sets. Thus far we've only talked about set equivalences and talked about set unions and intersections. Let's explore a few more ideas that have to do with the powerset and cartesian product operation.
 
