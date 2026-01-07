@@ -896,7 +896,7 @@ $$
 
 Okay, what if after the competition, we tracked the participants that actually arrived and competed. We want to find out how many participants registered but did not show up on the day itself. How should we get this information? We probably want something like a [[#Set Difference|set difference]] operation to help us out. Let $A$ be the set of registered participants and let $B$ be the set of participants we tracked that showed up. Then we can let $C = A \setminus B$ be the set we want to compute. And if you remember, we can write this in set-builder notation as:
 
-$C = \{x \in A : x \notin B\}$
+$$C = \{x \in A : x \notin B\}$$
 
 Google Sheets has something similar:
 
