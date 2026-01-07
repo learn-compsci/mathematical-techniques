@@ -444,19 +444,19 @@ Prove the following statement:
 >**Proof:**
 >1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume for the sake of contradiction that $even(x) \land odd(x)$.
->	1. $even(x)$. \[Specialisation on line 2]
->	2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
->	3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
->	4. $odd(x)$. \[Specialisation on line 2]
->	5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
->	6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
->	7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
->	8. $2(s - t) = 1$. \[Basic algebra]
->	9. $s - t = \frac{1}{2}$. \[Basic algebra]
->	10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
->	11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.3 and 2.6]
->	12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
->	13. $\bot$. \[Contradiction rule on line 2.12]
+>		1. $even(x)$. \[Specialisation on line 2]
+>		2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
+>		3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
+>		4. $odd(x)$. \[Specialisation on line 2]
+>		5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
+>		6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
+>		7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
+>		8. $2(s - t) = 1$. \[Basic algebra]
+>		9. $s - t = \frac{1}{2}$. \[Basic algebra]
+>		10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
+>		11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.3 and 2.6]
+>		12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
+>		13. $\bot$. \[Contradiction rule on line 2.12]
 >3. $\neg \big(even(x) \land odd(x)\big)$. \[Proof by contradiction rule on line 2.13]
 >4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
 
@@ -483,11 +483,11 @@ Essentially, that it is **impossible** (indicated by the "$\neg$" symbol) for al
 >**Proof:**
 >1. Let $c_{1}, c_{2}, \dots, c_{S} \in \mathbb{N}$, arbitrarily chosen, be such that $\sum_{i=1}^S c_{i} = C$.
 >2. Assume for the sake of contradiction that $\forall i \in [S] \ \big[c_{i} < \frac{C}{S}\big]$.
->	1. Then, we must have that $c_{1} < \frac{C}{S}$, $c_{2} < \frac{C}{S}$, $\dots$, $c_{S} < \frac{C}{S}$. \[Universal instantiation on line 2.1]
->	2. $\sum_{i=1}^S c_{i} = c_{1} + c_{2} + \dots + c_{S} < \frac{C}{S} + \frac{C}{S} + \dots + \frac{C}{S} = S \cdot \frac{C}{S} = C$. Rewriting this (for presentation's sake), we have $\sum_{i=1}^S c_{i} < C$. \[Basic algebra]
->	3. In particular, $\neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Basic algebra]
->	4. $\big(\sum_{i=1}^S c_{i} = C\big) \land \neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Conjunction on lines 1 and 2.3]
->	5. $\bot$. \[Contradiction rule on line 2.4]
+>		1. Then, we must have that $c_{1} < \frac{C}{S}$, $c_{2} < \frac{C}{S}$, $\dots$, $c_{S} < \frac{C}{S}$. \[Universal instantiation on line 2.1]
+>		2. $\sum_{i=1}^S c_{i} = c_{1} + c_{2} + \dots + c_{S} < \frac{C}{S} + \frac{C}{S} + \dots + \frac{C}{S} = S \cdot \frac{C}{S} = C$. Rewriting this (for presentation's sake), we have $\sum_{i=1}^S c_{i} < C$. \[Basic algebra]
+>		3. In particular, $\neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Basic algebra]
+>		4. $\big(\sum_{i=1}^S c_{i} = C\big) \land \neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Conjunction on lines 1 and 2.3]
+>		5. $\bot$. \[Contradiction rule on line 2.4]
 >3. $\neg \big(\forall i \in [S] \ \big[c_{i} < \frac{C}{S}\big]\big)$. \[Proof by contradiction rule on line 2.5]
 >4. Therefore, $$\forall c_{1}, c_{2}, \dots, c_{S} \in \mathbb{N} \ \bigg[\neg \bigg(\forall i \in [S] \ \bigg[c_{i} < \frac{C}{S}\bigg]\bigg)\bigg]$$ \[Universal generalisation on lines 1 and 3]
 
