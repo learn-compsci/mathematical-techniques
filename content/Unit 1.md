@@ -1041,9 +1041,9 @@ Example usage:
 >[!Proof] 
 >1. Assume $x = 3 \lor x = 5 \lor x = 10$.
 >2. Case 1: Assume $x = 3$.
->	1. Then $x > 0$ \[By basic algebra on line 2] 
+>		1. Then $x > 0$ \[By basic algebra on line 2] 
 >3. Case 2: Assume $x = 5$.
->	1. Then $x > 0$ \[By basic algebra on line 3]
+>		1. Then $x > 0$ \[By basic algebra on line 3]
 >4. Therefore, $x > 0$. \[Proof by cases on lines 1, 2.1, 3.1]
 
 What is going on here? We are saying that if $x$ is either $3$ or $5$, then in both cases they are bigger than $0$. We prove this for each case separately (in this small example this was pretty straightforward). Importantly, if we had more than two cases, we need to prove more things. Here's yet another example:
@@ -1056,13 +1056,13 @@ And notice here how the proof changes:
 >[!Proof] 
 >1. Assume $x = 1 \lor x = 0 \lor -10$.
 >2. Case 1: Assume $x = 1$.
->	1. Then $x - 1 = 0$ \[By basic algebra on line 2]
->	2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 2.1]
+>		1. Then $x - 1 = 0$ \[By basic algebra on line 2]
+>		2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 2.1]
 >3. Case 2: Assume $x = 0$.
->	1. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 3]
+>		1. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 3]
 >4. Case 3: Assume $x = -10$.
->	1. Then $x + 10 = 0$. \[By basic algebra on line 4]
->	2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 4.1]
+>		1. Then $x + 10 = 0$. \[By basic algebra on line 4]
+>		2. Then $x(x - 1)(x+10) = 0$. \[By basic algebra on line 4.1]
 >5. Therefore, $x(x - 1)(x+10) = 0$. \[Proof by cases on lines 1, 2.2, 3.1, 4.2]
 
 In general:
@@ -1143,8 +1143,8 @@ Okay, this might look a little intimidating. Let's read it back in English—wha
 Here's the proof and how we use the deductive rule.
 
 >[!Proof] 
->1. Assume $(p \land q)$.
->	1. Therefore, $p$. \[By specialisation on line 1]
+>1. Suppose $(p \land q)$.
+>		1. Therefore, $p$. \[By specialisation on line 1]
 >2. Therefore, $(p \land q) \to p$. \[Implication introduction on lines 1 and 1.1]
 
 So what is going on here? 
@@ -1204,15 +1204,15 @@ Okay that's the idea, but how do we do it formally? Again, we will want to use s
 
 >[!Proof] 
 >1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$. 
->	1. Assume that $even(x)$.
->	2. $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
->	3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential instantiation on line 1.2]
->	4. $x + 2 = 2 \cdot t + 2$ \[By basic algebra]
->	5. $x + 2 = 2 \cdot (t + 1)$ \[By basic algebra]
->	6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$. \[By basic algebra]
->	7. $\exists s \in \mathbb{Z} \ [x + 2 = 2 \cdot s]$ \[Existential generalisation on lines 1.5 and 1.6]
->	8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
->	9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
+>		1. Assume that $even(x)$.
+>		2. $\exists k \in \mathbb{Z} \ [x = 2\cdot k]$ \[Unpacking definition of $even(x)$]
+>		3. Let $t \in \mathbb{Z}$ be such that $x = 2\cdot t$ \[Existential instantiation on line 1.2]
+>		4. $x + 2 = 2 \cdot t + 2$ \[By basic algebra]
+>		5. $x + 2 = 2 \cdot (t + 1)$ \[By basic algebra]
+>		6. Since $t \in \mathbb{Z}$, $t + 1 \in \mathbb{Z}$. \[By basic algebra]
+>		7. $\exists s \in \mathbb{Z} \ [x + 2 = 2 \cdot s]$ \[Existential generalisation on lines 1.5 and 1.6]
+>		8. $even(x + 2)$ \[Unpacking definition of $even(x + 2)$]
+>		9. $even(x) \to even(x + 2)$ \[Implication introduction on lines 1.1 and 1.8]
 >2. $\forall x \in \mathbb{Z} \ \big[even(x) \to even(x + 2) \big]$. \[Universal generalisation on lines 1 and 1.9]
 
 Okay! This is a lot of text, let's go through this slowly, it re-uses some old rules you were already shown, and it uses three new rules here. What is going on?
