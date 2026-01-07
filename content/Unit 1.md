@@ -408,20 +408,22 @@ Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly m
 >1. Use a truth table!
 >
 >2. First, we draw the truth table for $\neg (p \to q)$.
+>
 > > |   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ |
-| :-----: | :-----: | :-------: | :-------: |
-| $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
-| $true$  | $false$ |  $false$  |  $\textcolor{red}{true}$   |
-| $false$ | $true$  |  $true$   |  $\textcolor{red}{false}$  |
-| $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+> > | :-----: | :-----: | :-------: | :-------: |
+> > | $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
+> > | $true$  | $false$ |  $false$  |  $\textcolor{red}{true}$   |
+> > | $false$ | $true$  |  $true$   |  $\textcolor{red}{false}$  |
+> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
 >
 > > Next, we draw the truth table for $p \land \neg q$.
-> > > |   $p$   |   $q$   | $\neg q$ | $\textcolor{red}{p \land \neg q}$ |
-| :-----: | :-----: | :-------: | :-------: |
-| $true$  | $true$  |  $false$   |  $\textcolor{red}{false}$   |
-| $true$  | $false$ |  $true$  |  $\textcolor{red}{true}$   |
-| $false$ | $true$  |  $false$   |  $\textcolor{red}{false}$  |
-| $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+>
+> > |   $p$   |   $q$   | $\neg q$ | $\textcolor{red}{p \land \neg q}$ |
+> > | :-----: | :-----: | :-------: | :-------: |
+> > | $true$  | $true$  |  $false$   |  $\textcolor{red}{false}$   |
+> > | $true$  | $false$ |  $true$  |  $\textcolor{red}{true}$   |
+> > | $false$ | $true$  |  $false$   |  $\textcolor{red}{false}$  |
+> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
 >
 > > Looking at the rightmost columns of the two truth tables, we see that the corresponding rows have the same values. Hence, $\neg (p \to q)$ and $p \land \neg q$ are **logically equivalent**.
 
@@ -1380,12 +1382,12 @@ Let's try.
 >[!Proof] 
 >1. Let $\textcolor{blue}{x} \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume that $even(\textcolor{blue}{x})$.
->	1. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k}]$ \[Unpacking definition of $even$]
->	2. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t}$. \[Existential instantiation on line 2.1]
->	3. Then $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t})^2 = 4\textcolor{red}{t}^2 = 2 \cdot (\textcolor{green}{2 \cdot t^2})$. \[By basic algebra]
->	4. $\textcolor{green}{2 \cdot t^2} \in \mathbb{Z}$ \[By basic algebra]
->	5. $\exists \textcolor{green}{m} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{m}]$ \[Existential generalisation on lines 2.3 and 2.4]
->	6. $even(\textcolor{teal}{x^2})$. \[Unpacking definition of $even$]
+>		1. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k}]$ \[Unpacking definition of $even$]
+>		2. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t}$. \[Existential instantiation on line 2.1]
+>		3. Then $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t})^2 = 4\textcolor{red}{t}^2 = 2 \cdot (\textcolor{green}{2 \cdot t^2})$. \[By basic algebra]
+>		4. $\textcolor{green}{2 \cdot t^2} \in \mathbb{Z}$ \[By basic algebra]
+>		5. $\exists \textcolor{green}{m} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{m}]$ \[Existential generalisation on lines 2.3 and 2.4]
+>		6. $even(\textcolor{teal}{x^2})$. \[Unpacking definition of $even$]
 >3. $even(\textcolor{blue}{x}) \to even(\textcolor{teal}{x^2})$ \[Implication introduction on lines 2 and 2.6]
 >4. $\forall \textcolor{blue}{y} \in \mathbb{Z} \ [even(\textcolor{blue}{y}) \to even(\textcolor{teal}{y^2})]$ \[Universal generalisation on lines 1 and 3]
  
@@ -1403,9 +1405,9 @@ With what we have right now this looks tricky, here's a first attempt:
 >[!note] Attempted Proof 
 >1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume that $even(x^2)$.  
->	1. $\exists k \in \mathbb{Z} \ [x^2 = 2 \cdot k]$ \[Unpacking definition of $even$] 	
->	2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2 \cdot t$. \[Existential instantiation on line 2.1]
->	3. ... What now?
+>		1. $\exists k \in \mathbb{Z} \ [x^2 = 2 \cdot k]$ \[Unpacking definition of $even$] 	
+>		2. Let $t \in \mathbb{Z}$ be such that $x^2 = 2 \cdot t$. \[Existential instantiation on line 2.1]
+>		3. ... What now?
 
 We could try saying $x = \sqrt{2t}$ but... that doesn't help to prove that $x$ is even.
 
@@ -1425,16 +1427,16 @@ Now that we have these facts, let's try proving the statement again. Pay attenti
 >[!Proof]
 >1. Let $\textcolor{blue}{x} \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume that $\neg even(\textcolor{blue}{x})$.
->	1. $\neg even(\textcolor{blue}{x}) \to odd(\textcolor{blue}{x})$ \[Universal instantiation of Lemma 1]
->	2. $odd(\textcolor{blue}{x})$ \[By modus ponens on lines 2 and 2.1]
->	3. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k} + 1]$ \[Unpacking definition of $odd$]
->	4. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t} + 1$. \[Existential instantiation on line 2.3]
->	5. $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t} + 1)^2 = 2 \cdot (\textcolor{green}{2t^2 + 2t}) + 1$ \[By basic algebra]
->	6. $\textcolor{green}{2t^2 + 2t} \in \mathbb{Z}$ \[By basic algebra]
->	7. $\exists \textcolor{green}{k} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{k} + 1]$ \[Existential generalisation on lines 2.5 and 2.6]
->	8. $odd(\textcolor{teal}{x^2})$ \[Unpacking definition of $odd$]
->	9. $odd(\textcolor{teal}{x^2}) \to \neg even(\textcolor{teal}{x^2})$ \[Universal instantiation of Lemma 2]
->	10. $\neg even(\textcolor{teal}{x^2})$ \[By modus ponens on lines 2.8 and 2.9]
+>		1. $\neg even(\textcolor{blue}{x}) \to odd(\textcolor{blue}{x})$ \[Universal instantiation of Lemma 1]
+>		2. $odd(\textcolor{blue}{x})$ \[By modus ponens on lines 2 and 2.1]
+>		3. $\exists \textcolor{red}{k} \in \mathbb{Z} \ [\textcolor{blue}{x} = 2 \cdot \textcolor{red}{k} + 1]$ \[Unpacking definition of $odd$]
+>		4. Let $\textcolor{red}{t} \in \mathbb{Z}$ be such that $\textcolor{blue}{x} = 2 \cdot \textcolor{red}{t} + 1$. \[Existential instantiation on line 2.3]
+>		5. $\textcolor{teal}{x^2} = (2 \cdot \textcolor{red}{t} + 1)^2 = 2 \cdot (\textcolor{green}{2t^2 + 2t}) + 1$ \[By basic algebra]
+>		6. $\textcolor{green}{2t^2 + 2t} \in \mathbb{Z}$ \[By basic algebra]
+>		7. $\exists \textcolor{green}{k} \in \mathbb{Z} \ [\textcolor{teal}{x^2} = 2 \cdot \textcolor{green}{k} + 1]$ \[Existential generalisation on lines 2.5 and 2.6]
+>		8. $odd(\textcolor{teal}{x^2})$ \[Unpacking definition of $odd$]
+>		9. $odd(\textcolor{teal}{x^2}) \to \neg even(\textcolor{teal}{x^2})$ \[Universal instantiation of Lemma 2]
+>		10. $\neg even(\textcolor{teal}{x^2})$ \[By modus ponens on lines 2.8 and 2.9]
 >3.  $\neg even(\textcolor{blue}{x}) \to \neg even(\textcolor{teal}{x^2})$ \[Implication introduction on lines 2 and 2.10]
 >4. $even(\textcolor{teal}{x^2}) \to even(\textcolor{blue}{x})$ \[Logically equivalent to line 3]
 >5. $\forall \textcolor{blue}{x} \in \mathbb{Z} \ [even(\textcolor{teal}{x^2}) \to even(\textcolor{blue}{x})]$ \[Universal generalisation on lines 1 and 4]
@@ -1481,15 +1483,15 @@ Here's how the proof goes:
 >2. Let $a \in \mathbb{Z}$ be arbitrarily chosen.
 >3. Let $b \in \mathbb{Z}$ be arbitrarily chosen.
 >4. Assume that $a \times b = n$.
->	1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
->	2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
->	3. $a > \sqrt{n} \land b > \sqrt{n}$ \[By basic algebra]
->	4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[By basic algebra]
->	5. $a \times b > n$ \[By basic algebra]
->	6. $\neg(a \times b = n)$ \[By basic algebra]
->	7. $\neg(a \times b = n) \land a \times b = n$ \[Conjunction rule on lines 4.4 and 4.5]
->	8. $\bot$ \[Contradiction rule on line 7]
->	9. Therefore, $a \leq \sqrt{n} \lor b \leq \sqrt{n}$. \[Proof by contradiction rule on lines 4.1 and 4.8]
+>		1. Assume for the sake of contradiction that $\neg(a \leq \sqrt{n} \lor b \leq \sqrt{n})$.
+>		2. $\neg(a \leq \sqrt{n}) \land \neg(b \leq \sqrt{n})$ \[Logically equivalent to line 4.1]
+>		3. $a > \sqrt{n} \land b > \sqrt{n}$ \[By basic algebra]
+>		4. $a \times b > \sqrt{n} \times \sqrt{n}$ \[By basic algebra]
+>		5. $a \times b > n$ \[By basic algebra]
+>		6. $\neg(a \times b = n)$ \[By basic algebra]
+>		7. $\neg(a \times b = n) \land a \times b = n$ \[Conjunction rule on lines 4.4 and 4.5]
+>		8. $\bot$ \[Contradiction rule on line 7]
+>		9. Therefore, $a \leq \sqrt{n} \lor b \leq \sqrt{n}$. \[Proof by contradiction rule on lines 4.1 and 4.8]
 >5. $a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n})$ \[Implication introduction rule on lines 4 and 4.9]
 >6. $\forall b \in \mathbb{Z} \ [a \times b = n \to a \leq \sqrt{n} \lor b \leq \sqrt{n}]$ \[Universal generalisation on lines 3 and 5]
 >7. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[a \times b = n \to (a \leq \sqrt{n} \lor b \leq \sqrt{n}) \big]$ \[Universal generalisation on lines 2 and 6]
