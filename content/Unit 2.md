@@ -4,7 +4,7 @@ title: "Unit 2: Introduction to Sets, Notations and Operations"
 This unit introduces the notion of sets and set operations. The unit will introduce:
 0. [[#Unit Introduction|Motivation]]
 1. [[#Part 1 Basic Sets, Creating Sets, Set Operations|Basic sets, creating sets, set operations]]
-2. Ways to prove set equivalence
+2. [[#Part 2 Ways to Prove Set Equivalence|Ways to prove set equivalence]]
 3. More proofs about sets
 
 ---
@@ -320,11 +320,12 @@ As a summary, these are almost all the set operations:
 
 ### Set union
 
-Given two sets $A, B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$. Formally, $C$ contains only all the elements $x$ where: 
+Given two sets $A$ and $B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$.
 
-$$
-x \in A \lor x \in B
-$$
+>[!note] Definition: Set union
+>The **set union** of $A$ and $B$, denoted $A \cup B$ is the set which contains all the elements of $A$ and $B$.
+>
+>Formally, $$A \cup B = \{x : (x \in A) \lor (x \in B) \}$$
 
 ![[set-union.png]]
 
@@ -349,15 +350,16 @@ $$
 > 
 > > Wait a minute, isn't this just $\mathbb{N}$?
 > 
-> Yes. Yes it is!
+> Yes, yes it is!
 
-## Set Intersection
+### Set intersection
 
-Given two sets $A, B$, we can create a new set $C = A \cap B$ which is the **intersection of $A$ and $B$**. The set $C$ contains elements that are both in $A$ and in $B$. Formally, $C$ contains all the elements $x$ where: 
+Given two sets $A$ and $B$, we can create a new set $C = A \cap B$ which is the **intersection of $A$ and $B$**. The set $C$ contains elements that are both in $A$ and in $B$.
 
-$$
-x \in A \land x \in B
-$$
+>[!note] Definition: Set intersection
+>The **set intersection** of $A$ and $B$, denoted $A \cap B$ is the set which contains all the *common* elements of $A$ and $B$.
+>
+>Formally, $$A \cap B = \{x : (x \in A) \land (x \in B) \}$$
 
 ![[set-intersection.png]]
 
@@ -376,21 +378,17 @@ $$
 >[!Example]
 > $A = \{1, 2\}$, $B = \{5\}$, then:
 > $$A \cap B = \emptyset$$
-## Set Difference
 
-Given two sets $A, B$, we can create a new set $C = A \setminus B$, which we call **$A$ minus $B$**. The set $C$ contains elements that are from in $A$ that is not also in $B$. Formally, $C$ contains all the elements $x$ where: 
+### Set difference
 
-$$
-x \in A \land x \notin B
-$$
+Given two sets $A$ and $B$, we can create a new set $C = A \setminus B$, which we call **$A$ minus $B$**. The set $C$ contains elements that are from in $A$ that is not also in $B$.
 
-We can also write this in set builder notation as:
+>[!note] Definition: Set difference
+>The **set difference** $A$ **minus** $B$, denoted $A \setminus B$, contains all the elements of $A$ that are *not* in $B$.
+>
+>Formally, $$A \setminus B = \{x \in A : x \notin B \}$$
 
-$$
-\{ x \in A : x \notin B \}
-$$
-
-![[set-minus]]
+![[set-minus.png]]
 
 >[!Example]
 > Let $A =\{1, 2, 3, 4, 5, 10\}$, and $B = \{1, 7, 8, 9, 10\}$.
@@ -399,7 +397,7 @@ $$
 > \{2, 3, 4, 5\} = \{1, 2, 3, 4, 5, 10\} \setminus \{1, 7, 8, 9, 10\}
 > $$
 > 
-> Notice that elements $1$ and $10$ is from $A$ but also in $B$, so it is not in $C = A \setminus B$. On the other hand, elements $2, 3, 4, 5$ are in $A$ but not in $B$, so they are in $C$.
+> Notice that elements $1$ and $10$ are in $A$ but also in $B$, so it is not in $C = A \setminus B$. On the other hand, elements $2, 3, 4, 5$ are in $A$ but not in $B$, so they are in $C$.
 > 
 > Also, note that the sets $A \setminus B$ and $B \setminus A$ are **not the same sets**! In this case, $B \setminus A$ would contain all the elements in $B$ that are not in $A$, which is the set $\{7, 8, 9\}$. Notice that this is not the same as $A \setminus B = \{2, 3, 4, 5\}$.
 
@@ -413,12 +411,14 @@ $$
 > 
 > Notice here $C$ contains any element from $\mathbb{N}$ that is not in set $B$ (which is the set of primes).
 
-## Powerset
-The powerset operation is a little unorthodox, it does not look like a logical operation like the ones we have seen. Given a set $A$, the powerset of $A$ is denoted by $\mathcal{P}(A)$ is the **set that contains all subsets of $A$**. Formally:
+### Power set
 
-$$
-\bigg(X \subseteq A \to X \in \mathcal{P}(A)\bigg) \land \bigg(X \in \mathcal{P}(A) \to X \subseteq A\bigg)
-$$
+The power set operation is a little unorthodox, since it does not look like a logical operation like the ones we have seen. Given a set $A$, the power set of $A$ is denoted by $\mathcal{P}(A)$ is the **set that contains all subsets of $A$**.
+
+>[!note] Definition: Power set
+>The **power set** of $A$, denoted $\mathcal{P}(A)$, is the set containing all subsets of $A$.
+>
+>Formally, $$X \in \mathcal{P}(A) \leftrightarrow X \subseteq A$$
 
 In other words, if $X$ is a subset of $A$, then $X$ is in the power set of $A$ and if $X$ is in the power set of $A$, then $X$ is a subset of $A$. 
 
@@ -434,42 +434,49 @@ In other words, if $X$ is a subset of $A$, then $X$ is in the power set of $A$ a
 > 
 > Remember, $\emptyset \subseteq \emptyset$, so $\emptyset \in \mathcal{P}(\emptyset)$.
 
-## Cartesian Product
+>[!warning] $\subseteq$ vs. $\in$
+>Here, we make a clear distinction between being a subset and being an element of a set. Consider the set $A = \{1, 2, 3 \}$. Then, the following statements are true:
+>- $3 \in A$
+>- $\{3\} \in \mathcal{P}(A)$
+>- $\{3\} \subseteq A$
+>
+>However, it is erroneous to say that $3 \in \mathcal{P}(A)$, or that $\{3\} \in A$.
 
-Given a sets $A$, and $B$. The set $C = A \times B$ is the **cartesian product between sets $A$ and $B$**. This creates **pairs**. If $x \in A$ and $y \in B$, then the pair $(x, y) \in C$. 
+### Cartesian product
 
-**Note:** This operation is one of the most important in how we start creating almost other concepts later on. (Relations, Graphs, etc)
+Given two sets $A$ and $B$, the set $C = A \times B$ is the **cartesian product between sets $A$ and $B$**. This creates **pairs**. If $x \in A$ and $y \in B$, then the pair $(x, y) \in C$.
+
+>[!note] Definition: Cartesian product
+>The **Cartesian product** of two sets $A$ and $B$, denoted $A \times B$, contains all pairs $(x, y)$ whose first element $x$ is from $A$ and whose second element $y$ is from $B$.
+>
+>Formally, $$A \times B = \{(x, y) : (x \in A) \land (y \in B)\}$$
+>
+>Therefore, $$(x, y) \in A \times B \leftrightarrow (x \in A) \land (y \in B)$$
+>and $$(x, y) \notin A \times B \leftrightarrow (x \notin A) \lor (y \notin B)$$
+
+**Note:** This operation is one of the most important ones, enabling us to create many other mathematical objects later on (e.g., relations, graphs).
 
 >[!Example]
-> Let $A =\{1, 2, 3\}$, and $B = \{1, 2\}$.
+> Let $A =\{1, 2, 3\}$ and $B = \{1, 2\}$.
 > 
 > $$
 > A \times B = \{ (1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2) \}
 > $$
 > 
 > Pictorially, you can see how we got the elements.
+> 
 > ![[cross-product.png]]
 
 Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \in A \times B$. But $(1, 2) \neq (2, 1)$. Also, $(1,3)\notin A \times B$.
-
-**Formally:** A pair $(a, b)$ is in set $A \times B$ if:
-
-$$
-a \in A \land b \in B
-$$
-
-Also, a pair $(a, b)$ is not in set $A \times B$ if:
-
-$$
-a \notin A \lor b \notin B
-$$
 
 >[!Example]
 > $\mathbb{Z} \times \mathbb{Z}$ is the set that contains any pair of integers. For example, $(-1, 25) \in \mathbb{Z} \times \mathbb{Z}$. But $(\frac{1}{2}, 21) \notin \mathbb{Z} \times\mathbb{Z}$.
 
 >[!Example]
 > $\mathbb{Q} \times \mathbb{Z}$ is the set that contains any pair where the first element is from $\mathbb{Q}$ and the second is from $\mathbb{Z}$. For example, $(-1, 25) \in \mathbb{Q} \times \mathbb{Z}$, and also $(\frac{1}{2}, 21) \in \mathbb{Q} \times\mathbb{Z}$.
-# Ways To Prove Set Equivalence
+
+---
+# Part 2: Ways to Prove Set Equivalence
 
 So up until this point, we have been showing how to manipulate and create all kinds of sets. And you might have noticed, that sometimes there's more than one way to create a set. Also, knowing when two sets are equivalent is pretty helpful for something like databases (for those who are curious and would like a sneak peek, you might look want to take a peek at the concepts [relational algebra](https://en.wikipedia.org/wiki/Relational_algebra), and [relational calculus](https://en.wikipedia.org/wiki/Relational_calculus) for databases).
 
