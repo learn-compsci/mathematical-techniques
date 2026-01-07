@@ -560,7 +560,7 @@ $$
 >4. $A = B$. \[Definition of set equivalence]
 
 >[!question]- Why is line 2.5 valid?
->The step from line 2.4 to line 2.5 corresponds to the following equivalence: $$p \to q \equiv \neg p \lor q$$ where $p \equiv z \in \mathbb{N}$ and $q \equiv \neg (even(z))$. Try convincing yourself that this equivalence is true!
+>The step from line 2.4 to line 2.5 corresponds to the [following equivalence](https://en.wikipedia.org/wiki/Material_implication_(rule_of_inference)): $$p \to q \equiv \neg p \lor q$$ where $p \equiv z \in \mathbb{N}$ and $q \equiv \neg (even(z))$. Try convincing yourself that this equivalence is true!
 
 And we've proven they're the same set! So again, the takeaway is the following:
 
@@ -670,12 +670,11 @@ You might have noticed that the set operations we are doing bear some similarity
 
 What about the set difference ($\setminus$) operation? If $E = A \setminus B$, then $E$ contains all elements such that $x \in A \land x \notin B$, in other words: $x \in A \land \neg(x \in B)$.
 
-|  Set Operation  | Logical Operation |
+|  Set operation  | Logical operation |
 | :-------------: | :---------------: |
 |   $A \cup B$    |    $a \lor b$     |
 |   $A \cap B$    |    $a \land b$    |
 | $A \setminus B$ | $a \land \neg b$  |
-
 
 You might actually have noticed this based on the previous sub-section, when we proved the following:
 
@@ -689,14 +688,14 @@ $$
 x \in A \lor (x \in B \land x \in C) \equiv (x \in A \lor x \in B) \land (x \in A \lor x \in C)
 $$
 
-This is actually something we can do in general. So for the narrower use-case of involving only intersections, set minus and union in very specific ways, here are some examples:
+This is actually something we can do in general. Hence, for the narrower use-cases of involving only intersections, set minus and union in very specific ways, here are some examples:
 
 1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
 3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 4. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
 
-Why? They mirror the following how the following pairs of propositions are logically equivalent:
+Why? They mirror how the following pairs of propositions are logically equivalent:
 
 1. $a \lor (b \land c) \equiv (a \lor b) \land (a \lor c)$
 2. $a \land (b \lor c) \equiv (a \land b) \lor (a \land c)$
@@ -731,7 +730,7 @@ But what about the sets? The fact that we found a way to show the propositions w
 
 Then $(A \setminus B) \setminus C = \emptyset$, but $A \setminus (B \setminus C) = \{1\}$. Try it step by step to check that what we've written here is correct!
 
-This method however, is less general, it typically does not work if we involve sets that use set builder notation to make.
+This method however, is less general—it typically does not work if we involve sets that use set-builder notation to construct.
 
 # Part 3: More Proofs About Sets
 
