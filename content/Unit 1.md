@@ -1636,9 +1636,9 @@ I think this proof warrants a read-back in English, here's the proof again in En
 
 >[!question] Mini quiz
 > In our very big proof above, in the second half of the proof, we are missing a line in the proof. One of the rules needs **two** lines to be applied, but we used the rule with only a single line. Where is the faulty application of the rule? What is missing? And how should we fix it?
-> 
-> >[!Answer]-
-> > Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$ \[by basic algebra].
+
+>[!Answer]-
+>Line 17 is applied wrongly. We need to also justify that $k^2 \in \mathbb{Z}$. This can be done by arguing that $k \in \mathbb{Z}$, and therefore $k^2 \in \mathbb{Z}$ \[by basic algebra].
 
 ## Proof Technique: Goal Statements vs. Steps in Proofs
 
