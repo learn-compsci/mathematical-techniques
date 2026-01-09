@@ -3,8 +3,8 @@ title: "Unit 3: Relations"
 ---
 This unit introduces the notion of relations. The unit will introduce:
 0. [[#Part 0 Unit Introduction|Motivation for this unit]]
-1. Basic Relations, Creating Relations
-2. Relation Composition, Relation Inversion
+1. [[#Part 1 Basic Relations, Creating Relations|Basic relations, creating relations]]
+2. [[#Part 2 Operations on Relations|Operations on relations]]
 3. Transitivity, Symmetry, Anti-Symmetry, Reflexivity
 
 ---
@@ -38,7 +38,7 @@ $$
 Data = Names \times Emails
 $$
 
-where $Data$ is a set that is the [[Unit 2#Cartesian Product|cartesian product]] of two sets, $Names$ and $Email$. Here, let's pretend that $Names$ contains all the possible names in the world, and $Emails$ also contains all the possible email addresses we have in the world.
+where $Data$ is a set that is the [[Unit 2#Cartesian Product|Cartesian product]] of two sets, $Names$ and $Email$. Here, let's pretend that $Names$ contains all the possible names in the world, and $Emails$ also contains all the possible email addresses we have in the world.
 
 Based on this terminology, we can say something like $(Jon\ Snow, jsnow@gmail.com) \in Data$. Similarly, we can say $(Barry\ Allen, the\_flash@hotmail.com) \in Data$.
 
@@ -55,30 +55,36 @@ Putting the cart before the horse for a little bit (showing you how and why it's
 If you ever find yourself studying memory models for concurrency-based applications, or designing a distributed systems algorithm, chances are you will have to know a little bit about partial orders (as special type of relation). The vague idea is that when you need to start saying things like "this memory event **happened before** the other memory event", that is also a kind of ordering.
 
 ---
-# Part 1: Definition of a Relation
+# Part 1: Basic Relations, Creating Relations
 
-Let's think a little bit about how to "relate" two objects. Again, using the example from earlier and from the previous unit, perhaps we want to relate people to their emails, then we can think of creating **pairs** to do this. For example, we might represent our data like this:
+## Definition of a Relation
+
+Let's think a little bit about how to "relate" two objects (again, using the example from earlier and from the previous unit). If we want to relate people to their emails, then we can think of creating **pairs** to do this. For example, we might represent our data like this:
 
 |    Name     |         Email         |
 | :---------: | :-------------------: |
 |  Jon Snow   |    jsnow@gmail.com    |
 | Barry Allen | the_flash@hotmail.com |
 |   Pikachu   |   pika@pokemail.com   |
-Mathematically, we will see this our table (let's call it $T$) as a set of 3 pairs:
+
+Mathematically, we will see this our table (let's call it $T$) as a set of three pairs:
 
 $$
 \begin{align*}
-T = \{\\&(Jon\ Snow, jsnow@gmail.com),\\&(Barry\ Allen, the\_flash@hotmail.com),\\& (Pikachu, pika@pokemail.com)\\\}
+T = \{
+	\\&(Jon\ Snow, jsnow@gmail.com),
+	\\&(Barry\ Allen, the\_flash@hotmail.com),
+	\\& (Pikachu, pika@pokemail.com)\\
+	\}
 \end{align*}
 $$
 
 
-Notice here that if we let $E$ be the set of all possible emails, and $N$ be the set of all possible names, then $T \subseteq N \times E$. Note that it is not necessarily the case that $T = N \times E$. $T$ here only contains certain pairs from $N \times E$, not all of them!
+Notice here that if we let $N$ be the set of all possible names and let $E$ be the set of all possible emails, then $T \subseteq N \times E$. Note that it is not necessarily the case that $T = N \times E$. $T$ here only contains certain pairs from $N \times E$, not all of them!
 
 $T$ here is a **relation** that relates elements from $N$ to elements in $E$. A relation is really just a set that tells us how objects and $N$ and $E$ are associated.
 
-
-Here's another example, we could have had a table of student data that includes:
+Here's another example—we could have had a table of student data that includes:
 1. Their name
 2. Their year of enrolment
 3. Their degree
@@ -97,38 +103,44 @@ Then we could have represented this using a set $S$ like so:
 $$
 \begin{align*}
 S = \{\\
-&(Simon, 2023, CS),\\
-&(Janice, 2020, Philo),\\
-&(Meg, 2015, CS)\\
-&(Sam, 2016, Science)\\
+	&(Simon, 2023, CS),\\
+	&(Janice, 2020, Philo),\\
+	&(Meg, 2015, CS)\\
+	&(Sam, 2016, Science)\\
 \}
 \end{align*}
 $$
 
-Like a set of triples. But what if we wanted two sets $A$, $B$ that represented the following relations?
+like a set of triples. But what if we wanted two sets $A$ and $B$ that represented the following relations?
 
-1. Set $A$ relates the student names to the year of enrollments.
+1. Set $A$ relates the student names to the year of enrolments.
 2. Set $B$ relates the student names to the degree programmes.
 
-Try for yourself to write down what those sets look like, and what are they a subset of? Check it with yourself in the hidden-away spoiler tag. We can let $M$ be the set of all possible names, and we can let $P = \{CS, Philo, CS, Science, Eng, Biz\}$.
+Try for yourself to write down what those sets look like, and what they are subsets of. Check it with yourself in the hidden-away spoiler tag. We can let $M$ be the set of all possible names, and we can let $P = \{CS, Philo, CS, Science, Eng, Biz\}$.
 
 >[!Answer]-
 > $A$ can be a subset of something like $M \times \mathbb{N}$. Based on our data, it can also be a subset of something like $M \times \{2015, 2016, 2020, 2023\}$. Both answers are viable.
 > 
-> $A = \{(Simon, 2023), (Janice, 2020), (Meg, 2015), (Sam, 2016)\}$
+> $$A = \{(Simon, 2023), (Janice, 2020), (Meg, 2015), (Sam, 2016)\}$$
 
 >[!Answer]-
 > $B$ can be a subset of something like $M \times P$.
 > 
-> $B = \{(Simon, CS), (Janice, Philo), (Meg, CS), (Sam, Science)\}$
+> $$B = \{(Simon, CS), (Janice, Philo), (Meg, CS), (Sam, Science)\}$$
 
+>[!info] Definition: Relations
+>Let $A$ and $B$ be two sets.
+>
+>A set of pairs $R$ is called a **relation** (on sets $A$ and $B$) if it is a subset of the Cartesian product of the sets, i.e., $R \subseteq A \times B$.
+>
+>Alternatively, any set of pairs is a relation. 
 
-Formally, we will consider **any set** that is a subset of some cartesian product of sets to be a **relation**. Alternatively, any set of pairs is **relation**. 
+Formally, we will consider **any set** that is a subset of some Cartesian product of sets to be a **relation** on those two sets. Alternatively, any set of pairs is a **relation**. 
 
 Here are a few more examples:
 
 >[!Example]
-> Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people, then we can have a set $S$ that is a relation between people and the food they enjoy eating.
+> Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people. Then we can have a set $S$ that is a relation between people and the food they enjoy eating.
 > $$
 > S = \{(Jane, Laksa), (Marco, Toast), (Jane, Pasta), (Sam, Toast)\}
 > $$
@@ -143,15 +155,15 @@ Here are a few more examples:
 >[!Example]
 > Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3t] \}$.
 > 
-> Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 16) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Whereas $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
-
+> Then $M$ relates integers $a$ to integers $b$ if they have the same divisor when divided by $3$. For example, $(7, 16) \in M$ because both have the remainder $1$ when divided by $3$. Similarly, $(27, 6) \in M$ because both have the remainder $0$. Meanwhile, $(3, 11) \notin M$ because $3$ has remainder $0$, but $11$ has remainder $2$.
 
 >[!Question]
-> What about if we wanted to relate 3 things together? You will see this very commonly in databases. It is called a ternary relation. In general, a relation that relates $n$ things is called an $n$-ary relation.
+> What about if we wanted to relate *three* things together? You will see this very commonly in databases. It is called a **ternary relation**. In general, a relation that relates $n$ things is called an $n$-ary relation.
 > 
-> For the purposes of our course, we will focus only on binary relations, i.e. sets of pairs only.
+> For the purposes of our course, we will focus only on binary relations, i.e., sets of pairs only.
 
-# Operations on Relations
+---
+# Part 2: Operations on Relations
 
 Just like sets, there are a few common operations that we need to learn for relations. We will cover the two most common ones:
 
@@ -159,15 +171,14 @@ Just like sets, there are a few common operations that we need to learn for rela
 2. Relation composition
 
 ## Relation Inversion
-Given a relation $R = A \times B$, the **inversion** of a relation is written as $R^{-1}$, and is defined in the following way:
 
-$$
-R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}
-$$
+>[!note] Definition: Relation inversion
+>Given a relation $R \subseteq A \times B$, the **inversion** of a relation, denoted $R^{-1}$, is defined by:
+>$$R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}$$
 
-Basically it is just saying that a pair $(b, a)$ is in $R^{-1}$ if and only if $(a, b)$ is in $R$. Think of $R^{-1}$ as just "reversing" the pairs in $R$.
+Basically, it is just saying that a pair $(b, a)$ is in $R^{-1}$ if and only if $(a, b)$ is in $R$. Think of $R^{-1}$ as just "reversing" the pairs in $R$.
 
-Let's see what this means for our previous 3 examples.
+Let's see what this means for our previous three examples.
 
 >[!Example]
 > Let's say $F$ is the set of all possible foods, and $P$ is the set of all possible people, then we can have a set $S$ that is a relation between people and the food they enjoy eating. Previously, we gave an example of such a set.
@@ -185,23 +196,24 @@ Let's see what this means for our previous 3 examples.
 > 
 > Recall that $(2, 10) \in D$, because $2$ divides $10$. Also $(3, 10) \notin D$, because $3$ does not divide $10$.
 > 
-> So for example $(10, 2) \in D^{-1}$. $(10, 3) \notin D^{-1}$.
+> For example, $(10, 2) \in D^{-1}$ and $(10, 3) \notin D^{-1}$.
 
 >[!Example]
 > Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
 > 
-> Since $(7, 16) \in M$, this means $(16, 7) \in M^{-1}$. For the same reason, $(6, 27) \in M^{-1}$. Also, since $(3, 11) \notin M$, then $(11, 3) \notin M$.
+> Since $(7, 16) \in M$, this means that $(16, 7) \in M^{-1}$. For the same reason, $(6, 27) \in M^{-1}$. Also, since $(3, 11) \notin M$, we have that $(11, 3) \notin M$.
 
 ## Relation Composition
 
 Next is the relation composition operation. This one is slightly involved, so let me start with a few examples.
 
-#### Example 1
-Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$. 
+### Example 1
+
+Let's say we had a set that relates locations via bus routes. Set $A$ might relate the stops of the 284 bus service. We will say $(a, b) \in A$ if bus stop $a$ is directly before stop $b$.
 
 ![[bus-284.png]]
 
-So for example, $A$ looks something like this:
+For example, $A$ looks something like this:
 
 $$
 \begin{align*}
@@ -214,13 +226,12 @@ A = \{ &\\
 \end{align*}
 $$
 
-
-What if we wanted to say that we wanted to take the 284 bus for **exactly** two stops? Well then we could write this as the **composition of $A$ with $A$, denoted by** $A{;}A$. And it is such that:
+What if we wanted to say that we wanted to take the 284 bus for **exactly** two stops? We could write this as the **composition of $\textcolor{red}{A}$ with $\textcolor{blue}{A}$, denoted by** $\textcolor{red}{A}{;}\textcolor{blue}{A}$. And it is such that:
 
 $$
 \begin{align*}
-A ; A= \{ &\\
-	&(Clementi\ INT, BLK\ 306,\\
+\textcolor{red}{A};\textcolor{blue}{A} = \{ &\\
+	&(Clementi\ INT, BLK\ 306),\\
 	&(Bef\ Blks\ 315/318, BLK\ 376),\\
 	&(BLK\ 306, Clementi\ INT)\\
 	&(Blk 376, Bef Blks 315/318)\\
@@ -229,48 +240,39 @@ A ; A= \{ &\\
 $$
 
 
-Notice how the reason why $(Clementi\ INT, BLK\ 306) \in A ; A$ was because there was **some** value $x$, such that $(Clementi\ INT, x) \in A$ and also $(x, BLK\ 308) \in A$. (Namely, $x = Bef\ Blks\ 315/318$.)
+Notice how the reason $(Clementi\ INT, BLK\ 306) \in \textcolor{red}{A}{;}\textcolor{blue}{A}$ was because there was **some** value $x$, such that $\textcolor{red}{(Clementi\ INT, x)} \in \textcolor{red}{A}$ and also $\textcolor{blue}{(x, BLK\ 308)} \in \textcolor{blue}{A}$. (Namely, $x = Bef\ Blks\ 315/318$.)
 
+### Example 2
 
-#### Example 2
-Let's try another example, this time around let's make a set $E$ that **relates** any two MRT stations that are connected via the East-West line. So this is different from the previous example, but a perfectly valid way to also make a relation.
+Let's try another example, this time around let's make a set $E$ that **relates** any two MRT stations that are connected via the East-West line. This is different from the previous example, but an equally valid way to make a relation. For example, $(City\ Hall, Clementi) \in E$ (even if they are not directly next to each other).
 
-So, this means for example, $(City\ Hall, Clementi) \in E$. (even if they are not directly next to each other)
+Let's also make another set $N$ that relates any two MRT stations that are connected via the North-South line. For example, $(Toa\ Payoh, City\ Hall) \in N$.
 
-Let's also make another set $N$ that relates any two MRT stations that are connected via the North-South line. So for example, $(Toa\ Payoh, City\ Hall) \in N$.
+Okay, so this time around, we have two different relations. Think a little bit about what the relation $\textcolor{red}{N};\textcolor{blue}{E}$ represents.
 
-Okay, so this time around, we have two different relations. Think a little bit about what the relation $N; E$ represents.
+$\textcolor{red}{N};\textcolor{blue}{E}$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
 
-$N; E$ relates two MRT stations $(s_1, s_2)$ if we can start from a station $s_1$ that is on the North-South line, and $s_2$ is a station that is on the East-West line. 
-
-So for example, $(Yishun, Bedok) \in N; E$. But something like $(Redhill, Yew\ Tee)\notin N; E$. Also, something like $(City\ Hall, Raffles\ Place) \in N; E$. Can you see why?
-
+So for example, $(Yishun, Bedok) \in \textcolor{red}{N};\textcolor{blue}{E}$. But something like $(Redhill, Yew\ Tee)\notin \textcolor{red}{N};\textcolor{blue}{E}$. Also, something like $(City\ Hall, Raffles\ Place) \in \textcolor{red}{N};\textcolor{blue}{E}$. Can you see why?
 
 Pictorially, here's what's going on:
 
 ![[Images/mrt-composition.png]]
 
-We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in N; E$, because we know $(Dhoby\ Ghaut, City\ Hall)$ is in $N$ and $(City\ Hall, Tanjong\ Pagar)$ is in $E$.
+We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in \textcolor{red}{N};\textcolor{blue}{E}$, because we know $\textcolor{red}{(Dhoby\ Ghaut, City\ Hall)}$ is in $\textcolor{red}{N}$ and $\textcolor{blue}{(City\ Hall, Tanjong\ Pagar)}$ is in $\textcolor{blue}{E}$.
 
 ![[Images/relations-middle-man.png]]
 
-
-### In General:
-The general definition of a composition of relations $R, S$ is the following. Let $R \subseteq A \times B$, let $S \subseteq B \times C$, then:
-
-$$
-R;S = \{ (a, c) \in A \times C : \exists b \in B \ [(a, b) \in R \land (b, c) \in S]\}
-$$
-
+>[!info] Definition: Relation composition
+>Let $\textcolor{red}{R} \subseteq A \times B$ and $\textcolor{blue}{S} \subseteq B \times C$ be two relations. The **composition of $\textcolor{red}{R}$ and $\textcolor{blue}{S}$**, denoted $\textcolor{red}{R};\textcolor{blue}{S}$, is defined by:
+>$$\textcolor{red}{R};\textcolor{blue}{S} = \big\{(a,c) \in A \times C : \exists b \in B \ \big[\textcolor{red}{(a,b)} \in \textcolor{red}{R} \land \textcolor{blue}{(b,c)} \in \textcolor{blue}{S} \big] \big\}$$
 
 In English, this is basically just saying:
 
-> $a$ and $c$ are related by $(R; S)$ if we can find a $b \in B$ such that $a$ is related to this $b$ using relation $R$, and the same $b$ is related to $c$ using relation $S$.
+> $a$ and $c$ are related by $\textcolor{red}{R};\textcolor{blue}{S}$ if we can find a $b \in B$ such that $a$ is related to this $b$ by relation $\textcolor{red}{R}$, and the same $b$ is related to $c$ by relation $\textcolor{blue}{S}$.
 > 
-> If no such $b$ exists, then $a$ and $c$ are **not** related by $(R;S)$.
+> If no such $b$ exists, then $a$ and $c$ are **not** related by $\textcolor{red}{R};\textcolor{blue}{S}$.
 
-
-You can mentally picture this as "Taking one step using $R$, and then taking one step using $S$."
+You can mentally picture this as "Taking one step using $\textcolor{red}{R}$, and then taking one step using $\textcolor{blue}{S}$."
 
 So let's go back through the examples we had, and see what happens.
 
@@ -280,8 +282,7 @@ So let's go back through the examples we had, and see what happens.
 > S = \{(Jane, Laksa), (Marco, Toast), (Jane, Pasta), (Sam, Toast)\}
 > $$
 > 
-> Then:
-> 
+> Then,
 > $$
 > S; S = \emptyset
 > $$
@@ -292,7 +293,7 @@ So let's go back through the examples we had, and see what happens.
 > 
 > For example, since $(5, 10) \in D$, and $(10, 200) \in D$, then $(5, 200) \in D; D$.
 > 
-> Do you notice something interesting? In general we can actually notice that if $x$ divides $y$, and $y$ divides $z$, then $x$ divides $z$ (this can be proven). So we can actually argue that if $(a, b) \in D$ then $(a, b) \in D; D$. Or in other words, $D \subseteq D; D$.
+> Do you notice something interesting? In general, we can actually notice that if $x$ divides $y$, and $y$ divides $z$, then $x$ divides $z$ (this can be proven). So we can actually argue that if $(a, b) \in D$ then $(a, b) \in D; D$. In other words, $D \subseteq D; D$.
 
 >[!Example]
 > Let $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
@@ -302,9 +303,10 @@ So let's go back through the examples we had, and see what happens.
 >[!Example]
 > Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [x \cdot k = y]\}$, and $M = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = 3k] \}$.
 > 
-> Then $(2, 8) \in D$ and $(8, 14) \in M$, so $(2, 14) \in D; M$.
+> Then $(2, 8) \in D$ and $(8, 14) \in M$, so $(2, 14) \in D;M$.
 
-# Classic Examples of Relations
+---
+# Part 2: Classic Examples of Relations
 
 Before moving on, we've been commonly using some relations that are good examples for the remaining concepts that we want to talk about. So let's explicitly give them a name first here.
 
