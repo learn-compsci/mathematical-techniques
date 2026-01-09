@@ -5,7 +5,7 @@ This unit introduces the notion of relations. The unit will introduce:
 0. [[#Part 0 Unit Introduction|Motivation for this unit]]
 1. [[#Part 1 Basic Relations, Creating Relations|Basic relations, creating relations]]
 2. [[#Part 2 Operations on Relations|Operations on relations]]
-3. Transitivity, Symmetry, Anti-Symmetry, Reflexivity
+3. [[#Part 3 Properties of Relations|Properties of relations]]
 
 ---
 # Part 0: Unit Introduction
@@ -305,118 +305,112 @@ So let's go back through the examples we had, and see what happens.
 > 
 > Then $(2, 8) \in D$ and $(8, 14) \in M$, so $(2, 14) \in D;M$.
 
----
-# Part 2: Classic Examples of Relations
+## Classic Examples of Relations
 
-Before moving on, we've been commonly using some relations that are good examples for the remaining concepts that we want to talk about. So let's explicitly give them a name first here.
+Before moving on, we've been commonly using some relations that are good examples for the remaining concepts that we want to talk about, so let's explicitly give them names here first.
 
-#### The Divisibility Relation
+### Example 1: Divisibility
 
 Let the set $D$ be such that:
 
 $$
-D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}
+D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = y) \big]\}
 $$
 
-Then we will call $D$ the _divisibility relation_. Here we will only consider natural numbers. So for example $(2, 10) \in D$. And $(3, 60) \in D$. But $(60, 3) \notin D$, and $(2, 3) \notin D$.
+Then we will call $D$ the _divisibility relation_. Here we will only consider natural numbers. For instance, $(2, 10) \in D$ and $(3, 60) \in D$, but $(60, 3) \notin D$ and $(2, 3) \notin D$.
 
-#### Congruent Modulo $n$ Relation
+### Example 2: Congruence modulo $n$
 
-Let fix $n \in \mathbb{N}$, then let the set $C_n$ be a relation be such that:
+Let us fix $n \in \mathbb{N}$, and let the set $C_n$ be a relation be such that:
 
 $$
 C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = n\cdot k] \}
 $$
 
-Then we will call $C_n$ the _congruence modulo $n$ relation_. Intuitively, two integers $(x, y)$ are related by $C_n$ if they share the same remainder when divided by $n$.
+We call $C_n$ the _congruence modulo $n$ relation_. Intuitively, two integers $(x, y)$ are related by $C_n$ if they share the same remainder when divided by $n$.
 
-Again, $(5, 14)$ are related via relation $C_3$. But they are not related via relation $C_5$. On the other hand, $(6, 11)$ are not related via relation $C_3$, but are related via relation $C_5$.
+Again, $(5, 14)$ are related via relation $C_3$, but not via relation $C_5$. On the other hand, $(6, 11)$ is not related via relation $C_3$, but are related via relation $C_5$.
 
-# Properties About Relations
+---
+# Part 3: Properties of Relations
 
-As you might have noticed, relations by themselves as just sets of pairs are nothing special. However, there are certain properties that _certain_ relations might have. In this section we will go through them. For these topics, we will restrict our attention to relations $R$ of the form $R \subseteq A \times A$. In other words, the relate items in the same set $A$. (We will not be considering relations $R \subseteq A \times B$, where $A \neq B$.)
+As you might have noticed, relations by themselves as just sets of pairs are nothing special. However, there are certain properties that _certain_ relations might have. In this section, we will go through them. For this section, we shall restrict our attention to relations $R$ of the form $R \subseteq A \times A$. In other words, they relate items in the same set $A$. (We will not be considering relations $R \subseteq A \times B$, where $A \neq B$.)
 
-## Reflexivity
+## Property 1: Reflexivity
 
-Consider a relation $R \subseteq A \times A$. We will say $R$ is _reflexive_ if the following holds:
-
-$$
-\forall a \in A \ [(a, a) \in R]
-$$
+>[!info] Definition: Reflexivity
+>A relation $R \subseteq A \times A$ is **reflexive** if and only if $$\forall a \in A \ \big[(a,a) \in R \big]$$
 
 Here's a pictorial example:
 
 ![[reflexivity.png]]
 
-Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_1), (a_2, a_2), (a_3, a_3), (a_1, a_2) \}$. Since $\forall a \in A \ [(a, a) \in R]$ (notice that in the picture there are self-loops from each element of $A$). So the $R$ on the left is reflexive. Also notice that $(a_1, a_2)$, but that is irrelevant. We are only concerned with whether every element is related to itself.
+Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_1), (a_2, a_2), (a_3, a_3), (a_1, a_2) \}$. Since every element of $A$ is related to itself, i.e., $\forall a \in A \ \big[(a, a) \in R \big]$ (notice that in the picture there are self-loops from each element of $A$), the relation on the left is reflexive. Also notice that $(a_1, a_2)$, but that is irrelevant. We are only concerned with whether every element is related to itself.
 
-On the other hand, the relation on the right is **not** reflexive. Why? The relation on the right can be written as $\{ (a_1, a_1), (a_3, a_3), (a_1, a_2) \}$. Notice that $a_2 \in A$ and yet $(a_2, a_2) \notin R$. So we can say that $\exists a \in A \ [(a, a) \notin R]$, which as we know, is equivalent to $\neg\big( \forall a\in A \ [(a, a) \in R] \big)$. Which again, confirms that the $R$ on the right is not reflexive. The pictorial intuition is that some element is missing a self-loop.
+On the other hand, the relation on the right is **not** reflexive. Why? The relation on the right can be written as $\{ (a_1, a_1), (a_3, a_3), (a_1, a_2) \}$. Notice that $a_2 \in A$ and yet $(a_2, a_2) \notin R$, so we can say that $\exists a \in A \ \big[(a, a) \notin R \big]$, which as we know, is equivalent to $\neg \big(\forall a \in A \ \big[(a, a) \in R \big] \big)$. This again confirms that the relation on the right is not reflexive. The pictorial intuition is that some element is missing a self-loop.
 
-So let's look at the certain natural mathematical relations and see if they are reflexive.
+So let's examine the two special relations from before and see if they are reflexive.
 
+### Divisibility is reflexive
 
-#### Divisibility is reflexive
 Is the divisibility relation reflexive? Yes. After all, every number divides itself. Let's see a proof of this.
 
 >[!Theorem]
-> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
+> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = y) \big]\}$.
 > 
 > Then $D$ is reflexive.
 
-
-**Proof**:
-1. Let $x \in \mathbb{N}$, arbitrarily chosen.
-2. $x \cdot 1 = x$ \[Basic algebra]
-3. $1 \in \mathbb{Z}$ \[Basic algebra]
-4. $1 \neq 0$ \[Basic algebra]
-5. $x\cdot 1 = x \land 1 \neq 0$ \[Conjunction of lines 2, 4]
-6. $\exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = x]$ \[Existential generalisation on lines 2, 3]
-7. $x \in \mathbb{N} \land \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = x]$ \[Conjunction on lines 1, 6]
-8. $(x, x) \in D$ \[Definition of $D$]
-9. $\forall x \in \mathbb{N} \ [(x, x) \in D]$ \[Universal generalisation on lines 1, 8]
+>[!Proof]
+>1. Let $x \in \mathbb{N}$ be arbitrarily chosen.
+>2. $x \cdot 1 = x$ \[Basic algebra]
+>3. $1 \in \mathbb{Z}$ \[Basic algebra]
+>4. $1 \neq 0$ \[Basic algebra]
+>5. $(1 \neq 0) \land (x\cdot 1 = x)$ \[Conjunction of lines 2 and 4]
+>6. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = x) \big]$ \[Existential generalisation on lines 2, 3]
+>7. $x \in \mathbb{N} \land \bigg(\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = x) \big] \bigg)$ \[Conjunction on lines 1 and 6]
+>8. $(x, x) \in D$ \[Definition of $D$]
+>9. $\forall x \in \mathbb{N} \ \big[(x, x) \in D \big]$ \[Universal generalisation on lines 1 and 8]
 
 So the divisibility relation $D$ is reflexive!
 
+### Congruence is reflexive
 
-#### Congruence is reflexive
-What about congruence modulo $n$ relation? Fix $n \in \mathbb{N}$, our goal statement is to show that $\forall x \in \mathbb{Z} \ [(x, x) \in C_n]$.
+What about congruence modulo $n$ relation? Fix $n \in \mathbb{N}$—our goal statement is to show that $\forall x \in \mathbb{Z} \ \big[(x, x) \in C_n \big]$.
 
 >[!Theorem]
 > Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = n\cdot k] \}$.
 > 
 > Then $C_n$ is reflexive.
 
-**Proof**:
-1. Let $x \in \mathbb{Z}$, arbitrarily chosen.
-2. $(x - x) = n \cdot 0$ \[Basic algebra]
-3. $0 \in \mathbb{Z}$ \[Basic algebra]
-4. $\exists k \in \mathbb{Z} \ [(x - x) = n\cdot k]$ \[Existential generalisation on lines 3, 4]
-5. $x \in \mathbb{Z} \land \exists k \in \mathbb{Z} \ [(x - x) = n\cdot k]$ \[Conjunction on lines 1, 4]
-6. $(x, x) \in C_n$ \[Definition of $C_n$]
-7. $\forall x \in \mathbb{Z} \ [(x, x) \in C_n]$ \[Universal generalisation on lines 1, 6]
+>[!Proof]
+>1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
+>2. $x - x = 0 = n \cdot 0$ \[Basic algebra]
+>3. $0 \in \mathbb{Z}$ \[Basic algebra]
+>4. $\exists k \in \mathbb{Z} \ \big[(x - x) = n \cdot k \big]$ \[Existential generalisation on lines 3 and 4]
+>5. $x \in \mathbb{Z} \land \bigg(\exists k \in \mathbb{Z} \ \big[(x - x) = n \cdot k \big] \bigg)$ \[Conjunction on lines 1 and 4]
+>6. $(x, x) \in C_n$ \[Definition of $C_n$]
+>7. $\forall x \in \mathbb{Z} \ \big[(x, x) \in C_n \big]$ \[Universal generalisation on lines 1 and 6]
 
 So the divisibility relation $C_n$ is also reflexive!
 
-Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg (\forall x \in \mathbb{Z} \ [(x, x) \in A])$.
+Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} : x + 1 = y \}$. So for example, $(5, 6)$ are related by $A$, but $(6, 6)$ and $(5, 5)$ are not related by $A$. How do we prove this? Our goal statement is to show that $\neg \big(\forall x \in \mathbb{Z} \ \big[(x, x) \in A \big] \big)$.
 
-**Proof**:
-1. $1 + 1 \neq 1$ \[Basic algebra]
-2. $1 \in \mathbb{Z}$ \[Basic algebra]
-4. $\neg (1 + 1 = 1)$ \[Logically equivalent to line 1]
-5. $(1, 1) \notin A$ \[Definition of $A$]
-6. $\exists x \in \mathbb{Z} \ [(x, x) \notin A]$ \[Existential generalisation on lines 2, 4]
-7. $\neg\big( \forall x \in \mathbb{Z} \ [(x, x) \in A] \big)$ \[Logically equivalent to line 5]
+>[!Proof]
+>1. $5 + 1 \neq 5$ \[Basic algebra]
+>2. $5 \in \mathbb{Z}$ \[Basic algebra]
+>3. $\neg (5 + 1 = 5)$ \[Logically equivalent to line 1]
+>4. $(5, 5) \notin A$ \[Definition of $A$]
+>5. $\exists x \in \mathbb{Z} \ \big[(x, x) \notin A \big]$ \[Existential generalisation on lines 2 and 4]
+>6. $\neg \big(\forall x \in \mathbb{Z} \ \big[(x, x) \in A \big] \big)$ \[Logically equivalent to line 5]
 
-## Symmetry
-Consider a relation $R \subseteq A \times A$. We will say $R$ is _symmetric_ if the following holds:
+## Property 2: Symmetry
 
-$$
-\forall a \in A, \forall b \in A \ [(a, b) \in R \to (b, a) \in R]
-$$
+>[!info] Definition: Symmetry
+>A relation $R \subseteq A \times A$ is **symmetric** if and only if $$\forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R \big]$$
 
 In English:
 
-> For all possible $a \in A$, and $b \in B$, **if** $a$ is related to $b$ via relation $R$, then $b$ is related to $a$ via relation $R$.
+> For all possible $a \in A$ and $b \in B$, **if** $a$ is related to $b$ via relation $R$, then $b$ must be related to $a$ via relation $R$ too.
 
 Notice here this means that if we chose some values $a$ and $b$ such that $a$ is **not** related to $b$, we don't care whether $b$ is related to $a$ or not.
 
@@ -424,34 +418,29 @@ Here's a pictorial example:
 
 ![[symmetry.png]]
 
-Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_2), (a_2, a_1) \}$. Notice that since $a_1$ is related to $a_2$, then we must have that $a_2$ is related to $a_1$. **Similarly**, since $a_2$ is related to $a_1$, we must have $a_2$ is related to $a_1$.
+Let $A = \{a_1, a_2, a_3\}$. Then the relation on the left is $\{ (a_1, a_2), (a_2, a_1) \}$. Notice that since $a_1$ is related to $a_2$, then we must have that $a_2$ is related to $a_1$ in order for this relation to be symmetric. **Similarly**, since $a_2$ is related to $a_1$, we must have $a_2$ is related to $a_1$ for this relation to be symmetric. Since both of these are true, we conclude that the relation on the left is indeed symmetric.
 
 On the other hand, the relation on the right is $\{(a_1, a_3), (a_3, a_1), (a_3, a_2), (a_2, a_3), (a_1, a_2)\}$. Notice there that $a_1$ is related to $a_2$, but $a_2$ is **not** related to $a_1$. So now we can say: 
-
 $$
 \exists a \in A, \exists b \in A \ \big[(a, b) \in R \land (b, a) \notin R\big]
 $$
 which is logically equivalent to:
-
 $$
 \exists a \in A, \exists b \in A \ \big[\neg\big((a, b) \in R \to (b, a) \in R\big)\big]
 $$
 which is also logically equivalent to:
-
 $$
 \neg\bigg(\forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R\big]\bigg)
 $$
+which means that the relation on the right is not symmetric.
 
-which means it is not symmetric.
-
-
-#### Divisibility is not symmetric
+### Divisibility is not symmetric
 
 So is the divisibility relation symmetric? Well, we can think about this intuitively first. If we know that some integer $a$ divides some integer $b$, does this mean that $b$ divides $a$? Let's think about what happens when $a = 5$ and $b = 10$. Indeed $a$ does divide $b$, but $b$ does not divide $a$.
 
 So similar reasoning as before, this means that the divisibility relation is not symmetric.
 
-#### Congruence is symmetric
+### Congruence is symmetric
 
 What about the congruence modulo $n$ relation $C_n$? Intuitively, $a$ and $b$ are related because they have the same remainder modulo $n$, so of course it doesn't matter if we said $a$ or $b$ first.
 
@@ -476,7 +465,7 @@ Let's look at the formal proof now.
 5. $\forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
 6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
 
-## Anti-Symmetry
+## Property 3: Anti-Symmetry
 
 Consider a relation $R \subseteq A \times A$. We will say $R$ is _anti-symmetric_ if the following holds:
 
@@ -546,7 +535,7 @@ Is the divisibility relation anti-symmetric? Here's the intuition: If we know th
 
 What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
-## Transitivity
+## Property 4: Transitivity
 
 Consider a relation $R \subseteq A \times A$. We will say $R$ is _transitive_ if the following holds:
 
