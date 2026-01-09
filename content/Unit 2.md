@@ -791,7 +791,7 @@ You can try this one for yourself; the answer has been hidden away in a spoiler 
 > 1. Let $x \in A \cap B$ be arbitrarily chosen.
 > 2. $x \in A \land x \in B$ \[Definition of set intersection]
 > 3. $x \in A$ \[Specialisation on line 2]
-> 4. $\forall x \in A \cup B \ [x \in A]$  \[Universal generalisation on lines 1 and 1.4]
+> 4. $\forall x \in A \cup B \ [x \in A]$  \[Universal generalisation on lines 1 and 3]
 > 5. $A \cap B \subseteq A$ \[Definition of subset]
 
 ## Reasoning About Power Sets
