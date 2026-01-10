@@ -438,7 +438,7 @@ which means that the relation on the right is not symmetric.
 
 So is the divisibility relation symmetric? Well, we can think about this intuitively first. If we know that some integer $a$ divides some integer $b$, does this mean that $b$ divides $a$? Let's think about what happens when $a = 5$ and $b = 10$. Indeed $a$ does divide $b$, but $b$ does not divide $a$.
 
-So similar reasoning as before, this means that the divisibility relation is not symmetric.
+Using the similar reasoning as before, this means that the divisibility relation is not symmetric.
 
 ### Congruence is symmetric
 
@@ -451,107 +451,98 @@ Let's look at the formal proof now.
 > 
 > Then $C_n$ is symmetric.
 
-**Proof**:
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Assume $(a, b) \in C_n$.
-	1. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
-	2. Let $t \in \mathbb{Z}$ be such that $[(a - b) = n\cdot t]$ \[Existential instantiation of line 3.1]
-	3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
-	4. $-t \in \mathbb{Z}$ \[Basic algebra]
-	5. $\exists k\in \mathbb{Z} \ [(b - a) = n\cdot k]$ \[Existential instantiation of line 3.5]
-	6. $(b, a) \in C_n$ \[Definition of $C_n$]
-4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Introduction implication on lines 3, 3.6]
-5. $\forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 2, 4]
-6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ [(a, b) \in C_n \to (b, a) \in C_n]$ \[Universal generalisation of lines 1, 5]
+>[!Proof]
+>1. Let $a \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Let $b \in \mathbb{Z}$ be arbitrarily chosen.
+>3. Assume $(a, b) \in C_n$.
+>		1. $\exists k \in \mathbb{Z} \ \big[a - b = n \cdot k \big]$ \[Definition of $C_n$]
+>		2. Let $t \in \mathbb{Z}$ be such that $\big[a - b = n\cdot t \big]$. \[Existential instantiation on line 3.1]
+>		3. $(b - a) = -(a - b) = (-t)\cdot n$ \[Basic algebra]
+>		4. $-t \in \mathbb{Z}$ \[Basic algebra]
+>		5. $\exists k\in \mathbb{Z} \ \big[b - a = n \cdot k \big]$ \[Existential instantiation on line 3.5]
+>		6. $(b, a) \in C_n$ \[Definition of $C_n$]
+>4. $(a, b) \in C_n \to (b, a) \in C_n$ \[Implication introduction on lines 3 and 3.6]
+>5. $\forall b \in \mathbb{Z} \ \big[(a, b) \in C_n \to (b, a) \in C_n \big]$ \[Universal generalisation on lines 2 and 4]
+>6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[(a, b) \in C_n \to (b, a) \in C_n \big]$ \[Universal generalisation on lines 1 and 5]
 
 ## Property 3: Anti-Symmetry
 
-Consider a relation $R \subseteq A \times A$. We will say $R$ is _anti-symmetric_ if the following holds:
-
-
-$$
-\forall a \in A, \forall b \in A \ \big[\big((a, b) \in R \land (b, a) \in R\big) \to a = b\big]
-$$
-
+>[!info] Definition: Anti-symmetry
+>A relation $R \subseteq A \times A$ is **anti-symmetric** if and only if
+>$$\forall a \in A, \forall b \in A \ \bigg[\big((a, b) \in R \land (b, a) \in R\big) \to a = b \bigg]$$
 
 In English:
 
-> For all possible $a \in A$, and $b \in B$, **if** ($a$ is related to $b$ via relation $R$, and also $b$ is related to $a$ via relation $R$) **then** $a = b$.
+> For all possible $a \in A$ and $b \in B$, **if** ($a$ is related to $b$ via relation $R$, and also $b$ is related to $a$ via relation $R$) **then** $a = b$.
 
 That's the standard way that is it written, but I find that confusing for newcomers. We can instead write it as the following (since it is logically equivalent):
 
 $$
-\forall a \in A, \forall b \in A \ \big[a \neq b \to \big((a, b) \notin R \lor (b, a) \notin R\big)\big]
+\forall a \in A, \forall b \in A \ \bigg[a \neq b \to \big((a, b) \notin R \lor (b, a) \notin R\big)\bigg]
 $$
 
 which in English:
 
-> For all possible $a \in A$, and $b \in B$, **if** $a \neq b$, then either $a$ is not related to $b$, or $b$ is not related to $a$.
+> For all possible $a \in A$ and $b \in B$, **if** $a \neq b$, then either $a$ is not related to $b$, or $b$ is not related to $a$.
 
-This pretty much tells you the only time that $a$ and $b$ can be related to each other is when $a = b$.
+This pretty much tells you that for an anti-symmetric relation, the only time that $a$ and $b$ can be related to each other is when $a = b$.
 
 Here's a pictorial example:
 
 ![[anti-symmetry.png]]
 
-A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". Like $a_1$ is related to $a_2$ but not the other way around.
+A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". For instance, $a_1$ is related to $a_2$ but not the other way around.
 
-On the other hand, on the relation on the right, $a_2$ is related to $a_3$ **and** $a_3$ is related to $a_2$ but $a_2$ is not the same as $a_3$. So the relation on the right is not anti-symmetric.
+On the other hand, for the relation on the right, $a_2$ is related to $a_3$ **and** $a_3$ is related to $a_2$, but $a_2$ is not the same as $a_3$. Hence, the relation on the right is not anti-symmetric.
 
-#### Divisibility is anti-symmetric
+### Divisibility is anti-symmetric
 
 Is the divisibility relation anti-symmetric? Here's the intuition: If we know that $a$ divides $b$, and we also know that $b$ divides $a$, then the only possible case is that $a = b$. Here's the proof that confirms this:
 
-
 >[!Theorem]
-> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
+> Let $D = \big\{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = y) \big] \big\}$.
 > 
 > Then $D$ is anti-symmetric.
 
+>[!Proof]
+>1. Let $a \in \mathbb{N}$ be arbitrarily chosen.
+>2. Let $b \in \mathbb{N}$ be arbitrarily chosen.
+>3. Assume that $(a, b) \in D \land (b, a) \in D$.
+>		1. $(a, b) \in D$ \[Specialisation on line 3]
+>		2. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (a \cdot k = b) \big]$ \[Definition of $D$]
+>		3. Let $t_1 \in \mathbb{Z}$ such that $(t_1 \neq 0) \land (a \cdot t_1 = b)$. \[Existential instantiation on line 3.2]
+>		4. $a\cdot t_1 = b$ \[Specialisation on line 3.3]
+>		5. $(b, a) \in D$ \[Specialisation on line 3]
+>		6. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (b \cdot k = a) \big]$ \[Definition of $D$]
+>		7. Let $t_2 \in \mathbb{Z}$ such that $(t_2 \neq 0) \land (b \cdot t_2 = a)$. \[Existential instantiation on line 3.6]
+>		8. $b\cdot t_2 = a$ \[Specialisation on line 3.7]
+>		9. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
+>		10. $t_1 \cdot t_2 = 1$ \[Basic algebra]
+>		11. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are natural numbers]
+>		12. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
+>4. $\big((a, b) \in D \land (b, a) \in D\big)\to a = b$ \[Implication introduction on lines 3, 3.12]
+>5. $\forall b \in \mathbb{Z} \ \bigg[\big((a, b) \in D \land (b, a) \in D \big) \to a = b \bigg]$ \[Universal generalisation on lines 2 and 4]
+>6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \bigg[\big((a, b) \in D \land (b, a) \in D \big) \to a = b \bigg]$ \[Universal generalisation on lines 1 and 5]
 
-**Proof**:
-1. Let $a \in \mathbb{N}$, arbitrarily chosen.
-2. Let $b \in \mathbb{N}$, arbitrarily chosen.
-3. Assume that $(a, b) \in D \land (b, a) \in D$
-	1. $(a, b) \in D$ \[Specialisation on line 3]
-	2. $\exists k \in \mathbb{Z} \ [k\neq 0 \land a\cdot k = b]$ \[Definition of $D$]
-	3. Let $t_1 \in \mathbb{Z}$ such that $t_1 \neq 0 \land a\cdot t_1 = b$  \[Existential instantiation of line 3.2]
-	4. $a\cdot t_1 = b$ \[Specialisation on line 3.3]
-	5. $(b, a) \in D$ \[Specialisation on line 3]
-	6. $\exists k \in \mathbb{Z} \ [k\neq 0 \land b \cdot k = a]$ \[Definition of $D$]
-	7. Let $t_2 \in \mathbb{Z}$ such that $t_2 \neq 0 \land b\cdot t_2 = a$ \[Existential instantiation of line 3.6]
-	8. $b\cdot t_2 = a$ \[Specialisation on line 3.7]
-	9. $b = a\cdot t_1 = (b \cdot t_2) \cdot t_1$ \[Basic algebra]
-	10. $t_1 \cdot t_2 = 1$ \[Basic algebra]
-	11. $t_1 = 1$ \[Basic algebra, because $t_1, t_2$ are natural numbers]
-	12. $a = a\cdot 1 = a \cdot t_1 = b$ \[Basic algebra]
-4. $\big((a, b) \in D \land (b, a) \in D\big)\to a = b$ \[Implication introduction on lines 3, 3.12]
-5. $\forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 2, 4]
-6. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[\big((a, b) \in D \land (b, a) \in D\big)\to a = b\big]$ \[Universal generalisation on lines 1, 5]
+### Congruence is not anti-symmetric
 
-
-#### Congruence is not anti-symmetric
-
-What about the congruence modulo $n$ relation $C_n$? This one is probably quite straight-forward. Let's give an example, consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
+What about the congruence modulo $n$ relation $C_n$? This one is probably quite straightforward. Let's give an example: consider $3$ and $0$. They are related via $C_3$ (both $3$ is related to $0$, and $0$ is related to $3$), but $3 \neq 0$. So $C_3$ is not anti-symmetric. The same idea works for any $C_n$.
 
 ## Property 4: Transitivity
 
-Consider a relation $R \subseteq A \times A$. We will say $R$ is _transitive_ if the following holds:
-
-$$
-\forall a \in A, \forall b \in A, \forall c \in A \ \big[\big((a, b) \in R \land (b, c) \in R\big) \to (a, c) \in R\big]
-$$
+>[!info] Definition: Transitivity
+>A relation $R \subseteq A \times A$ is **transitive** if and only if
+>$$\forall a \in A, \forall b \in A, \forall c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]$$
 
 In English:
 
 > If $a$ is related to $b$, and $b$ is related to $c$, then $a$ is related to $c$.
 
-The quickest example that demonstrates this idea is the concept of $\leq$. When we know that $a \leq b$, and we know that $b \leq c$, then we know that $a \leq c$. So $\leq$ is actually a transitive relation.
+The quickest example that demonstrates this idea is the concept of $\leq$. If we know that $a \leq b$, and we know that $b \leq c$, then we know that $a \leq c$. So $\leq$ is actually a transitive relation.
 
 ![[transitivity.png]]
 
-Pictorially, **because both** $(a_1, a_2)$ **and** $(a_2, a_3)$ are related, we **must** have that $(a_1, a_3)$ are related too. On the other hand, in the right side, **both $(a_1, a_2)$ and $(a_2, a_3)$ are related**, but $(a_1, a_3)$ are not related, so the relation on the right hand side is not transitive.
+Pictorially, **because both** $(a_1, a_2)$ **and** $(a_2, a_3)$ are related, we **must** have that $(a_1, a_3)$ are related too, in order for the relation to be transitive. Hence, the relation on the left is transitive. However, on the right side, **both $(a_1, a_2)$ and $(a_2, a_3)$ are related**, but $(a_1, a_3)$ are not related, so the relation is not transitive.
 
 To be clear, something like the following relations are also transitive:
 
@@ -559,83 +550,83 @@ To be clear, something like the following relations are also transitive:
 
 Let's end the chapter by proving our two usual examples of relations are both transitive. 
 
-#### Divisibility is transitive
+### Divisibility is transitive
 
 >[!Theorem]
-> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ [k\neq 0 \land x \cdot k = y]\}$.
+> Let $D = \{(x, y) \in \mathbb{N} \times \mathbb{N} : \exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (x \cdot k = y) \big]\}$.
 > 
 > Then $D$ is transitive.
 
-**Proof**:
-1. Let $a \in \mathbb{N}$, arbitrarily chosen.
-2. Let $b \in \mathbb{N}$, arbitrarily chosen.
-3. Let $c \in \mathbb{N}$, arbitrarily chosen.
-4. Assume $(a, b) \in D \land (b, c) \in D$
-	1. $(a, b) \in D$ \[Specialisation on line 4]
-	2. $\exists k \in \mathbb{Z} \ [k\neq 0 \land a \cdot k = b]$ \[Definition of $D$]
-	3. Let $t_1 \in \mathbb{Z}$ such that $t_1 \neq 0 \land a \cdot t_1 = b$ \[Existential instantiation on line 4.2]
-	4. $(b, c) \in D$  \[Specialisation on line 4]
-	5. $\exists k \in \mathbb{Z} \ [k\neq 0 \land b \cdot k = c]$  \[Definition of $D$]
-	6. Let $t_2 \in \mathbb{Z}$ such that $t_2 \neq 0 \land b \cdot t_2 = c$ \[Existential instantiation on line 4.5]
-	7. $a\cdot t_1 = b$ \[Specialisation on line 4.3]
-	8. $b\cdot t_2 = c$ \[Specialisation on line 4.6]
-	9.  $c = b\cdot t_2 = a \cdot (t_1 \cdot t_2)$  \[Basic algebra]
-	10. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
-	11. $t_1 \neq 0$ \[Specialisation on line 4.3]
-	12. $t_2 \neq 0$ \[Specialisation on line 4.6]
-	13. $t_1 \cdot t_2 \neq 0$ \[Basic algebra]'
-	14. $t_1 \cdot t_2 \neq 0 \land a \cdot (t_1\cdot t_2) = c$
-	15. $\exists k \in \mathbb{Z} \ [k\neq 0\land a \cdot k = c]$ \[Existential generalisation on line 4.10]
-	16. $(a, c) \in D$ \[Definition of $D$]
-5. $(a, b) \in D \land (b, c) \in D \to (a, c) \in D$ \[Implication introduction on lines 4, 4.10]
-6. $\forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on lines 3, 5]
-7. $\forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$  \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ [(a, b) \in D \land (b, c) \in D \to (a, c) \in D]$ \[Universal generalisation on 1, 7]
+>[!Proof]
+>1. Let $a \in \mathbb{N}$ be arbitrarily chosen.
+>2. Let $b \in \mathbb{N}$ be arbitrarily chosen.
+>3. Let $c \in \mathbb{N}$ be arbitrarily chosen.
+>4. Assume $(a, b) \in D \land (b, c) \in D$.
+>		1. $(a, b) \in D$ \[Specialisation on line 4]
+>		2. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (a \cdot k = b) \big]$ \[Definition of $D$]
+>		3. Let $t_1 \in \mathbb{Z}$ such that $(t_1 \neq 0) \land (a \cdot t_1 = b)$. \[Existential instantiation on line 4.2]
+>		4. $(b, c) \in D$  \[Specialisation on line 4]
+>		5. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (b \cdot k = c) \big]$  \[Definition of $D$]
+>		6. Let $t_2 \in \mathbb{Z}$ such that $(t_2 \neq 0) \land (b \cdot t_2 = c)$. \[Existential instantiation on line 4.5]
+>		7. $a\cdot t_1 = b$ \[Specialisation on line 4.3]
+>		8. $b\cdot t_2 = c$ \[Specialisation on line 4.6]
+>		9.  $c = b\cdot t_2 = a \cdot (t_1 \cdot t_2)$  \[Basic algebra]
+>		10. $t_1\cdot t_2 \in \mathbb{Z}$ \[Basic algebra]
+>		11. $t_1 \neq 0$ \[Specialisation on line 4.3]
+>		12. $t_2 \neq 0$ \[Specialisation on line 4.6]
+>		13. $t_1 \cdot t_2 \neq 0$ \[Basic algebra]
+>		14. $(t_1 \cdot t_2 \neq 0) \land \big(a \cdot (t_1\cdot t_2) = c \big)$
+>		15. $\exists k \in \mathbb{Z} \ \big[(k \neq 0) \land (a \cdot k = c) \big]$ \[Existential generalisation on line 4.10]
+>		16. $(a, c) \in D$ \[Definition of $D$]
+>5. $\big((a, b) \in D \land (b, c) \in D \big) \to (a, c) \in D$ \[Implication introduction on lines 4 and 4.10]
+>6. $\forall c \in \mathbb{N} \ \bigg[\big((a, b) \in D \land (b, c) \in D \big) \to (a, c) \in D \bigg]$ \[Universal generalisation on lines 3 and 5]
+>7. $\forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ \bigg[\big((a, b) \in D \land (b, c) \in D \big) \to (a, c) \in D \bigg]$  \[Universal generalisation on lines 2 and 6]
+>8. $\forall a \in \mathbb{N}, \forall b \in \mathbb{N}, \forall c \in \mathbb{N} \ \bigg[\big((a, b) \in D \land (b, c) \in D \big) \to (a, c) \in D \bigg]$ \[Universal generalisation on 1 and 7]
 
-#### Congruence is transitive
+### Congruence is transitive
 
 >[!Theorem]
 > Let $C_n = \{ (a, b) \in \mathbb{Z} \times \mathbb{Z} : \exists t \in \mathbb{Z} \ [a- b = n\cdot k] \}$.
 > 
 > Then $C_n$ is transitive.
 
-**Proof**:
-1. Let $a \in \mathbb{Z}$, arbitrarily chosen.
-2. Let $b \in \mathbb{Z}$, arbitrarily chosen.
-3. Let $c \in \mathbb{Z}$, arbitrarily chosen.
-4. Assume $(a, b) \in C_n \land (b, c) \in C_n$
-	1. $(a, b) \in C_n$ \[Specialisation on line 4]
-	2. $\exists k \in \mathbb{Z} \ [(a - b) = n \cdot k]$ \[Definition of $C_n$]
-	3. Let $t_1 \in \mathbb{Z}$ such that $(a - b) = n \cdot t_1$ \[Existential instantiation on line 4.2]
-	4. $(b, c) \in C_n$ \[Specialisation on line 4]
-	5. $\exists k \in \mathbb{Z} \ [(b - c) = n \cdot k]$ \[Definition of $C_n$]
-	6. Let $t_2 \in \mathbb{Z}$ such that $(b - c) = n \cdot t_2$ \[Existential instantiation on line 4.2]
-	7. $(a - c) = (a - b) + (b - c) = t_1 \cdot n + t_2 \cdot n = (t_1 + t_2)\cdot n$ \[Basic algebra]
-	8. $(t_1 + t_2) \in \mathbb{Z}$ \[Basic algebra]
-	9. $\exists k \in \mathbb{Z} \ [(a - c) = n\cdot k]$ \[Existential generalisation on lines 4.7, 4.8]
-	10. $(a, c) \in C_n$ \[Definition of $C_n$]
-5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on lines 4, 4.10]
-6. $\forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 3, 5]
-7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 2, 6]
-8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ [(a, b) \in C_n \land (b, c) \in C_n \to (a, c) \in C_n]$ \[Universal generalisation on lines 1, 7]
+>[!Proof:]
+>1. Let $a \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Let $b \in \mathbb{Z}$ be arbitrarily chosen.
+>3. Let $c \in \mathbb{Z}$ be arbitrarily chosen.
+>4. Assume $(a, b) \in C_n \land (b, c) \in C_n$.
+>		1. $(a, b) \in C_n$ \[Specialisation on line 4]
+>		2. $\exists k \in \mathbb{Z} \ [a - b = n \cdot k]$ \[Definition of $C_n$]
+>		3. Let $t_1 \in \mathbb{Z}$ such that $a - b = n \cdot t_1$. \[Existential instantiation on line 4.2]
+>		4. $(b, c) \in C_n$ \[Specialisation on line 4]
+>		5. $\exists k \in \mathbb{Z} \ [b - c = n \cdot k]$ \[Definition of $C_n$]
+>		6. Let $t_2 \in \mathbb{Z}$ such that $b - c = n \cdot t_2$. \[Existential instantiation on line 4.2]
+>		7. $a - c = (a - b) + (b - c) = t_1 \cdot n + t_2 \cdot n = (t_1 + t_2)\cdot n$ \[Basic algebra]
+>		8. $t_1 + t_2 \in \mathbb{Z}$ \[Basic algebra]
+>		9. $\exists k \in \mathbb{Z} \ [a - c = n \cdot k]$ \[Existential generalisation on lines 4.7 and 4.8]
+>		10. $(a, c) \in C_n$ \[Definition of $C_n$]
+>5. $\big( (a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n$ \[Implication introduction on lines 4 and 4.10]
+>6. $\forall c \in \mathbb{Z} \ \bigg[\big((a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n \bigg]$ \[Universal generalisation on lines 3 and 5]
+>7. $\forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ \bigg[\big((a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n \bigg]$ \[Universal generalisation on lines 2 and 6]
+>8. $\forall a \in \mathbb{Z}, \forall b \in \mathbb{Z}, \forall c \in \mathbb{Z} \ \bigg[\big((a, b) \in C_n \land (b, c) \in C_n \big) \to (a, c) \in C_n \bigg]$ \[Universal generalisation on lines 1 and 7]
 
 ## In summary:
 
 Here's a table that summarises what we have proven about the two relations we've been using:
 
-|       Relation        | Reflexivity | Symmetry | Anti-symmetry | Transitivity |
-| :-------------------: | :---------: | :------: | :-----------: | :----------: |
-|   Divisibility, $D$   |     Yes     |    No    |      Yes      |     Yes      |
-| Congruence Modulo $n$ |     Yes     |   Yes    |      No       |     Yes      |
+|       Relation        | Reflexive? | Symmetric? | Anti-Symmetric? | Transitive? |
+| :-------------------: | :--------: | :--------: | :-------------: | :---------: |
+|   Divisibility, $D$   |    Yes     |     No     |       Yes       |     Yes     |
+| Congruence modulo $n$ |    Yes     |    Yes     |       No        |     Yes     |
 
-# Relations in Computer Science (Bonus)
-The 4 properties we covered aren't the only possible _properties_ we care about for relations, but they are the main properties that everyone starts with. 
+---
+# Bonus: Relations in Computer Science
 
+The four properties we covered aren't the only possible _properties_ we care about for relations, but they are the main properties that everyone starts with. 
 
-In distributed systems, you might see other properties that they care about, stuff message and program ordering.
+In distributed systems, you might see other properties that they care about, stuff like message and program ordering.
 
 Here's some example slides of relations being used in very high level computer science:
-
 * [Message Ordering and Group Communication](https://www.cs.uic.edu/~ajayk/Chapter6.pdf)
 * [Declarative Semantics for Concurrency](https://people.mpi-sws.org/~viktor/wmc/axiomatic.pdf)
 
