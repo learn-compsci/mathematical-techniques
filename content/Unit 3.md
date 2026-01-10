@@ -174,10 +174,10 @@ Just like sets, there are a few common operations that we need to learn for rela
 ## Relation Inversion
 
 >[!info] Definition: Relation inversion
->Given a relation $R \subseteq A \times B$, the **inversion** of a relation, denoted $R^{-1}$, is defined by
->$$
->R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}
->$$
+> Given a relation $R \subseteq A \times B$, the **inversion** of a relation, denoted $R^{-1}$, is defined by
+> $$
+> R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}
+> $$
 
 Basically, it is just saying that a pair $(b, a)$ is in $R^{-1}$ if and only if $(a, b)$ is in $R$. Think of $R^{-1}$ as just "reversing" the pairs in $R$.
 
