@@ -172,7 +172,7 @@ Just like sets, there are a few common operations that we need to learn for rela
 
 ## Relation Inversion
 
->[!note] Definition: Relation inversion
+>[!info] Definition: Relation inversion
 >Given a relation $R \subseteq A \times B$, the **inversion** of a relation, denoted $R^{-1}$, is defined by:
 >$$R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}$$
 
