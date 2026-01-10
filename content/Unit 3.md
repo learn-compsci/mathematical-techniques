@@ -2,10 +2,11 @@
 title: "Unit 3: Relations"
 ---
 This unit introduces the notion of relations. The unit will introduce:
-0. [[#Part 0 Unit Introduction|Motivation for this unit]]
-1. [[#Part 1 Basic Relations, Creating Relations|Basic relations, creating relations]]
-2. [[#Part 2 Operations on Relations|Operations on relations]]
-3. [[#Part 3 Properties of Relations|Properties of relations]]
+
+1. [[#Part 0 Unit Introduction|Motivation for this unit]]
+2. [[#Part 1 Basic Relations, Creating Relations|Basic relations, creating relations]]
+3. [[#Part 2 Operations on Relations|Operations on relations]]
+4. [[#Part 3 Properties of Relations|Properties of relations]]
 
 ---
 # Part 0: Unit Introduction
@@ -174,8 +175,9 @@ Just like sets, there are a few common operations that we need to learn for rela
 
 >[!info] Definition: Relation inversion
 >Given a relation $R \subseteq A \times B$, the **inversion** of a relation, denoted $R^{-1}$, is defined by
->
->$$R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}$$
+>$$
+>R^{-1} = \{ (b, a) \in B \times A : (a, b) \in R \}
+>$$
 
 Basically, it is just saying that a pair $(b, a)$ is in $R^{-1}$ if and only if $(a, b)$ is in $R$. Think of $R^{-1}$ as just "reversing" the pairs in $R$.
 
@@ -265,8 +267,9 @@ We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in \textcolor{red}{N}
 
 >[!info] Definition: Relation composition
 >Let $\textcolor{red}{R} \subseteq A \times B$ and $\textcolor{blue}{S} \subseteq B \times C$ be two relations. The **composition of $\textcolor{red}{R}$ and $\textcolor{blue}{S}$**, denoted $\textcolor{red}{R};\textcolor{blue}{S}$, is defined by:
->
->$$\textcolor{red}{R};\textcolor{blue}{S} = \big\{(a,c) \in A \times C : \exists b \in B \ \big[\textcolor{red}{(a,b)} \in \textcolor{red}{R} \land \textcolor{blue}{(b,c)} \in \textcolor{blue}{S} \big] \big\}$$
+>$$
+>\textcolor{red}{R};\textcolor{blue}{S} = \big\{(a,c) \in A \times C : \exists b \in B \ \big[\textcolor{red}{(a,b)} \in \textcolor{red}{R} \land \textcolor{blue}{(b,c)} \in \textcolor{blue}{S} \big] \big\}
+>$$
 
 In English, this is basically just saying:
 
@@ -342,8 +345,9 @@ As you might have noticed, relations by themselves as just sets of pairs are not
 
 >[!info] Definition: Reflexivity
 >A relation $R \subseteq A \times A$ is **reflexive** if and only if
->
->$$\forall a \in A \ \big[(a,a) \in R \big]$$
+>$$
+>\forall a \in A \ \big[(a,a) \in R \big]
+>$$
 
 Here's a pictorial example:
 
@@ -411,8 +415,9 @@ Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in
 
 >[!info] Definition: Symmetry
 >A relation $R \subseteq A \times A$ is **symmetric** if and only if
->
->$$\forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R \big]$$
+>$$
+>\forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R \big]
+>$$
 
 In English:
 
@@ -475,8 +480,9 @@ Let's look at the formal proof now.
 
 >[!info] Definition: Anti-symmetry
 >A relation $R \subseteq A \times A$ is **anti-symmetric** if and only if
->
->$$\forall a \in A, \forall b \in A \ \bigg[\big((a, b) \in R \land (b, a) \in R\big) \to a = b \bigg]$$
+>$$
+>\forall a \in A, \forall b \in A \ \bigg[\big((a, b) \in R \land (b, a) \in R\big) \to a = b \bigg]
+>$$
 
 In English:
 
@@ -539,8 +545,9 @@ What about the congruence modulo $n$ relation $C_n$? This one is probably quite 
 
 >[!info] Definition: Transitivity
 >A relation $R \subseteq A \times A$ is **transitive** if and only if
->
->$$\forall a \in A, \forall b \in A, \forall c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]$$
+>$$
+>\forall a \in A, \forall b \in A, \forall c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]
+>$$
 
 In English:
 
@@ -634,7 +641,7 @@ The four properties we covered aren't the only possible _properties_ we care abo
 
 In distributed systems, you might see other properties that they care about, stuff like message and program ordering.
 
-Here's some example slides of relations being used in very high level computer science:
+Here's some example slides of relations being used in very high-level computer science:
 * [Message Ordering and Group Communication](https://www.cs.uic.edu/~ajayk/Chapter6.pdf)
 * [Declarative Semantics for Concurrency](https://people.mpi-sws.org/~viktor/wmc/axiomatic.pdf)
 

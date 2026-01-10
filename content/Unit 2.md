@@ -2,10 +2,11 @@
 title: "Unit 2: Introduction to Sets, Notations and Operations"
 ---
 This unit introduces the notion of sets and set operations. The unit will introduce:
-0. [[#Unit Introduction|Motivation for this unit]]
-1. [[#Part 1 Basic Sets, Creating Sets, Set Operations|Basic sets, creating sets, set operations]]
-2. [[#Part 2 Ways to Prove Set Equivalence|Ways to prove set equivalence]]
-3. [[#Part 3 More Proofs With Sets|More proofs with sets]]
+
+1. [[#Unit Introduction|Motivation for this unit]]
+2. [[#Part 1 Basic Sets, Creating Sets, Set Operations|Basic sets, creating sets, set operations]]
+3. [[#Part 2 Ways to Prove Set Equivalence|Ways to prove set equivalence]]
+4. [[#Part 3 More Proofs With Sets|More proofs with sets]]
 
 ---
 # Part 0: Unit Introduction
@@ -896,7 +897,9 @@ $$
 
 Okay, what if after the competition, we tracked the participants that actually arrived and competed. We want to find out how many participants registered but did not show up on the day itself. How should we get this information? We probably want something like a [[#Set Difference|set difference]] operation to help us out. Let $A$ be the set of registered participants and let $B$ be the set of participants we tracked that showed up. Then we can let $C = A \setminus B$ be the set we want to compute. And if you remember, we can write this in set-builder notation as:
 
-$$C = \{x \in A : x \notin B\}$$
+$$
+C = \{x \in A : x \notin B\}
+$$
 
 Google Sheets has something similar:
 
