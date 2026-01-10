@@ -122,19 +122,23 @@ Try for yourself to write down what those sets look like, and what they are subs
 >[!Answer]-
 > $A$ can be a subset of something like $M \times \mathbb{N}$. Based on our data, it can also be a subset of something like $M \times \{2015, 2016, 2020, 2023\}$. Both answers are viable.
 > 
-> $$A = \{(Simon, 2023), (Janice, 2020), (Meg, 2015), (Sam, 2016)\}$$
+> $$
+> A = \{(Simon, 2023), (Janice, 2020), (Meg, 2015), (Sam, 2016)\}
+> $$
 
 >[!Answer]-
 > $B$ can be a subset of something like $M \times P$.
 > 
-> $$B = \{(Simon, CS), (Janice, Philo), (Meg, CS), (Sam, Science)\}$$
+> $$
+> B = \{(Simon, CS), (Janice, Philo), (Meg, CS), (Sam, Science)\}
+> $$
 
 >[!info] Definition: Relations
->Let $A$ and $B$ be two sets.
+> Let $A$ and $B$ be two sets.
 >
->A set of pairs $R$ is called a **relation** (on sets $A$ and $B$) if it is a subset of the Cartesian product of the sets, i.e., $R \subseteq A \times B$.
+> A set of pairs $R$ is called a **relation** (on sets $A$ and $B$) if it is a subset of the Cartesian product of the sets, i.e., $R \subseteq A \times B$.
 >
->Alternatively, any set of pairs is a relation. 
+> Alternatively, any set of pairs is a relation. 
 
 Formally, we will consider **any set** that is a subset of some Cartesian product of sets to be a **relation** on those two sets. Alternatively, any set of pairs is a **relation**. 
 
@@ -266,10 +270,10 @@ We can say something like $(Dhoby\ Ghaut, Tanjong\ Pagar) \in \textcolor{red}{N}
 ![[Images/relations-middle-man.png]]
 
 >[!info] Definition: Relation composition
->Let $\textcolor{red}{R} \subseteq A \times B$ and $\textcolor{blue}{S} \subseteq B \times C$ be two relations. The **composition of $\textcolor{red}{R}$ and $\textcolor{blue}{S}$**, denoted $\textcolor{red}{R};\textcolor{blue}{S}$, is defined by:
->$$
->\textcolor{red}{R};\textcolor{blue}{S} = \big\{(a,c) \in A \times C : \exists b \in B \ \big[\textcolor{red}{(a,b)} \in \textcolor{red}{R} \land \textcolor{blue}{(b,c)} \in \textcolor{blue}{S} \big] \big\}
->$$
+> Let $\textcolor{red}{R} \subseteq A \times B$ and $\textcolor{blue}{S} \subseteq B \times C$ be two relations. The **composition of $\textcolor{red}{R}$ and $\textcolor{blue}{S}$**, denoted $\textcolor{red}{R};\textcolor{blue}{S}$, is defined by:
+> $$
+> \textcolor{red}{R};\textcolor{blue}{S} = \big\{(a,c) \in A \times C : \exists b \in B \ \big[\textcolor{red}{(a,b)} \in \textcolor{red}{R} \land \textcolor{blue}{(b,c)} \in \textcolor{blue}{S} \big] \big\}
+> $$
 
 In English, this is basically just saying:
 
@@ -344,10 +348,10 @@ As you might have noticed, relations by themselves as just sets of pairs are not
 ## Property 1: Reflexivity
 
 >[!info] Definition: Reflexivity
->A relation $R \subseteq A \times A$ is **reflexive** if and only if
->$$
->\forall a \in A \ \big[(a,a) \in R \big]
->$$
+> A relation $R \subseteq A \times A$ is **reflexive** if and only if
+> $$
+> \forall a \in A \ \big[(a,a) \in R \big]
+> $$
 
 Here's a pictorial example:
 
@@ -414,10 +418,10 @@ Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in
 ## Property 2: Symmetry
 
 >[!info] Definition: Symmetry
->A relation $R \subseteq A \times A$ is **symmetric** if and only if
->$$
->\forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R \big]
->$$
+> A relation $R \subseteq A \times A$ is **symmetric** if and only if
+> $$
+> \forall a \in A, \forall b \in A \ \big[(a, b) \in R \to (b, a) \in R \big]
+> $$
 
 In English:
 
@@ -479,10 +483,10 @@ Let's look at the formal proof now.
 ## Property 3: Anti-Symmetry
 
 >[!info] Definition: Anti-symmetry
->A relation $R \subseteq A \times A$ is **anti-symmetric** if and only if
->$$
->\forall a \in A, \forall b \in A \ \bigg[\big((a, b) \in R \land (b, a) \in R\big) \to a = b \bigg]
->$$
+> A relation $R \subseteq A \times A$ is **anti-symmetric** if and only if
+> $$
+> \forall a \in A, \forall b \in A \ \bigg[\big((a, b) \in R \land (b, a) \in R\big) \to a = b \bigg]
+> $$
 
 In English:
 
@@ -544,10 +548,10 @@ What about the congruence modulo $n$ relation $C_n$? This one is probably quite 
 ## Property 4: Transitivity
 
 >[!info] Definition: Transitivity
->A relation $R \subseteq A \times A$ is **transitive** if and only if
->$$
->\forall a \in A, \forall b \in A, \forall c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]
->$$
+> A relation $R \subseteq A \times A$ is **transitive** if and only if
+> $$
+> \forall a \in A, \forall b \in A, \forall c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]
+> $$
 
 In English:
 
