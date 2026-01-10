@@ -4,12 +4,13 @@ title: "Unit 1: Propositions, Predicates, First-Order Logic, Proofs"
 # Overview
 
 This unit introduces the notion of proofs, propositional and first-order logic, and certain proof techniques. Along the way we will talk about proofs in the context of both discrete mathematics and computer science. The unit is split into 4 sub-parts:
-0. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first-order logic and proofs]]
-1. [[#Part 1 Propositional logic|Propositional logic]]
+
+1. [[#Part 0 Unit Introduction|Motivation and introduction to propositional logic, first-order logic and proofs]]
+2. [[#Part 1 Propositional logic|Propositional logic]]
 	- [[#Checkpoint 1]]
-2. [[#Part 2 First-Order Logic|First-order logic]]
+3. [[#Part 2 First-Order Logic|First-order logic]]
 	- [[#Checkpoint 2]]
-3. [[#Part 3 Proofs in First-Order Logic|Proof techniques (and patterns)]]
+4. [[#Part 3 Proofs in First-Order Logic|Proof techniques (and patterns)]]
 	- [[#Checkpoint 3]]
 	- [[#Checkpoint 4]]
 
