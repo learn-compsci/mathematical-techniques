@@ -322,7 +322,7 @@ As a summary, these are almost all the set operations:
 
 Given two sets $A$ and $B$, we can create a new set $C = A \cup B$, which is the **union of $A$ and $B$**. The set $C$ contains elements that are either in $A$ or in $B$.
 
->[!note] Definition: Set union
+>[!info] Definition: Set union
 >The **set union** of $A$ and $B$, denoted $A \cup B$ is the set which contains all the elements of $A$ and $B$.
 >
 >Formally, $$A \cup B = \{x : (x \in A) \lor (x \in B) \}$$
@@ -356,7 +356,7 @@ Given two sets $A$ and $B$, we can create a new set $C = A \cup B$, which is the
 
 Given two sets $A$ and $B$, we can create a new set $C = A \cap B$ which is the **intersection of $A$ and $B$**. The set $C$ contains elements that are both in $A$ and in $B$.
 
->[!note] Definition: Set intersection
+>[!info] Definition: Set intersection
 >The **set intersection** of $A$ and $B$, denoted $A \cap B$ is the set which contains all the *common* elements of $A$ and $B$.
 >
 >Formally, $$A \cap B = \{x : (x \in A) \land (x \in B) \}$$
@@ -383,7 +383,7 @@ Given two sets $A$ and $B$, we can create a new set $C = A \cap B$ which is the 
 
 Given two sets $A$ and $B$, we can create a new set $C = A \setminus B$, which we call **$A$ minus $B$**. The set $C$ contains elements that are from in $A$ that is not also in $B$.
 
->[!note] Definition: Set difference
+>[!info] Definition: Set difference
 >The **set difference** $A$ **minus** $B$, denoted $A \setminus B$, contains all the elements of $A$ that are *not* in $B$.
 >
 >Formally, $$A \setminus B = \{x \in A : x \notin B \}$$
@@ -415,7 +415,7 @@ Given two sets $A$ and $B$, we can create a new set $C = A \setminus B$, which w
 
 The power set operation is a little unorthodox, since it does not look like a logical operation like the ones we have seen. Given a set $A$, the power set of $A$ is denoted by $\mathcal{P}(A)$ is the **set that contains all subsets of $A$**.
 
->[!note] Definition: Power set
+>[!info] Definition: Power set
 >The **power set** of $A$, denoted $\mathcal{P}(A)$, is the set containing all subsets of $A$.
 >
 >Formally, $$X \in \mathcal{P}(A) \leftrightarrow X \subseteq A$$
@@ -446,7 +446,7 @@ In other words, if $X$ is a subset of $A$, then $X$ is in the power set of $A$ a
 
 Given two sets $A$ and $B$, the set $C = A \times B$ is the **cartesian product between sets $A$ and $B$**. This creates **pairs**. If $x \in A$ and $y \in B$, then the pair $(x, y) \in C$.
 
->[!note] Definition: Cartesian product
+>[!info] Definition: Cartesian product
 >The **Cartesian product** of two sets $A$ and $B$, denoted $A \times B$, contains all pairs $(x, y)$ whose first element $x$ is from $A$ and whose second element $y$ is from $B$.
 >
 >Formally, $$A \times B = \{(x, y) : (x \in A) \land (y \in B)\}$$
@@ -482,7 +482,7 @@ Up until this point, we have been showing how to manipulate and create all kinds
 
 We say that two sets $A$ and $B$ are **equivalent** or **equal** if they have the same elements.
 
->[!note] Definition: Set equivalence
+>[!info] Definition: Set equivalence
 >Two sets $A$ and $B$ are **equivalent** or **equal** if and only if every element in $A$ is in $B$ **and** every element in $B$ is also in $A$.
 >
 >Formally, $$A = B \leftrightarrow \big(\forall x \in A \ [x \in B] \big) \land \big(\forall y \in B \ [y \in A] \big)$$
