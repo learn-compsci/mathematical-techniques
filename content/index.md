@@ -89,15 +89,18 @@ This is the old set of videos, this semester, we plan on releasing a new set of 
 # Course Grading
 
 * 4%: Post-lecture quizzes.
+	* Released on Canvas.
 	* Due weekly.
 	* Unlimited tries.
 * 16%: Tutorial Submissions
 	* Best 4 out of 5 tutorial attempts.
 	* Each tutorial attempt is 4%.
 	* To be clear, you **do not need to get the correct solutions**. We want to encourage you to attempt applying the concepts, not necessarily get them fully correct as you are learning. Any decent attempt will earn you the full 4%. We will take the best 4 marks out of 5 submissions. 
+	* Submitted on Canvas
 * 30%:  Written Assignments
 	* Two assignments, 15% each.
 	* Will be graded based on correctness.
+	* Submitted on Canvas
 * 50%: Final paper
 	* In person, open-book. No electronic devices.
 
