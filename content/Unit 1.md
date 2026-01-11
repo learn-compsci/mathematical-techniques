@@ -314,61 +314,6 @@ As an example, setting $p \equiv true, q \equiv false, s \equiv true$ means that
 
 In plainer terms, we are simply substituting variables for truth values then seeing what the resulting truth value is. Maybe in high school you might have seen something like $y = x + 5$, and if you substitute $\textcolor{blue}{x = 10}$ then we know $y = \textcolor{blue}{10} + 5 = 15$.
 
-## Truth Tables and Logical Equivalences
-
-At this point it might be a good thing to talk about when two formulae are the same. Let's consider these two as an example:
-
-1. $\neg ( p \lor q )$
-2. $\neg p \land \neg q$
-
-Are these two the same? Perhaps we could work intuitively first and see what it means. When is the first formula true? When is it false? One way to figure that out is work it out by hand, and using something called a **truth table**.
-
-|   $p$   |   $q$   | $p \lor q$ | $\neg ( p \lor q )$ |
-| :-----: | :-----: | :--------: | :-----------------: |
-| $true$  | $true$  |   $true$   |       $false$       |
-| $true$  | $false$ |   $true$   |       $false$       |
-| $false$ | $true$  |   $true$   |       $false$       |
-| $false$ | $false$ |  $false$   |       $true$        |
-
-In the table, we write out all possible truth value assignments (we have two variables and hence four possible truth value assignments) and work out each intermediate step. The last column is the one we care about. Also, notice that the third column depends on the first two, and the final column depends only on the third column.
-
-Let's do the same for the second formula:
-
-|   $p$   |   $q$   | $\neg p$ | $\neg q$ | $\neg p \land \neg q$ |
-| :-----: | :-----: | :------: | :------: | :-------------------: |
-| $true$  | $true$  | $false$  | $false$  |        $false$        |
-| $true$  | $false$ | $false$  |  $true$  |        $false$        |
-| $false$ | $true$  |  $true$  | $false$  |        $false$        |
-| $false$ | $false$ |  $true$  |  $true$  |        $true$         |
-
-This time, the third column depends on the first, the fourth column depends on the second, and the final column depends on the third and fourth.
-
-Oh look! The final columns are the same. This means the two formulae are **logically equivalent**. The other way of seeing this, is that no matter how we set $p$ and $q$ in the first formula, if we also set $p$ and $q$ the same way in the second formula, they evaluate to the same truth value.
-
-Consider instead these 2 examples:
-1. $p \to q$
-2. $q \to p$
-
-Are these equivalent? Let's try making another truth table:
-
-|   $p$   |   $q$   | $p \to q$ | $q \to p$ |
-| :-----: | :-----: | :-------: | :-------: |
-| $true$  | $true$  |  $true$   |  $true$   |
-| $true$  | $false$ |  $false$  |  $true$   |
-| $false$ | $true$  |  $true$   |  $false$  |
-| $false$ | $false$ |  $true$   |  $true$   |
-
-Notice how when $p$ is set to $true$ and $q$ is set to $false$, $p \to q$ is $false$, but $q \to p$ is $true$. This means that these two formulae are ***not* logically equivalent**.
-
-> Is there a different way for us to tell if two formulae are equivalent or not?
-
-Yes, there are a few ways, but for now this is the most reliable way.
-
->[!info] Definition: Logical Equivalence
->Two propositional formulae are considered **logically equivalent** if they evaluate to the same values *for all truth value assignments* of their variables.
->
->If one or more of the assignments result in different values, they are **not logically equivalent**.
-
 >[!tldr] Rounding up
 > 1. We can evaluate the truth value of formulae.
 > 2. We can create truth tables from formulae.
@@ -400,33 +345,14 @@ Let's move onto [[#Part 2 First-Order Logic|Part 2]], where we create slightly m
 ### Checkpoint #1
 
 >[!question] Checkpoint #1
->Consider the formulae $\neg (p \to q)$ and $p \land \neg q$.
+> Consider the formula $\neg (p \to q)$.
 >
->1. What tool can you use to determine if these two formulae are logically equivalent?
->2. Determine if the two formulae are logically equivalent.
+> 1. What does this formula evaluate to if we set $p$ to $true$ and $q$ to $false$?
+> 2. What about if we set $p$ to $false$ and $q$ to $false$?
 
 >[!success]- Solution
->1. Use a truth table!
->
->2. First, we draw the truth table for $\neg (p \to q)$.
->
-> > |   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ |
-> > | :-----: | :-----: | :-------: | :-------: |
-> > | $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
-> > | $true$  | $false$ |  $false$  |  $\textcolor{red}{true}$   |
-> > | $false$ | $true$  |  $true$   |  $\textcolor{red}{false}$  |
-> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
->
-> > Next, we draw the truth table for $p \land \neg q$.
->
-> > |   $p$   |   $q$   | $\neg q$ | $\textcolor{red}{p \land \neg q}$ |
-> > | :-----: | :-----: | :-------: | :-------: |
-> > | $true$  | $true$  |  $false$   |  $\textcolor{red}{false}$   |
-> > | $true$  | $false$ |  $true$  |  $\textcolor{red}{true}$   |
-> > | $false$ | $true$  |  $false$   |  $\textcolor{red}{false}$  |
-> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
->
-> > Looking at the rightmost columns of the two truth tables, we see that the corresponding rows have the same values. Hence, $\neg (p \to q)$ and $p \land \neg q$ are **logically equivalent**.
+> 1. Then the whole formula would evaluate to $true$
+> 2. Then the whole formulate would evalute to $false$.
 
 ---
 # Part 2: First-Order Logic
@@ -733,9 +659,95 @@ This is part of a general phenomenon. Here are some other intuitively equivalent
 3. $p \lor q$ and $q \lor p$ are equivalent
 4. $p \to q$ and $\neg p \lor q$ are equivalent
 
-How do we tell? One way is to use the method used in the section on [[#Truth tables, logical equivalences|truth tables and logical equivalences]].
+How do we tell?
+
+## Truth Tables and Logical Equivalences
+
+At this point it might be a good thing to talk about when two formulae are the same. Let's consider these two as an example:
+
+1. $\neg ( p \lor q )$
+2. $\neg p \land \neg q$
+
+Are these two the same? Perhaps we could work intuitively first and see what it means. When is the first formula true? When is it false? One way to figure that out is work it out by hand, and using something called a **truth table**.
+
+|   $p$   |   $q$   | $p \lor q$ | $\neg ( p \lor q )$ |
+| :-----: | :-----: | :--------: | :-----------------: |
+| $true$  | $true$  |   $true$   |       $false$       |
+| $true$  | $false$ |   $true$   |       $false$       |
+| $false$ | $true$  |   $true$   |       $false$       |
+| $false$ | $false$ |  $false$   |       $true$        |
+
+In the table, we write out all possible truth value assignments (we have two variables and hence four possible truth value assignments) and work out each intermediate step. The last column is the one we care about. Also, notice that the third column depends on the first two, and the final column depends only on the third column.
+
+Let's do the same for the second formula:
+
+|   $p$   |   $q$   | $\neg p$ | $\neg q$ | $\neg p \land \neg q$ |
+| :-----: | :-----: | :------: | :------: | :-------------------: |
+| $true$  | $true$  | $false$  | $false$  |        $false$        |
+| $true$  | $false$ | $false$  |  $true$  |        $false$        |
+| $false$ | $true$  |  $true$  | $false$  |        $false$        |
+| $false$ | $false$ |  $true$  |  $true$  |        $true$         |
+
+This time, the third column depends on the first, the fourth column depends on the second, and the final column depends on the third and fourth.
+
+Oh look! The final columns are the same. This means the two formulae are **logically equivalent**. The other way of seeing this, is that no matter how we set $p$ and $q$ in the first formula, if we also set $p$ and $q$ the same way in the second formula, they evaluate to the same truth value.
+
+Consider instead these 2 examples:
+1. $p \to q$
+2. $q \to p$
+
+Are these equivalent? Let's try making another truth table:
+
+|   $p$   |   $q$   | $p \to q$ | $q \to p$ |
+| :-----: | :-----: | :-------: | :-------: |
+| $true$  | $true$  |  $true$   |  $true$   |
+| $true$  | $false$ |  $false$  |  $true$   |
+| $false$ | $true$  |  $true$   |  $false$  |
+| $false$ | $false$ |  $true$   |  $true$   |
+
+Notice how when $p$ is set to $true$ and $q$ is set to $false$, $p \to q$ is $false$, but $q \to p$ is $true$. This means that these two formulae are ***not* logically equivalent**.
+
+> Is there a different way for us to tell if two formulae are equivalent or not?
+
+Yes, there are a few ways, but for now this is the most reliable way.
+
+>[!info] Definition: Logical Equivalence
+>Two propositional formulae are considered **logically equivalent** if they evaluate to the same values *for all truth value assignments* of their variables.
+>
+>If one or more of the assignments result in different values, they are **not logically equivalent**.
 
 ### Checkpoint #2
+
+
+>[!question] Checkpoint #2
+>Consider the formulae $\neg (p \to q)$ and $p \land \neg q$.
+>
+>1. What tool can you use to determine if these two formulae are logically equivalent?
+>2. Determine if the two formulae are logically equivalent.
+
+>[!success]- Solution
+>1. Use a truth table!
+>
+>2. First, we draw the truth table for $\neg (p \to q)$.
+>
+> > |   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ |
+> > | :-----: | :-----: | :-------: | :-------: |
+> > | $true$  | $true$  |  $true$   |  $\textcolor{red}{false}$   |
+> > | $true$  | $false$ |  $false$  |  $\textcolor{red}{true}$   |
+> > | $false$ | $true$  |  $true$   |  $\textcolor{red}{false}$  |
+> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+>
+> > Next, we draw the truth table for $p \land \neg q$.
+>
+> > |   $p$   |   $q$   | $\neg q$ | $\textcolor{red}{p \land \neg q}$ |
+> > | :-----: | :-----: | :-------: | :-------: |
+> > | $true$  | $true$  |  $false$   |  $\textcolor{red}{false}$   |
+> > | $true$  | $false$ |  $true$  |  $\textcolor{red}{true}$   |
+> > | $false$ | $true$  |  $false$   |  $\textcolor{red}{false}$  |
+> > | $false$ | $false$ |  $true$   |  $\textcolor{red}{false}$   |
+>
+> > Looking at the rightmost columns of the two truth tables, we see that the corresponding rows have the same values. Hence, $\neg (p \to q)$ and $p \land \neg q$ are **logically equivalent**.
+
 
 >[!question] Checkpoint #2
 >Select all statements that are logically equivalent to the following:
