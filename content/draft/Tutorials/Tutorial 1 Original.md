@@ -1,11 +1,12 @@
 ---
 title: "Tutorial 1: Propositions, Predicates, First-Order Logic, Proofs"
 ---
+
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 27th Jan 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 10 Feb 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -24,10 +25,11 @@ This tutorial gives practice questions to be discussed during the relevant tutor
 
 1. Questions 1 through 3 are related to **propositional logic**. 
 2. Questions 4 through 6 are related to **first-order logic**. 
+3. Questions 7 and 8 are related to **proofs**. 
 
-After Week 1's content, you should be able to attempt questions 1 through 3. After Week 2's content, you should be able to attempt questions 4 through 6.
+After Week 2's content, you should be able to attempt questions 1 through 3. After Week 3's content, you should be able to attempt questions 4 through 6. After Week 4's content, you should be able to attempt questions 7 and 8.
 
-**Questions 2, 4** are graded for participation.
+**Questions 2, 4 and 7** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
@@ -235,3 +237,62 @@ Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
 2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
 3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$
+
+---
+# Question 7 \[Graded Participation]:
+
+Prove the following statement:
+
+> [!Theorem] 
+> $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big) \big]$
+> 
+> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
+>  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
+
+Notice this theorem is basically saying that no integer is both odd and even at the same time.
+
+To get you started, we have filled in a few lines of the proof for you, you should try to make sure that the proof is complete:
+
+**Partial solution:**
+1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
+2. Assume for the sake of contradiction that $(even(x) \land odd(x))$
+	1. (Your proof here...)
+3.  Contradiction
+
+The clickable hint box below gives a hint on how to approach this proof.
+
+>[!Hint]-
+> Based on our assumption for contradiction, can we somehow argue something like $\frac{1}{2} \in \mathbb{Z}$?
+> 
+> We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ by basic algebra. After all, $\frac{1}{2}$ is not an integer.
+
+---
+# Question 8:
+
+You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
+
+Your boss tells you to keep costs down, that each server must service **fewer than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service, i.e., $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server, and so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
+
+**Question:** Prove to yourself and your boss that this is impossible.
+
+**Note:** This question is a little more open-ended. For example, how do we even formally state "this is impossible" in math? We need to come up with a goal statement that we can try to prove in math. This is probably an interesting point worthy of discussion with your tutorial tutor. In particular, we are normally given these situations we need to deal with in real life, and someone who incorporates discrete math thinking into their toolbox as a technique needs to learn how to do a few things:
+1. Translating their scenario into a mathematical statement that they can either prove, or disprove.
+2. Proving, or disproving that statement.
+3. Interpreting back their result.
+
+So this question above comes with the question of what should we even write as a statement that we should try to prove or disprove?
+
+The clickable hint box below gives a the formal statement we should try to prove, but I would encourage you to think a little bit first about what you might write. Then, compare your attempt with what we have written in the hint box.
+
+>[!Hint]-
+> There are a few possible ways we can formalise this. Here is one:
+> 
+> **Formalism 1:**
+> Assume $C \in \mathbb{N}, c_1 \in \mathbb{N}, c_2 \in \mathbb{N}, \ldots, c_S \in \mathbb{N}$ is such that $(C > 0) \land (\sum_{i = 1}^S c_{i} = C)$. Then, $$\exists i \in \mathbb{N} \ \bigg[ \bigg(1 \leq i \land i \leq S \land c_i \geq \frac{C}{S} \bigg) \bigg]$$
+> 
+> Reading this back in English: Let $C$, $c_1, c_2, \ldots, c_S$ be natural numbers. Assume that $C$ is positive, and that the total clients served is exactly $C$. Then at least one of the servers serves at least $\frac{C}{S}$.
+
+Here's another hint on how you might approach the overall proof idea.
+
+>[!Hint]-
+> Refer to the proof done in [[Unit 1#Example 1]] and see how you might adapt it to prove the above statement instead.
