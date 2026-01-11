@@ -8,9 +8,9 @@ This website's intended usage by students taking discrete math courses at the [S
 
 * Video lectures and tutorials will be uploaded on YouTube before the respective week, e.g., Week 2's lecture videos will be out on YouTube. The expected video length per week is around 1 to 1.5 hours. You may find the list of videos below.
 
-* Tutorial sheets will generally be released on the same week as the start of the unit (i.e., Tutorial 1 will be released on Week 2, Tutorial 2 will be released on Week 5, Tutorial 3 will be released on Week 7, Tutorial 4 on Week 9, and Tutorial 5 on Week 11). We will try to make it so that the expected time worked on it is about an hour.
+* Tutorial sheets will generally be released on the same week as the start of the unit (i.e., Tutorial 1 will be released on Week 1, Tutorial 2 will be released on Week 3, and so on). We will try to make it so that the expected time worked on it is about an hour.
 
-* There are in-person tutorials for you to discuss tutorial solutions with the tutors on Weeks 5, 7, 9, 11, 13 on Tuesdays, 6:30 PM to 8:30 PM. Tutorial solutions will then be released online a day after the tutorial.
+* There are in-person tutorials for you to discuss tutorial solutions with the tutors on Weeks 3, 5, 7, 9, 11, 13 on Tuesdays, 6:30 PM to 8:30 PM. Tutorial solutions will then be released online a day after the tutorial.
 
 * There are also 2 assignments and a final exam for the course. Tentatively, the final exam is on 30 Apr 2026, 5:00 PM, venue: TBD.
 
@@ -18,24 +18,11 @@ This website's intended usage by students taking discrete math courses at the [S
 
 # Course Schedule
 
-|                 Week                 |              Topic               |                       Notes Unit, Part                       | Tutorial | Assignment Due Dates |
-| :----------------------------------: | :------------------------------: | :----------------------------------------------------------: | :------: | :------------------: |
-|      **1**<br>(12 Jan - 16 Jan)      | Introduction and Course Overview |                                                              |          |                      |
-|      **2**<br>(19 Jan - 23 Jan)      |       Propositional Logic        |     [[Unit 1#Part 1 Propositional logic\|Unit 1 Part 1]]     |          |                      |
-|      **3**<br>(26 Jan - 30 Jan)      |        First-Order Logic         |      [[Unit 1#Part 2 First Order Logic\|Unit 1 Part 2]]      |          |                      |
-|       **4**<br>(2 Feb - 6 Feb)       |   Proofs in First-Order Logic    | [[Unit 1#Part 3 Proofs in First Order Logic\|Unit 1 Part 3]] |          |                      |
-|      **5**<br>(9 Feb - 13 Feb)       |            Set Theory            |                          [[Unit 2]]                          |    1     |                      |
-|      **6**<br>(16 Feb - 20 Feb)      |            Relations             |                          [[Unit 3]]                          |          |                      |
-| **Recess Week**<br>(23 Feb - 27 Feb) |                                  |                                                              |          |                      |
-|       **7**<br>(2 Mar - 7 Mar)       |      Induction, Recurrences      |                          [[Unit 4]]                          |    2     |                      |
-|      **8**<br>(9 Mar - 13 Mar)       |       Algorithmic Analysis       |                          [[Unit 5]]                          |          |                      |
-|      **9**<br>(16 Mar - 20 Mar)      |          Combinatorics           |                          [[Unit 6]]                          |    3     |                      |
-|     **10**<br>(23 Mar - 27 Mar)      |          Graphs, Trees           |                          [[Unit 7]]                          |          |                      |
-|      **11**<br>(30 Mar - 3 Apr)      |       Probability (Part 1)       |                          [[Unit 8]]                          |    4     |                      |
-|      **12**<br>(6 Apr - 10 Apr)      |       Probability (Part 2)       |                          [[Unit 9]]                          |          |                      |
-|     **13**<br>(13 Apr - 17 Apr)      |           Rounding Up            |                                                              |    5     |                      |
+Refer to the Page [[Class Schedule]] for the schedule for this semester.
 
-# Lecture Video Links
+# Old Lecture Video Links
+
+This is the old set of videos, this semester, we plan on releasing a new set of videos.
 
 ## Week 2 Videos: Unit 1 - Part 1
 1. [Introduction to Propositions and Logical Connectives](https://youtu.be/q85U4qeTHVw)
@@ -97,15 +84,19 @@ This website's intended usage by students taking discrete math courses at the [S
 4. [[Tutorial 4]]
 
 # Assignments
-1. [[Assignment 1]]
-2. [[Assignment 2]]
+
 
 # Course Grading
 
-* 20%: Best 4 out of 5 tutorial attempts.
-	* Each tutorial attempt is 5%.
+* 4%: Post-lecture quizzes.
+	* Due weekly.
+	* Unlimited tries.
+* 16%: Tutorial Submissions
+	* Best 4 out of 5 tutorial attempts.
+	* Each tutorial attempt is 4%.
 	* To be clear, you **do not need to get the correct solutions**. We want to encourage you to attempt applying the concepts, not necessarily get them fully correct as you are learning. Any decent attempt will earn you the full 4%. We will take the best 4 marks out of 5 submissions. 
-* 30%: Two assignments, 15% each.
+* 30%:  Written Assignments
+	* Two assignments, 15% each.
 	* Will be graded based on correctness.
 * 50%: Final paper
 	* In person, open-book. No electronic devices.
