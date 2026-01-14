@@ -47,7 +47,9 @@ Observe that we have an *existential* statement, i.e., we need to show that such
 ### Example 1.2
 
 We will refer to the following definition for rational numbers: 
-$$x \in \mathbb{Q} \equiv \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]$$
+$$
+x \in \mathbb{Q} \equiv \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]
+$$
 
 >[!example] Example 1.2
 >Prove that $\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]$.
