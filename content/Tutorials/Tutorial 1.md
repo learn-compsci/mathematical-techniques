@@ -22,8 +22,8 @@ title: "Tutorial 1: Propositions, Predicates, First-Order Logic"
 
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 3 are related to **propositional logic**. 
-2. Questions 4 through 6 are related to **first-order logic**. 
+1. Questions 1 through 2 are related to **propositional logic**. 
+2. Questions 3 through 5 are related to **first-order logic**. 
 
 After Week 1's content, you should be able to attempt questions 1 through 3. After Week 2's content, you should be able to attempt questions 4 through 6.
 
@@ -46,15 +46,11 @@ For each of the following, write a propositional formula that accurately represe
 
 0. "If the input is valid, then the output is correct."
 
-1. "If the program compiles but the input is not valid, then the output is not correct."
+1. "If the program compiles and the input is not valid, then the output is not correct."
 
-2. "The function is efficient if and only if both the algorithm terminates and the output is correct." \[Hint: "if and only if" means an implication in both directions. "$p$ if and only if $q$" is equivalent to $(p \to q) \land (q \to p)$.]
+2. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
-3. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
-
-4. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
-
-5. "The function is efficient if and only if \[(the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates)]."
+3. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
 
 **Example:** The answer to point 0. is: "$q \to r$".
 
@@ -107,25 +103,7 @@ Answer template: <br>
 *Statement ___ is logically equivalent to statement ___ .*
 
 ---
-# Question 3:
-
->[!Purpose] 
-> This question aims to help you make sense of implications. There's really *nothing* deep behind implications. It is just a logical connective that has a certain behaviour.
-> 
-> To this end, try to consider the following statement below and how we can write it as an implication statement.
-
-> "Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner."
-
-1. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
-
-2. Determine whether the promise has been broken in each of the following cases:
-	1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
-	3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
-
----
-# Question 4 \[Graded Participation]: Tarski's World 
+# Question 3 \[Graded Participation]: Tarski's World 
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first-order logic. This comes in a few parts: we will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -150,7 +128,7 @@ Let:
 - $U=\{C_1, C_2, C_3, S_1, S_2, S_3, S_4, D_1, D_2, D_3\}$ be the set containing all the objects.
 
 You are also given the following predicates, which you may use freely in your answers:
-- $Above(x,y)$ is true when object $x$ is in anywhere in a row that is strictly above object $y$. For example, we consider $Above(D_1, D_2) \equiv true$ and $Above(S_1, D_2) \equiv false$.
+- $Above(x,y)$ is true when object $x$ is in anywhere in a row that is **strictly** above object $y$. For example, we consider $Above(D_1, D_2) \equiv true$ and $Above(S_1, D_2) \equiv false$. (Does not have to be the same column.)
 - $Blue(x)$ is true when object $x$ is blue.
 - $Grey(x)$ is true when object $x$ is grey.
 - $Orange(x)$ is true when the object $x$ is orange.
@@ -170,21 +148,19 @@ Take note of which set each variable comes from, e.g., in the first statement, w
 ![[tarski.png]]
 
 ---
-# Question 5: Negating FOL Statements
+# Question 4: Negating FOL Statements
 
 >[!Purpose] 
 > Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
 
 Consider the following first-order logic statements:
-1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
-2. $\forall x \in D \ \big[P(x) \lor Q(x) \big]$
-3. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
-4. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
+1. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
+2. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
 Write the negation of each of the statements. You may refer to the section on [[Unit 1#Negating Quantifiers|negating quantifiers]] for this.
 
 ---
-# Question 6:
+# Question 5:
 
 >[!Purpose] 
 > In this next question, we will apply the understanding of first-order logic to more commonly encountered sets and practice manipulating statements. It's a chance to get more familiar with and fluent in reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.
@@ -205,10 +181,8 @@ For each of the following statements, write out the negation of the statement, a
 
 1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]$
 2. $\forall p, q \in \mathbb{Q} \ [q = p]$
-3. $\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]$ 
-4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$      
-5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]$
-6. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
+3. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$     
+4. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
 
 ## Part B: Contrapositive statements
 
@@ -233,5 +207,4 @@ Basically, take the inner implication statement, and re-write it in its contrapo
 
 Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
-2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
-3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$
+2. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$
