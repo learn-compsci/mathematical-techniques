@@ -199,12 +199,13 @@ $$
 $$
 
 Then the contrapositive is:
+
 $$
 \forall a \in \mathbb{Z}, \forall b \in \mathbb{Z} \ \big[\neg (a > b -234) \to \neg(a > b)\big]
 $$
+
 Basically, take the inner implication statement, and re-write it in its contrapositive form.
 
 Statements:
 1. $\forall a \in \mathbb{Z}, b \in \mathbb{Z} \ [a^2 \neq b^2 \to a \neq b]$
-2. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
-3. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$
+2. $\forall x \in \mathbb{Z} \ \big[\big(\forall y \in \mathbb{N} \ [x \neq y]\big) \to x \leq 5 \big]$

@@ -277,19 +277,7 @@ Write the negation of each of the statements.
 >>
 >>The contrapositive is thus true, making the original statement true.
 
-2. (**True**) $\forall p \in \mathbb{Z} \ \big[(p > 5 \land p \leq 26) \to p \geq 0\big]$
-
->[!Explanation]
->This is a practice on finding the contrapositive of an implication statement with connectives.
->1. $\forall p \in \mathbb{Z} \ \big[p < 0 \to (p \leq 5 \lor p > 26)\big]$
->2. $\equiv \forall p \in \mathbb{Z} \ \big[\neg(p \leq 5 \lor p > 26) \to p \geq 0\big]$ (Substitution of contrapositive form)
->3. $\equiv \forall p \in \mathbb{Z} \ \big[(p > 5 \land p \leq 26) \to p \geq 0\big]$ (De Morgan's Law)
->>**Deciphering the statement:**
->>This statement says that any integer more than $5$ and less than or equal to $26$ must be greater than or equal to $0$. This statement is true.
->>
->>Technique of note in this question is the use of De Morgan's Law even when finding a contrapositive. 
-
-3. (**True**) $\forall x \in \mathbb{Z} \ \big(x > 5  \to \exists y \in \mathbb{N} \ [x = y]\big)$
+2. (**True**) $\forall x \in \mathbb{Z} \ \big(x > 5  \to \exists y \in \mathbb{N} \ [x = y]\big)$
 
 >[!Explanation]
 >This is a practice on finding the contrapositive of an implication statement with quantifiers.
