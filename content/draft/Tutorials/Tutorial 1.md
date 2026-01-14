@@ -5,7 +5,7 @@ title: "Tutorial 1: Propositions, Predicates, First-Order Logic"
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 27th Jan 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 27 Jan 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -48,13 +48,9 @@ For each of the following, write a propositional formula that accurately represe
 
 1. "If the program compiles but the input is not valid, then the output is not correct."
 
-2. "The function is efficient if and only if both the algorithm terminates and the output is correct." \[Hint: "if and only if" means an implication in both directions. "$p$ if and only if $q$" is equivalent to $(p \to q) \land (q \to p)$.]
+2. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
-3. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
-
-4. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
-
-5. "The function is efficient if and only if \[(the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates)]."
+3. "If the program compiles, then \[either (the input is valid and the output is correct), or the algorithm does not terminate]."
 
 **Example:** The answer to point 0. is: "$q \to r$".
 

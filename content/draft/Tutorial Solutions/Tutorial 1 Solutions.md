@@ -3,7 +3,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 10 Feb 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 27 Jan 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy:
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -54,24 +54,7 @@ For each of the following, write a propositional formula that accurately represe
 >- "*The program compiles* **but** *the input is not valid*": $p \land \neg q$
 >- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": ==$(p \land \neg q) \to \neg r$==
 
-2. "The function is efficient if and only if both the algorithm terminates and the output is correct."
-
->[!Solution]
->$s \leftrightarrow (t \land r)$, or $\big(s \to (t \land r) \big) \lor \big( (t \land r) \to s \big)$
->
->Breaking down the sentence, we have:
->- "*The function is efficient*": $s$
->- "*The algorithm terminates*": $t$
->- "*The output is correct*": $r$
->
->Combining them using connectives, we have:
->- "Both *the algorithm terminates* **and** *the output is correct*": $t \land r$
->- "*The function is efficient* **if and only if** both *the algorithm terminates* **and** *the output is correct*.": ==$\big(s \to (t \land r) \big) \lor \big( (t \land r) \to s \big)$==
->
->>[!tip] If and only if
->> "**If and only if**" is typically written using the double-headed arrow $\leftrightarrow$.
-
-3. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
+2. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
 >[!Solution]
 >$\big( (p \land q) \lor s \big) \land \neg t$
@@ -92,15 +75,10 @@ For each of the following, write a propositional formula that accurately represe
 >>
 >>Hence, the parentheses are necessary in this particular case. Without them, $p \land q$ and $s \land \neg t$ are evaluated first, instead of $p \land q$ followed by $(p \land q) \lor s$.
 
-4. "If the program compiles, then either (the input is valid and the output is correct), or the algorithm does not terminate."
+3. "If the program compiles, then \[either (the input is valid and the output is correct), or the algorithm does not terminate]."
 
 >[!Solution]
 >$p \to \big( (q \land r) \lor \neg t \big)$
-
-5. "The function is efficient if and only if \[(the program compiles and the input is valid), or (if the output is correct implies that the algorithm terminates)]."
-
->[!Solution]
->$s \leftrightarrow \big( (p \land q) \lor (r \to t) \big)$
 
 ---
 # Question 2 \[Graded Participation]:
