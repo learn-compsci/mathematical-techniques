@@ -53,16 +53,58 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >[!note] Proof: $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$
 >1. Let $n \in \mathbb{N}$ be arbitrarily chosen.
 >2. Suppose, for the sake of contradiction, that $\neg (n + 1 \neq 0)$.
->3. $n + 1 = 0$. **\[ (f) Rule of deduction: ==Logically equivalent to line 2== ]**
->4. $n = -1$. \[Basic algebra]
->5. $\neg (n \in \mathbb{N}).$ \[Basic algebra]
->6. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (g) Rule of deduction: ==Conjunction on lines 1 and 5== ]**
->7. $\bot$. **\[ (h) Rule of deduction: ==Contradiction rule on line 6== ]**
->8. $n + 1 \neq 0$. **\[ (i) Rule of deduction: ==Proof by contradiction on line 7== ]**
->9. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 8]
+>		1. $n + 1 = 0$. **\[ (f) Rule of deduction: ==Logically equivalent to line 2== ]**
+>		2. $n = -1$. \[Basic algebra]
+>		3. $\neg (n \in \mathbb{N}).$ \[Basic algebra]
+>		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (g) Rule of deduction: ==Conjunction on lines 1 and 2.3== ]**
+>		5. $\bot$. **\[ (h) Rule of deduction: ==Contradiction rule on line 2.4== ]**
+>3. $n + 1 \neq 0$. **\[ (i) Rule of deduction: ==Proof by contradiction on line 2.5== ]**
+>4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
-# Question 7 \[Graded Participation]:
+
+# Question 2:
+
+For each of the following proofs, identify where there were incorrect/missing steps of justification, and discuss potential corrections to them.
+
+#### Sub-part 1
+
+>[!note] Proof: $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$
+>1. Let $y = x + 1$.
+>2. Since $x + 1 > x$, $y > x$. \[Basic algebra]
+>3. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$. \[Existential generalisation on line 2]
+
+#### Sub-part 2
+
+For any integer $x$, we define the predicate $even(x)$ to be the following:
+
+$$
+even(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k]
+$$
+
+>[!note] Proof: $\forall x \in \mathbb{Z} \ [even(x) \to even(x^2)]$
+>1. Let $x$ be arbitrarily chosen.
+>2. Suppose $even(x)$.
+>3. Let $x = 2k$. \[Instantiation on line 2]
+>4. Then $x^2 = 2m$, where $m = k^2$. \[Basic algebra]
+>5. Therefore $even(x^2)$. \[Definition of $even$]
+
+#### Sub-part 3
+
+For any integer $x$, we define the predicate $odd(x)$ to be the following:
+
+$$
+odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
+$$
+
+>[!note] Proof: $\neg \big(\exists x \in \mathbb{Z} \ [even(x) \land odd(x)] \big)$
+>1. Suppose, for the sake of contradiction, that $\exists x \in \mathbb{Z} \ [even(x) \land odd(x)]$.
+>2. Let $x \in \mathbb{Z}$ be such that $even(x) \land odd(x)$. \[Universal instantiation on line 1]
+>3. But $even(x) \to \neg (odd(x))$ and $odd(x) \to \neg (even(x))$, so this is impossible. \[Contradiction]
+>4. $\neg \big(\exists x \in \mathbb{Z} \ [even(x) \land odd(x)] \big)$. \[Proof by contradiction on line 3]
+
+---
+# Question 6 \[Graded Participation]:
 
 Prove the following statement:
 
@@ -93,7 +135,7 @@ Prove the following statement:
 >4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
 
 ---
-# Question 8:
+# Question 7:
 
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
