@@ -3,7 +3,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 31 Mar 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 17 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -17,233 +17,292 @@
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and [[Unit 7]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and [[Unit 5]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 and 2 are related to combinatorics. 
-2. Questions 3 through 6 are related to graph theory. 
-3. Question 8 is related to the pigeonhole principle. 
+1. Questions 1 through 5 are related to induction and recurrences. 
+2. Questions 6 through 8 are related to asymptotic notation.
 
-After Week 9's content, you should be able to attempt questions 1 and 2. After Week 10's content, you should be able to attempt questions 2 through 7.
+After Week 7's content, you should be able to attempt questions 1 through 5. After Week 8's content, you should be able to attempt questions 6 through 8.
 
-**Questions 1 and 5** are graded for participation.
+**Questions 1, 3 and 6** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
+# Question 1 \[Graded for Participation]
 
-# Question 1 \[Graded for Participation]:
+Using mathematical induction, prove that:
 
-Let's say that we want to build a password system that only accepts: 
+$$
+\forall n \geq 1 \left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
+$$
 
-1. Lowercase letters (a-z); there are 26 possible choices
-2. Uppercase letters (A-Z); there are 26 possible choices
-3. Numbers (0-9); there are 10 possible choices
+**Solution**:
+>[!note] Proof
+>1. (Base case) Let $n = 1$, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$. \[Basic algebra]
+>2. (Inductive step) Assume that for $n = j$, where $j\in \mathbb{N}, \sum_{i = 1}^1 i^2 = \frac{j(j + 1)(2j + 1)}{6}$
+>3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ \[Basic algebra]
+>4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ \[By assumption on line 2]
+>5. $= (j+1)\bigg[\frac{j(2j+1)}{6} + (j+1)\bigg]$ \[Basic algebra]
+>6. $= (j+1)\big(\frac{2j^2+j+6j+6}{6}\big)$ \[Basic algebra]
+>7. $= (j+1)\big(\frac{2j^2+7j+6}{6}\big)$ \[Basic algebra]
+>8. $= (j+1)\big[\frac{(j+2)(2j+3)}{6}\big]$ \[Basic algebra]
+>9. $= \frac{(j+1)[(j+1)+1][2(j+1)+1]}{6}$ \[Basic algebra]
+>10. $\therefore \forall n \in \mathbb{N}\ \bigg[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}\bigg]$ \[Principle of mathematical induction]
 
-We are going to try to count how many possible password there are, depending on different rules that the system will allow.
 
-## Sub-question 1:
+---
+# Question 2
 
-Let's say the password system says:
+Using mathematical induction, prove that:
 
-> Any password must be of length $\geq 8$ and $\leq 32$.
+$$
+\forall n \geq 1, \exists k \in \mathbb{N} \left[ 6^n - 1 = 5\cdot k \right]
+$$
 
-If this is the only requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+**Solution**:
 
->[!note] Solution
->For passwords of length $8$, there are $26 + 26 + 10 = 62$ choices for each character, giving us $62^8$ possible passwords. Similarly, for passwords of length $n$, there are $62^n$ possible passwords of that length.
->
->Hence, there are $\sum_{n=8}^{32} 62^n$ passwords in total.
+>[!note] Proof
+>1. (Base case) Let $n = 1$. Then, $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
+>	- Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
+>2. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]$.
+>3. Let $m \in \mathbb{N}$ be such that $6^j - 1 = 5m$. \[Existential instantiation on line 3]
+>4. $6^{j+1} - 1 = 6^j \cdot 6 - 1 = 6 \cdot (6^j - 1) + 5$. \[Basic algebra]
+>5. $6 \cdot (6^j - 1) + 5 = 6 \cdot 5m + 5 = 30m + 5 = 5 \cdot (6m + 1)$. \[By assumption on line 3]
+>6. $6^{j+1} - 1 = 5 \cdot (6m + 1)$. \[Basic algebra, from lines 5, 6]
+>7. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
+>8. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
+>9. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
 
-## Sub-question 2:
+---
+# Question 3 \[Graded for Participation]
 
-Let's say the password system says:
+Let $A(n)$ be a recurrence defined in the following way.
 
-> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric. I.e. At least one alphabet (either uppercase or lowercase), and at least one number.
 
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+$$
+A(n) = \begin{cases}
+1, & n = 0\\
+3, & n = 1\\
+2\times A(n - 1) - A(n - 2), & n \geq 2
+\end{cases}
+$$
 
-**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
 
+## Sub-question 1
+Compute the following values:
 
->[!note] Solution
->Without restrictions, there are a total of $\sum_{n=8}^{32} 62^n$ passwords (from sub-question 1).
->
->Subtracting the number of passwords for the following cases leaves us with the required answer:
->- Case 1: Passwords that contain only alphabets and no numbers
->- Case 2: Passwords that contain only numbers and no alphabets
->
->For case 1, there are now only $52$ choices per character, so there are $\sum_{n=8}^{32} 52^n$ such passwords. For case 2, there are now only $10$ choices per character, so there are $\sum_{n=8}^{32} 10^n$ such passwords.
->
->Finally, subtracting these two values from the total gives us $\sum_{n=8}^{32} (62^n - 52^n - 10^n)$ as the answer.
+1. $A(0)$
+2. $A(1)$
+3. $A(2)$
+4. $A(5)$
 
-## Sub-question 3:
+## Sub-question 2
+Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 
-Let's say the password system says:
 
-> Any password must be of length exactly $8$, and must **alternate** numbers and characters.
+**Solution**:
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "aa1b3d0p" is not allowed because we have adjacent characters.
+**Sub-question 1**:
+1. $A(0) = 1$
+2. $A(1) = 3$
+3. $A(2) = 2 \times A(1) - A(0) = 5$
+4. Since $A(3) = 2 \times A(2) - A(1) = 7$ and $A(4) = 2 \times A(3) - A(2) = 9$, we have $A(5) = 2 \times A(4) - A(3) = 11$.
 
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+**Sub-question 2**:
 
+>[!note] Proof
+>1. (Base cases) We prove the statement for $n = 0$ and $n = 1$. Clearly, $A(0) = 1 = 2(0) + 1$ and $A(1) = 3 = 2(1) + 1$.
+>2. (Inductive step) Let $k \geq 2$, and assume that $\forall 0 \leq j < k\ [A(j) = 2j + 1]$.
+>3. $A(k) = 2 \times A(k-1) - A(k-2)$ \[By definition of $A(n)$]
+>4. Since $0 \leq k-1 < k$ and $0 \leq k-2 < k$, we have $A(k-1) = 2(k-1)+1 = 2k-1$ and $A(k-2) = 2(k-2)+1 = 2k-3$, respectively. \[By assumption on line 2]
+>5. $A(k) = 2 \times (2k-1) - (2k-3) = 4k-2-2k+3 = 2k+1$ \[Basic algebra, from lines 3, 4]
+>6. $\forall n \geq 0\ [A(n) = 2n + 1]$ \[Principle of mathematical induction]
 
->[!note] Solution
->There are two cases:
->- Case 1: Starts with an alphabet
->- Case 2: Starts with a number
->
->Logically, these two values are equal since we are only swapping the order in which the alphabets and numbers appear. This means we only need to calculate the value of one of the cases.
->
->For case 1, there are $52$ choices for each of the $4$ alphabets and $10$ choices for each of the $4$ numbers, giving us a total of $52^4 \times 10^4 = 520^4$ possible passwords. Case 2 gives us the same value.
->
->Hence, the total number of possible passwords is $2 \times 520^4$.
+---
+# Question 4
 
-## Sub-question 4:
+Let $M(n)$ be a recurrence defined in the following way.
 
-Let's say the password system says:
 
-> Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
+$$
+M(n) = \begin{cases}
+0 &, n = 1\\
+2 &, n = 2\\
+2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
+\end{cases}
+$$
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
+Prove via strong induction that:
 
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+$$
+\forall n \geq 3 \ [M(n) \leq n\log_2(n)]
+$$
 
+You may find the following facts useful:
+1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
+2. $a \leq b \to \log_2(a) \leq \log_2(b)$
 
->[!note] Solution
->We are now choosing any set of $8$ characters from the pool of $62$ alphanumeric characters given, which ensures that we do not choose any single character twice. However, after choosing the $8$ characters, we need to permute them.
->
->Hence, there are a total of $P(62,8)$ possible passwords.
+You may alternatively use the substitution method to prove that this is $O(n \log n)$.
 
-## Sub-question 5:
 
-Let's say the password system says:
+**Solution**:
 
-> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
+>[!note] Proof
+>1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
+>	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2(3)$
+>	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
+>	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$
+>2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
+>3. Since $k \geq 6$, $\lfloor \frac{k}{2} \rfloor \geq 3$, so our assumption applies to $\lfloor \frac{k}{2} \rfloor$.
+>4. $M(k) = 2 \times M(\lfloor \frac{k}{2} \rfloor) + k \leq 2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k$ \[By assumption on line 2]
+>5. $2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k = k\log_2(\frac{k}{2}) + k$ \[Facts 1, 2]
+>6. $k\log_2(\frac{k}{2}) + k = k \log_2 k - k \log_2 2 + k = k \log_2 k - k + k = k \log_2 k$ \[Basic algebra]
+>7. $M(k) \leq k \log_2 k$ \[From lines 4, 6]
+>8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
 
-So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorted in alphabetical order. But something like "bajoweaz" is not allowed.
+---
+# Question 5
 
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+Let $B(n)$ be a recurrence defined in the following way.
 
 
->[!note] Solution
->We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single character twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to account for their permutations.
->
->This gives us a total of $\binom{52}{8}$ possible passwords.
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
 
-# Question 2:
+Prove by induction that:
+$$
+\forall n \in \mathbb{N}\ [B(n) = 3^n]
+$$
 
-## Sub-question 1:
-Let's say we wanted to arrange 5 people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
+**Solution**:
 
-![[circ-perm.svg]]
+>[!note] Proof
+>1. (Base case) Let $n=0$. Then, $B(0) = 1 = 3^0$.
+>2. (Inductive step) Assume that for $n=j$, where $j \in \mathbb{N}$, $B(j) = 3^j$.
+>3. $B(j+1) = 3^{j+1} = 3 \times 3^j = 3 \times B(j)$ \[By assumption on line 2]
+>4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$ \[Principle of mathematical induction]
 
-To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
+---
+# Question 6 \[Graded for Participation]
 
+Let $B(n)$ be a recurrence defined in the following way.
 
->[!note] Solution
->Let's consider a simpler case of $3$ people, $\text{Alice}$, $\text{Bob}$ and $\text{Charlie}$. Writing each valid seating arrangement in a line instead of around a circle, we might have a particular seating arrangement as such: $$\text{Alice} \to \text{Bob} \to \text{Charlie}$$ where counting is done clockwise.
->
->Observe that this represents the same seating arrangement as $\text{Bob} \to \text{Charlie} \to \text{Alice}$ and $\text{Charlie} \to \text{Alice} \to \text{Bob}$. In a way, we can "shift" the people by a single position each time to generate a different way of representing the **same** seating arrangement, of which there are $3$.
->
->Hence, for $3$ people, we have $3!$ permutations (in a row), and for each actual valid seating arrangement, we have triple-counted them within these $3!$ permutations. Hence, we need to divide by $3$ to get the actual number of seating arrangements.
->
->Applying this concept for the case of $5$ people, we have $5!$ permutations (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
->
->More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
 
-## Sub-question 2:
-Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
 
-![[circ-perm-direction.svg]]
 
+## Sub-part 1
+True or false? $B(n) \in O(3^n)$
 
+(Hint: You may want to use the statement at end of question 4)
 
->[!note] Solution
->Now, each of the $(n - 1)!$ arrangements from sub-question 1 is double-counted since its anti-clockwise counterpart was previously treated as a distinct seating arrangement. Hence, we now only have $\frac{(5-1)!}{2} = 12$ distinct seating arrangements.
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
 
-# Question 3:
+**Solution**:
 
-Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
+**True.** From Q5, we have that $B(n) = 3^n$.
 
+>[!note] Proof
+>1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
+>	- Then, $B(n) = 3^n \leq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$ \[Existential generalisation on line 1]
+>3. $B(n) \in O(3^n)$ \[Definition of $O$]
 
->[!note] Solution
->For the first part, it is possible for each person to be friends with exactly $2$ other people. Imagine all 7 people form a circle, they are friends with the people that are right next to them.
->In the image below, consider if A is friends with B and G, B is friend with A and C, so on and so forth.
->
->![[circle.png]]
->
->For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked (have an edge between them) if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. 
->
-> From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
->
->This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur as $|E|$ always has to be an even number.
+## Sub-part 2
+True or false? $B(n) \in \Omega(3^n)$
 
-# Question 4:
+(Hint: You may want to use the statement at end of question 4)
 
-Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
 
+**Solution**:
 
->[!note] Solution
->The maximum number of edges possible is $\binom{\lvert V \rvert}{2}$, where there exists an edge between any two vertices in $V$. 
->
->Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
+**True**. 
 
-# Question 5 \[Graded for Participation]:
+>[!note] Proof
+>1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
+>	- Then, $B(n) = 3^n \geq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>1. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$ \[Existential generalisation on line 1]
+>2. $B(n) \in \Omega(3^n)$ \[Definition of $\Omega$]
 
-Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
+## Sub-part 3
+True or false? $B(n) \in \Theta(3^n)$
 
+Why/why not? You do not have to give a proof.
 
->[!note] Solution
->From the lecture notes, we know that a full $k$-ary tree of height $h$ has $1$ node at level 0, $k$ nodes at level 1, $k^2$ nodes at level 2, and so on. Hence, the number of nodes in the tree is $$1 + k + k^2 + k^3 + \dots + k^h = \frac{k^{h+1}-1}{k-1}$$
->
->Observe that each node has $1$ edge to its parent, except for the root node (which has no parents). Hence, the number of edges in the tree is $$\frac{k^{h+1}-1}{k-1} - 1$$
->
->The number of leaves is simply the number of nodes at the $h^{th}$ level, which is $k^h$.
+(Hint: What is the definition of $\Theta$?)
 
-# Question 6:
+**Solution**:
 
-Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+**True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
 
->[!note] Solution
-> Let's think about what happens if we had $3$ nodes first. Let's call them $a, b, c$. So the only possible cycle is $a \to b \to c \to a$. Think of going forwards as the same as going backwards. This is actually, again, a circular arrangement! Just like in [[#Question 3]].
-> 
-> Another example, let's say we had $4$ nodes, let's call them $a, b, c, d$. Then there are actually $4!/4 = 6$ possible cycles we can make (if we didn't care about clock-wise vs anti-clock-wise): 
-> 
-> 1. $a \to b \to c \to d \to a$.
-> 2. $a \to c \to b \to d \to a$.
-> 3. $a \to b \to c \to d \to a$.
-> 4. $a \to b \to d \to c \to a$.
-> 5. $a \to d \to b \to c \to a$.
-> 6. $a \to d \to c \to b \to a$.
-> 
-> Notice here for example that going from $a \to b \to c \to d \to a$ can be seen as the same as $a \to d \to c \to b \to a$.
-> 
-> So we can divide this by $2$ to get a total of $6 / 2 = 3$ possible cycles.
->
->Every cycle requires at least $3$ nodes, with each $k$-cycle involving exactly $k$ of the $n$ nodes. Hence, the total number of cycles that can be constructed for a graph with $n \geq 3$ nodes is $$\binom{n}{3} \frac{3!}{3\cdot2} + \binom{n}{4}\frac{4!}{4\cdot2} + \binom{n}{5}\frac{5!}{5\cdot 2} + \dots + \binom{n}{n}\frac{n!}{n\cdot 2} = \sum_{i=3}^{n} \binom{n}{i} \frac{n!}{n\cdot 2}$$
->
->For graphs with $0 \leq n < 3$ nodes, the number of cycles that can be made is $0$.
+---
+# Question 7
 
-# Question 7:
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}\ [f(n) \geq 0]$ and $\forall n \in \mathbb{N}\ [g(n) \geq 0]$. I.e. the functions are always non-negative.
 
-Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+Prove that:
 
-Show that there will always been 2 teams that have played the exact same number of matches.
+$$
+\max(f(n), g(n)) \in O(f(n) + g(n))
+$$
 
+**Solution**:
 
->[!note] Solution
->We use the pigeonhole principle, where the "pigeons" are the teams and the "pigeonholes" are the number of matches played.
->
->**Proof:**
->1. There are two cases: either there is a team that has played exactly $n-1$ games, or there is no such team that has played exactly $n-1$ games.
->2. Case 1: There is a team that has played exactly $n-1$ games.
->	- Since that team has played everyone else, there cannot be a team that has played exactly $0$ games.
->	- Hence, there are $n-1$ possible number of games played by each team, ranging from $1$ to $n-1$.
->	- Since there are $n$ teams and only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
->3. Case 2: No team has played exactly $n-1$ games.
->	- Now, there are again $n-1$ possible number of games played by each team, but this time ranging from $0$ to $n-2$.
->	- Since there are $n$ teams and still only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
->1. Either way, there must be $2$ teams that have played the same number of games. \[Proof by cases]
+We refer to the following definition:
+$$
+\max(a,b) = \begin{cases}
+a, & a \geq b\\
+b, & b > a
+\end{cases}
+$$
 
+>[!note] Proof
+>1. Let $f(n)$ and $g(n)$ be arbitrarily chosen functions.
+>2. Observe that $\max(f(n),g(n)) \leq f(n) + g(n)$ since both functions are always non-negative. \[Basic algebra]
+>3. Then, $\max(f(n),g(n)) \leq f(n)+g(n) = 1 \cdot (f(n)+g(n))$, for all $n \in \mathbb{N}$, i.e. for all $n \geq 0$. \[Basic algebra]
+>4. Letting $n_0=0 \in \mathbb{N}$, $c=1 \in \mathbb{R^+}$, we see that $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ \big[\max\big(f(n),g(n)\big) \leq c \cdot (f(n)+g(n))\big]$. \[Existential generalisation on line 3]
+>5. $\max(f(n),g(n)) \in O(f(n)+g(n))$ \[Definition of $O$]
 
+---
+# Question 8 (Challenging!)
 
+Prove that:
+
+$$
+2^{2n} \notin O(2^n)
+$$
+
+\[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
+
+>[!note] Proof
+>1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$.
+>2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ [2^{2n} \leq c \cdot 2^n]$ \[Unpacking definition of O]
+>3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m\ [2^{2n} \leq k \cdot 2^n]$ \[Existential instantiation on line 2]
+>4. $\forall n \geq m\ \big[\frac{2^{2n}}{2^n} \leq k\big]$ \[Basic algebra]
+>5. $\forall n \geq m\ [2^n \leq k]$ \[Basic algebra]
+>6. As $n$ approaches infinity, $2^n > k$. \[Basic algebra; see below for a more rigorous proof]
+>7. $\therefore \exists n \geq m\ [2^n > k]$ \[Existential generalization on line 6]
+>8. $\neg (\forall n \geq m\ [2^n \leq k])$  \[Logically equivalent to line 7]
+>9. $\neg (\forall n \geq m\ [2^n \leq k]) \land (\forall n \geq m\ [2^n \leq k])$ \[Conjunction on lines 5 and 8]
+>10. $\therefore \bot$ \[Contradiction rule on line 9]
+>11. $\therefore 2^{2n} \notin O(2^n)$ \[Proof by contradiction on line 10]
+
+To prove the idea that one can always find a value of $n$ such that $2^n > k$, we can do the following:
+
+**Sub-Proof**:
+1. Consider $n = \max(1 + \log_2 k, m)$.
+2. Then, $n > \log_2 k$. \[Basic algebra]
+3. $2^n > 2^{\log_2 k} = k$. \[Basic algebra]
+4. Also, $n \geq m$. \[Basic algebra, from line 2]
+5. $\exists n \geq m\ [2^n > k]$. \[Existential generalisation on line 3, 4]

@@ -1,8 +1,9 @@
+
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 14 Apr 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 31 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -16,217 +17,233 @@
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 8]] and [[Unit 9]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and [[Unit 7]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 and 2 are related to basic probability.
-2. Questions 3 and 4 are related to distributions and bounds.
+1. Questions 1 and 2 are related to combinatorics. 
+2. Questions 3 through 6 are related to graph theory. 
+3. Question 8 is related to the pigeonhole principle. 
 
-After Week 11's content, you should be able to attempt questions 1 and 2. After Week 12's content, you should be able to attempt questions 3 and 4.
+After Week 9's content, you should be able to attempt questions 1 and 2. After Week 10's content, you should be able to attempt questions 2 through 7.
 
-**Questions 1 and 3** are graded for participation.
+**Questions 1 and 5** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1
 
-Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_1$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
+# Question 1 \[Graded for Participation]:
 
-1. Roll the first dice.
-2. Roll the second dice.
-3. Add up the two numbers and output it, call the output $S$.
+Let's say that we want to build a password system that only accepts: 
 
-**Assume that the dice are independent**, in other words, the outcome of the first dice and the outcome of the second dice do not affect each other.
+1. Lowercase letters (a-z); there are 26 possible choices
+2. Uppercase letters (A-Z); there are 26 possible choices
+3. Numbers (0-9); there are 10 possible choices
 
-## Sub-question 1:
-What is the sample space of $D_1$? What is the sample space of $D_2$? What is the sample space of $D_1 \times D_2$?
-
->[!Solution]
->The sample space is the set of all possible outcomes. In this case, the sample space of the six-sided die $D_1$ is $\{1, 2, 3, 4, 5, 6\}$ and the sample space of the two-sided die $D_2$ is $\{1, 2\}$. The sample space of $D_1 \times D_2$ is the cartesian product of the sample space of $D_1$ and $D_2$ which is $\{(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 1), (4, 2), (5, 1), (5, 2), (6, 1), (6,2)\}$.
-
-## Sub-question 2:
-Write down the events that correspond to the following:
-
-1. The event $E_1$ that $S = 3$
-2. The event $E_2$ that $S \leq 3$
-3. The event $E_3$ that $S = 7$
-
->[!Solution]
->1.  $E_1 = \{(1, 2), (2, 1)\}$
->2.  $E_2 = \{(1, 1), (1, 2), (2, 1)\}$
->3. $E_3 = \{(5, 2), (6, 1)\}$
-
-## Sub-question 3:
-Assume that die $D_1$ produces any of its $6$ possible values **uniformly at random**, and assume that die $D_2$ produces value $1$ with probability $\frac{1}{3}$, and value $2$ with probability $\frac{2}{3}$ (like an unfair dice).
-
-What is the probability that:
-1. $S = 3$?
-2. $S \leq 3$?
-3. $S = 7$?
-
->[!Solution]
->1. $\Pr[S = 3] = \Pr[(1,2)] + \Pr[(2,1)] = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
->2. $\Pr[S \leq 3] = \Pr[S = 3] + \Pr[S = 2] = \frac{1}{6} + \frac{1}{6} \times \frac{1}{3} = \frac{2}{9}$
->3. $\Pr[S = 7] = \Pr[(5,2)] + \Pr[(6,1)] = \frac{1}{6} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{3} = \frac{1}{6}$
-## Sub-question 4:
-Compute the following quantities:
-
-1. $\Pr[(S \leq 3) \cup (S = 7)]$
-2. $\Pr[(S < 7) \cap (S > 3)]$
-3. $\Pr[S = 6 | D_1 = 5]$
-
->[!Solution]
->1. Since they are disjoint events, $\Pr[(S \leq 3) \cup (S = 7)] = \Pr[S \leq 3] + \Pr[S = 7] = \frac{2}{9} + \frac{1}{6} = \frac{7}{18}$
->2. Let's try solving this by finding the complement of this event. The complement of this event would be $\Pr[(S \leq 3) \cup (S \geq 7)] = \Pr[(S \leq 3) \cup (S = 7)] +  \Pr[(S = 8)]$. Since $\Pr[S = 8] = \frac{1}{6} \times \frac{2}{3}$, the answer is $\frac{7}{18} + \frac{2}{18} = \frac{1}{2}$.
->3. Recall Bayes' Theorem, $\Pr[S = 6 | D_1 = 5] = \frac{\Pr[(S = 6) \cap (D_1 = 5)]}{\Pr[D_1 = 5]} = \frac{\frac{1}{6} \times \frac{1}{3}}{\frac{1}{6}} = \frac{1}{3}$
-# Question 2:
-Let's explore the concept of Bayes' Theorem a little bit more. So recall that:
-
-$$
-\Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]}
-$$
-
-but under Bayes' Theorem, we also have that:
-
-$$
-\Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
-$$
-
-We can actually take this concept further. Notice here that we can combine the two lines to say the following:
-
-$$
-\frac{\Pr[A \cap B]}{\Pr[B]} = \Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
-$$
-
-Which means that:
-
-$$
-\Pr[A \cap B] = \Pr[B | A] \cdot \Pr[A]
-$$
-
-Also, recall that we said that if two events $D$ and $E$ are **disjoint**, then we can say that:
-
-$$
-\Pr[D \cup E] = \Pr[D] + \Pr[E]
-$$
-
-
+We are going to try to count how many possible password there are, depending on different rules that the system will allow.
 
 ## Sub-question 1:
-**Question:** With the help of the identities shown above, prove that:
-$$
-\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}
-$$
 
-**Hint:** What if we told you that $B \cap \bar{A}$ is disjoint from $B \cap A$? How can you use this fact? What is $(B \cap A) \cup (B \cap \bar{A})$? 
+Let's say the password system says:
 
->[!Solution]
->1. Notice here that $(B \cap A) \cup (B \cap \bar{A}) = B$.
->2. $\therefore \Pr[A|B] = \frac{\Pr[A \cap B]}{\Pr[B]}$
->3. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B]}$
->4. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[(B \cap A) \cup (B \cap \bar{A})]}$ \[From line 1]
->5. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B \cap A] + \Pr[B \cap \bar{A}]}$ \[Since $B \cap A$ and $B \cap \bar{A}$ are disjoint]
->6. $= \frac{\Pr[B|A] \cdot \Pr[A]}{\Pr[B|A] \cdot \Pr[A] + \Pr[B|\bar{A}] \cdot \Pr[\bar{A}]}$
+> Any password must be of length $\geq 8$ and $\leq 32$.
 
-## Sub-question 2:
-Let's say a disease $F$ affects $1$ out of every $1000$ people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" $85$% of the time. We also know that among all people who took the test (positive or not), the test reported "positive" $10$% of the time. 
-
-
-1. Let's say we took the test and the test reported "positive". What is the probability we have disease $F$?
-2. What is the probability that if we administered a test on a person that we know **does not** have the disease, the test will report positive?
-
-You will probably find the following identity helpful (for the second part):
-
-$$
-1 - \Pr[A | B] = \Pr[\bar{A} | B]
-$$
-
->[!Solution]
->\[Part 1]
-> Analysing the question, we have that $\Pr[Disease] = 0.001$, $\Pr[Positive | Disease] = 0.85$ and $Pr[Positive] = 0.1$. 
-> 		
-> Also note that what we are trying to find here is $\Pr[Disease|Positive]$
-> 		
-> Therefore, we can use the formula from sub-question 1:
-> 
-> $\Pr[Disease|Positive] = \frac{\Pr[Positive|Disease] \cdot \Pr[Disease]}{\Pr[Positive]} = \frac{0.85 \times 0.001}{0.1} = 0.0085$
->
->
->\[Part 2]  
->What we are trying to find for this question is $\Pr[Positive|\bar{Disease}]$
->		
->From sub-question 1, we have that:
->
->$$\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}$$
->
->We can manipulate it such that it becomes:
->
-> $$\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]}$$
-> 
-> $$\Pr[B | \bar{A}] \cdot \Pr[\bar{A}] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[A|B]} - \Pr[B | A] \cdot \Pr[A]$$
->		 
->$\therefore \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]= \frac{\Pr[Positive|Disease] \times \Pr[Disease]}{\Pr[Disease|Positive]} - \Pr[Positive|\bar{Disease}] \cdot \Pr[\bar{Disease}]$
->$\implies \Pr[Positive|\bar{Disease}] \cdot (1 - 0.001) = \frac{0.85 \times 0.001}{0.0085} - 0.85 \times 0.001$
->$\implies \Pr[Positive|\bar{Disease}] \approx 0.09925$
-	
-# Question 3: Expectation 
-
-Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
-
-What is:
-
-1. $\mathbb{E}[X + Y + Z]$?
-2. $\mathbb{E}[X \cdot Z]$?
-3. $\mathbb{E}[Z\cdot Z]$?
-4. $\text{Var}[2X]$?
-5. $\text{Var}[X + Y]$?
-
->[!Solution]
->Let's start by finding the expectations and variance for each of the random variables.
->
->$$\mathbb{E}[X] = \frac{1}{p} = 1 \div \frac{1}{7} = 7$$
->
->$$\mathbb{E}[Y] = np = 20 \times \frac{1}{4} = 5$$
->
->$$\mathbb{E}[Z] = p = \frac{1}{3}$$
->
->$$\text{Var}[X] = \frac{1-p}{p^2} = \frac{1 - 1/7}{(1/7)^2} = 42$$
->
->$$\text{Var}[Y] = np(1-p) = (20)(\frac{1}{4})(1 - \frac{1}{4}) = \frac{15}{4}$$
->
->$$\text{Var}[Z] = p(1-p) = (\frac{1}{3})(1 - \frac{1}{3}) = \frac{2}{9}$$
->
->1. $\mathbb{E}[X + Y + Z] = \mathbb{E}[X] + \mathbb{E}[Y] + \mathbb{E}[Z] =  7 + 5 + \frac{1}{3} = \frac{37}{3}$
->2. Since $X$ and $Z$ are independent of each other, $\mathbb{E}[X \cdot Z]  = \mathbb{E}[X] \cdot \mathbb{E}[Z] = 7 \times \frac{1}{3} = \frac{7}{3}$
->3. $\mathbb{E}[Z \cdot Z] = \mathbb{E}[Z^2] = p = \frac{1}{3}$
->4. $\text{Var}[2X] = 2^2 \cdot \text{Var}[X] = 4 \cdot 42 = 168$
->5. Since $X$ and $Y$ are independent of each other, $\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] = 42 + \frac{15}{4} = \frac{183}{4}$
-
-
-# Question 4: 
-
-Let's say we were going to throw $n$ balls into $n$ bins. Each ball lands at any bin with probability $\frac{1}{n}$. Let $X$ be the number of balls that lands in the first bin. Recall we can write this as:
-
-$$
-X = \sum_{i = 1}^n X_i
-$$
-
-where $X_i$ is the random variable that is distributed as $Bernoulli(1/n)$.
-
-Compute the following:
-1. What is $\mathbb{E}[X]$?
-2. What is a bound for $\Pr[X > a]$?
+If this is the only requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 >[!note] Solution
->$$\mathbb{E}[X] = \mathbb{E}\big[\sum_{i=1}^{n} X_i\big] = \sum_{i=1}^{n} \mathbb{E}[X_i] = \sum_{i=1}^{n} \frac{1}{n} = n \cdot \frac{1}{n} = 1$$
+>For passwords of length $8$, there are $26 + 26 + 10 = 62$ choices for each character, giving us $62^8$ possible passwords. Similarly, for passwords of length $n$, there are $62^n$ possible passwords of that length.
 >
->$X$ actually follows a binomial distribution! $X \sim Binom(n, \frac{1}{n})$, i.e., the parameters are $n$ trials, and each trial succeeds with probability $\frac{1}{n}$.
+>Hence, there are $\sum_{n=8}^{32} 62^n$ passwords in total.
+
+## Sub-question 2:
+
+Let's say the password system says:
+
+> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric. I.e. At least one alphabet (either uppercase or lowercase), and at least one number.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
+
+
+>[!note] Solution
+>Without restrictions, there are a total of $\sum_{n=8}^{32} 62^n$ passwords (from sub-question 1).
 >
->Since $X$ is a non-negative random variable, we have the following Markov bound: $$\Pr[X > a] \leq \Pr[X \geq a] \leq \frac{\mathbb{E}[X]}{a} = \frac{1}{a}$$
+>Subtracting the number of passwords for the following cases leaves us with the required answer:
+>- Case 1: Passwords that contain only alphabets and no numbers
+>- Case 2: Passwords that contain only numbers and no alphabets
+>
+>For case 1, there are now only $52$ choices per character, so there are $\sum_{n=8}^{32} 52^n$ such passwords. For case 2, there are now only $10$ choices per character, so there are $\sum_{n=8}^{32} 10^n$ such passwords.
+>
+>Finally, subtracting these two values from the total gives us $\sum_{n=8}^{32} (62^n - 52^n - 10^n)$ as the answer.
+
+## Sub-question 3:
+
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, and must **alternate** numbers and characters.
+
+So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "aa1b3d0p" is not allowed because we have adjacent characters.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+
+>[!note] Solution
+>There are two cases:
+>- Case 1: Starts with an alphabet
+>- Case 2: Starts with a number
+>
+>Logically, these two values are equal since we are only swapping the order in which the alphabets and numbers appear. This means we only need to calculate the value of one of the cases.
+>
+>For case 1, there are $52$ choices for each of the $4$ alphabets and $10$ choices for each of the $4$ numbers, giving us a total of $52^4 \times 10^4 = 520^4$ possible passwords. Case 2 gives us the same value.
+>
+>Hence, the total number of possible passwords is $2 \times 520^4$.
+
+## Sub-question 4:
+
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
+
+So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+
+>[!note] Solution
+>We are now choosing any set of $8$ characters from the pool of $62$ alphanumeric characters given, which ensures that we do not choose any single character twice. However, after choosing the $8$ characters, we need to permute them.
+>
+>Hence, there are a total of $P(62,8)$ possible passwords.
+
+## Sub-question 5:
+
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
+
+So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorted in alphabetical order. But something like "bajoweaz" is not allowed.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+
+>[!note] Solution
+>We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single character twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to account for their permutations.
+>
+>This gives us a total of $\binom{52}{8}$ possible passwords.
+
+# Question 2:
+
+## Sub-question 1:
+Let's say we wanted to arrange 5 people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
+
+![[circ-perm.svg]]
+
+To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
+
+
+>[!note] Solution
+>Let's consider a simpler case of $3$ people, $\text{Alice}$, $\text{Bob}$ and $\text{Charlie}$. Writing each valid seating arrangement in a line instead of around a circle, we might have a particular seating arrangement as such: $$\text{Alice} \to \text{Bob} \to \text{Charlie}$$ where counting is done clockwise.
+>
+>Observe that this represents the same seating arrangement as $\text{Bob} \to \text{Charlie} \to \text{Alice}$ and $\text{Charlie} \to \text{Alice} \to \text{Bob}$. In a way, we can "shift" the people by a single position each time to generate a different way of representing the **same** seating arrangement, of which there are $3$.
+>
+>Hence, for $3$ people, we have $3!$ permutations (in a row), and for each actual valid seating arrangement, we have triple-counted them within these $3!$ permutations. Hence, we need to divide by $3$ to get the actual number of seating arrangements.
+>
+>Applying this concept for the case of $5$ people, we have $5!$ permutations (in a row), and each valid seating arrangement is counted five times, so we divide this number by $5$ to get the correct number of seating arrangements. This gives us a count of $\frac{5!}{5} = 4! = 24$.
+>
+>More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
+
+## Sub-question 2:
+Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
+
+![[circ-perm-direction.svg]]
 
 
 
+>[!note] Solution
+>Now, each of the $(n - 1)!$ arrangements from sub-question 1 is double-counted since its anti-clockwise counterpart was previously treated as a distinct seating arrangement. Hence, we now only have $\frac{(5-1)!}{2} = 12$ distinct seating arrangements.
 
+# Question 3:
+
+Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
+
+
+>[!note] Solution
+>For the first part, it is possible for each person to be friends with exactly $2$ other people. Imagine all 7 people form a circle, they are friends with the people that are right next to them.
+>In the image below, consider if A is friends with B and G, B is friend with A and C, so on and so forth.
+>
+>![[circle.png]]
+>
+>For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked (have an edge between them) if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. 
+>
+> From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
+>
+>This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur as $|E|$ always has to be an even number.
+
+# Question 4:
+
+Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
+
+
+>[!note] Solution
+>The maximum number of edges possible is $\binom{\lvert V \rvert}{2}$, where there exists an edge between any two vertices in $V$. 
+>
+>Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
+
+# Question 5 \[Graded for Participation]:
+
+Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
+
+
+>[!note] Solution
+>From the lecture notes, we know that a full $k$-ary tree of height $h$ has $1$ node at level 0, $k$ nodes at level 1, $k^2$ nodes at level 2, and so on. Hence, the number of nodes in the tree is $$1 + k + k^2 + k^3 + \dots + k^h = \frac{k^{h+1}-1}{k-1}$$
+>
+>Observe that each node has $1$ edge to its parent, except for the root node (which has no parents). Hence, the number of edges in the tree is $$\frac{k^{h+1}-1}{k-1} - 1$$
+>
+>The number of leaves is simply the number of nodes at the $h^{th}$ level, which is $k^h$.
+
+# Question 6:
+
+Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+
+>[!note] Solution
+> Let's think about what happens if we had $3$ nodes first. Let's call them $a, b, c$. So the only possible cycle is $a \to b \to c \to a$. Think of going forwards as the same as going backwards. This is actually, again, a circular arrangement! Just like in [[#Question 3]].
+> 
+> Another example, let's say we had $4$ nodes, let's call them $a, b, c, d$. Then there are actually $4!/4 = 6$ possible cycles we can make (if we didn't care about clock-wise vs anti-clock-wise): 
+> 
+> 1. $a \to b \to c \to d \to a$.
+> 2. $a \to c \to b \to d \to a$.
+> 3. $a \to b \to c \to d \to a$.
+> 4. $a \to b \to d \to c \to a$.
+> 5. $a \to d \to b \to c \to a$.
+> 6. $a \to d \to c \to b \to a$.
+> 
+> Notice here for example that going from $a \to b \to c \to d \to a$ can be seen as the same as $a \to d \to c \to b \to a$.
+> 
+> So we can divide this by $2$ to get a total of $6 / 2 = 3$ possible cycles.
+>
+>Every cycle requires at least $3$ nodes, with each $k$-cycle involving exactly $k$ of the $n$ nodes. Hence, the total number of cycles that can be constructed for a graph with $n \geq 3$ nodes is $$\binom{n}{3} \frac{3!}{3\cdot2} + \binom{n}{4}\frac{4!}{4\cdot2} + \binom{n}{5}\frac{5!}{5\cdot 2} + \dots + \binom{n}{n}\frac{n!}{n\cdot 2} = \sum_{i=3}^{n} \binom{n}{i} \frac{n!}{n\cdot 2}$$
+>
+>For graphs with $0 \leq n < 3$ nodes, the number of cycles that can be made is $0$.
+
+# Question 7:
+
+Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+
+Show that there will always been 2 teams that have played the exact same number of matches.
+
+
+>[!note] Solution
+>We use the pigeonhole principle, where the "pigeons" are the teams and the "pigeonholes" are the number of matches played.
+>
+>**Proof:**
+>1. There are two cases: either there is a team that has played exactly $n-1$ games, or there is no such team that has played exactly $n-1$ games.
+>2. Case 1: There is a team that has played exactly $n-1$ games.
+>	- Since that team has played everyone else, there cannot be a team that has played exactly $0$ games.
+>	- Hence, there are $n-1$ possible number of games played by each team, ranging from $1$ to $n-1$.
+>	- Since there are $n$ teams and only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>3. Case 2: No team has played exactly $n-1$ games.
+>	- Now, there are again $n-1$ possible number of games played by each team, but this time ranging from $0$ to $n-2$.
+>	- Since there are $n$ teams and still only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>1. Either way, there must be $2$ teams that have played the same number of games. \[Proof by cases]
 
 
 

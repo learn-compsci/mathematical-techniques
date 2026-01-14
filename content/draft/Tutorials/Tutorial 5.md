@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 5: Probability"
+title: "Tutorial 4: Combinatorics and Graphs"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 14 Apr 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 31 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -19,132 +19,117 @@ title: "Tutorial 5: Probability"
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 8]] and [[Unit 9]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and [[Unit 7]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 and 2 are related to basic probability.
-2. Questions 3 and 4 are related to distributions and bounds.
+1. Questions 1 and 2 are related to combinatorics. 
+2. Questions 3 through 6 are related to graph theory. 
+3. Question 8 is related to the pigeonhole principle. 
 
-After Week 11's content, you should be able to attempt questions 1 and 2. After Week 12's content, you should be able to attempt questions 3 and 4.
+After Week 9's content, you should be able to attempt questions 1 and 2. After Week 10's content, you should be able to attempt questions 2 through 7.
 
-**Questions 1 and 3** are graded for participation.
+**Questions 1 and 5** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
+
 # Question 1 \[Graded for Participation]:
 
-Let's consider a scenario where we have $2$ dice: die $1$ (call it $D_1$) is **six-sided** (with faces $1$ through $6$), and die $2$ (call it $D_2$) is **two-sided** (with faces $1$ through $2$). Here is a random process that we might consider:
+Let's say that we want to build a password system that only accepts: 
 
-1. Roll the first dice.
-2. Roll the second dice.
-3. Add up the two numbers and output it, call the output $S$.
+1. Lowercase letters ($a$-$z$); there are $26$ possible choices
+2. Uppercase letters ($A$-$Z$); there are $26$ possible choices
+3. Numbers ($0$-$9$); there are $10$ possible choices
 
-**Assume that the dice are independent**, in other words, the outcome of the first dice and the outcome of the second dice do not affect each other.
+We are going to try to count how many possible passwords there are, depending on different rules that the system will allow.
 
 ## Sub-question 1:
-What is the sample space of $D_1$? What is the sample space of $D_2$? What is the sample space of $D_1 \times D_2$?
+
+Let's say the password system says:
+
+> Any password must be of length $\geq 8$ and $\leq 32$.
+
+If this is the only requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 ## Sub-question 2:
-Write down the events that correspond to the following:
 
-1. The event $E_1$ that $S = 3$
-2. The event $E_2$ that $S \leq 3$
-3. The event $E_3$ that $S = 7$
+Let's say the password system says:
+
+> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric, i.e., at least one alphabet (either uppercase or lowercase), and at least one number.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
 
 ## Sub-question 3:
-Assume that die $D_1$ produces any of its $6$ possible values **uniformly at random**, and assume that die $D_2$ produces value $1$ with probability $\frac{1}{3}$, and value $2$ with probability $\frac{2}{3}$ (like an unfair dice).
 
-What is the probability that:
-1. $S = 3$?
-2. $S \leq 3$?
-3. $S = 7$?
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, and must **alternate** numbers and characters.
+
+So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed, but something like "$aa1b3d0p$" is not allowed because we have adjacent characters.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 ## Sub-question 4:
-Compute the following quantities:
 
-1. $\Pr[(S \leq 3) \cup (S = 7)]$
-2. $\Pr[(S < 7) \cap (S > 3)]$
-3. $\Pr[S = 6 | D_1 = 5]$
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
+
+So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed. But something like "$a1b3d0pa$" is not allowed because "$a$" has been repeated.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
+## Sub-question 5:
+
+Let's say the password system says:
+
+> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
+
+So passwords like "$adgkwxyz$" or "$abcdefgh$" are allowed, because they are sorted in alphabetical order. But something like "$bajoweaz$" is not allowed.
+
+If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+
 
 # Question 2:
-Let's explore the concept of Bayes' Theorem a little bit more. So recall that:
-
-$$
-\Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]}
-$$
-
-but under Bayes' Theorem, we also have that:
-
-$$
-\Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
-$$
-
-We can actually take this concept further. Notice here that we can combine the two lines to say the following:
-
-$$
-\frac{\Pr[A \cap B]}{\Pr[B]} = \Pr[A | B] = \frac{\Pr[B | A] \cdot \Pr[A]}{\Pr[B]}
-$$
-
-Which means that:
-
-$$
-\Pr[A \cap B] = \Pr[B | A] \cdot \Pr[A]
-$$
-
-Also, recall that we said that if two events $D$ and $E$ are **disjoint**, then we can say that:
-
-$$
-\Pr[D \cup E] = \Pr[D] + \Pr[E]
-$$
-
-
 
 ## Sub-question 1:
-**Question:** With the help of the identities shown above, prove that:
-$$
-\Pr[A | B] = \frac{\Pr[B | A] \cdot Pr[A]}{\Pr[B | A] \cdot \Pr[A] + \Pr[B | \bar{A}] \cdot \Pr[\bar{A}]}
-$$
+Let's say we wanted to arrange $5$ people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
 
-**Hint:** What if we told you that $B \cap \bar{A}$ is disjoint from $B \cap A$? How can you use this fact? What is $(B \cap A) \cup (B \cap \bar{A})$? 
+![[circ-perm.svg]]
+
+To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
 
 ## Sub-question 2:
-Let's say a disease $F$ affects $1$ out of every $1000$ people in the city. There is a testing kit that when administered on someone who is positive, will report "positive" $85$% of the time. We also know that among all people who took the test (positive or not), the test reported "positive" $10$% of the time. 
+
+Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
+
+![[circ-perm-direction.svg]]
 
 
-1. Let's say we took the test and the test reported "positive". What is the probability we have disease $F$?
-2. What is the probability that if we administered a test on a person that we know **does not** have the disease, the test will report positive?
 
-You will probably find the following identity helpful (for the second part):
+# Question 3:
 
-$$
-1 - \Pr[A | B] = \Pr[\bar{A} | B]
-$$
+Among a group of $7$ people, is it possible that every person is friends with exactly only $2$ other people? Is it possible that every person is friends with exactly $5$ other people?
 
 
-# Question 3 \[Graded for Participation]: Expectation
+# Question 4:
 
-Given $X \sim Geom(1/7)$, $Y \sim Binom(20, 1/4)$, and $Z \sim Bernoulli(1/3)$. Assume that the $3$ random variables are all independent of each other.
-
-What is:
-
-1. $\mathbb{E}[X + Y + Z]$?
-2. $\mathbb{E}[X \cdot Z]$?
-3. $\mathbb{E}[Z\cdot Z]$?
-4. $\text{Var}[2X]$?
-5. $\text{Var}[X + Y]$?
+Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
 
 
-# Question 4: 
+# Question 5 \[Graded for Participation]:
 
-Let's say we were going to throw $n$ balls into $n$ bins. Each ball lands at any bin with probability $\frac{1}{n}$. Let $X$ be the number of balls that lands in the first bin. Recall we can write this as:
+Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
 
-$$
-X = \sum_{i = 1}^n X_i
-$$
 
-where $X_i$ is the random variable that is distributed as $Bernoulli(1/n)$.
+# Question 6:
 
-Compute the following:
+Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
 
-1. What is $\mathbb{E}[X]$?
-2. What is a bound for $\Pr[X > a]$?
+# Question 7:
+
+Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (a team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+
+Show that there will always been $2$ teams that have played the exact same number of matches.

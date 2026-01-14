@@ -1,12 +1,11 @@
 ---
-title: "Tutorial 3: Induction, Recurrences, Asymptotics"
+title: "Tutorial 2: Set Theory and Relations"
 ---
-
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 17 Mar 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 3 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -20,166 +19,130 @@ title: "Tutorial 3: Induction, Recurrences, Asymptotics"
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and [[Unit 5]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 5 are related to induction and recurrences. 
-2. Questions 6 through 8 are related to asymptotic notation.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 2]] and [[Unit 3]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-After Week 7's content, you should be able to attempt questions 1 through 5. After Week 8's content, you should be able to attempt questions 6 through 8.
+1. Questions 1 through 4 are related to set theory. 
+2. Questions 5 through 8 are related to relations.
 
-**Questions 1, 3 and 6** are graded for participation.
+After Week 5's content, you should be able to attempt questions 1 through 4. After Week 6's content, you should be able to attempt questions 5 through 8.
+
+**Questions 2, 4, 5 and 7** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1 \[Graded for Participation]
+# Question 1:
 
-Using mathematical induction, prove that:
+Let $A = \{0\}$, and $B = \mathcal{P}(\{0, 1\})$. 
 
-$$
-\forall n \geq 1\left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
-$$
----
-# Question 2
-
-Using mathematical induction, prove that:
-
-$$
-\forall n \geq 1, \exists k \in \mathbb{N} \left[ 6^n - 1 = 5\cdot k \right]
-$$
-
+Find $\mathcal{P}(A)$ and $\mathcal{P}(B)$.
 
 ---
+# Question 2 \[Graded for Participation]:
 
-# Question 3 \[Graded for Participation]
+Consider the sets $A = \{x \in \mathbb{Z} : x^{2} \leq 16\}$ and $B = \big\{x \in \mathbb{N} : (x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$, $C = \{1, 2\}$.
 
-Let $A(n)$ be a recurrence defined in the following way.
+Find the following sets:
 
+1. $A \cap B$
+2. $A \cup B$
+3. $A \setminus C$
+4. $A \times C$
 
-$$
-A(n) = \begin{cases}
-1, & n = 0\\
-3, & n = 1\\
-2\times A(n - 1) - A(n - 2), & n \geq 2
-\end{cases}
-$$
-
-
-## Sub-question 1
-Compute the following values:
-
-1. $A(0)$
-2. $A(1)$
-3. $A(2)$
-4. $A(5)$
-
-
-## Sub-question 2
-Prove via strong induction that $\forall n\geq 0[A(n) = 2n + 1]$
+Note: Some of these can be written using [[Unit 2#Set-roster notation|set-roster notation]]—these are the ones where you can list them out one by one. For the rest, you can write them using [[Unit 2#Set-builder notation|set-builder notation]].
 
 ---
-# Question 4
+# Question 3:
 
-Let $M(n)$ be a recurrence defined in the following way.
+Convert the following from set-builder notation to set-roster notation:
 
+1. $A = \{ x \in \mathbb{Z} : (x = 5) \lor (x = 10) \}$
+2. $B = \{x \in \mathbb{N} :  (x > 1) \land (x < 10) \land even(x) \}$
+3. $C = \big\{x \in \mathbb{Z} : \exists k \in \mathbb{Z} \ \big[(x = 7k) \land (x \geq 0) \land (x < 60) \big] \big\}$.
+4. $D = \big\{x \in \mathbb{Z}: \forall a, b \in \mathbb{N} \ \big[(x < 10) \land (x > 1) \land \big((x = ab) \to (a = 1 \land b = x) \lor (a = x \land b = 1)\big)\big]\big\}$
 
-$$
-M(n) = \begin{cases}
-0 &, n = 1\\
-2 &, n = 2\\
-2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
-\end{cases}
-$$
-
-Prove via strong induction that:
-
-$$
-\forall n \geq 3 [M(n) \leq n\log_2(n)]
-$$
-
-You may find the following facts useful:
-1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
-2. $a \leq b \to \log_2(a) \leq \log_2(b)$
-
-You may alternatively use the substitution method to prove that this is $O(n \log n)$.
+**Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
 ---
-# Question 5
+# Question 4 \[Graded for Participation]:
 
-Let $B(n)$ be a recurrence defined in the following way.
+Prove the set equality $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$.
 
+Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
 
-$$
-B(n) = \begin{cases}
-1, & n = 0\\
-3\times B(n - 1), & n \geq 1
-\end{cases}
-$$
-
-Prove by induction that:
-
-$$
-\forall n \in \mathbb{N}[B(n) = 3^n]
-$$
+**Hint:** [[Unit 2#Method 2 Based on logical equivalences|This section]] shows a method that might be helpful.
 
 ---
+# Question 5 \[Graded for Participation]:
 
-# Question 6 \[Graded for Participation]
-
-Let $B(n)$ be a recurrence defined in the following way.
-
+Let $R$ be the following relation:
 
 $$
-B(n) = \begin{cases}
-1, & n = 0\\
-3\times B(n - 1), & n \geq 1
-\end{cases}
+R = \{(1, 2), (3, 3), (2, 1), (5, 6), (6, 7), (7, 8)\}
 $$
 
+Compute:
+1. $R^{-1}$
+2. $R; R$
 
-## Sub-part 1
-True or false? $B(n) \in O(3^n)$
-
-(Hint: You may want to use the statement at end of question 4)
-
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
-
-## Sub-part 2
-True or false? $B(n) \in \Omega(3^n)$
-
-(Hint: You may want to use the statement at end of question 4)
-
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
-
-
-## Sub-part 3
-True or false? $B(n) \in \Theta(3^n)$
-
-Why/why not? You do not have to give a proof.
-
-
-(Hint: What is the definition of $\Theta$?)
+It might be helpful to refer to [[Unit 3#Part 2 Operations on Relations|this section]].
 
 ---
-# Question 7
+# Question 6:
 
-Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}[f(n) \geq 0]$ and $\forall n \in \mathbb{N}[g(n) \geq 0]$. I.e. the functions are always non-negative.
+Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$. 
 
-Prove that:
+#### Sub-part 1
 
-$$
-\max(f(n), g(n)) \in O(f(n) + g(n))
-$$
+Is the following statement true?
 
+> $R$ is reflexive.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 1 Reflexivity|this section]].
+
+#### Sub-part 2
+
+Is the following statement true?
+
+> $R$ is symmetric.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 2 Symmetry|this section]].
+
+#### Sub-part 3
+
+Is the following statement true?
+
+> $R$ is anti-symmetric.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 3 Anti-Symmetry|this section]].
+
+#### Sub-part 4
+
+Is the following statement true?
+
+> $R$ is transitive.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 4 Transitivity|this section]].
 
 ---
-# Question 8 (Challenging!)
+# Question 7 \[Graded for Participation]:
 
-Prove that:
+Is the following statement true?
 
-$$
-2^{2n} \notin O(2^n)
-$$
+> Let $A$ be any set. Let $R \subseteq A \times A$. 
+> 
+> If $R$ is symmetric, then $R; R$ is reflexive.
 
-\[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that $R$ is symmetric, but $R; R$ is not reflexive.
 
+---
+# Question 8:
+
+Is the following statement true?
+
+> Let $A$ be any set. Let $R \subseteq A \times A$. 
+> 
+> If $R$ is both reflexive and anti-symmetric, then $R$ is **not** symmetric.
+
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
