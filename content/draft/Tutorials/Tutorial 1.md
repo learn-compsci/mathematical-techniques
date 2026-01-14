@@ -154,10 +154,8 @@ Take note of which set each variable comes from, e.g., in the first statement, w
 > Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
 
 Consider the following first-order logic statements:
-1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
-2. $\forall x \in D \ \big[P(x) \lor Q(x) \big]$
-3. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
-4. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
+1. $\forall x \in D, \exists y \in E \ \big[P(x,y) \land Q(y) \big]$
+2. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
 Write the negation of each of the statements. You may refer to the section on [[Unit 1#Negating Quantifiers|negating quantifiers]] for this.
 
