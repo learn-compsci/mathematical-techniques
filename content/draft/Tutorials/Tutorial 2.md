@@ -192,7 +192,7 @@ The clickable hint box below gives a hint on how to approach this proof.
 > We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ by basic algebra. After all, $\frac{1}{2}$ is not an integer.
 
 ---
-# Question 7: \[Bonus]
+# Question 7 \[Bonus]:
 
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 

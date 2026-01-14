@@ -220,7 +220,7 @@ Prove the following statement:
 >4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
 
 ---
-# Question 7:
+# Question 7 \[Bonus]:
 
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
