@@ -22,12 +22,12 @@ title: "Tutorial 1: Propositions, Predicates, First-Order Logic"
 
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 3 are related to **propositional logic**. 
-2. Questions 4 through 6 are related to **first-order logic**. 
+1. Questions 1 and 2 are related to **propositional logic**. 
+2. Questions 3 through 5 are related to **first-order logic**. 
 
-After Week 1's content, you should be able to attempt questions 1 through 3. After Week 2's content, you should be able to attempt questions 4 through 6.
+After Week 1's content, you should be able to attempt questions 1 and 2. After Week 2's content, you should be able to attempt questions 3 through 5.
 
-**Questions 2, 4** are graded for participation.
+**Questions 2 and 3** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
