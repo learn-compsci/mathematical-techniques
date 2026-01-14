@@ -92,20 +92,50 @@ $$
 
 #### Sub-part 3
 
-For any integer $x$, we define the predicate $odd(x)$ to be the following:
+>[!note] Proof: $\forall n \in \mathbb{Z} \ [2n \neq 1]$
+>1. Suppose, for the sake of contradiction, that $\exists n \in \mathbb{Z} \ [2n = 1]$.
+>2. Let $n \in \mathbb{Z}$ be such that $2n = 1$. \[Universal instantiation on line 1]
+>3. But multiplying any number by $2$ gives an even number and $1$ is not even, so this is impossible. \[Contradiction]
+>4. $\forall n \in \mathbb{Z} \ [2n \neq 1]$. \[Proof by contradiction on line 3]
+
+---
+# Question 3:
+
+Fill in the missing steps in the following proof, given the rules of deduction.
+
+You may use the following lemma in your proof:
+
+>[!note] Lemma
+>$\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$.
+
+We also define the following predicate:
 
 $$
 odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
 $$
 
->[!note] Proof: $\neg \big(\exists x \in \mathbb{Z} \ [even(x) \land odd(x)] \big)$
->1. Suppose, for the sake of contradiction, that $\exists x \in \mathbb{Z} \ [even(x) \land odd(x)]$.
->2. Let $x \in \mathbb{Z}$ be such that $even(x) \land odd(x)$. \[Universal instantiation on line 1]
->3. But $even(x) \to \neg (odd(x))$ and $odd(x) \to \neg (even(x))$, so this is impossible. \[Contradiction]
->4. $\neg \big(\exists x \in \mathbb{Z} \ [even(x) \land odd(x)] \big)$. \[Proof by contradiction on line 3]
+>[!note] Proof: $\forall n \in \mathbb{Z} \ \big[even(n^2 + 3n) \big]$
+>1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. ................................................. \[Universal instantiation of given lemma]
+>3. Case 1: $even(n)$.
+>		1. ................................................. \[Definition of $even$]
+>		2. ................................................. \[Existential instantiation on line 3.1]
+>		3. $n^2 + 3n =$ ................................ \[Basic algebra]
+>		4. Since ........................., we know that ................................................. \[Basic algebra]
+>		5. ................................................. \[Existential generalisation on line 3.4]
+>		6. ................................................. \[Definition of $even$]
+>4. Case 2: $odd(n)$.
+>		1. ................................................. \[Definition of $odd$]
+>		2. ................................................. \[Existential instantiation on line 4.1]
+>		3. $n^2 + 3n =$ ................................ \[Basic algebra]
+>		4. Since ........................., we know that ................................................. \[Basic algebra]
+>		5. ................................................. \[Existential generalisation on line 4.4]
+>		6. ................................................. \[Definition of $even$]
+>5. ................................................. \[Proof by cases on lines 2, 3.6, 4.6]
+>6. ................................................. \[Universal generalisation on lines 1 and 5]
 
 ---
-# Question 3:
+# Question 4:
 
 For this question, we refer to the following definition of **rational numbers**:
 
