@@ -103,25 +103,7 @@ Answer template: <br>
 *Statement ___ is logically equivalent to statement ___ .*
 
 ---
-# Question 3:
-
->[!Purpose] 
-> This question aims to help you make sense of implications. There's really *nothing* deep behind implications. It is just a logical connective that has a certain behaviour.
-> 
-> To this end, try to consider the following statement below and how we can write it as an implication statement.
-
-> "Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner."
-
-1. How would you write this sentence in propositional logic? Do this by trying to identify sentences that you should call $p$, and sentences you should call $q$, and so on. (You can look at how [[#Question 1|Question 1]] of this tutorial has identified their sentences.)
-
-2. Determine whether the promise has been broken in each of the following cases:
-	1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
-	3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
-
----
-# Question 4 \[Graded Participation]: Tarski's World 
+# Question 3 \[Graded Participation]: Tarski's World 
 
 >[!Purpose] 
 > In this tutorial question, we will try to reinforce the concept of reading the notation for first-order logic. This comes in a few parts: we will try to get you used to basic set notation, the quantifiers, as well as the predicates.
@@ -166,7 +148,7 @@ Take note of which set each variable comes from, e.g., in the first statement, w
 ![[tarski.png]]
 
 ---
-# Question 5: Negating FOL Statements
+# Question 4: Negating FOL Statements
 
 >[!Purpose] 
 > Play around with FOL statements! It's important to know how to manipulate them for writing proofs (later on).
@@ -180,7 +162,7 @@ Consider the following first-order logic statements:
 Write the negation of each of the statements. You may refer to the section on [[Unit 1#Negating Quantifiers|negating quantifiers]] for this.
 
 ---
-# Question 6:
+# Question 5:
 
 >[!Purpose] 
 > In this next question, we will apply the understanding of first-order logic to more commonly encountered sets and practice manipulating statements. It's a chance to get more familiar with and fluent in reading and manipulating set notation, as well as practicing some tools commonly used to aid in proofs.

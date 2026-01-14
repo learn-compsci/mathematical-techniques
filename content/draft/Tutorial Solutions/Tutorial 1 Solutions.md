@@ -126,37 +126,7 @@ Rewriting the 4 statements using $p$ and $q$, we get:
 Using [De Morgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws#Boolean_algebra), **statements 1 and 3 and logically equivalent**, and **statements 2 and 4 are logically equivalent**.
 
 ---
-# Question 3:
-
-> "Aiken promises Dueet that if Dueet watches anime with him, then Aiken will treat Dueet to a pizza dinner."
-
-1. How would you write this sentence in propositional logic?
-
->[!Solution] 
-> We let the proposition "Dueet watches anime with Aiken" to be $p$ and "Aiken treats Dueet to a pizza dinner" to be $q$.
-> 
-> Then we can write this sentence as $p \to q$.
-
-2. Determine whether the promise has been broken in each of the following cases:
-	1. Dueet watches anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	2. Dueet watches anime with Aiken, but Aiken does not treat Dueet to a pizza dinner.
-	3. Dueet does not watch anime with Aiken, and Aiken treats Dueet to a pizza dinner.
-	4. Dueet does not watch anime with Aiken, and Aiken does not treat Dueet to a pizza dinner.
-
->[!Solution] 
-> In the examples we have seen truth tables where different truth values of $p$ and $q$ lead to a different truth value of $p\to q$. To make sense of this, we can look at this example.
-> 
->Case 1 definitely doesn't break the promise. Dueet watches anime, and Aiken keeps his promise. Case 2 breaks the promise because Dueet does his part and watches anime with Aiken, but Aiken didn't buy pizza like he had promised. Up to now it's all very intuitive.
->
->Case 4 doesn't break the promise either; since Dueet didn't do his part, he gets no pizza. 
->But Case 3 doesn't break the promise either! 
->
->Why is this so? [[Unit 1#The Implication Connective|In the notes]] we said that in an implication, we don't really care about what happens when the antecedent is false. An implication (Aiken's *promise*), only guarantees what happens when the antecedent is true. If we know $p$ is true, we know that $q$ will follow. It doesn't promise us anything about what happens when the antecedent $p$ is false!
->
->Another example would be buying things from a store. You could pay for a soda, and get the soda (Case 1). Or don't pay for the soda, and leave (Case 4). Or the owner might give it to you as a free gift, and you didn't pay for the soda (Case 3). The only case that is upsetting is when you pay but you don't get the soda (Case 2).
-
----
-# Question 4 \[Graded Participation]:
+# Question 3 \[Graded Participation]:
 
 Let:
 - $C=\{C_1,C_2,C_3\}$ be the set of circles,
@@ -202,7 +172,7 @@ Determine whether the following statements are true or false for the below pictu
 >	**True**: Consider $c = C_1, d = D_1$. Then, $\neg Orange(D_1) \equiv true$. By generalisation, $Grey(C_1) \lor \neg Orange(D_1) \equiv true$.
 
 ---
-# Question 5:
+# Question 4:
 
 Consider the following first-order logic statements:
 1. $\exists x \in D \ \big[P(x) \land Q(x) \big]$
@@ -285,7 +255,7 @@ Write the negation of each of the statements.
 >In other words, for every $x$ in set $D$, there exists some $y$ in set $E$, such that $P(x,y) \land \neg Q(y)$. Now we just have to translate this into FOL, and we have $\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$.
 
 ---
-# Question 6:
+# Question 5:
 
 ### Part A:
 
@@ -407,69 +377,6 @@ Write the negation of each of the statements.
 >>
 >>The contrapositive is thus true, making the original statement true.
 
----
-# Question 7 \[Graded Participation]:
-
-Prove the following statement:
-
-> [!Theorem] 
-> $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
-> 
-> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
-
->[!Solution]
->**Proof:**
->1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
->2. Assume for the sake of contradiction that $even(x) \land odd(x)$.
->		1. $even(x)$. \[Specialisation on line 2]
->		2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
->		3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
->		4. $odd(x)$. \[Specialisation on line 2]
->		5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
->		6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
->		7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
->		8. $2(s - t) = 1$. \[Basic algebra]
->		9. $s - t = \frac{1}{2}$. \[Basic algebra]
->		10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
->		11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.3 and 2.6]
->		12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
->		13. $\bot$. \[Contradiction rule on line 2.12]
->3. $\neg \big(even(x) \land odd(x)\big)$. \[Proof by contradiction rule on line 2.13]
->4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
-
----
-# Question 8:
-
-You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
-
-Your boss tells you to keep costs down, that each server must service **fewer than** $\frac{C}{S}$ clients in total. Let $c_i$ be the number of clients that the $i^{th}$ server has to service, i.e., $c_1$ is the number of clients for the first server, $c_2$ is the number of clients for the second server, and so on. Since we have $S$ servers, we have quantities $c_1, c_2, \ldots, c_S$.
-
-**Question:** Prove to yourself and your boss that this is impossible.
-
-**Solution:**
-
-Before we begin the proof, let's formalise what the question wants us to prove. We need to show that the following statement is true:
-
-Given $C \in \mathbb{N}, S \in \mathbb{N}, c_{1} \in \mathbb{N}, c_{2} \in \mathbb{Z}, \dots, c_{S} \in \mathbb{N}$ such that $(C > 0) \land (\sum_{i=1}^S c_i = C)$, and the set $[S] = \{1, 2, \dots, S\}$ (refer to [[Unit 2#Common Sets for Numbers|this section]] for an explanation of this notation),
-
-$$\neg \bigg(\forall i \in [S] \ \bigg[c_{i} < \frac{C}{S}\bigg]\bigg)$$
-
-Essentially, that it is **impossible** (indicated by the "$\neg$" symbol) for all servers to service fewer than $\frac{C}{S}$ clients. Now that we have a concrete statement down, we can continue proving it:
-
->[!Solution]
->**Proof:**
->1. Let $c_{1}, c_{2}, \dots, c_{S} \in \mathbb{N}$, arbitrarily chosen, be such that $\sum_{i=1}^S c_{i} = C$.
->2. Assume for the sake of contradiction that $\forall i \in [S] \ \big[c_{i} < \frac{C}{S}\big]$.
->		1. Then, we must have that $c_{1} < \frac{C}{S}$, $c_{2} < \frac{C}{S}$, $\dots$, $c_{S} < \frac{C}{S}$. \[Universal instantiation on line 2.1]
->		2. $\sum_{i=1}^S c_{i} = c_{1} + c_{2} + \dots + c_{S} < \frac{C}{S} + \frac{C}{S} + \dots + \frac{C}{S} = S \cdot \frac{C}{S} = C$. Rewriting this (for presentation's sake), we have $\sum_{i=1}^S c_{i} < C$. \[Basic algebra]
->		3. In particular, $\neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Basic algebra]
->		4. $\big(\sum_{i=1}^S c_{i} = C\big) \land \neg \big(\sum_{i=1}^S c_{i} = C\big)$. \[Conjunction on lines 1 and 2.3]
->		5. $\bot$. \[Contradiction rule on line 2.4]
->3. $\neg \big(\forall i \in [S] \ \big[c_{i} < \frac{C}{S}\big]\big)$. \[Proof by contradiction rule on line 2.5]
->4. Therefore, $$\forall c_{1}, c_{2}, \dots, c_{S} \in \mathbb{N} \ \bigg[\neg \bigg(\forall i \in [S] \ \bigg[c_{i} < \frac{C}{S}\bigg]\bigg)\bigg]$$ \[Universal generalisation on lines 1 and 3]
-
-Thus, such a task is impossible.
 
 
 
