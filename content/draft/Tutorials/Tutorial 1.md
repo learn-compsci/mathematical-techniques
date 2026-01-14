@@ -181,10 +181,7 @@ For each of the following statements, write out the negation of the statement, a
 
 1. $\forall x \in \mathbb{N}, \exists y \in \mathbb{Z} \ [x = y]$
 2. $\forall p, q \in \mathbb{Q} \ [q = p]$
-3. $\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]$ 
-4. $\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]$      
-5. $\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]$
-6. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
+3. $\forall a, b \in \mathbb{Z} \ [a^2 = b^2 \to a = b]$
 
 ## Part B: Contrapositive statements
 

@@ -248,48 +248,7 @@ Write the negation of each of the statements.
 >>**Deciphering the statement:**
 >>This statement says any two rational numbers are equal, which we know to be false.
 
-3. (**False**) $\exists a, b, c \in \mathbb{Z} \ [a \neq b \land a \neq c]$ 
-
->[!Explanation]
->This is a practice on applying De Morgan's Law.
->1. $\neg \big(\forall a, b, c \in \mathbb{Z} \ [a = b \lor a = c]\big)$
->2. $\equiv \exists a, b, c \in \mathbb{Z} \ \big[\neg (a = b \lor a = c)\big]$ (Negation of universal quantifier)
->3. $\equiv \exists a, b, c \in \mathbb{Z} \ [a \neq b \land a \neq c]$ (De Morgan's Law and negation of equals)
->>**Deciphering the statement:**
->>This statement says when you pick any three integers, one of the integers you picked will be equal to one of the other two integers. This is false.
-
-4. (**True**) $\exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q} \ [x \neq 3y \lor x \neq 5z]$
-
->[!Explanation]
->This is another practice on applying De Morgan's Law, but with a little more complexity.
->1. $\neg \big(\forall x \in \mathbb{Z}, \exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]\big)$
->2. $\equiv \exists x \in \mathbb{Z}, \neg \big(\exists y, z \in \mathbb{Q} \ [x = 3y \land x = 5z]\big)$ (Negation of universal quantifier)
->3. $\equiv \exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q} \ \big[\neg (x = 3y \land x = 5z)\big]$ (Negation of existential quantifier)
->4. $\equiv \exists x \in \mathbb{Z}, \forall y, z \in \mathbb{Q} \ [x \neq 3y \lor x \neq 5z]$ (De Morgan's Law and negation of equals)
->>**Deciphering the statement:**
->>This statement is a little tricker to unpack. It says that every integer, is 3 times of some rational number, and 5 times of another rational number.
->>
->>This is true, as for any integer $x$, $3 \cdot \frac{x}{3} = x$ and $5 \cdot \frac{x}{5} = x$, and we know that $\frac{x}{3}$ and $\frac{x}{5}$ are rational numbers.
-
-5. (**False**) $\forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z} \ [p + q = r]$
-
->[!Explanation]
->This is an example of when negating a statement can make it easier to understand.
->1. $\neg \big(\exists p, q \in \mathbb{Z}, \forall r \in \mathbb{Z} \ [p + q \neq r]\big)$
->2. $\equiv \forall p, q \in \mathbb{Z}, \neg \big(\forall r \in \mathbb{Z} \ [p + q \neq r]\big)$ (Negation of existential quantifier)
->3. $\equiv \forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z} \ \big[\neg (p + q \neq r)\big]$ (Negation of universal quantifier)
->4. $\equiv \forall p, q \in \mathbb{Z}, \exists r \in \mathbb{Z} \ [p + q = r]$ (Negation of equals)
->>**Deciphering the statement:**
->>This statement is not so easy to intuitively determine if it is true just by looking at the original statement, so we will instead consider the negation. 
->>
->>The negation says, any two integers added together is equal to another integer.
->>
->>We know this to be true. 
->>Therefore, the original statement must be false.
->>
->>In contrast, the original says, there are 2 integers that are not equal to any integer when added together. Not that it is impossible to tell this is false, but consider how much easier negating the statement made it to digest the statement.
-
-6. (**False**) $\exists a, b \in \mathbb{Z} \ [a^2 = b^2 \land a \neq b]$
+3. (**False**) $\exists a, b \in \mathbb{Z} \ [a^2 = b^2 \land a \neq b]$
 
 >[!Explanation]
 >This is a practice on negating implication statements.
