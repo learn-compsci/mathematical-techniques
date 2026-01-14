@@ -64,7 +64,7 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
-# Question 2:
+# Question 2 \[Graded Participation]:
 
 For each of the following proofs, identify where there were incorrect/missing steps of justification, and discuss potential corrections to them.
 
@@ -103,6 +103,21 @@ $$
 >2. Let $x \in \mathbb{Z}$ be such that $even(x) \land odd(x)$. \[Universal instantiation on line 1]
 >3. But $even(x) \to \neg (odd(x))$ and $odd(x) \to \neg (even(x))$, so this is impossible. \[Contradiction]
 >4. $\neg \big(\exists x \in \mathbb{Z} \ [even(x) \land odd(x)] \big)$. \[Proof by contradiction on line 3]
+
+---
+# Question 3:
+
+For this question, we refer to the following definition of **rational numbers**:
+
+$$
+x \in \mathbb{Q} \equiv \exists p \in \mathbb{Z}, \exists q \in \mathbb{Z} \ \bigg[q \neq 0 \land x = \frac{p}{q}\bigg]
+$$
+
+Prove the following statement:
+
+$$
+\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]
+$$
 
 ---
 # Question 6 \[Graded Participation]:
