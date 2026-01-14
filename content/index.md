@@ -58,7 +58,7 @@ To be released
 * 4%: Post-lecture quizzes.
 	* Released on Canvas.
 	* Due weekly.
-	* Unlimited tries.
+	* ~~Unlimited tries~~ 5 attempts. (To prevent guessing and gaming the answers.)
 * 16%: Tutorial Submissions
 	* Best 4 out of 5 tutorial attempts.
 	* Each tutorial attempt is 4%.
