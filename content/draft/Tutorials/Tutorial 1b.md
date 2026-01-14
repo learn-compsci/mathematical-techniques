@@ -22,18 +22,16 @@ title: "Tutorial 1: Propositions, Predicates, First-Order Logic, Proofs"
 
 This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 1]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 3 are related to **propositional logic**. 
-2. Questions 4 through 6 are related to **first-order logic**. 
-3. Questions 7 and 8 are related to **proofs**. 
+1. All the questions here are related to proofs.
 
-After Week 2's content, you should be able to attempt questions 1 through 3. After Week 3's content, you should be able to attempt questions 4 through 6. After Week 4's content, you should be able to attempt questions 7 and 8.
+After Week 3 and 4's content, you should be able to attempt the questions here.
 
-**Questions 2, 4 and 7** are graded for participation.
+**Questions 1, and 5** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1:
+# Question 1: \[Graded for Participation]
 
 For the following proofs, fill in the blanks with the corresponding [[Unit 1#Allowable Rules of Deductions/Inferences|rule of deduction]] used, quoting the appropriate line numbers where necessary.
 
@@ -149,8 +147,10 @@ $$
 \forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]
 $$
 
+Notice that this is basically trying to say that every integer is also a rational number.
+
 ---
-# Question 5:
+# Question 5: \[Graded for Participation]
 
 Prove the following statement:
 
@@ -196,7 +196,7 @@ The clickable hint box below gives a hint on how to approach this proof.
 > We can also create a line that says $\neg(\frac{1}{2} \in \mathbb{Z})$ by basic algebra. After all, $\frac{1}{2}$ is not an integer.
 
 ---
-# Question 7:
+# Question 7: \[Bonus question]
 
 You are tasked with building a load balancer that services $C$ clients, and has to balance them between $S$ servers. All clients will request to be serviced at the same time at the start of the day, and the load balancer must assign each client a server immediately at the start of the day.
 
