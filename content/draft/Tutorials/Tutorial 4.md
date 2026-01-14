@@ -1,11 +1,12 @@
 ---
-title: "Tutorial 4: Combinatorics and Graphs"
+title: "Tutorial 3: Induction, Recurrences, Asymptotics"
 ---
+
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 31 Mar 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 17 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -19,117 +20,166 @@ title: "Tutorial 4: Combinatorics and Graphs"
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 6]] and [[Unit 7]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and [[Unit 5]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 and 2 are related to combinatorics. 
-2. Questions 3 through 6 are related to graph theory. 
-3. Question 8 is related to the pigeonhole principle. 
+1. Questions 1 through 5 are related to induction and recurrences. 
+2. Questions 6 through 8 are related to asymptotic notation.
 
-After Week 9's content, you should be able to attempt questions 1 and 2. After Week 10's content, you should be able to attempt questions 2 through 7.
+After Week 7's content, you should be able to attempt questions 1 through 5. After Week 8's content, you should be able to attempt questions 6 through 8.
 
-**Questions 1 and 5** are graded for participation.
+**Questions 1, 3 and 6** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
+# Question 1 \[Graded for Participation]
 
-# Question 1 \[Graded for Participation]:
+Using mathematical induction, prove that:
 
-Let's say that we want to build a password system that only accepts: 
+$$
+\forall n \geq 1\left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
+$$
+---
+# Question 2
 
-1. Lowercase letters ($a$-$z$); there are $26$ possible choices
-2. Uppercase letters ($A$-$Z$); there are $26$ possible choices
-3. Numbers ($0$-$9$); there are $10$ possible choices
+Using mathematical induction, prove that:
 
-We are going to try to count how many possible passwords there are, depending on different rules that the system will allow.
-
-## Sub-question 1:
-
-Let's say the password system says:
-
-> Any password must be of length $\geq 8$ and $\leq 32$.
-
-If this is the only requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
-
-## Sub-question 2:
-
-Let's say the password system says:
-
-> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric, i.e., at least one alphabet (either uppercase or lowercase), and at least one number.
-
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
-
-**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
-
-## Sub-question 3:
-
-Let's say the password system says:
-
-> Any password must be of length exactly $8$, and must **alternate** numbers and characters.
-
-So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed, but something like "$aa1b3d0p$" is not allowed because we have adjacent characters.
-
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
-
-## Sub-question 4:
-
-Let's say the password system says:
-
-> Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
-
-So a password like "$a1b2c3d4$" or a password like "$1m9j8s7h$" is allowed. But something like "$a1b3d0pa$" is not allowed because "$a$" has been repeated.
-
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
-
-## Sub-question 5:
-
-Let's say the password system says:
-
-> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
-
-So passwords like "$adgkwxyz$" or "$abcdefgh$" are allowed, because they are sorted in alphabetical order. But something like "$bajoweaz$" is not allowed.
-
-If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
+$$
+\forall n \geq 1, \exists k \in \mathbb{N} \left[ 6^n - 1 = 5\cdot k \right]
+$$
 
 
-# Question 2:
+---
 
-## Sub-question 1:
-Let's say we wanted to arrange $5$ people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
+# Question 3 \[Graded for Participation]
 
-![[circ-perm.svg]]
-
-To be clear, if we had $5$ people, then it doesn't matter where they sit, only the relative ordering matters.
-
-## Sub-question 2:
-
-Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
-
-![[circ-perm-direction.svg]]
+Let $A(n)$ be a recurrence defined in the following way.
 
 
-
-# Question 3:
-
-Among a group of $7$ people, is it possible that every person is friends with exactly only $2$ other people? Is it possible that every person is friends with exactly $5$ other people?
-
-
-# Question 4:
-
-Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
+$$
+A(n) = \begin{cases}
+1, & n = 0\\
+3, & n = 1\\
+2\times A(n - 1) - A(n - 2), & n \geq 2
+\end{cases}
+$$
 
 
-# Question 5 \[Graded for Participation]:
+## Sub-question 1
+Compute the following values:
 
-Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
+1. $A(0)$
+2. $A(1)$
+3. $A(2)$
+4. $A(5)$
 
 
-# Question 6:
+## Sub-question 2
+Prove via strong induction that $\forall n\geq 0[A(n) = 2n + 1]$
 
-Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+---
+# Question 4
 
-# Question 7:
+Let $M(n)$ be a recurrence defined in the following way.
 
-Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (a team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
 
-Show that there will always been $2$ teams that have played the exact same number of matches.
+$$
+M(n) = \begin{cases}
+0 &, n = 1\\
+2 &, n = 2\\
+2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
+\end{cases}
+$$
+
+Prove via strong induction that:
+
+$$
+\forall n \geq 3 [M(n) \leq n\log_2(n)]
+$$
+
+You may find the following facts useful:
+1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
+2. $a \leq b \to \log_2(a) \leq \log_2(b)$
+
+You may alternatively use the substitution method to prove that this is $O(n \log n)$.
+
+---
+# Question 5
+
+Let $B(n)$ be a recurrence defined in the following way.
+
+
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
+
+Prove by induction that:
+
+$$
+\forall n \in \mathbb{N}[B(n) = 3^n]
+$$
+
+---
+
+# Question 6 \[Graded for Participation]
+
+Let $B(n)$ be a recurrence defined in the following way.
+
+
+$$
+B(n) = \begin{cases}
+1, & n = 0\\
+3\times B(n - 1), & n \geq 1
+\end{cases}
+$$
+
+
+## Sub-part 1
+True or false? $B(n) \in O(3^n)$
+
+(Hint: You may want to use the statement at end of question 4)
+
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
+
+## Sub-part 2
+True or false? $B(n) \in \Omega(3^n)$
+
+(Hint: You may want to use the statement at end of question 4)
+
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
+
+
+## Sub-part 3
+True or false? $B(n) \in \Theta(3^n)$
+
+Why/why not? You do not have to give a proof.
+
+
+(Hint: What is the definition of $\Theta$?)
+
+---
+# Question 7
+
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}[f(n) \geq 0]$ and $\forall n \in \mathbb{N}[g(n) \geq 0]$. I.e. the functions are always non-negative.
+
+Prove that:
+
+$$
+\max(f(n), g(n)) \in O(f(n) + g(n))
+$$
+
+
+---
+# Question 8 (Challenging!)
+
+Prove that:
+
+$$
+2^{2n} \notin O(2^n)
+$$
+
+\[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
+

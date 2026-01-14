@@ -3,7 +3,7 @@
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
 	1. There is a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
 	2. Submit your written attempts in-person during our tutorial.
-* **Official due date for submission**: 17 Mar 2026, 11:59 PM **or** during tutorial itself.
+* **Official due date for submission**: 3 Mar 2026, 11:59 PM **or** during tutorial itself.
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -17,292 +17,384 @@
 * No submissions after 2 weeks.
 
 # Overview
-This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 4]] and [[Unit 5]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-1. Questions 1 through 5 are related to induction and recurrences. 
-2. Questions 6 through 8 are related to asymptotic notation.
+This tutorial gives practice questions to be discussed during the relevant tutorial in person. This particular tutorial sheet corresponds to [[Unit 2]] and [[Unit 3]]. It is recommended to either watch the lectures or read the notes for each respective parts before attempting the tutorial sheet.
 
-After Week 7's content, you should be able to attempt questions 1 through 5. After Week 8's content, you should be able to attempt questions 6 through 8.
+1. Questions 1 through 4 are related to set theory. 
+2. Questions 5 through 8 are related to relations.
 
-**Questions 1, 3 and 6** are graded for participation.
+After Week 5's content, you should be able to attempt questions 1 through 4. After Week 6's content, you should be able to attempt questions 5 through 8.
+
+**Questions 2, 4, 5 and 7** are graded for participation.
 
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1 \[Graded for Participation]
+# Question 1:
 
-Using mathematical induction, prove that:
+Let $A = \{0\}$, and $B = \mathcal{P}(\{0, 1\})$. 
 
-$$
-\forall n \geq 1 \left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
-$$
+Find $\mathcal{P}(A)$ and $\mathcal{P}(B)$.
 
-**Solution**:
->[!note] Proof
->1. (Base case) Let $n = 1$, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$. \[Basic algebra]
->2. (Inductive step) Assume that for $n = j$, where $j\in \mathbb{N}, \sum_{i = 1}^1 i^2 = \frac{j(j + 1)(2j + 1)}{6}$
->3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ \[Basic algebra]
->4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ \[By assumption on line 2]
->5. $= (j+1)\bigg[\frac{j(2j+1)}{6} + (j+1)\bigg]$ \[Basic algebra]
->6. $= (j+1)\big(\frac{2j^2+j+6j+6}{6}\big)$ \[Basic algebra]
->7. $= (j+1)\big(\frac{2j^2+7j+6}{6}\big)$ \[Basic algebra]
->8. $= (j+1)\big[\frac{(j+2)(2j+3)}{6}\big]$ \[Basic algebra]
->9. $= \frac{(j+1)[(j+1)+1][2(j+1)+1]}{6}$ \[Basic algebra]
->10. $\therefore \forall n \in \mathbb{N}\ \bigg[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}\bigg]$ \[Principle of mathematical induction]
+>[!Solution]
+> $\mathcal{P}(A) = \{\emptyset, \{0\}\}$. Observe that $\mathcal{P}(A)$ has $2^{|A|} = 2^1 = 2$ elements.
+>
+> $\mathcal{P}(\{0,1\}) = \big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}$, so:
+> $$
+> \begin{align*}
+> \mathcal{P}(B) = \{
+> \\&\emptyset, 
+> \\&
+> \\&\{\textcolor{green}{\emptyset}\}, \big\{\textcolor{blue}{\{0\}}\big\}, \big\{\textcolor{red}{\{1\}}\big\}, \big\{\textcolor{purple}{\{0,1\}}\big\},
+> \\&
+> \\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\},
+> \\&
+> \\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{green}{\emptyset}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}, \big\{\textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\},
+> \\&
+> \\&\big\{\textcolor{green}{\emptyset}, \textcolor{blue}{\{0\}}, \textcolor{red}{\{1\}}, \textcolor{purple}{\{0,1\}}\big\}
+> \\\}
+> \end{align*}
+> $$
 
-
----
-# Question 2
-
-Using mathematical induction, prove that:
-
-$$
-\forall n \geq 1, \exists k \in \mathbb{N} \left[ 6^n - 1 = 5\cdot k \right]
-$$
-
-**Solution**:
-
->[!note] Proof
->1. (Base case) Let $n = 1$. Then, $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
->	- Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
->2. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]$.
->3. Let $m \in \mathbb{N}$ be such that $6^j - 1 = 5m$. \[Existential instantiation on line 3]
->4. $6^{j+1} - 1 = 6^j \cdot 6 - 1 = 6 \cdot (6^j - 1) + 5$. \[Basic algebra]
->5. $6 \cdot (6^j - 1) + 5 = 6 \cdot 5m + 5 = 30m + 5 = 5 \cdot (6m + 1)$. \[By assumption on line 3]
->6. $6^{j+1} - 1 = 5 \cdot (6m + 1)$. \[Basic algebra, from lines 5, 6]
->7. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
->8. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
->9. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
+Observe that $\mathcal{P}(B)$ has $2^{|B|} = 2^4 = 16$ elements.
 
 ---
-# Question 3 \[Graded for Participation]
+# Question 2 \[Graded for Participation]:
 
-Let $A(n)$ be a recurrence defined in the following way.
+Consider the sets $A = \{x \in \mathbb{Z} : x^{2} \leq 16\}$ and $B = \big\{x \in \mathbb{N} : (x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big)\big\}$, $C = \{1, 2\}$.
 
+Find the following sets:
 
-$$
-A(n) = \begin{cases}
-1, & n = 0\\
-3, & n = 1\\
-2\times A(n - 1) - A(n - 2), & n \geq 2
-\end{cases}
-$$
+1. $A \cap B$
+2. $A \cup B$
+3. $A \setminus C$
+4. $A \times C$
 
+Note: Some of these can be written using [[Unit 2#Set-roster notation|set-roster notation]]—these are the ones where you can list them out one by one. For the rest, you can write them using [[Unit 2#Set-builder notation|set-builder notation]].
 
-## Sub-question 1
-Compute the following values:
-
-1. $A(0)$
-2. $A(1)$
-3. $A(2)$
-4. $A(5)$
-
-## Sub-question 2
-Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
-
-
-**Solution**:
-
-**Sub-question 1**:
-1. $A(0) = 1$
-2. $A(1) = 3$
-3. $A(2) = 2 \times A(1) - A(0) = 5$
-4. Since $A(3) = 2 \times A(2) - A(1) = 7$ and $A(4) = 2 \times A(3) - A(2) = 9$, we have $A(5) = 2 \times A(4) - A(3) = 11$.
-
-**Sub-question 2**:
-
->[!note] Proof
->1. (Base cases) We prove the statement for $n = 0$ and $n = 1$. Clearly, $A(0) = 1 = 2(0) + 1$ and $A(1) = 3 = 2(1) + 1$.
->2. (Inductive step) Let $k \geq 2$, and assume that $\forall 0 \leq j < k\ [A(j) = 2j + 1]$.
->3. $A(k) = 2 \times A(k-1) - A(k-2)$ \[By definition of $A(n)$]
->4. Since $0 \leq k-1 < k$ and $0 \leq k-2 < k$, we have $A(k-1) = 2(k-1)+1 = 2k-1$ and $A(k-2) = 2(k-2)+1 = 2k-3$, respectively. \[By assumption on line 2]
->5. $A(k) = 2 \times (2k-1) - (2k-3) = 4k-2-2k+3 = 2k+1$ \[Basic algebra, from lines 3, 4]
->6. $\forall n \geq 0\ [A(n) = 2n + 1]$ \[Principle of mathematical induction]
+>[!Solution]
+> First, we write out $A$ in set-roster notation: $A = \{-4, -3, -2, -1, 0, 1, 2, 3, 4\}$.
+> Next, set $B$ is simply all the positive natural numbers that are $1$ greater than a multiple of $3$.
+>
+> Then, we have the following sets:
+> 1. $A \cap B = \{1, 4\}$
+> 2. $A \cup B = \big\{x \in \mathbb{Z} : (x^2 \leq 16) \lor \big((x \geq 1) \land \big(\exists k \in \mathbb{Z} \ [x = 3k + 1]\big) \big) \big\}$
+> 3. $A \setminus C = \{-4, -3, -2, -1, 0, 3, 4\}$
+> 4.
+> 
+> $$
+> \begin{align*}
+> A \times C = \{
+> \\&(-4, 1), (-3, 1), (-2, 1), (-1, 1), (0, 1), (1, 1), (2, 1), (3, 1), (4, 1),
+> \\&(-4, 2), (-3, 2), (-2, 2), (-1, 2), (0, 2), (1, 2), (2, 2), (3, 2), (4, 2)
+> \\&\}
+> \end{align*}
+> $$
 
 ---
-# Question 4
+# Question 3:
 
-Let $M(n)$ be a recurrence defined in the following way.
+Convert the following from set-builder notation to set-roster notation:
 
+1. $A = \{ x \in \mathbb{Z} : (x = 5) \lor (x = 10) \}$
+2. $B = \{x \in \mathbb{N} :  (x > 1) \land (x < 10) \land even(x) \}$
+3. $C = \big\{x \in \mathbb{Z} : \exists k \in \mathbb{Z} \ \big[(x = 7k) \land (x \geq 0) \land (x < 60) \big] \big\}$.
+4. $D = \big\{x \in \mathbb{Z}: \forall a, b \in \mathbb{N} \ \big[(x < 10) \land (x > 1) \land \big((x = ab) \to (a = 1 \land b = x) \lor (a = x \land b = 1)\big)\big]\big\}$
 
-$$
-M(n) = \begin{cases}
-0 &, n = 1\\
-2 &, n = 2\\
-2\times M(\lfloor \frac{n}{2} \rfloor) + n &, n \geq 3\\
-\end{cases}
-$$
+**Hint for $D$**: It might be helpful to first think about what it's trying to do. That might speed things up for you.
 
-Prove via strong induction that:
-
-$$
-\forall n \geq 3 \ [M(n) \leq n\log_2(n)]
-$$
-
-You may find the following facts useful:
-1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
-2. $a \leq b \to \log_2(a) \leq \log_2(b)$
-
-You may alternatively use the substitution method to prove that this is $O(n \log n)$.
-
-
-**Solution**:
-
->[!note] Proof
->1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
->	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2(3)$
->	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
->	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$
->2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
->3. Since $k \geq 6$, $\lfloor \frac{k}{2} \rfloor \geq 3$, so our assumption applies to $\lfloor \frac{k}{2} \rfloor$.
->4. $M(k) = 2 \times M(\lfloor \frac{k}{2} \rfloor) + k \leq 2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k$ \[By assumption on line 2]
->5. $2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k = k\log_2(\frac{k}{2}) + k$ \[Facts 1, 2]
->6. $k\log_2(\frac{k}{2}) + k = k \log_2 k - k \log_2 2 + k = k \log_2 k - k + k = k \log_2 k$ \[Basic algebra]
->7. $M(k) \leq k \log_2 k$ \[From lines 4, 6]
->8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
+>[!Solution]
+> 1. $A = \{5, 10\}$
+> 2. $B = \{2, 4, 6, 8\}$
+> 3. $C = \{0, 7, 14, 21, 28, 35, 42, 49, 56\}$
+> 4. $D = \{2, 3, 5, 7\}$, i.e., the set of prime numbers between $1$ and $10$
 
 ---
-# Question 5
+# Question 4 \[Graded for Participation]:
 
-Let $B(n)$ be a recurrence defined in the following way.
+Prove the set equality $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$.
 
+Prove the set equality $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
 
-$$
-B(n) = \begin{cases}
-1, & n = 0\\
-3\times B(n - 1), & n \geq 1
-\end{cases}
-$$
-
-Prove by induction that:
-$$
-\forall n \in \mathbb{N}\ [B(n) = 3^n]
-$$
+**Hint:** [[Unit 2#Method 2 Based on logical equivalences|This section]] shows a method that might be helpful.
 
 **Solution**:
 
->[!note] Proof
->1. (Base case) Let $n=0$. Then, $B(0) = 1 = 3^0$.
->2. (Inductive step) Assume that for $n=j$, where $j \in \mathbb{N}$, $B(j) = 3^j$.
->3. $B(j+1) = 3^{j+1} = 3 \times 3^j = 3 \times B(j)$ \[By assumption on line 2]
->4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$ \[Principle of mathematical induction]
+The first problem is equivalent to the following: 
+
+$$
+(a \land \neg b) \land \neg c \equiv (a \land \neg c) \land \neg (b \lor c)
+$$
+
+Using a truth table, we see that this equivalence is true:
+
+| $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \land \neg c$ | $b \lor c$ | $\neg (b \lor c)$ | $(a \land \neg b) \land \neg c$ | $(a \land \neg c) \land \neg (b \lor c)$ |
+| ------- | ------- | ------- | -------- | -------- | ---------------- | ---------------- | ---------- | ----------------- | ------------------------------- | ---------------------------------------- |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$           | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$           | $false$    | $true$            | $\textcolor{blue}{true}$        | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $false$          | $true$     | $false$           | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$          | $false$    | $true$            | $\textcolor{blue}{false}$       | $\textcolor{blue}{false}$                |
+
+Hence, $(A\setminus B) \setminus C =(A \setminus C) \setminus (B \cup C)$.
+
+The second problem is equivalent to the following:
+
+$$
+(a \land \neg b) \lor c \equiv (a \lor c) \land \neg (b \land \neg c)
+$$
+
+Using a truth table, we see that this equivalence is also true:
+
+| $a$     | $b$     | $c$     | $\neg b$ | $\neg c$ | $a \land \neg b$ | $a \lor c$ | $b \land \neg c$ | $\neg (b \land \neg c)$ | $(a \land \neg b) \lor c$ | $(a \lor c) \land \neg (b \land \neg c)$ |
+| ------- | ------- | ------- | -------- | -------- | ---------------- | ---------- | ---------------- | ----------------------- | ------------------------- | ---------------------------------------- |
+| $true$  | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $true$  | $true$  | $false$ | $false$  | $true$   | $false$          | $true$     | $true$           | $false$                 | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
+| $true$  | $false$ | $true$  | $true$   | $false$  | $true$           | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $true$  | $false$ | $false$ | $true$   | $true$   | $true$           | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $true$  | $false$  | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $true$  | $false$ | $false$  | $true$   | $false$          | $false$    | $true$           | $false$                 | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
+| $false$ | $false$ | $true$  | $true$   | $false$  | $false$          | $true$     | $false$          | $true$                  | $\textcolor{blue}{true}$  | $\textcolor{blue}{true}$                 |
+| $false$ | $false$ | $false$ | $true$   | $true$   | $false$          | $false$    | $false$          | $true$                  | $\textcolor{blue}{false}$ | $\textcolor{blue}{false}$                |
+
+Hence, $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$.
+
+*For those who are interested in reading more rigorous proofs:*
+
+>[!note]- Proof: $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$
+>1. $(\subseteq)$ **Let $x \in (A \setminus B) \setminus C$ be arbitrarily chosen.**
+>		1. $(x \in A \setminus B) \land (x \notin C)$ \[Definition of set difference]
+>		2. $(x \in A) \land (x \notin B) \land (x \notin C)$ \[Definition of set difference]
+>			1. $(x \in A)$ \[Specialisation on line 1.2]
+>			2. $(x \notin B)$ \[Specialisation on line 1.2]
+>			3. $(x \notin C)$ \[Specialisation on line 1.2]
+>		3. $(x \in A) \land (x \notin C)$ \[Conjunction on lines 1.2.1 and 1.2.3]
+>		4. $x \in A \setminus C$ \[Definition of set difference]
+>		5. $(x \notin B) \land (x \notin C)$ \[Conjunction on lines 1.2.2 and 1.2.3]
+>		6. $\neg \big((x \in B) \lor (x \in C)\big)$ \[Logically equivalent to line 1.5]
+>		7. $\neg \big(x \in B \cup C\big)$ \[Definition of set union]
+>		8. $x \notin B \cup C$ \[Equivalent to line 1.7]
+>		9. $(x \in A \setminus C) \land (x \notin B \cup C)$ \[Conjunction on lines 1.4 and 1.8]
+>		10. $x \in (A \setminus C) \setminus (B \cup C)$ \[Definition of set difference]
+>		11. $\forall x \in (A \setminus B) \setminus C \ [x \in (A \setminus C) \setminus (B \cup C)]$ \[Universal generalisation on lines 1 and 1.10]
+>		12. $(A \setminus B) \setminus C \subseteq (A \setminus C) \setminus (B \cup C)$ \[Definition of subset]
+>2. $(\supseteq)$ **Let $x \in (A \setminus C) \setminus (B \cup C)$ be arbitrarily chosen.**
+>		1. $(x \in A \setminus C) \land (x \notin B \cup C)$ \[Definition of set difference]
+>		2. $(x \in A) \land (x \notin C) \land (x \notin B \cup C)$ \[Definition of set difference]
+>		3. $(x \in A) \land (x \notin C) \land \neg (x \in B \cup C)$ \[Equivalent to line 2.2]
+>		4. $(x \in A) \land (x \notin C) \land \neg \big((x \in B) \lor (x \in C)\big)$ \[Definition of set union]
+>		5. $(x \in A) \land (x \notin C) \land (x \notin B) \land (x \notin C)$ \[Logically equivalent to line 2.4]
+>			1. $x \in A$ \[Specialisation on line 2.5]
+>			2. $x \notin B$ \[Specialisation on line 2.5]
+>			3. $x \notin C$ \[Specialisation on line 2.5]
+>		6. $(x \in A) \land (x \notin B)$ \[Conjunction on lines 2.5.1 and 2.5.2]
+>		7. $x \in A \setminus B$ \[Definition of set difference]
+>		8. $(x \in A \setminus B) \land (x \notin C)$ \[Conjunction on lines 2.7 and 2.5.3]
+>		9. $x \in (A \setminus B) \setminus C$ \[Definition of set difference]
+>		10. $\forall x \in (A \setminus C) \setminus (B \cup C) \ [x \in (A \setminus B) \setminus C]$ \[Universal generalisation on lines 2 and 2.9]
+>		11. $(A \setminus C) \setminus (B \cup C) \subseteq (A \setminus B) \setminus C$ \[Definition of subset]
+>3. $\bigg((A \setminus B) \setminus C \subseteq (A \setminus C) \setminus (B \cup C)\bigg) \land \bigg((A \setminus C) \setminus (B \cup C) \subseteq (A \setminus B) \setminus C\bigg)$ \[Conjunction on lines 1.12 and 2.11]
+>4. $(A \setminus B) \setminus C = (A \setminus C) \setminus (B \cup C)$ \[Definition of set equality]
+
+>[!note]- Proof: $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$
+>1. **$(\subseteq)$ Let $x \in (A \setminus B) \cup C$ be arbitrarily chosen.**
+>		1. $\big((x \in A) \land (x \notin B)\big) \lor (x \in C)$. \[Definition of set difference]
+>		2. Case 1: $(x \in A) \land (x \notin B)$
+>			1. $x \in A$ \[Specialisation on line 1.2]
+>			2. $x \notin B$ \[Specialisation on line 1.2]
+>			3. $(x \in A) \lor (x \in C)$ \[Generalisation on line 1.2.1]
+>			4. $x \in A \cup C$ \[Definition of set union]
+>			5. $(x \notin B) \lor (x \in C)$ \[Generalisation on line 1.2.2]
+>			6. $\neg \big((x \in B) \land (x \notin C)\big)$ \[Logically equivalent to line 1.2.5]
+>			7. $\neg (x \in B \setminus C)$ \[Definition of set difference]
+>			8. $x \notin B \setminus C$ \[Equivalent to line 1.2.7]
+>			9. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Conjunction on lines 1.2.4 and 1.2.8]
+>			10. $x \in (A \cup C) \setminus (B \setminus C)$ \[Definition of set difference]
+>		3. Case 2: $x \in C$
+>			1. $(x \in A) \lor (x \in C)$ \[Generalisation on line 1.3]
+>			2. $(x \notin B) \lor (x \in C)$ \[Generalisation on line 1.3]
+>			3. $\neg \big((x \in B) \land (x \notin C)\big)$ \[Logically equivalent to line 1.3.2]
+>			4. $\neg (x \in B \setminus C)$ \[Definition of set difference]
+>			5. $x \notin B \setminus C$ \[Equivalent to line 1.3.4]
+>			6. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Conjunction on lines 1.3.1 and 1.3.5]
+>			7. $x \in (A \cup C) \setminus (B \setminus C)$ \[Definition of set difference]
+>		4. $x \in (A \cup C) \setminus (B \setminus C)$ \[Proof by cases on lines 1.1, 1.2.10, 1.3.7]
+>		5. $\forall x \in (A \setminus B) \cup C \ [x \in (A \cup C) \setminus (B \setminus C)]$ \[Universal generalisation on lines 1 an d 1.4]
+>		6. $(A \setminus B) \cup C \subseteq (A \cup C) \setminus (B \setminus C)$ \[Definition of subset]
+>2. **$(\supseteq)$ Let $x \in (A \cup C) \setminus (B \setminus C)$ be arbitrarily chosen.**
+>		1. $(x \in A \cup C) \land (x \notin B \setminus C)$ \[Definition of set difference]
+>		2. $\big((x \in A) \lor (x \in C)\big) \land (x \notin B \setminus C)$ \[Definition of set union]
+>		3. $\big((x \in A) \lor (x \in C)\big) \land \neg (x \in B \setminus C)$ \[Equivalent to line 2.2]
+>		4. $\big((x \in A) \lor (x \in C)\big) \land \neg \big((x \in B) \land (x \notin C)$ \[Definition of set difference]
+>		5. $\big((x \in A) \lor (x \in C)\big) \land \big((x \notin B) \lor (x \in C)$ \[Logically equivalent to line 2.4]
+>		6. $(x \in C) \lor \big((x \in A) \land (x \notin B)\big)$ \[Logically equivalent to line 2.5]
+>		7. Case 1: $x \in C$
+>			1. $(x \in A \setminus B) \lor (x \in C)$ \[Generalisation on line 2.7]
+>			2. $x \in (A \setminus B) \cup C$ \[Definition of set union]
+>		8. Case 2: $(x \in A) \land (x \notin B)$
+>			1. $x \in A \setminus B$ \[Definition of set difference]
+>			2. $(x \in A \setminus B) \lor (x \in C)$ \[Generalisation on line 2.8]
+>			3. $x \in (A \setminus B) \cup C$ \[Definition of set union]
+>		9. $x \in (A \setminus B) \cup C$ \[Proof by cases on lines 2.6, 2.7.2, 2.8.3]
+>		10. $\forall x \in (A \cup C) \setminus (B \setminus C) \ [x \in (A \setminus B) \cup C]$ \[Universal generalisation on lines 2 and 2.9]
+>		11. $(A \cup C) \setminus (B \setminus C) \subseteq (A \setminus B) \cup C$ \[Definition of subset]
+>3. $\bigg((A \setminus B) \cup C \subseteq (A \cup C) \setminus (B \setminus C)\bigg) \land \bigg((A \cup C) \setminus (B \setminus C) \subseteq (A \setminus B) \cup C\bigg)$ \[Conjunction on lines 1.6 and 2.11]
+>4. $(A \setminus B) \cup C = (A \cup C) \setminus (B \setminus C)$ \[Definition of set equality]
 
 ---
-# Question 6 \[Graded for Participation]
+# Question 5 \[Graded for Participation]:
 
-Let $B(n)$ be a recurrence defined in the following way.
-
+Let $R$ be the following relation:
 
 $$
-B(n) = \begin{cases}
-1, & n = 0\\
-3\times B(n - 1), & n \geq 1
-\end{cases}
+R = \{(1, 2), (3, 3), (2, 1), (5, 6), (6, 7), (7, 8)\}
 $$
 
+Compute:
+1. $R^{-1}$
+2. $R; R$
 
-## Sub-part 1
-True or false? $B(n) \in O(3^n)$
+It might be helpful to refer to [[Unit 3#Part 2 Operations on Relations|this section]].
 
-(Hint: You may want to use the statement at end of question 4)
-
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
-
-**Solution**:
-
-**True.** From Q5, we have that $B(n) = 3^n$.
-
->[!note] Proof
->1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
->	- Then, $B(n) = 3^n \leq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
->2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$ \[Existential generalisation on line 1]
->3. $B(n) \in O(3^n)$ \[Definition of $O$]
-
-## Sub-part 2
-True or false? $B(n) \in \Omega(3^n)$
-
-(Hint: You may want to use the statement at end of question 4)
-
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
-
-**Solution**:
-
-**True**. 
-
->[!note] Proof
->1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
->	- Then, $B(n) = 3^n \geq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
->1. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$ \[Existential generalisation on line 1]
->2. $B(n) \in \Omega(3^n)$ \[Definition of $\Omega$]
-
-## Sub-part 3
-True or false? $B(n) \in \Theta(3^n)$
-
-Why/why not? You do not have to give a proof.
-
-(Hint: What is the definition of $\Theta$?)
-
-**Solution**:
-
-**True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
+>[!note] Solution
+> $R^{-1} = \{(2,1), (3,3), (1,2), (6,5), (7,6), (8,7)\}$
+>
+> $R;R = \{(1,1), (2,2), (3,3), (5,7), (6,8)\}$
 
 ---
-# Question 7
+# Question 6:
 
-Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}\ [f(n) \geq 0]$ and $\forall n \in \mathbb{N}\ [g(n) \geq 0]$. I.e. the functions are always non-negative.
+Let $A$ be the following set: $A = \{0, 1, 2\}$. Let $R = A \times A$. 
 
-Prove that:
+#### Sub-part 1
 
-$$
-\max(f(n), g(n)) \in O(f(n) + g(n))
-$$
+Is the following statement true?
 
-**Solution**:
+> $R$ is reflexive.
 
-We refer to the following definition:
-$$
-\max(a,b) = \begin{cases}
-a, & a \geq b\\
-b, & b > a
-\end{cases}
-$$
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 1 Reflexivity|this section]].
 
->[!note] Proof
->1. Let $f(n)$ and $g(n)$ be arbitrarily chosen functions.
->2. Observe that $\max(f(n),g(n)) \leq f(n) + g(n)$ since both functions are always non-negative. \[Basic algebra]
->3. Then, $\max(f(n),g(n)) \leq f(n)+g(n) = 1 \cdot (f(n)+g(n))$, for all $n \in \mathbb{N}$, i.e. for all $n \geq 0$. \[Basic algebra]
->4. Letting $n_0=0 \in \mathbb{N}$, $c=1 \in \mathbb{R^+}$, we see that $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ \big[\max\big(f(n),g(n)\big) \leq c \cdot (f(n)+g(n))\big]$. \[Existential generalisation on line 3]
->5. $\max(f(n),g(n)) \in O(f(n)+g(n))$ \[Definition of $O$]
+>[!note] Proof: $R$ is reflexive
+>1. Let $x \in A$ be arbitrarily chosen.
+>2. $(x \in A) \land (x \in A)$ \[Conjunction on line 1]
+>3. $(x,x) \in A \times A$ \[Definition of cartesian product]
+>4. $(x,x) \in R$ \[Definition of $R$]
+>5. $\forall a \in A \ \big[(a,a) \in R \big]$ \[Universal generalisation on lines 1 and 4]
+>6. $R$ is reflexive. \[Definition of reflexivity]
+
+#### Sub-part 2
+
+Is the following statement true?
+
+> $R$ is symmetric.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 2 Symmetry|this section]].
+
+>[!note] Proof: $R$ is symmetric
+>1. Let $x \in A$ and $y \in A$ be arbitrarily chosen.
+>2. Suppose that $(x,y) \in R$.
+>		1. $(y \in A) \land (x \in A)$ \[Conjunction on line 1]
+>		2. $(y,x) \in A \times A$ \[Definition of Cartesian product, from line 2.1]
+>		3. $(y,x) \in R$ \[Definition of $R$]
+>3. $(x,y) \in R \to (y,x) \in R$ \[Implication introduction on lines 2 and 2.3]
+>4. $\forall a \in A, b \in A \ \big[(a,b) \in R \to (b,a) \in R\big]$ \[Universal generalisation on lines 1 and 3]
+>5. $R$ is symmetric. \[Definition of symmetry]
+
+#### Sub-part 3
+
+Is the following statement true?
+
+> $R$ is anti-symmetric.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 3 Anti-Symmetry|this section]].
+
+>[!note] Proof: $R$ is not anti-symmetric
+>Let's start by taking the negation of the statement for anti-symmetry. If we are be able to prove that the negation is **true**, then we prove the the original statement is **false**. 
+>
+>$\neg \bigg(\forall a \in A, \forall b \in A \ \big[\big((a, b)\in R \land (b, a) \in R) \to a = b \big] \bigg)$
+>$\equiv \exists a \in A, \exists b \in A \ \neg \bigg[\big((a, b)\in R \land (b, a) \in R \big) \to a = b \bigg]$ \[Negating universal quantifiers]
+>$\equiv \exists a \in A, \exists b \in A \ \neg \bigg[\neg \big((a, b)\in R \land (b, a) \in R \big) \lor a = b \bigg]$ \[Logically equivalent]
+>$\equiv \exists a \in A, \exists b \in A \ \bigg[(a, b)\in R \land (b, a) \in R \land a \neq b \bigg]$ \[Logically equivalent]
+>
+>1. $0 \in A$
+>2. $1 \in A$
+>3. $(0, 1) \in A \times A$ \[Definition of Cartesian product, from line 1]
+>4. $(0, 1) \in R$ \[Definition of $R$]
+>5. $(1, 0) \in A \times A$ \[Definition of Cartesian product, from line 1]
+>6. $(1, 0) \in R$ \[Definition of $R$]
+>7. $(0, 1) \in R \land (1, 0) \in R$ \[Conjunction on lines 4 and 6]
+>8. $0 \neq 1$ \[By basic algebra]
+>9. $\big((0, 1) \in R \land (1, 0) \in R \big) \land (0 \neq 1)$ \[Conjunction on lines 7 and 8]
+>10. Therefore, $\exists a \in A, b \in A \ \bigg[(a, b)\in R \land (b, a) \in R \land a \neq b \bigg]$. \[Existential generalisation on lines 1, 2, 9]
+>11. Since the negation of anti-symmetry is true for $R$, therefore $R$ is not anti-symmetric. \[Definition of anti-symmetry]
+
+#### Sub-part 4
+
+Is the following statement true?
+
+> $R$ is transitive.
+
+If it is true, prove it. Otherwise, prove the negation of the statement. It might be helpful to refer to [[Unit 3#Property 4 Transitivity|this section]].
+
+>[!note] Proof: $R$ is transitive
+>1. Let $x \in A$, $y \in A$ and $z \in A$ be arbitrarily chosen.
+>2. Suppose that $(x, y) \in R \land (y, z) \in R$.
+>		1. Since $(x \in A) \land (z \in A)$, $(x, z) \in A \times A$. \[Definition of Cartesian product, from line 1]
+>		2. $(x,z) \in R$ \[Definition of $R$]
+>3. $\big((x, y) \in R \land (y, z) \in R \big) \to (x, z) \in R$ \[Implication introduction on lines 2 and 2.2]
+>4. $\forall a \in A, b \in A, c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]$ \[Universal generalisation on lines 1 and 3]
+>5. $R$ is transitive. \[Definition of transitivity]
 
 ---
-# Question 8 (Challenging!)
+# Question 7  \[Graded for Participation]:
 
-Prove that:
+Is the following statement true?
 
-$$
-2^{2n} \notin O(2^n)
-$$
+> Let $A$ be any set. Let $R \subseteq A \times A$. 
+> 
+> If $R$ is symmetric, then $R; R$ is reflexive.
 
-\[Hint: Assume that $2^{2n} \in O(2^n)$. What kind of contradiction will you derive?]
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$ is symmetric, but $R; R$ is not reflexive.
 
->[!note] Proof
->1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$.
->2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ [2^{2n} \leq c \cdot 2^n]$ \[Unpacking definition of O]
->3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m\ [2^{2n} \leq k \cdot 2^n]$ \[Existential instantiation on line 2]
->4. $\forall n \geq m\ \big[\frac{2^{2n}}{2^n} \leq k\big]$ \[Basic algebra]
->5. $\forall n \geq m\ [2^n \leq k]$ \[Basic algebra]
->6. As $n$ approaches infinity, $2^n > k$. \[Basic algebra; see below for a more rigorous proof]
->7. $\therefore \exists n \geq m\ [2^n > k]$ \[Existential generalization on line 6]
->8. $\neg (\forall n \geq m\ [2^n \leq k])$  \[Logically equivalent to line 7]
->9. $\neg (\forall n \geq m\ [2^n \leq k]) \land (\forall n \geq m\ [2^n \leq k])$ \[Conjunction on lines 5 and 8]
->10. $\therefore \bot$ \[Contradiction rule on line 9]
->11. $\therefore 2^{2n} \notin O(2^n)$ \[Proof by contradiction on line 10]
+>[!note] Solution
+>**False**. 
+>
+>Consider the set $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$. 
+>Let $R = \{(1, 1)\} \subseteq A \times A$. Then $R;R = \{(1, 1)\}$.
+>
+>Since $(\textcolor{green}{1}, \textcolor{red}{1}) \in R$, we need $(\textcolor{red}{1}, \textcolor{green}{1}) \in R$ for $R$ to be symmetric, which is true. 
+>
+>However, $R;R$ is not reflexive, since $2 \in A$ but $(2, 2) \notin R;R$.
 
-To prove the idea that one can always find a value of $n$ such that $2^n > k$, we can do the following:
+---
+# Question 8:
 
-**Sub-Proof**:
-1. Consider $n = \max(1 + \log_2 k, m)$.
-2. Then, $n > \log_2 k$. \[Basic algebra]
-3. $2^n > 2^{\log_2 k} = k$. \[Basic algebra]
-4. Also, $n \geq m$. \[Basic algebra, from line 2]
-5. $\exists n \geq m\ [2^n > k]$. \[Existential generalisation on line 3, 4]
+Is the following statement true?
+
+> Let $A$ be any set. Let $R \subseteq A \times A$. 
+> 
+> If $R$ is both reflexive and anti-symmetric, then $R$ is **not** symmetric.
+
+If it is, prove it. If it is not, give examples of $A$ and $R$ such that the $R$ is both reflexive and anti-symmetric, but $R$ is also symmetric.
+
+**Solutions**:
+
+>[!note] Solution
+>**False**.
+>
+>Consider $A = \{1, 2\}$. Then $A \times A = \{(1, 1), (2, 2), (1, 2), (2, 1)\}$.
+>Let $R = \{(1, 1), (2, 2)\} \subseteq A \times A$.
+>
+>Clearly, $R$ is reflexive, since both $(1, 1)$ and $(2, 2)$ are in $R$. 
+>
+>Next, $R$ is also anti-symmetric. Let's examine the elements of $R$.
+>1. For $(1,1)$, we have $(1,1) \in R \land (1,1) \in R$, and $1 = 1$.
+>2. Similarly, for $(2,2)$, we have $(2,2) \in R \land (2,2) \in R$, and $2 = 2$.
+>
+>Hence, $R$ is anti-symmetric.
+>
+>It is easy to check that $R$ is symmetric as well.
+
