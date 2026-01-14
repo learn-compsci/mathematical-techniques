@@ -64,7 +64,7 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
-# Question 2 \[Graded Participation]:
+# Question 2:
 
 For each of the following proofs, identify where there were incorrect/missing steps of justification, and discuss potential corrections to them.
 
@@ -150,15 +150,33 @@ $$
 $$
 
 ---
-# Question 6 \[Graded Participation]:
+# Question 5:
+
+Prove the following statement:
+
+$$
+\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]
+$$
+
+You may use the following theorems:
+
+>[!Theorem 1]
+>$\forall x \in \mathbb{Z} \ [\neg even(x) \equiv odd(x)]$.
+
+>[!Theorem 2]
+>$\forall x \in \mathbb{Z} \ [\neg odd(x) \equiv even(x)]$.
+
+\[Hint: [[Unit 1#Proof by contraposition|Prove by contraposition]]. First, state the implication as its contrapositive, then prove directly.]
+
+---
+# Question 6:
 
 Prove the following statement:
 
 > [!Theorem] 
-> $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big) \big]$
-> 
-> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
+> $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big) \big]$.
+
+You may use the definitions of the predicates $even$ and $odd$ from the previous questions.
 
 Notice this theorem is basically saying that no integer is both odd and even at the same time.
 
@@ -166,7 +184,7 @@ To get you started, we have filled in a few lines of the proof for you, you shou
 
 **Partial solution:**
 1. Let $x$ be arbitrarily chosen from $\mathbb{Z}$.
-2. Assume for the sake of contradiction that $(even(x) \land odd(x))$
+2. Assume for the sake of contradiction that $(even(x) \land odd(x))$.
 	1. (Your proof here...)
 3.  Contradiction
 

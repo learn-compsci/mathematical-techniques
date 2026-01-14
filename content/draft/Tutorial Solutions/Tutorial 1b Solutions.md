@@ -158,15 +158,50 @@ $$
 >8. $\forall n \in \mathbb{Z} \ [n \in \mathbb{Q}]$. \[Universal generalisation on lines 1 and 7]
 
 ---
-# Question 6 \[Graded Participation]:
+# Question 5:
+
+Prove the following statement:
+
+$$
+\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]
+$$
+
+You may use the following theorems:
+
+>[!Theorem 1]
+>$\forall x \in \mathbb{Z} \ [\neg even(x) \equiv odd(x)]$.
+
+>[!Theorem 2]
+>$\forall x \in \mathbb{Z} \ [\neg odd(x) \equiv even(x)]$.
+
+
+>[!Solution]
+>1. Let $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
+>2. Assume that $\neg \big(even(m) \lor even(n)\big)$.
+>		1. $\neg even(m) \land \neg even(n)$. \[Logically equivalent to line 2]
+>		2. $odd(m) \land odd(n)$. \[Logically equivalent to line 2.1, by universal instantiation of Theorem 1]
+>		3. $odd(m)$. \[Specialisation on line 2.2]
+>		4. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$. \[Definition of $odd$]
+>		5. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.4]
+>		6. $odd(n)$. \[Specialisation on line 2.2]
+>		7. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$. \[Definition of $odd$]
+>		8. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.7]
+>		9. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$. \[Basic algebra, from lines 2.5 and 2.8]
+>		10. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra, from line 2.9]
+>		11. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$. \[Existential generalisation on lines 2.9 and 2.10]
+>		12. $odd(mn)$. \[Definition of $odd$]
+>		13. $\neg even(mn)$. \[Universal instantiation of Theorem 2]
+>3. $\neg \big(even(m) \lor even(n)\big) \to \neg even(mn)$. \[Implication introduction on lines 2 and 2.13]
+>4. $even(mn) \to \big(even(m) \lor even(n)\big)$. \[Logically equivalent to line 3]
+>5. $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]$, \[Universal generalisation on lines 1 and 4]
+
+---
+# Question 6:
 
 Prove the following statement:
 
 > [!Theorem] 
 > $\forall x \in \mathbb{Z} \ [\neg (even(x) \land odd(x))]$
-> 
-> We define the predicate $even(x)$ to be: $even(x) \equiv \exists k \in \mathbb{Z} \ [2k = x]$, 
->  and we define the predicate $odd(x)$ to be: $odd(x) \equiv \exists j \in \mathbb{Z} \ [2j + 1 = x]$.
 
 >[!Solution]
 >**Proof:**
