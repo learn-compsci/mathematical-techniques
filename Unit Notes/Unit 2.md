@@ -215,7 +215,7 @@ Let's start talking about a few well-established symbols for sets. The most comm
 | $\mathbb{R}$ | Set of real numbers              | Set containing any number that is not complex                                                                                         |
 | $\mathbb{C}$ | Set of imaginary/complex numbers | For example, something like $i$, or $-i$ is complex but not real                                                                      |
 
-![[number-sets-illus.png]]
+![[content/Images/number-sets-illus.png]]
 
 There is one more common notation that we use in computer science. It turns out for some natural number $n$, it's very convenient for us to think about the set $\{1, \ldots, n\}$. The notation for this is $[n]$.
 
@@ -466,7 +466,7 @@ Given two sets $A$ and $B$, the set $C = A \times B$ is the **cartesian product 
 > 
 > Pictorially, you can see how we got the elements.
 > 
-> ![[cross-product.png]]
+> ![[content/Images/cross-product.png]]
 
 Notice here the pairs are **ordered**. So $(1, 2) \in A \times B$, and $(2, 1) \in A \times B$. But $(1, 2) \neq (2, 1)$. Also, $(1,3)\notin A \times B$.
 

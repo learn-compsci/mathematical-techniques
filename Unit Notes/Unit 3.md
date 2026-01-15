@@ -506,7 +506,7 @@ This pretty much tells you that for an anti-symmetric relation, the only time th
 
 Here's a pictorial example:
 
-![[anti-symmetry.png]]
+![[content/Images/anti-symmetry.png]]
 
 A relation on the left is anti-symmetric because the only time $a$ and $b$ are related are either: when $a = b$, or when the relation is "one-sided". For instance, $a_1$ is related to $a_2$ but not the other way around.
 
