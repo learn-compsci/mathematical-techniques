@@ -4,6 +4,7 @@ title: "Unit 4: Induction, Recurrences"
 # Overview
 
 In this unit, we will be introducing two seemingly separate topics that actually have a deep connection:
+
 - [[#Part 1 Mathematical Induction|Mathematical induction]]
 - [[#Part 2 Recurrences|Recurrences]]
 
@@ -13,6 +14,7 @@ Both of these are vital tools in computer science, and we will see some examples
 # Part 1: Mathematical Induction
 
 To start off, let's talk about the induction proof technique. This is the last main proof technique that we had left out from [[Unit 1]] because it really deserves that much attention. This is one of the most handy tools that we use in order to prove statements we care about, and in this section we will present two variants of this technique:
+
 1. [[#Revisiting An Example The Arithmetic Series|(Normal/Weak) mathematical induction]]
 2. [[#Proof By Strong Induction Template|Strong mathematical induction]]
 
@@ -191,6 +193,7 @@ Again, pay attention to the how the base case has changed on line 1 in order to 
 Let's modify the "proof by induction" template a little bit more: instead of assuming for just a single $j$ and trying to prove the statement for $j + 1$, let's tweak this instead to the following:
 
 **Strong Induction Template**
+
 1. Prove $P(b)$ for some base case value $b$.
 2. Prove that assuming $\forall b \leq j < k\ [P(j)]$, then $P(k)$ is also true.
 
@@ -280,14 +283,16 @@ Before we round off this section, let's provide a more formal definition of stro
 > 
 > Then, we may conclude that $\forall n \in \mathbb{N} \ [P(n)]$.
 
-Strong induction is especially handy when it comes to analysing recurrences. We will see more examples after the second topic on ([[#Recurrences|recurrences]]) in this unit, and next week.
+Strong induction is especially handy when it comes to analysing recurrences. We will see more examples after the second topic on [[#Recurrences|recurrences]] in this unit, and next week.
 
+---
 # Part 2: Recurrences
 
 Let's talk about another concept that is commonly used in computer science: recurrences. 
 
 ## A Motivating Example: Binary Search
-Let's start with a motivating example. You might have seen this snippet of code before for an algorithm called binary search that looks for `key` in an array of $n$ elements:
+
+Let's start with a motivating example. You might have seen this snippet of code before for an algorithm called [binary search](https://en.wikipedia.org/wiki/Binary_search) that looks for a particular `key` in an array of $n$ elements:
 
 ```python
 def binary_search(arr, left, right, key):
@@ -301,15 +306,14 @@ def binary_search(arr, left, right, key):
 		return binary_search(arr, low, mid, key)
 ```
 
-
-How do we analyse the running time of such an algorithm? While this is an advanced topic that we will not cover too comprehensively in this module, I think it serves as a good example of why we need to know about recurrences and the proof by induction: it will help us analyse and understand recursive algorithms (among many other concepts in computer science).
+How do we analyse the running time of such an algorithm? While this is an advanced topic that we will not cover too comprehensively in this module, I think it serves as a good example of why we need to know about recurrences and the proof by induction—it help us analyse and understand recursive algorithms (among many other concepts in computer science).
 
 ## Recurrence Relations
 
-To put simply: A recurrence relation is a way to describe a sequence of numbers __recursively__.
+Put simply, a **recurrence relation** is a way to describe a sequence of numbers *recursively*.
 
+### Example 1: A simple recurrence
 
-## Example 1: A Simple Recurrence
 For example, we say $T(n)$ is a recurrence defined as:
 
 $$
@@ -321,57 +325,60 @@ $$
 
 Notice that $T(1) = 1$. But what about $T(2)$? Well $T(2) = T(1) + 1$. Since we also know that $T(1) = 1$, this means that $T(2) = 1 + 1 = 2$.
 
-Perhaps you have spotted the pattern, $T(n)$ is actually just $n$, as long as $n$ is a natural number that is at least $1$. Perhaps this is obvious, but even something like this can be proven by induction! In fact, this baby example is the perfect practice question!
+Perhaps you have spotted the pattern—$T(n)$ is actually just $n$, as long as $n$ is a natural number that is at least $1$. Perhaps this is obvious, but even something like this can be proven by induction! In fact, this baby example is the perfect practice question!
 
 Try proving the following:
 
 >[!Theorem]
 > Let $T(n)$ be defined as above. Then $\forall n \geq 1\ [T(n) = n]$.
 
-
 Admittedly, our very first example of a recurrence was probably not very exciting. But I think it is a simple example to point at some features of recurrences. Pay attention to how this example of recurrence defines $T(n)$ using 2 cases:
 
 1. When $n = 1$, $T(n)$ is defined to be $1$. This is our **base case**. It does not refer to any other values of $T(n)$.
 2. When $n > 1$, $T(n)$ is defined to be $T(n - 1) + 1$. This is our **inductive case**. Notice how $T(n)$ refers to $T(n - 1)$.
 
-For a recurrence to make sense, it needs to have at least one base case. And the inductive cases have to eventually reach a base case. For example, to compute $T(3)$, we need to know what $T(2)$ is. To know what $T(2)$ is, we need to know what $T(1)$ is. $T(1)$ is a base case, so we definitely know what it is. Which then means we know that $T(2)$ is, and what $T(3)$ is. 
+For a recurrence to make sense, it needs to have at least one base case, and the inductive cases have to eventually reach the base case(s). For example, to compute $T(3)$, we need to know what $T(2)$ is. To know what $T(2)$ is, we need to know what $T(1)$ is. $T(1)$ is a base case, so we definitely know what it is. Then, we know what $T(2)$ is, and in turn, what $T(3)$ is. 
 
 Let's look at more advanced examples of recurrences to show you more interesting concepts we can solve.
 
-## Example 2: Factorial
+### Example 2: Factorials
 
-Recall that $n!$ (pronounced $n$ factorial) is defined to be:
+Recall that $n!$ (pronounced "$n$ factorial") is defined to be:
 
 $$
 \prod_{i = 1}^n i
 $$
 
-So for example, $1! = 1$, $2! = 2 \times 1 = 2$, $3! = 3 \times 2 \times 1 = 6$, $4! = 4 \times 3 \times 2 \times 1 = 24$.
+For example:
+- $1! = 1$
+- $2! = 2 \times 1 = 2$
+- $3! = 3 \times 2 \times 1 = 6$
+- $4! = 4 \times 3 \times 2 \times 1 = 24$
 
-Can we make a recurrence $F(n)$ such that $\forall n \geq 1\ [F(n) = n!]$? It's yet another good example you might want to think about before reading how to define it. Think about what is the base case, and what is the inductive case.
-
+Can we make a recurrence $F(n)$ such that $\forall n \geq 1\ [F(n) = n!]$? It's yet another good example you might want to think about before reading how to define it. Think about what the base case should be, and what the inductive case should be.
 
 Anyway, here's the recurrence!
 
-$$
-F(n) = \begin{cases}
-F(n - 1) \times n, & n \geq 2\\
-1, & n = 1\\
-\end{cases}
-$$
+>[!Solution]-
+>
+> $$
+> F(n) = \begin{cases}
+> F(n - 1) \times n, & n \geq 2\\
+> 1, & n = 1\\
+> \end{cases}
+> $$
 
-So let's run through some examples. $F(5)$ is $F(4) \times 5$. $F(4) = F(3) \times 4$. $F(3) = F(2) \times 3$. $F(2) = F(1) \times 2$. Lastly, $F(1) = 1$.
-
-Let's run through an example of how to compute the value:
+Let's run through an example:
 
 $$
 \begin{align*}
-	F(5) &= F(4) \times 5\\
-	&= F(3) \times 4 \times 5\\
-	&= F(2) \times 3 \times 4 \times 5\\
-	&= F(1) \times 2 \times 3 \times 4 \times 5\\
-	&= 1 \times 2 \times 3 \times 4 \times 5\\
-	&= 120\\
+\\& F(5)
+\\& = F(4) \times 5
+\\& = F(3) \times 4 \times 5
+\\& = F(2) \times 3 \times 4 \times 5
+\\& = F(1) \times 2 \times 3 \times 4 \times 5
+\\& = 1 \times 2 \times 3 \times 4 \times 5
+\\& = 120
 \end{align*}
 $$
 
@@ -383,16 +390,17 @@ Also, here's a proof that the recurrence matches what we want.
 As expected, we are going to do this by induction.
 
 >[!example]+ Proof
-> 1. (Base case) Let $n = 1$. Then $F(n) = 1 =  \prod_{i = 1}^n i$.
-> 2. (Inductive case) Let $n \geq 1$, and assume that $F(n) = \prod_{i = 1}^n i$.
-> 3. $F(n + 1) = F(n) \times (n + 1)$ \[Definition of $F$]
-> 4. $F(n) = \prod_{i = 1}^n i$ \[By assumption on line 2]
-> 5. $F(n + 1) = F(n) \times (n + 1) = \prod_{i = 1}^n i \times (n + 1) = \prod_{i = 1}^{n + 1} i$ \[Combining lines 3, 4]
-> 6. $\forall n \geq 1\left[ F(n) = \prod_{i = 1}^{n} i \right]$
+> 1. (Base case) Let $n = 1$. Then $F(n) = F(1) = 1 =  \prod_{i = 1}^n i$. \[By definition of the recurrence]
+> 2. (Inductive case) Assume that for some $n = j \geq 1$, we have $\textcolor{green}{F(j) = \prod_{i = 1}^j i}$.
+> 		1. $\textcolor{blue}{F(j + 1)} = F(j) \times (j + 1)$ \[Definition of $F$]
+> 		2. $\textcolor{green}{F(j)} \times (j + 1) = \textcolor{green}{\big(\prod_{i = 1}^j i \big)} \times (j + 1)$ \[By assumption on line 2]
+> 		3. $\prod_{i = 1}^j i \times (j + 1) = \textcolor{red}{\prod_{i = 1}^{j + 1} i}$ \[Basic algebra]
+> 		4. $\textcolor{blue}{F(j + 1)} = \textcolor{red}{\prod_{i = 1}^{j + 1} i}$ \[Combining lines 2.1, 2.2, 2.3]
+> 3. $\forall n \geq 1\left[F(n) = \prod_{i = 1}^{n} i \right]$ \[Principle of mathematical induction]
 
-## Example 3: Climbing Stairs
+### Example 3: Climbing stairs
 
-Let's say that there are a flight a flight of stairs with $n \geq 2$ steps. And we want to reach the top of the stairs. But we can either take $1$ step at a time, or $2$ steps at a time. How many possible ways are there to reach the top?
+Let's say that there are a flight a flight of stairs with $n \geq 2$ steps. We want to reach the top of the stairs, but we can only either take $1$ step or $2$ steps at a time. How many possible ways are there to reach the top?
 
 ![[stair-climbing.png]]
 
@@ -401,14 +409,14 @@ For example, if we had $n = 3$ steps, then the number of ways would be $3$, beca
 ![[stair-climbing-eg-1.png]]
 
 1. Either we only take single steps.
-2. We take one single step, then a double step.
+2. We take a single step, then a double step.
 3. We take a double step, and then a single step.
 
-So in general, what is a recurrence $S(n)$ such that $S(n)$ tells us how many ways there are to climb stairs with $n$ steps? To solve this, we should think about a few base cases first.
+More generally, what is a recurrence $S(n)$ such that $S(n)$ tells us how many ways there are to climb stairs with $n$ steps? To solve this, we should think about a few base cases first.
 
-For $n = 1$, there is only one way: Take a single step. For $n = 2$, there are two ways: take $2$ single steps, or take $1$ double step.
+For $n = 1$, there is only one way: take a single step. For $n = 2$, there are two ways: take $2$ single steps, or take $1$ double step.
 
-What about general $n$? Think about it this way: To reach the $n^{th}$ step, we just need to count the number of ways to reach the $(n - 1)^{th}$ step, and then take a single step after that to reach the $n^{th}$ step. Or count the number of ways to reach the $(n - 2)^{th}$ step, and then take a double step after that to reach the $n^{th}$ step.
+What about some general $n$? Think about it this way: to reach the $n^{th}$ step, we just need to count the number of ways to reach the $(n - 1)^{th}$ step, and then take a single step after that to reach the $n^{th}$ step. Alternatively, we could count the number of ways to reach the $(n - 2)^{th}$ step, and then take a double step after that to reach the $n^{th}$ step.
 
 So the recurrence looks like this:
 
@@ -420,18 +428,18 @@ S(n - 1)  + S(n - 2), & n > 2\\
 \end{cases}
 $$
 
-Pay attention to how this time around, we have 2 base cases, $n = 1$, and $n = 2$. What happens if we only had a single base case of $n = 1$? Are there any issues with this? 
+Pay attention to how this time around, we have two base cases: $n = 1$ and $n = 2$. What happens if we only had a single base case of $n = 1$? Are there any issues with this? 
 
 >[!Answer]-
-> If we didn't have a base case for $n = 2$, then $S(2)$ is not defined. We cannot compute the value of $S(2)$.
+> If we didn't have a base case for $n = 2$, then $S(2)$ is not defined, i.e., we cannot compute the value of $S(2)$.
 
-Think about it, how many ways are there to climb $5$ steps? Well, the number of ways you reach the $3^{rd}$ step plus the number of ways you reach the $4^{th}$ step. Why? Because for each way you reach the third step, you can take a double step. For each way you reach the $4^{th}$ step, you can take a single step.
+Think about it: how many ways are there to climb $5$ steps? Well, that's simply (the number of ways you reach the $3^{rd}$ step) plus (the number of ways you reach the $4^{th}$ step). Why? Because for each way you reach the third step, you can take a double step at the end. For each way you reach the $4^{th}$ step, you can take a single step at the end.
 
 ![[stair-climbing-eg-5-double-single.png]]
 
-Notice that in the left box, that is essentially $S(3)$ (the number of ways to reach the $3^{rd}$ step), and in the right box, that is actually $S(4)$ (the number of ways to reach the $4^{th}$ step). Notice that we need to take a double step after the reaching the $3^{rd}$ step. Or taking a single step after reach the $4^{th}$ step.
+Notice that in the left box, that is essentially $S(3)$ (the number of ways to reach the $3^{rd}$ step), and in the right box, that is actually $S(4)$ (the number of ways to reach the $4^{th}$ step). Notice that we need to take a double step after the reaching the $3^{rd}$ step, and we need to take a single step after reaching the $4^{th}$ step.
 
-And $S(5)$ is really just the addition of the two ways!
+Therefore, $S(5)$ is really just the addition of those two counts!
 
 You can even write a python program that does this for you:
 
@@ -444,11 +452,11 @@ def stair_climbing(n):
 	return stair_climbing(n - 1) + stair_climbing(n - 2)
 ```
 
-You might notice that for large enough values of $n$, the program is substantially slow. This is something we will talk about in the tutorial and the next unit!
+You might notice that for large enough values of $n$, the program is substantially slow. This is something we will talk about in the tutorial and the [[Unit 5|next unit]]!
 
-## Example 4: Binary Search Recurrence
+### Example 4: Binary search
 
-Let's end on bringing it back to the motivating example of binary search. In terms of the big picture, recurrences are a tool used in program/algorithm analysis, among many things. So how about we ask ourselves, how many array accesses does the binary search program make?
+Let's end by tying recurrences back to the motivating example of binary search. In the grand scheme of things, recurrences are a tool used in program/algorithm analysis, among many things. So how about we ask ourselves, how many array accesses does the binary search program make?
 
 Let's look at the code again:
 
@@ -467,7 +475,7 @@ def binary_search(arr, left, right, key):
 binary_search(arr, 0, len(arr) - 1, key)
 ```
 
-How do we begin? Well let's look at the base case of our algorithm, it's basically saying when the sub-array that we care about has only one element left, then we access `arr[left]` and compare it against `key`. So when our sub-array is of size $1$, only one array access is made.
+How do we begin? Well let's look at the base case of our algorithm, it's basically saying when the sub-array that we care about has only one element left, then we access `arr[left]` and compare it against our `key`. So when our sub-array is of size $1$, only one array access is made.
 
 What about in general? Well then our array $arr[left...right]$ is split into two sub-arrays:
 $arr\left[left \dots \frac{(left + right)}{2} - 1 \right]$, and $arr\left[\frac{(left + right)}{2} \dots right\right]$.
@@ -483,23 +491,31 @@ C( \lceil \frac{n}{2} \rceil ) + 1, & n > 1 \\
 \end{cases}
 $$
 
-How do we analyse this recurrence? This is something we will study in detail in the next unit. But for now can we get a sense of its long-term behaviour?
+How do we analyse this recurrence? This is something we will study in detail in the next unit. But for now, can we get a sense of its long-term behaviour?
 
-We want to say this algorithm does not need to access too many elements in the array, only _about_ $\log_2(n)$ many elements. How do we do this?
+We want to say this algorithm does not need to access "too many" elements in the array—only _about_ $\log_2(n)$ elements. How do we do this?
 
-Let's prove that $\forall n \geq 2\ [C(n) \leq \log_2(n - 1) + 2]$.
+Let's prove that $\forall n \geq 2\ \big[C(n) \leq \log_2(n - 1) + 2 \big]$.
 
 >[!Example] Proof
 > 1. (Base case) Let $n = 2$. Then $C(2) = C(1) + 1 = 2 \leq \log_2(1) + 2$.
-> 2. (Inductive case) Let $k \geq 3$, and assume that for $2 \leq j < k$, $C(j) \leq \log_2(j - 1) + 2$.
-> 3. Since $k > 2$, then $2 \leq \lceil \frac{k}{2} \rceil < k$. Therefore, our assumption applies to $\lceil \frac{k}{2} \rceil$.
-> 4. $C(k) = C(\lceil \frac{k}{2} \rceil) + 1$
->   $\leq \log_2(\lceil \frac{k}{2} \rceil - 1) + 2 + 1$
->   $\leq \log_2(\frac{k + 1}{2} - 1) + 2 + 1$
->   $\leq \log_2(\frac{k - 1}{2}) + 2 + 1$
->   $\leq \log_2(k - 1) - \log_2(2) + 2 + 1$
->   $\leq \log_2(k - 1) + 2$ \[Basic algebra]
-> 5. $\forall k \geq 2\ [C(k) \leq \log_2(k - 1) + 2]$ \[Principle of mathematical induction]
+> 2. (Inductive case) Let $k \geq 3$, and assume that for all $2 \leq \textcolor{magenta}{j} < k$, we have $\textcolor{green}{C(\textcolor{magenta}{j}) \leq \log_2(\textcolor{magenta}{j} - 1) + 2}$.
+> 		1. Since $k > 2$, then $2 \leq \textcolor{magenta}{\lceil \frac{k}{2} \rceil} < k$. Therefore, our assumption applies to $\textcolor{magenta}{\lceil \frac{k}{2} \rceil}$. \[Basic algebra]
+> 		2. Then, we have the following inequality:
+> 		   $$
+>			\begin{align*}
+>			\\& C(k)
+>			\\& = \textcolor{green}{C \bigg(\textcolor{magenta}{\bigg\lceil \frac{k}{2} \bigg\rceil} \bigg)} + 1
+>			\\& \textcolor{green}{\leq \log_2 \bigg(\textcolor{magenta}{\bigg\lceil \frac{k}{2} \bigg\rceil} - 1 \bigg) + 2} + 1
+>			\\& \leq \log_2 \bigg(\frac{k + 1}{2} - 1 \bigg) + 2 + 
+>			\\& = \log_2 \bigg(\frac{k - 1}{2} \bigg) + 2 + 1
+>			\\& = \log_2(k - 1) - \log_2(2) + 2 + 1
+>			\\& = \log_2(k - 1) - 1 + 2 + 1
+>			\\& = \log_2(k - 1) + 2
+>			\end{align*}
+>			$$
+>			
+> 1. $\forall n \geq 2\ \big[C(n) \leq \log_2(n - 1) + 2 \big]$ \[Principle of mathematical induction]
 
-So what does this mean? This means that we know for arrays of size $2$ onwards, then the function $C(n)$ is upper bounded by some $\log_2(n)$ curve. This is a hint to us that we are not using many array accesses. And therefore the program is actually efficient!
+So what does this mean? This means that we know for arrays of size $2$ onwards, then the function $C(n)$ is upper bounded by some $\log_2(n)$ curve. This is a hint to us that we are not using many array accesses, and thus the program is actually efficient!
 
