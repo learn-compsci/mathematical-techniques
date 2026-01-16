@@ -3,13 +3,18 @@ title: "Unit 4: Induction, Recurrences"
 ---
 # Overview
 
-In this unit, we will be introducing two seemingly separate topics that actually have a deep connection: the induction proof technique, and recurrences.
+In this unit, we will be introducing two seemingly separate topics that actually have a deep connection:
+- [[#Part 1 Mathematical Induction|Mathematical induction]]
+- [[#Part 2 Recurrences|Recurrences]]
 
 Both of these are vital tools in computer science, and we will see some examples that demonstrate this idea. We will also be using these ideas directly in the next unit.
 
+---
 # Part 1: Mathematical Induction
 
-To start off, let's talk about the induction proof technique. This is the last main proof technique that we had left out from [[Unit 1]] because it really deserves that much attention. This is one of the most handy tools that we use in order to prove statements we care about.
+To start off, let's talk about the induction proof technique. This is the last main proof technique that we had left out from [[Unit 1]] because it really deserves that much attention. This is one of the most handy tools that we use in order to prove statements we care about, and in this section we will present two variants of this technique:
+1. [[#Revisiting An Example The Arithmetic Series|(Normal/Weak) mathematical induction]]
+2. [[#Proof By Strong Induction Template|Strong mathematical induction]]
 
 ## Revisiting An Example: The Arithmetic Series
 
@@ -183,85 +188,99 @@ Again, pay attention to the how the base case has changed on line 1 in order to 
 
 # Proof By Strong Induction Template
 
-Let's modify the "proof by induction" template a little bit more: instead of assuming for $j$ and trying to prove for $j + 1$, let's tweak this instead to the following:
+Let's modify the "proof by induction" template a little bit more: instead of assuming for just a single $j$ and trying to prove the statement for $j + 1$, let's tweak this instead to the following:
 
 **Strong Induction Template**
 1. Prove $P(b)$ for some base case value $b$.
-2. Prove that assuming $\forall j < k\ [P(j)]$, then $P(k)$ is also true.
+2. Prove that assuming $\forall b \leq j < k\ [P(j)]$, then $P(k)$ is also true.
 
 But why would we do this? Here's an example:
 
 ## Example Using Strong Induction:
 
-Let's say that we lived in a country, where the only denominations are the $4$-dollar and the $5$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that we can use $4$-dollar and $5$-dollar denominations to make any dollar value that is $8$ or larger. 
+Let's say that we lived in a country, where the only denominations are the $\textcolor{blue}{4}$-dollar and the $\textcolor{red}{5}$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that we can use $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar denominations to make any dollar value that is $\$8$ or larger. 
 
 This seems true right? For example:
-
-$8$ itself uses two of the $4$-dollar bills. $9$ uses one $4$-dollar bill and one $5$-dollar bill. $10$ uses two $5$-dollar bills.
+- $\$8$ itself uses two of the $\textcolor{blue}{4}$-dollar bills (i.e., $8 = 2(\textcolor{blue}{4}) + 0(\textcolor{red}{5})$)
+- $\$9$ uses one $\textcolor{blue}{4}$-dollar bill and one $\textcolor{red}{5}$-dollar bill (i.e., $9 = 1(\textcolor{blue}{4}) + 1(\textcolor{red}{5})$)
+- $\$10$ uses two $\textcolor{red}{5}$-dollar bills (i.e., $10 = 0(\textcolor{blue}{4}) + 2(\textcolor{red}{5})$)
 
 Formally, we want to prove the following statement:
 
-> $\forall n \geq 8, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [n = 4a + 5b]$
+> $\forall n \geq 8, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [n = \textcolor{blue}{4}a + \textcolor{red}{5}b]$
 
-Again, take note, we wish to prove this for $n$ from $12$ onwards, which hints to us that our base case should be from $8$ onwards. Pay special attention to the fact it is $8$ onwards. This will become very important later. (Subtle foreshadowing...)
+Again, take note that we wish to prove this for $n$ from $12$ onwards, which hints to us that our base case should start from $8$. Pay special attention to the fact it is $8$ **onwards** (i.e., not necessarily just $8$ itself). This will become very important later. (Subtle foreshadowing...)
 
 So let's look at a proof sketch:
 
-
-**Proof Sketch**
-1. (Base case) Let $n = 8$. Then, $n = 8 = 2(4) + 0(5)$.
-2. (Inductive case) Let $k \geq 8$, and assume that $\forall j < k$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [j = 4a + 5b]$.
-	1. Since $k - 4 < k$, and we assumed that for all $j < k$, it was true that $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}$ such that $j = 4a + 5b$, then we can say that $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}\ [k - 4 = 4a + 5b]$. \[By assumption on line 2]
-	2. Let $a, b \in \mathbb{N}$ be such that $k - 4 = 4a + 5b$. \[Existential instantiation on line 2.1]
-	3. Then, $k = 4(a + 1) + 5b$. \[Basic algebra]
-	4. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = 4a + 5b]$ \[Existential generalisation on line 2.3]
-3. Therefore, $\forall n \geq 8$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [n = 4a + 5b]$. \[Principle of mathematical induction]
+>[!note] Proof Sketch
+>1. (Base case) Let $n = 8$. Then, $n = 8 = 2(\textcolor{blue}{4}) + 0(\textcolor{red}{5})$.
+>2. (Inductive case) Let $k \geq 8$, and assume that $\forall \textcolor{magenta}{j} < k$, we have that $\textcolor{green}{\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [\textcolor{magenta}{j} = \textcolor{blue}{4}a + \textcolor{red}{5}b]}$.
+>		1. Since $\textcolor{magenta}{k - 4} < k$, and we assumed that for all $\textcolor{magenta}{j} < k$, it was true that $\textcolor{green}{\exists a \in \mathbb{N}, \exists b \in \mathbb{N} [\textcolor{magenta}{j} = \textcolor{blue}{4}a + \textcolor{red}{5}b]}$, then we can say that $\textcolor{green}{\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}\ [\textcolor{magenta}{k - 4} = \textcolor{blue}{4}a + \textcolor{red}{5}b]}$. \[By assumption on line 2]
+>		2. Let $a, b \in \mathbb{N}$ be such that $k - 4 = \textcolor{blue}{4}a + \textcolor{red}{5}b$. \[Existential instantiation on line 2.1]
+>		3. Then, $k = \textcolor{blue}{4}(a + 1) + \textcolor{red}{5}b$. \[Basic algebra]
+>		4. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = \textcolor{blue}{4}a + \textcolor{red}{5}b]$ \[Existential generalisation on line 2.3]
+>3. Therefore, $\forall n \geq 8$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [n = \textcolor{blue}{4}a + \textcolor{red}{5}b]$. \[Principle of mathematical induction]
 
 Okay, so the proof looks reasonable. What if I said there's an issue?
 
-Let's think about $11$, can we actually use only $4$-dollar notes and $5$-dollar notes to make the dollar amount of $11$? We actually can't!
+Let's think about $11$—can we actually use only $\textcolor{blue}{4}$-dollar notes and $\textcolor{red}{5}$-dollar notes to make the dollar amount of $\$11$? We actually can't!
 
-So where did we go wrong in our proof? It was our assumption. We assumed that for all values $j < k$, we can express $j$ using $4$-dollar and $5$-dollar notes. So in our proof that it was possible for $11$, we had to assume that it was true for $11 - 4 = 7$. Did we prove this? No we didn't, and that was the issue.
+So where did we go wrong in our proof? It was our assumption. We assumed that for all values $\textcolor{magenta}{j} < k$, we can express $j$ using $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar notes. So in our proof that it was possible for $11$, we had to assume that it was true for $\textcolor{magenta}{11 - 4} = 7$. Did we prove this? No we didn't, and that was the issue.
 
-So let's look back at our proof and see how we can fix this. To prove it for $k$, we needed to assume it for $k - 4$. Since in our base case, we only proved it for $8$, this means we can only know for sure that values like $12$, $16$, $20$, $24$, $...$ and so on can be expressed using $4$-dollar and $5$-dollar denominations.
+So let's look back at our proof and see how we can fix this. To prove it for $k$, we needed to assume it for $\textcolor{magenta}{k - 4}$. Since in our base case, we only proved it for $8$, this means we can only know for sure that values like $12$, $16$, $20$, $24$, $...$ and so on can be expressed using $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar denominations.
 
-So how do we prove this for all numbers? Notice that **if** (emphasis on **if**) in our base cases, we also proved it for starting values $8$, $9$, $10$ and $11$. Then we can prove it for all numbers, because: 
+So how do we prove this for all numbers? Notice that **if** (emphasis on **if**) in our base cases, we also proved it for starting values $8$, $9$, $10$ and $11$, then we can prove it for **all** numbers, because: 
 - If we know it works for $8$, we know it works for $12$. 
 - If we know it works for $9$, then it works for $13$. 
 - If it works for $10$, it works for $14$. 
-- If it works for $11$, then it works for $15$. 
+- If it works for $11$, then it works for $15$.
+
 And we can keep repeating this to prove it for all the numbers from $8$ onwards. Pictorially speaking, it looks like this:
 
 ![[strong-induction-illus.png]]
 
 Then why are we convinced that the statements for $16$, $17$, $18$ and $19$ are true? Similarly, because **if** we know it's true for $12$, $13$, $14$ and $15$, then we can say that for $16$, $17$, $18$ and $19$ as well.
 
-Okay, let's take a step back, we just said that we cannot do this for $11$. This means that we actually cannot say "All dollar values from $8$ onwards can be made using $4$-dollar and $5$-dollar denominations."
+Okay, let's take a step back. We just said that we cannot do this for $11$. This means that we actually cannot say "All dollar values from $8$ onwards can be made using $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar denominations."
 
 Okay, but what if I said that we could actually do this for dollar values $12$ onwards? Let's see the proof of this. This time the proof is correct. We have also shortened the proof a little bit, so all the important parts remain, but it is less verbose than in the previous weeks.
 
 >[!example]+ Proof
 > 1. (Base cases) We need to prove the statement for $n = 12$, $n = 13$, $n = 14$ and $n = 15$.
-> 	- $12 = 3(4) + 0(5)$
-> 	- $13 = 2(4) + 1(5)$
-> 	- $14 = 1(4) + 2(5)$
-> 	- $15 = 0(4) + 3(5)$
-> 2. (Inductive case) Let $k \geq 16$, assume that for $12 \leq j < k$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [j = 4a + 5b]$
-> 3. Since $k - 4 < k$ and $k - 4 \geq 12$, $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k - 4 = 4a + 5b]$
-> 4. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = 4r + 5b$. \[Existential instantiation on line 2]
-> 5. $k = 4(r + 1) + 5s$ \[Basic algebra]
-> 6. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$. \[Basic algebra]
-> 7. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = 4a + 5b]$ \[Existential generalisation on lines 4, 5, 6]
-> 8. $\forall n \geq 12, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = 4a + 5b]$ \[Principle of mathematical induction]
+> 	- $12 = 3(\textcolor{blue}{4}) + 0(\textcolor{red}{5})$
+> 	- $13 = 2(\textcolor{blue}{4}) + 1(\textcolor{red}{5})$
+> 	- $14 = 1(\textcolor{blue}{4}) + 2(\textcolor{red}{5})$
+> 	- $15 = 0(\textcolor{blue}{4}) + 3(\textcolor{red}{5})$
+> 2. (Inductive case) Let $k \geq 16$, assume that for $12 \leq \textcolor{magenta}{j} < k$, $\textcolor{green}{\exists a \in \mathbb{N}, \textcolor{green}{\exists b \in \mathbb{N}\ [\textcolor{magenta}{j} = \textcolor{blue}{4}a + \textcolor{red}{5}b]}}$.
+> 		1. Since $\textcolor{magenta}{k - 4} < k$ and $\textcolor{magenta}{k - 4} \geq 12$, $\textcolor{green}{\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [\textcolor{magenta}{k - 4} = \textcolor{blue}{4}a + \textcolor{red}{5}b]}$.
+> 		2. Let $r \in \mathbb{N}$, $s \in \mathbb{N}$ be such that $k - 4 = \textcolor{blue}{4}r + \textcolor{red}{5}b$. \[Existential instantiation on line 2]
+> 		3. $k = \textcolor{blue}{4}(r + 1) + \textcolor{red}{5}s$ \[Basic algebra]
+> 		4. Since $r \in \mathbb{N}$, $r + 1 \in \mathbb{N}$. \[Basic algebra]
+> 		5. $\exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = \textcolor{blue}{4}a + \textcolor{red}{5}b]$ \[Existential generalisation on lines 2.2, 2.3, 2.4]
+> 3. $\forall n \geq 12, \exists a \in \mathbb{N}, \exists b \in \mathbb{N}\ [k = \textcolor{blue}{4}a + \textcolor{red}{5}b]$ \[Principle of mathematical induction]
 
 Pay special attention to the following:
 
-1. There are now 4 base cases, because in the inductive proof, we are taking **exactly** 4 steps back.
+1. There are now **$4$** base cases, because in the inductive proof, we are taking **exactly** **$4$** steps back.
 2. In our inductive case, we start from $16$, which is $4$ above the base case.
 3. We also, for induction, assume that the statement we wish to prove holds true for values from $12$ up until $n - 1$.
 
+Before we round off this section, let's provide a more formal definition of strong induction:
 
-Strong induction is especially handy when it comes to analysing recurrences. So we will see more examples after the second topic ([[#Recurrences]]) in this unit, and next week.
+>[!info] Definition: Strong induction rule
+> Let $P(n)$ be a statement about some $n \in \mathbb{N}$.
+> 
+> Suppose that we have proven that $P(b)$ is true for all $b_1 \leq b < b_2$.
+> 
+> Also, suppose that we have proven the implication that for some $k \geq b_2$,
+> $$
+> \bigg(\forall b_1 \leq j < k \ \big[P(j) \big] \bigg) \to P(k)
+> $$
+> 
+> Then, we may conclude that $\forall n \in \mathbb{N} \ [P(n)]$.
+
+Strong induction is especially handy when it comes to analysing recurrences. We will see more examples after the second topic on ([[#Recurrences|recurrences]]) in this unit, and next week.
 
 # Part 2: Recurrences
 
