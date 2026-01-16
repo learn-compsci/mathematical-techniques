@@ -1,22 +1,20 @@
 ---
 title: "Unit 5: Asymptotic Notation, and Algorithmic Analysis"
 ---
-
 # Overview
 
-In this unit, we'll be giving big motivations for [[Unit 4]] by doing 2 things:
+In this unit, we'll continue building upon the motivations in [[Unit 4]] by doing three things:
 
-1. Showing big O, big omega, big theta terminology. (Asymptotic Notation)
-2. Bounding recurrences and general functions.
-3. Showing how induction is used in the context of computer science.
+1. [[#Part 1 Asymptotic Notation|Showing big O, big Omega and big Theta terminology (asymptotic notation)]]
+2. Bounding recurrences and general functions
+3. Showing how induction is used in the context of computer science
 
-Think of this as a big culmination of the reason we learned logic, proofs, induction, and logical statements. After this point, we will be focusing on a different branch of topics.
+Think of this as a big culmination of the reason we learned logic, proofs, induction and logical statements. After this point, we will be focusing on a different branch of topics.
 
-# Asymptotic Notation
+---
+# Part 0: Motivation
 
-## Some Motivating Scenarios
-
-Let's begin with an example. Let's say that we wrote this python program that just counts how many even numbers there are.
+Let's begin with an example. Let's say that we wrote this Python program that just counts how many even numbers there are in an array (or rather, a Python list).
 
 ```python
 def count_even(arr):
@@ -29,19 +27,19 @@ def count_even(arr):
 
 How long does this program take?
 
-You could perhaps plot a graph, where the $x$-axis is the size of the array. And the $y$-axis is how long it takes for this program to run. We could also write similar C++ and maybe even Java code that all does something like this.
+You could perhaps plot a graph, where the $x$-axis is the size of the array and the $y$-axis is how long it takes for this program to run. We could also write similar code in C++ and Java that does something like this.
 
-And let's pretend that we ran some experiments, and plotted some graphs to find out how long they take. Then maybe we'd get something like this:
+Also, let's pretend that we ran some experiments, and plotted some graphs to find out how long they take. Then maybe we'd get something like this:
 
 ![[example-plot.svg]]
 
 Notice they all kind of look like straight lines. Like linear functions. Why? Because intuitively, no matter the programming language, the three of them would be following the same idea: start from the first item, go through each item until the last, and for each of them, we do a check to see if it's even or not. In some sense, if we had $n$ items, the `for` loop just goes through all $n$ of them.
 
-Depending on the programming language (and even computer hardware), our total time taken might not the same, but we can expect the same linear trend between the time taken, and the array size. We want to basically say "no matter the programming language, we expect to see the same linear trend".
+Depending on the programming language (and even computer hardware), our total time taken might not the same, but we can expect the same linear trend between the time taken, and the array size. We want to basically say "no matter the programming language or hardware conditions, we expect to see the same linear trend".
 
-This does not just apply to different programming languages, but even **different** approaches to solve the same computational problem.
+This does not just apply to different programming languages, but even different *approaches* to solve the same computational problem.
 
-Here's another example, let's say we wanted to sort numbers in an array. There are many ways of doing this, let's look at 2 possible ways:
+Here's another example, let's say we wanted to sort numbers in an array. There are many ways of doing this, let's look at two possible ways:
 
 ```python
 def sorter1(arr):
@@ -60,32 +58,37 @@ def sorter2(arr):
 		arr[min_index], arr[index1] = arr[min_index], arr[index1]
 ```
 
-Here's an idea about how these two sorting methods work. The first one basically tries to move the $i^{th}$ element backwards until $arr[i] > arr[i - 1]$. After that, we rinse and repeat with $i + 1$.
+Here's an idea about how these two sorting methods work. The first one basically tries to move the $i^{th}$ element backwards until $arr[i] \geq arr[i - 1]$. After that, we rinse and repeat with the $(i + 1)^{th}$.
 
 ![[insertion-sort.svg]]
 
-For example, let's say that we're on the $4^{th}$ element, we iterate backwards and keep swapping until the $3^{rd}$ element is greater than the element on its left, which only happens when it's the $2^{nd}$ element on the array.
+For example, let's say that we're on the $4^{\text{th}}$ element, we iterate backwards and keep swapping until the $3^{\text{rd}}$ element is greater than or equal to the element on its left, which only happens when it's the $2^{\text{nd}}$ element on the array.
 
-How many steps does the program take? Well the inner loop takes **at most** $index1$ many iterations, and $index1$ ranges from $1$ to $n$. So `sorter1` uses at most $1 + 2 + 3 + 4 + \cdots + (n - 1)$ iterations.
+How many steps does the program take? Well the inner loop takes **at most** $index_1$ many iterations, and $index_1$ ranges from $1$ to $n$. Hence, `sorter1` uses at most $1 + 2 + 3 + 4 + \cdots + (n - 1)$ iterations.
 
-The second one, on the other hand, repeatedly tries to find the minimum element before placing it in the correct location.
+On the other hand, the second one repeatedly tries to find the minimum element before placing it in the correct location.
 
 ![[selection-sort.svg]]
 
-How many iterations does this take now? For `index1`, we need to check $n - index1$ values. This means the total iterations are $n + (n - 1) + (n - 2) + \cdots + 1$.
+How many iterations does this take now? For $index_1$, we need to check $n - index_1$ values. This means the total iterations are $n + (n - 1) + (n - 2) + \cdots + 1$.
 
-Okay, so both methods have $1 + 2 + \dots = \frac{n(n+1)}{2}$ iterations. But what they do in each iteration is not the same! The first one does some swapping, the second one does comparisons and only swaps towards the end. It would be reasonable to think that because of that, even though the number of iterations are the same, the total time taken would be different. Again, a hypothetical plot you might see if we took some experimental values might look something like this:
+While both methods have $1 + 2 + \dots = \frac{n(n+1)}{2}$ iterations, what they do in each iteration is not the same! The first one does some swapping, the second one does comparisons and only swaps towards the end. It would be reasonable to think that because of that, even though the number of iterations are the same, the total time taken would be different. Again, a hypothetical plot you might see if we took some experimental values might look something like this:
 
 ![[example-plot-2.svg]]
 
-We might expect both sorters to have a **quadratic** relationship between the time taken vs. the array size. So the curves might look like $a\cdot n^2 + b\cdot n + c$ for some constants $a, b, c$.
+We might expect both sorters to have a **quadratic** relationship between the time taken with respect to the array size. In particular, the curves might look like $an^2 + bn + c$ for some constants $a$, $b$ and $c$.
 
-In both scenarios we've talked about, bear in mind that what we care about is the "rough trend" of running time, as $n$ approaches infinity. In other words, as $n$ grows, what kind of curve does the running time look like?  That is, how much work is done, relative to the input size $n$. Think about this as a form of "scaling".
+In both scenarios we've talked about, bear in mind that what we care about is the "rough trend" of running time, as $n$ approaches infinity. In other words, as $n$ grows, what kind of curve does the running time look like? That is, how much work is done **relative** to the input size $n$? Think about this as a form of "scaling".
 
 ![[example-plot-3.svg]]
 
-So for example, let's say we had two programs, one of which whose time taken curve is $0.0005n^2 + 0.00000000001n + 2$, and another program whose time taken curve is $3000\log(n)$. Which program is more "efficient"? Typically we want to design solutions that scale well, and that means solutions that handle large scale inputs very well. For that reason, we would like to say the second program is better. But how do we communicate this fact?
-## Big O Notation
+For example, let's say we had two programs, one of which whose "time taken" curve is $0.0005n^2 + 0.00000000001n + 2$, and another program whose "time taken" curve is $3000\log(n)$. Which program is more "efficient"? Typically we want to design solutions that scale well, and that means solutions that handle large scale inputs very well. For that reason, we would like to say the second program is better. But how do we communicate this fact mathematically?
+
+---
+# Part 1: Asymptotic Notation
+
+## Big O
+
 For that reason, it is very common for computer scientists to talk about certain functions using big O notation. (Sometimes referred to as big O notation.) Here's how it works: given a function $f(n)$, then the **set** $O(f(n))$ contains all functions $g(n)$ such that:
 
 $$
