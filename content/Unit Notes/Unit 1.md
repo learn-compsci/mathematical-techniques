@@ -782,7 +782,7 @@ Yes, there are a few ways, but for now this is the most reliable way.
 >This is **not** equivalent; in general, swapping the order of universal and existential quantifiers produces a different statement. The original statement talks about a specific, fixed $m$, and then comparing all $n$ against it. Instead, Option 4 talks about all values $n$, and then finding an instance of $m$ that fulfils the equation.
 >
 >---
->The original statement itself is **false**—there is no single integer $m$ that is equal to the square of every other natural number.
+>The original statement itself is **false**—there is no single integer $m$ whose square is equal to every other natural number.
 
 ---
 # Part 3: Proofs in First-Order Logic
