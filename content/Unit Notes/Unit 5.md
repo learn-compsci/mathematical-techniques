@@ -89,42 +89,57 @@ For example, let's say we had two programs, one of which whose "time taken" curv
 
 ## Big O
 
-For that reason, it is very common for computer scientists to talk about certain functions using big O notation. (Sometimes referred to as big O notation.) Here's how it works: given a function $f(n)$, then the **set** $O(f(n))$ contains all functions $g(n)$ such that:
+For that reason, it is very common for computer scientists to talk about certain functions using big O notation. To start us off, here's a formal definition of big O:
 
-$$
-\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [ g(n) \leq c\cdot f(n)]
-$$
+>[!info] Definition: Big O
+> Let $\textcolor{red}{f(n)}$ be a function on the natural numbers. Then, the **set** $O(\textcolor{red}{f(n)})$ contains all functions $\textcolor{green}{g(n)}$ such that
+> $$
+> \exists n_0 \in \mathbb{N}, \exists \textcolor{blue}{c} \in \mathbb{R^+}, \forall n \geq n_0 \ \big[ \textcolor{green}{g(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{f(n)} \big]
+> $$
+> where $\mathbb{R}^+$ is the set of positive real numbers, i.e., anything greater than $0$.
 
-(Think of $\mathbb{R}^+$ as the set of positive numbers, i.e., anything greater than $0$.)
+Also, we will only ever consider functions $\textcolor{red}{f(n)}$ that are always positive, i.e., $\forall n \in \mathbb{N}\ [\textcolor{red}{f(n)} > 0]$.
 
-Also, we will only ever consider functions $f(n)$ that are always positive, i.e., $\forall n \in \mathbb{N}\ [f(n) > 0]$.
-
-So for example, if $f(n) = n$, then the set $O(f(n)) = O(n)$. And this set **contains** functions like $g(n) =5\cdot n$, or functions like $g(n) = 6\cdot \sqrt{n}$ and $g(n) = 20\cdot \log(n)$. On the other hand, functions like $g(n) = n^2$ are not in the set $O(n)$.
+So for example, if $\textcolor{red}{f(n)} = \textcolor{red}{n}$, then the set $O(\textcolor{red}{f(n)}) = O(\textcolor{red}{n})$. And this set **contains** functions like $\textcolor{green}{g(n) = 5n}$, or functions like $\textcolor{green}{g(n) = 6 \sqrt{n}}$ and $\textcolor{green}{g(n) = 20 \log_2(n)}$. On the other hand, functions like $g(n) = n^2$ are not in the set $O(\textcolor{red}{n})$.
 
 Why is this the case? Let's run through the examples.
 
-For a function like $g(n) = 5\cdot n$, how do we argue that $g(n) \in O(n)$?  We need to provide a value $n_0$ and a positive constant $c \in \mathbb{R}$. How about $n_0 = 1$, and $c = 5$? Then $c \geq 1$ and $g(n) \leq 5\cdot f(n)$.
-
-What about something like $g(n) = 6\cdot \sqrt{n}$, how do we argue that $g(n) \in O(n)$?  We need to provide a value $n_0$ and a positive constant $c \in \mathbb{R}$. How about $n_0 = 1$, and $c = 6$? Then $c \geq 1$ and $g(n)  \leq g(n)^2 \leq 36\cdot f(n)$.
-
-Lastly, consider $g(n) = 20\cdot \log_2(n)$.  We have that $20\cdot \log_2(n) \leq 20\cdot 2^{\log_2(n)} \leq 20\cdot n$. So setting $n_0 = 1$ and $c = 20$ would help us justify this.
-
-What about $g(n) = n^2$? Why is that function not in $O(n)$? Remember, to **not** be in the set means the negation of the condition, i.e.,
+For a function like $\textcolor{green}{g(n) = 5n}$, how do we argue that $\textcolor{green}{g(n)} \in O(\textcolor{red}{n})$?  We need to provide a value $\textcolor{purple}{n_0}$ and a positive constant $\textcolor{blue}{c} \in \mathbb{R}$. How about $n_0 = 1$, and $\textcolor{blue}{c = 7}$? Then, for all $n \geq n_0$, we have: 
 
 $$
-\forall n_0 \in \mathbb{N}, \forall c \in \mathbb{R^+}, \exists n \geq n_0\ [ g(n) > c\cdot f(n)]
+\textcolor{green}{g(n)} = \textcolor{green}{5 \cdot n} \leq \textcolor{blue}{7} \cdot \textcolor{red}{n} = \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}
 $$
 
-So how do we do this? We need to show that no matter the starting point $n_0$ and the multiplier $c$, at some point beyond $n_0$, we will find some value $x$ for which $g(x) > c\cdot f(x)$. Consider any $n_0$, and any positive value $c$. Then we will pick $x = \max(c, n_0) + 1$, and claim that for this $x$, $g(n) > c\cdot f(n)$.
+What about something like $\textcolor{green}{g(n) = 6 \sqrt{n}}$? How do we argue that $\textcolor{green}{g(n)} \in O(\textcolor{red}{n})$?  We need to provide a value $n_0$ and a positive constant $\textcolor{blue}{c} \in \mathbb{R}$. How about $n_0 = 1$, and $\textcolor{blue}{c = 6}$? Then, for all $n \geq n_0$, we have: 
+
+$$
+\textcolor{green}{g(n)} = \textcolor{green}{6 \cdot \sqrt{n}} \leq \textcolor{blue}{6} \cdot \textcolor{red}{n} = \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}
+$$
+
+Lastly, consider $\textcolor{green}{g(n) = 20 \log_2(n)}$.  We have that:
+
+$$
+\textcolor{green}{g(n)} = \textcolor{green}{20 \cdot \log_2(n)} \leq \textcolor{blue}{20} \cdot \textcolor{red}{n} = \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}
+$$
+
+Then, setting $n_0 = 1$ and $\textcolor{blue}{c = 20}$ would help us justify this.
+
+What about $\textcolor{green}{g(n) = n^2}$? Why is that function not in $O(\textcolor{red}{n})$? Remember, to **not** be in the set means the negation of the condition, i.e.,
+
+$$
+\forall n_0 \in \mathbb{N}, \forall \textcolor{blue}{c} \in \mathbb{R^+}, \exists n \geq n_0 \ [ \textcolor{green}{g(n)} > \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}]
+$$
+
+So how do we do this? We need to show that no matter the starting point $n_0$ and the multiplier $\textcolor{blue}{c}$, at some point beyond $n_0$, we will find some value $n$ for which $\textcolor{green}{g(n)} > \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}$. Consider any arbitrarily chosen $n_0$ and any arbitrarily chosen positive value $\textcolor{blue}{c}$. Then we can pick $n = \max(\textcolor{blue}{c}, n_0) + 1$, and claim that for this $n$, we have $\textcolor{green}{g(n)} > \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}$:
 
 $$
 \begin{align*}
-	g(x) &= g(\max(c, n_0) + 1)\\
-		 &= (\max(c, n_0) + 1)(\max(c, n_0) + 1)\\
-		 &> \max(c, n_0)(\max(c, n_0) + 1)\\
-		 &\geq c\cdot (\max(c, n_0) + 1)\\
-		 &\geq c\cdot x\\
-		 &= f(x)
+	\textcolor{green}{g(n)} &= \textcolor{green}{g(\max(\textcolor{blue}{c}, n_0) + 1)}\\
+		 &= (\max(\textcolor{blue}{c}, n_0) + 1) \cdot (\max(\textcolor{blue}{c}, n_0) + 1)\\
+		 &> \max(\textcolor{blue}{c}, n_0) \cdot (\max(\textcolor{blue}{c}, n_0) + 1))\\
+		 &\geq \textcolor{blue}{c} \cdot (\max(\textcolor{blue}{c}, n_0) + 1))\\
+		 &\geq \textcolor{blue}{c} \cdot \textcolor{red}{n}\\
+		 &= \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}
 \end{align*}
 $$
 
