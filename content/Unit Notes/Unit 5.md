@@ -154,19 +154,20 @@ Here, the red curve is $0.05x^{2}+0.6x+1$, the green curve is $x+5$, the blue cu
 So let's look at the definition of big O again, and see how it lines up.
 
 $$
-\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [ g(n) \leq c\cdot f(n)]
+\exists n_0 \in \mathbb{N}, \exists \textcolor{blue}{c} \in \mathbb{R^+}, \forall n \geq n_0\ [ \textcolor{green}{g(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{f(n)}]
 $$
 
-The $n_0$ here is the point at which $c\cdot f(n)$ starts being larger. But what about the scaling factor $c$? Here's the idea, let's say I had 3 functions $f(n) = 5n$ and $g(n) = 10n$ and $h(n) = 5n + 5$. All of them actually scale the same way: they're all linearly related to $n$.
+The $n_0$ here is the point at which $\textcolor{blue}{c} \cdot \textcolor{red}{f(n)}$ starts being larger than each $\textcolor{green}{g(n)}$. But what about the scaling factor $\textcolor{blue}{c}$?
+
+Here's the idea: let's say I had three functions, $f(n) = 5n$, $g(n) = 10n$ and $h(n) = 5n + 5$. All of them actually scale the same way: they're all linearly related to $n$.
 
 ![[Images/linear-scaling.svg]]
 
-So you're free to pick a scaling factor $c$ to say something like $g(n) \in O(h(n))$.
+So you're free to pick a scaling factor $\textcolor{blue}{c}$ to say something like $\textcolor{green}{g(n)} \in O(\textcolor{red}{h(n)})$.
 
+So you can think of $\textcolor{green}{g(n)} \in O(\textcolor{red}{f(n)})$ as basically saying "$\textcolor{green}{g(n)}$ as a function **at some point onwards** is going to be $\leq$ some positive multiple of function $\textcolor{red}{f(n)}$".
 
-So you can think of $f(n) \in O(g(n))$ as basically saying "$f(n)$ as a function **at some point onwards** is going to be $\leq$ the function some positive multiple of function $g(n)$".
-
-### Big O in the Wild
+### Big O in the wild
 
 In fact, big O notation is actively used in the wild. For example, the containers provided by the standard template library by C++ come with documentation on their complexity. This is how C++ tells you how the operations/methods of their containers scale with the size of the containers itself.
 
@@ -174,71 +175,83 @@ In fact, big O notation is actively used in the wild. For example, the container
 (Screenshot taken from [cppreference](https://en.cppreference.com/w/cpp/container/set/insert))
 
 Even wiki pages that discuss algorithms and data structures use this notation.
+
 ![[wiki-big-O.png]]
 
 ## Big Omega
 
-As previously mentioned, think of $f(n) \in O(g(n))$ as our way of saying a function $f(n)$ is "at most" function $g(n)$. There are a few other notations that are less common, but still worth mentioning.
+As previously mentioned, think of $\textcolor{green}{g(n)} \in O(\textcolor{red}{f(n)})$ as our way of saying a function $\textcolor{green}{g(n)}$ is "at most" function $\textcolor{red}{f(n)}$. There are a few other notations that are less common, but still worth mentioning.
 
-Given a function $f(n)$, then the **set** $\Omega(f(n))$ (pronounced "big omega") contains all functions $g(n)$ such that:
+>[!info] Definition: Big Omega
+> Let $\textcolor{red}{f(n)}$ be a function on the natural numbers. Then, the **set** $\Omega(\textcolor{red}{f(n)})$ contains all functions $\textcolor{green}{g(n)}$ such that
+> $$
+> \exists n_0 \in \mathbb{N}, \exists \textcolor{blue}{c} \in \mathbb{R^+}, \forall n \geq n_0 \ \big[ \textcolor{green}{g(n)} \geq \textcolor{blue}{c} \cdot \textcolor{red}{f(n)} \big]
+> $$
 
-$$
-\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [ g(n) \geq c\cdot f(n)]
-$$
+Notice that all we have done is flipped the $\leq$ into a $\geq$. So big Omega is basically saying that a function $\textcolor{green}{g(n)}$ is "at least" function $\textcolor{red}{f(n)}$.
 
-Notice that all we have done is flipped the $\leq$ into a $\geq$. So big omega is basically saying that a function $g(n)$ is "at least" function $f(n)$.
-
-So along those lines, let's look at some examples. We can say something like $5n \in \Omega(20n)$, we can also say something like $n^2 \in \Omega(\sqrt{n})$. On the other hand, we cannot say something like $1000n \in \Omega\left(\frac{n^2}{1000}\right)$.
+So along those lines, let's look at some examples. We can say something like $\textcolor{green}{5n} \in \Omega(\textcolor{red}{20n})$; we can also say something like $\textcolor{green}{n^2} \in \Omega(\textcolor{red}{\sqrt{n}})$. On the other hand, we cannot say something like $\textcolor{green}{1000n} \in \Omega\left(\textcolor{red}{\frac{n^2}{1000}}\right)$.
 
 ## Big Theta
 
-Lastly, given a function $f(n)$, the set $\Theta(f(n))$ is defined to be the set of all functions $g(n)$ such that $g(n) \in O(f(n))$ and $g(n) \in \Omega(f(n))$. In particular:
+Lastly:
 
-$$
-\Theta(f(n)) = O(f(n)) \cap \Omega(f(n))
-$$
-## Some properties about asymptotic notation
+>[!info] Definition: Big Theta
+> Let $\textcolor{red}{f(n)}$ be a function on the natural numbers. Then, the **set** $\Theta(\textcolor{red}{f(n)})$ contains all functions $\textcolor{green}{g(n)}$ such that
+> $$
+> \big[\textcolor{green}{g(n)} \in O(\textcolor{red}{f(n)}) \big] \land \big[\textcolor{green}{g(n)} \in \Omega (\textcolor{red}{f(n)}) \big]
+> $$
+> 
+> In particular, $\Theta(\textcolor{red}{f(n)}) = O(\textcolor{red}{f(n)}) \cap \Omega(\textcolor{red}{f(n)})$.
 
-#### The asymptotics of polynomials
-Now that we have these sets that talk about functions, let's cover some useful properties about them.
+## Properties of Asymptotic Notation
 
-Let's start with a function like $0.75n^3 - 10n^2 + 5n + 3000$. Can we say this is $O(n^3)$? After all, intuitively, for large enough $n$, the **dominant** term is $n^3$ here, and the smaller terms like $-10n^2$ and $5n$ start to become insignificant in comparison.
+### The asymptotics of polynomials
 
-So given a polynomial like the one above, we can find the most dominant term (the one with the highest power), and then drop any constant factors that it comes with, then conclude it is big O of that function. Like in our example above, we identify the $0.75n^3$, and drop the constant factor, thereby concluding the function is in $O(n^3)$.
+Now that we have these sets that relate functions, let's cover some useful properties about them.
+
+Let's start with a function like $\textcolor{green}{0.75n^3 - 10n^2 + 5n + 3000}$. Can we say this is $O(\textcolor{red}{n^3})$? After all, intuitively, for large enough $n$, the "dominant" term is $n^3$ here, and the smaller terms like $-10n^2$ and $5n$ start to become insignificant in comparison.
+
+So given a polynomial like the one above, we can find the most dominant term (the one with the highest power), and then drop any constant factors that it comes with, then conclude it is big O of that function. Like in our example above, we identify the term $0.75n^3$ and drop the constant factor, thereby concluding that the function is in $O(\textcolor{red}{n^3})$.
 
 > [!Claim]
->  Given a degree-$k$ polynomial $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ where $a_k > 0$, then $f(n) = O(n^k)$. 
+>  Given a degree-$k$ polynomial $\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}$ where $a_k > 0$, then $\textcolor{green}{f(n)} = O(\textcolor{red}{n^k})$. 
 
-Why is this true? Here's a sketch of the math behind it, we are going to show that $n$ from $n_0$ onwards, $f(n) \leq c\cdot n^k$ for some constant $c$.
+Why is this true? Here's a sketch of the math behind it—we are going to show that for all $n$ from $n_0$ onwards, $\textcolor{green}{f(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n^k}$ for some constant $\textcolor{blue}{c}$.
 
-**Proof:**
-1. Consider a degree-$k$ polynomial: $$f(n) = \sum_{i = 0}^k a_i \cdot n^i$$
-2. $$
-   \begin{align*}
-		f(n) &=  \sum_{i = 0}^k a_i \cdot n^i\\
-		&\leq  \sum_{i = 0}^k \lvert a_i \rvert \cdot n^k\\
-		&\leq  n^k \cdot \left(\sum_{i = 0}^k \lvert a_i \rvert \right)\\
-   \end{align*}
-   $$
-   3. So setting $n_0 = 1$ and $c=  \left(\sum_{i = 0}^k \lvert a_i \rvert \right)$, we are guaranteed that $f(n) \leq c\cdot n^k$. Therefore, $f(n) \in O(n^k)$.
-
+>[!Proof]
+>1. Consider a degree-$k$ polynomial:
+>	$$
+>		\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}
+>	$$
+>2. Then, $$
+>	\begin{align*}
+>		\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
+>		&\leq \textcolor{blue}{\left(\sum_{i = 0}^k \lvert a_i \rvert \right)} \cdot \textcolor{red}{n^k}\\
+>	\end{align*}
+>	$$
+>3. So setting $n_0 = 1$ and $\textcolor{blue}{c = \left(\sum_{i = 0}^k \lvert a_i \rvert \right)}$, we are guaranteed that $\textcolor{green}{f(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n^k}$.
+>4. Therefore, $\textcolor{green}{f(n)} \in O(\textcolor{red}{n^k})$.
 
 In fact, perhaps a little unintuitively, we can also say the following:
 
 > [!Claim]
->  Given a degree-$k$ polynomial $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ where $a_k > 0$, then $f(n) = \Omega(n^k)$. 
+>  Given a degree-$k$ polynomial $\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}$ where $a_k > 0$, then $\textcolor{green}{f(n)} = \Omega(\textcolor{red}{n^k})$. 
 
-Why is this true? We are now saying that the function $f(n)$ grows at least as the rate of its highest term. Which intuitively still makes sense, since as $n$ tends to $\infty$, the function is still dominated by the $n^k$ term. But how do we prove this? It may be tempting to prove this in the following way:
+Why is this true? We are now saying that the function $\textcolor{green}{f(n)}$ grows at as least the rate of its highest term. Intuitively, this still makes sense, since as $n$ tends to $\infty$, the function is still dominated by the $\textcolor{red}{n^k}$ term. But how do we prove this? It may be tempting to prove this in the following way:
 
-**Faulty Proof:**
-1. Consider a degree-$k$ polynomial:  $$f(n) = \sum_{i = 0}^k a_i \cdot n^i$$
-2. $$
-   \begin{align*}
-		f(n) &=  \sum_{i = 0}^k a_i \cdot n^i\\
-		&\geq  a_k \cdot n^k\\
-   \end{align*}
-   $$
-   3. Let $n_0 = 1$ and $c = a_k$. Then $\forall n \geq n_0\ [f(n) \geq c \cdot n^k]$.
+>[!warning] Faulty Proof
+>1. Consider a degree-$k$ polynomial:
+>	$$
+>		\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}
+>	$$
+>2. Then, $$
+>	\begin{align*}
+>	\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
+>	&\geq  \textcolor{blue}{a_k} \cdot \textcolor{red}{n^k}\\
+>	\end{align*}
+>	$$
+>3. Let $n_0 = 1$ and $c = a_k$. Then $\forall n \geq n_0\ \big[\textcolor{green}{f(n)} \geq \textcolor{blue}{c} \cdot \textcolor{red}{n^k} \big]$.
 
 Where did we go wrong? Why is this faulty? Hint: Is line 2 correct?
 
