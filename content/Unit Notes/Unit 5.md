@@ -253,27 +253,27 @@ Why is this true? We are now saying that the function $\textcolor{green}{f(n)}$ 
 >	$$
 >3. Let $n_0 = 1$ and $c = a_k$. Then $\forall n \geq n_0\ \big[\textcolor{green}{f(n)} \geq \textcolor{blue}{c} \cdot \textcolor{red}{n^k} \big]$.
 
-Where did we go wrong? Why is this faulty? Hint: Is line 2 correct?
+Where did we go wrong? Why is this faulty? (Hint: Is line 2 correct?)
 
 >[!Answer]-
 > For example, consider $f(n) = 10n^2 - 5n$. Can we really say $f(n) \geq 10n^2$ for $n \geq 1$? No we can't!
 
 So instead, we're going to prove a useful lemma first before proving the original statement properly.
 
-**Lemma:**
-Let $f(n) = \frac{1}{b}\cdot n^k - an^t$ where $0 \leq t < k$, and $a, b > 0$. Then for all $n \geq a\cdot b$, $f(n) \geq 0$. In other words, $\frac{1}{b}(n^k)$ is greater than or equal to $an^t$.
-
-$$
-\begin{align*}
-\frac{1}{b}\cdot n^k &\geq \frac{1}{b}n^k\\
-					 &\geq \frac{1}{b}(a\cdot b)^k\\
-					 &\geq \frac{b}{b}(a^k)(b^{k - 1})\\
-					 &\geq (a^{t+1})(b^{t})\\
-					 &\geq a \cdot (a^t)(b^t)\\
-					 &\geq a \cdot (a\cdot b)^t\\
-					 &= a \cdot n^t\\
-\end{align*}
-$$
+>[!Lemma]
+> Let $f(n) = \frac{1}{b}n^k - an^t$ where $0 \leq t < k$, and $a, b > 0$. Then for all $n \geq ab$, $f(n) \geq 0$. In other words, $\frac{1}{b}n^k$ is greater than or equal to $an^t$.
+> 
+> $$
+> \begin{align*}
+> &\frac{1}{b}n^k\\
+> &\geq \frac{1}{b}(ab)^k\\
+> &\geq \frac{b}{b}(a^k)(b^{k - 1})\\
+> &\geq (a^{t+1})(b^{t})\\
+> &\geq a(a^t)(b^t)\\
+> &\geq a(ab)^t\\
+> &= an^t\\
+> \end{align*}
+> $$
 
 So what does this mean? Let's try working out an example being seeing the general idea:
 
@@ -298,44 +298,46 @@ $$
 
 So what about in general when we have a degree-$k$ polynomial?
 
-**Proof:**
-1. Let $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ be a degree-$k$ polynomial with $a_k > 0$.
-2. $$
-	\begin{align*}
-	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
-	\end{align*}
-   $$
-3. Then by setting $n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we know that $\left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)$ is non-negative, so: $$
-	\begin{align*}
-	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
-	&\geq \left(\frac{a_k}{k + 1}\right)n^k
-	\end{align*}
-	$$
-4. Since $a_k > 0$ and $k + 1 > 0$, we have that $\left(\frac{a_k}{k + 1}\right) > 0$. So setting $c = \left(\frac{a_k}{k + 1}\right)$ and $n_0 \geq n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we are able to conclude that $\forall n \geq n_0\ [f(n) \geq c\cdot n^k]$.
+>[!Proof]
+>1. Let $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ be a degree-$k$ polynomial with $a_k > 0$.
+>2. $$
+>	\begin{align*}
+>	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+>	\end{align*}
+> $$
+>3. Then by setting $n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we know that $\left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)$ is non-negative, so:
+>	$$
+>	\begin{align*}
+>	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+>	&\geq \left(\frac{a_k}{k + 1}\right)n^k
+>	\end{align*}
+>	$$
+>4. Since $a_k > 0$ and $k + 1 > 0$, we have that $\left(\frac{a_k}{k + 1}\right) > 0$. So setting $c = \frac{a_k}{k + 1}$ and $n_0 \geq n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we are able to conclude that $\forall n \geq n_0\ [f(n) \geq c\cdot n^k]$.
 
-
-Now from the previous 2 parts, we know that $f(n) \in O(n^k)$ and $f(n) \in \Omega(n^k)$. So we can conclude that $f(n) = \Theta(n)$.
+Now from the previous two parts, we know that $\textcolor{green}{f(n)} \in O(\textcolor{red}{n^k})$ and $\textcolor{green}{f(n)} \in \Omega(\textcolor{red}{n^k})$. Hence we can conclude that $\textcolor{green}{f(n)} \in \Theta(\textcolor{red}{n^k})$.
 
 > [!Claim]
->  Given a degree-$k$ polynomial $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ where $a_k > 0$, then $f(n) = \Theta(n^k)$. 
+>  Given a degree-$k$ polynomial $\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}$ where $a_k > 0$, then $\textcolor{green}{f(n)} \in \Theta(\textcolor{red}{n^k})$. 
 
-#### The transitivity of Big O
-Let's say that we relate function $f(n)$ to function $g(n)$ if $f(n) \in O(g(n))$. Then this relationship is transitive.
+#### The transitivity of big O
 
-**Proof:**
-1. Let $f(n), g(n), h(n)$ be functions.
-2. Assume that $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$.
-	1. Since $f(n) \in O(g(n))$, $\exists c > 0, n_0 \geq 0, \forall n \geq n_0 \ [f(n) \leq c\cdot g(n)]$. \[Definition of big O]
-	2. Since $g(n) \in O(h(n))$, $\exists d > 0, m_0 \geq 0, \forall n \geq m_0\ [g(n) \leq d\cdot h(n)]$. \[Definition of big O]
-	3. Consider $s = \max(n_0, m_0)$, and $t = c\cdot d$.
-		1. Since $c > 0$ and $d > 0$, therefore $t > 0$.
-		2. Consider any $n \geq s$. Then $n \geq n_0$ and $n \geq m_0$.
-		3. $f(n) \leq c\cdot g(n) \leq c\cdot d\cdot h(n) = t\cdot h(n)$
-	4. $\exists s \geq 0, t > 0, \forall n \geq s\ [f(n) \geq t\cdot h(n)]$.
-	5. $f(n) \in O(h(n))$
-3. If $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$, then $f(n) \in O(h(n))$.
+Let's say that we relate function $\textcolor{green}{f(n)}$ to function $\textcolor{red}{g(n)}$ if $\textcolor{green}{f(n)} \in O(\textcolor{red}{g(n)})$. Then this relation is transitive.
+
+>[!Proof]
+>1. Let $f(n), g(n), h(n)$ be functions.
+>2. Assume that $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$.
+>		1. Since $f(n) \in O(g(n))$, $\exists c > 0, n_0 \geq 0, \forall n \geq n_0 \ [f(n) \leq c\cdot g(n)]$. \[Definition of big O]
+>		2. Since $g(n) \in O(h(n))$, $\exists d > 0, m_0 \geq 0, \forall n \geq m_0\ [g(n) \leq d\cdot h(n)]$. \[Definition of big O]
+>		3. Consider $s = \max(n_0, m_0)$, and $t = c\cdot d$.
+>			1. Since $c > 0$ and $d > 0$, therefore $t > 0$.
+>			2. Consider any $n \geq s$. Then $n \geq n_0$ and $n \geq m_0$.
+>			3. $f(n) \leq c\cdot g(n) \leq c\cdot d\cdot h(n) = t\cdot h(n)$
+>		4. $\exists s \geq 0, t > 0, \forall n \geq s\ [f(n) \geq t\cdot h(n)]$.
+>		5. $f(n) \in O(h(n))$.
+>3. If $f(n) \in O(g(n))$ and $g(n) \in O(h(n))$, then $f(n) \in O(h(n))$.
 
 #### The asymptotics of other functions
+
 Now that we have established transitivity, we can start comparing functions quite easily. In fact, this means we can start placing functions down in some kind of "ordering". Let's show how some common functions are ordered among each other. From "smaller" to "larger" functions, we have that:
 
 $$
@@ -348,7 +350,7 @@ $$
 Okay, that's a very long list. We aren't going to prove all of this, but it's hopefully most of these are very intuitive. However, let's take a closer look at the following:
 
 >[!Claim]
-> $2^{(\frac{n}{2})} \in O(2^n)$ but $2^n \notin O(2^{\frac{n}{2}})$.
+> $2^{\frac{n}{2}} \in O(2^n)$ but $2^n \notin O \big(2^{\frac{n}{2}} \big)$.
 
 This might look a little unintuitive at first. After all, isn't $n \in O(\frac{n}{2})$? 
 
