@@ -397,7 +397,7 @@ One last thing for us to think about: If $f(n) \in O(g(n))$, can we also say $g(
 
 # Part 3: Recurrences and Big O: The Substitution Method
 
-Now that we've talked about big O, let's try relating it back to program analysis. There are quite recurrences that we might encounter when writing recursive programs. For example, here's a recursive program that computes $n!$ :
+Now that we've talked about big O, let's try relating it back to program analysis. There are quite a few recurrences that we might encounter when writing recursive programs. For example, here's a recursive program that computes $n!$:
 
 ```python
 def factorial(n):
@@ -408,13 +408,16 @@ def factorial(n):
 
 For example, we want to say that this program has a linear running time with respect to $n$. How do we even do that? 
 
-If we ever want to analyse this, there are 2 parts to it:
+If we ever want to analyse this, there are two parts to it:
 1. We need to look at the program and derive the recurrence that corresponds to the program.
 2. We need to **bound** the recurrence.
 
-While we won't do much of part 1 here, we will be talking more about part 2. But for this example specifically, when $n = 1$, there is $O(1)$ work being done: the comparison, returning a value. When $n > 1$, the total work done is $T(n - 1) + O(1)$ work being done. Why? Because we need to do $T(n - 1)$ amount of work to solve $T(n - 1)$, and an additional $O(1)$ amount of work to multiply the answer by $n$, and return it.
+While we won't do much of part 1 here, we will be talking more about part 2. But for this example specifically, when $n = 1$, there is $O(1)$ "work" being done: the comparison followed by returning the value `1`.
 
-So, we obtain this recurrence:
+Now, let's define $T(n)$ denote the work done for an input of value $n$. When $n > 1$, the total work done is $T(n - 1) + O(1)$. Why? Because we need to do $T(n - 1)$ amount of work to solve `factorial(n - 1)`, and an additional $O(1)$ amount of work to multiply the answer by $n$, and return it. (Note that this assumes that multiplication of two numbers takes $O(1)$ work done as well.)
+
+Thus, we obtain this recurrence:
+
 $$
 T(n) = \begin{cases}
 T(n - 1) + O(1), & n > 1\\
@@ -422,31 +425,32 @@ O(1), & n = 1\\
 \end{cases}
 $$
 
-Okay, now we need to **bound** it. In this case we will prove that $T(n) \in O(n)$. How do we do this? This is done via the **substitution method**.
+Okay, now we need to **bound** it. In this case we will prove that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$. How do we do this? This is done via the **substitution method**.
 
-Let's look at the proof before pointing out the features it has. To prove that $T(n) \in O(n)$, we need to show that $T(n) \leq c\cdot n$ for some constant $c > 0$. 
+Let's look at the proof before pointing out the features it has. To prove that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$, we need to show that $\textcolor{green}{T(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n}$ for some constant $\textcolor{blue}{c} > 0$. 
 
-**Proof**:
-Let $c = 1$, and **assume that** $\forall m < n$, $T(m) \leq c\cdot m = m$. Then:
-$$
-\begin{align*}
-T(n) &= T(n - 1) + 1\\
-	&\leq (n - 1) + 1\\
-	&= 1\cdot n
-\end{align*}
-$$
+This proof probably looks very different from the ones we have done so far. Here are the important steps
 
-This proof probably looks very different from the ones we have done so far. Here are the important steps:
+>[!Proof]
+>1. Let $\textcolor{blue}{c = 1}$, and **assume that** $\forall m < n$, $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{m} = m$.
+>2. Then, since $n - 1 < n$, we can use our assumption on line 1 and say that:
+>	$$
+>	\begin{align*}
+>	\textcolor{green}{T(n)} &= T(n - 1) + 1\\
+> 	&\leq (n - 1) + 1\\
+> 	&= \textcolor{blue}{1} \cdot \textcolor{red}{n}
+> 	\end{align*}
+> 	$$
 
 1. We first take the $O(1)$ in the definition of $T(n)$, and just re-write this as $1$. This is very informal, but this is a simplification that just makes it easier for us to do the proof. This is why you see it written as $T(n-1) + 1$ in the first line.
 2. We typically have to make use of our assumption to replace any recurrent terms. For example, $T(n - 1)$ is replaced by $n - 1$ due to our assumption.
-3. Since we wanted to show that $T(n) \in O(n)$, the assumption made was that $T(m) \leq c\cdot m$.
-4. Lastly, we need to conclude for $T(n)$ the exact same statement as our assumption: We assumed $T(m) \leq c\cdot m$, so we have to conclude that $T(n) \leq c\cdot n$.
+3. Since we wanted to show that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$, the assumption made was that $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{m}$.
+4. Lastly, we need to conclude for $T(n)$ the *exact* same statement as our assumption: we assumed $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{m}$, so we have to conclude that $\textcolor{green}{T(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n}$.
 
-Notice here that while this looks like a proof of induction, we don't have a base case, and there is a reason for this: We are just trying to prove that $T(n) \in O(n)$. Since this means we only care about showing that $T(n) \leq c\cdot n$ for some $n \geq n_0$ onwards (where $c$ and $n_0$ are of our choosing), this technically means we can set what we want to be our base case, and artificially choose constants for which the base case is always true. So there's really no point in covering the base case for the substitution method. This makes it a very quick and easy tool to bound recurrences.
+Notice here that while this looks like a proof of induction, we don't have a base case, and there is a reason for this: we are just trying to prove that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$. Since this means we only care about showing that $\textcolor{green}{T(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n}$ for some $n \geq n_0$ onwards (where $\textcolor{blue}{c}$ and $n_0$ are of our choosing), this technically means we can set what we want to be our base case, and artificially choose constants for which the base case is always true. So there's really no point in covering the base case for the substitution method. This makes it a very quick and easy tool to bound recurrences.
 
+### A negative example of the method
 
-## A negative example of the method
 Now, before showing you a few more positive examples, let's go through a negative example of the substitution method.
 
 Let's say we were given the following recurrence:
@@ -458,18 +462,18 @@ T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1, & n > 1\\
 \end{cases}
 $$
 
-Let's say we suspect that $T(n) \in O(n)$. Given that, again, we are going to let $c = 1$ and assume that for all $m < n$, $T(m) \leq c\cdot m = m$.
+Let's say we suspect that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$. Given that, again, we are going to let $\textcolor{blue}{c = 1}$ and assume that for all $m < n$, $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{m} = m$.
 
-Then:
-**Faulty Proof:**
-Let $c = 1$, **assume that** $\forall m < n$, $T(m) \leq c\cdot m = m$. Then:
-$$
-\begin{align*}
-	T(n) &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
-		 &\leq \lfloor n / 2\rfloor + \lceil n / 2\rceil + 1\\
-		 &= n + 1\\
-\end{align*}
-$$
+>[!warning] Faulty Proof
+>1. Let $\textcolor{blue}{c = 1}$, **assume that** $\forall m < n$, $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{m} = m$.
+>2. Then, since $\lceil n / 2\rceil < n$ and $\lceil n / 2\rceil < n$, we can use our assumption on line 1 and say that:
+>	$$
+>	\begin{align*}
+>	\textcolor{green}{T(n)} &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
+>	&\leq \lfloor n / 2 \rfloor + \lceil n / 2 \rceil + 1\\
+>	&= n + 1\\
+>	\end{align*}
+>	$$
 
 Okay, this proof looks harmless enough. Where did we go wrong?
 
@@ -477,27 +481,29 @@ Okay, this proof looks harmless enough. Where did we go wrong?
 > Does the conclusion look right to you?
 
 >[!Tip]- Answer
-> We have to conclude that $T(n) \leq n$, not conclude that $T(n) \leq n + 1$.
+> We have to conclude that $\textcolor{green}{T(n)} \leq \textcolor{red}{n}$, not conclude that $\textcolor{green}{T(n)} \leq n + 1$.
 
-Remember, we made an assumption that $T(m) \leq m$ for all $m < n$. To fulfil our end of the deal, we need to prove that $T(n) \leq n$. If we had instead shown that $T(n) \leq n + 1$, we are falling shy of that goal.
+Remember, we made an assumption that $\textcolor{green}{T(m)} \leq \textcolor{red}{m}$ for all $m < n$. To fulfil our end of the deal, we need to prove that $\textcolor{green}{T(n)} \leq \textcolor{red}{n}$. If we had instead shown that $\textcolor{green}{T(n)} \leq n + 1$, we are falling shy of that goal.
 
-How do we fix this proof? Here's an idea, instead of assuming $T(m) \leq m$, we are going to assume that $T(m) \leq m - 1$, for all $m < n$. This might seem counter-intuitive, but it works. After all, if we can conclude that for all $n$, $T(n) \leq n - 1$, then it holds that $T(n) \leq n$, which then means that $T(n) \in O(n)$.
+How do we fix this proof? Here's an idea, instead of assuming $\textcolor{green}{T(m)} \leq \textcolor{red}{m}$, we are going to assume that $\textcolor{green}{T(m)} \leq m - 1$, for all $m < n$. This might seem counter-intuitive, but it works. After all, if we can conclude that for all $n$, $\textcolor{green}{T(n)} \leq n - 1$, then it holds that $\textcolor{green}{T(n)} \leq \textcolor{red}{n}$, which then means that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n})$.
 
-**Proof:**
-Let $c = 1$, **assume that** $\forall m < n$, $T(m) \leq c\cdot m - 1 = m - 1$. Then:
-$$
-\begin{align*}
-	T(n) &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
-		 &\leq \lfloor n / 2\rfloor - 1 + \lceil n / 2\rceil - 1 + 1\\
-		 &= n - 1\\
-\end{align*}
-$$
+>[!Proof]
+>1. Let $\textcolor{blue}{c = 1}$, **assume that** $\forall m < n$, $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot m - 1 = m - 1$.
+>2. Then, since $\lceil n / 2\rceil < n$ and $\lceil n / 2\rceil < n$, we can use our assumption on line 1 and say that:
+>	$$
+>	\begin{align*}
+>	\textcolor{green}{T(n)} &= T(\lfloor n / 2\rfloor) + T(\lceil n / 2\rceil) + 1\\
+>	&\leq \lfloor n / 2\rfloor - 1 + \lceil n / 2\rceil - 1 + 1\\
+>	&= n - 1\\
+>	\end{align*}
+>	$$
+>3. Since $n - 1 < n$, we have that $\textcolor{green}{T(n)} \leq n - 1 < \textcolor{red}{n}$.
 
-Et voilà! We are done. Again, notice how we assumed $T(m) \leq m - 1$, so our conclusion has to be $T(n) \leq n - 1$.
+Et voilà! We are done. Again, notice how we assumed $\textcolor{green}{T(m)} \leq m - 1$, so our conclusion has to be $\textcolor{green}{T(n)} \leq n - 1$.
 
 ## A few more involved examples
 
-Let's do 2 more examples demonstrating this method.
+Let's do two more examples demonstrating this method.
 
 #### Example 1:
 
@@ -510,48 +516,51 @@ T(n) = \begin{cases}
 \end{cases}
 $$
 
-Then to show that $T(n) \in O(\sqrt{n})$:
+Then to show that $\textcolor{green}{T(n)} \in O(\textcolor{red}{\sqrt{n}})$:
 
-**Proof:**
-Let $c = 1$. For all $m < n$, assume that $T(m) \leq c \cdot \sqrt{n} - 5 = \sqrt{n} - 5$. Then:
-
-$$
-\begin{align*}
-T(n) &= 2\cdot T(\lfloor \frac{n}{4} \rfloor) + 5\\
-&= 2\cdot \left(\sqrt{\lfloor \frac{n}{4}\rfloor} - 5 \right) + 5\\
-&= 2\cdot \sqrt{\lfloor \frac{n}{4}\rfloor} - 5\\
-&\leq 2\cdot \sqrt{\frac{n}{4}} - 5\\
-&\leq \frac{2}{\sqrt{4}}\sqrt{n} - 5\\
-&\leq \sqrt{n} - 5\\
-\end{align*}
-$$
+>[!Proof]
+>1. Let $\textcolor{blue}{c = 1}$. For all $m < n$, assume that $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot \sqrt{n} - 5 = \sqrt{n} - 5$.
+>2. Then, since $\lfloor \frac{n}{4} \rfloor < n$, , we can use our assumption on line 1 and say that:
+>	$$
+>	\begin{align*}
+>	\textcolor{green}{T(n)} &= 2\cdot T \bigg(\bigg\lfloor \frac{n}{4} \bigg\rfloor \bigg) + 5\\
+>	&= 2\cdot \left(\sqrt{\bigg\lfloor \frac{n}{4} \bigg\rfloor} - 5 \right) + 5\\
+>	&= 2\cdot \sqrt{\bigg\lfloor \frac{n}{4} \bigg\rfloor} - 5\\
+>	&\leq 2\cdot \sqrt{\frac{n}{4}} - 5\\
+>	&\leq \frac{2}{\sqrt{4}}\sqrt{n} - 5\\
+>	&\leq \sqrt{n} - 5\\
+>	\end{align*}
+>	$$
+>3. Since $\sqrt{n} - 5 < \sqrt{n}$, we have that $\textcolor{green}{T(n)} \leq \sqrt{n} - 5 < \textcolor{red}{\sqrt{n}}$.
 
 #### Example 2:
+
 $$
 T(n) = \begin{cases}
-2 \cdot T(\lfloor \frac{n}{2} \rfloor) + 2n\log_2(n), & n > 2\\
+2 \cdot T(\lfloor \frac{n}{2} \rfloor) + 2n\log_2 n, & n > 2\\
 1, & n \leq 2\\
 \end{cases}
 $$
 
-Then to show that $T(n) \in O(n \log^2(n))$:
+Then to show that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n \log^2 n})$:
 
-**Proof:**
-Let $c = 2$. For all $m < n$, assume that $T(m) \leq c \cdot m\log_2(m) = 2\cdot m\log^2(m)$. Then:
-$$
-\begin{align*}
-T(n) &= 2 \cdot T\left(\lfloor \frac{n}{2} \rfloor \right) + 2n\log_2(n)\\
-&\leq 2\left( 2\cdot \frac{n}{2} \log^2\left(\frac{n}{2}\right)\right) + 2n\log_2(n)\\
-&\leq 2\cdot n \log^2\left(\frac{n}{2}\right) + 2n\log(n)\\
-&\leq 2\cdot n \left(\log(n) - \log_2(2)\right)^2 + 2n\log(n)\\
-&\leq 2\cdot n \left(\log^2(n) - 2\log(n) + 1\right) + 2n\log(n)\\
-&\leq 2\cdot n \log^2(n) - 4n\log(n) + 2n + 2n\log(n)\\
-&\leq 2\cdot n \log^2(n) - 4n\log(n) + 4n\log(n)\\
-&\leq  2\cdot n \log^2(n)
-\end{align*}
-$$
+>[!Proof]
+>1. Let $\textcolor{blue}{c = 2}$. For all $m < n$, assume that $\textcolor{green}{T(m)} \leq \textcolor{blue}{c} \cdot m \log^2 m = 2\cdot m \log^2 m$.
+>2. Then, since $\lfloor \frac{n}{2} \rfloor < n$, we can use our assumption on line 1 and say that:
+>	$$
+>	\begin{align*}
+>	\textcolor{green}{T(n)} &= 2 \cdot T \bigg(\bigg\lfloor \frac{n}{2} \bigg\rfloor \bigg) + 2n\log_2 n\\
+>	&\leq 2 \cdot \left( 2\cdot \frac{n}{2} \log^2\left(\frac{n}{2}\right)\right) + 2n\log_2 n\\
+>	&\leq 2n \log^2 \left(\frac{n}{2}\right) + 2n \log_2 n\\
+>	&\leq 2n \cdot \left(\log_2 n - \log_2 2 \right)^2 + 2n \log_2 n\\
+>	&\leq 2n \cdot \left(\log^2 n - 2 \log_2 n + 1 \right) + 2n \log_2 n\\
+>	&\leq 2n \log^2 n - 4n \log_2 n + 2n + 2n \log_2 n\\
+>	&\leq 2n \log^2 n - 4n \log_2 n + 4n \log_2 n\\
+>	&\leq  2n \log^2 n
+>	\end{align*}
+>	$$
 
-# Program Correctness Via Induction
+## Program Correctness Via Induction
 
 We will end this unit on a technique for proving that programs are correct via induction. We will not go through very complicated programs, but it would be great to cover some to demonstrate this idea. The section is really a combination of both programming and math, which really is what computer science is all about sometimes.
 
@@ -565,25 +574,26 @@ def adder(arr):
 	return total 
 ```
 
-Why is this correct? I mean perhaps it's obvious, we're just adding up everything in an array. But we're going to use this simple example so show you how we can actually prove programs are correct via induction. Of course, no sane programmer actually does this for simple programs, but if we were to use an actually complicated program right now, this might be too difficult.
+Why is this correct? Perhaps it's obvious—we're just adding up everything in an array. But we're going to use this simple example so show you how we can actually prove programs are correct via induction. Of course, no sane programmer actually does this for simple programs, but if we were to use an actually complicated program right now, this might be too difficult.
 
 Here's the idea, we want to say that:
 
-1. The program is correct before the $0^{th}$ iteration.
-2. For $i$ from $0$ onwards, if before the $i^{th}$ iteration the program was "correct", then after the $i^{th}$ iteration it is also correct.
+1. The program is correct before the $0^{\text{th}}$ iteration.
+2. For $i$ from $0$ onwards, if before the $i^{\text{th}}$ iteration the program was "correct", then after the $i^{\text{th}}$ iteration it is also correct.
 
 Does this look familiar? It does look like our induction base case and inductive cases! And again, we are going to look at proof formats that closely mimic this.
 
 We wish to claim the following:
 
-> At the start of the $i^{th}$ iteration (where $i$ starts from $0$), `total` is the sum of elements in the subarray $arr[0\ldots (i - 1)]$, i.e., `total` is equal to $\sum_{j = 0}^{i - 1}arr[j]$.
+> At the start of the $i^{\text{th}}$ iteration (where $i$ starts from $0$), `total` is the sum of elements in the subarray $arr[0\ldots (i - 1)]$, i.e., `total` is equal to $\sum_{j = 0}^{i - 1}arr[j]$.
 
 ![[invariant.svg]]
 
 As an example with an array that holds $[5, 6, 11]$, think about how before the iteration where $i = 0$, `total` is $0$ (because the subarray $arr[0\ldots -1]$ is empty). 
 - Before the iteration where $i = 1$, `total` is $5$, which is the sum of elements in the subarray $arr[0\ldots 0]$. 
 - Before the iteration where $i = 2$, `total` is $5 + 6 = 11$, which is the sum of elements in the subarray $arr[0\ldots 1]$. 
-- Before the iteration where $i = 3$, `total` is $5 + 6 + 11 = 22$, which is the sum of elements in the subarray $arr[0\ldots 2]$. 
+- Before the iteration where $i = 3$, `total` is $5 + 6 + 11 = 22$, which is the sum of elements in the subarray $arr[0\ldots 2]$.
+
 This also means that when $i = 3$, our program has effectively computed the sum of the entire array!
 
 We call this statement that is always true throughout the run of the program as the **invariant**. So how do we justify the statement?
@@ -592,18 +602,17 @@ Here's an inductive proof that does that.
 
 1. (**Initialisation**) When $i = 0$, the subarray $arr[0\ldots -1]$ is empty. There are no elements, and thus the sum of an empty array is $0$. Since $total$ is $0$, so the invariant is true before the iteration where $i = 0$.
 
-2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration (where $i$ starts from $0$), $total$ is the sum of elements in the subarray $arr[0\ldots (i - 1)]$, or $\sum_{j = 0}^{i - 1} arr[j]$.
+2. (**Maintenance**) Assume that at the start of the $i^{\text{th}}$ iteration (where $i$ starts from $0$), $total$ is the sum of elements in the subarray $arr[0\ldots (i - 1)]$, or $\sum_{j = 0}^{i - 1} arr[j]$.
    
    Then, during the $i^{th}$ iteration, $total$ is updated to $total + arr[i]$. Thus, by our assumption, the new updated value of $total$ is $\sum_{j = 0}^{i - 1} arr[j] + arr[i] = \sum_{j = 0}^{i} arr[j]$.
 
 3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, $total = \sum_{j = 0}^{len(arr) - 1} arr[j]$, which is the sum of the entire array.
 
-Here's the intuition behind why this proof works: We're saying that assuming it maintained our invariant before the $i^{th}$ iteration, we just need to maintain the invariant so that it is still true after the $i^{th}$ iteration. Since when the loop ends, $i = len(arr)$, the invariant helps us argue that `total` is the sum of the entire array.
-
+Here's the intuition behind why this proof works: We're saying that assuming it maintained our invariant before the $i^{\text{th}}$ iteration, we just need to maintain the invariant so that it is still true after the $i^{\text{th}}$ iteration. Since when the loop ends, $i = len(arr)$, the invariant helps us argue that `total` is the sum of the entire array.
 
 Let's do two other examples to demonstrate this idea.
 
-#### Example 1: Finding Minimum in an Array
+### Example 1: Finding the minimum of an array
 
 Let's say we wanted to tell if a value is an array, we could also write it like this:
 
@@ -617,27 +626,23 @@ def find_min(arr):
 
 Then, to prove this is correct, we will use the following invariant:
 
-> At the start of the $i^{th}$ iteration, `value` is the smallest of elements in the sub-array $arr[0\ldots (i - 1)]$.
+> At the start of the $i^{\text{th}}$ iteration, `value` is the smallest of elements in the sub-array $arr[0\ldots (i - 1)]$.
 
 1. (**Initialisation**) When $i = 1$, the subarray $arr[0\ldots 0]$ has a single element. Since `value` is set to $arr[0]$, the invariant is true.
 
-2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration (where $i$ starts from $1$), `value` is the smallest of elements in the sub-array $arr[0\ldots (i - 1)]$.
+2. (**Maintenance**) Assume that at the start of the $i^{\text{th}}$ iteration (where $i$ starts from $1$), `value` is the smallest of elements in the sub-array $arr[0\ldots (i - 1)]$.
    
-   Then, during the $i^{th}$ iteration, `value` is updated to $\min(value, arr[i])$. Thus, by our assumption, the new updated value of `value` is $\min(arr[0\ldots(i - 1)], arr[i]) = \min(arr[0\ldots i])$.
+   Then, during the $i^{\text{th}}$ iteration, `value` is updated to $\min(value, arr[i])$. Thus, by our assumption, the new updated value of `value` is $\min(arr[0\ldots(i - 1)], arr[i]) = \min(arr[0\ldots i])$.
 
 3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, `value` is set to $\min(arr[0\ldots len(arr) - 1])$, which is the minimum of the entire array.
 
 Pictorially, here's how the maintenance is done.
+
 ![[find-min-inv.svg]]
 
+### Example 2: Selection sort
 
-
-
-
-#### Example 2: Selection Sort
-
-Let's try something a little more involved, let's re-visit the sorting program at the beginning, and prove that it actually does correctly sort.
-
+Let's try something a little more involved—let's re-visit the sorting program at the beginning, and prove that it actually does correctly sort.
 
 ```python
 def find_min_index(arr, starting_idx):
@@ -659,20 +664,20 @@ So what should our invariant be?
 
 ![[selection-inv.svg]]
 
-So the idea is that since $arr[0\ldots(i-1)]$ is sorted, we should try to find the item that belongs in the $i^{th}$ slot, which happens to be the smallest element in the subarray $arr[i\ldots(len(arr) - 1)]$.
+So the idea is that since $arr[0\ldots(i-1)]$ is sorted, we should try to find the item that belongs in the $i^{\text{th}}$ slot, which happens to be the smallest element in the subarray $arr[i\ldots(len(arr) - 1)]$.
 
-> At the start of the $i^{th}$ iteration, the subarray $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(i) - 1)]$.
+> At the start of the $i^{\text{th}}$ iteration, the subarray $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(i) - 1)]$.
 
 So let's look at the proof:
 
 1. (**Initialisation**) When $i = 0$, the subarray $arr[0\ldots -1]$ is empty. Therefore, it is "trivially" sorted and contains the $0$ smallest elements of the entire array.
 
-2. (**Maintenance**) Assume that at the start of the $i^{th}$ iteration, the subarray $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(arr) - 1)]$.
+2. (**Maintenance**) Assume that at the start of the $i^{\text{th}}$ iteration, the subarray $arr[0\ldots(i-1)]$ is sorted and contains the $i$ smallest elements of the entire array $arr[0\ldots (len(arr) - 1)]$.
    
-   Then at the $i^{th}$ iteration, let the smallest element of $arr[i\ldots (len(arr) - 1)]$ be called $x$. Now, by our assumption:
+   Then at the $i^{\text{th}}$ iteration, let the smallest element of $arr[i\ldots (len(arr) - 1)]$ be called $x$. Now, by our assumption:
    
-   (1) Since $arr[0\ldots (i - 1)]$ has the $i$ smallest elements of the array. We can say that $arr[0\ldots(i-1)] \leq x$. So if we put $x$ in the $i^{th}$ position, $arr[0\ldots i]$ is sorted.
+   (1) Since $arr[0\ldots (i - 1)]$ has the $i$ smallest elements of the array. We can say that $arr[0\ldots(i-1)] \leq x$. So if we put $x$ in the $i^{\text{th}}$ position, $arr[0\ldots i]$ is sorted.
    
-   (2) Furthermore, since $x$ is the smallest element of $arr[i\ldots (len(arr) - 1)]$, if we put $x$ in the $i^{th}$ position, $arr[0\ldots i]$ now contains the smallest $i + 1$ elements in the array. 
+   (2) Furthermore, since $x$ is the smallest element of $arr[i\ldots (len(arr) - 1)]$, if we put $x$ in the $i^{\text{th}}$ position, $arr[0\ldots i]$ now contains the smallest $i + 1$ elements in the array. 
 
 3. (**Termination**) The loop terminates when $i = len(arr)$. Thus, by our invariant, $arr[0\ldots (len(arr) - 1)]$ is sorted.
