@@ -23,12 +23,17 @@ Refer to the Page [[Class Schedule]] for the schedule for this semester.
 # Lecture Video Links
 
 1. [Week 1: Propositional Logic](https://youtu.be/XbMrVhskFlk)
+2. Week 2: First Order Logic
+	1. [Part 1: Predicates and Quantifiers](https://youtu.be/zLgBtk5U65Y)
+	2. [Part 2: Alternating Quantifiers](https://youtu.be/kv4PI4ZgIGc)
+	3. [Part 3: Implications and Equivalences](https://youtu.be/V_-QahEYYcM)
+
 
 In case you're curious about the old videos, you can find them on this page [[Old Videos]].
 
 
 # Notes
-## Weeks 2 to 4
+## Weeks 1 to 4
 [[Unit 1|Unit 1: Propositions, Predicates, First-Order Logic, Proofs]]
 ## Week 5
 [[Unit 2|Introduction to Set Theory]]
