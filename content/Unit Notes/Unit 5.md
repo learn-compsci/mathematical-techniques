@@ -7,7 +7,7 @@ In this unit, we'll continue building upon the motivations in [[Unit 4]] by doin
 
 1. [[#Part 1 Asymptotic Notation|Showing big O, big Omega and big Theta terminology (asymptotic notation)]]
 2. [[#Part 2 Properties of Asymptotic Notation|Properties of asymptotic notation]]
-3. [[#Part 3 Recurrences and Big O The Substitution Method|Recurrence and big O in program analysis]]
+3. [[#Part 3 Recurrences and Big O The Substitution Method|Recurrences, big O and program analysis]]
 
 Think of this as a big culmination of the reason we learned logic, proofs, induction and logical statements. After this point, we will be focusing on a different branch of topics.
 
@@ -147,7 +147,9 @@ $$
 
 So what's going on here? Let's try plotting out some example graphs.
 
+
 ![[Images/qvl.svg]]
+
 
 Here, the red curve is $0.05x^{2}+0.6x+1$, the green curve is $x+5$, the blue curve is $2x$, and the purple curve is $\frac{x}{2} + 30$. Here's the idea: no matter the gradient of a linear curve, no matter how large, there will always be a point where the quadratic curve will be larger than it after some point.
 
@@ -161,7 +163,9 @@ The $n_0$ here is the point at which $\textcolor{blue}{c} \cdot \textcolor{red}{
 
 Here's the idea: let's say I had three functions, $f(n) = 5n$, $g(n) = 10n$ and $h(n) = 5n + 5$. All of them actually scale the same way: they're all linearly related to $n$.
 
+
 ![[Images/linear-scaling.svg]]
+
 
 So you're free to pick a scaling factor $\textcolor{blue}{c}$ to say something like $\textcolor{green}{g(n)} \in O(\textcolor{red}{h(n)})$.
 
@@ -556,7 +560,7 @@ Then to show that $\textcolor{green}{T(n)} \in O(\textcolor{red}{n \log^2 n})$:
 >	&\leq 2n \cdot \left(\log^2 n - 2 \log_2 n + 1 \right) + 2n \log_2 n\\
 >	&\leq 2n \log^2 n - 4n \log_2 n + 2n + 2n \log_2 n\\
 >	&\leq 2n \log^2 n - 4n \log_2 n + 4n \log_2 n\\
->	&\leq  2n \log^2 n
+>	&\leq \textcolor{blue}{2} \cdot \textcolor{red}{n \log^2 n}
 >	\end{align*}
 >	$$
 
