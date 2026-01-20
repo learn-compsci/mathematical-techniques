@@ -6,8 +6,8 @@ title: "Unit 5: Asymptotic Notation, and Algorithmic Analysis"
 In this unit, we'll continue building upon the motivations in [[Unit 4]] by doing three things:
 
 1. [[#Part 1 Asymptotic Notation|Showing big O, big Omega and big Theta terminology (asymptotic notation)]]
-2. Bounding recurrences and general functions
-3. Showing how induction is used in the context of computer science
+2. [[#Part 2 Properties of Asymptotic Notation|Properties of asymptotic notation]]
+3. [[#Part 3 Recurrences and Big O The Substitution Method|Recurrence and big O in program analysis]]
 
 Think of this as a big culmination of the reason we learned logic, proofs, induction and logical statements. After this point, we will be focusing on a different branch of topics.
 
@@ -204,9 +204,9 @@ Lastly:
 > 
 > In particular, $\Theta(\textcolor{red}{f(n)}) = O(\textcolor{red}{f(n)}) \cap \Omega(\textcolor{red}{f(n)})$.
 
-## Properties of Asymptotic Notation
+# Part 2: Properties of Asymptotic Notation
 
-### The asymptotics of polynomials
+## The Asymptotics of Polynomials
 
 Now that we have these sets that relate functions, let's cover some useful properties about them.
 
@@ -319,7 +319,7 @@ Now from the previous two parts, we know that $\textcolor{green}{f(n)} \in O(\te
 > [!Claim]
 >  Given a degree-$k$ polynomial $\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}$ where $a_k > 0$, then $\textcolor{green}{f(n)} \in \Theta(\textcolor{red}{n^k})$. 
 
-#### The transitivity of big O
+## The Transitivity of Big O
 
 Let's say that we relate function $\textcolor{green}{f(n)}$ to function $\textcolor{red}{g(n)}$ if $\textcolor{green}{f(n)} \in O(\textcolor{red}{g(n)})$. Then this relation is transitive.
 
@@ -346,7 +346,6 @@ $$
 \end{equation}
 $$
 
-
 Okay, that's a very long list. We aren't going to prove all of this, but it's hopefully most of these are very intuitive. However, let's take a closer look at the following:
 
 >[!Claim]
@@ -356,36 +355,47 @@ This might look a little unintuitive at first. After all, isn't $n \in O(\frac{n
 
 Let's prove the first part first.
 
-**Proof:**
-1. Consider $n_0 = 2$, and $c = 1$. Consider any $n \geq n_0$.
-2. $2^{\frac{n}{2}} \leq \left(2^{\frac{n}{2}}\right)^2 \leq 1\cdot 2^n$
-3. Thus, $2^{\frac{n}{2}} \in O(2^n)$.
+>[!Proof]
+>1. Consider $n_0 = 2$, and $\textcolor{blue}{c = 1}$. Consider any $n \geq n_0$.
+>2. $\textcolor{green}{2^{\frac{n}{2}}} \leq \left(2^{\frac{n}{2}}\right)^2 \leq \textcolor{blue}{1} \cdot \textcolor{red}{2^n}$
+>3. Thus, $\textcolor{green}{2^{\frac{n}{2}}} \in O(\textcolor{red}{2^n})$.
 
-Well that was pretty straightforward. But what about the other direction? We'll show no matter the $n_0$ and $c$ someone picks, we can find a value $t \geq n_0$ for which $2^t > c\cdot 2^{\frac{t}{2}}$. No matter the multiplier, the function $2^t$ will overtake $c\cdot 2^{\frac{t}{2}}$ at some point.
+Well that was pretty straightforward. But what about the other direction?
 
-**Proof:**
-1. Let $n_0 \geq 0$ and $c > 0$ be arbitrarily chosen.
-2. Set $t > \max(2\log_2(c), 1)$.
-3. Then $2^t = 2^{\frac{t}{2}}\cdot 2^{\frac{t}{2}} > 2^{\frac{2\log_2(c)}{2}}\cdot 2^{\frac{t}{2}} = c\cdot 2^{t}$.
+To prove that $\textcolor{green}{2^n} \notin O \big(\textcolor{red}{2^{\frac{n}{2}}} \big)$, we need to prove its negation. Recall that $\textcolor{green}{2^n} \notin O \big(\textcolor{red}{2^{\frac{n}{2}}} \big)$ is equivalent to the following:
+
+$$
+\begin{align*}
+
+&\neg \big(\exists n_0 \in \mathbb{N}, \exists \textcolor{blue}{c} \in \mathbb{R^+}, \forall n \geq n_0\ [ \textcolor{green}{2^n} \leq \textcolor{blue}{c} \cdot \textcolor{red}{2^{\frac{n}{2}}}] \big)\\
+&\equiv \forall n_0 \in \mathbb{N}, \forall \textcolor{blue}{c} \in \mathbb{R}^+, \exists n \geq n_0 \ [\textcolor{green}{2^n} > \textcolor{blue}{c} \cdot \textcolor{red}{2^{\frac{n}{2}}}]\\
+\end{align*}
+$$
 
 
-#### Big O vs Big Omega
+Hence, to prove this negation, we'll show no matter the $n_0$ and $\textcolor{blue}{c}$ someone picks, we can find a value $t \geq n_0$ for which $\textcolor{green}{2^t} > \textcolor{blue}{c} \cdot \textcolor{red}{2^{\frac{t}{2}}}$. In other words, no matter the multiplier, the function $\textcolor{green}{2^t}$ will overtake $\textcolor{blue}{c} \cdot \textcolor{red}{2^{\frac{t}{2}}}$ at some point.
+
+>[!Proof]
+>1. Let $n_0 \geq 0$ and $c > 0$ be arbitrarily chosen.
+>2. Set $t > \max(2\log_2 c, 1)$.
+>3. Then $\textcolor{green}{2^t} = 2^{\frac{t}{2}} \cdot 2^{\frac{t}{2}} > 2^{\frac{2\log_2(\textcolor{blue}{c})}{2}} \cdot 2^{\frac{t}{2}} = \textcolor{blue}{c} \cdot \textcolor{red}{2^{t}}$.
+
+## Big O vs. Big Omega
 
 One last thing for us to think about: If $f(n) \in O(g(n))$, can we also say $g(n) \in \Omega(f(n))$? In fact, we can!
 
 > [!Claim]
 > If $f(n) \in O(g(n))$, then $g(n) \in \Omega(f(n))$.
 
-**Proof:**
-1. Assume $f(n) \in O(g(n))$.
-2. Then $\exists n_0 \geq 0, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [f(n) \leq c\cdot g(n)]$. \[Definition of big O]
-3. Since $c > 0$, $\frac{1}{c} > 0$.
-4. Thus, $\forall n \geq n_0 \ [g(n) \geq \frac{1}{c} f(n)]$.
-5. So $\exists n_0 \geq 0, d \in \mathbb{R^+}, \forall n \geq n_0 \ [g(n) \geq d\cdot f(n)]$. \[Existential generalisation on lines 3, 4]
-6. Thus, $g(n) \in \Omega(f(n))$. \[Definition of big omega]
+>[!Proof]
+>1. Assume $f(n) \in O(g(n))$.
+>2. Then $\exists n_0 \geq 0, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [f(n) \leq c\cdot g(n)]$. \[Definition of big O]
+>3. Since $c > 0$, $\frac{1}{c} > 0$.
+>4. Thus, $\forall n \geq n_0 \ \big[g(n) \geq \frac{1}{c} f(n) \big]$.
+>5. So $\exists n_0 \geq 0, d \in \mathbb{R^+}, \forall n \geq n_0 \ [g(n) \geq d\cdot f(n)]$. \[Existential generalisation on lines 3 and 4]
+>6. Thus, $g(n) \in \Omega(f(n))$. \[Definition of big Omega]
 
-
-# Recurrences and Big O: The Substitution Method
+# Part 3: Recurrences and Big O: The Substitution Method
 
 Now that we've talked about big O, let's try relating it back to program analysis. There are quite recurrences that we might encounter when writing recursive programs. For example, here's a recursive program that computes $n!$ :
 
