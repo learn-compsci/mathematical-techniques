@@ -2,28 +2,34 @@
 title: "Unit 6: Combinatorics"
 ---
 # Overview
-In this unit, we will start moving onto topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
+
+In this unit, we will start moving on to topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
 
 We have broken this unit up into 4 parts:
 
-1. Basic Counting
+1. [[#Part 1 Counting With Sets|Basic counting]]
 2. Principle of Inclusion-Exclusion
 3. Permutations and Combinations
 4. Applying Combinatorics for Problem Solving
 
-# Counting Based on Sets
+---
+# Part 1: Counting With Sets
 
-Let's begin by simplifying things a little bit, for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. So given a set $A$, the size of a set is written as $\lvert A \rvert$.
+Let's begin by simplifying things a little bit—for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. Hence, given a set $A$, we denote the size of the set as $\lvert A \rvert$.
 
-So for example: $\lvert \{a, b, 2, 100\}\rvert = 4$ since this set has $4$ items. Also since $\emptyset$ is empty, this means that it holds no items, so $\lvert \emptyset \rvert = 0$. We won't consider infinitely sized sets, so we won't be talking about what $\lvert \mathbb{Z} \rvert$ is.
+For example:
+- $\lvert \{a, b, 2, 100\}\rvert = 4$ since this set has $4$ items.
+- Since $\emptyset$ is empty, this means that it holds no items, so $\lvert \emptyset \rvert = 0$.
+
+We won't consider infinitely sized sets, so we won't be talking about what $\lvert \mathbb{Z} \rvert$ is.
 
 ## Basic Counting Techniques
 
-So let's start with the most general ideas that will be repeated for the next few weeks: adding disjoint and multiplying successive choices.
+Let's start with the most general ideas that will be repeated for the next few weeks: adding disjoint and multiplying successive choices.
 
-### Rule of Sum: Adding Disjoint Cases
+### Rule of sum: Adding disjoint cases
 
-Let's say we had two sets, $A$ and $B$ that had no common elements. That is to say, $A \cap B = \emptyset$. We  call these two sets **disjoint**.
+Let's say we had two sets $A$ and $B$ that had no common elements. That is to say, $A \cap B = \emptyset$. We  call these two sets **disjoint**.
 
 So what is the size of $A \cup B$? In other words, if we knew three things:
 
@@ -31,7 +37,10 @@ So what is the size of $A \cup B$? In other words, if we knew three things:
 2. $\lvert B\rvert = n$
 3. $A \cap B = \emptyset$
 
-What is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
+Then what is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
+
+>[!info] Definition: Rule of sum (two sets)
+> Given two sets $A$ and $B$ such that $|A| = m$, $|B| = n$ and $A \cup B = \emptyset$, then $|A \cup B| = m + n$.
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \{10, 11, 12\}$. Then $A \cap B = \emptyset$.
@@ -41,17 +50,16 @@ What is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
 > Let $A = \emptyset$ and $B = \{10, 11, 12\}$. Then $A \cap B = \emptyset$.
 > So $\lvert A \rvert + \lvert B \rvert = 0 + 3 = 3$.
 
-
 What about in general? What if we had $3$ sets? What if we had $10$ sets? What should the condition be? This is a little subtle.
 
-Let's try this for $3$ sets. Let's say we had $3$ sets $A, B, C$ for which:
+Let's try this for three sets $A, B, C$ for which:
 
 1. $\lvert A\rvert = m$
 2. $\lvert B\rvert = n$
 3. $\lvert C\rvert = \ell$
 4. $A \cap B \cap C = \emptyset$
 
-Can we conclude that $\lvert A \cup B \cup C\rvert = m + n + \ell$? Feels very tempting for us to conclude so, after all the sets are disjoint right?
+Can we conclude that $\lvert A \cup B \cup C\rvert = m + n + \ell$? Feels very tempting for us to conclude so—after all, the sets are disjoint right?
 
 What about the following example of sets?
 
@@ -65,7 +73,7 @@ $A = \{2, 4, 6\}$, $B = \{3, 6\}$, $C = \{3, 5\}$. Now notice that $A \cap B \ca
 
 So $\lvert A \rvert = 3$, $\lvert B \rvert = \lvert C \rvert = 2$. So we expect $3 + 2 + 2 = 7$ elements. But $\lvert A \cup B \cup C\rvert = 5$. So our condition here isn't quite right. Where did we go wrong?
 
-Let's think of it this way. We **want** to use the fact that when $2$ sets are disjoint, we can just add their sizes together. How should we use this to work on $3$ sets? Let's consider an alternative set of conditions:
+Let's think of it this way. We **want** to use the fact that when two sets are disjoint, we can just add their sizes together. How should we use this to work on three sets? Let's consider an alternative set of conditions:
 
 1. $\lvert A\rvert = m$
 2. $\lvert B\rvert = n$
@@ -74,19 +82,18 @@ Let's think of it this way. We **want** to use the fact that when $2$ sets are d
 5. $A \cap C = \emptyset$
 6. $B \cap C = \emptyset$
 
-From conditions 4, 5, and 6, we can derive the following lemma:
+From conditions 4, 5 and 6, we can derive the following lemma:
 
-**Lemma 1:**
-$$
-\begin{align*}
-(A \cup B) \cap C &= (A \cap C) \cup (B \cap C)\\
-				  &= \emptyset \cup \emptyset\\
-				  &= \emptyset
-\end{align*}
-$$
+>[!Lemma 1]
+> $$
+> \begin{align*}
+> (A \cup B) \cap C &= (A \cap C) \cup (B \cap C)\\
+> 				&= \emptyset \cup \emptyset\\
+> 				&= \emptyset
+> \end{align*}
+> $$
 
-So what does this mean? It means that the set $A \cup B$ and the set $C$ is **disjoint**! This means that $\lvert (A \cup B) \cup C\rvert = \rvert (A \cup B) \rvert + \lvert C \rvert$. 
-
+So what does this mean? It means that the set $A \cup B$ and the set $C$ is **disjoint**! This means that $\lvert (A \cup B) \cup C\rvert = |A \cup B| + \lvert C \rvert$. 
 
 So let's try counting again:
 
@@ -100,17 +107,18 @@ $$
 
 Now it works! So what about between more sets? Here's the general statement:
 
-Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that:
+>[!info] Definition: Rule of sum ($n$ sets)
+>Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that:
+>1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$ (i.e., the $i^{\text{th}}$ set has size $s_i$).
+>2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \cap A_j = \emptyset$ (i.e., any two distinct sets are **disjoint**).
+>
+>Then, $\sum_{i = 1}^n s_i = \lvert A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n\rvert$.
 
-1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$                                             (the $i^{th}$ set has size $s_i$)
-2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \cap A_j = \emptyset$     (any two distinct sets are **disjoint**)
+ The size of the all of the sets is just their individual sizes added up.
 
-Then, $\sum_{i = 1}^n s_i = \lvert A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n\rvert$. The size of the all of the sets is just their individual sizes added up.
+**Conclusion:** So what's the conclusion here? Think of it this way, when we could make either choices from set $A$ **or** choices from set $B$, where $A$ and $B$ are disjoint, then we can just add them up.
 
-
-**Conclusion:** So what's the conclusion here? Think of it this way, when we could make either choices from set $A$ **or** choices from set $B$, where $A$ and $B$ are disjoint. Then we can just add them up.
-
-### Rule of Product: Multiplying Successive Choices
+### Rule of product: Multiplying successive choices
 
 Okay, what about considering making a sequence of choices? Given two sets $A$, $B$ (this time not necessarily disjoint), how do we count how many ways are there to make a choice from $A$ **and then** a choice from $B$?
 
@@ -129,7 +137,6 @@ So we are essentially asking: what is the size of $A \times B$? And this is pret
 > Let $A = \{1, 2, 3, 4\}$ and $B = \{1, 3\}$. Then $A \times B = \{(1, 1), (1, 3), (2, 1), (2, 3), (3, 1), (3, 3), (4, 1), (4, 3)\}$.
 > 
 > $\lvert A \rvert = 4$, $\lvert B \rvert = 2$, and $\lvert A \times B\rvert = 4 \times 2 = 8$.
-
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \emptyset$. Then $A \times B = \emptyset$.
@@ -173,7 +180,7 @@ $$
 
 So $\lvert \mathcal{P}(A) \rvert = 2^{\lvert A \rvert}$.
 
-### Rule of Division
+### Rule of division
 
 So while the previous two laws might be a little clearer, there's one less common one that is based on a nice trick. Let's try this with a scenario:
 
