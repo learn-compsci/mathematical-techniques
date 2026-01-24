@@ -1,14 +1,16 @@
 ---
 title: "More Examples: Unit 1"
 ---
-# Overview:
+# Overview
 
 In this page, we will provide more examples for each notable topic. There will also be a few examples for you to try out yourself, with solutions provided in case you wish to verify them yourself.
 
 Do post on Canvas if something is unclear or you wish for more explanations.
 
-### Propositional Logic
-#### Example: Propositions
+---
+# Propositional Logic
+
+### Propositions
 
 Here are some more examples of propositions:
 
@@ -16,7 +18,7 @@ Here are some more examples of propositions:
 2. There exists a number that is between $9$ and $20$.
 3. $4$ is equal to $0$.
 
-Recall that propositions are statements that are either true or false. For example, examples 1 and 2 are **true**. But example 3 is **false**.
+Recall that propositions are statements that are either true or false. For example, examples 1 and 2 are **true**, but example 3 is **false**.
 
 Here are some **non-examples** of propositions:
 
@@ -25,7 +27,7 @@ Here are some **non-examples** of propositions:
 
 These statements don't have a clear "must be either true or false" property to them.
 
-#### Example: Logical Connectives
+### Logical Connectives
 
 Here are some more examples on how to use logical connectives to connect propositions:
 
@@ -33,20 +35,19 @@ Here are some more examples on how to use logical connectives to connect proposi
 2. **if** ($x > 5$ **or** $x \neq 30$), **then** $y = 55$
 3. (**not** $(x + 1 = 20)$) **or** ($55 + 1 = 70$)
 
-In example 1, $x = 5$, and $x = 6$ are propositions.
-
-And **and** is used to connect the two propositions.
+In example 1, $x = 5$ and $x = 6$ are propositions, and **and** is used to connect the two propositions.
 
 **Try it yourself!**
-What about the other 2 lines? What are the propositions? What are the connectives?
+What about the other two lines? What are the propositions? What are the connectives?
 
 >[!Answer]-
-> In example 2, the propositions are: $x > 5$, $x \neq 30$, $y = 55$.
+> In example 2, the propositions are: $x > 5$, $x \neq 30$ and $y = 55$.
 > The connectives used are: **or**, **if/then**.
 >
-> In example 3, the propositions are: $(x + 1 = 20)$, $55 + 1 = 70$.
+> In example 3, the propositions are: $(x + 1 = 20)$ and $55 + 1 = 70$.
 > The connectives used are: **or**, **not**.
-#### Example: Truth tables 
+
+### Truth tables 
 
 Truth tables are a handy way to help us determine if two formulae are logically equivalent. To construct a truth table, we need to:
 
@@ -55,7 +56,7 @@ Truth tables are a handy way to help us determine if two formulae are logically 
 
 For instance, let's draw the truth table for the formula $(p \to \neg q) \to r$.
 
-Step 1: List out all 8 combinations of $p$, $q$ and $r$.
+Step 1: List out all right combinations of $p$, $q$ and $r$.
 
 | $p$     | $q$     | $r$     |
 | ------- | ------- | ------- |
@@ -140,8 +141,7 @@ $$
 > | $false$ | $false$ | $true$  |$true$ |$false$ |$true$ |
 > | $false$ | $false$ | $false$ |$true$ |$false$ | $false$ |
 
-
-#### Example 2: Evaluating Formulae
+### Evaluating Formulae
 
 Given a propositional formula such as $\neg ((p \lor \neg q) \to r) \land (r \to p)$, and given the truth values of the starting propositions, we can evaluate the truth value of the original formula. This is done by evaluating the "inner" formulae, then gradually working outwards to reach the final statement.
 
@@ -174,22 +174,25 @@ Then, we can begin evaluating $\neg ((p \lor \neg q) \to r) \land (r \to p)$ by 
 > 
 > For the third and last one, $\neg a \land a$ is $false$. On the other hand $b \to c$ is also $false$. Since both sides of the $\lor$ are $false$, the entire formula is $false$.
 
-### First-Order Logic
+---
+# First-Order Logic
 
-#### Example 1: Parsing Single Quantifiers
+### Parsing Single Quantifiers
 
 When we encounter a universal quantifier, say $\forall x \in A$, we might decode it as "No matter which $x$ I choose from set $A$". Correspondingly, when we encounter an existential quantifier, say $\exists y \in B$, we might decode it as "I can find a single $y$ in set $B$". 
 
 For example, let's say we're at a company dinner, and what to say every person is attending. We want to have a _set_ that contains every person in the company. Something like:
 
 $$
-Person = \{James, Jane, Keith, Kara\}
+People = \{James, Jane, Keith, Kara\}
 $$
+
 (I guess this company only has $4$ people.)
 
 Let's also make a predicate that represents the fact that a person is attending: $is\_attending(\cdot)$. 
 
-Then for example if: 
+For example, if:
+
 $$
 is\_attending(James)
 $$
@@ -197,11 +200,12 @@ $$
 is $true$, then we know $James$ is attending the dinner. 
 
 On the other hand, if 
+
 $$
 is\_attending(Keith)
 $$
 
-is $false$, we know $Keith$ is not attending. 
+is $false$, we know $Keith$ is not attending.
 
 So to say:
 
@@ -209,7 +213,7 @@ So to say:
 
 We would write:
 $$
-\forall x \in Person \ [\ is\_attending(x)\ ]
+\forall x \in People \ [\ is\_attending(x)\ ]
 $$
 
 If we wanted to say:
@@ -217,8 +221,9 @@ If we wanted to say:
 > "Someone in the company is attending"
 
 We would write:
+
 $$
-\exists x \in Person \ [\ is\_attending(x) \ ]
+\exists x \in People \ [\ is\_attending(x) \ ]
 $$
 
 If we wanted to say:
@@ -226,13 +231,15 @@ If we wanted to say:
 > "No one is attending the company dinner".
 
 We could write:
+
 $$
-\forall x \in Person \: [\neg \ is\_attending(x) \ ]
+\forall x \in People \: [\neg \ is\_attending(x) \ ]
 $$
 
 There actually is a different way:
+
 $$
-\neg \big(\exists x \in Person \: [\ is\_attending(x) \ ]\big)
+\neg \big(\exists x \in People \: [\ is\_attending(x) \ ]\big)
 $$
 
 You could also think of this as saying "There is not a single person that is attending."
@@ -252,7 +259,7 @@ Write your answer as a statement in first-order logic.
 
 >[!Answer]-
 > $$
->   \forall p \in Persion[free(p) \to is\_attending(p)]
+>   \forall p \in People \ [free(p) \to is\_attending(p)]
 > $$
 
 What if we wanted to say: 
@@ -263,7 +270,7 @@ Write your answer as a statement in first-order logic.
 
 >[!Answer]-
 > $$
->   \big(\forall p \in Person \: [free(p)] \big) \to \big(\forall p \in Person \: [is\_attending(p)] \big)
+>   \big(\forall p \in People \: [free(p)] \big) \to \big(\forall p \in People \: [is\_attending(p)] \big)
 >   $$
 
 Compare the two statements, what is the difference?
@@ -295,7 +302,9 @@ Recall that the set of natural numbers is $\mathbb{Z}$. How should we write it i
 > \forall x \in \mathbb{Z} \: [ x^2 \geq 0 ]
 > $$
 
-#### Example 2.1: Parsing Nested Quantifiers
+### Parsing Nested Quantifiers
+
+#### Example 1
 
 Nested quantifiers can be difficult to understand at first glance because of the different quantifiers regarding each variable, and the relationships between the variables. Let's look at a few more examples:
 
@@ -307,39 +316,44 @@ Also compare it with the following statement:
 
 > Statement 2: "Every person is such that, there exists a planet that person lives on."
 
-Again, let's make two sets, $Person$ (is the set of people), and $Planet$ (is the set of planets). And another predicate like $lives\_on(x, y)$. This time, the predicate takes two values as input, and it means "$x$ lives on $y$".
+Again, let's make two sets, $People$ (is the set of people), and $Planets$ (is the set of planets). And another predicate like $lives\_on(x, y)$. This time, the predicate takes two values as input, and it means "$x$ lives on $y$".
 
 So for example if $lives\_on(James, Mars)$ is true, it would mean $James$ lives on $Mars$.
 
-It also actually means **if we said** $lives\_on(Neptune, Chandler)$ is true, then we would be saying $Neptune$ lives on $Chandler$, as non-sensical as that sounds. 
+It also actually means **if we said** $lives\_on(Neptune, Chandler)$ is true, then we would be saying $Neptune$ lives on $Chandler$, as nonsensical as that sounds. 
 
 **Try it yourself!**
-Try to write statement 1, and statement 2 using the sets, and the predicate provided.
+Try to write statement 1 and statement 2 using the sets and the predicate provided.
 
 >[!Answer]-
 > Statement 1:
 > $$
->   \exists x \in Planet, \forall y \in Person \: [ lives\_on(y, x) ]
+>   \exists x \in Planets, \forall y \in People \: [ lives\_on(y, x) ]
 > $$
 > 
 > Statement 2:
 > $$
->   \forall y \in Person, \exists x \in Planet \: [ lives\_on(y, x) ]
+>   \forall y \in People, \exists x \in Planets \: [ lives\_on(y, x) ]
 >  $$
 
 What is the difference between the two statements? Are they the same? Can we think of a (potentially fictitious) scenario where statement 1 is $false$. but statement 2 is $true$?
 
 >[!Answer]-
-> Let's say $Jason$ is a person (i.e. $Jason \in Person$). And $lives\_on(Jason, Saturn)$ is $true$ (in other words, $Jason$ actually lives on $Saturn$. On the other hand, every other person who is not $Jason$ lives on $Neptune$.
+> Let's say $Jason$ is a person (i.e. $Jason \in People$). And $lives\_on(Jason, Saturn)$ is $true$ (in other words, $Jason$ actually lives on $Saturn$. On the other hand, every other person who is not $Jason$ lives on $Neptune$.
 >  
 >  Then can we say there is a planet that every person lives on? No. Because we will need to **fix** a single planet. For that one planet, every person has to live on it. So Statement 1 is false.
 >  
 >  On the other hand, statement $2$ is true, because everyone lives on a planet. In our example, it's either $Saturn$ or $Neptune$.
 
-#### Example 2.2: Another example: Parsing Nested Quantifiers
+#### Example 2
 
 Let's try one more, but a little more mathematical this time.
-$$\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \ [(a \leq x \leq b) \to (a \leq x^{2} \leq b)]$$Is this statement true?
+
+$$
+\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \ [(a \leq x \leq b) \to (a \leq x^{2} \leq b)]
+$$
+
+Is this statement true?
 
 >[!Solution-Part-1]-
 >**Translation:** "I can find (fixed) integers $a$ and $b$, such that no matter which rational number $x$ I choose, the following claim applies: 'If $x$ is between $a$ and $b$, then $x^{2}$ will still be between $a$ and $b$'." (For convenience's sake, let's call this secondary statement Claim 0.)
@@ -358,23 +372,24 @@ $$\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}, \forall x \in \mathbb{Q} \
 >
 >Remember, since it's $\exists a \in \mathbb{Z}, \exists b \in \mathbb{Z}$, we only need to find one value for $a$, one value for $b$.
 
-#### Example 3: Negating Quantifiers
+### Negating Quantifiers
 
-Here's another example, let's go back to the dinner. Let's say there are 4 people at the dinner. And let's think about the following statement:
+Here's another example, let's go back to the dinner. Let's say there are four people at the dinner. And let's think about the following statement:
 
 > There is a dish that everyone likes
 
-If we used the sets $Dish$, $People$, and the predicate $likes(x, y)$ to mean "$x$ likes $y$". And also let's say one of the dishes was $Kailan$.
+If we used the sets $Dishes$, $People$, and the predicate $likes(x, y)$ to mean "$x$ likes $y$". And also let's say one of the dishes was $Kailan$.
 
 We can write "Every person likes $Kailan$" as:
+
 $$
-\forall x \in Person \ [ likes(x, Kailan) ]
+\forall x \in People \ [ likes(x, Kailan) ]
 $$
 
 What if we wrote:
 
 $$
-\neg \big( \forall x \in Person \ [ likes(x, Kailan) ] \big)
+\neg \big( \forall x \in People \ [ likes(x, Kailan) ] \big)
 $$
 
 This means 
@@ -384,36 +399,40 @@ This means
 Why was that? It's because **at least** one person does not like $Kailan$. 
 
 That means we can also write it as:
+
 $$
-  \exists x \in Person \: [ \neg \big(likes(x, Kailan)\big) ] 
+  \exists x \in People \: [ \neg \big(likes(x, Kailan)\big) ] 
 $$
 
 Similarly, if we instead want to say "no one likes $Kailan$" instead, there are two possible ways:
 
 $$
-\forall x \in Person \: [ \neg \big(likes(x, Kailan)\big) ] 
+\forall x \in People \: [ \neg \big(likes(x, Kailan)\big) ] 
 $$
 
+or:
+
 $$
-\neg \big(\exists x \in Person \: [likes(x, Kailan) ] \big)
+\neg \big(\exists x \in People \: [likes(x, Kailan) ] \big)
 $$
 
 The first statement is basically saying "Everyone does not like $Kailan$". The second statement is saying "It is not the case that there exists a person that likes $Kailan$." Like we mentioned in the notes, to move a $\neg$ symbol through a quantifier, we simply flip what the quantifier is.
 
 **Try it yourself!**
 What is the negation of the following?
+
 $$
-\forall x \in Person \: [\big(likes(x, Shrimps)\big)] 
+\forall x \in People \: [\big(likes(x, Shrimps)\big)] 
 $$
 
 >[!Answer]-
 > The negation of the statement is
 > $$
->   \neg \big(\forall x \in Person \: [ \big(likes(x, Shrimps)\big) ] \big)
+>   \neg \big(\forall x \in People \: [ \big(likes(x, Shrimps)\big) ] \big)
 > $$ 
 > which is also:
 > $$
->    \exists x \in Person \: [ \neg \big(likes(x, Shrimps)\big) ]
+>    \exists x \in People \: [ \neg \big(likes(x, Shrimps)\big) ]
 > $$
 
 What if we wanted to say, "There exists a dish that everyone does not like"? 
@@ -423,23 +442,23 @@ What if we wanted to say the negation of that statement? What does the negation 
 >[!Answer]-
 > The first statement is written as
 > $$
->   \exists d \in Dishes, \forall p \in Person \: [ \neg likes(d, p)] 
+>   \exists d \in Dishes, \forall p \in People \: [ \neg likes(p, d)] 
 > $$ 
 > ------------
 > To negate it, we can do the following:
 > 
 > $$
->  \neg \big( \exists d \in Dishes, \forall p \in Person \: [ \neg likes(d, p)] \big)
+>  \neg \big( \exists d \in Dishes, \forall p \in People \: [ \neg likes(p, d)] \big)
 > $$ 
 > 
 > Which we can simplify to:
 > $$
->  \forall d \in Dishes, \exists p \in Person \: [ \neg (\neg likes(d, p))]
+>  \forall d \in Dishes, \exists p \in People \: [ \neg (\neg likes(p, d))]
 > $$ 
 > 
 > which is also just:
 > $$
->  \forall d \in Dishes, \exists p \in Person \: [  likes(d, p))]
+>  \forall d \in Dishes, \exists p \in People \: [likes(p, d))]
 > $$ 
 > 
 > The negation of the first statement means "Every dish is liked by at least one person."
