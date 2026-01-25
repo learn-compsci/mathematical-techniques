@@ -10,7 +10,7 @@ We have broken this unit up into 4 parts:
 1. [[#Part 1 Basic Counting|Basic counting]]
 2. [[#Principle of Inclusion-Exclusion|Principle of Inclusion-Exclusion]]
 3. [[#Part 3 Permutations and Combinations|Permutations and Combinations]]
-4. Applying Combinatorics for Problem Solving
+4. [[#Part 4 Applying Combinatorics|Solving problems with combinatorics]]
 
 ---
 # Part 1: Basic Counting
@@ -406,7 +406,9 @@ So in total, $17$ people were surveyed.
 # Part 3: Permutations and Combinations
 
 Let's move on and away from sets, and start talking about permutations and combinations. Some of these concepts might already be familiar ground, and we will be using it to build up to some bigger concepts.
-### Permutations of Distinct Items
+
+## Permutations of Distinct Items
+
 Let's begin with the following question: 
 
 > Given $n$ **distinct** items, how many ways are there to order the $n$ items?
@@ -438,14 +440,22 @@ $$
 
 Doesn't this look familiar? This is $n!$, or $\prod_{i = 1}^n i$.
 
-### Permutations With Duplicates
+>[!info] Definition: Number of permutations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> n! = \prod_{i = 1}^n i = 1 \times 2 \times ... \times (n - 1) \times n
+> $$
+> ways of permuting the items.
+
+## Permutations With Duplicates
+
 What happens when the items we need to permute has duplicates? For example, let's say we want to count how many permutations there are of $aab$?
 
 Notice that the answer is not $3! = 6$, but rather $3$. In fact, here are the possible permutations:
 
 1. $aab$
 2. $aba$
-3. $baa
+3. $baa$
 
 Let's say we had $2$ items of type $a$ and $1$ item of type $b$. Then the way we obtain the count is $\frac{3!}{2!} = 3$.
 
@@ -453,13 +463,14 @@ What about in general? Here's an idea, we can first label each duplicate. For ex
 
 ![[n-perm-duplicate.svg]]
 
-So, using the [[#Rule of Division]], for this example, we can argue that the total number of permutations is $\frac{4!}{3!}$.
+So, using the [[#Rule of division|rule of division]], for this example, we can argue that the total number of permutations is $\frac{4!}{3!}$.
 
-So in general, if we had $k$ **types** of items, and we had $n_i$ many copies of the $i^{th}$ item, then the total number of items is: $\sum_{i = 1}^k n_i = n$. Then the total number of permutations is:
-
-$$
-\frac{n!}{\prod_{i = 1}^k ((n_i)!)}
-$$
+>[!info] Definition: Number of permutations of $n$ items, with duplicates
+> Given $n$ distinct items, where $k$ of them have duplicates (suppose there are $n_i$ copies of the $i^{\text{th}}$ item for $1 \leq i \leq k$), there are
+> $$
+> \frac{n!}{\prod_{i=1}^k ((n_i)!)} = \frac{n!}{(n_1)! \times (n_2)! \ \times \ ... \ \times (n_k)!}
+> $$
+> ways of permuting the items.
 
 Here's an example. How many permutations are there of $aaabb$? There are $3$ copies of $a$ and $2$ copies of $b$. There are $5$ items in total. So the answer is:
 
@@ -467,11 +478,11 @@ $$
 \frac{5!}{3! \cdot 2!} = \frac{120}{6 \cdot 2} = 10
 $$
 
-### $k$-Permutations of $n$ Distinct Elements  
+## $k$-Permutations of $n$ Distinct Items  
 
 Now, let's go back to looking at having $n$ distinct elements, but now we only care about picking $k$ of them. How many ways are there to permute that? 
 
-For example, let's say we had $3$ elements $a$, $b$ and $c$. Then here all the possible ways:
+For example, let's say we had three elements $a$, $b$ and $c$, and we only wanted to permute any *two* of those elements. Then here all the possible ways:
 
 1. $ab$
 2. $ba$
@@ -513,22 +524,16 @@ $$
 
 ![[npk-alt.svg]]
 
-There is another way we can see this. Imagine we considered all $n!$ possible permutations, and then said "any $2$ permutations are considered the same as long as their first $k$ elements are the same". If we fixed the first $k$ elements, then there are $(n - k)!$ possible ways to permute the remaining elements. So any permutation has $(n - k)!$ that share the same first $k$ elements. Using the [[#Rule of Division]], this means there in total:
+There is another way we can see this. Imagine we considered all $n!$ possible permutations, and then said "any two permutations are considered the same as long as their first $k$ elements are the same". If we fixed the first $k$ elements, then there are $(n - k)!$ possible ways to permute the remaining elements. So any permutation has $(n - k)!$ that share the same first $k$ elements. Using the [[#Rule of division|rule of division]], we have the following formula:
 
-$$
-\frac{n!}{(n - k)!}
-$$
+>[!info] Definition: Number of $k$-permutations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> P(n,k) = \frac{n!}{(n - k)!} = \prod_{i = 0}^{k - 1} (n - i)
+> $$
+>  ways to permute $k \leq n$ of those items.
 
-ways to permute $k$ elements out of $n$ distinct elements.
-
-In fact, you can check that:
-
-$$
-\prod_{i = 0}^{k - 1} (n - i) = \frac{n!}{(n - k)!}
-$$
-
-We write this quantity as $P(n, k)$.
-### Combinations without duplicates
+## Combinations of Distinct Items
 
 Let's move on to another kind of counting that we commonly do: combinations! Let's say we had $n$ distinct items, and this time, we want to count how many ways there are to **choose** $k$ items from the $n$ items.
 
@@ -541,9 +546,10 @@ For example, if there are $3$ items, $a$, $b$ and $c$. How many ways are there t
 
 ![[combi-32.svg]]
 
-Notice, the ordering does not matter. What is the formula this time? Again, there are a few ways to prove this. But perhaps the most straightforward way is to again make use of the [[#Rule of Division]].
 
-Let's compare choosing $2$ items out of $3$ versus permuting $2$ items out of $3$. Previously, in [[#$k$-Permutations of $n$ Distinct Elements]], notice that the cases we had were:
+Notice, the ordering does not matter. What is the formula this time? Again, there are a few ways to prove this. But perhaps the most straightforward way is to again make use of the [[#Rule of division|rule of division]].
+
+Let's compare choosing $2$ items out of $3$ vs. permuting $2$ items out of $3$. Previously, in [[#$k$-Permutations of $n$ Distinct Items]], notice that the cases we had were:
 
 1. $ab$
 2. $ba$
@@ -555,10 +561,17 @@ Let's compare choosing $2$ items out of $3$ versus permuting $2$ items out of $3
 For permutations, the **ordering** matters, whereas if we simply want to choose items, it does not matter. Again, for this example, notice how we are basically saying that $ab$ and $ba$ are the same. Because they have the same elements, and we do not care about their ordering. Since we picked $2$ items, there are $2!$ ways to permute the items. So this is:
 
 $$
-\frac{P(n, k)}{k!} = \frac{n!}{(n - k)!k!}
+\frac{P(n, k)}{k!} = \frac{n!}{k!(n - k)!}
 $$
 
-We write this quantity as $C(n, k)$, or also write it most commonly as $\binom{n}{k}$.
+We write this quantity as $C(n, k)$, or more commonly as $\binom{n}{k}$.
+
+>[!info] Definition: Number of combinations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> \binom{n}{k} = \frac{n!}{k!(n - k)!}
+> $$
+> ways to choose $k$ items.
 
 Interestingly, we can also show that $\binom{n}{k} = \binom{n}{n - k}$. This might be "obvious" if you look at the fraction alone. In fact:
 
@@ -574,15 +587,15 @@ Instead of picking $2$ items out of the $3$ distinct items $a$, $b$ and $c$ to c
 2. $a$, $c$ (means we picked $b$ to be excluded)
 3. $b$, $c$ (means we picked $a$ to be excluded)
 
-## The special case of choosing/permuting nothing.
+### The special case of choosing/permuting nothing
 
 One last thing we need to talk about: What is $\binom{n}{0}$? Or what is $P(0, 0)$?
 
 How many ways are there to choose _nothing_ from a set of $n$ elements? How many ways are there to permute _nothing_? It might be tempting to think the answer is $0$, but it's actually defined to be $1$.
 
-> There is exactly one way to choose _nothing_ from a set of $n$ elements: The empty set!
+> There is exactly one way to choose _nothing_ from a set of $n$ elements: the empty set!
 
-> There is exactly one way to sequence/permute nothing: The empty sequence!
+> There is exactly one way to sequence/permute nothing: the empty sequence!
 
 For that reason, $n!$ is defined to be $1$ when $n = 0$.
 
@@ -592,7 +605,8 @@ $$
 \binom{n}{n} = \frac{n!}{(n-n)!\cdot n!} = \frac{n!}{0!\cdot n!} = \frac{n!}{1\cdot n!} = 1
 $$
 
-# Applying Combinatorics
+---
+# Part 4: Applying Combinatorics
 
 Now that we've covered the basic quantities, let's see a few applications of the counting methods shown.
 
