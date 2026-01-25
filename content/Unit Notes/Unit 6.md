@@ -7,13 +7,13 @@ In this unit, we will start moving on to topics that are very distinct from proo
 
 We have broken this unit up into 4 parts:
 
-1. [[#Part 1 Counting With Sets|Basic counting]]
-2. Principle of Inclusion-Exclusion
+1. [[#Part 1 Basic Counting|Basic counting]]
+2. [[#Principle of Inclusion-Exclusion|Principle of Inclusion-Exclusion]]
 3. Permutations and Combinations
 4. Applying Combinatorics for Problem Solving
 
 ---
-# Part 1: Counting With Sets
+# Part 1: Basic Counting
 
 Let's begin by simplifying things a little bit—for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. Hence, given a set $A$, we denote the size of the set as $\lvert A \rvert$.
 
@@ -23,7 +23,13 @@ For example:
 
 We won't consider infinitely sized sets, so we won't be talking about what $\lvert \mathbb{Z} \rvert$ is.
 
-## Basic Counting Techniques
+>[!tldr]+ Counting techniques covered
+>- [[#Rule of sum Adding disjoint cases|Rule of sum]]
+>- [[#Rule of product Multiplying successive choices|Rule of product]]
+>- [[#Rule of division]]
+>- [[#Subtracting cases]]
+>- [[#Counting consecutive numbers]]
+>- [[#Counting multiples]]
 
 Let's start with the most general ideas that will be repeated for the next few weeks: adding disjoint and multiplying successive choices.
 
@@ -120,18 +126,19 @@ Now it works! So what about between more sets? Here's the general statement:
 
 ### Rule of product: Multiplying successive choices
 
-Okay, what about considering making a sequence of choices? Given two sets $A$, $B$ (this time not necessarily disjoint), how do we count how many ways are there to make a choice from $A$ **and then** a choice from $B$?
+What about making a sequence of choices? Given two sets $A$ and $B$ (this time not necessarily disjoint), how do we count how many ways are there to make a choice from $A$ **and then** a choice from $B$?
 
 This one is a little more straightforward. After all, we've actually made sets that actually represent this!
 
-To make a choice from $A$ **and then** a choice from $B$ is to ask, how many pairs there are from $A$ and then $B$, i.e.,
+To make a choice from $A$ **and then** a choice from $B$ is to ask: "How many pairs there are from $A$ and then $B$?", i.e.,
+
 $$
 \begin{align*}
 A \times B
 \end{align*}
 $$
 
-So we are essentially asking: what is the size of $A \times B$? And this is pretty much just $\lvert A \rvert \times \lvert B \rvert$.
+Thus, we are essentially asking: what is the size of $A \times B$? And this is pretty much just $\lvert A \rvert \times \lvert B \rvert$.
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \{1, 3\}$. Then $A \times B = \{(1, 1), (1, 3), (2, 1), (2, 3), (3, 1), (3, 3), (4, 1), (4, 3)\}$.
@@ -146,19 +153,16 @@ So we are essentially asking: what is the size of $A \times B$? And this is pret
 
 This one is far less involved. Here's the general statement:
 
-Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, then:
+>[!info] Definition: Rule of product
+> Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that $\forall i \in [n]$, $\lvert A_i \rvert = s_i$ (i.e., the $i^{\text{th}}$ set has size $s_i$), then $\prod_{i = 1}^n s_i = \lvert A_1 \times A_2 \times A_3 \times \dots \times A_n\rvert$. The size of the all of the sets is just their individual sizes multiplied.
 
-1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$                                              (the $i^{th}$ set has size $s_i$)
+#### Counting subsets
 
-Then, $\prod_{i = 1}^n s_i = \lvert A_1 \times A_2 \times A_3 \times \dots \times A_n\rvert$. The size of the all of the sets is just their individual sizes multiplied.
-
-
-#### Counting Subsets
-Let's see a simple and repeated application of the [[#Rule of Product Multiplying Successive Choices|rule of product]]. Let's say we had a set $A$ such that $\lvert A \rvert = n$. How many elements are in $\mathcal{P}(A)$? I.e. how many subsets are there?
+Let's see a simple and repeated application of the [[#Rule of Product Multiplying Successive Choices|rule of product]]. Let's say we had a set $A$ such that $\lvert A \rvert = n$. How many elements are in $\mathcal{P}(A)$? In other words, how many subsets are there?
 
 Let's lay out the $n$ elements of $A$ as $a_1, a_2, \ldots, a_n$. Notice that for each of these elements, we can make a choice of "take" or "don't take". And for any sequence of $n$ choices, this creates for us a subset of $A$.
 
-For example, if $A = \{1, 2, 3\}$, then a sequence like "take", "don't take", "take" will create a subset $\{1, 3\}$. Whereas a sequence like "don't take", "don't take", "don't take" creates the subset $\emptyset$.
+For example, if $A = \{1, 2, 3\}$, then a sequence like "take", "don't take", "take" will create a subset $\{1, 3\}$, whereas a sequence like "don't take", "don't take", "don't take" creates the subset $\emptyset$.
 
 We can think of this as making a set $C = \{\text{take}, \text{don't take}\}$. And we are basically asking what is:
 
@@ -174,6 +178,7 @@ $$
 $$
 
 We know that  $\lvert C \rvert = 2$. So the above is basically:
+
 $$ 
 \underbrace{\lvert  C \rvert \times \lvert C \rvert \times \cdots \times \lvert C\rvert}_{n\text{ many times}} = 2^n
 $$
@@ -182,28 +187,27 @@ So $\lvert \mathcal{P}(A) \rvert = 2^{\lvert A \rvert}$.
 
 ### Rule of division
 
-So while the previous two laws might be a little clearer, there's one less common one that is based on a nice trick. Let's try this with a scenario:
+While the previous two laws might be a little clearer, there's one less common one that is based on a nice trick. Let's try this with a scenario:
 
 > Let's say it was right after the midterm, and we have just collected a bunch of exam scripts. We know each script has the same number of pages to scan, $8$ pages. We put our entire stack of exam scripts in the scanner, and the scanner reports there are $104$ pages scanned.
 > 
 > How many scripts have we scanned? Since each script had $8$ pages, this means there were $104 \div 8$ scripts.
 
-
-This might sound a little obvious, but this trick can be taken to extremes eventually in the subsequent sections.
+This might sound a little obvious, but this trick can be taken to the extreme eventually in the subsequent sections.
 
 In general, if we have $n$ items, but we are able to group $k$ of them into groups where we think they are *identical*, then we have $n/k$ groups.
 
-### Subtracting Cases
+### Subtracting cases
 
-One more useful idea is when we have two sets $A, B$ and we are promised that $B \subseteq A$. Then, we know that:
+One more useful idea is when we have two sets $A$ and $B$ and we are promised that $B \subseteq A$. Then, we know that:
 
 $$
 \lvert A \setminus B \rvert = \lvert A \rvert - \lvert B \rvert
 $$
 
-### Counting Consecutive Numbers
+### Counting consecutive numbers
 
-The last of the basic counting facts is the following: given a set of integers that are at least $a$, and at most $b$, i.e., 
+The last of the basic counting facts is the following: given a set of integers that are at least $a$ and at most $b$, i.e., 
 
 $$
 \{ x \in \mathbb{Z} : a \leq x \land x \leq b \}
@@ -213,7 +217,7 @@ How many integers are there? It's very tempting to say $b - a$, but the actual a
 
 For example, there are $6 - 2 + 1 = 5$ integers in the set $\{2, 3, 4, 5, 6\}$.
 
-### Counting Multiples
+### Counting multiples
 
 What about if we wanted to count numbers divisible by some number $d$ within some range $[a, b]$?
 
@@ -233,9 +237,6 @@ $$
 
 because $0$ is divisible by any number (including $d$).
 
-
-
-
 What we if wanted to count numbers between $[a, b]$ (inclusive) that are divisible by $d$? Now we can use the idea from [[#Subtracting Cases]]! Notice we are counting the numbers from $[0, b]$ that are divisible by $d$, then subtracting away the numbers from $[0, a - 1]$ that are divisible by $d$. Which gives us:
 
 $$
@@ -244,22 +245,30 @@ $$
 
 
 
-Let's test out the formula. 
+Let's test out the formula.
 
 >[!Example]
 > For example, how many numbers are there divisible by $3$ in the range $[5, 12]$? There are $6, 9, 12$.
-> $\left \lfloor \frac{12}{3} \right\rfloor - \left\lfloor \frac{5 - 1}{3} \right\rfloor = 4 - 1 = 3$.
+> 
+> $$
+> \left \lfloor \frac{12}{3} \right\rfloor - \left\lfloor \frac{5 - 1}{3} \right\rfloor = 4 - 1 = 3
+> $$
 
 >[!Example]
 > For example, how many numbers are there divisible by $5$ in the range $[5, 36]$? There are $5, 10, 15, 20, 25, 30, 35$.
-> $\left \lfloor \frac{36}{5} \right\rfloor - \left\lfloor \frac{5 - 1}{5} \right\rfloor = 7 - 0= 7$.
+> 
+> $$
+> \left \lfloor \frac{36}{5} \right\rfloor - \left\lfloor \frac{5 - 1}{5} \right\rfloor = 7 - 0= 7
+> $$
 
 >[!Example]
 > What about if we asked how many numbers are divisible by $2$ in the range $[0, 9]$?  There should be $5$ of them: $0, 2, 4, 6, 8$.
 > 
-> $\left \lfloor \frac{9}{2} \right\rfloor - \left\lfloor \frac{0 - 1}{2} \right\rfloor = 4 - (-1) = 5$.
+> $$
+> \left \lfloor \frac{9}{2} \right\rfloor - \left\lfloor \frac{0 - 1}{2} \right\rfloor = 4 - (-1) = 5
+> $$
 
-
+---
 # Principle of Inclusion-Exclusion
 
 Sticking to the topic of counting sets for now, can we be a little more precise in counting $\lvert A \cup B\rvert$? There actually is a formula for this!
