@@ -9,7 +9,7 @@ We have broken this unit up into 4 parts:
 
 1. [[#Part 1 Basic Counting|Basic counting]]
 2. [[#Principle of Inclusion-Exclusion|Principle of Inclusion-Exclusion]]
-3. Permutations and Combinations
+3. [[#Part 3 Permutations and Combinations|Permutations and Combinations]]
 4. Applying Combinatorics for Problem Solving
 
 ---
@@ -269,14 +269,16 @@ Let's test out the formula.
 > $$
 
 ---
-# Principle of Inclusion-Exclusion
+# Part 2: Principle of Inclusion-Exclusion (PIE)
 
 Sticking to the topic of counting sets for now, can we be a little more precise in counting $\lvert A \cup B\rvert$? There actually is a formula for this!
 
-$$
-\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert
-$$
-
+>[!info] Definition: Principle of Inclusion-Exclusion (for two sets)
+>Given any two sets $A$ and $B$, we have:
+>
+>$$
+>\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert
+>$$
 
 >[!Example]
 > Let $A = \{2, 4, 6\}$, $B = \{3, 6\}$. Then $A \cap B = \{ 6 \}$.
@@ -293,28 +295,27 @@ This technique alone is quite useful. Here is an example that makes use of this 
 
 ### Example:
 
-Here's a question: How many $1$-digit numbers are there that are divisible by $2$ or $3$? So this is simple enough that we could have manually counted this: $0, 2, 3, 4, 6, 8, 9$.
+Here's a question: how many 1-digit numbers are there that are divisible by $2$ or $3$? It just so happens that this is simple enough that we could have manually counted this: $0, 2, 3, 4, 6, 8, 9$.
 
-For this example we're picking $1$-digit numbers because it makes it easy for us to verify that we're indeed correct. This becomes very infeasible if we wanted to do this for $3$-digit numbers and so on.
+For this example we're picking 1-digit numbers because it makes it easy for us to verify that we're indeed correct. This becomes very infeasible if we wanted to do this for 3-digit numbers and so on.
 
-But we could have made $2$ sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(3, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
+But we could have made two sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(3, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
 
-
-So let's compute $\lvert A \rvert$, $\lvert B\rvert$, and $\lvert A \cap B \rvert$. The first $2$ numbers are computed based on [[#Counting Multiples]].
+So let's compute $\lvert A \rvert$, $\lvert B\rvert$, and $\lvert A \cap B \rvert$. The first two numbers are computed based on [[#Counting multiples]].
 
 For $A$, as before:
+
 $$
 \lvert A \rvert = \left \lfloor \frac{9}{2} \right \rfloor - \left \lfloor \frac{0 - 1}{2} \right \rfloor = 4 - (-1) = 5
 $$
 
-
 For $B$:
+
 $$
 \lvert B \rvert = \left \lfloor \frac{9}{3} \right \rfloor - \left \lfloor \frac{0 - 1}{3} \right \rfloor = 3 - (-1) = 4
 $$
 
 And for $A \cap B$, we want the numbers that are divisible by **both** $2$ and $3$. In other words, divisible, by $6$. So:
-
 
 $$
 \lvert A \cap B \rvert = \left \lfloor \frac{9}{6} \right \rfloor - \left \lfloor \frac{0 - 1}{6} \right \rfloor = 1 - (-1) = 2
@@ -322,16 +323,17 @@ $$
 
 So now, we can figure out $\lvert A \cup B\rvert = 5 + 4 - 2 = 7$.
 
+#### Follow-up 1:
 
-#### Follow-Up 1:
-What if we wanted to count the $1$-digit numbers that were **not** divisible by $3$, and **not** divisible by $2$? In other words, we want to see how many numbers are in $[0, 9]$ and **not in** $A \cup B$. Notice again that $A \cup B \subseteq [0, 9]$. So again, through [[#Subtracting Cases]], we really just want $\left\lvert [0, 9]\setminus (A \cup B)\right\rvert$. Which happens to be:
+What if we wanted to count the 1-digit numbers that were **not** divisible by $3$, and **not** divisible by $2$? In other words, we want to see how many numbers are in $[0, 9]$ and **not in** $A \cup B$. Notice again that $A \cup B \subseteq [0, 9]$. So again, from [[#Subtracting cases]], we really just want $\left\lvert [0, 9]\setminus (A \cup B)\right\rvert$. Which happens to be:
 
 $$
 (9 - 0 + 1) - 7 = 3
 $$
 
-#### Follow-Up 2:
-What if we changed the question to: how many $1$-digit numbers are there that are divisible by $2$ and $4$? If we made set $A$ the numbers in the range $[0, 9]$ that are divisible by $2$, and $B$ the set of integers in the range $[0, 9]$ that are divisible by $4$.
+#### Follow-up 2:
+
+What if we changed the question to: how many 1-digit numbers are there that are divisible by $2$ and $4$? If we made set $A$ the numbers in the range $[0, 9]$ that are divisible by $2$, and $B$ the set of integers in the range $[0, 9]$ that are divisible by $4$.
 
 But what should $A \cap B$ be? Should we take this to be $8$? No, we want numbers that are divisible by $2$ and $4$, which happens to be numbers that are divisible by $4$. In fact, we can check this: $A = \{0, 2, 4, 6, 8\}$ and $B = \{0, 4, 8\}$. And of course, $A \cap B = \{0, 4, 8 \}$.
 
@@ -356,26 +358,30 @@ $$
 \end{align*}
 $$
 
-## Extending This to 3 Sets
+## Extension of PIE to 3 Sets
 
-We can actually extend this idea for $3$ sets (actually it also works beyond $3$, but the formula starts being quite unwieldy).
+We can actually extend this idea for three sets (actually it also works beyond three, but the formula starts being quite unwieldy).
 
-For $3$ sets $A, B, C$, it holds that:
-
-$$
-\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C\rvert
-$$
+>[!info] Definition: Principle of Inclusion-Exclusion (for three sets)
+>Given any three sets $A$, $B$ and $C$, we have:
+>
+>$$
+>\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C \rvert
+>$$
 
 Why is this true? Let's look at the following Venn diagram.
 
+
 ![[3-set-venn.svg]]
+
 
 Notice that if we have $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert$, we would have **double counted** the elements in $\lvert A \cap B \rvert, \lvert B \cap C \rvert, \lvert B \cap C \rvert$, and **triple counted** the elements in $\lvert A \cap B \cap C \rvert$.
 
 So consider $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert B \cap C \rvert$. We would have removed the double counts, but elements in $A \cap B \cap C$ which were triple counted, are now not counted at all. So we have to add it back in.
 
+### Example:
 
- At a food popularity contest, there are $3$ options being voted for by people who are surveyed. We want to know how many people in total were surveyed. The $3$ options were: (A) Lor Mee, (B) Nasi Lemak, (C) Chicken Rice. Anyone who is surveyed can vote for any combination of the options, i.e., a person could choose to vote for all $3$, or any of the $2$ choices, or any single choice. But they must at least vote for something, i.e., everyone who surveyed voted for at least one option, and at most all $3$. We know the following counts:
+ At a food popularity contest, there are three options being voted for by people who are surveyed. We want to know how many people in total were surveyed. The three options were: (A) Lor Mee, (B) Nasi Lemak, (C) Chicken Rice. Anyone who is surveyed can vote for any combination of the options, i.e., a person could choose to vote for all three, or any two of the choices, or any single choice. But they must at least vote for something, i.e., everyone who surveyed voted for at least one option, and at most all three. We know the following counts:
 
  1. There were $10$ people voting for option A (they might have also voted for other options).
  2. There were $7$ people voting for option B (they might have also voted for other options).
@@ -383,7 +389,7 @@ So consider $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap
 4.  There were $3$ people voting for only both option A and option B.
 5.  There were $5$ people voting for only both option A and option C.
 6.  There were $2$ people voting for only both option B and option C.
-7.  Only $1$ person voted for exactly all $3$ options.
+7.  Only $1$ person voted for exactly all three options.
 
  How many people were surveyed?
 
@@ -396,7 +402,8 @@ $$
 
 So in total, $17$ people were surveyed.
 
-# Permutations and Combinations
+---
+# Part 3: Permutations and Combinations
 
 Let's move on and away from sets, and start talking about permutations and combinations. Some of these concepts might already be familiar ground, and we will be using it to build up to some bigger concepts.
 ### Permutations of Distinct Items
