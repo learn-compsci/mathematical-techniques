@@ -11,6 +11,7 @@ We have broken this unit up into 4 parts:
 2. [[#Principle of Inclusion-Exclusion|Principle of Inclusion-Exclusion]]
 3. [[#Part 3 Permutations and Combinations|Permutations and Combinations]]
 4. [[#Part 4 Applying Combinatorics|Solving problems with combinatorics]]
+5. [[#Part 5 A Sense of Scale|Applications of combinatorics in the real world]]
 
 ---
 # Part 1: Basic Counting
@@ -629,7 +630,7 @@ For example, if $n = 5$, $t = 3$, then there are $36$ ways (far too many for us 
 
 How should we even count the number of possible ways? Even for small values of $n$ and $t$, the number of cases becomes astronomically large.
 
-The technique is called **stars and bars**. Here's the idea, again consider $n = 5, t = 3$:
+The technique is called **[stars and bars](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics))**. Here's the idea, again consider $n = 5, t = 3$:
 
 ![[stars-and-bars.svg]]
 
@@ -637,15 +638,17 @@ Think about how if we had $n + (t - 1)$ slots, then we can pick $t - 1$ slots to
 
 Notice the sum of the values is exactly the number of stars we have: $n$.
 
-So to find out how many ways to assign values to the $t$ variables, is to just pick $t - 1$ bars out of $n + (t - 1)$ possible positions. In other words:
+So to find out how many ways to assign values to the $t$ variables, is to just pick $t - 1$ bars out of $n + (t - 1)$ possible positions. In general:
 
-$$
-\binom{n + t - 1}{t - 1}
-$$
+>[!info] Definition: Stars and bars
+> For $n, t \in \mathbb{N}$, the number of assignments for each $x_i$ where $1 \leq i \leq t$ such that $\sum_{i=1}^t x_i = n$ is given by:
+> $$
+> \binom{n + t - 1}{n} = \binom{n + t - 1}{t - 1}
+> $$
 
 ## Block Walking
 
-Let's try another one. Given a grid of $6$ columns, and $4$ rows, where we start from the bottom left. And we are only allowed to either take one step up, or one step to the right each time. How many ways are there for us to go from the bottom left to the top right? 
+Let's try another one. We are given a grid of $6$ columns and $4$ rows, where we start from the bottom left. We are also only allowed to either take one step up, or one step to the right each time. How many ways are there for us to go from the bottom left to the top right? 
 
 In the picture below, the red and blue path are examples of paths you can take.
 
@@ -679,7 +682,7 @@ $$
 \sum_{i = 3}^{100} \binom{100}{i}
 $$
 
-Or, perhaps a little more simply: we could notice that there are $2^{100}$ possible subsets of $A$. To count the number of subsets that are $3$ or larger, we can just subtract away the subsets that are up to size $2$ from $2^n$. Which gives us:
+Or perhaps a little more simply, we could notice that there are $2^{100}$ possible subsets of $A$. To count the number of subsets that are $3$ or larger, we can just subtract away from $2^n$ the number of subsets that are of size up to $2$. This gives us:
 
 $$
 2^n - \binom{100}{0} - \binom{100}{1} - \binom{100}{2}
@@ -689,7 +692,7 @@ Turns out, both these quantities are the same!
 
 ## Counting Permutations
 
-Let's say there were $4$ people: Alice, Bob, Clara, Dean. Let's say that we had to arrange then in a line but Bob refuses to stand next to Dean. How many ways are there to arrange them in a line?
+Let's say there were four people: Alice, Bob, Clara and Dean. Let's say that we had to arrange then in a line but Bob refuses to stand next to Dean. How many ways are there to arrange them in a line?
 
 One way we could do this would be to count three cases separately, where we make $4$ slots, place Bob and Dean down first separately from each other, and then count how many permutations we could get.
 
@@ -699,11 +702,13 @@ There are $3$ possible cases that we can treat similarly. Pick any of the $2$ no
 
 There is an alternative way to count this: What about we count the number of ways where Bob and Dean are arranged together? We first treat them like a pair, attached at the hip. Then we count the number of ways we can arrange everyone so that Bob and Dean are stuck together, then subtract that number away from $4!$.
 
-So if we treat Bob and Dean as being stuck together. Then they're either arranged as Bob-Dean, or as Dean-Bob. Then for each of these cases (of which there are $2$), there are $3!$ possible ways to permute: Alice, Clara, and the Bob-Dean pair. So in total, there are $2 \times 3! = 12$ ways to arrange the 4 people, such that Bob and Dean are next to each other. Subtracting this away from $4! = 24$ yields us $12$ as our answer.
+If we treat Bob and Dean as being stuck together, then they're either arranged as Bob-Dean, or as Dean-Bob. Then for each of these cases (of which there are $2$), there are $3!$ possible ways to permute: Alice, Clara, and the Bob-Dean pair. So in total, there are $2 \times 3! = 12$ ways to arrange the four people, such that Bob and Dean are next to each other. Subtracting this away from $4! = 24$ yields us $12$ as our answer.
 
-# A Sense of Scale
+---
+# Part 5: Applications in the Real World
 
-Let's see some examples of why combinatorics is useful and helpful. 
+Let's see some examples of why combinatorics is useful and helpful.
+
 ## Binomial Coefficients and Nested For Loops
 
 Let's say we had some code that looked like this:
@@ -766,11 +771,12 @@ $$
 
 Interestingly, this tells us at the program makes $\Theta(n^3)$ iterations.
 
-## Some Useful Bounds on Combinatorial Properties
+## Useful Bounds on Combinatorial Properties: A Sense of Scale
+
 Let us end this unit by getting a sense of scale whenever we are counting. This is particularly useful when we are thinking about "generating all possibilities" or "just trying all possible solutions".
 
-
 Often times, having an approximation of the quantities are "good enough" for us to eyeball values. Let's look at two very common approximations for factorials and binomial coefficients.
+
 ### Stirling's Approximation
 
 The first is Stirling's asymptotic approximation for $n!$. Think of "asymptotic approximation" as meaning "the larger the value of $n$, the more accurate the approximation".
@@ -785,7 +791,7 @@ This makes the term of the right sometimes a little more useful to deal with.
 
 ### Bounding Binomial Coefficients
 
-The second is for binomial coefficients. Given any $n$ and $0 \leq k \leq n$
+The second is for binomial coefficients. Given any $n$ and $0 \leq k \leq n$,
 
 $$
 \left(\frac{n}{k}\right)^k \leq \binom{n}{k} \leq \left(\frac{n\cdot e}{k}\right)^k
@@ -795,7 +801,7 @@ $$
 
 For example, consider the following problem statement:
 
-> Given a list $L$ of $n$ pairs $(s_1, e_1), (s_2, e_2), \ldots, (s_n, e_n)$ such that the $i^{th}$ pair denotes the start and end time of the $i^{th}$ event. We will say two distinct events $i \neq j$ are **clashing** if ($s_i \leq s_j$ and $e_i \leq e_j$) or ($s_j \leq s_i$ and $e_j \leq e_i$). Find out what largest subset $S \subseteq L$ of events we can schedule so that none of the events in $S$ clash with each other.
+> Given a list $L$ of $n$ pairs $(s_1, e_1), (s_2, e_2), \ldots, (s_n, e_n)$ such that the $i^{\text{th}}$ pair denotes the start and end time of the $i^{\text{th}}$ event. We will say two distinct events $i \neq j$ are **clashing** if ($s_i \leq s_j$ and $e_i \leq e_j$) or ($s_j \leq s_i$ and $e_j \leq e_i$). Find out what largest subset $S \subseteq L$ of events we can schedule so that none of the events in $S$ clash with each other.
 
 This is a very classical algorithms problem, while we won't have the tools to solve it here, let's at least think about some very "straightforward" solutions.
 
@@ -813,15 +819,21 @@ This way we do find the largest subset. But how long did it take? What is the re
 For a subset of length $\ell \geq 2$, we need to check $\binom{\ell}{2}$ possible pairings to see if the subset contains any clashing events. There are $\binom{n}{\ell}$ many subsets of $L$ of length $\ell$. We need to check all possible subsets where $\ell$ ranges from $1$ to $n$. So in total, we take this many steps:
 
 $$
-\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} = \sum_{\ell = 1}^n\frac{n!}{(\ell!)(n-\ell)!} \cdot \frac{\ell!}{(\ell-2)!\cdot 2!} = \sum_{\ell = 1}^n\frac{n!}{2(n-\ell)!(\ell - 2)!}
+\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} = \sum_{\ell = 1}^n\frac{n!}{\ell!(n-\ell)!} \cdot \frac{\ell!}{(\ell-2)!\cdot 2!} = \sum_{\ell = 1}^n\frac{n!}{2(n-\ell)!(\ell - 2)!}
 $$
 
 Let's say we want to **lower bound** the amount of steps needed minimum. How do we even begin approximating this?
 
 One way would be to lower bound the original summation:
 
-![[fixed-math.png]]
-
-
+$$
+\begin{align*}
+\sum_{\ell=2}^n \binom{n}{\ell} \binom{\ell}{2} &\geq \sum_{\ell=1}^n \bigg(\frac{n}{\ell}\bigg)^{\ell} \bigg(\frac{\ell}{2}\bigg)^2 \\
+&\geq \bigg(\frac{n}{\sqrt{n}}\bigg)^{\sqrt{n}} \bigg(\frac{\sqrt{n}}{2}\bigg)^2 \\
+&\geq (\sqrt{n})^{\sqrt{n}} \cdot \frac{n}{4}\\
+&\geq n^{\frac{\sqrt{n}}{2}} \\
+&\geq 2^{\frac{\sqrt{n}}{2}}
+\end{align*}
+$$
 
 Which is close to being exponential in $n$. This means the strategy scales quite badly when we have more and more events.
