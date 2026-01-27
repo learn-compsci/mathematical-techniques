@@ -51,7 +51,6 @@ $$
 Fill out the 8 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
 ---
-
 # Question 3 (4 marks): 
 
 Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the following quantified statements are true:
@@ -64,8 +63,6 @@ Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Determine which of the 
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
 ---
-
-
 # Question 4 (3 marks):
 
 Prove the following statement:
@@ -82,15 +79,14 @@ You may also use the following lemmas in your proof:
 >[!Lemma-1]
 >$\forall x \in \mathbb{Z} \ \big[even(x) \lor odd(x)\big]$
 
-Hint: Use lemma 1 to say that $n$ is either even or odd. When that happens, try to prove both cases separately.
+Hint: Use Lemma 1 to say that $n$ is either even or odd. When that happens, try to prove both cases separately.
 
-We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
+We recommend doing the proof step by step following the rules laid out [[Unit 1#Allowable Rules of Deductions/Inferences|here]] in case you are unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
 
 ---
-
 # Question 5 (5 marks):
 
-Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q} \ [x < q \land q < y]$ be the predicate that essentially says "We can find a rational number strictly in between values $x$ and $y$." 
+Let $has\_gap(x, y) \equiv \exists q \in \mathbb{Q} \ [x < q \land q < y]$ be the predicate that essentially says "We can find a rational number strictly between values $x$ and $y$." (You may refer to the definition of rational numbers [[More Proof Examples - And Demystifying Proofs#Example 1.2|here]], if necessary.)
 
 We want to disprove the following statement:
 
@@ -118,11 +114,10 @@ And also started a proof. Your friend's proof has these steps, and they want you
 
 Fill in the remaining portion of the proof in the middle. You may need more than 4 lines, that is okay, in which case the $\bot$ line should be shifted accordingly. For example if you used 8 lines in your proof after line 1.1, then $\bot$ should be on on line 1.10.
 
-We recommend doing the proof step by step following the rules laid out in [[Unit 1#Allowable Rules of Deductions/Inferences]] in case you unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
+We recommend doing the proof step by step following [[Unit 1#Allowable Rules of Deductions/Inferences|the rules laid out in this section]] in case you are unsure about which steps are and not allowed. If steps are skipped, it is up to the grader's discretion as to whether to penalise or not.
 
 ---
-
-# Bonus Question: (2 marks)
+# Bonus Question (2 marks):
 
 Assume every person either only tell lies (knave) or only speaks the truth (knight). A family of 4 say the following the statements:
 
@@ -131,12 +126,12 @@ Edith: "Margo is a knave."
 Margo: "Gru is a knight."
 Gru: "Agnes is lying!"
 
-We can use predicates to encode these statements mathematically as follows:
+We can use predicates to express these statements mathematically as follows:
 
 1. $Knave(x)$ means $x$ is a knave.
 2. $Knight(x)$ means $x$ is a knight.
-3. "Every person is either a knight or a knave" can be written as $\forall p \in Person[ Knight(p) \lor Knave(p) ]$
-4. "Every person cannot be both a knight and a knave" can be written as $\forall p \in Person[\neg( Knight(p) \land Knave(p))]$
+3. "Every person is either a knight or a knave" can be written as $\forall p \in People \ [ Knight(p) \lor Knave(p) ]$
+4. "Every person cannot be both a knight and a knave" can be written as $\forall p \in People \ [\neg( Knight(p) \land Knave(p))]$
 
 For each character, identify whether they are a knight or knave!
 
