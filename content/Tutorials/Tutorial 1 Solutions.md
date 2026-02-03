@@ -51,7 +51,7 @@ For each of the following, write a propositional formula that accurately represe
 >
 >Combining them using connectives, we have:
 >- "*The program compiles* **but** *the input is not valid*": $p \land \neg q$
->- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": ==$(p \land \neg q) \to \neg r$==
+>- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": $(p \land \neg q) \to \neg r$
 
 2. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
@@ -67,7 +67,7 @@ For each of the following, write a propositional formula that accurately represe
 >Combining these using connectives, we have:
 >- "*The program compiles* **and** *the input is valid*": $p \land q$
 >- "(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*": $(p \land q) \lor s$
->- "\[(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*], **and** *the algorithm does not terminate*.": ==$\big( (p \land q) \lor s \big) \land \neg t$==
+>- "\[(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*], **and** *the algorithm does not terminate*.": $\big( (p \land q) \lor s \big) \land \neg t$
 >
 >>[!tip] Order of operations
 >>Just like in normal arithmetic, the application of logical connectives follows an order. Namely, connectives are applied in the following order: parentheses, $\neg$, $\land$, $\lor$, $\to$.
@@ -89,20 +89,20 @@ Draw two truth tables to verify that:
 1. $\neg (p \to q)$ is logically equivalent to $p \land \neg q$.
 2. $\neg (p \land q)$ is logically equivalent to $\neg p \lor \neg q$.
 
-|   $p$   |   $q$   | $p \to q$ | ==$\neg (p \to q)$== | $\neg q$ | ==$p \land \neg q$== |
-| :-----: | :-----: | :-------: | :------------------: | :------: | :--------------: |
-| $true$  | $true$  |  $true$   |     ==$false$==      | $false$  |     ==$false$==      |
-| $true$  | $false$ |  $false$  |      ==$true$==      |  $true$  |      ==$true$==      |
-| $false$ | $true$  |  $true$   |     ==$false$==      | $false$  |     ==$false$==      |
-| $false$ | $false$ |  $true$   |     ==$false$==      |  $true$  |     ==$false$==      |
+|   $p$   |   $q$   | $p \to q$ | $\textcolor{red}{\neg (p \to q)}$ | $\neg q$ | $\textcolor{blue}{p \land \neg q}$ |
+| :-----: | :-----: | :-------: | :-------------------------------: | :------: | :--------------------------------: |
+| $true$  | $true$  |  $true$   |     $\textcolor{red}{false}$      | $false$  |     $\textcolor{blue}{false}$      |
+| $true$  | $false$ |  $false$  |      $\textcolor{red}{true}$      |  $true$  |      $\textcolor{blue}{true}$      |
+| $false$ | $true$  |  $true$   |     $\textcolor{red}{false}$      | $false$  |     $\textcolor{blue}{false}$      |
+| $false$ | $false$ |  $true$   |     $\textcolor{red}{false}$      |  $true$  |     $\textcolor{blue}{false}$      |
 Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent. 
 
-|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | ==$\neg (p \land q)$== | ==$\neg p \lor \neg q$== |
-| :-----: | :-----: | :---------: | :------: | :------: | :----------------: | :------------------: |
-| $true$  | $true$  |   $true$    | $false$  | $false$  |      ==$false$==       |       ==$false$==        |
-| $true$  | $false$ |   $false$   | $false$  |  $true$  |       ==$true$==       |        ==$true$==        |
-| $false$ | $true$  |   $false$   |  $true$  | $false$  |       ==$true$==       |        ==$true$==        |
-| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       ==$true$==       |        ==$true$==        |
+|   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\textcolor{red}{\neg (p \land q)}$ | $\textcolor{blue}{\neg p \lor \neg q}$ |
+| :-----: | :-----: | :---------: | :------: | :------: | :---------------------------------: | :------------------------------------: |
+| $true$  | $true$  |   $true$    | $false$  | $false$  |      $\textcolor{red}{false}$       |       $\textcolor{blue}{false}$        |
+| $true$  | $false$ |   $false$   | $false$  |  $true$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
+| $false$ | $true$  |   $false$   |  $true$  | $false$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
+| $false$ | $false$ |   $false$   |  $true$  |  $true$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
 ## Part B:
@@ -188,7 +188,7 @@ Write the negation of each of the statements.
 >2. Using **negation of a universal quantifier**: $∃x∈D,\neg \bigg(\exists y \in E \ \big[P(x,y) \land Q(y)\big] \bigg)$
 >
 >3. Using **negation of an existential quantifier**: $\exists x \in D,\forall y \in E \ \bigg[\neg \big(P(x,y) \land Q(y)\big) \bigg]$
->4. Using **De Morgan’s Law**: ==$\exists x \in D,\forall y \in E \ \big[\neg P(x,y) \lor  \neg Q(y)\big]$==
+>4. Using **De Morgan’s Law**: $\exists x \in D,\forall y \in E \ \big[\neg P(x,y) \lor  \neg Q(y)\big]$
 
 >[!Further Explanations] 
 >Statement 3 is a little more complex. What it means is that for every $x$ in set $D$, there exists some corresponding $y$ in set $E$, such that both $P(x,y)$ and $Q(y)$ are true. To negate this, think of the opposite. 
@@ -200,17 +200,17 @@ Write the negation of each of the statements.
 2. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
 >[!Solution] 
-> 1. Put a negative sign outside: $\neg \bigg(\exists x \in D,\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
+> 5. Put a negative sign outside: $\neg \bigg(\exists x \in D,\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
 >
->2. Using **negation of an existential quantifier**: $\forall x \in D,\neg \bigg(\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
+>6. Using **negation of an existential quantifier**: $\forall x \in D,\neg \bigg(\forall y \in E \ \big[P(x,y) \to Q(y)\big]\bigg)$
 >
->3. Using **negation of a universal quantifier**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(P(x,y) \to  Q(y)\big)\bigg]$
+>7. Using **negation of a universal quantifier**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(P(x,y) \to  Q(y)\big)\bigg]$
 >
->4. Using **implication law**: $P(x,y) \to Q(y) \equiv \neg P(x,y) \lor Q(y)$, we replace $P(x,y) \to Q(y)$ with $\neg P(x,y) \lor Q(y)$, thus we write: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y) \lor Q(y)\big)\bigg]$.
+>8. Using **implication law**: $P(x,y) \to Q(y) \equiv \neg P(x,y) \lor Q(y)$, we replace $P(x,y) \to Q(y)$ with $\neg P(x,y) \lor Q(y)$, thus we write: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y) \lor Q(y)\big)\bigg]$.
 >
->5. Using **De Morgan’s Law**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y)\big) \land \neg Q(y)\bigg]$
+>9. Using **De Morgan’s Law**: $\forall x \in D,\exists y \in E \ \bigg[\neg \big(\neg P(x,y)\big) \land \neg Q(y)\bigg]$
 >
->6. Double negation: $\neg \big(\neg P(x,y)\big) \equiv P(x,y)$, thus we get ==$\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$==.
+>10. Double negation: $\neg \big(\neg P(x,y)\big) \equiv P(x,y)$, thus we get $\forall x \in D,\exists y \in E \ \big[P(x,y) \land \neg Q(y)\big]$.
 
 >[!Further Explanations] 
 >After looking at the statement 3, this one should make more sense. What this statement means is that there exists some $x$ in set $D$ where for all $y$ in set $E$, $P(x,y) \to Q(y)$ is true. To negate this, think of the opposite.
