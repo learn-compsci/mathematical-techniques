@@ -95,6 +95,7 @@ Draw two truth tables to verify that:
 | $true$  | $false$ |  $false$  |      $\textcolor{red}{true}$      |  $true$  |      $\textcolor{blue}{true}$      |
 | $false$ | $true$  |  $true$   |     $\textcolor{red}{false}$      | $false$  |     $\textcolor{blue}{false}$      |
 | $false$ | $false$ |  $true$   |     $\textcolor{red}{false}$      |  $true$  |     $\textcolor{blue}{false}$      |
+
 Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent. 
 
 |   $p$   |   $q$   | $p \land q$ | $\neg p$ | $\neg q$ | $\textcolor{red}{\neg (p \land q)}$ | $\textcolor{blue}{\neg p \lor \neg q}$ |
@@ -103,6 +104,7 @@ Hence, $\neg (p \to q)$ and $p \land \neg q$ are logically equivalent.
 | $true$  | $false$ |   $false$   | $false$  |  $true$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
 | $false$ | $true$  |   $false$   |  $true$  | $false$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
 | $false$ | $false$ |   $false$   |  $true$  |  $true$  |       $\textcolor{red}{true}$       |        $\textcolor{blue}{true}$        |
+
 Hence, $\neg (p \land q)$ and $\neg p \lor \neg q$ are logically equivalent. 
 
 ## Part B:
@@ -149,26 +151,29 @@ Determine whether the following statements are true or false for the below pictu
 4. $\forall c \in C, \forall s \in S \ \big[Above(c, s) \big]$
 5. $\exists u \in U, \forall c \in C \ \big[Above(u, c) \big]$
 6. $\exists c \in C, \exists d \in D \ \big[Grey(c) \lor \neg Orange(d) \big]$
+
+
 ![[tarski.png]]
+
 >[!Solution]
 >1. $\exists u \in U \ \big[Orange(u) \land Diamond(u) \big]$
->	 **True**: Consider $u = D_2$.
->>
+>> **True**: Consider $u = D_2$.
+>
 >2. $\forall u \in U \ \big[Circle(u) \to Blue(u) \big]$
->	**False**: Consider $u = C_2$. Then, $Circle(C_2) \equiv true$, but $Blue(C_2) \equiv false$, and hence $Circle(C_2) \to Blue(C_2) \equiv false$.
->> 
+>> **False**: Consider $u = C_2$. Then, $Circle(C_2) \equiv true$, but $Blue(C_2) \equiv false$, and hence $Circle(C_2) \to Blue(C_2) \equiv false$.
+>
 >3. $\forall s \in S, \exists d \in D \ \big[Above(d, s) \big]$
->	**True**: No matter which square $s$ is chosen, we can always find at least one diamond $d$ such that $d$ lies above $s$ in the grid. For example, for all the squares, we can let $d = D_1$.
->	\[Note that **this does not mean that the $d$ chosen has to be the same one for every $s$**! In this case, this choice of $d$ *happens* to work for all the squares.]
->> 
+>> **True**: No matter which square $s$ is chosen, we can always find at least one diamond $d$ such that $d$ lies above $s$ in the grid. For example, for all the squares, we can let $d = D_1$.
+>> \[Note that **this does not mean that the $d$ chosen has to be the same one for every $s$**! In this case, this choice of $d$ *happens* to work for all the squares.]
+>
 >4. $\forall c \in C, \forall s \in S \ \big[Above(c, s) \big]$
->	**True**: No matter which circle $c$ and which square $s$ are chosen, the circle will lie above the square.
->> 
+>> **True**: No matter which circle $c$ and which square $s$ are chosen, the circle will lie above the square.
+>
 >5. $\exists u \in U, \forall c \in C \ \big[Above(u, c) \big]$
->	**False**: There does not exist a single object $u$ that lies above all the circles, because the topmost object is itself a circle (i.e., $C_1$), and therefore $Above(u, C_1) \equiv false$ no matter the choice of $u$.
->> 
+>> **False**: There does not exist a single object $u$ that lies above all the circles, because the topmost object is itself a circle (i.e., $C_1$), and therefore $Above(u, C_1) \equiv false$ no matter the choice of $u$.
+>
 >6. $\exists c \in C, \exists d \in D \ \big[Grey(c) \lor \neg Orange(d) \big]$
->	**True**: Consider $c = C_1, d = D_1$. Then, $\neg Orange(D_1) \equiv true$. By generalisation, $Grey(C_1) \lor \neg Orange(D_1) \equiv true$.
+>> **True**: Consider $c = C_1, d = D_1$. Then, $\neg Orange(D_1) \equiv true$. By generalisation, $Grey(C_1) \lor \neg Orange(D_1) \equiv true$.
 
 ---
 # Question 4:
@@ -196,6 +201,7 @@ Write the negation of each of the statements.
 > NOT every $x$ in set $D$ has some corresponding $y$ in set $E$ such that both $P(x,y)$ and $Q(y)$ are true. This means that there should exist (at least one) $x$ in set $D$ where you CANNOT find any $y$ in set $E$ such that *both* $P(x,y)$ and $Q(y)$ are true. In other words, there exists $x$ in set $D$ where for ALL $y$ in set $E$, $P(x,y)$ and $Q(y)$ are not true at the same time (i.e., *at least* one of them is not true), so either $P(x,y)$ is not true, or $Q(y)$ is not true, or both.
 > 
 > Now we just write this using FOL: there exists $x$ in set $D$ where for all $y$ in set $E$, either $P(x,y)$ is not true, or $Q(y)$ is not true. Thus we write $\exists x \in D, \forall y \in E \ \big[\neg P(x,y) \lor \neg Q(y)\big]$.
+
 
 2. $\exists x \in D, \forall y \in E \ \big[P(x,y) \to Q(y) \big]$
 
@@ -237,6 +243,7 @@ Write the negation of each of the statements.
 >>**Deciphering the statement:**
 >>This statement says that every natural number, is equal to some integer. We know this to be intuitively true, by the definition of the sets of $\mathbb{N}$ and $\mathbb{Z}$.
 
+
 2. (**False**) $\exists p, q \in \mathbb{Q} \ [q \neq p]$
 
 >[!Explanation]
@@ -246,6 +253,7 @@ Write the negation of each of the statements.
 >3. $\equiv \exists p, q \in \mathbb{Q} \ [q \neq p]$ (Negation of equals)
 >>**Deciphering the statement:**
 >>This statement says any two rational numbers are equal, which we know to be false.
+
 
 3. (**False**) $\exists a, b \in \mathbb{Z} \ [a^2 = b^2 \land a \neq b]$
 
@@ -275,6 +283,7 @@ Write the negation of each of the statements.
 >>The contrapositive says that if two integers are equal, the squares of the two integers are also equal. This is significantly easier to justify and imagine.
 >>
 >>The contrapositive is thus true, making the original statement true.
+
 
 2. (**True**) $\forall x \in \mathbb{Z} \ \big(x > 5  \to \exists y \in \mathbb{N} \ [x = y]\big)$
 
