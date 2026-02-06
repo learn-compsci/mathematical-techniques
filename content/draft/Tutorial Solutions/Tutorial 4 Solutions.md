@@ -72,7 +72,7 @@ $$
 
 >[!note] Proof
 >1. (Base case) Let $n = 1$. Then $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
->2. Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
+>2. Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]<br></br>
 >3. (Inductive step) Assume that for some $n = j$, where $j \in \mathbb{N}$, we have that
 >  $$
 > \textcolor{green}{\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]}
@@ -92,7 +92,7 @@ $$
 > \end{align*}
 > $$
 >6. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
->7. $\textcolor{red}{\exists k \in \mathbb{N} \left[6^{j+1} - 1 = 5 \cdot k \right]}$. \[Existential generalisation on lines 5 and 6]
+>7. $\textcolor{red}{\exists k \in \mathbb{N} \left[6^{j+1} - 1 = 5 \cdot k \right]}$. \[Existential generalisation on lines 5 and 6]<br></br>
 >8. $\forall n \geq 1, \exists k \in \mathbb{N} \left[6^n - 1 = 5 \cdot k \right]$. \[Principle of mathematical induction]
 
 
@@ -100,7 +100,6 @@ $$
 # Question 3 \[Graded for Participation]:
 
 Let $A(n)$ be a recurrence defined in the following way:
-
 
 $$
 A(n) = \begin{cases}
@@ -119,28 +118,46 @@ Compute the following values:
 3. $A(2)$
 4. $A(5)$
 
+**Solution**:
+
+>[!info] Sub-part 1
+> $A(0) = \textcolor{blue}{1}$
+>
+> $A(1) = \textcolor{blue}{3}$
+>
+> $A(2) = 2 \times A(1) - A(0) = 2 \times 3 - 1 = \textcolor{blue}{5}$
+>
+> To calculate $A(5)$, we first calculate $A(3)$ and $A(4)$ (bottom-up):
+> $$
+> A(3) = 2 \times A(2) - A(1) = 2 \times 5 - 3 = 7
+> $$
+> 
+> $$
+> A(4) = 2 \times A(3) - A(2) = 2 \times 7 - 5 = 9
+> $$
+> 
+> Finally, we have $A(5) = 2 \times A(4) - A(3) = 2 \times 9 - 7 = \textcolor{blue}{11}$.
+
 #### Sub-part 2
 
 Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 
-
-**Solution**s:
-
-**Sub-question 1**:
-1. $A(0) = 1$
-2. $A(1) = 3$
-3. $A(2) = 2 \times A(1) - A(0) = 5$
-4. Since $A(3) = 2 \times A(2) - A(1) = 7$ and $A(4) = 2 \times A(3) - A(2) = 9$, we have $A(5) = 2 \times A(4) - A(3) = 11$.
-
-**Sub-question 2**:
+**Solution**:
 
 >[!note] Proof
->1. (Base cases) We prove the statement for $n = 0$ and $n = 1$. Clearly, $A(0) = 1 = 2(0) + 1$ and $A(1) = 3 = 2(1) + 1$.
->2. (Inductive step) Let $k \geq 2$, and assume that $\forall 0 \leq j < k\ [A(j) = 2j + 1]$.
->3. $A(k) = 2 \times A(k-1) - A(k-2)$ \[By definition of $A(n)$]
->4. Since $0 \leq k-1 < k$ and $0 \leq k-2 < k$, we have $A(k-1) = 2(k-1)+1 = 2k-1$ and $A(k-2) = 2(k-2)+1 = 2k-3$, respectively. \[By assumption on line 2]
->5. $A(k) = 2 \times (2k-1) - (2k-3) = 4k-2-2k+3 = 2k+1$ \[Basic algebra, from lines 3, 4]
->6. $\forall n \geq 0\ [A(n) = 2n + 1]$ \[Principle of mathematical induction]
+>1. (Base cases) We prove the statement for $n = 0$ and $n = 1$. Clearly, $A(0) = 1 = 2(0) + 1$ and $A(1) = 3 = 2(1) + 1$.<br></br>
+>2. (Inductive step) Let $k \geq 2$, and assume that $\textcolor{green}{\forall 0 \leq \textcolor{magenta}{j} < k\ [A(\textcolor{magenta}{j}) = 2\textcolor{magenta}{j} + 1]}$.
+>3. $\textcolor{blue}{A(k)} = 2 \times \textcolor{green}{A(\textcolor{magenta}{k-1})} - \textcolor{green}{A(\textcolor{magenta}{k-2})}$ \[By definition of $A(n)$]
+>4. Since $0 \leq \textcolor{magenta}{k-1} < k$ and $0 \leq \textcolor{magenta}{k-2} < k$, by our assumption on line 2, we have:
+>	$$
+>		\textcolor{green}{A(\textcolor{magenta}{k-1}) = 2(\textcolor{magenta}{k-1})+1 = 2k-1}
+>	 $$
+>	$$
+>		\textcolor{green}{A(\textcolor{magenta}{k-2}) = 2(\textcolor{magenta}{k-2})+1 = 2k-3}
+>	 $$
+>5. $\textcolor{blue}{A(k)} = 2 \times \textcolor{green}{(2k-1)} - \textcolor{green}{(2k-3)} = 4k-2-2k+3 = \textcolor{red}{2k+1}$ \[Basic algebra, from lines 3 and 4]<br></br>
+>6. $\forall n \geq 0 \ [A(n) = 2n + 1]$. \[Principle of mathematical induction]
+
 
 ---
 # Question 4:
@@ -168,20 +185,19 @@ You may find the following facts useful:
 
 You may alternatively use the substitution method to prove that this is $O(n \log n)$.
 
-
 **Solution**:
 
 >[!note] Proof
 >1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
 >	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2(3)$
 >	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
->	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$
+>	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$<br></br>
 >2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
 >3. Since $k \geq 6$, $\lfloor \frac{k}{2} \rfloor \geq 3$, so our assumption applies to $\lfloor \frac{k}{2} \rfloor$.
 >4. $M(k) = 2 \times M(\lfloor \frac{k}{2} \rfloor) + k \leq 2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k$ \[By assumption on line 2]
 >5. $2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k = k\log_2(\frac{k}{2}) + k$ \[Facts 1, 2]
 >6. $k\log_2(\frac{k}{2}) + k = k \log_2 k - k \log_2 2 + k = k \log_2 k - k + k = k \log_2 k$ \[Basic algebra]
->7. $M(k) \leq k \log_2 k$ \[From lines 4, 6]
+>7. $M(k) \leq k \log_2 k$. \[From lines 4 and 6]<br></br>
 >8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
 
 ---
