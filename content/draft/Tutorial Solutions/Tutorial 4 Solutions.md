@@ -164,7 +164,6 @@ Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 
 Let $M(n)$ be a recurrence defined in the following way.
 
-
 $$
 M(n) = \begin{cases}
 0 &, n = 1\\
@@ -176,7 +175,7 @@ $$
 Prove via strong induction that:
 
 $$
-\forall n \geq 3 \ [M(n) \leq n\log_2(n)]
+\forall n \geq 3 \ \big[M(n) \leq n\log_2 n \big]
 $$
 
 You may find the following facts useful:
@@ -189,16 +188,28 @@ You may alternatively use the substitution method to prove that this is $O(n \lo
 
 >[!note] Proof
 >1. (Base cases) We will prove the statement for $n=3$, $n=4$ and $n=5$.
->	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2(3)$
->	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2(4)$
->	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2(5)$<br></br>
->2. (Inductive step) Let $k \geq 6$, and assume that $\forall 3 \leq j < k\ [M(j) \leq j \log_2(j)]$.
->3. Since $k \geq 6$, $\lfloor \frac{k}{2} \rfloor \geq 3$, so our assumption applies to $\lfloor \frac{k}{2} \rfloor$.
->4. $M(k) = 2 \times M(\lfloor \frac{k}{2} \rfloor) + k \leq 2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k$ \[By assumption on line 2]
->5. $2\lfloor \frac{k}{2} \rfloor \log_2 (\lfloor \frac{k}{2} \rfloor) + k \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k = k\log_2(\frac{k}{2}) + k$ \[Facts 1, 2]
->6. $k\log_2(\frac{k}{2}) + k = k \log_2 k - k \log_2 2 + k = k \log_2 k - k + k = k \log_2 k$ \[Basic algebra]
->7. $M(k) \leq k \log_2 k$. \[From lines 4 and 6]<br></br>
->8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
+>	- For $n=3$: $M(3) = 2 \times M(1) + 3 = 2 \times 0 + 3 = 3 \leq 3 \log_2 3$
+>	- For $n=4$: $M(4) = 2 \times M(2) + 4 = 2 \times 2 + 4 = 8 \leq 4 \log_2 4$
+>	- For $n=5$: $M(5) = 2 \times M(2) + 5 = 2 \times 2 + 5 = 9 \leq 5 \log_2 5$<br></br>
+>2. (Inductive step) Let $k \geq 6$, and assume that $\textcolor{green}{\forall 3 \leq \textcolor{magenta}{j} < k \ \big[M(\textcolor{magenta}{j}) \leq \textcolor{magenta}{j} \log_2 \textcolor{magenta}{j} \big]}$.
+>3. Since $k \geq 6$, $\textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor} \geq 3$, so our assumption applies to $\textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor}$.
+>4. Then, we have the following:
+> $$
+> \begin{align*}
+> \\& \textcolor{blue}{M(k)}
+> \\& = 2 \times M\bigg(\textcolor{magenta}{\bigg\lfloor \frac{k}{2} \bigg\rfloor} \bigg) + k
+> \\& \leq 2 \big(\textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor} + \log_2 \textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor} \big) + k
+> \\& = 2 \lfloor \frac{k}{2} \rfloor \log_2 \big\lfloor \frac{k}{2} \big\rfloor + k \\& \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k
+> \\& = k\log_2(\frac{k}{2}) + k
+> \\& = k\log_2(\frac{k}{2}) + k
+> \\& = k \log_2 k - k \log_2 2 + k
+> \\& = k \log_2 k - k + k
+> \\& = k \log_2 k
+> \end{align*}	
+> $$
+>5. $M(k) \leq k \log_2 k$. \[From lines 4 and 6]<br></br>
+>6. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
+
 
 ---
 # Question 5:
