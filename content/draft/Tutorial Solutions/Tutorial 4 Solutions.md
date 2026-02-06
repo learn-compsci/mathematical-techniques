@@ -71,16 +71,30 @@ $$
 **Solution**:
 
 >[!note] Proof
->1. (Base case) Let $n = 1$. Then, $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
->	- Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
->2. (Inductive step) Assume that for $n = j$, where $j \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]$.
->3. Let $m \in \mathbb{N}$ be such that $6^j - 1 = 5m$. \[Existential instantiation on line 3]
->4. $6^{j+1} - 1 = 6^j \cdot 6 - 1 = 6 \cdot (6^j - 1) + 5$. \[Basic algebra]
->5. $6 \cdot (6^j - 1) + 5 = 6 \cdot 5m + 5 = 30m + 5 = 5 \cdot (6m + 1)$. \[By assumption on line 3]
->6. $6^{j+1} - 1 = 5 \cdot (6m + 1)$. \[Basic algebra, from lines 5, 6]
->7. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
->8. $\exists k \in \mathbb{N}\ [6^{j+1} - 1 = 5 \cdot k]$ \[Existential generalisation on lines 7, 8]
->9. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
+>1. (Base case) Let $n = 1$. Then $6^n - 1 = 6^1 - 1 = 5 = 5 \cdot 1$. \[Basic algebra]
+>2. Since $1 \in \mathbb{N}$, $\exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$. \[Existential generalisation on line 1]
+>3. (Inductive step) Assume that for some $n = j$, where $j \in \mathbb{N}$, we have that
+>  $$
+> \textcolor{green}{\exists k \in \mathbb{N}\ [6^j - 1 = 5 \cdot k]}
+> $$
+>4. Let $m \in \mathbb{N}$ be such that $\textcolor{green}{6^j - 1 = 5m}$. \[Existential instantiation on line 3]
+>5. By basic algebra, we have the following equalities:
+> $$
+> \begin{align*}
+> \\& \textcolor{blue}{6^{j+1} - 1}
+> \\& = 6 \cdot 6^j - 1
+> \\& = 6 \cdot 6^j - 6 \cdot 1 + 5
+> \\& = 6 \cdot \textcolor{green}{(6^j - 1)} + 5
+> \\& = 6 \cdot \textcolor{green}{5m} + 5 \ \text{[By assumption on lines 3 and 4]}
+> \\& = 30m + 5
+> \\& = \textcolor{red}{5 \cdot (6m + 1)}
+> \\&
+> \end{align*}
+> $$
+>6. Since $m \in \mathbb{N}$, $6m + 1 \in \mathbb{N}$. \[Basic algebra]
+>7. $\textcolor{red}{\exists k \in \mathbb{N} \left[6^{j+1} - 1 = 5 \cdot k \right]}$. \[Existential generalisation on lines 5 and 6]
+>8. $\forall n \geq 1, \exists k \in \mathbb{N} \left[6^n - 1 = 5 \cdot k \right]$. \[Principle of mathematical induction]
+
 
 ---
 # Question 3 \[Graded for Participation]:
