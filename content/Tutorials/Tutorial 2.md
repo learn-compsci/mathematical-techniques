@@ -51,12 +51,12 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >[!note] Proof: $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$
 >1. Let $n \in \mathbb{N}$ be arbitrarily chosen.
 >2. Suppose, for the sake of contradiction, that $\neg (n + 1 \neq 0)$.
->		1. $n + 1 = 0$. **\[ (f) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
+>		1. $n + 1 = 0$. \[Logically equivalent to line 2]
 >		2. $n = -1$. \[Basic algebra]
 >		3. $\neg (n \in \mathbb{N}).$ \[Basic algebra]
->		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (g) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
->		5. $\bot$. **\[ (h) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
->3. $n + 1 \neq 0$. **\[ (i) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
+>		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (f) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
+>		5. $\bot$. **\[ (g) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
+>3. $n + 1 \neq 0$. **\[ (h) Rule of deduction: _ _ _ _ _ _ _ _ _ _ ]**
 >4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
