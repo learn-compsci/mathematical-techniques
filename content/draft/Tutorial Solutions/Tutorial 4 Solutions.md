@@ -29,7 +29,7 @@ After Week 7's content, you should be able to attempt questions 1 through 5. Aft
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1 \[Graded for Participation]
+# Question 1 \[Graded for Participation]:
 
 Using mathematical induction, prove that:
 
@@ -38,21 +38,29 @@ $$
 $$
 
 **Solution**:
+
 >[!note] Proof
->1. (Base case) Let $n = 1$, then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$. \[Basic algebra]
->2. (Inductive step) Assume that for $n = j$, where $j\in \mathbb{N}, \sum_{i = 1}^1 i^2 = \frac{j(j + 1)(2j + 1)}{6}$
->3. $\sum_{i = 1}^{j + 1} i^2 = \sum_{i = 1}^{j} i^2 + (j+1)^2$ \[Basic algebra]
->4. $= \frac{j(j+1)(2j+1)}{6} + (j+1)^2$ \[By assumption on line 2]
->5. $= (j+1)\bigg[\frac{j(2j+1)}{6} + (j+1)\bigg]$ \[Basic algebra]
->6. $= (j+1)\big(\frac{2j^2+j+6j+6}{6}\big)$ \[Basic algebra]
->7. $= (j+1)\big(\frac{2j^2+7j+6}{6}\big)$ \[Basic algebra]
->8. $= (j+1)\big[\frac{(j+2)(2j+3)}{6}\big]$ \[Basic algebra]
->9. $= \frac{(j+1)[(j+1)+1][2(j+1)+1]}{6}$ \[Basic algebra]
->10. $\therefore \forall n \in \mathbb{N}\ \bigg[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}\bigg]$ \[Principle of mathematical induction]
+>1. (Base case) Let $n = 1$. Then $\sum_{i = 1}^1 i^2 =\frac{1(1+1)(2(1)+1)}{6} = 1$. \[Basic algebra]
+>2. (Inductive step) Assume that for some $n = j$, where $j\in \mathbb{N}$, we have that $$\textcolor{green}{\sum_{i = 1}^j i^2 = \frac{j(j + 1)(2j + 1)}{6}}$$
+>3. Then, by basic algebra, we have the following equalities:
+> $$
+> \begin{align*}
+> \\& \textcolor{blue}{\sum_{i = 1}^{j + 1} i^2}
+> \\& = \textcolor{green}{\sum_{i = 1}^{j} i^2} + (j+1)^2
+> \\& = \textcolor{green}{\frac{j(j+1)(2j+1)}{6}} + (j+1)^2 \ \text{[By assumption on line 2]}
+> \\& = (j+1)\left[\frac{j(2j+1)}{6} + (j+1)\right] \ \text{[Factorising out } (j+1) \text{]}
+> \\& = (j+1)\left[\frac{2j^2+j+6j+6}{6}\right]
+> \\& = (j+1)\left[\frac{2j^2+7j+6}{6}\right]
+> \\& = (j+1)\left[\frac{(j+2)(2j+3)}{6}\right]
+> \\& = \textcolor{red}{\frac{(j+1)[(j+1)+1][2(j+1)+1]}{6}}
+> \\&
+> \end{align*}
+> $$
+>4. $\forall n \in \mathbb{N}\ \left[\sum_{i=1}^{n} i^2 = \frac{(n)(n+1)(2n+1)}{6}\right]$. \[Principle of mathematical induction]
 
 
 ---
-# Question 2
+# Question 2:
 
 Using mathematical induction, prove that:
 
@@ -75,9 +83,9 @@ $$
 >9. $\forall n \geq 1, \exists k \in \mathbb{N}\ [6^n - 1 = 5 \cdot k]$ \[Principle of mathematical induction]
 
 ---
-# Question 3 \[Graded for Participation]
+# Question 3 \[Graded for Participation]:
 
-Let $A(n)$ be a recurrence defined in the following way.
+Let $A(n)$ be a recurrence defined in the following way:
 
 
 $$
@@ -88,8 +96,8 @@ A(n) = \begin{cases}
 \end{cases}
 $$
 
+#### Sub-part 1
 
-## Sub-question 1
 Compute the following values:
 
 1. $A(0)$
@@ -97,11 +105,12 @@ Compute the following values:
 3. $A(2)$
 4. $A(5)$
 
-## Sub-question 2
+#### Sub-part 2
+
 Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 
 
-**Solution**:
+**Solution**s:
 
 **Sub-question 1**:
 1. $A(0) = 1$
@@ -120,7 +129,7 @@ Prove via strong induction that $\forall n\geq 0\ [A(n) = 2n + 1]$.
 >6. $\forall n \geq 0\ [A(n) = 2n + 1]$ \[Principle of mathematical induction]
 
 ---
-# Question 4
+# Question 4:
 
 Let $M(n)$ be a recurrence defined in the following way.
 
@@ -162,10 +171,9 @@ You may alternatively use the substitution method to prove that this is $O(n \lo
 >8. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
 
 ---
-# Question 5
+# Question 5:
 
 Let $B(n)$ be a recurrence defined in the following way.
-
 
 $$
 B(n) = \begin{cases}
@@ -188,10 +196,9 @@ $$
 >4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$ \[Principle of mathematical induction]
 
 ---
-# Question 6 \[Graded for Participation]
+# Question 6 \[Graded for Participation]:
 
-Let $B(n)$ be a recurrence defined in the following way.
-
+Let $B(n)$ be a recurrence defined in the following way:
 
 $$
 B(n) = \begin{cases}
@@ -200,13 +207,14 @@ B(n) = \begin{cases}
 \end{cases}
 $$
 
+#### Sub-part 1
 
-## Sub-part 1
 True or false? $B(n) \in O(3^n)$
 
-(Hint: You may want to use the statement at end of question 4)
+\[Hint: You may want to use the statement at the end of question 4.]
 
 If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
+
 
 **Solution**:
 
@@ -218,10 +226,11 @@ If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is in
 >2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$ \[Existential generalisation on line 1]
 >3. $B(n) \in O(3^n)$ \[Definition of $O$]
 
-## Sub-part 2
+#### Sub-part 2
+
 True or false? $B(n) \in \Omega(3^n)$
 
-(Hint: You may want to use the statement at end of question 4)
+\[Hint: You may want to use the statement at the end of question 4.]
 
 If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
 
@@ -235,19 +244,20 @@ If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is in
 >1. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$ \[Existential generalisation on line 1]
 >2. $B(n) \in \Omega(3^n)$ \[Definition of $\Omega$]
 
-## Sub-part 3
+#### Sub-part 3
+
 True or false? $B(n) \in \Theta(3^n)$
 
 Why/why not? You do not have to give a proof.
 
-(Hint: What is the definition of $\Theta$?)
+\[Hint: What is the definition of $\Theta$?]
 
 **Solution**:
 
 **True**. Since $B(n) \in O(3^n) \land B(n) \in \Omega(3^n)$, we have that $B(n) \in O(3^n) \cap \Omega(3^n)$, which means that $B(n) \in \Theta(3^n)$.
 
 ---
-# Question 7
+# Question 7:
 
 Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}\ [f(n) \geq 0]$ and $\forall n \in \mathbb{N}\ [g(n) \geq 0]$. I.e. the functions are always non-negative.
 
@@ -260,6 +270,7 @@ $$
 **Solution**:
 
 We refer to the following definition:
+
 $$
 \max(a,b) = \begin{cases}
 a, & a \geq b\\
@@ -275,7 +286,7 @@ $$
 >5. $\max(f(n),g(n)) \in O(f(n)+g(n))$ \[Definition of $O$]
 
 ---
-# Question 8 (Challenging!)
+# Question 8 (Challenging!):
 
 Prove that:
 
