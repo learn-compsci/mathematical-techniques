@@ -37,24 +37,24 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >1. Let $x, y \in \mathbb{N}$ be arbitrarily chosen.
 >2. Suppose $(x = 0) \lor (y = 0)$.
 >3. Case 1: Assume $x = 0$.
->		1. $xy = 0 \cdot y = 0$. **\[ (a) Rule of deduction: ==Basic algebra== ]**
+>		1. $xy = 0 \cdot y = 0$. **\[ (a) Rule of deduction: Basic algebra ]**
 >4. Case 2: Assume $y = 0$.
->		1. $xy = x \cdot 0 = 0$. **\[ (b) Rule of deduction: ==Basic algebra== ]**
->5. In all cases, we have $xy = 0$.  **\[ (c) Rule of deduction: ==Proof by cases on lines 2, 3.1, 4.1== ]**
->6. $(x = 0) \lor (y = 0) \to (xy = 0)$. **\[ (d) Rule of deduction: ==Implication introduction on lines 2 and 5== ]**
->7. $\forall x, y \in \mathbb{N} \ \big[(x = 0) \lor (y = 0) \to (xy = 0) \big]$. **\[ (e) Rule of deduction: ==Universal generalisation on lines 1 and 6== ]**
+>		1. $xy = x \cdot 0 = 0$. **\[ (b) Rule of deduction: Basic algebra ]**
+>5. In all cases, we have $xy = 0$.  **\[ (c) Rule of deduction: Proof by cases on lines 2, 3.1, 4.1 ]**
+>6. $(x = 0) \lor (y = 0) \to (xy = 0)$. **\[ (d) Rule of deduction: Implication introduction on lines 2 and 5 ]**
+>7. $\forall x, y \in \mathbb{N} \ \big[(x = 0) \lor (y = 0) \to (xy = 0) \big]$. **\[ (e) Rule of deduction: Universal generalisation on lines 1 and 6 ]**
 
 #### Sub-part 2
 
 >[!note] Proof: $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$
 >1. Let $n \in \mathbb{N}$ be arbitrarily chosen.
 >2. Suppose, for the sake of contradiction, that $\neg (n + 1 \neq 0)$.
->		1. $n + 1 = 0$. **\[ (f) Rule of deduction: ==Logically equivalent to line 2== ]**
+>		1. $n + 1 = 0$. \[Logically equivalent to line 2]
 >		2. $n = -1$. \[Basic algebra]
 >		3. $\neg (n \in \mathbb{N}).$ \[Basic algebra]
->		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (g) Rule of deduction: ==Conjunction on lines 1 and 2.3== ]**
->		5. $\bot$. **\[ (h) Rule of deduction: ==Contradiction rule on line 2.4== ]**
->3. $n + 1 \neq 0$. **\[ (i) Rule of deduction: ==Proof by contradiction on line 2.5== ]**
+>		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (f) Rule of deduction: Conjunction on lines 1 and 2.3 ]**
+>		5. $\bot$. **\[ (g) Rule of deduction: Contradiction rule on line 2.4 ]**
+>3. $n + 1 \neq 0$. **\[ (h) Rule of deduction: Proof by contradiction on line 2.5 ]**
 >4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
