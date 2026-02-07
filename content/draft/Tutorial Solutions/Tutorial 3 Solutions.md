@@ -279,10 +279,10 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 
 >[!note] Proof: $R$ is reflexive
 >1. Let $x \in A$ be arbitrarily chosen.
->2. $(x \in A) \land (x \in A)$ \[Conjunction on line 1]
->3. $(x,x) \in A \times A$ \[Definition of cartesian product]
->4. $(x,x) \in R$ \[Definition of $R$]
->5. $\forall a \in A \ \big[(a,a) \in R \big]$ \[Universal generalisation on lines 1 and 4]
+>2. $(x \in A) \land (x \in A)$. \[Conjunction on line 1]
+>3. $(x,x) \in A \times A$. \[Definition of Cartesian product]
+>4. $(x,x) \in R$. \[Definition of $R$]
+>5. $\forall a \in A \ \big[(a,a) \in R \big]$. \[Universal generalisation on lines 1 and 4]
 >6. $R$ is reflexive. \[Definition of reflexivity]
 
 #### Sub-part 2
@@ -296,11 +296,11 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >[!note] Proof: $R$ is symmetric
 >1. Let $x \in A$ and $y \in A$ be arbitrarily chosen.
 >2. Suppose that $(x,y) \in R$.
->		1. $(y \in A) \land (x \in A)$ \[Conjunction on line 1]
->		2. $(y,x) \in A \times A$ \[Definition of Cartesian product, from line 2.1]
->		3. $(y,x) \in R$ \[Definition of $R$]
->3. $(x,y) \in R \to (y,x) \in R$ \[Implication introduction on lines 2 and 2.3]
->4. $\forall a \in A, b \in A \ \big[(a,b) \in R \to (b,a) \in R\big]$ \[Universal generalisation on lines 1 and 3]
+>		1. $(y \in A) \land (x \in A)$. \[Conjunction on line 1]
+>		2. $(y,x) \in A \times A$. \[Definition of Cartesian product, from line 2.1]
+>		3. $(y,x) \in R$. \[Definition of $R$]
+>3. $(x,y) \in R \to (y,x) \in R$. \[Implication introduction on lines 2 and 2.3]
+>4. $\forall a \in A, b \in A \ \big[(a,b) \in R \to (b,a) \in R\big]$. \[Universal generalisation on lines 1 and 3]
 >5. $R$ is symmetric. \[Definition of symmetry]
 
 #### Sub-part 3
@@ -319,16 +319,16 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >$\equiv \exists a \in A, \exists b \in A \ \neg \bigg[\neg \big((a, b)\in R \land (b, a) \in R \big) \lor a = b \bigg]$ \[Logically equivalent]
 >$\equiv \exists a \in A, \exists b \in A \ \bigg[(a, b)\in R \land (b, a) \in R \land a \neq b \bigg]$ \[Logically equivalent]
 >
->1. $0 \in A$
->2. $1 \in A$
->3. $(0, 1) \in A \times A$ \[Definition of Cartesian product, from line 1]
->4. $(0, 1) \in R$ \[Definition of $R$]
->5. $(1, 0) \in A \times A$ \[Definition of Cartesian product, from line 1]
->6. $(1, 0) \in R$ \[Definition of $R$]
->7. $(0, 1) \in R \land (1, 0) \in R$ \[Conjunction on lines 4 and 6]
->8. $0 \neq 1$ \[By basic algebra]
->9. $\big((0, 1) \in R \land (1, 0) \in R \big) \land (0 \neq 1)$ \[Conjunction on lines 7 and 8]
->10. Therefore, $\exists a \in A, b \in A \ \bigg[(a, b)\in R \land (b, a) \in R \land a \neq b \bigg]$. \[Existential generalisation on lines 1, 2, 9]
+>1. $\textcolor{blue}{0} \in A$.
+>2. $\textcolor{red}{1} \in A$.
+>3. $(\textcolor{blue}{0}, \textcolor{red}{1}) \in A \times A$. \[Definition of Cartesian product, from line 1]
+>4. $(\textcolor{blue}{0}, \textcolor{red}{1}) \in R$. \[Definition of $R$]
+>5. $(\textcolor{red}{1}, \textcolor{blue}{0}) \in A \times A$. \[Definition of Cartesian product, from line 1]
+>6. $(\textcolor{red}{1}, \textcolor{blue}{0}) \in R$. \[Definition of $R$]
+>7. $(\textcolor{blue}{0}, \textcolor{red}{1}) \in R \land (\textcolor{red}{1}, \textcolor{blue}{0}) \in R$. \[Conjunction on lines 4 and 6]
+>8. $\textcolor{blue}{0} \neq \textcolor{red}{1}$. \[By basic algebra]
+>9. $(\textcolor{blue}{0}, \textcolor{red}{1}) \in R \land (\textcolor{red}{1}, \textcolor{blue}{0}) \in R \land (\textcolor{blue}{0} \neq \textcolor{red}{1})$. \[Conjunction on lines 7 and 8]
+>10. Therefore, $\exists \textcolor{blue}{a} \in A, \textcolor{red}{b} \in A \ \bigg[(\textcolor{blue}{a}, \textcolor{red}{b})\in R \land (\textcolor{red}{b}, \textcolor{blue}{a}) \in R \land (\textcolor{blue}{a} \neq \textcolor{red}{b}) \bigg]$. \[Existential generalisation on lines 1, 2, 9]
 >11. Since the negation of anti-symmetry is true for $R$, therefore $R$ is not anti-symmetric. \[Definition of anti-symmetry]
 
 #### Sub-part 4
@@ -343,9 +343,9 @@ If it is true, prove it. Otherwise, prove the negation of the statement. It migh
 >1. Let $x \in A$, $y \in A$ and $z \in A$ be arbitrarily chosen.
 >2. Suppose that $(x, y) \in R \land (y, z) \in R$.
 >		1. Since $(x \in A) \land (z \in A)$, $(x, z) \in A \times A$. \[Definition of Cartesian product, from line 1]
->		2. $(x,z) \in R$ \[Definition of $R$]
->3. $\big((x, y) \in R \land (y, z) \in R \big) \to (x, z) \in R$ \[Implication introduction on lines 2 and 2.2]
->4. $\forall a \in A, b \in A, c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]$ \[Universal generalisation on lines 1 and 3]
+>		2. $(x,z) \in R$. \[Definition of $R$]
+>3. $\big((x, y) \in R \land (y, z) \in R \big) \to (x, z) \in R$. \[Implication introduction on lines 2 and 2.2]
+>4. $\forall a \in A, b \in A, c \in A \ \bigg[\big((a, b) \in R \land (b, c) \in R \big) \to (a, c) \in R \bigg]$. \[Universal generalisation on lines 1 and 3]
 >5. $R$ is transitive. \[Definition of transitivity]
 
 ---
