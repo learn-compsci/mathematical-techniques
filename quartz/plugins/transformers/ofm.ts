@@ -116,7 +116,7 @@ export const tableRegex = new RegExp(/^\|([^\n])+\|\n(\|)( ?:?-{3,}:? ?\|)+\n(\|
 // matches any wikilink, only used for escaping wikilinks inside tables
 export const tableWikilinkRegex = new RegExp(/(!?\[\[[^\]]*?\]\])/g)
 
-const highlightRegex = new RegExp(/==([^=]+)==/g)
+const highlightRegex = new RegExp(/(?<!<)==(?!>)(.+?)(?<!<)==(?!>)/gms)
 const commentRegex = new RegExp(/%%[\s\S]*?%%/g)
 // from https://github.com/escwxyz/remark-obsidian-callout/blob/main/src/index.ts
 const calloutRegex = new RegExp(/^\[\!([\w-]+)\|?(.+?)?\]([+-]?)/)
@@ -204,6 +204,11 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
           return `${embedDisplay}[[${fp}${displayAnchor}${displayAlias}]]`
         })
+      }
+
+      // pre-transform highlights
+      if (opts.highlight) {
+        src = src.replace(highlightRegex, `<span class="text-highlight">$1</span>`)
       }
 
       return src

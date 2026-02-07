@@ -37,12 +37,12 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >1. Let $x, y \in \mathbb{N}$ be arbitrarily chosen.
 >2. Suppose $(x = 0) \lor (y = 0)$.
 >3. Case 1: Assume $x = 0$.
->		1. $xy = 0 \cdot y = 0$. **\[ (a) Rule of deduction: Basic algebra ]**
+>		1. $xy = 0 \cdot y = 0$. ==**\[ (a) Rule of deduction: Basic algebra ]**==
 >4. Case 2: Assume $y = 0$.
->		1. $xy = x \cdot 0 = 0$. **\[ (b) Rule of deduction: Basic algebra ]**
->5. In all cases, we have $xy = 0$.  **\[ (c) Rule of deduction: Proof by cases on lines 2, 3.1, 4.1 ]**
->6. $(x = 0) \lor (y = 0) \to (xy = 0)$. **\[ (d) Rule of deduction: Implication introduction on lines 2 and 5 ]**
->7. $\forall x, y \in \mathbb{N} \ \big[(x = 0) \lor (y = 0) \to (xy = 0) \big]$. **\[ (e) Rule of deduction: Universal generalisation on lines 1 and 6 ]**
+>		1. $xy = x \cdot 0 = 0$. ==**\[ (b) Rule of deduction: Basic algebra ]**==
+>5. In all cases, we have $xy = 0$.  ==**\[ (c) Rule of deduction: Proof by cases on lines 2, 3.1, 4.1 ]**==
+>6. $(x = 0) \lor (y = 0) \to (xy = 0)$. ==**\[ (d) Rule of deduction: Implication introduction on lines 2 and 5 ]**==
+>7. $\forall x, y \in \mathbb{N} \ \big[(x = 0) \lor (y = 0) \to (xy = 0) \big]$. ==**\[ (e) Rule of deduction: Universal generalisation on lines 1 and 6 ]**==
 
 #### Sub-part 2
 
@@ -52,9 +52,9 @@ For the following proofs, fill in the blanks with the corresponding [[Unit 1#All
 >		1. $n + 1 = 0$. \[Logically equivalent to line 2]
 >		2. $n = -1$. \[Basic algebra]
 >		3. $\neg (n \in \mathbb{N}).$ \[Basic algebra]
->		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. **\[ (f) Rule of deduction: Conjunction on lines 1 and 2.3 ]**
->		5. $\bot$. **\[ (g) Rule of deduction: Contradiction rule on line 2.4 ]**
->3. $n + 1 \neq 0$. **\[ (h) Rule of deduction: Proof by contradiction on line 2.5 ]**
+>		4. $(n \in \mathbb{N}) \land \neg (n \in \mathbb{N})$. ==**\[ (f) Rule of deduction: Conjunction on lines 1 and 2.3 ]**==
+>		5. $\bot$. ==**\[ (g) Rule of deduction: Contradiction rule on line 2.4 ]**==
+>3. $n + 1 \neq 0$. ==**\[ (h) Rule of deduction: Proof by contradiction on line 2.5 ]**==
 >4. $\forall n \in \mathbb{N} \ [n + 1 \neq 0]$. \[Universal generalisation on lines 1 and 3]
 
 ---
@@ -110,23 +110,23 @@ $$
 
 >[!note] Proof: $\forall n \in \mathbb{Z} \ \big[even(n^2 + 3n) \big]$
 >1. Let $n \in \mathbb{Z}$ be arbitrarily chosen.
->2. $even(n) \lor odd(n)$. \[Universal instantiation of given lemma]
+>2. ==$even(n) \lor odd(n)$.== \[Universal instantiation of given lemma]
 >3. Case 1: $even(n)$.
->		1. $\exists k \in \mathbb{Z} \ [n = 2k]$. \[Definition of $even$]
->		2. Let $p \in \mathbb{Z}$ be such that $n = 2p$. \[Existential instantiation on line 3.1]
->		3. $n^2 + 3n = (2p)^2 + 3(2p) = 4p^2 + 6p = 2(2p^2 + 3p)$. \[Basic algebra]
->		4. Since $p \in \mathbb{Z}$, we know that $2p^2 + 3p \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [n^2 + 3n = 2k]$. \[Existential generalisation on line 3.4]
->		6. $even(n^2 + 3n)$. \[Definition of $even$]
+>		1. ==$\exists k \in \mathbb{Z} \ [n = 2k]$.== \[Definition of $even$]
+>		2. ==Let $p \in \mathbb{Z}$ be such that $n = 2p$.== \[Existential instantiation on line 3.1]
+>		3. ==$n^2 + 3n = (2p)^2 + 3(2p) = 4p^2 + 6p = 2(2p^2 + 3p)$.== \[Basic algebra]
+>		4. Since ==$p \in \mathbb{Z}$==, we know that ==$2p^2 + 3p \in \mathbb{Z}$==. \[Basic algebra]
+>		5. ==$\exists k \in \mathbb{Z} \ [n^2 + 3n = 2k]$.== \[Existential generalisation on line 3.4]
+>		6. ==$even(n^2 + 3n)$.== \[Definition of $even$]
 >4. Case 2: $odd(n)$.
->		1. $\exists k \in \mathbb{Z} \ [n = 2k + 1]$. \[Definition of $odd$]
->		2. Let $q \in \mathbb{Z}$ be such that $n = 2q + 1$. \[Existential instantiation on line 4.1]
->		3. $n^2 + 3n = (2q + 1)^2 + 3(2q + 1) = 4q^2 + 4q + 1 + 6q + 3 = 2(2q^2 + 5q + 2)$. \[Basic algebra]
->		4. Since $q \in \mathbb{Z}$, we know that $2q^2 + 5q + 2 \in \mathbb{Z}$. \[Basic algebra]
->		5. $\exists k \in \mathbb{Z} \ [n^2 + 3n = 2k]$. \[Existential generalisation on line 4.4]
->		6. $even(n^2 + 3n)$. \[Definition of $even$]
->5. In all cases, $even(n^2 + 3n)$. \[Proof by cases on lines 2, 3.6, 4.6]
->6. $\forall n \in \mathbb{Z} \ \big[even(n^2 + 3n) \big]$. \[Universal generalisation on lines 1 and 5]
+>		1. ==$\exists k \in \mathbb{Z} \ [n = 2k + 1]$.== \[Definition of $odd$]
+>		2. ==Let $q \in \mathbb{Z}$ be such that $n = 2q + 1$.== \[Existential instantiation on line 4.1]
+>		3. ==$n^2 + 3n = (2q + 1)^2 + 3(2q + 1) = 4q^2 + 4q + 1 + 6q + 3 = 2(2q^2 + 5q + 2)$.== \[Basic algebra]
+>		4. Since ==$q \in \mathbb{Z}$==, we know that ==$2q^2 + 5q + 2 \in \mathbb{Z}$==. \[Basic algebra]
+>		5. ==$\exists k \in \mathbb{Z} \ [n^2 + 3n = 2k]$.== \[Existential generalisation on line 4.4]
+>		6. ==$even(n^2 + 3n)$.== \[Definition of $even$]
+>5. ==In all cases, $even(n^2 + 3n)$.== \[Proof by cases on lines 2, 3.6, 4.6]
+>6. ==$\forall n \in \mathbb{Z} \ \big[even(n^2 + 3n) \big]$.== \[Universal generalisation on lines 1 and 5]
 
 ---
 # Question 4:
