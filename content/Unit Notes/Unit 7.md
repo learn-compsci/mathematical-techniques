@@ -2,24 +2,32 @@
 title: "Unit 7: Graph Theory"
 ---
 # Overview
-In this unit, we will introduce graph theory, the final novel, and perhaps unfamiliar mathematical topic. Graph theory is super useful in modelling ideas. We use graph theory in many ways in computer science, either for re-stating problems in a way that computers can understand, or to analyse and count quantities that we care about.
+
+In this unit, we will introduce **graph theory**—the final novel—and perhaps an unfamiliar mathematical topic. Graph theory is super useful in modelling ideas. We use graph theory in many ways in computer science, either for re-stating problems in a way that computers can understand, or to analyse and count quantities that we care about.
 
 The goal of this unit is to get you familiarised with basic graph terminology and basic theorems about graphs. So in this unit, there will be far less proving, and a lot more of just building mathematical vocabulary. This is mostly because graphs are quite application focused in computer science, and mostly interesting in their own right from a mathematical perspective. Thus, actually talking about anything interesting should be done from the perspective of the topics using them, like algorithms, or natural language processing, or AI.
 
-# Why Graph Theory?
+Contents:
+
+1. [[#Why Graph Theory?|Motivation for this unit]]
+2. [[#Part 1 Basic Definitions|Basic definitions in graph theory]]
+3. 
+
+---
+# Part 0: Why Graph Theory?
 
 ## Modelling Problems
 
-Have you ever wondered how Google maps knows how to route you from point A to point B?
+Have you ever wondered how Google Maps knows how to route you from point A to point B?
 
 ![[mrt-map.jpg]]
 
-How does it take a system like the MRT map, and figure out how to get you from e.g. Clementi station to Kent ridge station?
+How does it take a system like the MRT map, and figure out how to get you from, say, Clementi station, to Kent Ridge station?
 
-Or how about in video games, how do non-playing characters know how to move towards you? 
+Or how about in video games: how do non-playing characters know how to move towards you? 
 [Here's an example video showing pathfinding in action in a video game](https://www.youtube.com/watch?v=FDI_KadEbU4).
 
-How about your network packets? How does your computer know how to send their requests to the various servers it does? Sure you could say "I type in google.com and my computer figures it out for me". But someone had to design that solution, and it comes by first modelling a real-life problem, as a graph.
+How about your network packets? How does your computer know how to send their requests to the various servers that it does? Sure, you could say "I type in 'google.com' and my computer figures it out for me". But someone had to design that solution, and it comes by first modelling a real-life problem as a graph.
 
 Graph theory is a great way to model problems, models that computers can understand, and models that we can build solutions on.
 
@@ -28,19 +36,16 @@ Graph theory is a great way to model problems, models that computers can underst
 The other reason, as you will see when you come around to algorithms and data structures, is that graph theory helps us understand basic data structures too! So the combinatorial aspect of data structures is useful as well.
 
 ---
-
-# Basic Definitions
+# Part 1: Basic Definitions
 
 ## Graph
 
 A **graph** $G$ is defined a pair of sets $(V, E)$, where:
 
-- $V$ is a set of vertices or nodes.
-    
-- $E$ is a set of edges connecting pairs of vertices. Think of $E \subseteq V\times V$. 
+- $V$ is a set of vertices or nodes
+- $E$ is a set of edges connecting pairs of vertices (think of $E$ has being a subset of $V \times V$)
 
 A graph $H = (V', E')$ is a **subgraph** of $G$ if: $V' \subseteq V$ and $E' \subseteq E$.
-
 
 So for example, we might have a set $V = \{A, B, C, D\}$ of 4 vertices. These vertices might represent locations, like MRT stations, or network nodes, like routers.
 
