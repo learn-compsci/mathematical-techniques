@@ -38,16 +38,21 @@ The other reason, as you will see when you come around to algorithms and data st
 ---
 # Part 1: Basic Definitions
 
+>[!hint] Disclaimer
+>As we move away from formal logic and into the realm of graph theory, we shall be less concerned with the pedantry and precision of using formal logic in our descriptions, and focus more on the higher-level concepts and the properties of these objects.
+>
+>The implication is that occasionally, the descriptions we use may not be 100% rigorous, but hopefully they are *sufficient* to bring the point across. Nonetheless, if you have any questions regarding the content, please feel free to drop your question on the Canvas forum :)
+
 ## Graph
 
-A **graph** $G$ is defined a pair of sets $(V, E)$, where:
+>[!info] Definition: Graphs and subgraphs
+>Let $V$ be a set of **vertices**/**nodes**, and let $E$ be a set of edges connecting pairs of vertices (i.e., $E \subseteq V \times V)$.
+>
+>We define a **graph** $G = (V, E)$ to be a pair of sets and vertices.
+>
+>We also define $H = (V', E')$ to be a **subgraph** of $G$ if $V' \subseteq V$ and $E' \subseteq E$.
 
-- $V$ is a set of vertices or nodes
-- $E$ is a set of edges connecting pairs of vertices (think of $E$ has being a subset of $V \times V$)
-
-A graph $H = (V', E')$ is a **subgraph** of $G$ if: $V' \subseteq V$ and $E' \subseteq E$.
-
-So for example, we might have a set $V = \{A, B, C, D\}$ of 4 vertices. These vertices might represent locations, like MRT stations, or network nodes, like routers.
+For example, we might have a set $V = \{A, B, C, D\}$ of four vertices. These vertices might represent locations (like MRT stations) or network nodes (like routers).
 
 An edge is a pair, like $(A, B)$, which indicates a connection from $A$ to $B$. So here's an example edge set $E = \{(A, B), (D, A), (C, C), (A, D)\}$. Pictorially, it should look like this:
 
@@ -57,45 +62,40 @@ An edge is a pair, like $(A, B)$, which indicates a connection from $A$ to $B$. 
 
 In fact, it's very common to look at graphs pictorially to get a better sense of what is going on.
 
-
 ## Common Types of Graphs
 
-Graphs come in many shapes and forms, and we would like to refer to special cases of them. Let us go through some examples. But in summary, here are 4 types of graphs that we can have.
+Graphs come in many shapes and forms, and we would like to refer to special cases of them. Let us go through some examples. But in summary, here are four types of graphs that we can have:
 
-- **Undirected Graph:** Edges have no direction.
-    
-- **Directed Graph (Digraph):** Edges have a direction (represented as arrows).
-    
-- **Simple Graph:** A graph without loops or multiple edges between the same vertices.
-    
-- **Multigraph:** Allows multiple edges between two vertices.
+- **Undirected graph:** Edges have no direction
+- **Directed graph (a.k.a. digraph):** Edges have a direction (represented as arrows)
+- **Simple graph:** A graph without loops or multiple edges between the same vertices
+- **Multigraph:** Allows multiple edges between two vertices
 
+### Undirected graph
 
-### Undirected Graphs
-
-Undirected graphs are when the edge connections are 2-way. 
+Undirected graphs are when the edge connections are two-way. More formally, for any pair of vertices $u, v \in V$, if both $(u, v)$ and $(v, u)$ are in $E$, then we can call $G = (V, E)$ an undirected graph.
 
 ![[graph-undirected.svg]]
 
-So for example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (A, D), (C, C)\}$. Here, when we draw the graph, we omit the arrowheads.
+For example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (B, A), (A, D), (D, A), (C, C)\}$. Here, when we draw undirected graphs, we omit the arrowheads.
 
-### Directed Graphs
+### Directed graph
 
-Directed graphs are when the edge connections are 1-way. 
+Directed graphs are when the edge connections are one-way. 
 
 ![[graph-directed.svg]]
 
-So for example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (A, D), (D, A), (C, C)\}$. Here, when we draw the graph, we include the arrowheads. Now, take note that we can still have 2-way connections like between $A$ and $D$. But to do so, we need to have 2 edges. One from $A$ to $D$, and one from $D$ to $A$.
+For example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (A, D), (D, A), (C, C)\}$. Here, when we draw directed graphs, we include the arrowheads. Now, take note that we can still have two-way connections like between $A$ and $D$, but to do so, we need to have two edges: one from $A$ to $D$, and one from $D$ to $A$.
 
-### Simple Graphs
+### Simple graph
 
-Directed graphs are where there are no: (1) Self-loops, (2) no duplicate edges.
+Simple graphs are where there are: (i) no self-loops (i.e., a vertex pointing back to itself), and (ii) no duplicate edges.
 
 ![[simple-graph.svg]]
 
-So for example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (A, D), (D, A)\}$. Notice we cannot have the $C$ to $C$ edge, because that is a self-loop.
+For example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B), (A, D), (D, A)\}$. Notice we cannot have the $C$ to $C$ edge, because that is a self-loop.
 
-### Multi-Graphs
+### Multigraph
 
 Multigraphs are graphs that **can** have duplicate edges, **or** self-loops.
 
@@ -103,15 +103,18 @@ Multigraphs are graphs that **can** have duplicate edges, **or** self-loops.
 
 So for example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B)_1, (A, B)_2, (A, D), (D, A), (C, C)\}$. Notice here we have duplicate edges from $A$ to $B$, and we have a self-loop $C$ to $C$.
 
----
-
-## Some Terminology About Graphs
+## More Terminology in Graph Theory
 
 ### Degree
 
+>[!info] Definition: Degree of a vertex
+>The **degree** of a vertex $v$ is the number of times $v$ appears as an endpoint of some edge in $E$.
+>
+>Note that 
+
 The **degree** of a vertex $v$ is number of times $v$ appears as an endpoint of some edge. This is applicable for undirected graphs.
 
-So for example:
+For example:
 
 ![[graph-undirected.svg]]
 
@@ -124,27 +127,38 @@ In a directed graph on the other hand, there is an **in-degree** and an **out-de
 
 Node $A$ has out-degree $1$, $B$ has out-degree $0$, $C$ has out-degree $1$, and $D$ has out-degree $0$. On the other hand, every node in this example, has in-degree $1$.
 
-
-
 ### Path
 
-A **path** is a sequence of vertices where each consecutive pair of vertices is connected by an edge. And we do not repeat vertices in a path.
+>[!info] Definition: Paths
+>A **path** is a sequence of *distinct* vertices (i.e., a vertex cannot appear twice) where each consecutive pair of vertices is connected by an edge.
+
 
 ![[terminology-example-path.svg]]
+
 
 For example, a path is something like a sequence $C, D, A, B$.
 
 ### Connectivity
 
-A graph is **connected** if there is a path between every pair of vertices. So based on the previous example, we know that $C$ and $B$ are connected. We can similarly argue that $C$ is connected to $A$ or $D$, and so on.
+>[!info] Definition: Connectivity
+>We say that *two vertices* $u, v \in V$ are **connected** if there exists a path between them.
+>
+>We say that a *graph* $G = (V, E)$ is **connected** if *all* pair of vertices $u, v \in V$ are connected.
 
-### Connected Components
+Based on the previous example, we know that $C$ and $B$ are connected. We can similarly argue that $C$ is connected to $A$ or $D$, and so on.
+
+### Connected components
+
+>[!info] Definition: Connected components
+>In an undirected graph $G$, a **connected component** of $G$ is a maximal set of vertices such that *all* pairs of vertices in that set are connected.
+>
+>Here, we say that a set of vertices $V_0 \subseteq V$ is maximal if for any $u \notin V_0$, there exists two vertices in the set $V_1 = V_0 \cup \{u \}$ that are not connected.
 
 In an undirected graph, a **connected component** is a maximal set of vertices such that **all** pairs of vertices is connected by a path.
 
 ![[terminology-example-connected-component.svg]]
 
-So again, using the previous example, we know that $A, B, C, D$ is a connected component. If we used any smaller set of vertices like $A, C$, then it is not maximal: We could have added even more nodes and it would still be connected. On the other hand, something like $A, B, C, D, E$ is not a connected component because there **exists** pairs of vertices that are not connected.
+So again, using the previous example, we know that $\{A, B, C, D \}$ is a connected component. If we used any smaller set of vertices like $\{A, C \}$, then it is not maximal—we could have added even more nodes and it would still be connected. On the other hand, something like $\{A, B, C, D, E\}$ is not a connected component because there **exists** pairs of vertices that are not connected.
 
 ### Cycle
 
@@ -152,41 +166,43 @@ A **cycle** is a path where the starting vertex is also the ending vertex and no
 
 ![[terminology-example-cycle.svg]]
 
-So again, using the previous example, we know that $C, D, A, C$ is a cycle. Only the first and last vertex in our path has repeated.
+So again, using the previous example, we know that $C, D, A, C$ is a cycle; only the first and last vertex in our path has repeated.
 
----
-# Special Types of Graphs
+## Special Types of Graphs
 
-Let's shift our attention to these 3 special kinds of graphs: trees, bipartite graphs, and complete graphs.
+Let's shift our attention to these three special kinds of graphs: **trees**, **bipartite graphs** and **complete graphs**.
 
-## Trees
+### Tree
 
-A graph $G = (V, E)$ is a **tree** is a connected graph with no cycles. You can alternatively think of a tree as a graph such that:
-
-1. All nodes are connected to each other;
-2. $|E| = |V| - 1$.
+>[!info] Definition: Trees
+>A graph $G = (V, E)$ is a **tree** if it is *connected* and *has no cycles* (acyclic).
+>
+>Alternatively, a tree is a graph where:
+>- All vertices are connected to each other
+>- $\lvert E \rvert = \lvert V \rvert - 1$
 
 So here's an example:
 
-![[tree-1.svg]]
-
-If you want, count the nodes, and count the edges, you'll realise that we have $7$ nodes, and exactly $7 - 1 = 6$ edges. Furthermore, all the nodes can reach each other.
-
-Typically (but not always), we will also specify what is the **root** of the tree. In the drawn example above, $B$ is our **root** node. Now that we have established a root node, we can start talking about the other important names have for the special case of trees. When heading "away" from the root, we traverse from **parents** to **children**. For example, we can head "away" from $B$ by moving from node $A$ to node $F$. So $A$ is called the **parent** of $F$. Similarly, this means that $F$ is the **child** of $A$.
-$A$ has two children: $C$ and $F$. You might want to think about how every node only has at most $1$ parent, and never $2$ or more.
-
-Also, when we reach a node that has no children, that node is called a **leaf**. So in this tree, we have $4$ leaves: $C, F, D,$ and $F$. Any node that has children is called an **internal node**. So here, $A, B, E, F$ are internal nodes.
-
-Lastly, if **every node** in a given tree has **at most** $k$ children, we say the tree is $k$-ary. For example, a tree where each node has at most $2$ children is called a 2-ary or binary tree.
+![[tree-illustration.png]]
 
 
-## Bipartite Graph
+If you want, count the nodes and the edges—you'll realise that we have $7$ nodes, and exactly $7 - 1 = 6$ edges. Furthermore, all the nodes can reach each other.
+
+Typically (but not always), we will also specify what the **root** of the tree is. In the drawn example above, $A$ is our **root** node. Now that we have established a root node, we can start talking about the other important names have for the special case of trees.
+
+When heading "away" from the root, we say that we "traverse from **parents** to **children**". For example, we can head "away" from $B$ by moving from node $B$ to node $D$, so we call $B$ the **parent** of $D$. Similarly, this means that $D$ is the **child** of $B$. In our diagram, $B$ has two children: $C$ and $D$. You might want to think about how every node only has at most $1$ parent, and never $2$ or more.
+
+Also, when we reach a node that has no children, that node is called a **leaf**. So in this tree, we have $4$ leaves: $C$, $D$, $F$ and $G$. Any node that has children is called an **internal node**. So here, $A, B, E, G$ are internal nodes.
+
+Lastly, if **every node** in a given tree has **at most** $k$ children, we say the tree is $k$-ary. For example, a tree where each node has at most $2$ children is called a $2$-ary or binary tree. Hence, the tree in our example is a $3$-ary tree.
+
+### Bipartite graph
 
 A graph $G = (V, E)$ is bipartite if we can take its vertices and divide them into two disjoint sets and $X, Y \subseteq V$, such that every edge connects a vertex across the two sets $X$ and $Y$, and never within the sets themselves. So let's do an example:
 
 ![[graph-bip-4.svg]]
 
-The graph on the left is bipartite. Why? Put nodes $A, D$ in set $X$, and nodes $B, C, E$ in set $Y$. Then the only edges are crossing between set $X$ and $Y$. To make it obvious, we can shift the nodes around a little bit so that the nodes in $X$ are on the left, and nodes in $Y$ are on the right.
+The graph on the left is bipartite. Why? Put nodes $A$ and $D$ in set $X$, and nodes $B$, $C$ and $E$ in set $Y$. Then the only edges are crossing between set $X$ and $Y$. To make it obvious, we can shift the nodes around a little bit so that the nodes in $X$ are on the left, and nodes in $Y$ are on the right.
 
 Also if you're curious, could we have done $X = \{A, D, E\}$ and $Y  = \{B, C\}$ instead? The answer is yes!
 
@@ -194,36 +210,44 @@ What about this graph instead? Is it bipartite?
 
 ![[graph-bip-5.svg]]
 
-You might notice no matter how hard you try to form the sets $X$ and $Y$, there's always an edge that is either within set $X$ or within set $Y$. Why can't we do it? The idea is that this an **odd length cycle**. So if a graph every contains an odd length cycle, it is not bipartite. If the graph does not contain any odd length cycles (i.e. we can never make one), then it is bipartite.
+You might notice no matter how hard you try to form the sets $X$ and $Y$, there's always an edge that is either within set $X$ or within set $Y$. Why can't we do it? The idea is that this an **odd length cycle**—if a graph every contains an odd length cycle, it is not bipartite. If the graph does not contain any odd length cycles (i.e. we can never make one), then it is bipartite.
 
-## Complete Graph
+## Complete graph
 
-Lastly, let's talk about complete graphs. An **undirected** graph $G = (V, E)$ is **complete**, if every pair of nodes has an edge between them.
+Lastly, let's talk about complete graphs.
+
+>[!info] Definition: Complete graphs
+>An *undirected* graph $G = (V, E)$ is **complete** if every pair of nodes has an edge between them.
+>
+>The complete graph with $n$ nodes is sometimes denoted $K_n$.
+
 
 ![[k5.svg]]
 
-So for example, for 5 nodes, this is what the graph looks like. 
+For five nodes, this is what the complete graph $K_5$ looks like. 
+
 
 ![[k4.svg]]
 
-On the other hand, this is what the complete graph looks like for $4$ nodes.
+On the other hand, this is what the complete graph $K_4$ looks like.
 
-## Complement Graphs
-On the topic of complete graphs: we can now talk about the **complement** of a graph.
+### Complement graphs
 
-So given a graph $G = (V, E)$, the  **complement** of G is written as $\bar{G}$, and is such that $\bar{G}$ has the same set of nodes, but if $(u, v)$ was an edge in $G$, it is not an edge in $\bar{G}$. And if $(u, v)$ was **not** an edge in $G$ then $(u, v)$ is an edge in $G$.
+On the topic of complete graphs, we can now talk about the **complement** of a graph.
+
+>[!info] Definition: Complement of a graph
+>Given a graph $G = (V, E)$, the **complement** of $G$ (denoted $\bar{G}$) is the graph that contains the same set of nodes $V$, but if $(u, v)$ is an edge in $G$, then it is not an edge in $\bar{G}$. Likewise, if $(u, v)$ was *not* an edge in $G$, then it *is* an edge in $\bar{G}$.
 
 Here's an example:
 
 ![[complement.svg]]
 
-$G$ here has $4$ nodes, and notice since $(A, C)$ is an edge in $G$, $A$ and $C$ are not connected in $\bar{G}$. Similarly, since $A$ and $D$ are not connected in $G$, they are connected in $\bar{G}$. 
+$G$ here has $4$ nodes, and notice that since $(A, C)$ is an edge in $G$, $A$ and $C$ are not connected in $\bar{G}$. Similarly, since $A$ and $D$ are not connected in $G$, they are connected in $\bar{G}$. 
 
-One thing you might want to take note is that if we union the edges from $G$ and $\bar{G}$, we get back the complete graph.
+One thing you might want to take note is that if we take the union of the edge set from $G$ and the edge set from $\bar{G}$, we get back the complete graph.
 
 ---
-
-## Theorems and Proofs
+## Part 2: Theorems and Proofs in Graph Theory
 
 Okay, let's do a few theorems about graphs. I have chosen the 3 most useful ones that I know.
 
