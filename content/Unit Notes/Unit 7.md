@@ -11,7 +11,8 @@ Contents:
 
 1. [[#Why Graph Theory?|Motivation for this unit]]
 2. [[#Part 1 Basic Definitions|Basic definitions in graph theory]]
-3. 
+3. [[#Part 2 Theorems and Proofs in Graph Theory|Useful theorems in graph theory]]
+4. [[#Part 2.1(?) Pigeonhole Principle|Bonus: The pigeonhole principle]]
 
 ---
 # Part 0: Why Graph Theory?
@@ -247,17 +248,18 @@ $G$ here has $4$ nodes, and notice that since $(A, C)$ is an edge in $G$, $A$ an
 One thing you might want to take note is that if we take the union of the edge set from $G$ and the edge set from $\bar{G}$, we get back the complete graph.
 
 ---
-## Part 2: Theorems and Proofs in Graph Theory
+# Part 2: Theorems and Proofs in Graph Theory
 
-Okay, let's do a few theorems about graphs. I have chosen the 3 most useful ones that I know.
+Okay, let's do a few theorems about graphs. I have chosen the three most useful ones that I know.
 
-## The handshake lemma
+## Theorem 1: Handshake Lemma
 
-Claim: The sum of the degrees of all vertices of an undirected graph is twice the number of edges. In other words:
-
-$$
-\sum_{v \in V} deg(v) = 2\cdot |E|
-$$
+>[!info] Theorem 1: Handshake Lemma
+>The sum of the degrees of all vertices of an undirected graph is twice the number of edges. In other words:
+>
+> $$
+> \sum_{v \in V} deg(v) = 2\cdot |E|
+> $$
 
 Let's see an example of this:
 
@@ -265,85 +267,93 @@ Let's see an example of this:
 
 Notice that we have $4$ edges, and $deg(A) + deg(B) +deg(C) +deg(D) = 3 + 1 + 2 + 2 = 8 = 2\cdot 4$. Wow! But why does it work? 
 
-**Intuition:**  
-Each edge $e = (u, v)$ contributes exactly 2 to the total sum. Once for adding $1$ to the degree of node $u$, then once again adding $1$ to the degree of node $v$. So it adds to our sum $\sum_{v \in V} deg(v)$ twice. So each edge contributes a total of $2$ to the sum. Since each edge contributes $2$, this means the sum is $2 \cdot |E|$.
+>[!tldr] Intuition
+>Each edge $e = (u, v)$ contributes exactly $2$ to the total sum—once for adding $1$ to the degree of node $u$, then once again adding $1$ to the degree of node $v$. Thus, this process increments our sum $\sum_{v \in V} deg(v)$ twice, so each edge contributes a total of $2$ to the sum.
+>
+>Since each edge contributes $2$, this means the sum is $2 \cdot |E|$.
 
-### Number of Edges in a Complete Graph
+### Theorem 2: Number of Edges in a Complete Graph
 
-The number of edges in a complete graph $G$ with $n$ vertices is:
+>[!info] Theorem 2: Number of edges in $K_n$
+>The number of edges in a complete graph $G$ with $n$ vertices is:
+>
+> $$
+> \binom{|V|}{2} = \frac{|V|(|V| - 1)}{2}
+> $$
 
-$$
-\binom{|V|}{2} = \frac{|V|(|V| - 1)}{2}
-$$
-
-So again you might have noticed, for example, a graph with $4$ nodes has $4(3)/2 = 6$ edges.
+So again you might have noticed, for example, a graph with $4$ nodes has $4 \times 3 \div 2 = 6$ edges.
 
 ![[k4.svg]]
 
 There are two ways to prove this fact for a general graph:
 
-**Proof (via Combinatorics):**  
-Think about it, every pair of vertices that we can form from the set $V$, makes an edge. So this means that the number of edges is the same as the number of possible pairings. This happens to be:
-$$
-\binom{|V|}{2}
-$$
+>[!tldr] Intuition 1 (Using combinatorics)
+>If you think about it, every pair of vertices that we can form from the set $V$ makes an edge. This means that the number of edges is the same as the number of possible pairings. This happens to be:
+> 
+> $$
+> \binom{|V|}{2}
+> $$
 
 Short and sweet!
 
-**Proof (via Handshake Lemma):**  
-There is another way that actually uses what we've learned here today. Think about it this way, in a complete graph with $|V|$ vertices, every node $x \in V$ has **exactly** $|V| - 1$ other nodes that it is connected to. Because of that, every node $x \in V$ has degree **exactly** $|V| - 1$. So, via the handshake lemma:
+>[!tldr] Intuition 2 (Using the handshake lemma) 
+>There is another way that actually uses what we've learned here today. Think about it this way, in a complete graph with $|V|$ vertices, every node $x \in V$ has **exactly** $|V| - 1$ other nodes that it is connected to. Because of that, every node $x \in V$ has degree **exactly** $|V| - 1$. So, via the handshake lemma:
+> 
+> $$
+> 2|E| = \sum_{v \in V} deg(v) = \sum_{v \in V} (|V| - 1) = |V| \times (|V| - 1)
+> $$
+> 
+>Dividing both sides by $2$, we get:
+> 
+> $$
+> |E| = \frac{|V|(|V| - 1)}{2}
+> $$
 
-$$
-2|E| = \sum_{v \in V} deg(v) = \sum_{v \in V} (|V| - 1) = |V| \times (|V| - 1)
-$$
+## Theorem 3: Number of Nodes in a $k$-ary Tree
 
-Which means:
+Lastly, this fact is super useful (combinatorially) in computer science:
 
-$$
-|E| = \frac{|V|(|V| - 1)}{2}
-$$
+>[!info] Theorem 3: Number of nodes in a $k$-ary tree
+>Given a graph $G = (V, E)$ that is a $k$-ary rooted tree of height $h$, then:
+>- The minimum number of nodes in the tree is $h + 1$.
+>- The maximum number of nodes in the tree is $\frac{(k^{h+1} - 1)}{k - 1}$.
 
-
-## Number of Nodes in a $k$-ary tree
-
-Lastly, this fact is super userful, combinatorially in CS: The number of nodes in a $k$-ary tree of height $h$.
-
-Given a graph $G = (V, E)$ that is a $k$-ary rooted tree of height $h$, then:
-
-1. The minimum number of nodes in the tree is $h + 1$
-2. The maximum number of nodes in the tree is $\frac{(k^{h+1} - 1)}{k - 1}$
 
 ![[k-ary.svg]]
 
-So here's an example if a $3$-ary (or ternary) tree, of height $h = 2$. At minimum we can have $3$ nodes. And at maximum we can have $1 + 3 + 9 = 13$ nodes. But what about in general? Here's the idea:
+Here's an example with a $3$-ary (or ternary) tree of height $h = 2$. At the minimum, we can have $3$ nodes. And at the maximum, we can have $1 + 3 + 9 = 13$ nodes. But what about in general? Here's the idea:
 
-We need $h + 1$ nodes at least to go from a root to a leaf node that is $h$ hops away. So the minimum is $h + 1$.
-
-To hit the maximum, every internal node will have all $k$ children, and every leaf node again, must have $0$ children. So the total nodes we have are:
-
-$$
-1 + 3 + 3^2 + \cdots + 3^h = \sum_{i = 0}^h 3^i = \frac{3^{h + 1} - 1}{3 - 1}
-$$
-
-But what about in general for a $k$-ary tree? Well just swap out the $3$ for a $k$.
-
-$$
-1 + k + k^2 + \cdots + k^h = \sum_{i = 0}^h k^i = \frac{k^{h + 1} - 1}{k - 1}
-$$
+>[!tldr] Intuition
+>We need $h + 1$ nodes at least to go from a root to a leaf node that is $h$ hops away. So the minimum is $h + 1$.
+>
+>To hit the maximum, every internal node will have all $k$ children, and every leaf node again, must have $0$ children. So the total nodes we have are:
+> 
+> $$
+> 1 + 3 + 3^2 + \cdots + 3^h = \sum_{i = 0}^h 3^i = \frac{3^{h + 1} - 1}{3 - 1}
+> $$
+> 
+>(This comes from the formula for the sum of the *geometric progression* with a common ratio of $r = 3$ and initial value $a = 1$.)
+>
+>But what about in general for a $k$-ary tree? Well just swap out the $3$ for a $k$:
+>
+> $$
+> 1 + k + k^2 + \cdots + k^h = \sum_{i = 0}^h k^i = \frac{k^{h + 1} - 1}{k - 1}
+> $$
 
 ---
+# Part 2.1(?): Pigeonhole Principle
 
-# Pigeonhole Principle
+Lastly, let's talk about the pigeonhole principle. This is a little bit of an oddball topic but it's very common to also cover it during combinatorics and graphs. It would be remiss if we did not at least mention it. The pigeonhole principle feels like it's stating the obvious, but it can be used to great effect.
 
-Lastly, let's talk about the pigeonhole principle. This is a little bit of an oddball topic but it's very common to also cover it during combinatorics and graphs. It would be remiss if we did not at least mention it. Pigeonhole principle feels like stating the obvious, but it can be used to great effect.
+Simply put:
 
-
-Simply put: If we have $n$ pigeons, and $m$ pigeonholes, and each pigeon wants to nest in a pigeonhole, then there exists at least one pigeonhole that has at least $\lceil \frac{n}{m} \rceil$ pigeons that are nesting in it.
+>[!info] Pigeonhole principle
+>If we have $n$ pigeons, and $m$ pigeonholes, and each pigeon wants to nest in a pigeonhole, then there exists at least one pigeonhole that has at least $\lceil \frac{n}{m} \rceil$ pigeons that are nesting in it.
 
 This sounds a little obvious, for example with $4$ pigeons and $3$ holes, there is definitely a hole with at least $2$ pigeons. But here's an example statement we could possible argue with it.
 
-> There are at least 2 people with the same number of strands of hair on their head in Singapore.
+> There are at least $2$ people with the same number of strands of hair on their head in Singapore.
 
-Why is this true? Think about it this way, there are around 6 million people in Singapore. And the average human has around 100,000 strands of hair on their head. So it's reasonable to say it's possibly impossible for a human to have a million strands of hair. 
+Why is this true? Think about it this way: there are around $6$ million people in Singapore, and the average human has around $100,000$ strands of hair on their head. Let's assume (reasonably) that it's probably impossible for a human to have a million strands of hair. 
 
-So we make 1 million possible pigeonholes, and each person is a pigeon, we assign a person to the $x^{th}$ pigeonhole if they had $x$ strands of hair on their head. Since there are $6$ million people but only $1$ million pigeonholes, there must be at least $6$ people who have the same number of strands of hair on their head.
+So we make $1$ million possible pigeonholes (for each possible hair count), and we let each person be a pigeon. Then, we assign a person to the $x^{\text{th}}$ pigeonhole if they have $x$ strands of hair on their head. Since there are $6$ million people but only $1$ million pigeonholes, there must be at least $6$ people who have the same number of strands of hair on their head!
