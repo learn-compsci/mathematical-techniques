@@ -316,7 +316,7 @@ Lastly, this fact is super useful (combinatorially) in computer science:
 >[!info] Theorem 3: Number of nodes in a $k$-ary tree
 >Given a graph $G = (V, E)$ that is a $k$-ary rooted tree of height $h$, then:
 >- The minimum number of nodes in the tree is $h + 1$.
->- The maximum number of nodes in the tree is $\frac{(k^{h+1} - 1)}{k - 1}$.
+>- The maximum number of nodes in the tree is $\frac{k^{h+1} - 1}{k - 1}$.
 
 
 ![[k-ary.svg]]
