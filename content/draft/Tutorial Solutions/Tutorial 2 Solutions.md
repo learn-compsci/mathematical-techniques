@@ -69,6 +69,8 @@ For each of the following proofs, identify where there were incorrect/missing st
 >2. Since $x + 1 > x$, $y > x$. \[Basic algebra]
 >3. $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} \ [y > x]$. \[Existential generalisation on line 2]
 
+Missing a line introducing $x$ as a variable and not explaining which domain it draws from. Missing a universal instantiation rule. In general, the last line itself is actually packing multiple things into a single line. But it's not following what the existential generalisation rule is doing.
+
 #### Sub-part 2
 
 For any integer $x$, we define the predicate $even(x)$ to be the following:
@@ -84,6 +86,8 @@ $$
 >4. Then $x^2 = 2m$, where $m = k^2$. \[Basic algebra]
 >5. Therefore $even(x^2)$. \[Definition of $even$]
 
+On line 1, we didn't specify which domain $x$ is drawn from. We're skipping the step of first unpacking the definition. Line 4 has done the algebra wrong, $m$ should be $2k^2$. At the end of the proof, we need to finish the proof with 2 more lines by re-introducing the implication, and then applying universal generalisation.
+
 #### Sub-part 3
 
 >[!note] Proof: $\forall n \in \mathbb{Z} \ [2n \neq 1]$
@@ -91,6 +95,8 @@ $$
 >2. Let $n \in \mathbb{Z}$ be such that $2n = 1$. \[Universal instantiation on line 1]
 >3. But multiplying any number by $2$ gives an even number and $1$ is not even, so this is impossible. \[Contradiction]
 >4. $\forall n \in \mathbb{Z} \ [2n \neq 1]$. \[Proof by contradiction on line 3]
+
+The biggest issue to focus on here is that line 3 is in English and we're not really applying the contradiction rule to obtain a contradiction here. It's not really following the proof system on how to actually obtain a contradiction. 
 
 ---
 # Question 3:
@@ -175,18 +181,20 @@ You may use the following theorems:
 >1. Let $m \in \mathbb{Z}$ and $n \in \mathbb{Z}$ be arbitrarily chosen.
 >2. Assume that $\neg \big(even(m) \lor even(n)\big)$.
 >		1. $\neg even(m) \land \neg even(n)$. \[Logically equivalent to line 2]
->		2. $odd(m) \land odd(n)$. \[Logically equivalent to line 2.1, by universal instantiation of Theorem 1]
->		3. $odd(m)$. \[Specialisation on line 2.2]
->		4. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$. \[Definition of $odd$]
->		5. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on line 2.4]
->		6. $odd(n)$. \[Specialisation on line 2.2]
->		7. $\exists k \in \mathbb{Z} \ [n = 2 \cdot k + 1]$. \[Definition of $odd$]
->		8. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 2.7]
->		9. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$. \[Basic algebra, from lines 2.5 and 2.8]
->		10. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra, from line 2.9]
->		11. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$. \[Existential generalisation on lines 2.9 and 2.10]
->		12. $odd(mn)$. \[Definition of $odd$]
->		13. $\neg even(mn)$. \[Universal instantiation of Theorem 2]
+>		2.  $\neg even(m)$ \[Specialisation on line 2.1]
+>		3. $\neg even(n)$ \[Specialisation on line 2.1]
+>		4. $\forall x \in \mathbb{Z} \ [\neg even(x) \equiv odd(x)]$ \[Using Lemma 1]
+>		5. $odd(m)$ \[Universal instantiation on line 1, 2.2]
+>		6. $odd(n)$ \[Universal instantiation on line 1, 2.3]
+>		7. $\exists k \in \mathbb{Z} \ [m = 2 \cdot k + 1]$. \[Definition of $odd$]
+>		8. Let $s \in \mathbb{Z}$ be such that $m = 2 \cdot s + 1$. \[Existential instantiation on lines 1, 2.7]
+>		9. Let $t \in \mathbb{Z}$ be such that $n = 2 \cdot t + 1$. \[Existential instantiation on line 1, 2.7]
+>		10. $mn = (2s+1)(2t+1) = 4st+2s+2t+1 = 2 \cdot (2st+s+t) + 1$. \[Basic algebra, from lines 2.8 and 2.9]
+>		11. Since $s, t \in \mathbb{Z}$, $2st+s+t \in \mathbb{Z}$. \[Basic algebra, from line 2.10]
+>		12. $\exists k \in \mathbb{Z} \ [mn = 2 \cdot k + 1]$. \[Existential generalisation on lines 2.10 and 2.11]
+>		13. $odd(mn)$. \[Definition of $odd$ on line 2.12]
+>		14. Since $m \in \mathbb{Z} \land n \in \mathbb{Z}$, $mn \in \mathbb{Z}$ \[Basic algebra]
+>		15. $\neg even(mn)$. \[Universal instantiation on line 2.14, 2.4]
 >3. $\neg \big(even(m) \lor even(n)\big) \to \neg even(mn)$. \[Implication introduction on lines 2 and 2.13]
 >4. $even(mn) \to \big(even(m) \lor even(n)\big)$. \[Logically equivalent to line 3]
 >5. $\forall m \in \mathbb{Z}, \forall n \in \mathbb{Z} \ \big[even(mn) \to \big(even(m) \lor even(n)\big)\big]$, \[Universal generalisation on lines 1 and 4]
@@ -202,22 +210,25 @@ Prove the following statement:
 >[!Solution]
 >**Proof:**
 >1. Let $x \in \mathbb{Z}$ be arbitrarily chosen.
->2. Assume for the sake of contradiction that $even(x) \land odd(x)$.
->		1. $even(x)$. \[Specialisation on line 2]
->		2. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
->		3. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.2]
->		4. $odd(x)$. \[Specialisation on line 2]
->		5. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
->		6. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.5]
->		7. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.3 and 2.6]
->		8. $2(s - t) = 1$. \[Basic algebra]
->		9. $s - t = \frac{1}{2}$. \[Basic algebra]
->		10. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.9]
->		11. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.3 and 2.6]
->		12. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.10 and 2.11]
->		13. $\bot$. \[Contradiction rule on line 2.12]
->3. $\neg \big(even(x) \land odd(x)\big)$. \[Proof by contradiction rule on line 2.13]
+>2. Assume for the sake of contradiction that $\neg (\neg(even(x) \land odd(x)))$.
+>		1. $(even(x) \land odd(x)$. \[Double negation on line 2]
+>		2. $even(x)$. \[Specialisation on line 2.1]
+>		3. $\exists k \in \mathbb{Z} \ [2k = x]$. \[Unpacking definition of $even$]
+>		4. Let $s \in \mathbb{Z}$ be such that $2s = x$. \[Existential instantiation on line 2.3]
+>		5. $odd(x)$. \[Specialisation on line 2.1]
+>		6. $\exists j \in \mathbb{Z} \ [2j + 1 = x]$. \[Unpacking definition of $odd$]
+>		7. Let $t \in \mathbb{Z}$ be such that $2t + 1 = x$. \[Existential instantiation on line 2.6]
+>		8. Then, we have $2s = 2t + 1$. \[Basic algebra, from lines 2.4 and 2.7]
+>		9. $2(s - t) = 1$. \[Basic algebra]
+>		10. $s - t = \frac{1}{2}$. \[Basic algebra]
+>		11. $\neg (s - t \in \mathbb{Z})$. \[Basic algebra, from line 2.10]
+>		12. Since $s \in \mathbb{Z}$ and $t \in \mathbb{Z}$, we have $s - t \in \mathbb{Z}$. \[By basic algebra, from lines 2.4 and 2.7]
+>		13. $(s - t \in \mathbb{Z}) \land \neg (s - t \in \mathbb{Z})$. \[Conjunction on lines 2.11 and 2.12]
+>		14. $\bot$. \[Contradiction rule on line 2.13]
+>3. $\neg \big(even(x) \land odd(x)\big)$. \[Proof by contradiction rule on line 2.14]
 >4. $\forall x \in \mathbb{Z} \ \big[\neg \big(even(x) \land odd(x) \big)\big]$. \[Universal generalisation on lines 1 and 3]
+
+**Note**: There's actually quite a few ways to do this question. But generally, the "most natural" way will probably have you deriving a contradiction somehow.
 
 ---
 # Question 7 \[Bonus]:
