@@ -51,7 +51,7 @@ For each of the following, write a propositional formula that accurately represe
 >
 >Combining them using connectives, we have:
 >- "*The program compiles* **but** *the input is not valid*": $p \land \neg q$
->- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": $(p \land \neg q) \to \neg r$
+>- "**If** *the program compiles* **but** *the input is not valid*, **then** *the output is not correct*.": ==$(p \land \neg q) \to \neg r$==
 
 2. "\[(The program compiles and the input is valid) or the function is efficient], and the algorithm does not terminate."
 
@@ -67,7 +67,7 @@ For each of the following, write a propositional formula that accurately represe
 >Combining these using connectives, we have:
 >- "*The program compiles* **and** *the input is valid*": $p \land q$
 >- "(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*": $(p \land q) \lor s$
->- "\[(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*], **and** *the algorithm does not terminate*.": $\big( (p \land q) \lor s \big) \land \neg t$
+>- "\[(*The program compiles* **and** *the input is valid*) **or** *the function is efficient*], **and** *the algorithm does not terminate*.": ==$\big( (p \land q) \lor s \big) \land \neg t$==
 >
 >>[!tip] Order of operations
 >>Just like in normal arithmetic, the application of logical connectives follows an order. Namely, connectives are applied in the following order: parentheses, $\neg$, $\land$, $\lor$, $\to$.
@@ -77,7 +77,7 @@ For each of the following, write a propositional formula that accurately represe
 3. "If the program compiles, then \[either (the input is valid and the output is correct), or the algorithm does not terminate]."
 
 >[!Solution]
->$p \to \big( (q \land r) \lor \neg t \big)$
+>==$p \to \big( (q \land r) \lor \neg t \big)$==
 
 ---
 # Question 2 \[Graded Participation]:
