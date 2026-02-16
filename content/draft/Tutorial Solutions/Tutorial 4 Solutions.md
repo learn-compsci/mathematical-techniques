@@ -232,9 +232,9 @@ $$
 
 >[!note] Proof
 >1. (Base case) Let $n=0$. Then, $B(0) = 1 = 3^0$.
->2. (Inductive step) Assume that for $n=j$, where $j \in \mathbb{N}$, $B(j) = 3^j$.
->3. $B(j+1) = 3^{j+1} = 3 \times 3^j = 3 \times B(j)$ \[By assumption on line 2]
->4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$ \[Principle of mathematical induction]
+>2. (Inductive step) Assume that for some $n = j$, where $j \in \mathbb{N}$, $\textcolor{green}{B(j) = 3^j}$.
+>3. $\textcolor{blue}{B(j+1)} = 3 \times \textcolor{green}{B(n)} = 3 \times \textcolor{green}{3^j} = \textcolor{red}{3^{j+1}}$. \[By assumption on line 2]
+>4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$. \[Principle of mathematical induction]
 
 ---
 # Question 6 \[Graded for Participation]:
