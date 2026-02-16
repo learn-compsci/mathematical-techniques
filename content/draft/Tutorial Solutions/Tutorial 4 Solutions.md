@@ -197,18 +197,18 @@ You may alternatively use the substitution method to prove that this is $O(n \lo
 > $$
 > \begin{align*}
 > \\& \textcolor{blue}{M(k)}
-> \\& = 2 \times M\bigg(\textcolor{magenta}{\bigg\lfloor \frac{k}{2} \bigg\rfloor} \bigg) + k
-> \\& \leq 2 \big(\textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor} + \log_2 \textcolor{magenta}{\big\lfloor \frac{k}{2} \big\rfloor} \big) + k
-> \\& = 2 \lfloor \frac{k}{2} \rfloor \log_2 \big\lfloor \frac{k}{2} \big\rfloor + k \\& \leq 2(\frac{k}{2})\log_2(\frac{k}{2}) + k
-> \\& = k\log_2(\frac{k}{2}) + k
-> \\& = k\log_2(\frac{k}{2}) + k
+> \\& = 2 \times \textcolor{green}{M\bigg(\textcolor{magenta}{\bigg\lfloor \frac{k}{2} \bigg\rfloor} \bigg)} + k
+> \\& \leq 2 \textcolor{green}{\bigg(\textcolor{magenta}{\bigg\lfloor \frac{k}{2} \bigg\rfloor} \log_2 \textcolor{magenta}{\bigg\lfloor \frac{k}{2} \bigg\rfloor} \bigg)} + k
+> \\& = 2 \bigg\lfloor \frac{k}{2} \bigg\rfloor \log_2 \bigg\lfloor \frac{k}{2} \bigg\rfloor + k
+> \\& \leq 2 \bigg(\frac{k}{2} \bigg)\log_2 \bigg(\frac{k}{2} \bigg) + k
+> \\& = k\log_2 \bigg(\frac{k}{2} \bigg) + k
 > \\& = k \log_2 k - k \log_2 2 + k
 > \\& = k \log_2 k - k + k
-> \\& = k \log_2 k
+> \\& = \textcolor{red}{k \log_2 k}
 > \end{align*}	
 > $$
 >5. $M(k) \leq k \log_2 k$. \[From lines 4 and 6]<br></br>
->6. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$ \[Principle of mathematical induction]
+>6. $\forall n \geq 3\ [M(n) \leq n \log_2(n)]$. \[Principle of mathematical induction]
 
 
 ---
