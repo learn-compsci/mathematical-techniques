@@ -110,23 +110,21 @@ So for example, with $V = \{A, B, C, D\}$, we can have edges $E = \{(A, B)_1, (A
 
 >[!info] Definition: Degree of a vertex
 >The **degree** of a vertex $v$ is the number of times $v$ appears as an endpoint of some edge in $E$.
->
->Note that 
-
-The **degree** of a vertex $v$ is number of times $v$ appears as an endpoint of some edge. This is applicable for undirected graphs.
 
 For example:
 
 ![[graph-undirected.svg]]
 
-Node $A$ has degree $2$, $B$ has degree $1$, $C$ has degree $2$, and $D$ has degree $1$. It might be a little unintuitive why node $C$ has degree $2$. But that is because $C$ appears as an endpoint twice! Even if it's on the same edge.
+For undirected graphs, we *do not double-count each edge*. Hence, in the example above, we say that $A$ has a degree of $2$ (not $4$, even though the edge connecting $A$ and $B$ is technically represented as two pairs, $(A, B)$ and $(B, A)$).
+
+Also, $B$ has degree $1$, $C$ has degree $2$, and $D$ has degree $1$. It might be a little unintuitive why node $C$ has degree $2$. But that is because $C$ appears as an endpoint twice! Even if it's on the same edge.
 
 In a directed graph on the other hand, there is an **in-degree** and an **out-degree**.
 
 ![[graph-directed.svg]]
 
 
-Node $A$ has out-degree $1$, $B$ has out-degree $0$, $C$ has out-degree $1$, and $D$ has out-degree $0$. On the other hand, every node in this example, has in-degree $1$.
+Node $A$ has out-degree $2$, $B$ has out-degree $0$, $C$ has out-degree $1$, and $D$ has out-degree $1$. On the other hand, every node in this example, has in-degree $1$.
 
 ### Path
 
