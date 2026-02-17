@@ -105,7 +105,8 @@ In this question let's explore some more properties about quantified statements.
 >[!Example]
 > **Question:** Assuming $\forall x \in A [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A [ P(x) ]$?
 > **Answer:** False
-> >[!Counterexample]
+> >[!Proof]
+> > 
 > > Consider $A = \{1, 2\}$. And $P(x) \equiv x = 1$ and $Q(x) \equiv x = 2$.
 > > Then $\forall x \in A [ P(x) \lor Q(x)]$ is true but  $\forall x \in A [ P(x) ]$ is false.
 
