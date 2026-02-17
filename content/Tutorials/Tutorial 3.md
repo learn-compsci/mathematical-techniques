@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 2: Set Theory and Relations"
+title: "Tutorial 3: Set Theory and Relations"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
