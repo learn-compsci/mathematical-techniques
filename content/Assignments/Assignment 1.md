@@ -113,7 +113,7 @@ In this question let's explore some more properties about quantified statements.
 
 ### Sub-part 1: 
 
-Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(x)]$?
+Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(z)]$?
 
 ### Sub-part 2: 
 
