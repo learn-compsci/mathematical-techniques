@@ -33,7 +33,7 @@ Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 | $true$  | $true$  |                           | $true$     |
 | $true$  | $false$ |                           | $true$     |
 | $false$ | $true$  |                           | $true$     |
-| $false$ | $false$ |                           | $true$     |
+| $false$ | $false$ |                           | $false$    |
 
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
