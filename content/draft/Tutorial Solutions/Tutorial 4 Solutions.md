@@ -339,22 +339,22 @@ $$
 
 >[!note] Proof
 >1. Assume for the sake of contradiction that $2^{2n} \in O(2^n)$.
->2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ [2^{2n} \leq c \cdot 2^n]$ \[Unpacking definition of O]
->3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m\ [2^{2n} \leq k \cdot 2^n]$ \[Existential instantiation on line 2]
->4. $\forall n \geq m\ \big[\frac{2^{2n}}{2^n} \leq k\big]$ \[Basic algebra]
->5. $\forall n \geq m\ [2^n \leq k]$ \[Basic algebra]
+>2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ [2^{2n} \leq c \cdot 2^n]$. \[Unpacking definition of O]
+>3. Let $m \in \mathbb{N}, k \in \mathbb{R^+}$ such that $\forall n \geq m\ [2^{2n} \leq k \cdot 2^n]$. \[Existential instantiation on line 2]
+>4. $\forall n \geq m\ \big[\frac{2^{2n}}{2^n} \leq k\big]$. \[Basic algebra]
+>5. $\forall n \geq m\ [2^n \leq k]$. \[Basic algebra]
 >6. As $n$ approaches infinity, $2^n > k$. \[Basic algebra; see below for a more rigorous proof]
->7. $\therefore \exists n \geq m\ [2^n > k]$ \[Existential generalization on line 6]
->8. $\neg (\forall n \geq m\ [2^n \leq k])$  \[Logically equivalent to line 7]
->9. $\neg (\forall n \geq m\ [2^n \leq k]) \land (\forall n \geq m\ [2^n \leq k])$ \[Conjunction on lines 5 and 8]
->10. $\therefore \bot$ \[Contradiction rule on line 9]
->11. $\therefore 2^{2n} \notin O(2^n)$ \[Proof by contradiction on line 10]
+>7. $\exists n \geq m\ [2^n > k]$. \[Existential generalization on line 6]
+>8. $\neg (\forall n \geq m\ [2^n \leq k])$.  \[Logically equivalent to line 7]
+>9. $\neg (\forall n \geq m\ [2^n \leq k]) \land (\forall n \geq m\ [2^n \leq k])$. \[Conjunction on lines 5 and 8]
+>10. $\bot$. \[Contradiction rule on line 9]
+>11. $2^{2n} \notin O(2^n)$. \[Proof by contradiction on line 10]
 
 To prove the idea that one can always find a value of $n$ such that $2^n > k$, we can do the following:
 
-**Sub-Proof**:
-1. Consider $n = \max(1 + \log_2 k, m)$.
-2. Then, $n > \log_2 k$. \[Basic algebra]
-3. $2^n > 2^{\log_2 k} = k$. \[Basic algebra]
-4. Also, $n \geq m$. \[Basic algebra, from line 2]
-5. $\exists n \geq m\ [2^n > k]$. \[Existential generalisation on line 3, 4]
+>[!note] Sub-proof
+>1. Consider $n = \max(1 + \log_2 k, m)$.
+>2. Then, $n > \log_2 k$. \[Basic algebra]
+>3. $2^n > 2^{\log_2 k} = k$. \[Basic algebra]
+>4. Also, $n \geq m$. \[Basic algebra, from line 2]
+>5. $\exists n \geq m\ [2^n > k]$. \[Existential generalisation on lines 3 and 4]
