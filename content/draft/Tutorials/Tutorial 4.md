@@ -165,7 +165,7 @@ Why/why not? You do not have to give a proof.
 ---
 # Question 7:
 
-Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}[f(n) \geq 0]$ and $\forall n \in \mathbb{N}[g(n) \geq 0]$. I.e. the functions are always non-negative.
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N} \ [f(n) \geq 0]$ and $\forall n \in \mathbb{N} \ [g(n) \geq 0]$ (i.e., the functions are always non-negative).
 
 Prove that:
 

@@ -300,7 +300,7 @@ Why/why not? You do not have to give a proof.
 ---
 # Question 7:
 
-Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}\ [f(n) \geq 0]$ and $\forall n \in \mathbb{N}\ [g(n) \geq 0]$. I.e. the functions are always non-negative.
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N} \ [f(n) \geq 0]$ and $\forall n \in \mathbb{N} \ [g(n) \geq 0]$ (i.e., the functions are always non-negative).
 
 Prove that:
 
@@ -322,9 +322,9 @@ $$
 >[!note] Proof
 >1. Let $f(n)$ and $g(n)$ be arbitrarily chosen functions.
 >2. Observe that $\max(f(n),g(n)) \leq f(n) + g(n)$ since both functions are always non-negative. \[Basic algebra]
->3. Then, $\max(f(n),g(n)) \leq f(n)+g(n) = 1 \cdot (f(n)+g(n))$, for all $n \in \mathbb{N}$, i.e. for all $n \geq 0$. \[Basic algebra]
->4. Letting $n_0=0 \in \mathbb{N}$, $c=1 \in \mathbb{R^+}$, we see that $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ \big[\max\big(f(n),g(n)\big) \leq c \cdot (f(n)+g(n))\big]$. \[Existential generalisation on line 3]
->5. $\max(f(n),g(n)) \in O(f(n)+g(n))$ \[Definition of $O$]
+>3. Then, $\max(f(n),g(n)) \leq f(n)+g(n) = 1 \cdot (f(n)+g(n))$, for all $n \geq 0$. \[Basic algebra]
+>4. Letting $n_0=0 \in \mathbb{N}$, $c=1 \in \mathbb{R^+}$, we see that $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0 \ \left[\max\left(f(n),g(n)\right) \leq c \cdot (f(n)+g(n))\right]$. \[Existential generalisation on line 3]
+>5. $\max(f(n),g(n)) \in O(f(n)+g(n))$. \[Definition of $O$]
 
 ---
 # Question 8 (Challenging!):
