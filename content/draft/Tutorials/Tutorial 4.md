@@ -96,12 +96,12 @@ $$
 Prove via strong induction that:
 
 $$
-\forall n \geq 3 [M(n) \leq n\log_2(n)]
+\forall n \geq 3 [M(n) \leq n\log_2 n]
 $$
 
 You may find the following facts useful:
 1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
-2. $a \leq b \to \log_2(a) \leq \log_2(b)$
+2. $a \leq b \to \log_2 a \leq \log_2 b$
 
 You may alternatively use the substitution method to prove that this is $O(n \log n)$.
 
@@ -144,7 +144,7 @@ True or false? $B(n) \in O(3^n)$
 
 (Hint: You may want to use the statement at end of question 4)
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$.
 
 #### Sub-part 2
 
@@ -152,7 +152,7 @@ True or false? $B(n) \in \Omega(3^n)$
 
 (Hint: You may want to use the statement at end of question 4)
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$.
 
 #### Sub-part 3
 

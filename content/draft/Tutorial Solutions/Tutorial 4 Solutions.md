@@ -236,6 +236,7 @@ $$
 >3. $\textcolor{blue}{B(j+1)} = 3 \times \textcolor{green}{B(n)} = 3 \times \textcolor{green}{3^j} = \textcolor{red}{3^{j+1}}$. \[By assumption on line 2]
 >4. $\forall n \in \mathbb{N}\ [B(n) = 3^n]$. \[Principle of mathematical induction]
 
+
 ---
 # Question 6 \[Graded for Participation]:
 
@@ -254,18 +255,17 @@ True or false? $B(n) \in O(3^n)$
 
 \[Hint: You may want to use the statement at the end of question 4.]
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
-
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$.
 
 **Solution**:
 
 **True.** From Q5, we have that $B(n) = 3^n$.
 
 >[!note] Proof
->1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
->	- Then, $B(n) = 3^n \leq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
->2. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$ \[Existential generalisation on line 1]
->3. $B(n) \in O(3^n)$ \[Definition of $O$]
+>1. Let $n_0 = 1 \in \mathbb{N}$ and $c = 1 \in \mathbb{R^+}$.
+>2. Then, $B(n) = 3^n \leq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>3. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \leq c \cdot 3^n]$. \[Existential generalisation on line 1]
+>4. $B(n) \in O(3^n)$. \[Definition of $O$]
 
 #### Sub-part 2
 
@@ -273,17 +273,17 @@ True or false? $B(n) \in \Omega(3^n)$
 
 \[Hint: You may want to use the statement at the end of question 4.]
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$.
 
 **Solution**:
 
 **True**. 
 
 >[!note] Proof
->1. Let $n_0=1\in \mathbb{N}$ and $c=1\in\mathbb{R^+}$.
->	- Then, $B(n) = 3^n \geq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
->1. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$ \[Existential generalisation on line 1]
->2. $B(n) \in \Omega(3^n)$ \[Definition of $\Omega$]
+>1. Let $n_0 = 1 \in \mathbb{N}$ and $c = 1 \in \mathbb{R^+}$.
+>2. Then, $B(n) = 3^n \geq c \cdot 3^n$, for all $n \geq n_0$. \[Basic algebra]
+>3. $\exists n_0 \in \mathbb{N}, \exists c \in \mathbb{R^+}, \forall n \geq n_0\ [B(n) \geq c \cdot 3^n]$. \[Existential generalisation on line 1]
+>4. $B(n) \in \Omega(3^n)$. \[Definition of $\Omega$]
 
 #### Sub-part 3
 
