@@ -30,18 +30,17 @@ After Week 9's content, you should be able to attempt questions 1 and 2. After W
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-
 # Question 1 \[Graded for Participation]:
 
 Let's say that we want to build a password system that only accepts: 
 
-1. Lowercase letters (a-z); there are 26 possible choices
-2. Uppercase letters (A-Z); there are 26 possible choices
-3. Numbers (0-9); there are 10 possible choices
+1. Lowercase letters ($\text{a}$-$\text{z}$); there are $26$ possible choices
+2. Uppercase letters ($\text{A}$-$\text{Z}$); there are $26$ possible choices
+3. Numbers ($0$-$9$); there are $10$ possible choices
 
-We are going to try to count how many possible password there are, depending on different rules that the system will allow.
+We are going to try to count how many possible passwords there are, depending on different rules that the system will allow.
 
-## Sub-question 1:
+### Sub-part 1
 
 Let's say the password system says:
 
@@ -52,37 +51,37 @@ If this is the only requirement, how many possible passwords are there? You need
 >[!note] Solution
 >For passwords of length $8$, there are $26 + 26 + 10 = 62$ choices for each character, giving us $62^8$ possible passwords. Similarly, for passwords of length $n$, there are $62^n$ possible passwords of that length.
 >
->Hence, there are $\sum_{n=8}^{32} 62^n$ passwords in total.
+>Hence, there are ==$\sum_{n=8}^{32} 62^n$== passwords in total.
 
-## Sub-question 2:
+### Sub-part 2
 
 Let's say the password system says:
 
-> Any password must be of length $\geq 8$ and $\leq 32$, and must be alphanumeric. I.e. At least one alphabet (either uppercase or lowercase), and at least one number.
+> Any password (i) must be of length $\geq 8$ and $\leq 32$, and (ii) must be **alphanumeric** (i.e., contain at least one uppercase or lowercase letter, and at least one number).
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
-**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases]] somehow?
+**Hint:** Can we make use of ideas from [[Unit 6#Subtracting Cases|this section]] somehow?
 
 
 >[!note] Solution
 >Without restrictions, there are a total of $\sum_{n=8}^{32} 62^n$ passwords (from sub-question 1).
 >
 >Subtracting the number of passwords for the following cases leaves us with the required answer:
->- Case 1: Passwords that contain only alphabets and no numbers
->- Case 2: Passwords that contain only numbers and no alphabets
+>- Case 1: Passwords that contain only letters and no numbers
+>- Case 2: Passwords that contain only numbers and no letters
 >
 >For case 1, there are now only $52$ choices per character, so there are $\sum_{n=8}^{32} 52^n$ such passwords. For case 2, there are now only $10$ choices per character, so there are $\sum_{n=8}^{32} 10^n$ such passwords.
 >
->Finally, subtracting these two values from the total gives us $\sum_{n=8}^{32} (62^n - 52^n - 10^n)$ as the answer.
+>Finally, subtracting these two values from the total gives us ==$\sum_{n=8}^{32} (62^n - 52^n - 10^n)$== as the answer.
 
-## Sub-question 3:
+### Sub-part 3
 
 Let's say the password system says:
 
-> Any password must be of length exactly $8$, and must **alternate** numbers and characters.
+> Any password (i) must be of length exactly $8$, and (ii) must **alternate** numbers and letters.
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "aa1b3d0p" is not allowed because we have adjacent characters.
+Hence, passwords like "$\text{a1b2c3d4}$" or "$\text{1m9j8s7h}$" are allowed, but not "$\text{aa1b3d0p}$", because there are adjacent letters.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -96,15 +95,15 @@ If this is the requirement, how many possible passwords are there? You need not 
 >
 >For case 1, there are $52$ choices for each of the $4$ alphabets and $10$ choices for each of the $4$ numbers, giving us a total of $52^4 \times 10^4 = 520^4$ possible passwords. Case 2 gives us the same value.
 >
->Hence, the total number of possible passwords is $2 \times 520^4$.
+>Hence, the total number of possible passwords is ==$2 \times 520^4$==.
 
-## Sub-question 4:
+### Sub-part 4
 
 Let's say the password system says:
 
-> Any password must be of length exactly $8$, and **must not** repeat any numbers and characters.
+> Any password (i) must be of length exactly $8$, and (ii) **must not** repeat any numbers or letters.
 
-So a password like "a1b2c3d4" or a password like "1m9j8s7h" is allowed. But something like "a1b3d0pa" is not allowed because "a" has been repeated.
+Hence, passwords like "$\text{a1b2c3d4}$" or "$\text{1m9j8s7h}$" are allowed, but not "$\text{a1b3d0pa}$", because the letter "$\text{a}$" has been repeated.
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
@@ -112,27 +111,29 @@ If this is the requirement, how many possible passwords are there? You need not 
 >[!note] Solution
 >We are now choosing any set of $8$ characters from the pool of $62$ alphanumeric characters given, which ensures that we do not choose any single character twice. However, after choosing the $8$ characters, we need to permute them.
 >
->Hence, there are a total of $P(62,8)$ possible passwords.
+>Hence, there are a total of ==$P(62,8)$== possible passwords.
 
-## Sub-question 5:
+### Sub-part 5
 
 Let's say the password system says:
 
-> Any password must be of length exactly $8$, must be alphabetical, and the password letters must be sorted, and each letter must only appear once.
+> Any password (i) must be of length exactly $8$, (ii) must be alphabetical, (iii) the password letters must be sorted, and (iv) each letter must only appear once.
 
-So a passwords like "adgkwxyz" or "abcdefgh" are allowed, because they are sorted in alphabetical order. But something like "bajoweaz" is not allowed.
+Hence, passwords like "$\text{adgkwxyz}$" or "$\text{abcdefgh}$" are allowed, but not "$\text{bajoweaz}$".
 
 If this is the requirement, how many possible passwords are there? You need not compute the actual value, you can leave your answer in the form of a summation if need be.
 
 
 >[!note] Solution
->We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single character twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to account for their permutations.
+>We choose a set of $8$ characters from the pool of $52$ alphabetical characters, which ensures that we do not choose any single letter twice. Since for any particular set, there is only one permutation in which the $8$ letters are in alphabetical order, we do not need to specially count their permutations.
 >
->This gives us a total of $\binom{52}{8}$ possible passwords.
+>This gives us a total of ==$\binom{52}{8}$== possible passwords.
 
+---
 # Question 2:
 
-## Sub-question 1:
+### Sub-part 1
+
 Let's say we wanted to arrange 5 people around a table. How many possible ways are there for us to arrange them? In general, how many possible ways are there for us to arrange $n$ people?
 
 ![[circ-perm.svg]]
@@ -151,16 +152,17 @@ To be clear, if we had $5$ people, then it doesn't matter where they sit, only t
 >
 >More generally, for $n$ people, there are $\frac{n!}{n} = (n-1)!$ ways to seat them around a circular table.
 
-## Sub-question 2:
+### Sub-part 2
+
 Again let's say we wanted to arrange $5$ people around a table, but an arrangement and its anti-clockwise arrangement are considered the same. How many arrangements do we have now?
 
 ![[circ-perm-direction.svg]]
 
 
-
 >[!note] Solution
 >Now, each of the $(n - 1)!$ arrangements from sub-question 1 is double-counted since its anti-clockwise counterpart was previously treated as a distinct seating arrangement. Hence, we now only have $\frac{(5-1)!}{2} = 12$ distinct seating arrangements.
 
+---
 # Question 3:
 
 Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
@@ -178,6 +180,7 @@ Among a group of 7 people, is it possible that every person is friends with exac
 >
 >This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur as $|E|$ always has to be an even number.
 
+---
 # Question 4:
 
 Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G}$ have?
@@ -188,6 +191,7 @@ Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G
 >
 >Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
 
+---
 # Question 5 \[Graded for Participation]:
 
 Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes does it have? How many edges does it have? How many leaves does it have?
@@ -200,6 +204,7 @@ Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes 
 >
 >The number of leaves is simply the number of nodes at the $h^{th}$ level, which is $k^h$.
 
+---
 # Question 6:
 
 Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
@@ -224,6 +229,7 @@ Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
 >
 >For graphs with $0 \leq n < 3$ nodes, the number of cycles that can be made is $0$.
 
+---
 # Question 7:
 
 Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
