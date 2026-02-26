@@ -201,12 +201,12 @@ But why would we do this? Here's an example:
 
 ## Example Using Strong Induction:
 
-Let's say that we lived in a country, where the only denominations are the $\textcolor{blue}{4}$-dollar and the $\textcolor{red}{5}$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that we can use $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar denominations to make any dollar value that is $\$8$ or larger. 
+Let's say that we lived in a country, where the only denominations are the $\textcolor{blue}{4}$-dollar and the $\textcolor{red}{5}$-dollar bills. Your friend, coming from Singapore, is doubtful that such a system would work. Let's convince them that we can use $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar denominations to make any dollar value that is \$$8$ or larger. 
 
 This seems true right? For example:
-- $\$8$ itself uses two of the $\textcolor{blue}{4}$-dollar bills (i.e., $8 = 2(\textcolor{blue}{4}) + 0(\textcolor{red}{5})$)
-- $\$9$ uses one $\textcolor{blue}{4}$-dollar bill and one $\textcolor{red}{5}$-dollar bill (i.e., $9 = 1(\textcolor{blue}{4}) + 1(\textcolor{red}{5})$)
-- $\$10$ uses two $\textcolor{red}{5}$-dollar bills (i.e., $10 = 0(\textcolor{blue}{4}) + 2(\textcolor{red}{5})$)
+- \$$8$ itself uses two of the $\textcolor{blue}{4}$-dollar bills (i.e., $8 = 2(\textcolor{blue}{4}) + 0(\textcolor{red}{5})$)
+- \$$9$ uses one $\textcolor{blue}{4}$-dollar bill and one $\textcolor{red}{5}$-dollar bill (i.e., $9 = 1(\textcolor{blue}{4}) + 1(\textcolor{red}{5})$)
+- \$$10$ uses two $\textcolor{red}{5}$-dollar bills (i.e., $10 = 0(\textcolor{blue}{4}) + 2(\textcolor{red}{5})$)
 
 Formally, we want to prove the following statement:
 
@@ -227,7 +227,7 @@ So let's look at a proof sketch:
 
 Okay, so the proof looks reasonable. What if I said there's an issue?
 
-Let's think about $11$—can we actually use only $\textcolor{blue}{4}$-dollar notes and $\textcolor{red}{5}$-dollar notes to make the dollar amount of $\$11$? We actually can't!
+Let's think about $11$—can we actually use only $\textcolor{blue}{4}$-dollar notes and $\textcolor{red}{5}$-dollar notes to make the dollar amount of \$$11$? We actually can't!
 
 So where did we go wrong in our proof? It was our assumption. We assumed that for all values $\textcolor{magenta}{j} < k$, we can express $j$ using $\textcolor{blue}{4}$-dollar and $\textcolor{red}{5}$-dollar notes. So in our proof that it was possible for $11$, we had to assume that it was true for $\textcolor{magenta}{11 - 4} = 7$. Did we prove this? No we didn't, and that was the issue.
 
@@ -296,8 +296,8 @@ Let's start with a motivating example. You might have seen this snippet of code 
 
 ```python
 def binary_search(arr, left, right, key):
-	if left + 1 == right:
-		return arr[left] == key
+	if left + 1 === right:
+		return arr[left] === key
 
 	mid = (right + left) // 2
 	if arr[mid] <= key:
@@ -445,9 +445,9 @@ You can even write a python program that does this for you:
 
 ```python
 def stair_climbing(n):
-	if n == 1:
+	if n === 1:
 		return 1
-	if n == 2:
+	if n === 2:
 		return 2
 	return stair_climbing(n - 1) + stair_climbing(n - 2)
 ```
@@ -462,8 +462,8 @@ Let's look at the code again:
 
 ```python
 def binary_search(arr, left, right, key):
-	if left == right:
-		return arr[left] == key
+	if left === right:
+		return arr[left] === key
 
 	mid = (right + left) // 2
 	if arr[mid] <= key:
