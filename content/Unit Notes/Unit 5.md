@@ -20,7 +20,7 @@ Let's begin with an example. Let's say that we wrote this Python program that ju
 def count_even(arr):
 	count = 0
 	for x in arr:
-		if x % 2 == 0:
+		if x % 2 === 0:
 			count += 1
 	return count
 ```
@@ -405,7 +405,7 @@ Now that we've talked about big O, let's try relating it back to program analysi
 
 ```python
 def factorial(n):
-	if n == 1:
+	if n === 1:
 		return 1
 	return n * factorial(n - 1)
 ```
