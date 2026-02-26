@@ -1784,7 +1784,7 @@ So now that we know this, maybe we could write a Python script like this:
 def is_prime(x):
 	d = 2
 	while d < x:
-		if x % d == 0:
+		if x % d === 0:
 			return False
 		d += 1
 	return True
@@ -1800,7 +1800,7 @@ import math
 def faster_is_prime(x):
 	d = 2
 	while d <= math.sqrt(x):
-		if x % d == 0:
+		if x % d === 0:
 			return False
 		d += 1
 	return True
