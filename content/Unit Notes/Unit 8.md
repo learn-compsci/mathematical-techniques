@@ -7,6 +7,11 @@ In this unit that is one of 2 parts, we will introduce probability theory. Proba
 
 To do this, we first need to talk about the basic fundamentals and rules of probability theory. We will also reason about basic probability in this unit. We will follow this up by introducing very common distributions in the subsequent unit, and finishing off with something called bounds and deviations.
 
+1. [[#Part 0 Introduction|Introduction to probability theory]]
+2. [[#Part 1 Probability Spaces, Outcomes and Events|Probability spaces, outcomes and events]]
+3. [[#Part 2 Conditional Probability|Conditional probability]]
+4. [[#Part 3 Independent Events|Independent events]]
+
 ---
 # Part 0: Introduction
 
@@ -128,10 +133,10 @@ Let's start covering the basic concepts, while using the **Monty Hall Problem** 
 3. An event is a **subset of the sample space $\Omega$**. The probability of an event, is just the sum of probabilities of the outcomes.
 
 In terms of notation, the **probability** of an outcome $x$ is written as $\text{Pr}[x]$. And typically, the probability of an event $E$, is written as:
+
 $$
 \sum_{x \in E} \text{Pr}[x]
 $$
-
 
 (**Sample Space**) So for example, in the Monty Hall problem, our sample space was given as:
 
@@ -144,13 +149,13 @@ $$
 \end{align*}
 $$
 
-
 (**Probability Values**) The tree that we drew, assigned each outcome a unique probability value that was $\geq 0$. For example we said that the probability of the outcome $(A, B, C)$ was $\frac{1}{9}$. Whereas the probability of the outcome $(A, A, B)$ was $\frac{1}{18}$.
 
 The tree that we drew, assigned each outcome a unique probability value that was $\geq 0$. For example we said that the probability of the outcome $(A, B, C)$ was $\frac{1}{9}$. Whereas the probability of the outcome $(A, A, B)$ was $\frac{1}{18}$.
 
 
 (**Event**) Lastly, we considered the strategy of always switching. Then the event that we win, is given by this subset:
+
 $$
 \begin{align*}
 \{\\
@@ -161,8 +166,7 @@ $$
 
 We noted that the probability for each outcome here was $\frac{1}{9}$, so the probability of the entire event was $\frac{6}{9} = \frac{2}{3}$ (since there are $6$ outcomes in this event, each with probability $\frac{1}{9}$).
 
-
-## A few more rules about probability:
+### A few more rules about probability
 
 Note, that for probabilities to make sense, we need a few more rules to say about probability. And these will be helpful for us when figuring out probabilities of certain events. Here are the rules:
 
@@ -181,7 +185,7 @@ We have similar rules in probability, they go like so:
 
 We also write $\Pr[\Omega \setminus A]$ as $\Pr[\bar{A}]$. Let's think about what the event $\Omega \setminus A$ means for a little. It's basically the "complement" event of $A$. In other words, it's the probability that $A$ did not happen. 
 
-### An example of what we have seen so far:
+### An example of what we have seen so far
 
 Let's work through an example to talk about some of these points. Imagine we had $3$ items: $1$, $2$, and $3$. Let's say that we took any possible permutation of the $3$ items **uniformly at random**, then asked, what is the probability that the first item remained in its position?
 
@@ -259,10 +263,11 @@ $$
 \frac{3}{6} = \frac{1}{2}
 $$
 
-
-# Conditional Probability
+---
+# Part 2: Conditional Probability
 
 ## Why Conditional Probability?
+
 Let's move onto talk about something called conditional probability. Think about the following kinds of events:
 
 1. **Given the event that a dice rolled an even number**, what is the probability the dice rolled a $4$?
@@ -436,7 +441,8 @@ So to bring this back to the concept at the beginning of this section:
 3. $\Pr⁡[B|\bar{A}]$ is called the false positive rate.
 4. $\Pr⁡[\bar{B}|\bar{A}]$ is called the true negative rate.
 
-# Independent Events
+---
+# Part 3: Independent Events
 
 Lastly, let's round off with looking at events in a little more detail. This is actually a concept that is a lot more helpful for next week, but it's better to start this concept now before introducing it for next week instead. It starts off with the following vague intuition:
 
