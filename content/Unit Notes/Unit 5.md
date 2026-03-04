@@ -228,11 +228,12 @@ Why is this true? Here's a sketch of the math behind it—we are going to show t
 >	$$
 >		\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}
 >	$$
->2. Then, $$
->	\begin{align*}
->		\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
->		&\leq \textcolor{blue}{\left(\sum_{i = 0}^k \lvert a_i \rvert \right)} \cdot \textcolor{red}{n^k}\\
->	\end{align*}
+>2. Then,
+>	$$
+>		\begin{align*}
+>			\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
+>			&\leq \textcolor{blue}{\left(\sum_{i = 0}^k \lvert a_i \rvert \right)} \cdot \textcolor{red}{n^k}\\
+>		\end{align*}
 >	$$
 >3. So setting $n_0 = 1$ and $\textcolor{blue}{c = \left(\sum_{i = 0}^k \lvert a_i \rvert \right)}$, we are guaranteed that $\textcolor{green}{f(n)} \leq \textcolor{blue}{c} \cdot \textcolor{red}{n^k}$.
 >4. Therefore, $\textcolor{green}{f(n)} \in O(\textcolor{red}{n^k})$.
@@ -249,11 +250,12 @@ Why is this true? We are now saying that the function $\textcolor{green}{f(n)}$ 
 >	$$
 >		\textcolor{green}{f(n) = \sum_{i = 0}^k a_i \cdot n^i}
 >	$$
->2. Then, $$
->	\begin{align*}
->	\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
->	&\geq  \textcolor{blue}{a_k} \cdot \textcolor{red}{n^k}\\
->	\end{align*}
+>2. Then,
+>	$$
+>		\begin{align*}
+>		\textcolor{green}{f(n)} &=  \sum_{i = 0}^k a_i \cdot n^i\\
+>		&\geq  \textcolor{blue}{a_k} \cdot \textcolor{red}{n^k}\\
+>		\end{align*}
 >	$$
 >3. Let $n_0 = 1$ and $c = a_k$. Then $\forall n \geq n_0\ \big[\textcolor{green}{f(n)} \geq \textcolor{blue}{c} \cdot \textcolor{red}{n^k} \big]$.
 
@@ -304,17 +306,18 @@ So what about in general when we have a degree-$k$ polynomial?
 
 >[!Proof]
 >1. Let $f(n) = \sum_{i = 0}^k a_i \cdot n^i$ be a degree-$k$ polynomial with $a_k > 0$.
->2. $$
->	\begin{align*}
->	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
->	\end{align*}
-> $$
+>2. Observe that:
+>	$$
+>		\begin{align*}
+>		\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+>		\end{align*}
+> 	$$
 >3. Then by setting $n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we know that $\left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)$ is non-negative, so:
 >	$$
->	\begin{align*}
->	\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
->	&\geq \left(\frac{a_k}{k + 1}\right)n^k
->	\end{align*}
+>		\begin{align*}
+>		\sum_{i = 0}^k a_i \cdot n^i &= \left(\frac{a_k}{k + 1}\right)n^k + \sum_{i = 0}^{k - 1} \left(\frac{n^k}{k + 1} - a_i n^i\right)\\
+>		&\geq \left(\frac{a_k}{k + 1}\right)n^k
+>		\end{align*}
 >	$$
 >4. Since $a_k > 0$ and $k + 1 > 0$, we have that $\left(\frac{a_k}{k + 1}\right) > 0$. So setting $c = \frac{a_k}{k + 1}$ and $n_0 \geq n = \max\{ a_0, a_1, \ldots, a_{k - 1} \}\cdot \left(\frac{k + 1}{a_k}\right)$, we are able to conclude that $\forall n \geq n_0\ [f(n) \geq c\cdot n^k]$.
 
