@@ -15,7 +15,7 @@ To do this, we first need to talk about the basic fundamentals and rules of prob
 ---
 # Part 0: Introduction
 
-Let's begin with an example scenario called the **Monty Hall Problem**:
+Let's begin with an example scenario called the **Monty Hall problem**:
 
 You're at a gameshow where there are $3$ doors. One of the doors has an equal chance ($1$ in $3$) of having a car, while the other two doors have a goat behind them. The game goes like this:
 
@@ -126,11 +126,11 @@ Notice that if we refer to the tree, each and every of these **outcomes** has pr
 ---
 # Part 1: Probability Spaces, Outcomes and Events
 
-Let's start covering the basic concepts, while using the **Monty Hall Problem** (in [[#Introduction]]) as an example. To model probabilistic phenomena, we have:
+Let's start covering the basic concepts, while using the **Monty Hall problem** (in [[#Introduction]]) as an example. To model probabilistic phenomena, we have:
 
-1. A set of all possible outcomes, this is called the **sample space**. Typically, we use the notation $\Omega$ to denote the set of all possible outcomes.
+1. The set of all possible outcomes, called the **sample space**. Typically, we use the notation $\Omega$ to denote the set of all possible outcomes.
 2. Each outcome is associated with a **unique probability value**. This value must be $\geq 0$.
-3. An event is a **subset of the sample space $\Omega$**. The probability of an event, is just the sum of probabilities of the outcomes.
+3. An **event** is a *subset* of the sample space $\Omega$. The probability of an event is just the sum of probabilities of the outcomes.
 
 In terms of notation, the **probability** of an outcome $x$ is written as $\text{Pr}[x]$. And typically, the probability of an event $E$, is written as:
 
@@ -138,7 +138,7 @@ $$
 \sum_{x \in E} \text{Pr}[x]
 $$
 
-(**Sample Space**) So for example, in the Monty Hall problem, our sample space was given as:
+(**Sample space**) For example, in the Monty Hall problem, our sample space was given as:
 
 $$
 \begin{align*}
@@ -149,12 +149,9 @@ $$
 \end{align*}
 $$
 
-(**Probability Values**) The tree that we drew, assigned each outcome a unique probability value that was $\geq 0$. For example we said that the probability of the outcome $(A, B, C)$ was $\frac{1}{9}$. Whereas the probability of the outcome $(A, A, B)$ was $\frac{1}{18}$.
+(**Probability values**) The tree that we drew, we assigned each outcome a unique probability value that was $\geq 0$. For example, we said that the probability of the outcome $(A, B, C)$ was $\frac{1}{9}$, whereas the probability of the outcome $(A, A, B)$ was $\frac{1}{18}$.
 
-The tree that we drew, assigned each outcome a unique probability value that was $\geq 0$. For example we said that the probability of the outcome $(A, B, C)$ was $\frac{1}{9}$. Whereas the probability of the outcome $(A, A, B)$ was $\frac{1}{18}$.
-
-
-(**Event**) Lastly, we considered the strategy of always switching. Then the event that we win, is given by this subset:
+(**Events**) Lastly, we considered the strategy of always switching. Then, the event that we win is given by this subset:
 
 $$
 \begin{align*}
@@ -168,7 +165,7 @@ We noted that the probability for each outcome here was $\frac{1}{9}$, so the pr
 
 ### A few more rules about probability
 
-Note, that for probabilities to make sense, we need a few more rules to say about probability. And these will be helpful for us when figuring out probabilities of certain events. Here are the rules:
+Note that for probabilities to make sense, we need a few more rules, which will be helpful to us when figuring out probabilities of certain events. Here are the rules:
 
 1. The probability of any outcome $x \in \Omega$ is $\geq 0$, i.e., $\Pr[x] \geq 0$.
 2. The sum of all probabilities is exactly $1$, i.e., $\sum_{x \in \Omega}\Pr[x] = 1$.
@@ -180,19 +177,21 @@ Here are also some helpful facts. Recall from counting and set theory that:
 
 We have similar rules in probability, they go like so:
 
-1. If $A$ and $B$ are disjoint sets of outcomes (disjoint events), then: $\Pr[A \cup B] = \Pr[A] + \Pr[B]$
-2. If $\Omega$ is the event space, and $A$ is an event ($A \subseteq \Omega$), then since $A \subseteq \Omega$: $\Pr[\Omega \setminus A] = 1 -\Pr[A]$.
+1. If $A$ and $B$ are disjoint sets of outcomes (disjoint events), then: $\Pr[A \cup B] = \Pr[A] + \Pr[B]$.
+2. If $\Omega$ is the event space, and $A$ is an event ($A \subseteq \Omega$), then since $A \subseteq \Omega$, we have: $\Pr[\Omega \setminus A] = 1 -\Pr[A]$.
 
-We also write $\Pr[\Omega \setminus A]$ as $\Pr[\bar{A}]$. Let's think about what the event $\Omega \setminus A$ means for a little. It's basically the "complement" event of $A$. In other words, it's the probability that $A$ did not happen. 
+We also write $\Pr[\Omega \setminus A]$ as $\Pr[\bar{A}]$. Let's think a little about what the event $\Omega \setminus A$ means. It's basically the "complement" event of $A$. In other words, it's the event that $A$ did not happen. 
 
 ### An example of what we have seen so far
+
+#### Example 1: Probability of an event
 
 Let's work through an example to talk about some of these points. Imagine we had $3$ items: $1$, $2$, and $3$. Let's say that we took any possible permutation of the $3$ items **uniformly at random**, then asked, what is the probability that the first item remained in its position?
 
 Let's fall back to the framework that we just mentioned. This means:
 
 1. Listing out the set of all possible outcomes
-2. Identifying the event that we cared about
+2. Identifying the event that we care about
 3. Figuring out the probability of the event
 
 Since we are sampling any possible permutation of the $3$ items, this means that there are $3!$ possible outcomes:
@@ -206,26 +205,27 @@ Since we are sampling any possible permutation of the $3$ items, this means that
 
 So our sample space $\Omega$ is the set that contains these $6$ permutations. 
 
-Moving on, we asked "what is the probability that the first item remained in its position?". This is the **event** that we cared about. Again, this is a set of outcomes we care about. This happens to be:
+Moving on, we asked: "What is the probability that the first item remained in its position?" This is the **event** that we care about. Again, this is a set of outcomes we care about. This happens to be:
+
 $$
 \{123, 132\}
 $$
 
 This is exactly the set of outcomes where the first item remained in its position.
 
-Lastly, we need to figure out the probability of the event, which is basically asking what is the probability we obtained $123$ as the permutation, plus the probability we obtained $132$ as the permutation.
+Lastly, we need to figure out the probability of the event, which is basically asking what the sum of the probability we obtain $123$ as the permutation, plus the probability we obtain $132$ as the permutation, is.
 
 Since we said that each permutation is taken **uniformly at random**, this means that the probability of any outcome is $\frac{1}{\lvert \Omega \rvert}$ or, $1$ divided by the number of outcomes. Since there are $6$ outcomes here, each outcome occurs with probability $\frac{1}{6}$.
 
-So looking back our event, the probability that the first element remains in position $1$, is given as:
+Looking back our event, the probability that the first element remains in position $1$ is given as:
 
 $$
 \frac{1}{6} + \frac{1}{6} = \frac{1}{3}
 $$
 
+#### Example 2: Complement events
 
-#### Example Part 2: Complement events
-What about if we asked something like: what is the probability that the first item is **not** at position $1$? Now the event is given as:
+What about if we asked something like: "What is the probability that the first item is **not** in position $1$?" Here, the event is given as:
 
 $$
 \{213, 231, 312, 321\}
@@ -237,10 +237,10 @@ $$
 \Omega \setminus \{123, 132\} = \{123, 132, 213, 231, 312, 321\} \setminus \{ 123, 132 \}
 $$
 
-So really, we can think of the event that "the first item is **not** at position $1$" as the **complement** of the event "the first item is at position $1$". So, we could also answer this as $1 - \frac{1}{3} = \frac{2}{3}$.
+So really, we can think of the event that "the first item is **not** in position $1$" as the **complement** of the event "the first item is in position $1$". So, we could also answer this as $1 - \frac{1}{3} = \frac{2}{3}$.
 
 
-#### Example Part 3: Disjoint Events
+#### Example 3: Disjoint events
 
 What about answering the following question? What is the probability that the first item is in position $1$ **or** position $2$?
 
@@ -250,14 +250,15 @@ $$
 E_1 = \{123, 132\} \hspace{2em} E_2 = \{213, 312\}
 $$
 
-$E_1$ here corresponds to the event that the first item is in position $1$. $E_2$ here corresponds to the event that the first item is in position $2$.
+$E_1$ corresponds to the event that the first item is in position $1$, and $E_2$ corresponds to the event that the first item is in position $2$.
 
-Again, notice that $E_1, E_2$ are disjoint. So we can compute the probability as $\text{Pr}[E_1 \cup E_2]$, we know is actually just $\Pr[E_1] + \Pr[E_2] = \frac{2}{6} + \frac{2}{6} = \frac{2}{3}$.
+Again, notice that $E_1$ and $E_2$ are disjoint. Hence, we can compute the probability as $\text{Pr}[E_1 \cup E_2]$, we know is actually just $\Pr[E_1] + \Pr[E_2] = \frac{2}{6} + \frac{2}{6} = \frac{2}{3}$.
 
 #### Example 4: Dice
-Just to re-iterate the point a little bit, imagine if we were given a fair dice that gives either $1$, $2$, $3$, $4$, $5$ or $6$ uniformly at random, what is the probability that the dice gives us an even number?
 
-Again, the sample space $\Omega$ is now the set $\{1, 2, 3, 4, 5, 6\}$. The event $E$ is $\{2, 4, 6\}$. So the probability of $E$ (written as $\Pr[E]$) is basically:
+Just to reiterate the point a little bit, imagine if we were given a fair die that gives $1$, $2$, $3$, $4$, $5$ or $6$ uniformly at random—what is the probability that the die gives us an even number?
+
+Again, the sample space $\Omega$ is now the set $\{1, 2, 3, 4, 5, 6\}$. The event $E$ is $\{2, 4, 6\}$. Thus, $\Pr[E]$ is basically:
 
 $$
 \frac{3}{6} = \frac{1}{2}
