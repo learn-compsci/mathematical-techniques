@@ -128,15 +128,19 @@ Notice that if we refer to the tree, each and every of these **outcomes** has pr
 
 Let's start covering the basic concepts, while using the **Monty Hall problem** (in [[#Introduction]]) as an example. To model probabilistic phenomena, we have:
 
-1. The set of all possible outcomes, called the **sample space**. Typically, we use the notation $\Omega$ to denote the set of all possible outcomes.
-2. Each outcome is associated with a **unique probability value**. This value must be $\geq 0$.
-3. An **event** is a *subset* of the sample space $\Omega$. The probability of an event is just the sum of probabilities of the outcomes.
+>[!info] Definition: Sample space, outcomes and events
+>The **sample space** is the set of all possible outcomes, typically denoted with $\Omega$.
+>
+>Each **outcome** $x$ in the sample space is associated with a probability value, denoted $\text{Pr}[x]$. For any outcome $x$, we have that $\text{Pr}[x] \geq 0$. Moreover, the sum of the probabilities of *all* events in the sample space has to equal $1$, i.e.:
+> $$
+> \sum_{x \in \Omega} \ \text{Pr}[x] = 1
+> $$
+>
+>An **event** is a subset of the sample space $\Omega$ (which is a collection of outcomes). The probability of event $E$ is denoted $\text{Pr}[E]$, and is equal to the sum of the probabilities of the outcomes:
+> $$
+> \text{Pr}[E] = \sum_{x \in E} \ \text{Pr}[x]
+> $$
 
-In terms of notation, the **probability** of an outcome $x$ is written as $\text{Pr}[x]$. And typically, the probability of an event $E$, is written as:
-
-$$
-\sum_{x \in E} \text{Pr}[x]
-$$
 
 (**Sample space**) For example, in the Monty Hall problem, our sample space was given as:
 
@@ -271,39 +275,38 @@ $$
 
 Let's move onto talk about something called conditional probability. Think about the following kinds of events:
 
-1. **Given the event that a dice rolled an even number**, what is the probability the dice rolled a $4$?
-2. **Given the event that after flipping $3$ coins, we saw $2$ heads**. What is the probability the first coin we flipped turned up heads?
+1. **Given the event that a die rolled an even number**, what is the probability the die rolled a $4$?
+2. **Given the event that after flipping $3$ coins we saw $2$ heads**, what is the probability the first coin we flipped turned up heads?
 
-How should we analyse this? Why should we do it? Here's another example scenario that might be a little more motivating or relevant. Let's say we thought about medical testing. Medical tests (like the COVID test kit that everyone has) in real life are not perfect. There is always a small chance of errors.
+How should we analyse these? Why should we do it? Here's another example scenario that might be a little more motivating or relevant. Let's say we thought about medical testing. Medical tests (like the COVID test kit that everyone has) in real life are not perfect. There is always a small chance of error.
 
 1. A test could report positively that you have a condition, even if you don’t. This is called a **false positive**.
 2. A test could report negatively that you don’t have a condition, even if you do. This is called a **false negative**.
 
-(Bear in mind that "positive"/"negative" here isn't talking about "good/bad" news, it's talking about affirming or rejecting the fact that you have the condition.)
+(Bear in mind that "positive"/"negative" here isn't referring to "good/bad" news, it's talking about affirming or rejecting the fact that you have the condition.)
 
 Now this extends beyond medical tests. Imagine we had to write an image classifier that tells you whether it contains an apple.
 
 1. There’s a chance the classifier reports a false positive: the image has no apple, but it says there is one.
 2. There’s a chance the classifier reports a false negative: the image has an apple, but it says there is none.
 
+So here's an example of a statement we care about: **Given that a test reports positive**, what is the probability it is a true positive? (i.e., if a test says "yes", what is the chance the answer is actually really "yes"?)
 
-## Definition:
-
-So here's an example of a statement we care about: **Given that a test reports positive**, what is the probability it is a true positive? (i.e., If a test says yes, what is the chance the answer is actually really yes?)
-
-Think of the event that the **test reports positive**, as our **condition**. In general, for events $A$, $B$, we write:
+Think of the event that the **test reports positive**, as our **condition**. In general, for events $A$ and $B$, we write:
 
 $$
 \Pr[A | B]
 $$
 
-to represent the probability of event $A$ occurring, **given that** event $B$ happens. To be clear, there is no sense of time here. (There are two things called "a priori probability" and "posterior probability", but we will not be covering them here.) We are only promised that event $B$ happens, we do not need to insist whether it happens before or after event $A$ (either is ok).
+to represent the probability of event $A$ occurring, **given that** event $B$ happens. To be clear, there is no sense of time here. (There are two things called "a priori probability" and "a posteriori probability", but we will not be covering them here.) We are only promised that event $B$ happens; we do not need to insist whether it happens before or after event $A$ (either is ok).
 
 So what is the quantity $\Pr[A | B]$? How do we compute this? Well the definition is given as:
 
-$$
-\Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]}
-$$
+>[!info] Definition: Conditional probability
+>The **conditional probability** of $A$ given that $B$ occurs is denoted $\text{Pr}[A|B]$, where:
+> $$
+> \text{Pr}[A|B] = \frac{\text{Pr}[A \cap B]}{\text{Pr}[B]}
+> $$
 
 This looks a lot more doable! But just to be clear: $\Pr[A\cap B]$ can be thought of as the probability that event $A$ **and** event $B$ occurs.
 
