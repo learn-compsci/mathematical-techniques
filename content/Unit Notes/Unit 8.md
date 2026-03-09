@@ -314,9 +314,10 @@ This looks a lot more doable! But just to be clear: $\Pr[A\cap B]$ can be though
 
 Let's revisit the following question:
 
-> **Given the event that a dice rolled an even number**, what is the probability the dice rolled a $4$?
+> **Given the event that a die rolled an even number**, what is the probability the die rolled a $4$?
 
-Again, this is a dice, so our event space is $\{1, 2, 3, 4, 5, 6\}$. We now need to create our events $A$ and $B$. Let's say that event $B$ is the event that the dice rolled an even number. This means that:
+Again, this is a standard $6$-sided die, so our event space is $\{1, 2, 3, 4, 5, 6\}$. We now need to create our events $A$ and $B$. Let's say that event $B$ is the event that the die rolled an even number. This means that:
+
 $$
 B = \{2, 4, 6\}
 $$
@@ -345,7 +346,7 @@ The probability $\Pr[B | A]$ is basically the ratio of the size of $A \cap B$ to
 
 So, back to testing, let's go back to the example of a classifier that needs to tell you if there is an apple in the image, or if there are none.
 
-Here are 4 possible questions we can ask:
+Here are four possible questions we can ask:
 
 1. Given that a classifier reports positive, what is the probability it is a true positive?
 2. Given that a classifier reports positive, what is the probability it is a false positive?
@@ -356,32 +357,35 @@ Let's try looking at the first one for our example.
 
 Let $A$ be the event that there actually is an apple, and let $B$ be the event that the test reports positive. Then again, given the classifier reports positive, how confident we are that there actually is an apple is given by $\Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]}$. Now, the probability $\Pr[A \cap B]$ is the probability the classifier reports true and the image was an apple, whereas $\Pr[B]$ is the probability the classifier returns positive (on all images).
 
-So here's an example, let's say we have a dataset, with $10$ pictures (we could not afford many pictures), and 6 of them have apples, $4$ of them do not have apples.
+Let's say we have a dataset, with $10$ pictures (we could not afford many pictures), and $6$ of them have apples, $4$ of them do not have apples.
 
 ![[apples-and-durians.svg]]
 
-So let's say in the bottom row, what our classifier says about whether the image has an apple or not.
+The bottom row shows what our classifier says about whether the image has an apple or not.
 
-Now, $\Pr[A \cap B]$ is $\frac{4}{10}$, because there are exactly $4$ times when there is an apple **and** the classifier says "yes". On the other hand $\Pr[B]$ is $\frac{6}{10}$, because the classifier says yes $6$ times out of $10$.
+Now, $\Pr[A \cap B]$ is $\frac{4}{10}$, because there are exactly $4$ times when there is an apple **and** the classifier says "yes". On the other hand, $\Pr[B]$ is $\frac{6}{10}$ because the classifier says "yes" $6$ times out of $10$.
 
 So:
+
 $$
 \Pr[A | B] = \frac{\Pr[A \cap B]}{\Pr[B]} = \frac{4/10}{6/10} = \frac{4}{6} = \frac{2}{3}
 $$
 
-## Bayes Theorem
+## Bayes' Theorem
 
-Now is this the only way to compute that value? Not quite. There is an alternative way that is quite helpful. It turns out **Bayes' Theorem** gives us an alternative formulation:
+Is this the only way to compute $\text{Pr}[A|B]$? Not quite. There is an alternative way that is quite helpful. It turns out **Bayes' Theorem** gives us an alternative formulation:
 
-$$
-\Pr[A | B] = \frac{\Pr[B | A]\cdot \Pr[A]}{\Pr[B]}
-$$
+>[!info] Definition: Bayes' Theorem
+>Given two events $A$ and $B$, we have the following formula:
+> $$
+> \Pr[A | B] = \frac{\Pr[B | A]\cdot \Pr[A]}{\Pr[B]}
+> $$
 
-So we could instead compute these $3$ quantities:
+So, we could instead compute these $3$ quantities:
 
-1. $\Pr[B]$ (the probability that the classifier says yes), $\frac{6}{10}$
+1. $\Pr[B]$ (the probability that the classifier says "yes"), $\frac{6}{10}$
 2. $\Pr[A]$ (the probability that we have an apple), $\frac{6}{10}$
-3. $\Pr[B | A]$ (the probability that among the cases where we have an apple, the classifier says yes).
+3. $\Pr[B | A]$ (the probability that among the cases where we have an apple, the classifier says "yes").
 
 For the last one, notice that we have $6$ apples, and among the apple, the classifier says yes $4$ out of the $6$ times. So the final quantity is $\frac{4}{6} = \frac{2}{3}$. Plugging it all in:
 
@@ -411,7 +415,8 @@ $$
 
 which happens to be around $0.19$, so at least based on this set-up, it seems that the test was not super informative.
 
-## An Example Table
+### An example table
+
 In case this has still been a little unintuitive, hopefully the next explanation makes more sense.
 
 |                   | Test says positive | Test Says Negative | Total  |
