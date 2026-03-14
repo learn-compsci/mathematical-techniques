@@ -340,11 +340,11 @@ What is going on with conditional probability? Here's the idea:
 
 ![[a-given-b.svg]]
 
-The probability $\Pr[B | A]$ is basically the ratio of the size of $A \cap B$ to the size of $A$. We're basically saying, we know we're in set $A$, what's the probability we're in set $A \cap B$? In particular, we don't consider the outcomes in set $B$ that are outside of $A$. 
+The probability $\Pr[B | A]$ is basically the ratio of the size of $A \cap B$ to the size of $A$. We're basically saying: if we know we're in set $A$, what's the probability we're in set $A \cap B$? In particular, we don't consider the outcomes in set $B$ that are outside of $A$. 
 
 ## Back to Testing: Another Example
 
-So, back to testing, let's go back to the example of a classifier that needs to tell you if there is an apple in the image, or if there are none.
+Back to testing, let's go back to the example of a classifier that needs to tell you if there is an apple in the image, or if there are none.
 
 Here are four possible questions we can ask:
 
@@ -405,7 +405,7 @@ Let's go back to medical testing, and let's say we were given the following $3$ 
 
 Now, let's say we took the test, and it was positive. What is the probability we have condition $C$? 
 
-Let $A$ be the event we have condition $C$, and let $B$ be the event that the said said we were positive. We want $\Pr[A | B]$. Notice how we do not have information about $\Pr[A \cap B]$. But instead, line 1 gives us $\Pr[A]$, line 2 gives us $\Pr[B | A]$, and line 3 gives us $\Pr[B]$.
+Let $A$ be the event we have condition $C$, and let $B$ be the event that the test said we were positive. We want $\Pr[A | B]$. Notice how we do not have information about $\Pr[A \cap B]$. But instead, line 1 gives us $\Pr[A]$, line 2 gives us $\Pr[B | A]$, and line 3 gives us $\Pr[B]$.
 
 So plugging this all in, we get:
 
@@ -419,21 +419,22 @@ which happens to be around $0.19$, so at least based on this set-up, it seems th
 
 In case this has still been a little unintuitive, hopefully the next explanation makes more sense.
 
-|                   | Test says positive | Test Says Negative | Total  |
+|                   | Test says positive | Test says negative | Total  |
 | :---------------: | ------------------ | ------------------ | ------ |
-| Actually Positive | $45$               | $5$                | $50$   |
-| Actually Negative | $190$              | $760$              | $950$  |
+| Actually positive | $45$               | $5$                | $50$   |
+| Actually negative | $190$              | $760$              | $950$  |
 |       Total       | $235$              | $765$              | $1000$ |
+
 So if we made a table with $4$ possible entries, then letting $A$ be the event of actually being positive, and $B$ be the event that the test says positive, we can say:
 
-1. $\Pr[A] = \frac{50}{1000}$ which is basically the total number of positive people divided by the total number of people. 
-2. $\Pr[\bar{A}] = 1 - \frac{50}{1000}$ which is basically the total number of **not positive** (i.e., negative) people divided by the total number of people. 
-3. $\Pr[B] = \frac{235}{1000}$ which is basically the total number of people who tested positive divided by the total number of people.
+1. $\Pr[A] = \frac{50}{1000}$, which is the total number of positive people divided by the total number of people. 
+2. $\Pr[\bar{A}] = 1 - \frac{50}{1000} = \frac{950}{1000}$, which is the total number of **not positive** (i.e., negative) people divided by the total number of people. 
+3. $\Pr[B] = \frac{235}{1000}$, which is the total number of people who tested positive divided by the total number of people.
 
 Also, for conditional probability:
 
-1. $\Pr[B | A] = \frac{45}{50}$. Why? We were promised that the people are actually positive (there are $50$ of them), and of those $50$, $45$ of them tested positive.
-2. $\Pr[A | B] = \frac{45}{235}$. Similarly, we are promised that the people have been tested positive (there are $235$ of them), and of those $235$, $45$ of them tested positive.
+1. $\Pr[B | A] = \frac{45}{50}$. Why? We were promised that the people are actually positive (there are $50$ of them), and of those $50$ people, $45$ of them tested positive.
+2. $\Pr[A | B] = \frac{45}{235}$. Similarly, we are promised that the people have been tested positive (there are $235$ of them), and of those $235$ people, $45$ of them tested positive.
 
 We can also ask something like: "What's the probability that we are actually positive, given that the test returned negative?" Then this is given as:
 
@@ -457,7 +458,7 @@ Lastly, let's round off with looking at events in a little more detail. This is 
 
 > How do we say that two events are unrelated?
 
-For example we could have flipped two different coins far away from each other. Intuitively we would like to think that the two outcomes should not affect each other.
+For example, we could have flipped two different coins far away from each other. Intuitively we would like to think that the two outcomes should not affect each other.
 
 Formally, we will say that two events $A$ and $B$ are **independent** if either:
 
