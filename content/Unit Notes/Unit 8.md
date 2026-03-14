@@ -465,13 +465,31 @@ Formally, we will say that two events $A$ and $B$ are **independent** if either:
 1. $\Pr[B] = 0$, or
 2. $\Pr[A | B] = \Pr[A]$
 
-A vague intuition you can have for line 2 is that "Given that $B$ has happened, the probability for event $A$ has remain unchanged." Though this is quite improper, it might be a little bit helpful.
+(and vice versa.)
+
+A vague intuition you can have for line 2 is, "Given that $B$ has happened, the probability for event $A$ has remain unchanged." Though this is quite improper, it might be a little bit helpful.
 
 Another way to say that two events $A$ and $B$ are independent are if:
 
 $$
 \Pr[A \cap B] = \Pr[A] \cdot \Pr[B]
 $$
+
+>[!info] Definition: Independent events
+>We say that two events $A$ and $B$ are **independent** if:
+> 
+> $$
+> \Pr[A \cap B] = \Pr[A] \cdot \Pr[B]
+> $$
+>
+>Consequently, if $A$ and $B$ are independent, then we have the following equality:
+>
+> $$
+> \text{Pr}[A|B] = \text{Pr}[A]
+> $$
+> given that $\text{Pr}[B] \neq 0$.
+> 
+> (Why?)
 
 ## Example for Independence:
 
