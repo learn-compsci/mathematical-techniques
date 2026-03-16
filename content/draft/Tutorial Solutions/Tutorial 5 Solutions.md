@@ -171,20 +171,20 @@ Again let's say we wanted to arrange $5$ people around a table, but an arrangeme
 ---
 # Question 3:
 
-Among a group of 7 people, is it possible that every person is friends with exactly only 2 other people? Is it possible that every person is friends with exactly 5 other people?
+Among a group of $7$ people, is it possible that every person is friends with exactly only $2$ other people? Is it possible that every person is friends with exactly $5$ other people?
 
 
 >[!note] Solution
->For the first part, it is possible for each person to be friends with exactly $2$ other people. Imagine all 7 people form a circle, they are friends with the people that are right next to them.
->In the image below, consider if A is friends with B and G, B is friend with A and C, so on and so forth.
+>For the first part, it is possible for each person to be friends with exactly $2$ other people. Imagine all $7$ people form a circle, they are friends with the people that are right next to them.
+>In the image below, consider if $A$ is friends with $B$ and $G$, $B$ is friends with $A$ and $C$, so on and so forth.
 >
 >![[circle.png]]
 >
->For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people are linked (have an edge between them) if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. 
+>For the second part, it is impossible for such a scenario to occur. Consider the people as vertices of a graph $G = (V, E)$, where two people have an edge between them if they are friends. If each person is friends with exactly $5$ people, then $\forall v \in V\ [deg(v) = 5]$. 
 >
-> From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
+>From the handshake lemma, we know that $\sum_{v \in V} deg(v) = 2|E|$. Since all nodes have degree $5$, this means $\sum_{v \in V} 5 = 2 |E|$. 
 >
->This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur as $|E|$ always has to be an even number.
+>This means that the degree of $G$ must be $5 \times 7 = 35$, which is odd. Since the total degree of any graph must be even, this scenario cannot occur.
 
 ---
 # Question 4:
