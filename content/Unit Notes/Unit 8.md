@@ -460,40 +460,26 @@ Lastly, let's round off with looking at events in a little more detail. This is 
 
 For example, we could have flipped two different coins far away from each other. Intuitively we would like to think that the two outcomes should not affect each other.
 
-Formally, we will say that two events $A$ and $B$ are **independent** if either:
-
-1. $\Pr[B] = 0$, or
-2. $\Pr[A | B] = \Pr[A]$
-
-(and vice versa.)
-
-A vague intuition you can have for line 2 is, "Given that $B$ has happened, the probability for event $A$ has remain unchanged." Though this is quite improper, it might be a little bit helpful.
-
-Another way to say that two events $A$ and $B$ are independent are if:
-
-$$
-\Pr[A \cap B] = \Pr[A] \cdot \Pr[B]
-$$
-
 >[!info] Definition: Independent events
->We say that two events $A$ and $B$ are **independent** if:
-> 
-> $$
-> \Pr[A \cap B] = \Pr[A] \cdot \Pr[B]
-> $$
+>We say that two events $A$ and $B$ are **independent** if either $\text{Pr}[B] = 0$, or $\text{Pr}[A|B] = \text{Pr}[A]$ (or vice versa).
 >
->Consequently, if $A$ and $B$ are independent, then we have the following equality:
+>An alternative definition of independence is if $\text{Pr}[A \cap B] = \text{Pr}[A] \cdot \text{Pr}[B]$. (Why? See below for solution)
+
+>[!question]- Alternative definition of independence
+>If $A$ and $B$ are independent, then $\text{Pr}[A|B] = \text{Pr}[A]$. Rewriting this, we have:
 >
 > $$
-> \text{Pr}[A|B] = \text{Pr}[A]
+> \text{Pr}[A|B] = \frac{\text{Pr}[A \cap B]}{\text{Pr}[B]} = \text{Pr}[A]
 > $$
-> given that $\text{Pr}[B] \neq 0$.
 > 
-> (Why?)
+>Multiplying both sides by $\text{Pr}[B]$ produces the desired equality.
 
-## Example for Independence:
+A vague intuition you can have for the definition is: "Given that $B$ has happened, the probability for event $A$ has remain unchanged." Though this is quite improper, it might be a little bit helpful.
 
-Assume we have two fair coins, $C_1, C_2$ (each have a sample space $\{H, T\}$, and the probability of each outcome is $\frac{1}{2}$). **Assume that $C_1$ and $C_2$ are independent.** That is to say, $\forall x, y \in \{H, T\}$:
+## Example of Independent Events:
+
+Assume we have two fair coins, $C_1$ and $C_2$ (each having a sample space of $\{H, T\}$, and the probability of each outcome is $\frac{1}{2}$). **Assume that $C_1$ and $C_2$ are independent.** That is to say, $\forall x, y \in \{H, T\}$:
+
 $$
 \Pr[C_1 = x \cap C_1 = y] = \Pr[C_1 = x]\cdot \Pr[C_2 = y]
 $$
