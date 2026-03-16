@@ -485,6 +485,7 @@ $$
 $$
 
 Then what is the probability that both coins produce tails? In other words, what is:
+
 $$
 \Pr[C_1 = T \cap C_2 = T] = ?
 $$
@@ -497,14 +498,14 @@ $$
 
 To be clear, we cannot draw the same conclusion if we did not assume independence.
 
-### An example with seemingly independent events:
+### An example with seemingly non-independent events:
 
-Let's consider a $3$-coin example. Again, assume we have two fair coins, $C_1, C_2$ (each have a sample space $\{H, T\}$, and the probability of each outcome is $\frac{1}{2}$). **Assume that $C_1$ and $C_2$ are independent.** Now also assume a third coin $C_3$, where:
+Let's consider a $3$-coin example. Again, assume we have two fair coins, $C_1$ and $C_2$ (each having a sample space of $\{H, T\}$, and the probability of each outcome is $\frac{1}{2}$). **Assume that $C_1$ and $C_2$ are independent.** Now also assume we have a third coin $C_3$, where:
 
-$C_3$ looks at $C_1$ and $C_2$. Then:
+$C_3$ looks at $C_1$ and $C_2$, and checks:
 
-1. If $C_1 = C_2$, then return tails. 
-2. Otherwise, return heads.
+1. If $C_1 = C_2$, then $C_3$ return tails. 
+2. Otherwise, $C_3$ return heads.
 
 So again, if we listed out the sequence of outcomes and their probabilities with a tree, it looks like this:
 
@@ -529,8 +530,10 @@ Let's look at a few events, and their probabilities. What are the following sets
 
 (**Question 2**) What about the second one? Well, we could manually go through each outcome and find that the only one is $(T, H, H)$. Alternatively, we could also think first about the event that $C_2$ is heads. This is the set of outcomes $\{(H, H, T), (T, H, H)\}$. Also, similar to the previous question, we know that the the event where the first coin $C_1$ is tails is the set $\{(T, H, H), (T, T, T)\}$.
 
-So alternatively, we can think of this as the set
+So alternatively, we can think of this as the set:
+
 $$E_2  = \{(H, H, T), (T, H, H)\} \cap \{(T, H, H), (T, T, T)\} = \{(T, H, H)\}$$
+
 Both methods work.
 
 (**Question 3**) The third one works in a similar way, but basically the only option is $(T, H, H)$. So the event $E_3 = \{(T, H, H)\}$.
@@ -550,7 +553,7 @@ Okay, what was the point of all this? Let's explore which coins are independent.
 2. $D_2$ be the event that $C_2 = H$
 3. $D_3$ be the event that $C_3 = H$
 
-So again, here are the respective sets:
+Again, here are the respective sets:
 
 1. $D_1 = \{(H, H, T), (H, T, H)\}$
 2. $D_2 = \{(H, H, T), (T, H, H)\}$
@@ -561,7 +564,7 @@ And let's consider the following 2 questions:
 1. Are events $D_1$ and $D_3$ independent of each other?
 2. Are events $D_1, D_2$ and $D_3$ independent of each other?
 
-You might think the answer is no to both, after all coin $C_3$ does look at coins $C_1$ and $C_2$. But it turns out, based on our definition, events $D_1$ and $D_3$ are actually independent of each other! Let's see this formally:
+You might think the answer is "no" to both—after all, coin $C_3$ does look at coins $C_1$ and $C_2$. But it turns out, based on our definition, events $D_1$ and $D_3$ are actually independent of each other! Let's see this formally:
 
 $$
 \begin{align*}
@@ -570,7 +573,6 @@ $$
 $$
 
 Since $\Pr[D_1 \cap D_3] = \Pr[D_1] \cdot \Pr[D_3]$, the two events are independent. This might be a little counter-intuitive but yet mathematically it checks out.
-
 
 However, it is still true that events $D_1, D_2$ and $D_3$ are not independent of each other. Let's also see this formally:
 
