@@ -195,7 +195,7 @@ Given a graph $G = (V, E)$ that has $|E| = t$ edges, how many edges does $\bar{G
 >[!note] Solution
 >The maximum number of edges possible is $\binom{\lvert V \rvert}{2}$, where there exists an edge between any two vertices in $V$. 
 >
->Hence, if $G$ has $t$ edges, then $\bar{G}$ must have $\binom{\lvert V \rvert}{2} - t$ edges.
+>Hence, if $G$ has $t$ edges, then $\bar{G}$ must have ==$\binom{\lvert V \rvert}{2} - t$== edges.
 
 ---
 # Question 5 \[Graded for Participation]:
