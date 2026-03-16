@@ -204,11 +204,19 @@ Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes 
 
 
 >[!note] Solution
->From the lecture notes, we know that a full $k$-ary tree of height $h$ has $1$ node at level 0, $k$ nodes at level 1, $k^2$ nodes at level 2, and so on. Hence, the number of nodes in the tree is $$1 + k + k^2 + k^3 + \dots + k^h = \frac{k^{h+1}-1}{k-1}$$
+>From the lecture notes, we know that a full $k$-ary tree of height $h$ has $1$ node at level 0, $k$ nodes at level 1, $k^2$ nodes at level 2, and so on. Hence, the number of nodes in the tree is:
 >
->Observe that each node has $1$ edge to its parent, except for the root node (which has no parents). Hence, the number of edges in the tree is $$\frac{k^{h+1}-1}{k-1} - 1$$
+> $$
+> 1 + k + k^2 + k^3 + \dots + k^h = \frac{k^{h+1}-1}{k-1}
+> $$
 >
->The number of leaves is simply the number of nodes at the $h^{th}$ level, which is $k^h$.
+>Observe that each node has $1$ edge to its parent, except for the root node (which has no parents). Hence, the number of edges in the tree is:
+>
+> $$
+> \frac{k^{h+1}-1}{k-1} - 1
+> $$
+>
+>The number of leaves is simply the number of nodes at the $h^{\text{th}}$ level, which is $k^h$.
 
 ---
 # Question 6:
