@@ -425,7 +425,7 @@ Here's an example of a relation that is **not** reflexive. Let $A = \{(x, y) \in
 
 In English:
 
-> For all possible $a \in A$ and $b \in B$, **if** $a$ is related to $b$ via relation $R$, then $b$ must be related to $a$ via relation $R$ too.
+> For all possible $a \in A$ and $b \in A$, **if** $a$ is related to $b$ via relation $R$, then $b$ must be related to $a$ via relation $R$ too.
 
 Notice here this means that if we chose some values $a$ and $b$ such that $a$ is **not** related to $b$, we don't care whether $b$ is related to $a$ or not.
 
@@ -490,7 +490,7 @@ Let's look at the formal proof now.
 
 In English:
 
-> For all possible $a \in A$ and $b \in B$, **if** ($a$ is related to $b$ via relation $R$, and also $b$ is related to $a$ via relation $R$) **then** $a = b$.
+> For all possible $a \in A$ and $b \in A$, **if** ($a$ is related to $b$ via relation $R$, and also $b$ is related to $a$ via relation $R$) **then** $a = b$.
 
 That's the standard way that is it written, but I find that confusing for newcomers. We can instead write it as the following (since it is logically equivalent):
 
