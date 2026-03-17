@@ -70,23 +70,25 @@ Determine which of the following quantified statements are true:
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
 ---
-# Question 4 (3 marks):
+# Question 3 (3 marks):
 
 Given the following lemmas:
 
->[!Lemma]
+>[!info] Lemma 1
 > $\forall x \in A \ [P(x) \lor Q(x)]$
 
->[!Lemma]
+>[!info] Lemma 2
 > $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$
 
->[!Lemma]
+>[!info] Lemma 3
 > $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$
+
+where $P$, $Q$ and $R$ are properties about elements in $A$.
 
 Prove that:
 
 $$
-\forall s \in A, \exists t \in A [R(s, t)]
+\forall s \in A, \exists t \in A \ [R(s, t)]
 $$
 
 ---

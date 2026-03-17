@@ -91,18 +91,20 @@ You do not have to give a formal proof of the statements; you may simply state w
 
 
 ---
-# Question 4 (3 marks):
+# Question 3 (3 marks):
 
 Given the following lemmas:
 
->[!Lemma]
+>[!info] Lemma 1
 > $\forall x \in A \ [P(x) \lor Q(x)]$
 
->[!Lemma]
+>[!info] Lemma 2
 > $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$
 
->[!Lemma]
+>[!info] Lemma 3
 > $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$
+
+where $P$, $Q$ and $R$ are properties about elements in $A$.
 
 Prove that:
 
@@ -110,20 +112,21 @@ $$
 \forall s \in A, \exists t \in A [R(s, t)]
 $$
 
-1. Let $a \in A$, arbitrarily chosen.
-2. $\forall x \in A \ [P(x) \lor Q(x)]$ \[Using lemma]
-3. $P(a) \lor Q(a)$ \[Universal instantiation on line 1, 2]
-4. Case 1: Assume $P(a)$
-	1. $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$ \[Using lemma]
-	2. $P(a) \to \exists y \in A [R(a, y)]$ \[Universal instantiation on line 1, 4.1]
-	3. $\exists y \in A[R(a, y)]$ \[Modus ponens on lines 4, 4.2]
-5. Case 2: Assume $Q(a)$
-	1. $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$ \[Using lemma]
-	2. $Q(a) \to R(a, a)$ \[Universal instantiation on line 1, 5.1]
-	3. $R(a, a)$ \[Modus ponens on lines 5, 5.2]
-	4. $\exists y \in A[R(a, y)]$ \[Existential generalisation on lines 1, 5.3]
-6. $\exists y \in A[R(a, y)]$ \[Proof by cases on lines 3, 4.3, 6.4]
-7. $\forall s \in A, \exists t \in A [R(a, y)]$ \[Universal generalisation on lines 1, 6]
+>[!note] Proof
+>1. Let $a \in A$ be arbitrarily chosen.
+>2. $\forall x \in A \ [P(x) \lor Q(x)]$ \[Lemma 1]
+>3. $P(a) \lor Q(a)$ \[Universal instantiation on lines 1 and 2]
+>4. Case 1: Assume $P(a)$.
+>		1. $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$ \[Lemma 2]
+>		2. $P(a) \to \exists y \in A \ [R(a, y)]$ \[Universal instantiation on lines 1 and 4.1]
+>		3. $\exists y \in A \ [R(a, y)]$ \[Modus ponens on lines 4 and 4.2]
+>5. Case 2: Assume $Q(a)$.
+>		1. $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$ \[Lemma 3]
+>		2. $Q(a) \to R(a, a)$ \[Universal instantiation on lines 1 and 5.1]
+>		3. $R(a, a)$ \[Modus ponens on lines 5 and 5.2]
+>		4. $\exists y \in A \ [R(a, y)]$ \[Existential generalisation on lines 1 and 5.3]
+>6. $\exists y \in A \ [R(a, y)]$ \[Proof by cases on lines 3, 4.3, 6.4]
+>7. $\forall s \in A, \exists t \in A \ [R(a, y)]$ \[Universal generalisation on lines 1 and 6]
 
 ---
 
