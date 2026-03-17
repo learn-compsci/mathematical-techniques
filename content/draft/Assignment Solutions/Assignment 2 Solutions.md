@@ -1,5 +1,5 @@
 
-This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 5 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Monday, 13 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
@@ -7,7 +7,7 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 
 # How to submit:
 - Submit online on Canvas. There will be a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
-* **Official due date for submission**: **5 Apr 2026, 11:59 PM**
+* **Official due date for submission**: **13 Apr 2026, 11:59 PM**
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
@@ -28,6 +28,7 @@ Write the following sets in **set-roster notation**:
 2. $A \setminus (B \setminus C)$
 3. $A \cap (B \setminus C)$
 
+
 >[!note] Solutions
 >1. $A \cap B = \{2, 4\}$
 >2. $A \setminus (B \setminus C) = A \setminus \emptyset = \{1, 2, 3, 4, 5\}$
@@ -47,6 +48,7 @@ $$
 
 Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such that $(a,a) \notin R$.
 
+
 >[!note] Solution
 >$R$ is **not reflexive**.
 >
@@ -55,6 +57,7 @@ Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such 
 ### Sub-part 2 \[4 marks]
 
 Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$ such that $(a, b) \in R \land (b, c) \in R \land (a, c) \notin R$.
+
 
 >[!note] Solution
 >1. For $R$ to be transitive, we need the following to be true:
@@ -65,17 +68,17 @@ Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$
 >
 >2. Let $a, b, c \in \mathbb{Z}$ be arbitrarily chosen. We will now show that $\neg \big( (a, b) \in R \land (b, c) \in R \big)$.
 >3. Suppose, for the sake of contradiction, that $\neg \bigg( \neg \big( (a, b) \in R \land (b, c) \in R \big) \bigg)$.
->	1. $(a, b) \in R \land (b, c) \in R$ \[Double negation rule on line 3]
->	2. $(a, b) \in R$ \[Specialisation on line 3.1]
->	3. $a < 0 \land b > 0$ \[Definition of $R$]
->	4. $b > 0$ \[Specialisation on line 3.3]
->	5. $(b, c) \in R$ \[Specialisation on line 3.1]
->	6. $b < 0 \land c > 0$ \[Definition of $R$]
->	7. $b < 0$ \[Specialisation on line 3.6]
->	8. $\neg (b > 0)$ \[By basic algebra on line 3.7]
->	9. $(b > 0) \land \neg (b > 0)$ \[Conjunction on lines 3.4 and 3.8]
->	10. $\bot$. \[Contradiction rule on line 3.9]
->	11. $\neg \big( (a, b) \in R \land (b, c) \in R \big)$ \[Proof by contradiction on line 3.10]
+>		1. $(a, b) \in R \land (b, c) \in R$ \[Double negation rule on line 3]
+>		2. $(a, b) \in R$ \[Specialisation on line 3.1]
+>		3. $a < 0 \land b > 0$ \[Definition of $R$]
+>		4. $b > 0$ \[Specialisation on line 3.3]
+>		5. $(b, c) \in R$ \[Specialisation on line 3.1]
+>		6. $b < 0 \land c > 0$ \[Definition of $R$]
+>		7. $b < 0$ \[Specialisation on line 3.6]
+>		8. $\neg (b > 0)$ \[By basic algebra on line 3.7]
+>		9. $(b > 0) \land \neg (b > 0)$ \[Conjunction on lines 3.4 and 3.8]
+>		10. $\bot$. \[Contradiction rule on line 3.9]
+>		11. $\neg \big( (a, b) \in R \land (b, c) \in R \big)$ \[Proof by contradiction on line 3.10]
 >4. $\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R$ \[Generalisation on line 3.11]
 >5. $\forall a, b, c \in \mathbb{Z} \ \bigg[\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R \bigg]$ \[Universal generalisation on lines 2 and 4]
 >6. Hence, $R$ is transitive.
@@ -90,19 +93,18 @@ $$
 divides(a, b) \equiv \exists k \in \mathbb{N}\ [a \cdot k = b]
 $$
 
-
-We will relate two numbers $x, y \in \mathbb{N}$, in the following way:
+We will relate two numbers $x, y \in \mathbb{N}$ in the following way:
 
 $$
 R = \bigg\{ (x, y) \in \mathbb{N} 
 \times \mathbb{N} : \exists k \in \mathbb{N}\ \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
 $$
 
-For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{N}$. Whereas $(2, 3) \notin R$, because no such natural number $k \in \mathbb{N}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
+For example, $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{N}$. On the other hand, $(2, 3) \notin R$ because no such natural number $k \in \mathbb{N}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
 
 ### Sub-part 1 \[6 marks]
 
-Is $R$ reflexive? In other words, is it true that 
+Is $R$ reflexive? In other words, is it true that:
 
 $$
 \forall x \in \mathbb{N}\ \big[ (x, x) \in R \big]
@@ -110,17 +112,8 @@ $$
 
 If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
 
-### Sub-part 2 \[6 marks]
 
-Is $R$ anti-symmetric? In other words, is it true that 
-
-$$
-\forall x \in \mathbb{N}, \forall y \in \mathbb{N}\ \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
-$$
-If it is not true, state that it is false, and give an example values $x, y$ for which $(x, y) \in R$ and $(y, x) \in R$, but $x \neq y$. If it is true, prove it.
-
-
->[!note] Sub-question 1
+>[!note] Solution
 >**No**, $R$ is not reflexive. Consider $x = 1 \in \mathbb{N}$. Now, we prove that $(1,1) \notin R$.
 >
 >**Proof:**
@@ -135,11 +128,22 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >9. Case 1: $n = 0$. Then, $m \cdot n = m \cdot 0 = 0 \neq 1$. \[Basic algebra]
 >10. Case 2: $n > 1$. Then, $n \geq 2$, so $m \cdot n \geq 2m \neq 1$. \[Basic algebra]
 >11. Either way, $\neg (m \cdot n = 1)$. \[Proof by cases on lines 8, 9, 10]
->12. $(m \cdot n = 1) \land \neg (m \cdot n = 1)$ \[Conjunction on lines 6, 11]
+>12. $(m \cdot n = 1) \land \neg (m \cdot n = 1)$ \[Conjunction on lines 6 and 11]
 >13. $\bot$. \[Contradiction rule on line 12]
 >14. $(1,1) \notin R$. \[Proof by contradiction on line 13]
 
->[!note] Sub-question 2
+### Sub-part 2 \[6 marks]
+
+Is $R$ anti-symmetric? In other words, is it true that:
+
+$$
+\forall x \in \mathbb{N}, \forall y \in \mathbb{N}\ \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
+$$
+
+If it is not true, state that it is false, and give an example values $x, y$ for which $(x, y) \in R$ and $(y, x) \in R$, but $x \neq y$. If it is true, prove it.
+
+
+>[!note] Solution
 >**No**, $R$ is not anti-symmetric. Consider $x = 8 \in \mathbb{N}$ and $y = 10 \in \mathbb{N}$.
 >
 >**Proof:**
@@ -155,6 +159,7 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >10. $(10,8) \in R$. \[Definition of $R$]
 >11. $8 \neq 10$. \[Basic algebra]
 >12. $R$ is not anti-symmetric. \[Definition of anti-symmetry, from lines 7, 10, 11]
+
 
 ---
 # Question 4 (6 marks):
