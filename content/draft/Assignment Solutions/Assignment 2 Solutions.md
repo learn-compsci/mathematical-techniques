@@ -19,12 +19,11 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 * No late submissions for the assignment allowed.
 
 ---
-# Question 1  \[6 marks]
+# Question 1 (6 marks):
 
-Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}\ [x = 2k] \}$.
+Let $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$ and $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z} \ [x = 2k] \}$.
 
-
-Write in **set roster notation** the following sets:
+Write the following sets in **set-roster notation**:
 1. $A \cap B$
 2. $A \setminus (B \setminus C)$
 3. $A \cap (B \setminus C)$
@@ -37,11 +36,9 @@ Write in **set roster notation** the following sets:
 
 
 ---
-# Question 2  \[6 marks]
-
+# Question 2 (6 marks):
 
 For the following sets, state whether the equality holds or not. If they are equal stating so suffices. If they are not equal, give an example of sets to justify it.
-
 
 **Example question:**
 For example, given the following: $(A \setminus A) \setminus A \stackrel{?}{=} A \setminus (A \setminus A)$ 
@@ -59,7 +56,7 @@ This equality does not hold.  Consider $A = \{1\}$, then the LHS is $\emptyset$,
 
 
 ---
-# Question 3
+# Question 3 (12 marks):
 
 Consider the following predicate:
 
@@ -77,7 +74,8 @@ $$
 
 For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{N}$. Whereas $(2, 3) \notin R$, because no such natural number $k \in \mathbb{N}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
 
-## Sub-question 1: \[6 Marks]
+### Sub-part 1 \[6 marks]
+
 Is $R$ reflexive? In other words, is it true that 
 
 $$
@@ -86,7 +84,8 @@ $$
 
 If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
 
-## Sub-question 2: \[6 Marks]
+### Sub-part 2 \[6 marks]
+
 Is $R$ anti-symmetric? In other words, is it true that 
 
 $$
@@ -132,8 +131,7 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >12. $R$ is not anti-symmetric. \[Definition of anti-symmetry, from lines 7, 10, 11]
 
 ---
-
-# Question 4: \[6 Marks]
+# Question 4 (6 marks):
 
 Prove via mathematical induction that for all $n \geq 1$:
 
