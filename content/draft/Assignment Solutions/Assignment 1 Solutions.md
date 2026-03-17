@@ -74,7 +74,7 @@ Determine which of the following quantified statements are true:
 1. $\exists b \in B \ [b < 1]$
 2. $\exists a \in A, \forall b \in B \ [a > b]$
 3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$
-4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$ 
+4. $\exists c \in B, \forall \textcolor{blue}{b \in B}, \exists \textcolor{red}{a \in A} \ [\textcolor{red}{a} + \textcolor{blue}{b} = c]$ 
 
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
@@ -82,12 +82,12 @@ You do not have to give a formal proof of the statements; you may simply state w
 >1. **False**; none of the elements of $B$ are strictly less than $1$.<br></br>
 >2. **False**; there is no single element of $A$ that is strictly greater than every element of $B$ (e.g., $8 \in A$ is greater than $1, 3, 5, 7 \in B$, but $8 \ngtr 9$).<br></br>
 >3. **True**; this statement is logically equivalent to: $\forall a \in A \ \big[\forall b \in B \ [\neg odd(ab)] \big]$. No matter which element $a \in A$ is chosen and which element $b \in B$ is chosen, $ab$ will never be odd, so the statement is true.<br></br>
->4. **True**; consider $c = 9 \in B$. Then, we can look through the elements of $B$ and verify that:
->	- $8 + 1 = c$
->	- $6 + 3 = c$
->	- $4 + 5 = c$
->	- $2 + 7 = c$
->	- $0 + 9 = c$
+>4. **True**; consider $c = 9 \in B$. Then, we can look through the elements of $\textcolor{blue}{B}$ and verify that:
+>	- $\textcolor{red}{8} + \textcolor{blue}{1} = c$
+>	- $\textcolor{red}{6} + \textcolor{blue}{3} = c$
+>	- $\textcolor{red}{4} + \textcolor{blue}{5} = c$
+>	- $\textcolor{red}{2} + \textcolor{blue}{7} = c$
+>	- $\textcolor{red}{0} + \textcolor{blue}{9} = c$
 
 
 ---
@@ -128,51 +128,56 @@ $$
 >6. $\exists y \in A \ [R(a, y)]$ \[Proof by cases on lines 3, 4.3, 6.4]
 >7. $\forall s \in A, \exists t \in A \ [R(a, y)]$ \[Universal generalisation on lines 1 and 6]
 
+
 ---
 
 # Question 4 (6 marks):
 
-In this question let's explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets, and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
+In this question, we'll explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
 
 
 >[!Example]
-> **Question:** Assuming $\exists x \in A, \forall y \in A [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A [ P(y, x) ]$?
+> **Question:** Assuming $\exists x \in A, \forall y \in A \ [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A \ [ P(y, x) ]$?
 > 
 > **Answer:** True.
 > >[!Proof]
-> > 1. Assume $\exists x \in A, \forall y \in A [P(x, y)]$.
-> > 2. Let $c \in A$ be such that $\forall y \in A [P(c, y)]$. \[Existential instantiation on line 1]
-> > 3. Let $b \in A$, arbitrarily chosen.
+> > 1. Assume $\exists x \in A, \forall y \in A \ [P(x, y)]$.
+> > 2. Let $c \in A$ be such that $\forall y \in A \ [P(c, y)]$. \[Existential instantiation on line 1]
+> > 3. Let $b \in A$ be arbitrarily chosen.
 > > 4. Consider $c \in A$.
-> > 5. $P(c, b)$ \[Universal Instantiation on lines 2, 3]
-> > 6. $\exists y \in A[P(y, b)]$ \[Existential generalisation on lines 4, 5]
-> > 7. $\forall x \in A, \exists y \in A[P(y, x)]$ \[Universal generalisation on lines 3, 6]
+> > 5. $P(c, b)$ \[Universal instantiation on lines 2 and 3]
+> > 6. $\exists y \in A\ [P(y, b)]$ \[Existential generalisation on lines 4 and 5]
+> > 7. $\forall x \in A, \exists y \in A \ [P(y, x)]$ \[Universal generalisation on lines 3 and 6]
 
 
 >[!Example]
-> **Question:** Assuming $\forall x \in A [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A [ P(x) ]$?
+> **Question:** Assuming $\forall x \in A \ [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A \ [ P(x) ]$?
 > **Answer:** False
 > >[!Proof]
 > > 
-> > Consider $A = \{1, 2\}$. And $P(x) \equiv x = 1$ and $Q(x) \equiv x = 2$.
-> > Then $\forall x \in A [ P(x) \lor Q(x)]$ is true but  $\forall x \in A [ P(x) ]$ is false.
+> > Consider $A = \{1, 2\}$, and define predicates $P(x) \equiv (x = 1)$ and $Q(x) \equiv (x = 2)$.
+> > Then $\forall x \in A \ [P(x) \lor Q(x)]$ is true, but  $\forall x \in A \ [ P(x) ]$ is false.
 
+### Sub-part 1 \[3 marks]: 
 
-### Sub-part 1: 
+Assuming $\exists x \in A \ [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A \ [P(z)]$?
 
-Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(z)]$?
+>[!note] Solution
+>**True**.
+>1. Assume $\exists x \in A \ [ P(x) \land Q(x) ]$.
+>2. Let $c \in A$ be such that $P(c) \land Q(c)$. \[Existential instantiation on line 1]
+>3. $P(c)$ \[Specialisation on line 2]
+>4. $\exists x \in A \ [P(x)]$ \[Existential generalisation on lines 1 and 3]
 
-True.
+### Sub-part 2 \[3 marks]:
 
-1. Assume $\exists x \in A [ P(x) \land Q(x) ]$
-2. Let $c \in A$ be such that $P(c) \land Q(c)$ \[Existential instantiation on line 1]
-3. P$(c)$ \[Specialisation on line 2]
-4. $\exists x \in A[P(x)]$ \[Existential generalisation on lines 1, 3]
-### Sub-part 2: 
+Assuming $\forall x \in A, \exists y \in A \ [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A \ [P(x, y)]$?
 
-Assuming $\forall x \in A, \exists y \in A [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
-
-False.  Consider $A = \mathbb{Z}$, and $P(a, b) \equiv a > b$.
-
-Then $\forall x \in A, \exists y \in A [ P(y, x) ]$ is true, since we can always find larger integers.
-But $\exists x \in A, \forall y \in A [P(x, y)]$ is false, since it's only true if there is a "largest" integer in the set of integers.
+>[!note] Solution
+>**False**.
+>
+>Consider $A = \mathbb{Z}$, and define the predicate $P(a, b) \equiv (a > b)$.
+>
+>Then, $\forall x \in A, \exists y \in A \ [ P(y, x) ]$ is true, since given a particular integer $x$, we can always find a larger integer $y$ (e.g., $y := x + 1$).
+>
+>However, $\exists x \in A, \forall y \in A \ [P(x, y)]$ is false, since it's only true if there is a "largest" integer in the set of integers.

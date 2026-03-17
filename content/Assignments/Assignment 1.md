@@ -95,37 +95,36 @@ $$
 
 # Question 4 (6 marks):
 
-In this question let's explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets, and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
+In this question, we'll explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
 
 
 >[!Example]
-> **Question:** Assuming $\exists x \in A, \forall y \in A [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A [ P(y, x) ]$?
+> **Question:** Assuming $\exists x \in A, \forall y \in A \ [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A \ [ P(y, x) ]$?
 > 
 > **Answer:** True.
 > >[!Proof]
-> > 1. Assume $\exists x \in A, \forall y \in A [P(x, y)]$.
-> > 2. Let $c \in A$ be such that $\forall y \in A [P(c, y)]$. \[Existential instantiation on line 1]
-> > 3. Let $b \in A$, arbitrarily chosen.
+> > 1. Assume $\exists x \in A, \forall y \in A \ [P(x, y)]$.
+> > 2. Let $c \in A$ be such that $\forall y \in A \ [P(c, y)]$. \[Existential instantiation on line 1]
+> > 3. Let $b \in A$ be arbitrarily chosen.
 > > 4. Consider $c \in A$.
-> > 5. $P(c, b)$ \[Universal Instantiation on lines 2, 3]
-> > 6. $\exists y \in A[P(y, b)]$ \[Existential generalisation on lines 4, 5]
-> > 7. $\forall x \in A, \exists y \in A[P(y, x)]$ \[Universal generalisation on lines 3, 6]
+> > 5. $P(c, b)$ \[Universal instantiation on lines 2 and 3]
+> > 6. $\exists y \in A\ [P(y, b)]$ \[Existential generalisation on lines 4 and 5]
+> > 7. $\forall x \in A, \exists y \in A \ [P(y, x)]$ \[Universal generalisation on lines 3 and 6]
 
 
 >[!Example]
-> **Question:** Assuming $\forall x \in A [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A [ P(x) ]$?
+> **Question:** Assuming $\forall x \in A \ [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A \ [ P(x) ]$?
 > **Answer:** False
 > >[!Proof]
 > > 
-> > Consider $A = \{1, 2\}$. And $P(x) \equiv x = 1$ and $Q(x) \equiv x = 2$.
-> > Then $\forall x \in A [ P(x) \lor Q(x)]$ is true but  $\forall x \in A [ P(x) ]$ is false.
+> > Consider $A = \{1, 2\}$, and define predicates $P(x) \equiv (x = 1)$ and $Q(x) \equiv (x = 2)$.
+> > Then $\forall x \in A \ [P(x) \lor Q(x)]$ is true, but  $\forall x \in A \ [ P(x) ]$ is false.
 
+### Sub-part 1 \[3 marks]: 
 
-### Sub-part 1: 
+Assuming $\exists x \in A \ [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A \ [P(z)]$?
 
-Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(z)]$?
+### ### Sub-part 2 \[3 marks]: 
 
-### Sub-part 2: 
-
-Assuming $\forall x \in A, \exists y \in A [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
+Assuming $\forall x \in A, \exists y \in A \ [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
 
