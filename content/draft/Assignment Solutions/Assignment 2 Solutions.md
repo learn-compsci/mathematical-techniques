@@ -28,7 +28,6 @@ Write the following sets in **set-roster notation**:
 2. $A \setminus (B \setminus C)$
 3. $A \cap (B \setminus C)$
 
-
 >[!note] Solutions
 >1. $A \cap B = \{2, 4\}$
 >2. $A \setminus (B \setminus C) = A \setminus \emptyset = \{1, 2, 3, 4, 5\}$
@@ -38,21 +37,48 @@ Write the following sets in **set-roster notation**:
 ---
 # Question 2 (6 marks):
 
-For the following sets, state whether the equality holds or not. If they are equal stating so suffices. If they are not equal, give an example of sets to justify it.
+For this question, consider the following relation $R \subseteq \mathbb{Z} \times \mathbb{Z}$:
 
-**Example question:**
-For example, given the following: $(A \setminus A) \setminus A \stackrel{?}{=} A \setminus (A \setminus A)$ 
+$$
+R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} : a < 0 \land b > 0 \}
+$$
 
-**Example answer:**
-This equality does not hold.  Consider $A = \{1\}$, then the LHS is $\emptyset$, and the RHS is $A$. Since $\emptyset \neq A$, the equality does not hold.
+### Sub-part 1 \[2 marks]
 
-1. $(A \cup A) \cap (B \setminus A) \stackrel{?}{=} (B \setminus A)$
-2. $\{ x \in \mathbb{Z} : x^2 \leq 4 \} \stackrel{?}{=} \{ x \in \mathbb{Z} : x \leq 2 \}$
+Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such that $(a,a) \notin R$.
 
+>[!note] Solution
+>$R$ is **not reflexive**.
+>
+>Consider $a = 1$. Then, $1 < 0$ but $1 \ngtr 0$, and so $(1, 1) \notin R$.
 
->[!note] Solutions
->1. **False**. Consider $A = \emptyset$ and $B = \{1\}$. Then, $(A \cup A) \cap (B \setminus A) = \emptyset \cap \{1\} = \emptyset \neq \{1\} = B \setminus A$.
->2. **False**. $-3 \in \{x \in \mathbb{Z} : x \leq 2\}$ since $-3 \leq 2$, but $-3 \notin \{x \in \mathbb{Z} : x^2 \leq 4\}$ since $(-3)^2 = 9 > 4$.
+### Sub-part 2 \[4 marks]
+
+Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$ such that $(a, b) \in R \land (b, c) \in R \land (a, c) \notin R$.
+
+>[!note] Solution
+>1. For $R$ to be transitive, we need the following to be true:
+>
+> $$
+> \forall a, b, c \in \mathbb{Z} \ \bigg[\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R \bigg]
+> $$
+>
+>2. Let $a, b, c \in \mathbb{Z}$ be arbitrarily chosen. We will now show that $\neg \big( (a, b) \in R \land (b, c) \in R \big)$.
+>3. Suppose, for the sake of contradiction, that $\neg \bigg( \neg \big( (a, b) \in R \land (b, c) \in R \big) \bigg)$.
+>	1. $(a, b) \in R \land (b, c) \in R$ \[Double negation rule on line 3]
+>	2. $(a, b) \in R$ \[Specialisation on line 3.1]
+>	3. $a < 0 \land b > 0$ \[Definition of $R$]
+>	4. $b > 0$ \[Specialisation on line 3.3]
+>	5. $(b, c) \in R$ \[Specialisation on line 3.1]
+>	6. $b < 0 \land c > 0$ \[Definition of $R$]
+>	7. $b < 0$ \[Specialisation on line 3.6]
+>	8. $\neg (b > 0)$ \[By basic algebra on line 3.7]
+>	9. $(b > 0) \land \neg (b > 0)$ \[Conjunction on lines 3.4 and 3.8]
+>	10. $\bot$. \[Contradiction rule on line 3.9]
+>	11. $\neg \big( (a, b) \in R \land (b, c) \in R \big)$ \[Proof by contradiction on line 3.10]
+>4. $\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R$ \[Generalisation on line 3.11]
+>5. $\forall a, b, c \in \mathbb{Z} \ \bigg[\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R \bigg]$ \[Universal generalisation on lines 2 and 4]
+>6. Hence, $R$ is transitive.
 
 
 ---

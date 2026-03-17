@@ -31,12 +31,18 @@ Write the following sets in **set-roster notation**:
 ---
 # Question 2 (6 marks):
 
-For this question, consider the following relation $R \subseteq \mathbb{Z} \times \mathbb{Z}$, where $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} : a < 0 \land b > 0 \}$.
+For this question, consider the following relation $R \subseteq \mathbb{Z} \times \mathbb{Z}$:
 
-#### Sub-part 1:
+$$
+R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} : a < 0 \land b > 0 \}
+$$
+
+### Sub-part 1 \[2 marks]
+
 Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such that $(a,a) \notin R$.
 
-#### Sub-part 2:
+### Sub-part 2 \[4 marks]
+
 Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$ such that $(a, b) \in R \land (b, c) \in R \land (a, c) \notin R$.
 
 ---
