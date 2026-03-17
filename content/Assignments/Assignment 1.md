@@ -124,7 +124,7 @@ In this question, we'll explore some more properties about quantified statements
 
 Assuming $\exists x \in A \ [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A \ [P(z)]$?
 
-### ### Sub-part 2 \[3 marks]: 
+### Sub-part 2 \[3 marks]: 
 
 Assuming $\forall x \in A, \exists y \in A \ [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
 
