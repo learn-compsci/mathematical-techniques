@@ -127,7 +127,7 @@ Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes 
 ---
 # Question 6:
 
-Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make (assuming that clockwise and anticlockwise cycles are considered the same)?
 
 ---
 # Question 7:

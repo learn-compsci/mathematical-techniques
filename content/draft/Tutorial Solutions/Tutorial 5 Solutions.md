@@ -221,12 +221,12 @@ Given a graph $G$ that is a **full** $k$-ary tree of height $h$. How many nodes 
 ---
 # Question 6:
 
-Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make?
+Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make (assuming that clockwise and anticlockwise cycles are considered the same)?
 
 >[!note] Solution
-> Let's think about what happens if we had $3$ nodes first. Let's call them $a, b, c$. So the only possible cycle is $a \to b \to c \to a$. Think of going forwards as the same as going backwards. This is actually, again, a circular arrangement! Just like in [[#Question 3]].
+> Let's think about what happens if we had $3$ nodes first. Let's call them $a$, $b$ and $c$. Then, the only possible cycle is $a \to b \to c \to a$. Think of going forwards as the same as going backwards. This is actually, again, a circular arrangement! Just like in [[#Question 3]].
 > 
-> Another example, let's say we had $4$ nodes, let's call them $a, b, c, d$. Then there are actually $4!/4 = 6$ possible cycles we can make (if we didn't care about clock-wise vs anti-clock-wise): 
+> Another example, let's say we had $4$ nodes, let's call them $a, b, c, d$. Then there are actually $4!/4 = 6$ possible cycles we can make (if we didn't care about clockwise vs anticlockwise): 
 > 
 > 1. $a \to b \to c \to d \to a$.
 > 2. $a \to c \to b \to d \to a$.
