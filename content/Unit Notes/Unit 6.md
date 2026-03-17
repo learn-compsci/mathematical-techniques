@@ -2,28 +2,41 @@
 title: "Unit 6: Combinatorics"
 ---
 # Overview
-In this unit, we will start moving onto topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
+
+In this unit, we will start moving on to topics that are very distinct from proofs and far closer to the traditional topics in math that are useful in computer science. To do this, we will first begin with combinatorics! Think of this as an advanced way of _counting_. The reason why this is useful is because when it comes to analysing certain mathematical constructs, or when it comes to counting how many cases our programs have to deal with, the techniques here the ones we fall back on.
 
 We have broken this unit up into 4 parts:
 
-1. Basic Counting
-2. Principle of Inclusion-Exclusion
-3. Permutations and Combinations
-4. Applying Combinatorics for Problem Solving
+1. [[#Part 1 Basic Counting|Basic counting]]
+2. [[#Principle of Inclusion-Exclusion|Principle of Inclusion-Exclusion]]
+3. [[#Part 3 Permutations and Combinations|Permutations and Combinations]]
+4. [[#Part 4 Applying Combinatorics|Solving problems with combinatorics]]
+5. [[#Part 5 A Sense of Scale|Applications of combinatorics in the real world]]
 
-# Counting Based on Sets
+---
+# Part 1: Basic Counting
 
-Let's begin by simplifying things a little bit, for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. So given a set $A$, the size of a set is written as $\lvert A \rvert$.
+Let's begin by simplifying things a little bit—for now let's just count items in sets. Since we are counting, we need to talk about the size of sets. Hence, given a set $A$, we denote the size of the set as $\lvert A \rvert$.
 
-So for example: $\lvert \{a, b, 2, 100\}\rvert = 4$ since this set has $4$ items. Also since $\emptyset$ is empty, this means that it holds no items, so $\lvert \emptyset \rvert = 0$. We won't consider infinitely sized sets, so we won't be talking about what $\lvert \mathbb{Z} \rvert$ is.
+For example:
+- $\lvert \{a, b, 2, 100\}\rvert = 4$ since this set has $4$ items.
+- Since $\emptyset$ is empty, this means that it holds no items, so $\lvert \emptyset \rvert = 0$.
 
-## Basic Counting Techniques
+We won't consider infinitely sized sets, so we won't be talking about what $\lvert \mathbb{Z} \rvert$ is.
 
-So let's start with the most general ideas that will be repeated for the next few weeks: adding disjoint and multiplying successive choices.
+>[!tldr]+ Counting techniques covered
+>- [[#Rule of sum Adding disjoint cases|Rule of sum]]
+>- [[#Rule of product Multiplying successive choices|Rule of product]]
+>- [[#Rule of division]]
+>- [[#Subtracting cases]]
+>- [[#Counting consecutive numbers]]
+>- [[#Counting multiples]]
 
-### Rule of Sum: Adding Disjoint Cases
+Let's start with the most general ideas that will be repeated for the next few weeks: adding disjoint and multiplying successive choices.
 
-Let's say we had two sets, $A$ and $B$ that had no common elements. That is to say, $A \cap B = \emptyset$. We  call these two sets **disjoint**.
+### Rule of sum: Adding disjoint cases
+
+Let's say we had two sets $A$ and $B$ that had no common elements. That is to say, $A \cap B = \emptyset$. We  call these two sets **disjoint**.
 
 So what is the size of $A \cup B$? In other words, if we knew three things:
 
@@ -31,7 +44,10 @@ So what is the size of $A \cup B$? In other words, if we knew three things:
 2. $\lvert B\rvert = n$
 3. $A \cap B = \emptyset$
 
-What is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
+Then what is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
+
+>[!info] Definition: Rule of sum (two sets)
+> Given two sets $A$ and $B$ such that $|A| = m$, $|B| = n$ and $A \cup B = \emptyset$, then $|A \cup B| = m + n$.
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \{10, 11, 12\}$. Then $A \cap B = \emptyset$.
@@ -41,17 +57,16 @@ What is $\lvert A \cup B \rvert$? Well, $\lvert A \cup B \rvert = m + n$.
 > Let $A = \emptyset$ and $B = \{10, 11, 12\}$. Then $A \cap B = \emptyset$.
 > So $\lvert A \rvert + \lvert B \rvert = 0 + 3 = 3$.
 
-
 What about in general? What if we had $3$ sets? What if we had $10$ sets? What should the condition be? This is a little subtle.
 
-Let's try this for $3$ sets. Let's say we had $3$ sets $A, B, C$ for which:
+Let's try this for three sets $A, B, C$ for which:
 
 1. $\lvert A\rvert = m$
 2. $\lvert B\rvert = n$
 3. $\lvert C\rvert = \ell$
 4. $A \cap B \cap C = \emptyset$
 
-Can we conclude that $\lvert A \cup B \cup C\rvert = m + n + \ell$? Feels very tempting for us to conclude so, after all the sets are disjoint right?
+Can we conclude that $\lvert A \cup B \cup C\rvert = m + n + \ell$? Feels very tempting for us to conclude so—after all, the sets are disjoint right?
 
 What about the following example of sets?
 
@@ -65,7 +80,7 @@ $A = \{2, 4, 6\}$, $B = \{3, 6\}$, $C = \{3, 5\}$. Now notice that $A \cap B \ca
 
 So $\lvert A \rvert = 3$, $\lvert B \rvert = \lvert C \rvert = 2$. So we expect $3 + 2 + 2 = 7$ elements. But $\lvert A \cup B \cup C\rvert = 5$. So our condition here isn't quite right. Where did we go wrong?
 
-Let's think of it this way. We **want** to use the fact that when $2$ sets are disjoint, we can just add their sizes together. How should we use this to work on $3$ sets? Let's consider an alternative set of conditions:
+Let's think of it this way. We **want** to use the fact that when two sets are disjoint, we can just add their sizes together. How should we use this to work on three sets? Let's consider an alternative set of conditions:
 
 1. $\lvert A\rvert = m$
 2. $\lvert B\rvert = n$
@@ -74,19 +89,18 @@ Let's think of it this way. We **want** to use the fact that when $2$ sets are d
 5. $A \cap C = \emptyset$
 6. $B \cap C = \emptyset$
 
-From conditions 4, 5, and 6, we can derive the following lemma:
+From conditions 4, 5 and 6, we can derive the following lemma:
 
-**Lemma 1:**
-$$
-\begin{align*}
-(A \cup B) \cap C &= (A \cap C) \cup (B \cap C)\\
-				  &= \emptyset \cup \emptyset\\
-				  &= \emptyset
-\end{align*}
-$$
+>[!Lemma 1]
+> $$
+> \begin{align*}
+> (A \cup B) \cap C &= (A \cap C) \cup (B \cap C)\\
+> 				&= \emptyset \cup \emptyset\\
+> 				&= \emptyset
+> \end{align*}
+> $$
 
-So what does this mean? It means that the set $A \cup B$ and the set $C$ is **disjoint**! This means that $\lvert (A \cup B) \cup C\rvert = \rvert (A \cup B) \rvert + \lvert C \rvert$. 
-
+So what does this mean? It means that the set $A \cup B$ and the set $C$ is **disjoint**! This means that $\lvert (A \cup B) \cup C\rvert = |A \cup B| + \lvert C \rvert$. 
 
 So let's try counting again:
 
@@ -100,36 +114,37 @@ $$
 
 Now it works! So what about between more sets? Here's the general statement:
 
-Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that:
+>[!info] Definition: Rule of sum ($n$ sets)
+>Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that:
+>1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$ (i.e., the $i^{\text{th}}$ set has size $s_i$).
+>2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \cap A_j = \emptyset$ (i.e., any two distinct sets are **disjoint**).
+>
+>Then, $\sum_{i = 1}^n s_i = \lvert A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n\rvert$.
 
-1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$                                             (the $i^{th}$ set has size $s_i$)
-2. $\forall i \in [n]$, $\forall j \in [n]$, if $i \neq j$, then $A_i \cap A_j = \emptyset$     (any two distinct sets are **disjoint**)
+ The size of the all of the sets is just their individual sizes added up.
 
-Then, $\sum_{i = 1}^n s_i = \lvert A_1 \cup A_2 \cup A_3 \cup \dots \cup A_n\rvert$. The size of the all of the sets is just their individual sizes added up.
+**Conclusion:** So what's the conclusion here? Think of it this way, when we could make either choices from set $A$ **or** choices from set $B$, where $A$ and $B$ are disjoint, then we can just add them up.
 
+### Rule of product: Multiplying successive choices
 
-**Conclusion:** So what's the conclusion here? Think of it this way, when we could make either choices from set $A$ **or** choices from set $B$, where $A$ and $B$ are disjoint. Then we can just add them up.
-
-### Rule of Product: Multiplying Successive Choices
-
-Okay, what about considering making a sequence of choices? Given two sets $A$, $B$ (this time not necessarily disjoint), how do we count how many ways are there to make a choice from $A$ **and then** a choice from $B$?
+What about making a sequence of choices? Given two sets $A$ and $B$ (this time not necessarily disjoint), how do we count how many ways are there to make a choice from $A$ **and then** a choice from $B$?
 
 This one is a little more straightforward. After all, we've actually made sets that actually represent this!
 
-To make a choice from $A$ **and then** a choice from $B$ is to ask, how many pairs there are from $A$ and then $B$, i.e.,
+To make a choice from $A$ **and then** a choice from $B$ is to ask: "How many pairs there are from $A$ and then $B$?", i.e.,
+
 $$
 \begin{align*}
 A \times B
 \end{align*}
 $$
 
-So we are essentially asking: what is the size of $A \times B$? And this is pretty much just $\lvert A \rvert \times \lvert B \rvert$.
+Thus, we are essentially asking: what is the size of $A \times B$? And this is pretty much just $\lvert A \rvert \times \lvert B \rvert$.
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \{1, 3\}$. Then $A \times B = \{(1, 1), (1, 3), (2, 1), (2, 3), (3, 1), (3, 3), (4, 1), (4, 3)\}$.
 > 
 > $\lvert A \rvert = 4$, $\lvert B \rvert = 2$, and $\lvert A \times B\rvert = 4 \times 2 = 8$.
-
 
 >[!Example]
 > Let $A = \{1, 2, 3, 4\}$ and $B = \emptyset$. Then $A \times B = \emptyset$.
@@ -139,19 +154,16 @@ So we are essentially asking: what is the size of $A \times B$? And this is pret
 
 This one is far less involved. Here's the general statement:
 
-Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, then:
+>[!info] Definition: Rule of product
+> Given $n$ sets $A_1, A_2, A_3, \ldots, A_n$, such that $\forall i \in [n]$, $\lvert A_i \rvert = s_i$ (i.e., the $i^{\text{th}}$ set has size $s_i$), then $\prod_{i = 1}^n s_i = \lvert A_1 \times A_2 \times A_3 \times \dots \times A_n\rvert$. The size of the all of the sets is just their individual sizes multiplied.
 
-1. $\forall i \in [n]$, $\lvert A_i \rvert = s_i$                                              (the $i^{th}$ set has size $s_i$)
+#### Counting subsets
 
-Then, $\prod_{i = 1}^n s_i = \lvert A_1 \times A_2 \times A_3 \times \dots \times A_n\rvert$. The size of the all of the sets is just their individual sizes multiplied.
-
-
-#### Counting Subsets
-Let's see a simple and repeated application of the [[#Rule of Product Multiplying Successive Choices|rule of product]]. Let's say we had a set $A$ such that $\lvert A \rvert = n$. How many elements are in $\mathcal{P}(A)$? I.e. how many subsets are there?
+Let's see a simple and repeated application of the [[#Rule of Product Multiplying Successive Choices|rule of product]]. Let's say we had a set $A$ such that $\lvert A \rvert = n$. How many elements are in $\mathcal{P}(A)$? In other words, how many subsets are there?
 
 Let's lay out the $n$ elements of $A$ as $a_1, a_2, \ldots, a_n$. Notice that for each of these elements, we can make a choice of "take" or "don't take". And for any sequence of $n$ choices, this creates for us a subset of $A$.
 
-For example, if $A = \{1, 2, 3\}$, then a sequence like "take", "don't take", "take" will create a subset $\{1, 3\}$. Whereas a sequence like "don't take", "don't take", "don't take" creates the subset $\emptyset$.
+For example, if $A = \{1, 2, 3\}$, then a sequence like "take", "don't take", "take" will create a subset $\{1, 3\}$, whereas a sequence like "don't take", "don't take", "don't take" creates the subset $\emptyset$.
 
 We can think of this as making a set $C = \{\text{take}, \text{don't take}\}$. And we are basically asking what is:
 
@@ -167,36 +179,36 @@ $$
 $$
 
 We know that  $\lvert C \rvert = 2$. So the above is basically:
+
 $$ 
 \underbrace{\lvert  C \rvert \times \lvert C \rvert \times \cdots \times \lvert C\rvert}_{n\text{ many times}} = 2^n
 $$
 
 So $\lvert \mathcal{P}(A) \rvert = 2^{\lvert A \rvert}$.
 
-### Rule of Division
+### Rule of division
 
-So while the previous two laws might be a little clearer, there's one less common one that is based on a nice trick. Let's try this with a scenario:
+While the previous two laws might be a little clearer, there's one less common one that is based on a nice trick. Let's try this with a scenario:
 
 > Let's say it was right after the midterm, and we have just collected a bunch of exam scripts. We know each script has the same number of pages to scan, $8$ pages. We put our entire stack of exam scripts in the scanner, and the scanner reports there are $104$ pages scanned.
 > 
 > How many scripts have we scanned? Since each script had $8$ pages, this means there were $104 \div 8$ scripts.
 
-
-This might sound a little obvious, but this trick can be taken to extremes eventually in the subsequent sections.
+This might sound a little obvious, but this trick can be taken to the extreme eventually in the subsequent sections.
 
 In general, if we have $n$ items, but we are able to group $k$ of them into groups where we think they are *identical*, then we have $n/k$ groups.
 
-### Subtracting Cases
+### Subtracting cases
 
-One more useful idea is when we have two sets $A, B$ and we are promised that $B \subseteq A$. Then, we know that:
+One more useful idea is when we have two sets $A$ and $B$ and we are promised that $B \subseteq A$. Then, we know that:
 
 $$
 \lvert A \setminus B \rvert = \lvert A \rvert - \lvert B \rvert
 $$
 
-### Counting Consecutive Numbers
+### Counting consecutive numbers
 
-The last of the basic counting facts is the following: given a set of integers that are at least $a$, and at most $b$, i.e., 
+The last of the basic counting facts is the following: given a set of integers that are at least $a$ and at most $b$, i.e., 
 
 $$
 \{ x \in \mathbb{Z} : a \leq x \land x \leq b \}
@@ -206,7 +218,7 @@ How many integers are there? It's very tempting to say $b - a$, but the actual a
 
 For example, there are $6 - 2 + 1 = 5$ integers in the set $\{2, 3, 4, 5, 6\}$.
 
-### Counting Multiples
+### Counting multiples
 
 What about if we wanted to count numbers divisible by some number $d$ within some range $[a, b]$?
 
@@ -226,9 +238,6 @@ $$
 
 because $0$ is divisible by any number (including $d$).
 
-
-
-
 What we if wanted to count numbers between $[a, b]$ (inclusive) that are divisible by $d$? Now we can use the idea from [[#Subtracting Cases]]! Notice we are counting the numbers from $[0, b]$ that are divisible by $d$, then subtracting away the numbers from $[0, a - 1]$ that are divisible by $d$. Which gives us:
 
 $$
@@ -237,30 +246,40 @@ $$
 
 
 
-Let's test out the formula. 
+Let's test out the formula.
 
 >[!Example]
 > For example, how many numbers are there divisible by $3$ in the range $[5, 12]$? There are $6, 9, 12$.
-> $\left \lfloor \frac{12}{3} \right\rfloor - \left\lfloor \frac{5 - 1}{3} \right\rfloor = 4 - 1 = 3$.
+> 
+> $$
+> \left \lfloor \frac{12}{3} \right\rfloor - \left\lfloor \frac{5 - 1}{3} \right\rfloor = 4 - 1 = 3
+> $$
 
 >[!Example]
 > For example, how many numbers are there divisible by $5$ in the range $[5, 36]$? There are $5, 10, 15, 20, 25, 30, 35$.
-> $\left \lfloor \frac{36}{5} \right\rfloor - \left\lfloor \frac{5 - 1}{5} \right\rfloor = 7 - 0= 7$.
+> 
+> $$
+> \left \lfloor \frac{36}{5} \right\rfloor - \left\lfloor \frac{5 - 1}{5} \right\rfloor = 7 - 0= 7
+> $$
 
 >[!Example]
 > What about if we asked how many numbers are divisible by $2$ in the range $[0, 9]$?  There should be $5$ of them: $0, 2, 4, 6, 8$.
 > 
-> $\left \lfloor \frac{9}{2} \right\rfloor - \left\lfloor \frac{0 - 1}{2} \right\rfloor = 4 - (-1) = 5$.
+> $$
+> \left \lfloor \frac{9}{2} \right\rfloor - \left\lfloor \frac{0 - 1}{2} \right\rfloor = 4 - (-1) = 5
+> $$
 
-
-# Principle of Inclusion-Exclusion
+---
+# Part 2: Principle of Inclusion-Exclusion (PIE)
 
 Sticking to the topic of counting sets for now, can we be a little more precise in counting $\lvert A \cup B\rvert$? There actually is a formula for this!
 
-$$
-\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert
-$$
-
+>[!info] Definition: Principle of Inclusion-Exclusion (for two sets)
+>Given any two sets $A$ and $B$, we have:
+>
+>$$
+>\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert
+>$$
 
 >[!Example]
 > Let $A = \{2, 4, 6\}$, $B = \{3, 6\}$. Then $A \cap B = \{ 6 \}$.
@@ -277,28 +296,27 @@ This technique alone is quite useful. Here is an example that makes use of this 
 
 ### Example:
 
-Here's a question: How many $1$-digit numbers are there that are divisible by $2$ or $3$? So this is simple enough that we could have manually counted this: $0, 2, 3, 4, 6, 8, 9$.
+Here's a question: how many 1-digit numbers are there that are divisible by $2$ or $3$? It just so happens that this is simple enough that we could have manually counted this: $0, 2, 3, 4, 6, 8, 9$.
 
-For this example we're picking $1$-digit numbers because it makes it easy for us to verify that we're indeed correct. This becomes very infeasible if we wanted to do this for $3$-digit numbers and so on.
+For this example we're picking 1-digit numbers because it makes it easy for us to verify that we're indeed correct. This becomes very infeasible if we wanted to do this for 3-digit numbers and so on.
 
-But we could have made $2$ sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(3, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
+But we could have made two sets, $A = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(2, x) \}$, and $B = \{ x \in \mathbb{Z} : 0 \leq x \leq 9 \land divides(3, x) \}$. Then asked what is $\lvert A \cup B \rvert$?
 
-
-So let's compute $\lvert A \rvert$, $\lvert B\rvert$, and $\lvert A \cap B \rvert$. The first $2$ numbers are computed based on [[#Counting Multiples]].
+So let's compute $\lvert A \rvert$, $\lvert B\rvert$, and $\lvert A \cap B \rvert$. The first two numbers are computed based on [[#Counting multiples]].
 
 For $A$, as before:
+
 $$
 \lvert A \rvert = \left \lfloor \frac{9}{2} \right \rfloor - \left \lfloor \frac{0 - 1}{2} \right \rfloor = 4 - (-1) = 5
 $$
 
-
 For $B$:
+
 $$
 \lvert B \rvert = \left \lfloor \frac{9}{3} \right \rfloor - \left \lfloor \frac{0 - 1}{3} \right \rfloor = 3 - (-1) = 4
 $$
 
 And for $A \cap B$, we want the numbers that are divisible by **both** $2$ and $3$. In other words, divisible, by $6$. So:
-
 
 $$
 \lvert A \cap B \rvert = \left \lfloor \frac{9}{6} \right \rfloor - \left \lfloor \frac{0 - 1}{6} \right \rfloor = 1 - (-1) = 2
@@ -306,16 +324,17 @@ $$
 
 So now, we can figure out $\lvert A \cup B\rvert = 5 + 4 - 2 = 7$.
 
+#### Follow-up 1:
 
-#### Follow-Up 1:
-What if we wanted to count the $1$-digit numbers that were **not** divisible by $3$, and **not** divisible by $2$? In other words, we want to see how many numbers are in $[0, 9]$ and **not in** $A \cup B$. Notice again that $A \cup B \subseteq [0, 9]$. So again, through [[#Subtracting Cases]], we really just want $\left\lvert [0, 9]\setminus (A \cup B)\right\rvert$. Which happens to be:
+What if we wanted to count the 1-digit numbers that were **not** divisible by $3$, and **not** divisible by $2$? In other words, we want to see how many numbers are in $[0, 9]$ and **not in** $A \cup B$. Notice again that $A \cup B \subseteq [0, 9]$. So again, from [[#Subtracting cases]], we really just want $\left\lvert [0, 9]\setminus (A \cup B)\right\rvert$. Which happens to be:
 
 $$
 (9 - 0 + 1) - 7 = 3
 $$
 
-#### Follow-Up 2:
-What if we changed the question to: how many $1$-digit numbers are there that are divisible by $2$ and $4$? If we made set $A$ the numbers in the range $[0, 9]$ that are divisible by $2$, and $B$ the set of integers in the range $[0, 9]$ that are divisible by $4$.
+#### Follow-up 2:
+
+What if we changed the question to: how many 1-digit numbers are there that are divisible by $2$ and $4$? If we made set $A$ the numbers in the range $[0, 9]$ that are divisible by $2$, and $B$ the set of integers in the range $[0, 9]$ that are divisible by $4$.
 
 But what should $A \cap B$ be? Should we take this to be $8$? No, we want numbers that are divisible by $2$ and $4$, which happens to be numbers that are divisible by $4$. In fact, we can check this: $A = \{0, 2, 4, 6, 8\}$ and $B = \{0, 4, 8\}$. And of course, $A \cap B = \{0, 4, 8 \}$.
 
@@ -340,26 +359,30 @@ $$
 \end{align*}
 $$
 
-## Extending This to 3 Sets
+## Extension of PIE to 3 Sets
 
-We can actually extend this idea for $3$ sets (actually it also works beyond $3$, but the formula starts being quite unwieldy).
+We can actually extend this idea for three sets (actually it also works beyond three, but the formula starts being quite unwieldy).
 
-For $3$ sets $A, B, C$, it holds that:
-
-$$
-\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C\rvert
-$$
+>[!info] Definition: Principle of Inclusion-Exclusion (for three sets)
+>Given any three sets $A$, $B$ and $C$, we have:
+>
+>$$
+>\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C \rvert
+>$$
 
 Why is this true? Let's look at the following Venn diagram.
 
+
 ![[3-set-venn.svg]]
+
 
 Notice that if we have $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert$, we would have **double counted** the elements in $\lvert A \cap B \rvert, \lvert B \cap C \rvert, \lvert B \cap C \rvert$, and **triple counted** the elements in $\lvert A \cap B \cap C \rvert$.
 
 So consider $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert B \cap C \rvert$. We would have removed the double counts, but elements in $A \cap B \cap C$ which were triple counted, are now not counted at all. So we have to add it back in.
 
+### Example:
 
- At a food popularity contest, there are $3$ options being voted for by people who are surveyed. We want to know how many people in total were surveyed. The $3$ options were: (A) Lor Mee, (B) Nasi Lemak, (C) Chicken Rice. Anyone who is surveyed can vote for any combination of the options, i.e., a person could choose to vote for all $3$, or any of the $2$ choices, or any single choice. But they must at least vote for something, i.e., everyone who surveyed voted for at least one option, and at most all $3$. We know the following counts:
+ At a food popularity contest, there are three options being voted for by people who are surveyed. We want to know how many people in total were surveyed. The three options were: (A) Lor Mee, (B) Nasi Lemak, (C) Chicken Rice. Anyone who is surveyed can vote for any combination of the options, i.e., a person could choose to vote for all three, or any two of the choices, or any single choice. But they must at least vote for something, i.e., everyone who surveyed voted for at least one option, and at most all three. We know the following counts:
 
  1. There were $10$ people voting for option A (they might have also voted for other options).
  2. There were $7$ people voting for option B (they might have also voted for other options).
@@ -367,7 +390,7 @@ So consider $\lvert A \rvert + \lvert B \rvert + \lvert C \rvert - \lvert A \cap
 4.  There were $3$ people voting for only both option A and option B.
 5.  There were $5$ people voting for only both option A and option C.
 6.  There were $2$ people voting for only both option B and option C.
-7.  Only $1$ person voted for exactly all $3$ options.
+7.  Only $1$ person voted for exactly all three options.
 
  How many people were surveyed?
 
@@ -380,10 +403,13 @@ $$
 
 So in total, $17$ people were surveyed.
 
-# Permutations and Combinations
+---
+# Part 3: Permutations and Combinations
 
 Let's move on and away from sets, and start talking about permutations and combinations. Some of these concepts might already be familiar ground, and we will be using it to build up to some bigger concepts.
-### Permutations of Distinct Items
+
+## Permutations of Distinct Items
+
 Let's begin with the following question: 
 
 > Given $n$ **distinct** items, how many ways are there to order the $n$ items?
@@ -415,14 +441,22 @@ $$
 
 Doesn't this look familiar? This is $n!$, or $\prod_{i = 1}^n i$.
 
-### Permutations With Duplicates
+>[!info] Definition: Number of permutations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> n! = \prod_{i = 1}^n i = 1 \times 2 \times ... \times (n - 1) \times n
+> $$
+> ways of permuting the items.
+
+## Permutations With Duplicates
+
 What happens when the items we need to permute has duplicates? For example, let's say we want to count how many permutations there are of $aab$?
 
 Notice that the answer is not $3! = 6$, but rather $3$. In fact, here are the possible permutations:
 
 1. $aab$
 2. $aba$
-3. $baa
+3. $baa$
 
 Let's say we had $2$ items of type $a$ and $1$ item of type $b$. Then the way we obtain the count is $\frac{3!}{2!} = 3$.
 
@@ -430,13 +464,14 @@ What about in general? Here's an idea, we can first label each duplicate. For ex
 
 ![[n-perm-duplicate.svg]]
 
-So, using the [[#Rule of Division]], for this example, we can argue that the total number of permutations is $\frac{4!}{3!}$.
+So, using the [[#Rule of division|rule of division]], for this example, we can argue that the total number of permutations is $\frac{4!}{3!}$.
 
-So in general, if we had $k$ **types** of items, and we had $n_i$ many copies of the $i^{th}$ item, then the total number of items is: $\sum_{i = 1}^k n_i = n$. Then the total number of permutations is:
-
-$$
-\frac{n!}{\prod_{i = 1}^k ((n_i)!)}
-$$
+>[!info] Definition: Number of permutations of $n$ items, with duplicates
+> Given $n$ distinct items, where $k$ of them have duplicates (suppose there are $n_i$ copies of the $i^{\text{th}}$ item for $1 \leq i \leq k$), there are
+> $$
+> \frac{n!}{\prod_{i=1}^k ((n_i)!)} = \frac{n!}{(n_1)! \times (n_2)! \ \times \ ... \ \times (n_k)!}
+> $$
+> ways of permuting the items.
 
 Here's an example. How many permutations are there of $aaabb$? There are $3$ copies of $a$ and $2$ copies of $b$. There are $5$ items in total. So the answer is:
 
@@ -444,11 +479,11 @@ $$
 \frac{5!}{3! \cdot 2!} = \frac{120}{6 \cdot 2} = 10
 $$
 
-### $k$-Permutations of $n$ Distinct Elements  
+## $k$-Permutations of $n$ Distinct Items  
 
 Now, let's go back to looking at having $n$ distinct elements, but now we only care about picking $k$ of them. How many ways are there to permute that? 
 
-For example, let's say we had $3$ elements $a$, $b$ and $c$. Then here all the possible ways:
+For example, let's say we had three elements $a$, $b$ and $c$, and we only wanted to permute any *two* of those elements. Then here all the possible ways:
 
 1. $ab$
 2. $ba$
@@ -490,22 +525,16 @@ $$
 
 ![[npk-alt.svg]]
 
-There is another way we can see this. Imagine we considered all $n!$ possible permutations, and then said "any $2$ permutations are considered the same as long as their first $k$ elements are the same". If we fixed the first $k$ elements, then there are $(n - k)!$ possible ways to permute the remaining elements. So any permutation has $(n - k)!$ that share the same first $k$ elements. Using the [[#Rule of Division]], this means there in total:
+There is another way we can see this. Imagine we considered all $n!$ possible permutations, and then said "any two permutations are considered the same as long as their first $k$ elements are the same". If we fixed the first $k$ elements, then there are $(n - k)!$ possible ways to permute the remaining elements. So any permutation has $(n - k)!$ that share the same first $k$ elements. Using the [[#Rule of division|rule of division]], we have the following formula:
 
-$$
-\frac{n!}{(n - k)!}
-$$
+>[!info] Definition: Number of $k$-permutations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> P(n,k) = \frac{n!}{(n - k)!} = \prod_{i = 0}^{k - 1} (n - i)
+> $$
+>  ways to permute $k \leq n$ of those items.
 
-ways to permute $k$ elements out of $n$ distinct elements.
-
-In fact, you can check that:
-
-$$
-\prod_{i = 0}^{k - 1} (n - i) = \frac{n!}{(n - k)!}
-$$
-
-We write this quantity as $P(n, k)$.
-### Combinations without duplicates
+## Combinations of Distinct Items
 
 Let's move on to another kind of counting that we commonly do: combinations! Let's say we had $n$ distinct items, and this time, we want to count how many ways there are to **choose** $k$ items from the $n$ items.
 
@@ -518,9 +547,10 @@ For example, if there are $3$ items, $a$, $b$ and $c$. How many ways are there t
 
 ![[combi-32.svg]]
 
-Notice, the ordering does not matter. What is the formula this time? Again, there are a few ways to prove this. But perhaps the most straightforward way is to again make use of the [[#Rule of Division]].
 
-Let's compare choosing $2$ items out of $3$ versus permuting $2$ items out of $3$. Previously, in [[#$k$-Permutations of $n$ Distinct Elements]], notice that the cases we had were:
+Notice, the ordering does not matter. What is the formula this time? Again, there are a few ways to prove this. But perhaps the most straightforward way is to again make use of the [[#Rule of division|rule of division]].
+
+Let's compare choosing $2$ items out of $3$ vs. permuting $2$ items out of $3$. Previously, in [[#$k$-Permutations of $n$ Distinct Items]], notice that the cases we had were:
 
 1. $ab$
 2. $ba$
@@ -532,10 +562,17 @@ Let's compare choosing $2$ items out of $3$ versus permuting $2$ items out of $3
 For permutations, the **ordering** matters, whereas if we simply want to choose items, it does not matter. Again, for this example, notice how we are basically saying that $ab$ and $ba$ are the same. Because they have the same elements, and we do not care about their ordering. Since we picked $2$ items, there are $2!$ ways to permute the items. So this is:
 
 $$
-\frac{P(n, k)}{k!} = \frac{n!}{(n - k)!k!}
+\frac{P(n, k)}{k!} = \frac{n!}{k!(n - k)!}
 $$
 
-We write this quantity as $C(n, k)$, or also write it most commonly as $\binom{n}{k}$.
+We write this quantity as $C(n, k)$, or more commonly as $\binom{n}{k}$.
+
+>[!info] Definition: Number of combinations of $n$ distinct items
+> Given $n$ distinct items, there are
+> $$
+> \binom{n}{k} = \frac{n!}{k!(n - k)!}
+> $$
+> ways to choose $k$ items.
 
 Interestingly, we can also show that $\binom{n}{k} = \binom{n}{n - k}$. This might be "obvious" if you look at the fraction alone. In fact:
 
@@ -551,15 +588,15 @@ Instead of picking $2$ items out of the $3$ distinct items $a$, $b$ and $c$ to c
 2. $a$, $c$ (means we picked $b$ to be excluded)
 3. $b$, $c$ (means we picked $a$ to be excluded)
 
-## The special case of choosing/permuting nothing.
+### The special case of choosing/permuting nothing
 
 One last thing we need to talk about: What is $\binom{n}{0}$? Or what is $P(0, 0)$?
 
 How many ways are there to choose _nothing_ from a set of $n$ elements? How many ways are there to permute _nothing_? It might be tempting to think the answer is $0$, but it's actually defined to be $1$.
 
-> There is exactly one way to choose _nothing_ from a set of $n$ elements: The empty set!
+> There is exactly one way to choose _nothing_ from a set of $n$ elements: the empty set!
 
-> There is exactly one way to sequence/permute nothing: The empty sequence!
+> There is exactly one way to sequence/permute nothing: the empty sequence!
 
 For that reason, $n!$ is defined to be $1$ when $n = 0$.
 
@@ -569,7 +606,8 @@ $$
 \binom{n}{n} = \frac{n!}{(n-n)!\cdot n!} = \frac{n!}{0!\cdot n!} = \frac{n!}{1\cdot n!} = 1
 $$
 
-# Applying Combinatorics
+---
+# Part 4: Applying Combinatorics
 
 Now that we've covered the basic quantities, let's see a few applications of the counting methods shown.
 
@@ -592,7 +630,7 @@ For example, if $n = 5$, $t = 3$, then there are $36$ ways (far too many for us 
 
 How should we even count the number of possible ways? Even for small values of $n$ and $t$, the number of cases becomes astronomically large.
 
-The technique is called **stars and bars**. Here's the idea, again consider $n = 5, t = 3$:
+The technique is called **[stars and bars](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics))**. Here's the idea, again consider $n = 5, t = 3$:
 
 ![[stars-and-bars.svg]]
 
@@ -600,15 +638,17 @@ Think about how if we had $n + (t - 1)$ slots, then we can pick $t - 1$ slots to
 
 Notice the sum of the values is exactly the number of stars we have: $n$.
 
-So to find out how many ways to assign values to the $t$ variables, is to just pick $t - 1$ bars out of $n + (t - 1)$ possible positions. In other words:
+So to find out how many ways to assign values to the $t$ variables, is to just pick $t - 1$ bars out of $n + (t - 1)$ possible positions. In general:
 
-$$
-\binom{n + t - 1}{t - 1}
-$$
+>[!info] Definition: Stars and bars
+> For $n, t \in \mathbb{N}$, the number of assignments for each $x_i$ where $1 \leq i \leq t$ such that $\sum_{i=1}^t x_i = n$ is given by:
+> $$
+> \binom{n + t - 1}{n} = \binom{n + t - 1}{t - 1}
+> $$
 
 ## Block Walking
 
-Let's try another one. Given a grid of $6$ columns, and $4$ rows, where we start from the bottom left. And we are only allowed to either take one step up, or one step to the right each time. How many ways are there for us to go from the bottom left to the top right? 
+Let's try another one. We are given a grid of $6$ columns and $4$ rows, where we start from the bottom left. We are also only allowed to either take one step up, or one step to the right each time. How many ways are there for us to go from the bottom left to the top right? 
 
 In the picture below, the red and blue path are examples of paths you can take.
 
@@ -642,7 +682,7 @@ $$
 \sum_{i = 3}^{100} \binom{100}{i}
 $$
 
-Or, perhaps a little more simply: we could notice that there are $2^{100}$ possible subsets of $A$. To count the number of subsets that are $3$ or larger, we can just subtract away the subsets that are up to size $2$ from $2^n$. Which gives us:
+Or perhaps a little more simply, we could notice that there are $2^{100}$ possible subsets of $A$. To count the number of subsets that are $3$ or larger, we can just subtract away from $2^n$ the number of subsets that are of size up to $2$. This gives us:
 
 $$
 2^n - \binom{100}{0} - \binom{100}{1} - \binom{100}{2}
@@ -652,7 +692,7 @@ Turns out, both these quantities are the same!
 
 ## Counting Permutations
 
-Let's say there were $4$ people: Alice, Bob, Clara, Dean. Let's say that we had to arrange then in a line but Bob refuses to stand next to Dean. How many ways are there to arrange them in a line?
+Let's say there were four people: Alice, Bob, Clara and Dean. Let's say that we had to arrange then in a line but Bob refuses to stand next to Dean. How many ways are there to arrange them in a line?
 
 One way we could do this would be to count three cases separately, where we make $4$ slots, place Bob and Dean down first separately from each other, and then count how many permutations we could get.
 
@@ -662,11 +702,13 @@ There are $3$ possible cases that we can treat similarly. Pick any of the $2$ no
 
 There is an alternative way to count this: What about we count the number of ways where Bob and Dean are arranged together? We first treat them like a pair, attached at the hip. Then we count the number of ways we can arrange everyone so that Bob and Dean are stuck together, then subtract that number away from $4!$.
 
-So if we treat Bob and Dean as being stuck together. Then they're either arranged as Bob-Dean, or as Dean-Bob. Then for each of these cases (of which there are $2$), there are $3!$ possible ways to permute: Alice, Clara, and the Bob-Dean pair. So in total, there are $2 \times 3! = 12$ ways to arrange the 4 people, such that Bob and Dean are next to each other. Subtracting this away from $4! = 24$ yields us $12$ as our answer.
+If we treat Bob and Dean as being stuck together, then they're either arranged as Bob-Dean, or as Dean-Bob. Then for each of these cases (of which there are $2$), there are $3!$ possible ways to permute: Alice, Clara, and the Bob-Dean pair. So in total, there are $2 \times 3! = 12$ ways to arrange the four people, such that Bob and Dean are next to each other. Subtracting this away from $4! = 24$ yields us $12$ as our answer.
 
-# A Sense of Scale
+---
+# Part 5: Applications in the Real World
 
-Let's see some examples of why combinatorics is useful and helpful. 
+Let's see some examples of why combinatorics is useful and helpful.
+
 ## Binomial Coefficients and Nested For Loops
 
 Let's say we had some code that looked like this:
@@ -729,11 +771,12 @@ $$
 
 Interestingly, this tells us at the program makes $\Theta(n^3)$ iterations.
 
-## Some Useful Bounds on Combinatorial Properties
+## Useful Bounds on Combinatorial Properties: A Sense of Scale
+
 Let us end this unit by getting a sense of scale whenever we are counting. This is particularly useful when we are thinking about "generating all possibilities" or "just trying all possible solutions".
 
-
 Often times, having an approximation of the quantities are "good enough" for us to eyeball values. Let's look at two very common approximations for factorials and binomial coefficients.
+
 ### Stirling's Approximation
 
 The first is Stirling's asymptotic approximation for $n!$. Think of "asymptotic approximation" as meaning "the larger the value of $n$, the more accurate the approximation".
@@ -748,7 +791,7 @@ This makes the term of the right sometimes a little more useful to deal with.
 
 ### Bounding Binomial Coefficients
 
-The second is for binomial coefficients. Given any $n$ and $0 \leq k \leq n$
+The second is for binomial coefficients. Given any $n$ and $0 \leq k \leq n$,
 
 $$
 \left(\frac{n}{k}\right)^k \leq \binom{n}{k} \leq \left(\frac{n\cdot e}{k}\right)^k
@@ -758,7 +801,7 @@ $$
 
 For example, consider the following problem statement:
 
-> Given a list $L$ of $n$ pairs $(s_1, e_1), (s_2, e_2), \ldots, (s_n, e_n)$ such that the $i^{th}$ pair denotes the start and end time of the $i^{th}$ event. We will say two distinct events $i \neq j$ are **clashing** if ($s_i \leq s_j$ and $e_i \leq e_j$) or ($s_j \leq s_i$ and $e_j \leq e_i$). Find out what largest subset $S \subseteq L$ of events we can schedule so that none of the events in $S$ clash with each other.
+> Given a list $L$ of $n$ pairs $(s_1, e_1), (s_2, e_2), \ldots, (s_n, e_n)$ such that the $i^{\text{th}}$ pair denotes the start and end time of the $i^{\text{th}}$ event. We will say two distinct events $i \neq j$ are **clashing** if ($s_i \leq s_j$ and $e_i \leq e_j$) or ($s_j \leq s_i$ and $e_j \leq e_i$). Find out what largest subset $S \subseteq L$ of events we can schedule so that none of the events in $S$ clash with each other.
 
 This is a very classical algorithms problem, while we won't have the tools to solve it here, let's at least think about some very "straightforward" solutions.
 
@@ -776,15 +819,21 @@ This way we do find the largest subset. But how long did it take? What is the re
 For a subset of length $\ell \geq 2$, we need to check $\binom{\ell}{2}$ possible pairings to see if the subset contains any clashing events. There are $\binom{n}{\ell}$ many subsets of $L$ of length $\ell$. We need to check all possible subsets where $\ell$ ranges from $1$ to $n$. So in total, we take this many steps:
 
 $$
-\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} = \sum_{\ell = 1}^n\frac{n!}{(\ell!)(n-\ell)!} \cdot \frac{\ell!}{(\ell-2)!\cdot 2!} = \sum_{\ell = 1}^n\frac{n!}{2(n-\ell)!(\ell - 2)!}
+\sum_{\ell = 2}^n \binom{n}{\ell}\binom{\ell}{2} = \sum_{\ell = 1}^n\frac{n!}{\ell!(n-\ell)!} \cdot \frac{\ell!}{(\ell-2)!\cdot 2!} = \sum_{\ell = 1}^n\frac{n!}{2(n-\ell)!(\ell - 2)!}
 $$
 
 Let's say we want to **lower bound** the amount of steps needed minimum. How do we even begin approximating this?
 
 One way would be to lower bound the original summation:
 
-![[fixed-math.png]]
-
-
+$$
+\begin{align*}
+\sum_{\ell=2}^n \binom{n}{\ell} \binom{\ell}{2} &\geq \sum_{\ell=1}^n \bigg(\frac{n}{\ell}\bigg)^{\ell} \bigg(\frac{\ell}{2}\bigg)^2 \\
+&\geq \bigg(\frac{n}{\sqrt{n}}\bigg)^{\sqrt{n}} \bigg(\frac{\sqrt{n}}{2}\bigg)^2 \\
+&\geq (\sqrt{n})^{\sqrt{n}} \cdot \frac{n}{4}\\
+&\geq n^{\frac{\sqrt{n}}{2}} \\
+&\geq 2^{\frac{\sqrt{n}}{2}}
+\end{align*}
+$$
 
 Which is close to being exponential in $n$. This means the strategy scales quite badly when we have more and more events.

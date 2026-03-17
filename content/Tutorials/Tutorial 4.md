@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 3: Induction, Recurrences, Asymptotics"
+title: "Tutorial 4: Induction, Recurrences, Asymptotics"
 ---
 
 # How to submit:
@@ -32,15 +32,16 @@ After Week 7's content, you should be able to attempt questions 1 through 5. Aft
 That said, **we encourage you to try all the questions**. This way, when you come for tutorials we can make the best use of your time since you can either verify your solutions, or understand the discussions when our tutors go through the solutions.
 
 ---
-# Question 1 \[Graded for Participation]
+# Question 1 \[Graded for Participation]:
 
 Using mathematical induction, prove that:
 
 $$
 \forall n \geq 1\left[ \sum_{i = 1}^n i^2 =\frac{n(n+1)(2n+1)}{6} \right]
 $$
+
 ---
-# Question 2
+# Question 2:
 
 Using mathematical induction, prove that:
 
@@ -50,8 +51,7 @@ $$
 
 
 ---
-
-# Question 3 \[Graded for Participation]
+# Question 3 \[Graded for Participation]:
 
 Let $A(n)$ be a recurrence defined in the following way.
 
@@ -65,7 +65,8 @@ A(n) = \begin{cases}
 $$
 
 
-## Sub-question 1
+#### Sub-part 1
+
 Compute the following values:
 
 1. $A(0)$
@@ -73,12 +74,13 @@ Compute the following values:
 3. $A(2)$
 4. $A(5)$
 
+#### Sub-part 2
 
-## Sub-question 2
-Prove via strong induction that $\forall n\geq 0[A(n) = 2n + 1]$
+Prove via strong induction that $\forall n \geq 0 \ [A(n) = 2n + 1]$.
+
 
 ---
-# Question 4
+# Question 4:
 
 Let $M(n)$ be a recurrence defined in the following way.
 
@@ -94,17 +96,18 @@ $$
 Prove via strong induction that:
 
 $$
-\forall n \geq 3 [M(n) \leq n\log_2(n)]
+\forall n \geq 3 [M(n) \leq n\log_2 n]
 $$
 
 You may find the following facts useful:
 1. $\lfloor \frac{n}{2} \rfloor \leq \frac{n}{2}$
-2. $a \leq b \to \log_2(a) \leq \log_2(b)$
+2. $a \leq b \to \log_2 a \leq \log_2 b$
 
 You may alternatively use the substitution method to prove that this is $O(n \log n)$.
 
+
 ---
-# Question 5
+# Question 5:
 
 Let $B(n)$ be a recurrence defined in the following way.
 
@@ -119,12 +122,11 @@ $$
 Prove by induction that:
 
 $$
-\forall n \in \mathbb{N}[B(n) = 3^n]
+\forall n \in \mathbb{N} \ [B(n) = 3^n]
 $$
 
 ---
-
-# Question 6 \[Graded for Participation]
+# Question 6 \[Graded for Participation]:
 
 Let $B(n)$ be a recurrence defined in the following way.
 
@@ -136,34 +138,34 @@ B(n) = \begin{cases}
 \end{cases}
 $$
 
+#### Sub-part 1
 
-## Sub-part 1
 True or false? $B(n) \in O(3^n)$
 
 (Hint: You may want to use the statement at end of question 4)
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $O(3^n)$.
 
-## Sub-part 2
+#### Sub-part 2
+
 True or false? $B(n) \in \Omega(3^n)$
 
 (Hint: You may want to use the statement at end of question 4)
 
-If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$
+If it is true, explicitly give values $n_0$ and $c$ to justify that $B(n)$ is indeed in $\Omega(3^n)$.
 
+#### Sub-part 3
 
-## Sub-part 3
 True or false? $B(n) \in \Theta(3^n)$
 
 Why/why not? You do not have to give a proof.
 
-
-(Hint: What is the definition of $\Theta$?)
+\[Hint: What is the definition of $\Theta$?]
 
 ---
-# Question 7
+# Question 7:
 
-Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N}[f(n) \geq 0]$ and $\forall n \in \mathbb{N}[g(n) \geq 0]$. I.e. the functions are always non-negative.
+Let $f(n), g(n)$ be functions such that $\forall n \in \mathbb{N} \ [f(n) \geq 0]$ and $\forall n \in \mathbb{N} \ [g(n) \geq 0]$ (i.e., the functions are always non-negative).
 
 Prove that:
 
@@ -173,7 +175,7 @@ $$
 
 
 ---
-# Question 8 (Challenging!)
+# Question 8 (Challenging!):
 
 Prove that:
 
