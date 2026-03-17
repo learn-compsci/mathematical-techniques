@@ -31,9 +31,8 @@ Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
-**Solution**:
 
->[!note] Truth table for $p \lor ((\neg p) \to q)$
+>[!note] Solution
 >**Yes**, the two formulae are logically equivalent.
 >
 > | $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
@@ -49,9 +48,8 @@ Is $(p \lor q) \land (\neg p)$ logically equivalent to $q$?
 
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
-**Solution**:
 
->[!note] Truth table for $(p \lor q) \land (\neg p)$
+>[!note] Solution
 >**No**, the two formulae are not logically equivalent.
 >
 > | $p$     | $q$     | $p \lor ((\neg p) \to q)$ |
@@ -65,14 +63,32 @@ Fill out the 4 remaining cells to check whether they are equivalent. You need no
 ---
 # Question 2 (4 marks): 
 
-Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. And let the predicate $odd(x)$ be defined as $\exists k \in \mathbb{Z}[x = 2k + 1]$. Determine which of the following quantified statements are true:
+Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Also, let the predicate $odd(x)$ be defined as:
 
-1. $\exists b \in B \ [b < 1]$ **False**
-2. $\exists a \in A, \forall b \in B \ [a > b]$ **False**
-3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$ **True**
-4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$  **True, consider c = 9**
+$$
+odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
+$$
+
+Determine which of the following quantified statements are true:
+
+1. $\exists b \in B \ [b < 1]$
+2. $\exists a \in A, \forall b \in B \ [a > b]$
+3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$
+4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$ 
 
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
+
+>[!note] Solution
+>1. **False**; none of the elements of $B$ are strictly less than $1$.<br></br>
+>2. **False**; there is no single element of $A$ that is strictly greater than every element of $B$ (e.g., $8 \in A$ is greater than $1, 3, 5, 7 \in B$, but $8 \ngtr 9$).<br></br>
+>3. **True**; this statement is logically equivalent to: $\forall a \in A \ \big[\forall b \in B \ [\neg odd(ab)] \big]$. No matter which element $a \in A$ is chosen and which element $b \in B$ is chosen, $ab$ will never be odd, so the statement is true.<br></br>
+>4. **True**; consider $c = 9 \in B$. Then, we can look through the elements of $B$ and verify that:
+>	- $8 + 1 = c$
+>	- $6 + 3 = c$
+>	- $4 + 5 = c$
+>	- $2 + 7 = c$
+>	- $0 + 9 = c$
+
 
 ---
 # Question 4 (3 marks):

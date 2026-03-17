@@ -54,7 +54,13 @@ Fill out the 4 remaining cells to check whether they are equivalent. You need no
 ---
 # Question 2 (4 marks): 
 
-Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. And let the predicate $odd(x)$ be defined as $\exists k \in \mathbb{Z}[x = 2k + 1]$. Determine which of the following quantified statements are true:
+Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Also, let the predicate $odd(x)$ be defined as:
+
+$$
+odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
+$$
+
+Determine which of the following quantified statements are true:
 
 1. $\exists b \in B \ [b < 1]$
 2. $\exists a \in A, \forall b \in B \ [a > b]$
