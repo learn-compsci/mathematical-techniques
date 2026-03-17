@@ -25,33 +25,42 @@ _Please make sure your handwriting is legible (Illegible solutions may make it v
 ---
 # Question 1 (2 marks):
 
-### Sub-part 1  (1 out of 2 marks)
+### Sub-part 1 \[1 mark]
+
 Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 
-**Yes**
-
-| $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
-| ------- | ------- | ------------------------- | ---------- |
-| $true$  | $true$  | $true$                    | $true$     |
-| $true$  | $false$ | $true$                    | $true$     |
-| $false$ | $true$  | $true$                    | $true$     |
-| $false$ | $false$ | $false$                   | $false$    |
-
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
-### Sub-part 2  (1 out of 2 marks)
+**Solution**:
+
+>[!note] Truth table for $p \lor ((\neg p) \to q)$
+>**Yes**, the two formulae are logically equivalent.
+>
+> | $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
+> | ------- | ------- | ------------------------- | ---------- |
+> | $true$  | $true$  | $true$                    | $true$     |
+> | $true$  | $false$ | $true$                    | $true$     |
+> | $false$ | $true$  | $true$                    | $true$     |
+> | $false$ | $false$ | $false$                   | $false$    |
+
+### Sub-part 2 \[1 mark]
+
 Is $(p \lor q) \land (\neg p)$ logically equivalent to $q$?
 
-**No**
-
-| $p$     | $q$     | $(p \lor q) \land (\neg p))$ |
-| ------- | ------- | ---------------------------- |
-| $true$  | $true$  | $false$                      |
-| $true$  | $false$ | $false$                      |
-| $false$ | $true$  | $true$                       |
-| $false$ | $false$ | $false$                      |
-
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
+
+**Solution**:
+
+>[!note] Truth table for $(p \lor q) \land (\neg p)$
+>**No**, the two formulae are not logically equivalent.
+>
+> | $p$     | $q$     | $p \lor ((\neg p) \to q)$ |
+> | ------- | ------- | ------------------------- |
+> | $true$  | $\textcolor{blue}{true}$  | $\textcolor{red}{false}$  |
+> | $true$  | $false$ | $false$  |
+> | $false$ | $true$  | $true$  |
+> | $false$ | $false$ | $false$  |
+
 
 ---
 # Question 2 (4 marks): 
