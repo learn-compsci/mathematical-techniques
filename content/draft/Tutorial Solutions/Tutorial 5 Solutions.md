@@ -246,9 +246,9 @@ Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make (a
 ---
 # Question 7:
 
-Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (A team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
+Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (a team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
 
-Show that there will always been 2 teams that have played the exact same number of matches.
+Show that there will always be two teams that have played the same number of matches.
 
 
 >[!note] Solution
@@ -257,13 +257,13 @@ Show that there will always been 2 teams that have played the exact same number 
 >**Proof:**
 >1. There are two cases: either there is a team that has played exactly $n-1$ games, or there is no such team that has played exactly $n-1$ games.
 >2. Case 1: There is a team that has played exactly $n-1$ games.
->	- Since that team has played everyone else, there cannot be a team that has played exactly $0$ games.
->	- Hence, there are $n-1$ possible number of games played by each team, ranging from $1$ to $n-1$.
->	- Since there are $n$ teams and only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>		1. Since that team has played everyone else, there cannot be a team that has played exactly $0$ games.
+>		2. Hence, there are $n-1$ possible number of games played by each team, ranging from $1$ to $n-1$.
+>		3. Since there are $n$ teams and only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
 >3. Case 2: No team has played exactly $n-1$ games.
->	- Now, there are again $n-1$ possible number of games played by each team, but this time ranging from $0$ to $n-2$.
->	- Since there are $n$ teams and still only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
->1. Either way, there must be $2$ teams that have played the same number of games. \[Proof by cases]
+>		1. Now, there are again $n-1$ possible number of games played by each team, but this time ranging from $0$ to $n-2$.
+>		2. Since there are $n$ teams and still only $n-1$ possible number of games played, there must be $2$ teams that have played the same number of games. \[By pigeonhole principle]
+>4. Either way, there must be $2$ teams that have played the same number of games. \[Proof by cases]
 
 
 

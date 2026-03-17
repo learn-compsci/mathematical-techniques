@@ -134,4 +134,4 @@ Given a complete graph $G$ on $n$ nodes, how many cycles can we possibly make (a
 
 Let's say that there was a tournament with $n$ teams. A match happens when $2$ different teams play against each other (a team cannot play against itself). This means a team can participate in any number of matches from $0$ to $n - 1$ inclusive.
 
-Show that there will always been $2$ teams that have played the exact same number of matches.
+Show that there will always be two teams that have played the same number of matches.
