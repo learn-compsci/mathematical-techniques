@@ -1,5 +1,5 @@
 
-This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 5 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 10 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
@@ -19,7 +19,8 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 * No late submissions for the assignment allowed.
 
 ---
-# Question 1  \[6 marks]
+
+# Question 1 \[6 marks]
 
 Given sets $A = \{1, 2, 3, 4, 5\}$, $B = \{ 2, 4, 6, 8 \}$, $C = \{ x \in \mathbb{Z} : \exists k \in \mathbb{Z}[x = 2k] \}$.
 
@@ -29,64 +30,27 @@ Write in **set roster notation** the following sets:
 2. $A \setminus (B \setminus C)$
 3. $A \cap (B \setminus C)$
 
----
-# Question 2  \[6 marks]
+# Question 2 \[6 marks]
+
+For this question, consider the following relation $R \subseteq \mathbb{Z} \times \mathbb{Z}$, where $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} : a < 0 \land b > 0 \}$.
+
+#### Sub-part 1:
+Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such that $(a,a) \notin R$.
+
+#### Sub-part 2:
+Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$ such that $(a, b) \in R \land (b, c) \in R \land (a, c) \notin R$.
+
+# Question 3 \[6 marks]
+
+Consider a relation $R \subseteq A \times A$, **assume that $R$ is transitive**.
+Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
+# Question 4 \[6 marks]
 
 
-For the following sets, state whether the equality holds or not. If they are equal stating so suffices. If they are not equal, give an example of sets to justify it.
+Consider a relation $R \subseteq A \times A$, **assume that $R$ is transitive**.
+Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
 
-
-**Example question:**
-For example, given the following: $(A \setminus A) \setminus A \stackrel{?}{=} A \setminus (A \setminus A)$ 
-
-**Example answer:**
-This equality does not hold.  Consider $A = \{1\}$, then the LHS is $\emptyset$, and the RHS is $A$. Since $\emptyset \neq A$, the equality does not hold.
-
-
-
-1. $(A \cup A) \cap (B \setminus A) \stackrel{?}{=} (B \setminus A)$
-2. $\{ x \in \mathbb{Z} : x^2 \leq 4 \} \stackrel{?}{=} \{ x \in \mathbb{Z} : x \leq 2 \}$
-
----
-# Question 3
-
-Consider the following predicate:
-
-$$
-divides(a, b) \equiv \exists k \in \mathbb{N} [a \cdot k = b]
-$$
-
-
-We will relate two numbers $x, y \in \mathbb{N}$, in the following way:
-
-$$
-R = \bigg\{ (x, y) \in \mathbb{N} 
-\times \mathbb{N} : \exists k \in \mathbb{N} \big[ k \neq 1 \land divides(k, x) \land divides(k, y) \big] \bigg\}
-$$
-
-For example: $(15, 10) \in R$, because both $divides(5, 10)$ and $divides(5, 15)$ are true, and $5 \in \mathbb{N}$. Whereas $(2, 3) \notin R$, because no such natural number $k \in \mathbb{N}$ besides $1$ satisfies both $divides(k, 2)$ and $divides(k, 3)$.
-
-## Sub-question 1: \[6 Marks]
-Is $R$ reflexive? In other words, is it true that 
-
-$$
-\forall x \in \mathbb{N} \big[ (x, x) \in R \big]
-$$
-
-If it is not true, state that it is false, and give an example value $x$ for which $(x, x) \notin R$. If it is true, prove it.
-
-## Sub-question 2: \[6 Marks]
-Is $R$ anti-symmetric? In other words, is it true that 
-
-$$
-\forall x \in \mathbb{N}, \forall y \in \mathbb{N} \big[ (x, y) \in R \land (y, x) \in R \to x = y \big]
-$$
-If it is not true, state that it is false, and give an example values $x, y$ for which $(x, y) \in R$ and $(y, x) \in R$, but $x \neq y$. If it is true, prove it.
-
-
----
-
-# Question 4: \[6 Marks]
+# Question 5: \[6 Marks]
 
 Prove via mathematical induction that for all $n \geq 1$:
 
