@@ -25,59 +25,86 @@ _Please make sure your handwriting is legible (Illegible solutions may make it v
 ---
 # Question 1 (2 marks):
 
-### Sub-part 1  (1 out of 2 marks)
+### Sub-part 1 \[1 mark]
+
 Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 
-**Yes**
-
-| $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
-| ------- | ------- | ------------------------- | ---------- |
-| $true$  | $true$  | $true$                    | $true$     |
-| $true$  | $false$ | $true$                    | $true$     |
-| $false$ | $true$  | $true$                    | $true$     |
-| $false$ | $false$ | $false$                   | $false$    |
-
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
-### Sub-part 2  (1 out of 2 marks)
+
+>[!note] Solution
+>**Yes**, the two formulae are logically equivalent.
+>
+> | $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
+> | ------- | ------- | ------------------------- | ---------- |
+> | $true$  | $true$  | $true$                    | $true$     |
+> | $true$  | $false$ | $true$                    | $true$     |
+> | $false$ | $true$  | $true$                    | $true$     |
+> | $false$ | $false$ | $false$                   | $false$    |
+
+### Sub-part 2 \[1 mark]
+
 Is $(p \lor q) \land (\neg p)$ logically equivalent to $q$?
 
-**No**
-
-| $p$     | $q$     | $(p \lor q) \land (\neg p))$ |
-| ------- | ------- | ---------------------------- |
-| $true$  | $true$  | $false$                      |
-| $true$  | $false$ | $false$                      |
-| $false$ | $true$  | $true$                       |
-| $false$ | $false$ | $false$                      |
-
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
+
+
+>[!note] Solution
+>**No**, the two formulae are not logically equivalent.
+>
+> | $p$     | $q$     | $p \lor ((\neg p) \to q)$ |
+> | ------- | ------- | ------------------------- |
+> | $true$  | $\textcolor{blue}{true}$  | $\textcolor{red}{false}$  |
+> | $true$  | $false$ | $false$  |
+> | $false$ | $true$  | $true$  |
+> | $false$ | $false$ | $false$  |
+
 
 ---
 # Question 2 (4 marks): 
 
-Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. And let the predicate $odd(x)$ be defined as $\exists k \in \mathbb{Z}[x = 2k + 1]$. Determine which of the following quantified statements are true:
+Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Also, let the predicate $odd(x)$ be defined as:
 
-1. $\exists b \in B \ [b < 1]$ **False**
-2. $\exists a \in A, \forall b \in B \ [a > b]$ **False**
-3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$ **True**
-4. $\exists c  \in B, \forall b \in B, \exists a \in A \ [a + b = c]$  **True, consider c = 9**
+$$
+odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
+$$
+
+Determine which of the following quantified statements are true:
+
+1. $\exists b \in B \ [b < 1]$
+2. $\exists a \in A, \forall b \in B \ [a > b]$
+3. $\forall a \in A \ \big[\neg(\exists b \in B \ [odd(ab)])\big]$
+4. $\exists c \in B, \forall \textcolor{blue}{b \in B}, \exists \textcolor{red}{a \in A} \ [\textcolor{red}{a} + \textcolor{blue}{b} = c]$ 
 
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
+>[!note] Solution
+>1. **False**; none of the elements of $B$ are strictly less than $1$.<br></br>
+>2. **False**; there is no single element of $A$ that is strictly greater than every element of $B$ (e.g., $8 \in A$ is greater than $1, 3, 5, 7 \in B$, but $8 \ngtr 9$).<br></br>
+>3. **True**; this statement is logically equivalent to: $\forall a \in A \ \big[\forall b \in B \ [\neg odd(ab)] \big]$. No matter which element $a \in A$ is chosen and which element $b \in B$ is chosen, $ab$ will never be odd, so the statement is true.<br></br>
+>4. **True**; consider $c = 9 \in B$. Then, we can look through the elements of $\textcolor{blue}{B}$ and verify that:
+>	- $\textcolor{red}{8} + \textcolor{blue}{1} = c$
+>	- $\textcolor{red}{6} + \textcolor{blue}{3} = c$
+>	- $\textcolor{red}{4} + \textcolor{blue}{5} = c$
+>	- $\textcolor{red}{2} + \textcolor{blue}{7} = c$
+>	- $\textcolor{red}{0} + \textcolor{blue}{9} = c$
+
+
 ---
-# Question 4 (3 marks):
+# Question 3 (3 marks):
 
 Given the following lemmas:
 
->[!Lemma]
+>[!info] Lemma 1
 > $\forall x \in A \ [P(x) \lor Q(x)]$
 
->[!Lemma]
+>[!info] Lemma 2
 > $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$
 
->[!Lemma]
+>[!info] Lemma 3
 > $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$
+
+where $P$, $Q$ and $R$ are properties about elements in $A$.
 
 Prove that:
 
@@ -85,66 +112,72 @@ $$
 \forall s \in A, \exists t \in A [R(s, t)]
 $$
 
-1. Let $a \in A$, arbitrarily chosen.
-2. $\forall x \in A \ [P(x) \lor Q(x)]$ \[Using lemma]
-3. $P(a) \lor Q(a)$ \[Universal instantiation on line 1, 2]
-4. Case 1: Assume $P(a)$
-	1. $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$ \[Using lemma]
-	2. $P(a) \to \exists y \in A [R(a, y)]$ \[Universal instantiation on line 1, 4.1]
-	3. $\exists y \in A[R(a, y)]$ \[Modus ponens on lines 4, 4.2]
-5. Case 2: Assume $Q(a)$
-	1. $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$ \[Using lemma]
-	2. $Q(a) \to R(a, a)$ \[Universal instantiation on line 1, 5.1]
-	3. $R(a, a)$ \[Modus ponens on lines 5, 5.2]
-	4. $\exists y \in A[R(a, y)]$ \[Existential generalisation on lines 1, 5.3]
-6. $\exists y \in A[R(a, y)]$ \[Proof by cases on lines 3, 4.3, 6.4]
-7. $\forall s \in A, \exists t \in A [R(a, y)]$ \[Universal generalisation on lines 1, 6]
+>[!note] Proof
+>1. Let $a \in A$ be arbitrarily chosen.
+>2. $\forall x \in A \ [P(x) \lor Q(x)]$ \[Lemma 1]
+>3. $P(a) \lor Q(a)$ \[Universal instantiation on lines 1 and 2]
+>4. Case 1: Assume $P(a)$.
+>		1. $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$ \[Lemma 2]
+>		2. $P(a) \to \exists y \in A \ [R(a, y)]$ \[Universal instantiation on lines 1 and 4.1]
+>		3. $\exists y \in A \ [R(a, y)]$ \[Modus ponens on lines 4 and 4.2]
+>5. Case 2: Assume $Q(a)$.
+>		1. $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$ \[Lemma 3]
+>		2. $Q(a) \to R(a, a)$ \[Universal instantiation on lines 1 and 5.1]
+>		3. $R(a, a)$ \[Modus ponens on lines 5 and 5.2]
+>		4. $\exists y \in A \ [R(a, y)]$ \[Existential generalisation on lines 1 and 5.3]
+>6. $\exists y \in A \ [R(a, y)]$ \[Proof by cases on lines 3, 4.3, 6.4]
+>7. $\forall s \in A, \exists t \in A \ [R(a, y)]$ \[Universal generalisation on lines 1 and 6]
+
 
 ---
 
 # Question 4 (6 marks):
 
-In this question let's explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets, and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
+In this question, we'll explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
 
 
 >[!Example]
-> **Question:** Assuming $\exists x \in A, \forall y \in A [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A [ P(y, x) ]$?
+> **Question:** Assuming $\exists x \in A, \forall y \in A \ [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A \ [ P(y, x) ]$?
 > 
 > **Answer:** True.
 > >[!Proof]
-> > 1. Assume $\exists x \in A, \forall y \in A [P(x, y)]$.
-> > 2. Let $c \in A$ be such that $\forall y \in A [P(c, y)]$. \[Existential instantiation on line 1]
-> > 3. Let $b \in A$, arbitrarily chosen.
+> > 1. Assume $\exists x \in A, \forall y \in A \ [P(x, y)]$.
+> > 2. Let $c \in A$ be such that $\forall y \in A \ [P(c, y)]$. \[Existential instantiation on line 1]
+> > 3. Let $b \in A$ be arbitrarily chosen.
 > > 4. Consider $c \in A$.
-> > 5. $P(c, b)$ \[Universal Instantiation on lines 2, 3]
-> > 6. $\exists y \in A[P(y, b)]$ \[Existential generalisation on lines 4, 5]
-> > 7. $\forall x \in A, \exists y \in A[P(y, x)]$ \[Universal generalisation on lines 3, 6]
+> > 5. $P(c, b)$ \[Universal instantiation on lines 2 and 3]
+> > 6. $\exists y \in A\ [P(y, b)]$ \[Existential generalisation on lines 4 and 5]
+> > 7. $\forall x \in A, \exists y \in A \ [P(y, x)]$ \[Universal generalisation on lines 3 and 6]
 
 
 >[!Example]
-> **Question:** Assuming $\forall x \in A [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A [ P(x) ]$?
+> **Question:** Assuming $\forall x \in A \ [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A \ [ P(x) ]$?
 > **Answer:** False
 > >[!Proof]
 > > 
-> > Consider $A = \{1, 2\}$. And $P(x) \equiv x = 1$ and $Q(x) \equiv x = 2$.
-> > Then $\forall x \in A [ P(x) \lor Q(x)]$ is true but  $\forall x \in A [ P(x) ]$ is false.
+> > Consider $A = \{1, 2\}$, and define predicates $P(x) \equiv (x = 1)$ and $Q(x) \equiv (x = 2)$.
+> > Then $\forall x \in A \ [P(x) \lor Q(x)]$ is true, but  $\forall x \in A \ [ P(x) ]$ is false.
 
+### Sub-part 1 \[3 marks]: 
 
-### Sub-part 1: 
+Assuming $\exists x \in A \ [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A \ [P(z)]$?
 
-Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(z)]$?
+>[!note] Solution
+>**True**.
+>1. Assume $\exists x \in A \ [ P(x) \land Q(x) ]$.
+>2. Let $c \in A$ be such that $P(c) \land Q(c)$. \[Existential instantiation on line 1]
+>3. $P(c)$ \[Specialisation on line 2]
+>4. $\exists x \in A \ [P(x)]$ \[Existential generalisation on lines 1 and 3]
 
-True.
+### Sub-part 2 \[3 marks]:
 
-1. Assume $\exists x \in A [ P(x) \land Q(x) ]$
-2. Let $c \in A$ be such that $P(c) \land Q(c)$ \[Existential instantiation on line 1]
-3. P$(c)$ \[Specialisation on line 2]
-4. $\exists x \in A[P(x)]$ \[Existential generalisation on lines 1, 3]
-### Sub-part 2: 
+Assuming $\forall x \in A, \exists y \in A \ [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A \ [P(x, y)]$?
 
-Assuming $\forall x \in A, \exists y \in A [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
-
-False.  Consider $A = \mathbb{Z}$, and $P(a, b) \equiv a > b$.
-
-Then $\forall x \in A, \exists y \in A [ P(y, x) ]$ is true, since we can always find larger integers.
-But $\exists x \in A, \forall y \in A [P(x, y)]$ is false, since it's only true if there is a "largest" integer in the set of integers.
+>[!note] Solution
+>**False**.
+>
+>Consider $A = \mathbb{Z}$, and define the predicate $P(a, b) \equiv (a > b)$.
+>
+>Then, $\forall x \in A, \exists y \in A \ [ P(y, x) ]$ is true, since given a particular integer $x$, we can always find a larger integer $y$ (e.g., $y := x + 1$).
+>
+>However, $\exists x \in A, \forall y \in A \ [P(x, y)]$ is false, since it's only true if there is a "largest" integer in the set of integers.

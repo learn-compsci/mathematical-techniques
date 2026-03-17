@@ -25,7 +25,8 @@ _Please make sure your handwriting is legible (Illegible solutions may make it v
 ---
 # Question 1 (2 marks):
 
-### Sub-part 1  (1 out of 2 marks)
+### Sub-part 1 \[1 mark]
+
 Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 
 | $p$     | $q$     | $p \lor ((\neg p) \to q)$ | $p \lor q$ |
@@ -37,22 +38,29 @@ Is $p \lor ((\neg p) \to q)$ logically equivalent to $p \lor q$?
 
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
-### Sub-part 2  (1 out of 2 marks)
+### Sub-part 2 \[1 mark]
+
 Is $(p \lor q) \land (\neg p)$ logically equivalent to $q$?
 
-| $p$     | $q$     | $(p \lor q) \land (\neg p))$ |
-| ------- | ------- | ---------------------------- |
-| $true$  | $true$  |                              |
-| $true$  | $false$ |                              |
-| $false$ | $true$  |                              |
-| $false$ | $false$ |                              |
+| $p$     | $q$     | $(p \lor q) \land (\neg p)$ |
+| ------- | ------- | --------------------------- |
+| $true$  | $true$  |                             |
+| $true$  | $false$ |                             |
+| $false$ | $true$  |                             |
+| $false$ | $false$ |                             |
 
 Fill out the 4 remaining cells to check whether they are equivalent. You need not show intermediate working (but you can if you feel that it helps you).
 
 ---
 # Question 2 (4 marks): 
 
-Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. And let the predicate $odd(x)$ be defined as $\exists k \in \mathbb{Z}[x = 2k + 1]$. Determine which of the following quantified statements are true:
+Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. Also, let the predicate $odd(x)$ be defined as:
+
+$$
+odd(x) \equiv \exists k \in \mathbb{Z} \ [x = 2k + 1]
+$$
+
+Determine which of the following quantified statements are true:
 
 1. $\exists b \in B \ [b < 1]$
 2. $\exists a \in A, \forall b \in B \ [a > b]$
@@ -62,60 +70,61 @@ Let $A = \{0, 2, 4, 6, 8\}$ and $B = \{1, 3, 5, 7, 9\}$. And let the predicate $
 You do not have to give a formal proof of the statements; you may simply state whether the statements are true or false.
 
 ---
-# Question 4 (3 marks):
+# Question 3 (3 marks):
 
 Given the following lemmas:
 
->[!Lemma]
+>[!info] Lemma 1
 > $\forall x \in A \ [P(x) \lor Q(x)]$
 
->[!Lemma]
+>[!info] Lemma 2
 > $\forall x \in A \ \bigg[P(x) \to \big (\exists y \in A \ [ R(x, y) ] \big) \bigg]$
 
->[!Lemma]
+>[!info] Lemma 3
 > $\forall x \in A \ \big[Q(x) \to R(x, x) \big]$
+
+where $P$, $Q$ and $R$ are properties about elements in $A$.
 
 Prove that:
 
 $$
-\forall s \in A, \exists t \in A [R(s, t)]
+\forall s \in A, \exists t \in A \ [R(s, t)]
 $$
 
 ---
 
 # Question 4 (6 marks):
 
-In this question let's explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets, and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
+In this question, we'll explore some more properties about quantified statements. We will ask if assuming a certain quantified statement, we are able to prove another. If the answer is true, give a proof based on the format we've laid out on how to do proofs. If the answer is false, give possible definitions for the sets and predicates to **disprove** the statement. Two examples are given below to show you what we mean.
 
 
 >[!Example]
-> **Question:** Assuming $\exists x \in A, \forall y \in A [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A [ P(y, x) ]$?
+> **Question:** Assuming $\exists x \in A, \forall y \in A \ [P(x, y)]$, is it also true that $\forall x \in A, \exists y \in A \ [ P(y, x) ]$?
 > 
 > **Answer:** True.
 > >[!Proof]
-> > 1. Assume $\exists x \in A, \forall y \in A [P(x, y)]$.
-> > 2. Let $c \in A$ be such that $\forall y \in A [P(c, y)]$. \[Existential instantiation on line 1]
-> > 3. Let $b \in A$, arbitrarily chosen.
+> > 1. Assume $\exists x \in A, \forall y \in A \ [P(x, y)]$.
+> > 2. Let $c \in A$ be such that $\forall y \in A \ [P(c, y)]$. \[Existential instantiation on line 1]
+> > 3. Let $b \in A$ be arbitrarily chosen.
 > > 4. Consider $c \in A$.
-> > 5. $P(c, b)$ \[Universal Instantiation on lines 2, 3]
-> > 6. $\exists y \in A[P(y, b)]$ \[Existential generalisation on lines 4, 5]
-> > 7. $\forall x \in A, \exists y \in A[P(y, x)]$ \[Universal generalisation on lines 3, 6]
+> > 5. $P(c, b)$ \[Universal instantiation on lines 2 and 3]
+> > 6. $\exists y \in A\ [P(y, b)]$ \[Existential generalisation on lines 4 and 5]
+> > 7. $\forall x \in A, \exists y \in A \ [P(y, x)]$ \[Universal generalisation on lines 3 and 6]
 
 
 >[!Example]
-> **Question:** Assuming $\forall x \in A [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A [ P(x) ]$?
+> **Question:** Assuming $\forall x \in A \ [ P(x) \lor Q(x)]$, is it also true that $\forall x \in A \ [ P(x) ]$?
 > **Answer:** False
 > >[!Proof]
 > > 
-> > Consider $A = \{1, 2\}$. And $P(x) \equiv x = 1$ and $Q(x) \equiv x = 2$.
-> > Then $\forall x \in A [ P(x) \lor Q(x)]$ is true but  $\forall x \in A [ P(x) ]$ is false.
+> > Consider $A = \{1, 2\}$, and define predicates $P(x) \equiv (x = 1)$ and $Q(x) \equiv (x = 2)$.
+> > Then $\forall x \in A \ [P(x) \lor Q(x)]$ is true, but  $\forall x \in A \ [ P(x) ]$ is false.
 
+### Sub-part 1 \[3 marks]: 
 
-### Sub-part 1: 
+Assuming $\exists x \in A \ [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A \ [P(z)]$?
 
-Assuming $\exists x \in A [ P(x) \land Q(x) ]$, is it also true that $\exists z \in A[P(z)]$?
+### Sub-part 2 \[3 marks]: 
 
-### Sub-part 2: 
-
-Assuming $\forall x \in A, \exists y \in A [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
+Assuming $\forall x \in A, \exists y \in A \ [ P(y, x) ]$, is it also true that $\exists x \in A, \forall y \in A [P(x, y)]$?
 
