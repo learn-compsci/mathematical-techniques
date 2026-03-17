@@ -46,7 +46,6 @@ Consider a relation $R \subseteq A \times A$, **assume that $R$ is transitive**.
 Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
 # Question 4 \[6 marks]
 
-
 Consider a relation $R \subseteq A \times A$, **assume that $R$ is transitive**.
 Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
 
