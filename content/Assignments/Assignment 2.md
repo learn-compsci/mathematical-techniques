@@ -1,5 +1,5 @@
 
-This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 10 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 12 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
@@ -7,7 +7,6 @@ _Please make sure your handwriting is legible. You may scan/take a picture of ha
 
 # How to submit:
 - Submit online on Canvas. There will be a submission box on Canvas for you to submit your document. Either .docx, .pdf, or a picture of your written solutions are acceptable as long as we can read your attempts.
-* **Official due date for submission**: **5 Apr 2026, 11:59 PM**
 
 # Collaboration Policy: 
 * You may discuss high-level ideas with your classmates or friends. You should list your collaborators if you do so. 
