@@ -1,7 +1,7 @@
 
 This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Monday, 13 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
-There are 4 questions for a total of 30 marks.
+There are 5 questions for a total of 30 marks.
 
 _Please make sure your handwriting is legible. You may scan/take a picture of handwritten solutions, you may also type your solutions. We are not particular about the symbol use if you cannot type out the symbols but please make it clear to us what symbol you were intending to use._
 
