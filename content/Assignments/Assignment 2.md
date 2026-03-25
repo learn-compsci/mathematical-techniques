@@ -1,5 +1,5 @@
 
-This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Sunday, 12 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
+This is the second of two assignments and is worth **15%** of the total grade. The assignment is due **Monday, 13 Apr 2026, 11:59 PM**. Submit your solutions digitally on Canvas, where a submission box will be open under "Assignments > Assignment 2".
 
 There are 4 questions for a total of 30 marks.
 
@@ -46,7 +46,7 @@ Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an
 # Question 4 \[6 marks]
 
 Consider a relation $R \subseteq A \times A$, **assume that $R$ is transitive**.
-Is it true that $R \subseteq R ; R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
+Is it true that $R ; R \subseteq R$? If it is true, prove it. Otherwise, give an example for $R$ for which it is false. 
 
 # Question 5: \[6 Marks]
 
