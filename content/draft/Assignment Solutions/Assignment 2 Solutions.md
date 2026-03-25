@@ -173,13 +173,13 @@ $$
 >[!note] Solution
 >**Proof:**
 >1. (Base case) Let $n = 1$. Then, $\sum_{r=1}^{1} \frac{1}{r(r+1)} = \frac{1}{1(2)} = \frac{1}{2} = \frac{1}{1+1}$. 
->2. (Inductive step) Assume that for some $n = k$, where $k \geq 1$, we have $\sum_{r=1}^{k} \frac{1}{r(r+1)} = \frac{k}{k+1}$.
->3. $\sum_{r=1}^{k+1} \frac{1}{r(r+1)}$
->4. $= \big(\sum_{r=1}^{k} \frac{1}{r(r+1)}\big) + \frac{1}{(k+1)(k+2)}$
->5. $= \frac{k}{k+1} + \frac{1}{(k+1)(k+2)}$ \[By assumption on line 2]
+>2. (Inductive step) Assume that for some $n = k$, where $k \geq 1$, we have $\textcolor{green}{\sum_{r=1}^{k} \frac{1}{r(r+1)} = \frac{k}{k+1}}$.
+>3. $\textcolor{blue}{\sum_{r=1}^{k+1} \frac{1}{r(r+1)}}$
+>4. $= \big(\textcolor{green}{\sum_{r=1}^{k} \frac{1}{r(r+1)}}\big) + \frac{1}{(k+1)(k+2)}$
+>5. $= \textcolor{green}{\frac{k}{k+1}} + \frac{1}{(k+1)(k+2)}$ \[By assumption on line 2]
 >6. $= \frac{k(k+2)+1}{(k+1)(k+2)}$
 >7. $= \frac{(k+1)^2}{(k+1)(k+2)}$
->8. $= \frac{k+1}{(k+1)+1}$
+>8. $= \textcolor{red}{\frac{k+1}{(k+1)+1}}$
 >9. $\forall n \geq 1\ \big[\sum_{r=1}^{n} \frac{1}{r(r+1)} = \frac{n}{n+1}\big]$ \[Principle of mathematical induction]
 
 
