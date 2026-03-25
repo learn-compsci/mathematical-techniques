@@ -114,11 +114,11 @@ If it is not true, state that it is false, and give an example value $x$ for whi
 
 
 >[!note] Solution
->**No**, $R$ is not reflexive. Consider $x = 1 \in \mathbb{N}$. Now, we prove that $(1,1) \notin R$.
+>**No**, $R$ is not reflexive. Consider $x = 1 \in \mathbb{N}$. Now, we prove that $(\textcolor{blue}{1}, \textcolor{red}{1}) \notin R$.
 >
 >**Proof:**
->1. Suppose, for the sake of contradiction, that $(1,1) \in R$.
->2. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,1) \land divides(k,1)]$ \[Definition of $R$]
+>1. Suppose, for the sake of contradiction, that $(\textcolor{blue}{1}, \textcolor{red}{1}) \in R$.
+>2. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k, \textcolor{blue}{1}) \land divides(k, \textcolor{red}{1})]$ \[Definition of $R$]
 >3. Let $n \in \mathbb{N}$ be such that $n \neq 1 \land divides(n,1)$. \[Existential instantiation on line 2]
 >4. $divides(n,1)$ \[Specialisation on line 3]
 >5. $\exists k \in \mathbb{N}\ [k \cdot n = 1]$ \[Definition of $divides$]
@@ -149,13 +149,13 @@ If it is not true, state that it is false, and give an example values $x, y$ for
 >**Proof:**
 >1. $2, 4, 5 \in \mathbb{N}$. \[Basic algebra]
 >2. $(2 \cdot 4 = 8) \land (2 \cdot 5 = 10)$ \[Basic algebra]
->3. $\big(\exists k \in \mathbb{N}\ [2 \cdot k = 8] \big) \land \big(\exists k \in \mathbb{N}\ [2 \cdot k = 10] \big)$ \[Existential generalisation on lines 1, 2]
+>3. $\big(\exists k \in \mathbb{N}\ [2 \cdot k = 8] \big) \land \big(\exists k \in \mathbb{N}\ [2 \cdot k = 10] \big)$ \[Existential generalisation on lines 1 and 2]
 >4. $divides(2,8) \land divides(2,10)$ \[Definition of $divides$]
 >5. $2 \neq 1$. \[Basic algebra]
->6. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,8) \land divides(k,10)]$ \[Existential generalisation on lines 4, 5]
+>6. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,8) \land divides(k,10)]$ \[Existential generalisation on lines 4 and 5]
 >7. $(8,10) \in R$. \[Definition of $R$]
 >8. $divides(2,10) \land divides(2,8)$ \[Logically equivalent to line 4]
->9. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,10) \land divides(k,8)]$ \[Existential generalisation on lines 5, 8]
+>9. $\exists k \in \mathbb{N}\ [k \neq 1 \land divides(k,10) \land divides(k,8)]$ \[Existential generalisation on lines 5 and 8]
 >10. $(10,8) \in R$. \[Definition of $R$]
 >11. $8 \neq 10$. \[Basic algebra]
 >12. $R$ is not anti-symmetric. \[Definition of anti-symmetry, from lines 7, 10, 11]
