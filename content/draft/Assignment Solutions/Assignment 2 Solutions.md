@@ -106,7 +106,21 @@ Is it true that $R ; R \subseteq R$? If it is true, prove it. Otherwise, give an
 >[!note] Solution
 >**True**. 
 >
->1. 
+>1. Suppose $R \subseteq A \times A$ is transitive. Then, we have:
+>
+> $$
+> \forall a, b, c \in A \ \big[(a,b) \in R \land (b,c) \in R \to (a,c) \in R \big]
+> $$
+>
+>2. We want to show that $\forall (x,y) \in R;R \ [(x,y) \in R]$. \[Definition of subset]
+>3. Let $(x,y) \in R;R$ be arbitrarily chosen, where $x,y \in A$.
+>4. Then, $\exists z \in A \ \big[(x,z) \in R \land (z,y) \in R \big]$. \[Definition of relation composition]
+>5. Let $z' \in A$ be such that $(x,z') \in R \land (z',y) \in R$. \[Existential instantiation on line 4]
+>6. Since $x,z',y \in A$, we have the implication $(x,z') \in R \land (z',y) \in R \to (x,y) \in R$. \[Universal instantiation on lines 1, 3, 5]
+>7. Hence, $(x,y) \in R$. \[Modus ponens on lines 5 and 6]
+>8. $\forall (x,y) \in R;R \ [(x,y) \in R]$. \[Universal generalisation on lines 3 and 7]
+>9. Thus, $R;R \subseteq R$.
+
 
 ---
 # Question 5 (6 marks):
