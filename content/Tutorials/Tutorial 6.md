@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 5: Probability"
+title: "Tutorial 6: Probability"
 ---
 # How to submit:
 - Submit before actual tutorial time for it to be graded. There are 2 ways to do this:
