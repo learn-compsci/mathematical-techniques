@@ -7,43 +7,51 @@ This unit is the second of two parts in our introduction to probability. Again, 
 
 To tie it all up, we'll introduce probability distributions, talk about expected values and variances, and motivate them with some common bounds we commonly use in computer science.
 
+1. [[#Part 1 Random Variables|Random variables]]
+2. [[#Part 2 Probability Distributions|Probability distributions]]
+3. Expectation and variance
+
 # Introduction
 
-Picking up from where we last left off, we focused a lot on probability spaces, events, how to compute a bunch of stuff like conditional probability, and we mostly assumed things were uniform or independent. Extending off of this, we'll first talk about random variables and probability distributions. What we will show in this unit are the staple approaches to randomised analysis. If you were ever curious how something like the [multiplicative weights update algorithm works](https://en.wikipedia.org/wiki/Multiplicative_weight_update_method), the techniques shown in this page are a must.
+Picking up from where we last left off, we focused a lot on probability spaces, events, how to compute a bunch of stuff like conditional probability, and we mostly assumed things were uniform or independent. Extending from this, we'll first talk about random variables and probability distributions. What we will show in this unit are the staple approaches to randomised analysis. If you were ever curious how something like the [multiplicative weights update algorithm](https://en.wikipedia.org/wiki/Multiplicative_weight_update_method) works, the techniques shown in this page are a must.
 
-# Random Variables
+---
+# Part 1: Random Variables
 
-For starters, let's talk about random variables. Think of random variables as basically values that we care about. Now this might seem pretty abstract, so before we go into an example, think of random variables as functions that **take as input** outcomes, and **outputs values**.
+For starters, let's talk about random variables. Think of random variables as basically values that we care about. Now this might seem pretty abstract, so before we go into an example, think of random variables as functions that take **outcomes** as inputs, and outputs **values**. We'll begin with a simple example with coins.
 
-## An Example With Coins
+## Defining Random Variables
 
+Let's go back to using coins. Let's say we had three fair and independent coins. Each coin produces either heads or tails, each with probability $\frac{1}{2}$, and all three coins' outcomes do not affect each other.
 
-### Defining Random Variables
-Let's go back to using coins. Let's say we had 3 fair and independent coins. So each coin produces either heads or tails, with probability $\frac{1}{2}$, and all 3 coins' outcomes do not affect each other.
-
-We know that we have 8 possible outcomes, so our sample space looks like the following:
+We know that we have $8$ possible outcomes, so our sample space looks like the following:
 
 $$
 \{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}
 $$
 
-So here comes the question: What if we wanted to count the number of heads?
+Here comes the question: what if we wanted to count the number of heads?
 
-Here's how we would do it, we would make a random variable, let's call it $C$. $C$ has to specify for each outcome, what it will output as a number. In this case, since we want to count the number of heads, we can simply wave our hands and declare "let $C$ count the number of heads."
+Here's how we would do it, we would make a random variable, let's call it $C$. $C$ has to specify for each outcome, what it will output as a number. In this case, since we want to count the number of heads, we can simply wave our hands and declare "let $C$ count the number of heads".
 
-From this, we know that this means for example, that $C(HHH) = 3$, and $C(HTH) = 2$, also $C(TTT) = 0$.
+From this, we know that this means for example, that $C(HHH) = 3$, $C(HTH) = 2$, and also $C(TTT) = 0$.
 
-So $C$ is a random variable, that counts the number of heads.
+So $C$ is a random variable that counts the number of heads.
 
-Let's try another question: What if we wanted to **indicate** that the coins were all heads?
+Let's try another question: what if we wanted to **indicate** that the coins were all heads?
 
-Here's how we would do it, we would make a random variable, this time let's call it $D$ so we don't collide our names. $D$ is going to output value $1$ on input $HHH$. I.e. $D(HHH) = 1$. On any other input outcome, $D$ will return $0$. So for example. $D(HHT) = 0$, and $D(HTH) = 0$. Also $D(TTT) = 0$.
+Here's how we would do it. We would make a random variable, this time let's call it $D$ so our names don't collide. $D$ is going to output value $1$ on input $HHH$, i.e., $D(HHH) = 1$. On any other input outcome, $D$ will return $0$. For example, $D(HHT) = 0$, $D(HTH) = 0$, and also $D(TTT) = 0$.
 
 $D$ is a special kind of random variable that we commonly call an **indicator random variable**. These modest types of random variables actually do a lot of heavy lifting in computer science. You'll see one such example later in this unit. Think of indicator random variables as **indicating when some event has occurred**.
 
-Both $C$ and $D$ are examples of **random variables**.
+Both $C$ and $D$ are examples of random variables.
 
-### Random Variables vs. Events
+>[!info] Definition: Random variables
+>A **random variable** $X$ is a representation of some quantity which depends on one or several outcomes.
+>
+>An **indicator random variable** is a random variable whose value is either $0$ (representing that the outcome at hand does not belong to a certain event), or $1$ (the outcome *does* belong to that event).
+
+## Random Variables vs. Events
 
 Let's look at $C$ again. If we split the sample space up, we notice that we can "break up" or "partition" the sample space based on what value $C$ outputs:
 
@@ -52,7 +60,7 @@ Let's look at $C$ again. If we split the sample space up, we notice that we can 
 3. For the event $\{HHT, HTH, THH \}$, $C$ outputs $2$.
 4. For the event $\{HHH\}$, $C$ outputs $3$.
 
-So what is $\Pr[C = 2]$? Well it is just the probability that we either see: $HHT$, or $HTH$, or $THH$. In other words:
+So what is $\Pr[C = 2]$? Well, it is just the probability that we see either $HHT$, or $HTH$, or $THH$. In other words:
 
 $$
 \Pr[C = 2] = \Pr[HHT] + \Pr[HTH]  + \Pr[THH] 
@@ -64,7 +72,7 @@ What about $D$? This time around:
 1. For the event $\{HHT, HTH, HTT, THH, THT, TTH, TTT\}$, $D$ outputs $0$.
 2. For the event $\{HHH\}$, $D$ outputs $1$.
 
-So what is $\Pr[C \leq 1 | D = 0]$? Recall, that:
+So what is $\Pr[C \leq 1 | D = 0]$? Recall that (why?):
 
 $$
 \Pr[C \leq 1 | D = 0] = \frac{\Pr[C \leq 1 \cap D = 0]}{\Pr[D = 0]}
@@ -80,22 +88,21 @@ $$
 
 ## Functions on Random Variables
 
-Here's an interesting idea, can we operate on random variables? We sure can! And this idea is super useful. For example, what is $D^2$? It is a random variable that first takes as input $D$, and outputs the square of it.
+Here's an interesting idea: can we operate on random variables? We sure can! And this idea is super useful. For example, what is $D^2$? It is a random variable that first takes as input $D$, and outputs the square of it.
 
-So for example, we could ask something like: What is $\Pr[D^2 = 1]$?
+For example, we could ask something like: what is $\Pr[D^2 = 1]$?
 
 Let's think about this a little bit. $D$ can only take two possible values: $0$ or $1$. When $D$ outputs $0$, then so does $D^2$. When $D$ outputs $1$, so does $D^2$.
 
-So $\Pr[D^2 = 1]$ is the same as $\Pr[D = 1]$. And similarly, $\Pr[D^2 = 0]$ is the same as $\Pr[D^2 = 0]$. So $\Pr[D^2 = 1] = \frac{1}{8}$.
+So $\Pr[D^2 = 1]$ is the same as $\Pr[D = 1]$. Similarly, $\Pr[D^2 = 0]$ is the same as $\Pr[D = 0]$. So $\Pr[D^2 = 1] = \frac{1}{8}$.
 
+### Another example
 
-### Another Example:
 Instead of squaring, we can also do something like adding random variables together. Here's an alternative example.
 
-Let $D_1$, and $D_2$ be random variables for a two separate, independent and fair 6-sided die. So again, $D_1$ and $D_2$ each can take values in $\{1, 2, 3, 4, 5, 6\}$.
+Let $D_1$, and $D_2$ be random variables for a two separate, independent and fair $6$-sided dice. Again, $D_1$ and $D_2$ can each take values in $\{1, 2, 3, 4, 5, 6\}$.
 
-
-Then technically, even something like $D_1 + D_2$ is a random variable. And we can ask something like what is $\Pr[D_1 + D_2 = 3]$? This is basically asking what is the probability that sum of the total outcomes we have are $3$?
+Then technically, even something like $D_1 + D_2$ is a random variable, and we can ask something like "What is $\Pr[D_1 + D_2 = 3]$?" This is basically asking "What is the probability that the sum of the two outcomes is equal to $3$?"
 
 We know that this means either ($D_1 = 1$ and $D_2 = 2$) or ($D_1 = 2$ and $D_2 = 1$). So:
 
@@ -103,8 +110,9 @@ $$
 \Pr[D_1 + D_2 = 3] = \Pr[D_1 = 1 \cap D_2 = 2] + \Pr[D_1 = 2 \cap D_2 = 1] = \frac{1}{6^2} + \frac{1}{6^2} = \frac{1}{18}
 $$
 
+---
 
-# Probability Distributions
+# Part 2: Probability Distributions
 
 Now that we've talked about random variables, the next thing is to finally talk about probability itself. Think of a probability distribution as the function that assigns to each outcome of random variables a probability. Intuitively, you can think of this as a chart that basically says for each outcome what is the probability.
 
