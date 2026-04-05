@@ -59,7 +59,7 @@ Is $R$ reflexive? If so, prove it. If not, give a value $a \in \mathbb{Z}$ such 
 Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$ such that $(a, b) \in R \land (b, c) \in R \land (a, c) \notin R$.
 
 
->[!note] Solution
+>[!note] Solution 1
 >1. For $R$ to be transitive, we need the following to be true:
 >
 > $$
@@ -83,6 +83,36 @@ Is $R$ transitive? If so, prove it. If not, give values $a, b, c \in \mathbb{Z}$
 >5. $\forall a, b, c \in \mathbb{Z} \ \bigg[\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R \bigg]$ \[Universal generalisation on lines 2 and 4]
 >6. Hence, $R$ is transitive.
 
+>[!note] Solution 2
+>1. For $R$ to be transitive, we need the following to be true:
+>
+> $$
+> \forall a, b, c \in \mathbb{Z} \ \bigg[\neg \big((a, b) \in R \land (b, c) \in R \big) \lor (a, c) \in R \bigg]
+> $$
+>
+>2. We will prove by cases that that is indeed true. Observe that if we pick $a, b, c \in \mathbb{Z}$ where we have $a \leq b \leq c$ (without loss of generality), then there are 4 possible cases (not considering cases where they equal $0$ by the definition of $R$):
+>		1. All $a, b, c < 0$
+>		2. Only $c > 0$
+>		3. Both $b, c > 0$
+>		4. All $a, b, c > 0$
+>3. Case 1: All $a, b, c < 0$
+>		1. Then, we have $a < 0$, $b < 0$ and $c < 0$.
+>		2. $\neg (a < 0 \land b > 0)$ \[Basic algebra]
+>		3. $\neg ((a, b) \in R)$ \[Definition of $R$]
+>		4. $\neg ((a, b) \in R) \lor \neg ((b, c) \in R)$ \[Generalisation on line 3.3]
+>		5. $\neg ((a, b) \in R \land (b, c) \in R)$ \[Logically equivalent to line 3.4]
+>		6. $\neg ((a, b) \in R \land (b, c) \in R) \lor (a, c) \in R$ \[Generalisation on line 3.5]
+>4. Case 2: Only $c > 0$
+>		1. Still, we have $\neg (a < 0 \land b > 0)$, and the remaining steps are similar as in Case 1.
+>5. Case 3: Both $b, c > 0$
+>		1. Now, $\neg (b < 0 \land c > 0)$.
+>		2. $\neg ((a, b) \in R) \lor \neg ((b, c) \in R)$ \[Generalisation on line 5.1]
+>		3. The remaining steps are similar as in Case 1.
+>6. Case 4: All $a, b, c > 0$
+>		1. We still have $\neg (a < 0)$, and so $\neg (a < 0 \land b > 0)$.
+>		2. The remaining steps are similar as in Case 1.
+>7. In all cases, we have $\neg ((a, b) \in R \land (b, c) \in R) \lor (a, c) \in R$. \[Proof by cases on lines 3, 4, 5, 6]
+>8. Hence, $R$ is transitive.
 
 ---
 # Question 3 (12 marks):
