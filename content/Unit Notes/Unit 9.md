@@ -9,7 +9,8 @@ To tie it all up, we'll introduce probability distributions, talk about expected
 
 1. [[#Part 1 Random Variables|Random variables]]
 2. [[#Part 2 Probability Distributions|Probability distributions]]
-3. Expectation and variance
+3. [[#Part 3 Expectation and Variance|Expectation and variance]]
+4. [[#Part 4 Bounds|Markov and Chebyshev bounds]]
 
 # Introduction
 
@@ -185,7 +186,7 @@ So in general, if we had a random variable that followed geometric probability d
 >A random variable $X$ follows a **geometric distribution** with parameter $p$ if:
 >
 > $$
-> \text{Pr}[X = x] = p(1-p)^{x-1}
+> \text{Pr}[X = i] = p(1-p)^{i-1}
 > $$
 
 ## Binomial Distribution
@@ -214,7 +215,7 @@ To be clear, the binomial distribution takes two parameters: $n$, the number of 
 >A random variable $X$ follows a **binomial distribution** with parameters $n$ and $p$ (denoted $X \sim \text{Bin}(n, p)$) if:
 >
 > $$
-> \text{Pr}[X = x] = \binom{n}{x} p^x (1-p)^{n-x}
+> \text{Pr}[X = i] = \binom{n}{i} p^i (1-p)^{n-i}
 > $$
 
 ## Uniform Distribution
@@ -227,7 +228,7 @@ If we let $Y$ be the random variable that outputs any of the $n$ values uniforml
 >A random variable $X$ follows a **uniform distribution** with parameter $n$ if:
 >
 > $$
-> \text{Pr}[X = x] = \frac{1}{n}
+> \text{Pr}[X = i] = \frac{1}{n}
 > $$
 
 
@@ -238,20 +239,22 @@ If we let $Y$ be the random variable that outputs any of the $n$ values uniforml
 
 Now that we have seen random variables and distributions, here's a key question:
 
-> If we ran an experiment where we had a random variable X, and we took $t$ many **independent** samples, then output the average value, what should we hope/expect to see?
-
+> If we ran an experiment where we had a random variable $X$, and we took $t$ many **independent** samples, then output the average value, what should we hope/expect to see?
 
 It turns out, the answer is:
 
-$$
-\mathbb{E}[X] = \sum_{i} i \cdot Pr[X = i]
-$$
+>[!info] Definition: Expectation
+>The **expectation** of a random variable $X$ is defined by:
+>
+> $$
+> \mathbb{E}[X] = \sum_{i} i \cdot \text{Pr}[X = i]
+> $$
 
 Here's the intuition, this is the value we "expect" to see from the random variable.
 
-## Example 1: A fair die
+### Example 1: A fair die
 
-For example, if we roll a 6-sided fair die, what is $\mathbb{E}[X]$? Based on our formula, this happens to be:
+For example, if we roll a $6$-sided fair die, what is $\mathbb{E}[X]$? Based on our formula, this happens to be:
 
 $$
 E[X]=1⋅\frac{1}{6}+2⋅\frac{1}{6}+ 3⋅\frac{1}{6}+4⋅\frac{1}{6}+ 5⋅\frac{1}{6}+ 6⋅\frac{1}{6}
@@ -259,11 +262,11 @@ $$
 
 which evaluates to $7/2$.
 
-Think of it this way, if we rolled this die many, many, many times and took the average value, it should be close to $3.5$.
+Think of it this way: if we rolled this die many, many, many times and took the average value, it should be close to $3.5$.
 
-## Example 2: A Bernoulli Distributed Random Variable
+### Example 2: A Bernoulli-distributed random variable
 
-If we have a random variable X that has a Bernoulli distribution with parameter $p=1/5$, what is $\mathbb{E}[X]$? Again, based on our formula, this happens to be:
+If we have a random variable $X$ that has a Bernoulli distribution with parameter $p=1/5$, what is $\mathbb{E}[X]$? Again, based on our formula, this happens to be:
 
 $$
 \mathbb{E}[X] = 0 \cdot \Pr[X = 0] + 1 \cdot \Pr[X = 1] = \Pr[X = 1]
@@ -271,31 +274,32 @@ $$
 
 This looks quite surprising, that the expected value is the probability. But this is actually a very useful fact. We use this quite often in computer science!
 
-## Example 3: Payoff Functions
+### Example 3: Payoff functions
 
-Let’s say we have a contract that with probability 1/3 will pay us 5\$, and with probability 2/3 will pay us nothing (0\$). What is the expected payoff?
+Let’s say we have a contract that with probability $1/3$ will pay us $5$ dollars, and with probability $2/3$ will pay us nothing ($0$ dollars). What is the expected payoff?
 
-Notice here that if we first let $X$ be a Bernoulli distributed indicator random variable with $p = \frac{1}{3}$ where $X = 1$ when we get paid, then our payoff is given as:
+Notice here that if we first let $X$ be a Bernoulli-distributed indicator random variable with $p = \frac{1}{3}$ where $X = 1$ when we get paid, then our payoff is given as:
 
 $$
 5\cdot X
 $$
 
 So it boils down to asking what is $\mathbb{E}[5X]$? Since $X$ takes values either $0$ or $1$, then $5X$ takes values either $0$ or $5$. So
+
 $$
 \mathbb{E}[5X] = 0 \cdot \Pr[5X = 0] + 5 \cdot \Pr[5X = 5] = 5\cdot\frac{1}{3}
 $$
 
-## Properties About Expectation
+## Properties of Expectation
 
-So the last example actually was a teaser into some nice properties about expectation. We won't prove it in this course, so you can take these as fact (though they are provable).
+The last example actually was a teaser into some nice properties of expectation. We won't prove it in this course, so you can take these as fact (though they are provable).
 
 1. $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$
-2. If $c$ is a constant, then $\mathbb{E}[cX] = c\mathbb{E}[X]$
+2. If $c$ is a constant, then $\mathbb{E}[cX] = c\mathbb{E}[X]$.
 
-As a warning, we cannot generally say that $\mathbb{E}[X\cdot Y] = \mathbb{E}[X] \cdot \mathbb E[Y]$. This is true when $X$ and $Y$ are independent, but otherwise, we have to be careful.
+As a warning, **we cannot generally say that** $\mathbb{E}[X\cdot Y] = \mathbb{E}[X] \cdot \mathbb E[Y]$. This is true when $X$ and $Y$ are independent, but otherwise, we have to be careful.
 
-## Example 4: Expectation of Binomial Distributions
+### Example 4: Expectation of binomial distributions
 
 Let's go through yet another example, this time we will be asking what is the expected value of a binomially distributed random variable $X$ with parameters $n = 10$ and $p = 1/4$.
 
@@ -307,7 +311,7 @@ $$
 
 Except, that looks awfully complicated to analyse! So we're going to pull out a very neat trick, and have our Bernoulli random variables do a lot of heavy lifting for us.
 
-We are going to let $X_i$ be an indicator random variable with parameter $p = \frac{1}{4}$, represent whether the $i^{th}$ trial was a success or not. Then:
+We are going to let $X_i$ be an indicator random variable with parameter $p = \frac{1}{4}$, represent whether the $i^{\text{th}}$ trial was a success or not. Then:
 
 $$
 X = \sum_{i = 1}^{10} X_i
@@ -327,9 +331,9 @@ $$
 \mathbb{E}[X] = \mathbb{E}\left[\sum_{i = 1}^{n} X_i \right] = \sum_{i = 1}^{n} \mathbb{E}[X_i] = \sum_{i = 1}^{n} p = np
 $$
 
-## Example 5: Expectation of Geometric Distributions
+### Example 5: Expectation of geometric distributions
 
-Since we've covered Bernoulli and Binomial, for the sake of completeness let's do Geometric as well. Let $X$ be a geometrically distributed random variable with parameter $p$. The math for this one is a little more involved, so let's jump straight into it. Again, by our definition of expectation, we have that:
+Since we've covered the Bernoulli and binomial distributions, for the sake of completeness, let's do the geometric distribution as well. Let $X$ be a geometrically distributed random variable with parameter $p$. The math for this one is a little more involved, so let's jump straight into it. Again, by our definition of expectation, we have that:
 
 $$
 \mathbb{E}[X] = \sum_{i = 1}^{\infty} i \cdot \Pr[X = i] = \sum_{i = 1}^{\infty} i \cdot p \cdot (1-p)^{i - 1}
@@ -345,7 +349,7 @@ So what is $\mathbb{E}[X] - (1-p)\mathbb{E}[X]$? Let me lay it out term by term:
 
 $$
 \begin{align*}
-\mathbb{E}[X] - (1-p)\mathbb{E}[X] = (1p+&2p(1-p)+3p(1-p)^2+\cdots)\\
+\mathbb{E}[X] - (1-p)\mathbb{E}[X] = (1p \ + \ &2p(1-p)+3p(1-p)^2+\cdots)\\
 									-(&1p(1-p)+2p(1-p)^2+3p(1-p)^3+\cdots)
 \end{align*}
 $$
@@ -354,12 +358,13 @@ If you notice, we're grouping terms based on their power of $(1-p)$. What happen
 
 $$
 \begin{align*}
-\mathbb{E}[X] - (1-p)\mathbb{E}[X] = (1p+&2p(1-p)+3p(1-p)^2+\cdots)\\
+\mathbb{E}[X] - (1-p)\mathbb{E}[X] = (1p \ + \ &2p(1-p) + 3p(1-p)^2+\cdots)\\
 									-(&1p(1-p)+2p(1-p)^2+3p(1-p)^3+\cdots)\\
-									= (1p+&p(1-p)+p(1-p)^2+\cdots)\\
+									= (1p \ + \ &p(1-p)+p(1-p)^2+\cdots)\\
 \end{align*}
 $$
-And the last series is actually geometric! Re-writing this, we get:
+
+And the last series is actually a geometric series! Re-writing this, we get:
 
 $$
 \begin{align*}
@@ -381,53 +386,58 @@ p\mathbb{E}[X] &= 1\\
 \end{align*}
 $$
 
-So that gives us our expectation, which hopefully is quite intuitive. If we have a coin that returns heads with probability $\frac{1}{3}$, we would expect to flip it 3 times before we see a heads.
+So that gives us our expectation, which hopefully is quite intuitive. If we have a coin that returns heads with probability $\frac{1}{3}$, we would expect to flip it $3$ times before we see a heads.
 
+## Variance
 
-# Variance
 So expectation was nice and all, and it tells us what the random variable "averages" around, but it doesn’t tell us how spread apart the values are. For that, we need **variance**.
 
 Intuitively, variance is a measure of how much the random variable can vary.
 
 Formally, it is defined as:
 
-$$
-Var[X]=E[(X -E[X])^2]
-$$
-Except this form is not very helpful, so let me show you a more useful form:
+>[!info] Definition: Variance
+>The **variance** of a random variable $X$ is defined by:
+>
+> $$
+> Var[X] = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+> $$
+
+The first form is not that useful, so usually we use the second form (whose proof has been provided below):
 
 $$
 \begin{align*}
-Var[X] &= E[(X -E[X])^2]\\
-&= E[X^2 - 2XE[X] + E[X]^2]\\
-&= E[X^2] - 2E[XE[X]] + E[E[X]^2]\\
-&= E[X^2] - 2E[X]E[X] + E[E[X]^2]\\
-&= E[X^2] - 2E[X]^2 + E[E[X]^2]\\
-&= E[X^2] - 2E[X]^2 + E[X]^2\\
-&= E[X^2] - E[X]^2\\
+Var[X] &= \mathbb{E}[(X - \mathbb{E}[X])^2]\\
+&= \mathbb{E}[X^2 - 2X \mathbb{E}[X] + (\mathbb{E}[X])^2]\\
+&= \mathbb{E}[X^2] - 2 \mathbb{E}[X \mathbb{E}[X]] + \mathbb{E}[(\mathbb{E}[X])^2]\\
+&= \mathbb{E}[X^2] - 2\mathbb{E}[X]\mathbb{E}[X] + \mathbb{E}[(\mathbb{E}[X])^2]\\
+&= \mathbb{E}[X^2] - 2(\mathbb{E}[X])^2 + \mathbb{E}[(\mathbb{E}[X])^2]\\
+&= \mathbb{E}[X^2] - 2(\mathbb{E}[X])^2 + (\mathbb{E}[X])^2\\
+&= \mathbb{E}[X^2] - (\mathbb{E}[X])^2\\
 \end{align*}
 $$
 
-Again, friendly reminder that $E[X^2] = E[X \cdot X]$ and this is in general, not equal to $E[X]^2$.
+Again, friendly reminder that $\mathbb{E}[X^2] = \mathbb{E}[X \cdot X]$ and this is in general, not equal to $E[X]^2$.
 
-## Example 1: Variance of a Bernoulli Distributed Random Variable
+### Example 1: Variance of a Bernoulli-distributed random variable
 
-For example, given a Bernoulli distributed random variable $X$ with probability $p$, what is $Var[X]$? We know that $E[X] = p$, so we know that $E[X]^2 = p^2$. But what is $E[X^2]$?
+For example, given a Bernoulli distributed random variable $X$ with probability $p$, what is $Var[X]$? We know that $\mathbb{E}[X] = p$, so we know that $\mathbb{E}[X]^2 = p^2$. But what is $\mathbb{E}[X^2]$?
 
 So we've done this before! $X$ can only take value $1$ with probability $p$ or $0$ with probability $1 - p$. So similarly, $X^2$ can only take value $1$ with probability $p$ or $0$ with probability $1 - p$.
 
 So again:
+
 $$
-E[X^2] = 0^2 \cdot \Pr[X = 0] + 1^2 \cdot \Pr[X = 1] = \Pr[X = 1] = p 
+\mathbb{E}[X^2] = 0^2 \cdot \Pr[X = 0] + 1^2 \cdot \Pr[X = 1] = \Pr[X = 1] = p 
 $$
 
 So, putting the two together:
 
 $$
-Var[X] = E[X^2] - E[X]^2 = p - p^2 = p(1-p)
+Var[X] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = p - p^2 = p(1-p)
 $$
-## Example 2: Variance of a Binomially Distributed Random Variable
 
+### Example 2: Variance of a binomially distributed random variable
 
 As another example, what about the variance of a binomially distributed random variable $X$ with $n$ trials, and probability $p$? Again, let's fall back to the neat trick that I mentioned, let $X_i$ be an indicator that indicates whether the $i^{th}$ was a success. In which case:
 
@@ -450,31 +460,31 @@ Now again, we want $\mathbb{E}[X^2]$, so:
 
 $$
 \begin{align*}
-E[X^2] &= \left(\sum_{i = j}^n E[X_i \cdot X_j]\right) + \left(\sum_{i \neq j}^n E[X_i\cdot X_j]\right)\\
+\mathbb{E}[X^2] &= \left(\sum_{i = j}^n \mathbb{E}[X_i \cdot X_j]\right) + \left(\sum_{i \neq j}^n \mathbb{E}[X_i\cdot X_j]\right)\\
 \end{align*}
 $$
 
-Now let's look at what's going on in each sum separately. The first sum, sums over $X_i\cdot X_j$ when $i = j$, so this is just the same as $\sum_{i = 1}^n E[(X_i)^2]$. As before, we know that since $X_i$ is an indicator random variable,  $E[(X_i)^2] = p$. So:
+Now let's look at what's going on in each sum separately. The first sum, sums over $X_i\cdot X_j$ when $i = j$, so this is just the same as $\sum_{i = 1}^n \mathbb{E}[(X_i)^2]$. As before, we know that since $X_i$ is an indicator random variable, $\mathbb{E}[(X_i)^2] = p$. So:
 
 $$
 \begin{align*}
-E[X^2] &= \left(\sum_{i = j}^n E[X_i \cdot X_j]\right) + \left(\sum_{i \neq j}^n E[X_i\cdot X_j]\right)\\
-&= np + \left(\sum_{i \neq j}^n E[X_i\cdot X_j]\right)\\
+\mathbb{E}[X^2] &= \left(\sum_{i = j}^n \mathbb{E}[X_i \cdot X_j]\right) + \left(\sum_{i \neq j}^n \mathbb{E}[X_i\cdot X_j]\right)\\
+&= np + \left(\sum_{i \neq j}^n \mathbb{E}[X_i\cdot X_j]\right)\\
 \end{align*}
 $$
 
-What about $E[X_i \cdot X_j]$ when $i \neq j$? Since $X_i$ and $X_j$ both only output either $0$ or $1$. Then, $X_i \cdot X_j$ is $1$ only when both $X_i$ and $X_j$  are $1$, otherwise, it is $0$. So now:
+What about $\mathbb{E}[X_i \cdot X_j]$ when $i \neq j$? Note that $X_i$ and $X_j$ both only output either $0$ or $1$. Then, $X_i \cdot X_j$ is $1$ only when both $X_i$ and $X_j$ are $1$, otherwise, it is $0$. So now:
 
 $$
-E[X_i \cdot X_j] = \Pr[X_i \cdot X_j = 1] = \Pr[X_i = 1 \cap X_j = 1]
+\mathbb{E}[X_i \cdot X_j] = \Pr[X_i \cdot X_j = 1] = \Pr[X_i = 1 \cap X_j = 1]
 $$
 
-since $X_i$ and $X_j$ are independent, we know that $\Pr[X_i = 1 \cap X_j = 1] = p^2$
+since $X_i$ and $X_j$ are independent, we know that $\Pr[X_i = 1 \cap X_j = 1] = p^2$.
 So putting this back into the sum:
 
 $$
 \begin{align*}
-E[X^2] &=  np + \left(\sum_{i \neq j}^n E[X_i\cdot X_j]\right)\\
+\mathbb{E}[X^2] &=  np + \left(\sum_{i \neq j}^n \mathbb{E}[X_i\cdot X_j]\right)\\
 &=  np + \left(\sum_{i \neq j}^n p^2\right)\\
 &=  np + (n)(n-1)p^2\\
 \end{align*}
@@ -483,40 +493,43 @@ $$
 So finally, putting this back in:
 
 $$
-Var[X] = E[X^2] - E[X]^2 = np + (n)(n-1)p^2 - (np)^2 = n(p)(1-p)
+Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = np + (n)(n-1)p^2 - (np)^2 = np(1-p)
 $$
 
-
-
-
-## Summary:
+## Summary
 
 So we have that:
 
-1. Bernoulli distributed random variables: $p(1-p)$
-2. Binomially distributed random variables: $np(1-p)$
-3. Geometrically distributed random variable: $(1-p)/p^2$
+1. Bernoulli-distributed random variables: expectation $p$, variance $p(1-p)$
+2. Binomially distributed random variables: expectation $np$, variance $np(1-p)$
+3. Geometrically distributed random variable: expectation $1/p$, variance $(1-p)/p^2$
 
 We will skip the proof for geometric random variables because it involves using some amount of calculus.
-## Properties of Variance:
+
+## Properties of Variance
 
 1. $Var[cX] = c^2 Var[X]$
-2. If $X$ and $Y$ are independent random variables, then $Var[X + Y] = Var[X] + Var[Y]$
+2. If $X$ and $Y$ are independent random variables, then $Var[X + Y] = Var[X] + Var[Y]$.
 
-# Bounds
+---
+# Part 4: Bounds
+
 So we've worked quite hard to figure out what the expectation and variance are for random variables. But why? What's so important about these things?
 
-In computer science, we often have “bad” events that we want to avoid. For example, long running times in las vegas algorithms, errors in classification, hashing collisions, and so on. Anytime there is any amount of randomness, we will have to somehow argue that bad events don't happen too often. Hopefully you'll see what I mean, beyond this course when you finally use these ideas.
+In computer science, we often have “bad” events that we want to avoid. For example, long running times in Las Vegas algorithms, errors in classification, hashing collisions, and so on. Anytime there is any amount of randomness, we will have to somehow argue that bad events don't happen too often. Hopefully you'll see what I mean, beyond this course when you finally use these ideas.
 
-So to do so, we commonly use Markov and Chebyshev bounds! These bounds are great if we are happy with a good enough, one-sided upper bound on the probability. Typically we will be finding the probabilities of bad events and saying they don't occur to often. So in CS at least, these are great.
-## Markov Bound:
+So to do so, we commonly use **Markov and Chebyshev bounds**! These bounds are great if we are happy with a good enough, one-sided upper bound on the probability. Typically we will be finding the probabilities of bad events and saying they don't occur to often. So in CS at least, these are great.
 
-If $X$ is a non-negative random variable, and $a > 0$, then:
-$$
-\Pr[X \geq a]\leq \frac{E[X]}{a}
-$$
+## Markov Bound
 
-For example, if $X$ is a binomially distributed random variable with n trials and success probability $p=0.4$. We can say something like:
+>[!info] Definition: Markov bound
+>If $X$ is a non-negative random variable, and $a > 0$, then:
+> 
+> $$
+> \Pr[X \geq a]\leq \frac{\mathbb{E}[X]}{a}
+> $$
+
+For example, let $X$ is a binomially distributed random variable with $n$ trials and success probability $p=0.4$. We can say something like:
 
 $$
 \Pr[X \geq 20] = \sum_{i = 20}^n \binom{n}{i}(0.4)^i(0.6)^{n - i}
@@ -525,30 +538,30 @@ $$
 But this hard to analyse, and is not even in a closed form. What if we could sacrifice some amount of clarity for an easier bound to work with? So if we instead applied Markov's bound, we have:
 
 $$
-\Pr[X \geq 20] \leq \frac{E[X]}{20} = \frac{n(0.4)}{20} 
+\Pr[X \geq 20] \leq \frac{\mathbb{E}[X]}{20} = \frac{n(0.4)}{20} 
 $$
 
-So for something like $n = 10$, this works out to be $\frac{1}{5}$. See how simple that was? **Sometimes** an imprecise answer is good enough.  Markov bound is one such way to get a “good enough” imprecise answer.
+So for something like $n = 10$, this works out to be $\frac{1}{5}$. See how simple that was? **Sometimes** an imprecise answer is good enough. The Markov bound is one such way to get a “good enough” imprecise answer.
 
+## Chebyshev Bound
 
+>[!info] Definition: Chebyshev bound
+>If $X$ is a random variable, then:
+>
+> $$
+> \Pr[|X - \mathbb{E}[X]| \geq a]\leq \frac{Var[X]}{a^2}
+> $$
 
-## Chebyshev Bound:
-
-If $X$ is a random variable, then:
-$$
-\Pr[|X - E[X]| \geq a]\leq \frac{Var[X]}{a^2}
-$$
-
-For example, if $X$ is a binomially distributed random variable with $n = 100$ trials and success probability $p=0.4$. We can say something like:
+For example, let $X$ is a binomially distributed random variable with $n = 100$ trials and success probability $p=0.4$. We can say something like:
 
 $$
 \Pr[|X - 40| \geq 20] = \left(\sum_{i = 0}^{19} \binom{n}{i}(0.4)^i(0.6)^{n - i} \right) + \left(\sum_{i = 61}^{100} \binom{n}{i}(0.4)^i(0.6)^{n - i} \right)
 $$
 
+But again, this is a lot simpler if we could use the Chebyshev bound to say something like (assuming we are happy with a good enough, one-sided bound):
 
-But again, this is a lot simpler if we could use Chebyshev to say something like (assuming we are happy with a good enough, one-sided bound):
 $$
-\Pr[|X - 40| \geq 20]\leq \frac{100(0.4)(0.6)}{20}
+\Pr[|X - 40| \geq 20]\leq \frac{100(0.4)(0.6)}{20^2}
 $$
 
 
