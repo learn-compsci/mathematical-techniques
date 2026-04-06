@@ -142,27 +142,33 @@ We will look at some very common discrete probability distributions in CS:
 
 So let's begin with the Bernoulli distribution. This is the distribution for **indicator random variables**. Again, recall that since indicator random variables only take values $0$ or $1$, the Bernoulli distribution has to assign a probability $p$ for when $X = 1$, and consequently, this means $X = 0$ with probability $1 - p$. Think of $p$ as the **parameter** of the distribution. This single value determines the entire distribution.
 
-So to be clear, an indicator random variable $X$ has a Bernoulli distribution $p$ if:
-
-1. $\Pr[X = 1] = p$
-2. $Pr[X = 0] = 1 - p$
-
-
 ### Example:
 
-Let’s say we roll 1 fair die, each with 6 faces. And each face is produced with probability 1/6.
+Let’s say we roll a fair die, each with $6$ faces, and each face is produced with probability $\frac{1}{6}$.
 
-So let $X$ be the random variable that **indicates** if the dice turns up with a number that is at least 2. I.e. $X = 1$ if we see a value of $2$ or more.
+Let $X$ be the random variable that **indicates** if the dice turns up with a number that is at least $2$, i.e., $X = 1$ if we see a value of $2$ or more.
 
 Then we can say that $\Pr[X = 1] = \frac{5}{6}$. So it follows a Bernoulli distribution with parameter $p = \frac{5}{6}$.
+
+
+>[!info] Definition: Bernoulli distribution
+>An *indicator* random variable $X$ follows a **Bernoulli distribution** with parameter $p$ if the following hold true:
+>
+> $$
+> \text{Pr}[X = 1] = p
+> $$
+> 
+> $$
+> \text{Pr}[X = 0] = 1 - p
+> $$
 
 ## Geometric Distribution
 
 Let's build off the Bernoulli distribution and make use of it for something else. Given a random variable $X$ that follows a Bernoulli distribution with parameter $p$, let $Y$ be the number of times we need to try $X$ before $X = 1$.
 
-
 ### Example:
-As a concrete example, this is as if we are making coin flips, the coin has probability $\frac{1}{3}$ of returning heads, and we are asking: How many times do we need to flip before we see heads? And here we are going to assume that every flip of the coin is independent of its previous outcomes.
+
+As a concrete example, this is as if we are making coin flips, the coin has probability $\frac{1}{3}$ of returning heads, and we are asking "How many times do we need to flip before we see heads?" Here, we are going to assume that every flip of the coin is independent of its previous outcomes.
 
 To be clear, if $Y$ is a random variable that outputs the number of times we need to try, then $Y$ follows the **geometric distribution**.
 
@@ -174,35 +180,61 @@ What about the probability that $Y = i$? Do you see the pattern? We must have fl
 
 So in general, if we had a random variable that followed geometric probability distribution with parameter $p$, then $\Pr[Y = i] = \left(1-p\right)^{i - 1}\times p$.
 
+
+>[!info] Definition: Geometric distribution
+>A random variable $X$ follows a **geometric distribution** with parameter $p$ if:
+>
+> $$
+> \text{Pr}[X = x] = p(1-p)^{x-1}
+> $$
+
 ## Binomial Distribution
 
-Let's build off the Bernoulli distribution again, but instead ask a different question. What if we instead had n independent copies of $X$ (each as a Bernoulli distribution with parameter $p$), and we took $n$ trials, and asked: How many copies out of the $n$ trials returned 1?
+Let's build off the Bernoulli distribution again, but instead ask a different question. What if we instead had $n$ independent copies of $X$ (each as a Bernoulli distribution with parameter $p$), and we took $n$ trials, and asked "How many copies out of the $n$ trials returned $1$?"
 
 ### Example:
-Let's say we had 3 coins, each coin returns heads with probability $1/3$. Let's let $Y$ be the random variable that counts the number of heads. Then again, what's the probability that $Pr[Y = 2]$?
 
-Well one way we could do this is to manually count this. So we know that there are 3 possible outcomes we need: $HHT, HTH, THH$. We know that a heads happens with probability $\frac{1}{3}$, and a tails happens with probability $\frac{2}{3}$. So:
+Let's say we had $3$ coins, each coin returns heads with probability $1/3$. Let $Y$ be the random variable that counts the number of heads. Then again, what's the probability $\text{Pr}[Y = 2]$?
+
+Well, one way we could do this is to manually count this. So we know that there are $3$ possible outcomes we need: $HHT, HTH, THH$. We know that a heads happens with probability $\frac{1}{3}$, and a tails happens with probability $\frac{2}{3}$. So:
 
 $$
 \Pr[HHT] + \Pr[HHT] + \Pr[HHT] = \left(\frac{1}{3}\right)^2\cdot \left(\frac{2}{3}\right) + \left(\frac{1}{3}\right)^2\cdot \left(\frac{2}{3}\right) + \left(\frac{1}{3}\right)^2\cdot \left(\frac{2}{3}\right) = \frac{2}{27}\times 3 = \frac{6}{27}
 $$
 
-But what about in general? What if we had more coins than $3$? Manually counting gets very cumbersome. Let's try to be smarter with how we count.
+But what about in general? What if we had more coins than $3$? Manual counting gets very cumbersome. Let's try to be smarter with how we count.
 
 Of the $n$ coins, we choose $i$ of them to be heads, so the rest must be tails. So there are $\binom{n}{i}$ possible outcomes. For each outcome, the probability it occurs is $(p)^i(1-p)^{n - i}$.
 
-So in general, the probability $\Pr[Y = i]$ is actually $\binom{n}{i}(p)^i(1-p)^{n - i}$
+So in general, the probability $\Pr[Y = i]$ is actually $\binom{n}{i}(p)^i(1-p)^{n - i}$.
 
-To be clear, the binomial distribution takes 2 parameters: $n$, the number of trials, and $p$ the probability of success of each independent trial.
+To be clear, the binomial distribution takes two parameters: $n$, the number of trials, and $p$ the probability of success of each independent trial.
 
+>[!info] Definition: Binomial distribution
+>A random variable $X$ follows a **binomial distribution** with parameters $n$ and $p$ (denoted $X \sim \text{Bin}(n, p)$) if:
+>
+> $$
+> \text{Pr}[X = x] = \binom{n}{x} p^x (1-p)^{n-x}
+> $$
 
 ## Uniform Distribution
 
 The last distribution is the uniform distribution. This is the one we have been playing with the most. In general, we have a set of $n$ values, $\{1, 2, \ldots, n\}$. Each value is picked with probability $\frac{1}{n}$.
 
-If we let $Y$ be the random variable that outputs any of the n values uniformly at random. Then $Y$ has the uniform distribution.
+If we let $Y$ be the random variable that outputs any of the $n$ values uniformly at random. Then $Y$ has the uniform distribution.
 
-# Expectation
+>[!info] Definition: Uniform distribution
+>A random variable $X$ follows a **uniform distribution** with parameter $n$ if:
+>
+> $$
+> \text{Pr}[X = x] = \frac{1}{n}
+> $$
+
+
+---
+# Part 3: Expectation and Variance
+
+## Expectation
 
 Now that we have seen random variables and distributions, here's a key question:
 
