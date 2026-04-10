@@ -221,6 +221,59 @@ which evaluates to $7/2$.
 
 Think of it this way, if we rolled this die many, many, many times and took the average value, it should be close to $3.5$.
 
+To be clear, let's say we played this game for $n$ rounds. Letting $d_1$ be the amount of money you win in round 1, $d_2$ be the amount of money you win in round 2, so on and so forth... Then the "average" amount of money you win, would be
+
+$$
+\frac{d_1 + d_2 + \cdots + d_n}{n}
+$$
+
+and as $n\to \infty$, the above value, would approach $3.5$.
+
+### A betting game:
+
+So consider a game where you'd pay $3$ dollars to participate. And in the game, we roll a fair die, and whatever the rolled value is, you win that many dollars. E.g. if the die rolls to a $4$, you win a dollar, gaining a $1$ dollar profit. Should you play?
+
+(**Just to be clear:** if you played 5 rounds, and rolled $1$, $5$, $1$, $4$, $2$. Then you paid $3 \times 5 - 15$ dollars, won $1 + 5 + 1 + 4 + 2 = 13$ dollars, so suffered a loss of $2$ dollars, or a profit of $-2$ dollars.)
+
+
+Well, if you played $n$ rounds, you'd pay $n$ dollars. You'd also expect to win around $3.5n$ dollars. I.e. expect around $0.5$ dollars profit per round. Why? Because your expected winning across $n$ rounds is
+
+$$
+3.5n = d_1 + d_2 + \cdots + d_n
+$$
+
+But you also paid $3n$ to play all $n$ rounds. So your expected profit over $n$ would be "winnings - paid amount", i.e.
+
+$$
+3.5n - 3n = 0.5n
+$$
+
+Of course the game is randomised, so it wouldn't be exact. But as $n$ gets large, you should see this behaviour.
+
+## Example 2: A weighted die
+
+Okay, let's say we had a 6-sided die that is **not** fair. So something like:
+
+1. $\Pr[X = 1] = \frac{1}{3}$
+2. $\Pr[X = 2] = \frac{1}{6}$
+3. $\Pr[X = 3] = \frac{1}{3}$
+4. $\Pr[X = 4] = \frac{1}{4}$
+5. $\Pr[X = 5] = \frac{1}{4}$
+6. $\Pr[X = 6] = \frac{1}{4}$
+
+Well we can apply the same type of analysis.
+
+$$
+E[X]=1⋅\frac{1}{3}+2⋅\frac{1}{6}+ 3⋅\frac{1}{4}+4⋅\frac{1}{4}+ 5⋅\frac{1}{4}+ 6⋅\frac{1}{4}
+$$
+
+Which is around... $\frac{31}{6}$ or just over $5.16$.
+
+### The same betting game:
+
+In which case, if you were asked again, would you pay $3$ dollars to participate in the same better game with this weighted die, should you? **I would!**
+
+In $n$ rounds, I would expect to make an expected profit of $5.16 - 3 = 2.16$ dollars now instead. Which is actually even better than before. (The computation works the same as in the previous example's case.)
 ## Example 2: A Bernoulli Distributed Random Variable
 
 If we have a random variable X that has a Bernoulli distribution with parameter $p=1/5$, what is $\mathbb{E}[X]$? Again, based on our formula, this happens to be:
