@@ -267,19 +267,16 @@ Where did we go wrong? Why is this faulty? (Hint: Is line 2 correct?)
 So instead, we're going to prove a useful lemma first before proving the original statement properly.
 
 >[!Lemma]
-> Let $f(n) = \frac{1}{b}n^k - an^t$ where $0 \leq t < k$, and $a, b > 0$. Then for all $n \geq ab$, $f(n) \geq 0$. In other words, $\frac{1}{b}n^k$ is greater than or equal to $an^t$.
+> Let $f(n) = \frac{1}{b}n^k - an^t$ where $0 \leq t < k$, and $a, b > 0$. Then for all $n \geq (ab)^\frac{1}{k - t}$, $f(n) \geq 0$. In other words, $\frac{1}{b}n^k$ is greater than or equal to $an^t$.
 > 
-> $$
-> \begin{align*}
-> &\frac{1}{b}n^k\\
-> &\geq \frac{1}{b}(ab)^k\\
-> &\geq \frac{b}{b}(a^k)(b^{k - 1})\\
-> &\geq (a^{t+1})(b^{t})\\
-> &\geq a(a^t)(b^t)\\
-> &\geq a(ab)^t\\
-> &= an^t\\
-> \end{align*}
-> $$
+> 
+> $$\begin{aligned}
+> n & \geq (ab)^\frac{1}{k - t} \\
+> n^{k-t} & \geq ab \\
+> n^{k} & \geq ab \cdot n^t \\
+> n^{k} & \geq ab \cdot n^t \\
+> \frac{1}{b}n^{k} & \geq a n^t \\
+> \end{aligned}$$
 
 So what does this mean? Let's try working out an example being seeing the general idea:
 

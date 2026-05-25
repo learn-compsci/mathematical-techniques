@@ -367,7 +367,10 @@ We can actually extend this idea for three sets (actually it also works beyond t
 >Given any three sets $A$, $B$ and $C$, we have:
 >
 >$$
->\lvert A \cup B \cup C \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B\rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert + \lvert A \cap B \cap C \rvert
+>\lvert A \cup B \cup C | =
+>\lvert A \rvert + \lvert B \rvert + \lvert C \rvert
+>- \lvert A \cap B \rvert - \lvert B \cap C \rvert - \lvert A \cap C \rvert
+>+ \lvert A \cap B \cap C \rvert
 >$$
 
 Why is this true? Let's look at the following Venn diagram.
